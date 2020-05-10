@@ -85,8 +85,286 @@
 				58560B4C74A5E0F6183A61D7 /* Pods-AqarkTests.debug.xcconfig */,
 				B77402FFEAE979F1B4E1F970 /* Pods-AqarkTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		BF06B3FF24679CEA005D7151 /* search */ = {
+			isa = PBXGroup;
+			children = (
+				BFBAED852468A5CA00996DE8 /* model */,
+				BF06B40D24679EAD005D7151 /* view model */,
+				BF06B40A24679DCE005D7151 /* view */,
+			);
+			path = search;
+			sourceTree = "<group>";
+		};
+		BF06B40024679D0D005D7151 /* property details */ = {
+			isa = PBXGroup;
+			children = (
+				BFBAED842468A5C000996DE8 /* model */,
+				BF06B40F24679EC1005D7151 /* view model */,
+				BF06B40E24679EBB005D7151 /* view  */,
+			);
+			path = "property details";
+			sourceTree = "<group>";
+		};
+		BF06B40124679D1C005D7151 /* agent properties */ = {
+			isa = PBXGroup;
+			children = (
+				BFBAED832468A5B600996DE8 /* model */,
+				BF06B41124679ED7005D7151 /* view model */,
+				BF06B41024679ED1005D7151 /* view */,
+			);
+			path = "agent properties";
+			sourceTree = "<group>";
+		};
+		BF06B40224679D2B005D7151 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				BFBAED822468A5AE00996DE8 /* model */,
+				BF06B41324679EE8005D7151 /* view model */,
+				BF06B41224679EE2005D7151 /* view  */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		BF06B40324679D33005D7151 /* sign up */ = {
+			isa = PBXGroup;
+			children = (
+				BFBAED812468A5A600996DE8 /* model */,
+				BF06B41524679EF7005D7151 /* view model */,
+				BF06B41424679EF0005D7151 /* view  */,
+			);
+			path = "sign up";
+			sourceTree = "<group>";
+		};
+		BF06B40424679D3C005D7151 /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				BFBAED802468A59E00996DE8 /* model */,
+				BF06B41724679F05005D7151 /* view model */,
+				BF06B41624679F00005D7151 /* view  */,
+			);
+			path = profile;
+			sourceTree = "<group>";
+		};
+		BF06B40524679D4C005D7151 /* advertisement */ = {
+			isa = PBXGroup;
+			children = (
+				BFBAED7F2468A59500996DE8 /* model */,
+				BF06B41924679F15005D7151 /* view model */,
+				BF06B41824679F0D005D7151 /* view  */,
+			);
+			path = advertisement;
+			sourceTree = "<group>";
+		};
+		BF06B40624679D78005D7151 /* admin */ = {
+			isa = PBXGroup;
+			children = (
+				BFBAED7E2468A58900996DE8 /* model */,
+				BF06B41B24679F26005D7151 /* view model */,
+				BF06B41A24679F1E005D7151 /* view  */,
+			);
+			path = admin;
+			sourceTree = "<group>";
+		};
+		BF06B40724679D83005D7151 /* payment */ = {
+			isa = PBXGroup;
+			children = (
+				BFBAED7D2468A56700996DE8 /* model */,
+				BF06B41D24679F35005D7151 /* view model */,
+				BF06B41C24679F2E005D7151 /* view  */,
+			);
+			path = payment;
+			sourceTree = "<group>";
+		};
+		BF06B40A24679DCE005D7151 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		BF06B40D24679EAD005D7151 /* view model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "view model";
+			sourceTree = "<group>";
+		};
+		BF06B40E24679EBB005D7151 /* view  */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "view ";
+			sourceTree = "<group>";
+		};
+		BF06B40F24679EC1005D7151 /* view model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "view model";
+			sourceTree = "<group>";
+		};
+		BF06B41024679ED1005D7151 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		BF06B41124679ED7005D7151 /* view model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "view model";
+			sourceTree = "<group>";
+		};
+		BF06B41224679EE2005D7151 /* view  */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "view ";
+			sourceTree = "<group>";
+		};
+		BF06B41324679EE8005D7151 /* view model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "view model";
+			sourceTree = "<group>";
+		};
+		BF06B41424679EF0005D7151 /* view  */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "view ";
+			sourceTree = "<group>";
+		};
+		BF06B41524679EF7005D7151 /* view model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "view model";
+			sourceTree = "<group>";
+		};
+		BF06B41624679F00005D7151 /* view  */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "view ";
+			sourceTree = "<group>";
+		};
+		BF06B41724679F05005D7151 /* view model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "view model";
+			sourceTree = "<group>";
+		};
+		BF06B41824679F0D005D7151 /* view  */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "view ";
+			sourceTree = "<group>";
+		};
+		BF06B41924679F15005D7151 /* view model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "view model";
+			sourceTree = "<group>";
+		};
+		BF06B41A24679F1E005D7151 /* view  */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "view ";
+			sourceTree = "<group>";
+		};
+		BF06B41B24679F26005D7151 /* view model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "view model";
+			sourceTree = "<group>";
+		};
+		BF06B41C24679F2E005D7151 /* view  */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "view ";
+			sourceTree = "<group>";
+		};
+		BF06B41D24679F35005D7151 /* view model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "view model";
+			sourceTree = "<group>";
+		};
+		BFBAED7D2468A56700996DE8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		BFBAED7E2468A58900996DE8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		BFBAED7F2468A59500996DE8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		BFBAED802468A59E00996DE8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		BFBAED812468A5A600996DE8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		BFBAED822468A5AE00996DE8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		BFBAED832468A5B600996DE8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		BFBAED842468A5C000996DE8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		BFBAED852468A5CA00996DE8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		BFCF0BB624677F7F00A43D8B = {
@@ -112,6 +390,15 @@
 		BFCF0BC124677F8000A43D8B /* Aqark */ = {
 			isa = PBXGroup;
 			children = (
+				BF06B40724679D83005D7151 /* payment */,
+				BF06B40624679D78005D7151 /* admin */,
+				BF06B40524679D4C005D7151 /* advertisement */,
+				BF06B40424679D3C005D7151 /* profile */,
+				BF06B40324679D33005D7151 /* sign up */,
+				BF06B40224679D2B005D7151 /* login */,
+				BF06B40124679D1C005D7151 /* agent properties */,
+				BF06B40024679D0D005D7151 /* property details */,
+				BF06B3FF24679CEA005D7151 /* search */,
 				BFCF0BC224677F8000A43D8B /* AppDelegate.swift */,
 				BFCF0BC424677F8000A43D8B /* ViewController.swift */,
 				BFCF0BC624677F8000A43D8B /* Main.storyboard */,
