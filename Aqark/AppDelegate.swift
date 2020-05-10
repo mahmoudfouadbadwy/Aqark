@@ -13,10 +13,29 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    /* start shrouk*/
+    /* end shrouk*/
+    /* start fouad*/
+    /* end fouad*/
+    /* start saied*/
+    /* end saied*/
+    /* start zeinab*/
+    /* end zeinab*/
+    /* start zeyad*/
+    /* end zeyad*/
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        /* start shrouk*/
+        /* end shrouk*/
+        /* start fouad*/
+        /* end fouad*/
+        /* start saied*/
+        /* end saied*/
+        /* start zeinab*/
+        /* end zeinab*/
+        /* start zeyad*/
+        /* end zeyad*/
         return true
     }
 
