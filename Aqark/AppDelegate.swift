@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-
+import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /* start shrouk*/
         /* end shrouk*/
         /* start fouad*/
+        FirebaseApp.configure()
         /* end fouad*/
         /* start saied*/
         /* end saied*/

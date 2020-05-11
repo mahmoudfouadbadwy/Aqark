@@ -6,6 +6,11 @@ target 'Aqark' do
   use_frameworks!
 
   # Pods for Aqark
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+  
 
   target 'AqarkTests' do
     inherit! :search_paths
