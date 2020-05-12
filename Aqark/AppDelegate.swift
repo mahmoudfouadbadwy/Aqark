@@ -30,6 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /* end shrouk*/
         /* start fouad*/
         FirebaseApp.configure()
+        window = UIWindow()
+        window?.makeKeyAndVisible()
+        let rootController = SignUpView()
+        window?.rootViewController = rootController
         /* end fouad*/
         /* start saied*/
         /* end saied*/

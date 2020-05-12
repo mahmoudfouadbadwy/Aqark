@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpView" customModule="Aqark" customModuleProvider="target">
+            <connections>
+                <outlet property="signUpCollection" destination="Nn8-wu-bbj" id="6ke-FM-0P6"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Nn8-wu-bbj">
+                    <rect key="frame" x="0.0" y="40" width="375" height="527"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yt7-4m-Lq4">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27X-Re-om2">
+                    <rect key="frame" x="94" y="587" width="187.5" height="30"/>
+                    <state key="normal" title="Create Account">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="createAccount:" destination="-1" eventType="touchUpInside" id="ZaY-hh-L9b"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Nn8-wu-bbj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="2Em-qQ-HyU"/>
+                <constraint firstItem="27X-Re-om2" firstAttribute="bottom" secondItem="Nn8-wu-bbj" secondAttribute="bottom" constant="50" id="9zu-f5-rF6"/>
+                <constraint firstItem="Nn8-wu-bbj" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="XUJ-hY-G0X"/>
+                <constraint firstItem="Nn8-wu-bbj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bb4-RH-Men"/>
+                <constraint firstAttribute="bottom" secondItem="Nn8-wu-bbj" secondAttribute="bottom" constant="100" id="kkI-Bi-3ru"/>
+                <constraint firstItem="27X-Re-om2" firstAttribute="width" secondItem="Nn8-wu-bbj" secondAttribute="width" multiplier="0.5" id="mn1-Fp-d0J"/>
+                <constraint firstItem="27X-Re-om2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zRn-U0-3s7"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>
