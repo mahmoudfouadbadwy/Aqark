@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     /* start shrouk*/
+    var searchViewController: SearchViewController?
     /* end shrouk*/
     /* start fouad*/
     /* end fouad*/
@@ -27,6 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         /* start shrouk*/
+        window = UIWindow(frame:UIScreen.main.bounds)
+        searchViewController = SearchViewController(nibName: "SearchViewController", bundle: nil)
+        window?.rootViewController = searchViewController
+        window?.makeKeyAndVisible()
         /* end shrouk*/
         /* start fouad*/
         FirebaseApp.configure()

@@ -17,6 +17,13 @@
 		BFCF0BDB24677F8100A43D8B /* AqarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF0BDA24677F8100A43D8B /* AqarkTests.swift */; };
 		BFE9F4472469930200E44777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFE9F4462469930200E44777 /* GoogleService-Info.plist */; };
 		BFE9F4482469930200E44777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFE9F4462469930200E44777 /* GoogleService-Info.plist */; };
+		C60D0F0C2469EC23008A637D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60D0F0A2469EC23008A637D /* SearchViewController.swift */; };
+		C60D0F0D2469EC24008A637D /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C60D0F0B2469EC23008A637D /* SearchViewController.xib */; };
+		C60D0F102469EC6A008A637D /* AdvertisementCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60D0F0E2469EC6A008A637D /* AdvertisementCellCollectionViewCell.swift */; };
+		C60D0F112469EC6A008A637D /* AdvertisementCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C60D0F0F2469EC6A008A637D /* AdvertisementCellCollectionViewCell.xib */; };
+		C60D0F172469FA43008A637D /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60D0F162469FA43008A637D /* SearchModel.swift */; };
+		C60D0F192469FD8F008A637D /* apartment.png in Resources */ = {isa = PBXBuildFile; fileRef = C60D0F182469FD8E008A637D /* apartment.png */; };
+		C60D0F26246A1092008A637D /* Amenities in Resources */ = {isa = PBXBuildFile; fileRef = C60D0F25246A1092008A637D /* Amenities */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +53,15 @@
 		BFCF0BDA24677F8100A43D8B /* AqarkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AqarkTests.swift; sourceTree = "<group>"; };
 		BFCF0BDC24677F8100A43D8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFE9F4462469930200E44777 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C60D0F0A2469EC23008A637D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = Aqark/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
+		C60D0F0B2469EC23008A637D /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchViewController.xib; path = Aqark/SearchViewController.xib; sourceTree = SOURCE_ROOT; };
+		C60D0F0E2469EC6A008A637D /* AdvertisementCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdvertisementCellCollectionViewCell.swift; path = Aqark/AdvertisementCellCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		C60D0F0F2469EC6A008A637D /* AdvertisementCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AdvertisementCellCollectionViewCell.xib; path = Aqark/AdvertisementCellCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		C60D0F162469FA43008A637D /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchModel.swift; path = Aqark/SearchModel.swift; sourceTree = SOURCE_ROOT; };
+		C60D0F182469FD8E008A637D /* apartment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = apartment.png; path = "../../../../../../../../Volumes/VMware Shared Folders/vm/apartment.png"; sourceTree = "<group>"; };
+		C60D0F25246A1092008A637D /* Amenities */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Amenities; path = "../../../../../../../../Volumes/VMware Shared Folders/vm/Amenities"; sourceTree = "<group>"; };
+		C66C325E246A50F800532FA5 /* duplex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = duplex.png; path = view/duplex.png; sourceTree = SOURCE_ROOT; };
+		C66C325F246A510800532FA5 /* villa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = villa.png; path = view/villa.png; sourceTree = SOURCE_ROOT; };
 		DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AqarkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -182,6 +198,14 @@
 		BF06B40A24679DCE005D7151 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				C66C325F246A510800532FA5 /* villa.png */,
+				C66C325E246A50F800532FA5 /* duplex.png */,
+				C60D0F182469FD8E008A637D /* apartment.png */,
+				C60D0F0A2469EC23008A637D /* SearchViewController.swift */,
+				C60D0F0B2469EC23008A637D /* SearchViewController.xib */,
+				C60D0F0E2469EC6A008A637D /* AdvertisementCellCollectionViewCell.swift */,
+				C60D0F0F2469EC6A008A637D /* AdvertisementCellCollectionViewCell.xib */,
+				C60D0F25246A1092008A637D /* Amenities */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -364,6 +388,7 @@
 		BFBAED852468A5CA00996DE8 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				C60D0F162469FA43008A637D /* SearchModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -504,9 +529,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C60D0F26246A1092008A637D /* Amenities in Resources */,
 				BFCF0BD024677F8100A43D8B /* LaunchScreen.storyboard in Resources */,
 				BFE9F4472469930200E44777 /* GoogleService-Info.plist in Resources */,
 				BFCF0BCD24677F8100A43D8B /* Assets.xcassets in Resources */,
+				C60D0F0D2469EC24008A637D /* SearchViewController.xib in Resources */,
+				C60D0F192469FD8F008A637D /* apartment.png in Resources */,
+				C60D0F112469EC6A008A637D /* AdvertisementCellCollectionViewCell.xib in Resources */,
 				BFCF0BC824677F8000A43D8B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -590,7 +619,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C60D0F0C2469EC23008A637D /* SearchViewController.swift in Sources */,
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
+				C60D0F102469EC6A008A637D /* AdvertisementCellCollectionViewCell.swift in Sources */,
+				C60D0F172469FA43008A637D /* SearchModel.swift in Sources */,
 				BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
