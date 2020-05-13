@@ -1,16 +1,28 @@
-#if !defined(__has_feature) || !__has_feature(objc_arc)
-#error "This file requires ARC support."
-#endif
+/*
+ * Copyright 2016 Google Inc. All rights reserved.
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+ * file except in compliance with the License. You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
+ * ANY KIND, either express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
 
-#import "AutocompletePushViewController.h"
+#import "GooglePlacesDemos/Samples/Autocomplete/AutocompletePushViewController.h"
 
 #import <GooglePlaces/GooglePlaces.h>
 
-@interface AutocompletePushViewController ()<GMSAutocompleteViewControllerDelegate>
-@property(nonatomic, strong) GMSAutocompleteViewController *autocompleteViewController;
+@interface AutocompletePushViewController () <GMSAutocompleteViewControllerDelegate>
 @end
 
-@implementation AutocompletePushViewController
+@implementation AutocompletePushViewController {
+  UIButton *_showAutocompleteWidgetButton;
+}
 
 + (NSString *)demoTitle {
   return NSLocalizedString(
@@ -24,26 +36,34 @@
   [super viewDidLoad];
 
   // Configure the UI. Tell our superclass we want a button and a result view below that.
-  UIButton *button =
+  _showAutocompleteWidgetButton =
       [self createShowAutocompleteButton:@selector(showAutocompleteWidgetButtonTapped)];
-  [self addResultViewBelow:button];
 }
 
-#pragma mark - Getters/Setters
+#pragma mark - Creation of |GMSAutocompleteViewController| instance.
 
-- (GMSAutocompleteViewController *)autocompleteViewController {
-  if (_autocompleteViewController == nil) {
-    _autocompleteViewController = [[GMSAutocompleteViewController alloc] init];
-    _autocompleteViewController.delegate = self;
-  }
-  return _autocompleteViewController;
+- (GMSAutocompleteViewController *)autocompleteViewControllerInstance {
+  GMSAutocompleteViewController *autocompleteViewController =
+      [[GMSAutocompleteViewController alloc] init];
+  autocompleteViewController.delegate = self;
+  [autocompleteViewController
+      setAutocompleteBoundsUsingNorthEastCorner:self.autocompleteBoundsNorthEastCorner
+                                SouthWestCorner:self.autocompleteBoundsSouthWestCorner];
+  autocompleteViewController.autocompleteBoundsMode = self.autocompleteBoundsMode;
+  autocompleteViewController.autocompleteFilter = self.autocompleteFilter;
+  autocompleteViewController.placeFields = self.placeFields;
+
+  // Returns new GMSAutocompleteViewController instance.
+  return autocompleteViewController;
 }
 
 #pragma mark - Actions
 
 - (IBAction)showAutocompleteWidgetButtonTapped {
-  // When the button is tapped just push the autocomplete view controller onto the stack.
-  [self.navigationController pushViewController:self.autocompleteViewController animated:YES];
+  // When the button is tapped just push a new autocomplete view controller onto the stack.
+  [self.navigationController pushViewController:[self autocompleteViewControllerInstance]
+                                       animated:YES];
+  [_showAutocompleteWidgetButton setHidden:YES];
 }
 
 #pragma mark - GMSAutocompleteViewControllerDelegate
@@ -66,6 +86,14 @@
   // Dismiss the controller and show a message that it was canceled.
   [self.navigationController popToViewController:self animated:YES];
   [self autocompleteDidCancel];
+}
+
+- (void)didRequestAutocompletePredictions:(GMSAutocompleteViewController *)viewController {
+  [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+}
+
+- (void)didUpdateAutocompletePredictions:(GMSAutocompleteViewController *)viewController {
+  [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 @end

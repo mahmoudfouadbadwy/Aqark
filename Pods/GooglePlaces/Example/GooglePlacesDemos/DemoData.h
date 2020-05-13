@@ -1,4 +1,21 @@
+/*
+ * Copyright 2016 Google Inc. All rights reserved.
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+ * file except in compliance with the License. You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
+ * ANY KIND, either express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
 #import <UIKit/UIKit.h>
+
+#import <GooglePlaces/GooglePlaces.h>
 
 /*
  * This file contains a set of data objects which represent the list of demos which are provided by
@@ -28,10 +45,23 @@
  * Construct and return a new UIViewController instance which contains the view to present when the
  * demo is selected from the list.
  *
- * @param splitViewController The |UISplitViewController| in which the demo will be presented. NOTE:
- * This may be nil.
+ * @param autocompleteBoundsMode The |GMSAutocompleteBoundsMode| to determine whether this should
+ *     be biased or restricted to the coordinate bounds.
+ * @param autocompleteBoundsNorthEastCorner The |CLLocationCoordinate2D| representing the
+ *     autocomplete bounds north east location.
+ * @param autocompleteBoundsSouthWestCorner The |CLLocationCoordinate2D| representing the
+ *     autocomplete bounds south west location.
+ * @param autocompleteFilter The |GMSAutocompleteFilter| that filters on types and countries.
+ * @param placeField The |GMSPlaceField| to request individual fields for the |GMSPlace| result.
  */
-- (UIViewController *)createViewControllerForSplitView:(UISplitViewController *)splitViewController;
+- (UIViewController *)
+    createViewControllerWithAutocompleteBoundsMode:(GMSAutocompleteBoundsMode)autocompleteBoundsMode
+                 autocompleteBoundsNorthEastCorner:
+                     (CLLocationCoordinate2D)autocompleteBoundsNorthEastCorner
+                 autocompleteBoundsSouthWestCorner:
+                     (CLLocationCoordinate2D)autocompleteBoundsSouthWestCorner
+                                autocompleteFilter:(GMSAutocompleteFilter *)autocompleteFilter
+                                       placeFields:(GMSPlaceField)placeField;
 
 @end
 

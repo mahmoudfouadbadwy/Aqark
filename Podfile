@@ -10,7 +10,7 @@ target 'Aqark' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
-  pod 'GooglePlaces','~> 2.0.0'
+  pod 'GooglePlaces','~> 3.7.0'
   
 
   target 'AqarkTests' do

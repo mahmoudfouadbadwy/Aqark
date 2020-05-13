@@ -1,6 +1,17 @@
-#if !defined(__has_feature) || !__has_feature(objc_arc)
-#error "This file requires ARC support."
-#endif
+/*
+ * Copyright 2016 Google Inc. All rights reserved.
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+ * file except in compliance with the License. You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
+ * ANY KIND, either express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
 
 #import "GooglePlacesDemos/Samples/PagingPhotoView.h"
 
@@ -21,7 +32,7 @@
 @implementation AttributedPhoto
 @end
 
-@interface PagingPhotoView ()<UITextViewDelegate>
+@interface PagingPhotoView () <UITextViewDelegate>
 @end
 
 @implementation PagingPhotoView {
@@ -36,6 +47,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
   if ((self = [super initWithFrame:frame])) {
     _photoImageViews = [NSMutableArray array];
+    self.backgroundColor = [UIColor whiteColor];
     self.pagingEnabled = YES;
   }
   return self;
@@ -95,6 +107,14 @@
   if (_imageLayoutUpdateNeeded) {
     [self layoutImages];
     _imageLayoutUpdateNeeded = NO;
+
+    // Re-adjust the content offset to ensure the photos are aligned properly horizontally.
+    if (self.contentSize.width != 0) {
+      CGFloat scrollOffset =
+          (CGFloat)round((self.contentOffset.x / self.contentSize.width) * 10.0f) / 10.0f;
+      self.contentOffset =
+          CGPointMake(scrollOffset * self.contentSize.width, -self.contentInset.top);
+    }
   }
 }
 
@@ -137,11 +157,21 @@
     [attributionView sizeToFit];
     CGFloat attributionHeight = attributionView.frame.size.height;
     CGFloat imageHeight = usableScrollViewHeight - attributionHeight;
+    CGFloat safeAreaX = 0.0f;
+
+#if defined(__IPHONE_11_0) && (__IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0)
+    // Take into account the safe areas of the device screen and do not use that space for the
+    // attribution text.
+    if (@available(iOS 11.0, *)) {
+      imageHeight -= self.safeAreaInsets.bottom;
+      safeAreaX = self.safeAreaInsets.left;
+    }
+#endif
 
     // Put the attribution view aligned to the same left edge as the photo, in the bottom left
     // corner of the screen.
-    attributionView.frame =
-        CGRectMake(contentWidth, imageHeight, scrollViewWidth, attributionHeight);
+    attributionView.frame = CGRectMake(contentWidth + safeAreaX, imageHeight,
+                                       scrollViewWidth - (2 * safeAreaX), attributionHeight);
     imageView.frame = CGRectMake(contentWidth, 0, scrollViewWidth, imageHeight);
     contentWidth += imageView.frame.size.width;
   }

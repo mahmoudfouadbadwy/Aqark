@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Firebase
+import GooglePlaces
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -28,10 +29,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         /* start shrouk*/
+
         window = UIWindow(frame:UIScreen.main.bounds)
-        searchViewController = searchViewController(nibName: "SearchViewController", bundle: nil)
+        searchViewController = SearchViewController(nibName: "SearchViewController", bundle: nil)
+        GMSPlacesClient.provideAPIKey("AIzaSyAcITFeVhQQ970eJjH0fZ8lY8jwxksplso")
         window?.rootViewController = searchViewController
         window?.makeKeyAndVisible()
+
         /* end shrouk*/
         /* start fouad*/
         FirebaseApp.configure()

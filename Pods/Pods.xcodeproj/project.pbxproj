@@ -1897,6 +1897,7 @@
 		6A8789E7C0D7EA0F524C57F6C712928F /* FWriteTreeRef.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FWriteTreeRef.h; path = Firebase/Database/Core/FWriteTreeRef.h; sourceTree = "<group>"; };
 		6AB342A2E8B589AAD0A085B021C689B9 /* FIRGetOOBConfirmationCodeRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRGetOOBConfirmationCodeRequest.h; path = FirebaseAuth/Sources/Backend/RPC/FIRGetOOBConfirmationCodeRequest.h; sourceTree = "<group>"; };
 		6AD1ABEE02F879382B7368D7297C0F50 /* FIRAuthDataResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRAuthDataResult.h; path = FirebaseAuth/Sources/Public/FIRAuthDataResult.h; sourceTree = "<group>"; };
+		6AD2930F0887E5E1ED186A5CA9FFE50C /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
 		6AEAFCF69EAE13E270241C7A02D0432B /* FCacheNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FCacheNode.m; path = Firebase/Database/Core/View/FCacheNode.m; sourceTree = "<group>"; };
 		6BAE6EB02454971912527A286E231DEE /* GoogleDataTransportCCTSupport-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "GoogleDataTransportCCTSupport-Info.plist"; sourceTree = "<group>"; };
 		6BC7A3D77F638EB1C994F97C7C8B652B /* FIRStorageListResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRStorageListResult.m; path = FirebaseStorage/Sources/FIRStorageListResult.m; sourceTree = "<group>"; };
@@ -2209,10 +2210,8 @@
 		BDF82C80BC955C00204BA875318A9DA5 /* FChildEventRegistration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FChildEventRegistration.m; path = Firebase/Database/Core/View/FChildEventRegistration.m; sourceTree = "<group>"; };
 		BE1BC5EB7098B24F266075BBFF0ED711 /* FEmptyNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FEmptyNode.h; path = Firebase/Database/Snapshot/FEmptyNode.h; sourceTree = "<group>"; };
 		BE44D8AD5BCA2B193509BEB3187B842C /* GoogleDataTransportCCTSupport.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GoogleDataTransportCCTSupport.modulemap; sourceTree = "<group>"; };
-		BE59D07D3FA9CF4F260543AD2509C9CC /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Subspecs/Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
 		BE682297C5E87293FEC77901F58A5810 /* GTMSessionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMSessionFetcher.m; path = Source/GTMSessionFetcher.m; sourceTree = "<group>"; };
 		BE7F040C71C33DBEEE741E79D1A44461 /* FIRFinalizeMFAEnrollmentRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRFinalizeMFAEnrollmentRequest.h; path = FirebaseAuth/Sources/Backend/RPC/MultiFactor/Enroll/FIRFinalizeMFAEnrollmentRequest.h; sourceTree = "<group>"; };
-		BECC41D53217D47EFB3FD0C6EB3E2E4C /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
 		BF0B476053E4056CEA1669A948AA39F0 /* pb_encode.c */ = {isa = PBXFileReference; includeInIndex = 1; path = pb_encode.c; sourceTree = "<group>"; };
 		BF4836ABB4CC2AAF9E7E61DE5E3F961A /* FBLPromise.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBLPromise.m; path = Sources/FBLPromises/FBLPromise.m; sourceTree = "<group>"; };
 		BF6A79B6F316134A82A4168013907311 /* FIRAuthDefaultUIDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRAuthDefaultUIDelegate.h; path = FirebaseAuth/Sources/Utilities/FIRAuthDefaultUIDelegate.h; sourceTree = "<group>"; };
@@ -2425,6 +2424,7 @@
 		F6065FF099D2BDCD00ECBFD80C5BE82E /* FIRAdditionalUserInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRAdditionalUserInfo.h; path = FirebaseAuth/Sources/Public/FIRAdditionalUserInfo.h; sourceTree = "<group>"; };
 		F65AE20964E24232119A55239020C1C1 /* FIRAuthAppCredentialManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRAuthAppCredentialManager.m; path = FirebaseAuth/Sources/SystemService/FIRAuthAppCredentialManager.m; sourceTree = "<group>"; };
 		F744DFE3BE07CF12E63B5CA0A9AAC24C /* FTupleUserCallback.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FTupleUserCallback.m; path = Firebase/Database/Utilities/Tuples/FTupleUserCallback.m; sourceTree = "<group>"; };
+		F7D5E1242C35B03359F63C25473EC998 /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
 		F82A66BD2A4C0EE785EF83CB74694879 /* table_cache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = table_cache.h; path = db/table_cache.h; sourceTree = "<group>"; };
 		F840CB5D134D9FB99A1E4807CB95B0A4 /* FTreeSortedDictionaryEnumerator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FTreeSortedDictionaryEnumerator.m; path = Firebase/Database/third_party/FImmutableSortedDictionary/FImmutableSortedDictionary/FTreeSortedDictionaryEnumerator.m; sourceTree = "<group>"; };
 		F867902D5B40DE88C3BF7C01612BDCD0 /* FTypedefs_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FTypedefs_Private.h; path = Firebase/Database/Api/Private/FTypedefs_Private.h; sourceTree = "<group>"; };
@@ -3290,7 +3290,7 @@
 		284CB9FD24858554847CAFEAFCAB444F /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				3CBCB558B54975A73EA1D273FC89FCC3 /* Frameworks */,
+				A64A8E8E048DE95C7F97CA87BB14FD91 /* Frameworks */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -3315,14 +3315,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/FirebaseAuthInterop";
-			sourceTree = "<group>";
-		};
-		3CBCB558B54975A73EA1D273FC89FCC3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BE59D07D3FA9CF4F260543AD2509C9CC /* GoogleMapsBase.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		4114564CEE4E1FF6A3687194730D6AB8 /* Support Files */ = {
@@ -3507,7 +3499,7 @@
 			isa = PBXGroup;
 			children = (
 				1AD290535E720FAFA63793A0FE05C166 /* Frameworks */,
-				7BD3AB13835F2828BB2F45A3BD44D398 /* Resources */,
+				E07AF1DF664E75F60CF96D11CAD54E97 /* Resources */,
 				E7031460CA4473379D7575C98C87FFE5 /* Support Files */,
 			);
 			name = GooglePlaces;
@@ -3531,14 +3523,6 @@
 				634C7C07A9201238D9B183FB10913A50 /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		7BD3AB13835F2828BB2F45A3BD44D398 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				BECC41D53217D47EFB3FD0C6EB3E2E4C /* GooglePlaces.bundle */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		8C3760ED76C714B72909FD7FAE058592 /* Support Files */ = {
@@ -3667,6 +3651,14 @@
 			);
 			name = FirebaseCoreDiagnostics;
 			path = FirebaseCoreDiagnostics;
+			sourceTree = "<group>";
+		};
+		A64A8E8E048DE95C7F97CA87BB14FD91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6AD2930F0887E5E1ED186A5CA9FFE50C /* GoogleMapsBase.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		B009E18BBF959098A55512ECDB17713C /* NSData+zlib */ = {
@@ -3917,6 +3909,14 @@
 				49B470B011BE54FE0D0CC2B66A0BE643 /* GULLoggerLevel.h */,
 			);
 			name = Logger;
+			sourceTree = "<group>";
+		};
+		E07AF1DF664E75F60CF96D11CAD54E97 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F7D5E1242C35B03359F63C25473EC998 /* GooglePlaces.bundle */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		E7031460CA4473379D7575C98C87FFE5 /* Support Files */ = {
@@ -6078,22 +6078,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0C5DA16E3DF77A2E0C4890C85F94BB48 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95C48BB83F4C7F9C028598C1D1EB2460 /* GooglePlaces.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
 		1290044BDDE33B0CF9F9D782F5769C09 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A9036CEE422CE5BCCC44FFBCC0A216C1 /* FirebaseCoreDiagnostics.xcconfig */;
@@ -6263,23 +6247,6 @@
 			};
 			name = Release;
 		};
-		1CAEAE8920726EE70A79F48C4B03CB30 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95C48BB83F4C7F9C028598C1D1EB2460 /* GooglePlaces.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		266A3CDDCBBBAF6F08E8BAD44D400F1D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D50B88796BD59F6C2E539680609D852F /* Pods-AqarkTests.debug.xcconfig */;
@@ -6429,6 +6396,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4AA46832D8A16AA4E4811383B204D2A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 579110A33EBBC5089FEB6D1F1267B1B5 /* GoogleMaps.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -6614,23 +6597,6 @@
 			};
 			name = Release;
 		};
-		6F1C07C1B602964D8C325E1F202C57B3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 579110A33EBBC5089FEB6D1F1267B1B5 /* GoogleMaps.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		77A963587C7250398C51FD794D5E716E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D0B186695572B3CF83BC1A19C5782161 /* FirebaseAnalytics.xcconfig */;
@@ -6804,6 +6770,22 @@
 			};
 			name = Debug;
 		};
+		907050E8ED96EF2CF04EC3D293E73BD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95C48BB83F4C7F9C028598C1D1EB2460 /* GooglePlaces.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		921D1661A2CCB4D6C9DB1498994785DA /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F5E7C79CA6DFEA711EAC2704A43C0972 /* Pods-AqarkTests.release.xcconfig */;
@@ -6878,22 +6860,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		9F8631DD3EE2C3D874754E791BD3C7EF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 579110A33EBBC5089FEB6D1F1267B1B5 /* GoogleMaps.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
 		};
 		A5F5EFBBE5073797C3C15EEB9B6586C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -7090,6 +7056,23 @@
 			};
 			name = Release;
 		};
+		C7565AEA7FCD8F66CAF546DC5AF1404F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 579110A33EBBC5089FEB6D1F1267B1B5 /* GoogleMaps.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		C85C5CD30E5859A680BF5920647CA5C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0054983F04739BF27C91E38CCB2514B1 /* Pods-Aqark.release.xcconfig */;
@@ -7214,6 +7197,23 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
+		};
+		DC85D7712D8EE6E340F053BC38E1FB63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95C48BB83F4C7F9C028598C1D1EB2460 /* GooglePlaces.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
 		};
 		DF07464ADE0DF6D0009E133B3BD4721D /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -7532,8 +7532,8 @@
 		2FC2AC47FDB0310285CE777F18CD1532 /* Build configuration list for PBXAggregateTarget "GooglePlaces" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0C5DA16E3DF77A2E0C4890C85F94BB48 /* Debug */,
-				1CAEAE8920726EE70A79F48C4B03CB30 /* Release */,
+				907050E8ED96EF2CF04EC3D293E73BD9 /* Debug */,
+				DC85D7712D8EE6E340F053BC38E1FB63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -7568,8 +7568,8 @@
 		46921981F609C5BA3CB72EC4EA41299D /* Build configuration list for PBXAggregateTarget "GoogleMaps" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9F8631DD3EE2C3D874754E791BD3C7EF /* Debug */,
-				6F1C07C1B602964D8C325E1F202C57B3 /* Release */,
+				4AA46832D8A16AA4E4811383B204D2A4 /* Debug */,
+				C7565AEA7FCD8F66CAF546DC5AF1404F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

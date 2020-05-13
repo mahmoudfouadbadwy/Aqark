@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import 
+import GooglePlaces
 
 class SearchViewController: UIViewController ,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     var collectionViewFlowLayout:UICollectionViewFlowLayout!
@@ -69,18 +69,18 @@ class SearchViewController: UIViewController ,UICollectionViewDataSource,UIColle
 ////////////search autocomplete//////////
     
     @IBAction func searchTextFieldTapped(_ sender: Any) {
-        searchtextField.resignFirstResponder()
+        searchTextField.resignFirstResponder()
         let acController = GMSAutocompleteViewController()
-        acController.delegate = self
+        acController.delegate = self as! GMSAutocompleteViewControllerDelegate
         present(acController, animated: true, completion: nil)
     }
+}
     
-    
-    extension ViewController: GMSAutocompleteViewControllerDelegate {
+    extension SearchViewController: GMSAutocompleteViewControllerDelegate {
         func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
             // Get the place name from 'GMSAutocompleteViewController'
             // Then display the name in textField
-            textField.text = place.name
+            searchTextField.text = place.name
             // Dismiss the GMSAutocompleteViewController when something is selected
             dismiss(animated: true, completion: nil)
         }
@@ -92,4 +92,5 @@ class SearchViewController: UIViewController ,UICollectionViewDataSource,UIColle
             // Dismiss when the user canceled the action
             dismiss(animated: true, completion: nil)
         }
+
 }
