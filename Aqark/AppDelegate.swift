@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         /* start shrouk*/
         window = UIWindow(frame:UIScreen.main.bounds)
-        searchViewController = SearchViewController(nibName: "SearchViewController", bundle: nil)
+        searchViewController = searchViewController(nibName: "SearchViewController", bundle: nil)
         window?.rootViewController = searchViewController
         window?.makeKeyAndVisible()
         /* end shrouk*/

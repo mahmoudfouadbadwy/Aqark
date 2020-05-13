@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import 
 
 class SearchViewController: UIViewController ,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     var collectionViewFlowLayout:UICollectionViewFlowLayout!
@@ -68,7 +69,27 @@ class SearchViewController: UIViewController ,UICollectionViewDataSource,UIColle
 ////////////search autocomplete//////////
     
     @IBAction func searchTextFieldTapped(_ sender: Any) {
+        searchtextField.resignFirstResponder()
+        let acController = GMSAutocompleteViewController()
+        acController.delegate = self
+        present(acController, animated: true, completion: nil)
     }
     
-
+    
+    extension ViewController: GMSAutocompleteViewControllerDelegate {
+        func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+            // Get the place name from 'GMSAutocompleteViewController'
+            // Then display the name in textField
+            textField.text = place.name
+            // Dismiss the GMSAutocompleteViewController when something is selected
+            dismiss(animated: true, completion: nil)
+        }
+        func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+            // Handle the error
+            print("Error: ", error.localizedDescription)
+        }
+        func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+            // Dismiss when the user canceled the action
+            dismiss(animated: true, completion: nil)
+        }
 }
