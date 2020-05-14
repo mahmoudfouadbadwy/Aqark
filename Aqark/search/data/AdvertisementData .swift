@@ -15,12 +15,12 @@ class AdvertisementData{
         
     var data = [SearchModel]()
         
-    data.append( SearchModel(image: UIImage(named: "apartment")! ,propertyType: "Apartment",price: "100,000", address: "Mossadak", country: "Cairo", size: "300", bedRoomsNumber: "3", bathRoomsNumber: "2"))
-    data.append( SearchModel(image: UIImage(named: "apartment")! ,propertyType: "Apartment",price: "100,000", address: "Mossadak", country: "Cairo", size: "300", bedRoomsNumber: "3", bathRoomsNumber: "2"))
-    data.append( SearchModel(image: UIImage(named: "apartment")! ,propertyType: "Apartment",price: "100,000", address: "WestTown,Sheikh Zayed, Compund, Giza", country: "Cairo", size: "300", bedRoomsNumber: "3", bathRoomsNumber: "2"))
-    data.append( SearchModel(image: UIImage(named: "apartment")! ,propertyType: "Apartment",price: "100,000", address: "WestTown,Sheikh Zayed, Compund, Giza", country: "Cairo", size: "300", bedRoomsNumber: "3", bathRoomsNumber: "2"))
-    data.append( SearchModel(image: UIImage(named: "apartment")! ,propertyType: "Apartment",price: "100,000", address: "WestTown,Sheikh Zayed, Compund, Giza", country: "Cairo", size: "300", bedRoomsNumber: "3", bathRoomsNumber: "2"))
-    data.append( SearchModel(image: UIImage(named: "apartment")! ,propertyType: "Apartment",price: "100,000", address: "WestTown,Sheikh Zayed, Compund, Giza", country: "Cairo", size: "300", bedRoomsNumber: "3", bathRoomsNumber: "2"))
+        data.append( SearchModel(image: UIImage(named: "apartment")! ,propertyType: "Apartment", advertisementType: "Rent",price: "100,000", address: "Mossadak", country: "Cairo", size: "300", bedRoomsNumber: "3", bathRoomsNumber: "2"))
+        data.append( SearchModel(image: UIImage(named: "apartment")! ,propertyType: "Apartment", advertisementType: "Buy",price: "100,000", address: "Mossadak", country: "Cairo", size: "300", bedRoomsNumber: "3", bathRoomsNumber: "2"))
+        data.append( SearchModel(image: UIImage(named: "apartment")! ,propertyType: "Apartment", advertisementType: "Rent",price: "100,000", address: "WestTown,Sheikh Zayed, Compund, Giza", country: "Cairo", size: "300", bedRoomsNumber: "3", bathRoomsNumber: "2"))
+        data.append( SearchModel(image: UIImage(named: "apartment")! ,propertyType: "Apartment", advertisementType: "Buy",price: "100,000", address: "WestTown,Sheikh Zayed, Compund, Giza", country: "Cairo", size: "300", bedRoomsNumber: "3", bathRoomsNumber: "2"))
+        data.append( SearchModel(image: UIImage(named: "apartment")! ,propertyType: "Apartment", advertisementType: "Rent",price: "100,000", address: "WestTown,Sheikh Zayed, Compund, Giza", country: "Cairo", size: "300", bedRoomsNumber: "3", bathRoomsNumber: "2"))
+        data.append( SearchModel(image: UIImage(named: "apartment")! ,propertyType: "Apartment", advertisementType: "Buy",price: "100,000", address: "WestTown,Sheikh Zayed, Compund, Giza", country: "Cairo", size: "300", bedRoomsNumber: "3", bathRoomsNumber: "2"))
         return data
 }
 }

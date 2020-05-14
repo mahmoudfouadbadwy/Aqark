@@ -11,6 +11,7 @@ import UIKit
 class SearchModel {
     var image: UIImage!
     var propertyType: String!
+    var advertisementType: String!
     var price: String!
     var address: String!
     var country: String!
@@ -18,15 +19,17 @@ class SearchModel {
     var bedRoomsNumber: String!
     var bathRoomsNumber: String!
     
-    init(image: UIImage, propertyType: String, price: String, address: String, country: String, size: String, bedRoomsNumber: String,bathRoomsNumber: String){
+    
+    init(image: UIImage, propertyType: String,advertisementType: String ,price: String, address: String, country: String, size: String, bedRoomsNumber: String,bathRoomsNumber: String){
        self.image = image
         self.propertyType = propertyType
         self.price = price
         self.address = address
         self.country = country
-         self.size = size
+        self.size = size
         self.bedRoomsNumber = bedRoomsNumber
         self.bathRoomsNumber = bathRoomsNumber
+        self.advertisementType = advertisementType
        
     }
     }
