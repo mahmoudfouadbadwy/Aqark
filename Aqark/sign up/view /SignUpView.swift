@@ -7,47 +7,179 @@
 //
 
 import UIKit
-
+//MARK:- Life cycle and Properties
 class SignUpView: UIViewController  {
+    @IBOutlet weak var phoneNumber: UITextField!
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var confirmPassword: UITextField!
+    @IBOutlet weak var company: UITextField!
+    @IBOutlet weak var countries: UIPickerView!
+    private var role:String = "user"
+    private var accountViewModel:AccountViewModel!
+    private let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
+    private var countriesPicker:[String] = Countries().countries
     
-    @IBOutlet private weak var signUpCollection: UICollectionView!
-    var accountViewModel:AccountViewModel!
-    let cellIdentifier = "signUpCell"
     override func viewDidLoad() {
         super.viewDidLoad()
-       // register cell.
-        self.signUpCollection.register(UINib(nibName: "SignUpCollectionCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
-        self.signUpCollection.delegate = self
-        self.signUpCollection.dataSource = self
-        accountViewModel = AccountViewModel()
+        setupViews(as: role)
+        setIcons()
+        setTextFieldsDelegate()
+        setPickerDelegates()
+        setTappedGesture()
+    }
+
+    @IBAction func createAccount(_ sender: Any) {
+       guard let email = email.text ,
+             let password = password.text,
+             let confirm = confirmPassword.text,
+             let username = username.text,
+             let phone = phoneNumber.text,
+             let company = company.text
+             else { return }
+    
+        switch self.role.lowercased() {
+        case "user":
+                createUserAccount(email: email, password:password,confirm: confirm,username:username)
+        default:createServiceAccount(email: email, password: password, confirm: confirm, username: username, phone: phone, country: countriesPicker[countries.selectedRow(inComponent: 0)], company: company)
+        }
+    }
+}
+
+//MARK: - setup views
+extension SignUpView{
+  func setupViews(as role:String)
+    {
+        switch (self.role.lowercased())
+        {
+            case "user": showUserView()
+            default: print("service")
+        }
     }
     
-    @IBAction func createAccount(_ sender: Any) {
-        
+  func setIcons()
+  {
+        self.email.setIcon(UIImage(named: "signup_email")!)
+        self.password.setIcon(UIImage(named: "signup_password")!)
+        self.confirmPassword.setIcon(UIImage(named: "signup_password")!)
+        self.username.setIcon(UIImage(named: "signup_username")!)
+        self.phoneNumber.setIcon(UIImage(named: "signup_phone")!)
+        self.company.setIcon(UIImage(named: "signup_company")!)
+  }
+  func showUserView()
+  {
+        self.phoneNumber.isHidden = true
+        self.countries.isHidden = true
+        self.company.isHidden = true
+   }
+}
+
+//MARK: - create Account
+extension SignUpView{
+    func createUserAccount(email:String,password:String,confirm:String,username:String)
+    {
+        accountViewModel = AccountViewModel(email: email, password: password, confirmPassword: confirm, username: username)
+        checkValidation()
+    }
+    func createServiceAccount(email:String,password:String,confirm:String,username:String,
+                              phone:String,country:String,company:String){
+        accountViewModel = AccountViewModel(email: email, password: password, confirmPassword: confirm, username: username, phone: phone, country: country, company: company,role:role)
+        checkValidation()
+    }
+    
+    func checkValidation()
+    {
+        if (accountViewModel.isValid)
+        {
+            showIndicator()
+            accountViewModel.performCreation(dataAccess: DataAccess(),completion: {
+                (result) in
+                self.stopIndicator()
+                self.showAlert(with: result)
+            })
+        }
+        else
+        {
+            self.showAlert(with: accountViewModel.brokenRules[0].message)
+        }
     }
 }
 
-extension SignUpView:UICollectionViewDataSource{
-        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return 1
-        }
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell:SignUpCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! SignUpCollectionCell
-            cell.email.setIcon(UIImage(named: "mail")!)
-            cell.password.setIcon(UIImage(named: "mail")!)
-            cell.username.setIcon(UIImage(named: "mail")!)
-            cell.phoneNumber.setIcon(UIImage(named: "mail")!)
-            cell.confirmPassword.setIcon(UIImage(named: "mail")!)
-            return cell
-        }
+//MARK: - ALertView
+extension SignUpView{
+    func showAlert(with message:String){
+        let alert:UIAlertController = UIAlertController(title: "Validation Message", message:message , preferredStyle: .alert)
+        let ok:UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
-extension SignUpView:UICollectionViewDelegateFlowLayout{
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-             return CGSize(width: collectionView.frame.width - 40, height: collectionView.frame.height)
-        }
+//MARK: - UIViewIndicator
+extension SignUpView{
+    func showIndicator()
+    {
+        networkIndicator.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        networkIndicator.center = view.center
+        networkIndicator.startAnimating()
+        view.addSubview(networkIndicator)
+    }
+    
+    func stopIndicator() {
+        networkIndicator.stopAnimating()
+    }
 }
 
+//MARK: - Picker view
+extension SignUpView:UIPickerViewDataSource,UIPickerViewDelegate{
+    func setPickerDelegates()
+    {
+        countries.dataSource = self
+        countries.delegate = self
+    }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return countriesPicker.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return countriesPicker[row]
+    }
+   
+}
+
+//MARK: - TextFiled Delegate
+extension SignUpView:UITextFieldDelegate{
+    func setTextFieldsDelegate()
+    {
+        email.delegate = self
+        password.delegate = self
+        confirmPassword.delegate = self
+        username.delegate = self
+        phoneNumber.delegate = self
+        company.delegate = self
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+   func setTappedGesture()
+    {
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dissmissKeyboard))
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dissmissKeyboard(){
+        view.endEditing(true)
+    }
+}
+
+//MARK: - UITextField
 extension UITextField {
     func setIcon(_ image: UIImage) {
         let iconView = UIImageView(frame:
@@ -60,5 +192,3 @@ extension UITextField {
         leftViewMode = .always
     }
 }
-
-
