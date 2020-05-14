@@ -11,8 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="Aqark" customModuleProvider="target">
             <connections>
+                <outlet property="searchBar" destination="A96-AO-fov" id="5bX-9w-cTM"/>
                 <outlet property="searchCollectionView" destination="04f-JC-67H" id="81L-eJ-fPD"/>
-                <outlet property="searchTextField" destination="RfL-Gf-XOR" id="A5G-6Q-gXX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -35,16 +35,14 @@
                         <outlet property="delegate" destination="-1" id="le0-zX-IB7"/>
                     </connections>
                 </collectionView>
-                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RfL-Gf-XOR">
-                    <rect key="frame" x="16" y="44" width="343" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A96-AO-fov">
+                    <rect key="frame" x="0.0" y="28" width="375" height="56"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
-                        <action selector="searchTextFieldTapped:" destination="-1" eventType="editingDidBegin" id="IZi-I7-5FR"/>
+                        <outlet property="delegate" destination="-1" id="SEF-YK-Syz"/>
                     </connections>
-                </textField>
+                </searchBar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>

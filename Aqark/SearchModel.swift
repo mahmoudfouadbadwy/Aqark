@@ -8,15 +8,25 @@
 
 import UIKit
 
-struct SearchModel {
-    let image: UIImage
-    let propertyType: String
-    let price: String
-    let address: String
-    let country: String
-    let size: String
-    let bedRoomsNumber: String
-    let bathRoomsNumber: String
-
+class SearchModel {
+    var image: UIImage!
+    var propertyType: String!
+    var price: String!
+    var address: String!
+    var country: String!
+    var size: String!
+    var bedRoomsNumber: String!
+    var bathRoomsNumber: String!
     
-}
+    init(image: UIImage, propertyType: String, price: String, address: String, country: String, size: String, bedRoomsNumber: String,bathRoomsNumber: String){
+       self.image = image
+        self.propertyType = propertyType
+        self.price = price
+        self.address = address
+        self.country = country
+         self.size = size
+        self.bedRoomsNumber = bedRoomsNumber
+        self.bathRoomsNumber = bathRoomsNumber
+       
+    }
+    }

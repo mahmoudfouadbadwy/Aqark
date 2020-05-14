@@ -30,16 +30,6 @@ class AdvertisementCellCollectionViewCell: UICollectionViewCell {
         // Initialization code
     
     }
-    public func configure(with model: SearchModel) {
-        advertisementImage.image = model.image
-        propertyTypeLabel.text = model.propertyType
-        propertyPriceLabel.text = model.price
-        proprtyAddressLabel.text =  model.address
-        propertySizeLabel.text = model.size
-        numberOfBedsLabel.text = model.bedRoomsNumber
-        numberOfBathRoomsLabel.text = model.bathRoomsNumber
-        
-        
-    }
+   
     
 }

@@ -24,6 +24,8 @@
 		C60D0F172469FA43008A637D /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60D0F162469FA43008A637D /* SearchModel.swift */; };
 		C60D0F192469FD8F008A637D /* apartment.png in Resources */ = {isa = PBXBuildFile; fileRef = C60D0F182469FD8E008A637D /* apartment.png */; };
 		C60D0F26246A1092008A637D /* Amenities in Resources */ = {isa = PBXBuildFile; fileRef = C60D0F25246A1092008A637D /* Amenities */; };
+		C63F74DE246BC56F00142EE0 /* AdvertisementData .swift in Sources */ = {isa = PBXBuildFile; fileRef = C63F74DD246BC56F00142EE0 /* AdvertisementData .swift */; };
+		C63F74E0246BD12400142EE0 /* AdvertismentsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63F74DF246BD12400142EE0 /* AdvertismentsListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		C60D0F162469FA43008A637D /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchModel.swift; path = Aqark/SearchModel.swift; sourceTree = SOURCE_ROOT; };
 		C60D0F182469FD8E008A637D /* apartment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = apartment.png; path = "../../../../../../../../Volumes/VMware Shared Folders/vm/apartment.png"; sourceTree = "<group>"; };
 		C60D0F25246A1092008A637D /* Amenities */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Amenities; path = "../../../../../../../../Volumes/VMware Shared Folders/vm/Amenities"; sourceTree = "<group>"; };
+		C63F74DD246BC56F00142EE0 /* AdvertisementData .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdvertisementData .swift"; sourceTree = "<group>"; };
+		C63F74DF246BD12400142EE0 /* AdvertismentsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdvertismentsListViewModel.swift; path = Aqark/search/data/AdvertismentsListViewModel.swift; sourceTree = SOURCE_ROOT; };
 		C66C325E246A50F800532FA5 /* duplex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = duplex.png; path = view/duplex.png; sourceTree = SOURCE_ROOT; };
 		C66C325F246A510800532FA5 /* villa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = villa.png; path = view/villa.png; sourceTree = SOURCE_ROOT; };
 		DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AqarkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +112,7 @@
 		BF06B3FF24679CEA005D7151 /* search */ = {
 			isa = PBXGroup;
 			children = (
+				C63F74DC246BC4CA00142EE0 /* data */,
 				BFBAED852468A5CA00996DE8 /* model */,
 				BF06B40D24679EAD005D7151 /* view model */,
 				BF06B40A24679DCE005D7151 /* view */,
@@ -198,13 +203,13 @@
 		BF06B40A24679DCE005D7151 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				C66C325F246A510800532FA5 /* villa.png */,
-				C66C325E246A50F800532FA5 /* duplex.png */,
-				C60D0F182469FD8E008A637D /* apartment.png */,
 				C60D0F0A2469EC23008A637D /* SearchViewController.swift */,
 				C60D0F0B2469EC23008A637D /* SearchViewController.xib */,
 				C60D0F0E2469EC6A008A637D /* AdvertisementCellCollectionViewCell.swift */,
 				C60D0F0F2469EC6A008A637D /* AdvertisementCellCollectionViewCell.xib */,
+				C66C325F246A510800532FA5 /* villa.png */,
+				C66C325E246A50F800532FA5 /* duplex.png */,
+				C60D0F182469FD8E008A637D /* apartment.png */,
 				C60D0F25246A1092008A637D /* Amenities */,
 			);
 			path = view;
@@ -213,6 +218,7 @@
 		BF06B40D24679EAD005D7151 /* view model */ = {
 			isa = PBXGroup;
 			children = (
+				C63F74DF246BD12400142EE0 /* AdvertismentsListViewModel.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -445,6 +451,14 @@
 			path = AqarkTests;
 			sourceTree = "<group>";
 		};
+		C63F74DC246BC4CA00142EE0 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				C63F74DD246BC56F00142EE0 /* AdvertisementData .swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -638,7 +652,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C60D0F0C2469EC23008A637D /* SearchViewController.swift in Sources */,
+				C63F74E0246BD12400142EE0 /* AdvertismentsListViewModel.swift in Sources */,
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
+				C63F74DE246BC56F00142EE0 /* AdvertisementData .swift in Sources */,
 				C60D0F102469EC6A008A637D /* AdvertisementCellCollectionViewCell.swift in Sources */,
 				C60D0F172469FA43008A637D /* SearchModel.swift in Sources */,
 				BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */,
