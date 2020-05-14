@@ -8,12 +8,11 @@
 
 import UIKit
 
-@IBDesignable class SubmitButton: UIButton {
+@IBDesignable class CustomButton: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
         updateCornerRadius()
-        
     }
     
     @IBInspectable var rounded : Bool = false{

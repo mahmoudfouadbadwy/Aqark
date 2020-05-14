@@ -19,6 +19,11 @@ class FirstScreenViewController: UIViewController {
         rolesPicker.dataSource = self
         roles = ["User","Lawyer","Interior Designer"]
     }
+    
+    @IBAction func submit(_ sender: Any) {
+        let loginView = LoginViewController()
+        self.present(loginView, animated: true)
+    }
 }
 
 extension FirstScreenViewController : UIPickerViewDelegate,UIPickerViewDataSource{
