@@ -16,7 +16,7 @@ class SignUpView: UIViewController  {
     @IBOutlet weak var confirmPassword: UITextField!
     @IBOutlet weak var company: UITextField!
     @IBOutlet weak var countries: UIPickerView!
-    private var role:String = "user"
+    private var role:String = "lawyer"
     private var accountViewModel:AccountViewModel!
     private let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     private var countriesPicker:[String] = Countries().countries
