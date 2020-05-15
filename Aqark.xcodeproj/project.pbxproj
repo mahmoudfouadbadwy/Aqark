@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E943FC7246A053300A1FF83 /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E943FC5246A053300A1FF83 /* FirstScreenViewController.swift */; };
+		3E943FC8246A053300A1FF83 /* FirstScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E943FC6246A053300A1FF83 /* FirstScreenViewController.xib */; };
+		3E943FCA246A262400A1FF83 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E943FC9246A262400A1FF83 /* CustomButton.swift */; };
+		3EA83699246CE07C009AD024 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA83698246CE07C009AD024 /* LoginViewModel.swift */; };
+		3EA8369B246CE13A009AD024 /* ValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8369A246CE13A009AD024 /* ValidationProtocol.swift */; };
+		3EA8369D246CE15C009AD024 /* BrokenRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8369C246CE15C009AD024 /* BrokenRule.swift */; };
+		3EA836A0246CEFE2009AD024 /* DataAccessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8369F246CEFE2009AD024 /* DataAccessLayer.swift */; };
+		3EE3B130246B66EA00885768 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE3B12E246B66EA00885768 /* LoginViewController.swift */; };
+		3EE3B131246B66EB00885768 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EE3B12F246B66EA00885768 /* LoginViewController.xib */; };
+		3EF20022246B8B50001F3451 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF20021246B8B50001F3451 /* CustomTextField.swift */; };
 		7056A0D613EFCF7CC97F41EB /* Pods_Aqark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */; };
 		AB359ED5E1D6FD408208700F /* Pods_AqarkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */; };
 		BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD38A246A3B120013FF4B /* AccountViewModel.swift */; };
@@ -37,6 +47,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E943FC5246A053300A1FF83 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstScreenViewController.swift; path = Aqark/FirstScreenViewController.swift; sourceTree = SOURCE_ROOT; };
+		3E943FC6246A053300A1FF83 /* FirstScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FirstScreenViewController.xib; path = Aqark/FirstScreenViewController.xib; sourceTree = SOURCE_ROOT; };
+		3E943FC9246A262400A1FF83 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = Aqark/CustomButton.swift; sourceTree = SOURCE_ROOT; };
+		3EA83698246CE07C009AD024 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = Aqark/LoginViewModel.swift; sourceTree = SOURCE_ROOT; };
+		3EA8369A246CE13A009AD024 /* ValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ValidationProtocol.swift; path = Aqark/ValidationProtocol.swift; sourceTree = SOURCE_ROOT; };
+		3EA8369C246CE15C009AD024 /* BrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BrokenRule.swift; path = Aqark/BrokenRule.swift; sourceTree = SOURCE_ROOT; };
+		3EA8369F246CEFE2009AD024 /* DataAccessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAccessLayer.swift; sourceTree = "<group>"; };
+		3EE3B12E246B66EA00885768 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Aqark/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		3EE3B12F246B66EA00885768 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Aqark/LoginViewController.xib; sourceTree = SOURCE_ROOT; };
+		3EF20021246B8B50001F3451 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomTextField.swift; path = Aqark/CustomTextField.swift; sourceTree = SOURCE_ROOT; };
 		58560B4C74A5E0F6183A61D7 /* Pods-AqarkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AqarkTests.debug.xcconfig"; path = "Target Support Files/Pods-AqarkTests/Pods-AqarkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aqark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B20C334276836267C28034 /* Pods-Aqark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqark.debug.xcconfig"; path = "Target Support Files/Pods-Aqark/Pods-Aqark.debug.xcconfig"; sourceTree = "<group>"; };
@@ -92,6 +112,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3EA8369E246CEF9D009AD024 /* data access layer */ = {
+			isa = PBXGroup;
+			children = (
+				3EA8369F246CEFE2009AD024 /* DataAccessLayer.swift */,
+			);
+			path = "data access layer";
+			sourceTree = "<group>";
+		};
 		AD923418C8264B7A9F4E1EDA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +164,7 @@
 		BF06B40224679D2B005D7151 /* login */ = {
 			isa = PBXGroup;
 			children = (
+				3EA8369E246CEF9D009AD024 /* data access layer */,
 				BFBAED822468A5AE00996DE8 /* model */,
 				BF06B41324679EE8005D7151 /* view model */,
 				BF06B41224679EE2005D7151 /* view  */,
@@ -239,6 +268,12 @@
 		BF06B41224679EE2005D7151 /* view  */ = {
 			isa = PBXGroup;
 			children = (
+				3E943FC5246A053300A1FF83 /* FirstScreenViewController.swift */,
+				3E943FC6246A053300A1FF83 /* FirstScreenViewController.xib */,
+				3E943FC9246A262400A1FF83 /* CustomButton.swift */,
+				3EE3B12E246B66EA00885768 /* LoginViewController.swift */,
+				3EE3B12F246B66EA00885768 /* LoginViewController.xib */,
+				3EF20021246B8B50001F3451 /* CustomTextField.swift */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -246,6 +281,9 @@
 		BF06B41324679EE8005D7151 /* view model */ = {
 			isa = PBXGroup;
 			children = (
+				3EA83698246CE07C009AD024 /* LoginViewModel.swift */,
+				3EA8369A246CE13A009AD024 /* ValidationProtocol.swift */,
+				3EA8369C246CE15C009AD024 /* BrokenRule.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -535,6 +573,8 @@
 			files = (
 				BFCF0BD024677F8100A43D8B /* LaunchScreen.storyboard in Resources */,
 				BFE9F4472469930200E44777 /* GoogleService-Info.plist in Resources */,
+				3EE3B131246B66EB00885768 /* LoginViewController.xib in Resources */,
+				3E943FC8246A053300A1FF83 /* FirstScreenViewController.xib in Resources */,
 				BFCF0BCD24677F8100A43D8B /* Assets.xcassets in Resources */,
 				BF4423342469D1B80050BD8A /* SignUpView.xib in Resources */,
 				BFCF0BC824677F8000A43D8B /* Main.storyboard in Resources */,
@@ -627,7 +667,16 @@
 				BF3AD38E246A3BB00013FF4B /* User.swift in Sources */,
 				BF4423332469D1B80050BD8A /* SignUpView.swift in Sources */,
 				BF66CC1E246C678B00C9FD01 /* Countries.swift in Sources */,
+				3EA8369B246CE13A009AD024 /* ValidationProtocol.swift in Sources */,
+				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
+				3EA8369D246CE15C009AD024 /* BrokenRule.swift in Sources */,
+				3E943FCA246A262400A1FF83 /* CustomButton.swift in Sources */,
+				3EF20022246B8B50001F3451 /* CustomTextField.swift in Sources */,
+				3E943FC7246A053300A1FF83 /* FirstScreenViewController.swift in Sources */,
+				3EE3B130246B66EA00885768 /* LoginViewController.swift in Sources */,
+				3EA836A0246CEFE2009AD024 /* DataAccessLayer.swift in Sources */,
 				BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */,
+				3EA83699246CE07C009AD024 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,6 +841,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R6PF9J8HWS;
 				INFOPLIST_FILE = Aqark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -811,6 +861,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R6PF9J8HWS;
 				INFOPLIST_FILE = Aqark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
