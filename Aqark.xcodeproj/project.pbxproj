@@ -12,8 +12,8 @@
 		3E943FCA246A262400A1FF83 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E943FC9246A262400A1FF83 /* CustomButton.swift */; };
 		3EA83699246CE07C009AD024 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA83698246CE07C009AD024 /* LoginViewModel.swift */; };
 		3EA8369B246CE13A009AD024 /* ValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8369A246CE13A009AD024 /* ValidationProtocol.swift */; };
-		3EA8369D246CE15C009AD024 /* BrokenRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8369C246CE15C009AD024 /* BrokenRule.swift */; };
-		3EA836A0246CEFE2009AD024 /* DataAccessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8369F246CEFE2009AD024 /* DataAccessLayer.swift */; };
+		3EA8369D246CE15C009AD024 /* LoginBrokenRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8369C246CE15C009AD024 /* LoginBrokenRule.swift */; };
+		3EA836A0246CEFE2009AD024 /* LoginDataAccessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8369F246CEFE2009AD024 /* LoginDataAccessLayer.swift */; };
 		3EE3B130246B66EA00885768 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE3B12E246B66EA00885768 /* LoginViewController.swift */; };
 		3EE3B131246B66EB00885768 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EE3B12F246B66EA00885768 /* LoginViewController.xib */; };
 		3EF20022246B8B50001F3451 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF20021246B8B50001F3451 /* CustomTextField.swift */; };
@@ -52,8 +52,8 @@
 		3E943FC9246A262400A1FF83 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = Aqark/CustomButton.swift; sourceTree = SOURCE_ROOT; };
 		3EA83698246CE07C009AD024 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = Aqark/LoginViewModel.swift; sourceTree = SOURCE_ROOT; };
 		3EA8369A246CE13A009AD024 /* ValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ValidationProtocol.swift; path = Aqark/ValidationProtocol.swift; sourceTree = SOURCE_ROOT; };
-		3EA8369C246CE15C009AD024 /* BrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BrokenRule.swift; path = Aqark/BrokenRule.swift; sourceTree = SOURCE_ROOT; };
-		3EA8369F246CEFE2009AD024 /* DataAccessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAccessLayer.swift; sourceTree = "<group>"; };
+		3EA8369C246CE15C009AD024 /* LoginBrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginBrokenRule.swift; path = Aqark/LoginBrokenRule.swift; sourceTree = SOURCE_ROOT; };
+		3EA8369F246CEFE2009AD024 /* LoginDataAccessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataAccessLayer.swift; sourceTree = "<group>"; };
 		3EE3B12E246B66EA00885768 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Aqark/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		3EE3B12F246B66EA00885768 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Aqark/LoginViewController.xib; sourceTree = SOURCE_ROOT; };
 		3EF20021246B8B50001F3451 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomTextField.swift; path = Aqark/CustomTextField.swift; sourceTree = SOURCE_ROOT; };
@@ -115,7 +115,7 @@
 		3EA8369E246CEF9D009AD024 /* data access layer */ = {
 			isa = PBXGroup;
 			children = (
-				3EA8369F246CEFE2009AD024 /* DataAccessLayer.swift */,
+				3EA8369F246CEFE2009AD024 /* LoginDataAccessLayer.swift */,
 			);
 			path = "data access layer";
 			sourceTree = "<group>";
@@ -283,7 +283,7 @@
 			children = (
 				3EA83698246CE07C009AD024 /* LoginViewModel.swift */,
 				3EA8369A246CE13A009AD024 /* ValidationProtocol.swift */,
-				3EA8369C246CE15C009AD024 /* BrokenRule.swift */,
+				3EA8369C246CE15C009AD024 /* LoginBrokenRule.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -669,12 +669,12 @@
 				BF66CC1E246C678B00C9FD01 /* Countries.swift in Sources */,
 				3EA8369B246CE13A009AD024 /* ValidationProtocol.swift in Sources */,
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
-				3EA8369D246CE15C009AD024 /* BrokenRule.swift in Sources */,
+				3EA8369D246CE15C009AD024 /* LoginBrokenRule.swift in Sources */,
 				3E943FCA246A262400A1FF83 /* CustomButton.swift in Sources */,
 				3EF20022246B8B50001F3451 /* CustomTextField.swift in Sources */,
 				3E943FC7246A053300A1FF83 /* FirstScreenViewController.swift in Sources */,
 				3EE3B130246B66EA00885768 /* LoginViewController.swift in Sources */,
-				3EA836A0246CEFE2009AD024 /* DataAccessLayer.swift in Sources */,
+				3EA836A0246CEFE2009AD024 /* LoginDataAccessLayer.swift in Sources */,
 				BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */,
 				3EA83699246CE07C009AD024 /* LoginViewModel.swift in Sources */,
 			);

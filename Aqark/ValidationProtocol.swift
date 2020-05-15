@@ -9,6 +9,6 @@
 import Foundation
 
 protocol ValidationProtocol {
-    var brokenRules : [BrokenRule] {get set}
+    var brokenRules : [LoginBrokenRule] {get set}
     var isValid : Bool {mutating get}
 }

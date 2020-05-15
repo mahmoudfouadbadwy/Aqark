@@ -13,7 +13,7 @@ import ReachabilitySwift
 class LoginViewModel : ValidationProtocol{
     var userEmail : String!
     var userPassword : String!
-    var brokenRules: [BrokenRule] = [BrokenRule]()
+    var brokenRules: [LoginBrokenRule] = [LoginBrokenRule]()
     var isValid: Bool {
         get{
             self.brokenRules.removeAll()
@@ -21,23 +21,23 @@ class LoginViewModel : ValidationProtocol{
             return brokenRules.count == 0
         }
     }
-    var dao = DataAccessLayer()
+    var dao = LoginDataAccessLayer()
     
     func validate(){
         if(!(userEmail.isEmpty)){
             if(!(isValidEmail(email: userEmail))){
-                self.brokenRules.append(BrokenRule(propertyName: "User Email", message: "The email or password you entered is invalid"))
+                self.brokenRules.append(LoginBrokenRule(propertyName: "User Email", message: "The email or password you entered is invalid"))
             }
         }else{
-            self.brokenRules.append(BrokenRule(propertyName: "User Email", message: "Email is required"))
+            self.brokenRules.append(LoginBrokenRule(propertyName: "User Email", message: "Email is required"))
         }
         
         if(!(userPassword.isEmpty)){
             if(userPassword.count < 6){
-                self.brokenRules.append(BrokenRule(propertyName: "User Password", message: "The email or password you entered is invalid"))
+                self.brokenRules.append(LoginBrokenRule(propertyName: "User Password", message: "The email or password you entered is invalid"))
             }
         }else{
-            self.brokenRules.append(BrokenRule(propertyName: "User password", message: "Password is required"))
+            self.brokenRules.append(LoginBrokenRule(propertyName: "User password", message: "Password is required"))
         }
     }
     

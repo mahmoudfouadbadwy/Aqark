@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BrokenRule {
+struct LoginBrokenRule {
     var propertyName : String
     var message : String
 }
