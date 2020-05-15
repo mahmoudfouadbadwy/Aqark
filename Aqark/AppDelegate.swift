@@ -37,10 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /* start zeinab*/
         /* end zeinab*/
         /* start zeyad*/
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
-        firstScreen = FirstScreenViewController(nibName: "FirstScreenViewController", bundle: nil)
-        window?.rootViewController = firstScreen
         /* end zeyad*/
         return true
     }
