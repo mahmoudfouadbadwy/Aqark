@@ -25,7 +25,7 @@
 		BF4423332469D1B80050BD8A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4423312469D1B80050BD8A /* SignUpView.swift */; };
 		BF4423342469D1B80050BD8A /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF4423322469D1B80050BD8A /* SignUpView.xib */; };
 		BF66CC1E246C678B00C9FD01 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF66CC1D246C678B00C9FD01 /* Countries.swift */; };
-		BF96078A246B26C1002B63D5 /* BrokenRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF960789246B26C1002B63D5 /* BrokenRule.swift */; };
+		BF96078A246B26C1002B63D5 /* SignupBrokenRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF960789246B26C1002B63D5 /* SignupBrokenRule.swift */; };
 		BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF0BC224677F8000A43D8B /* AppDelegate.swift */; };
 		BFCF0BC824677F8000A43D8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFCF0BC624677F8000A43D8B /* Main.storyboard */; };
 		BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFCF0BC924677F8000A43D8B /* Aqark.xcdatamodeld */; };
@@ -68,7 +68,7 @@
 		BF4423312469D1B80050BD8A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		BF4423322469D1B80050BD8A /* SignUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
 		BF66CC1D246C678B00C9FD01 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
-		BF960789246B26C1002B63D5 /* BrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokenRule.swift; sourceTree = "<group>"; };
+		BF960789246B26C1002B63D5 /* SignupBrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupBrokenRule.swift; sourceTree = "<group>"; };
 		BFCF0BBF24677F8000A43D8B /* Aqark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aqark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFCF0BC224677F8000A43D8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFCF0BC724677F8000A43D8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -400,7 +400,7 @@
 		BFBAED812468A5A600996DE8 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				BF960789246B26C1002B63D5 /* BrokenRule.swift */,
+				BF960789246B26C1002B63D5 /* SignupBrokenRule.swift */,
 				BF3AD38D246A3BB00013FF4B /* User.swift */,
 				BF66CC1D246C678B00C9FD01 /* Countries.swift */,
 			);
@@ -660,7 +660,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF96078A246B26C1002B63D5 /* BrokenRule.swift in Sources */,
+				BF96078A246B26C1002B63D5 /* SignupBrokenRule.swift in Sources */,
 				BF3AD391246A3F610013FF4B /* DataAccess.swift in Sources */,
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
 				BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */,

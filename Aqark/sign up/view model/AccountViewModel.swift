@@ -18,10 +18,10 @@ class AccountViewModel:Validation{
    private var country:String!
    private var company:String!
    private var role:String!
-   var brokenRules: [BrokenRule] = [BrokenRule]()
+   var brokenRules: [SignUpBrokenRule] = [SignUpBrokenRule]()
    var isValid: Bool{
         get{
-            self.brokenRules = [BrokenRule]()
+            self.brokenRules = [SignUpBrokenRule]()
             self.validate()
             return self.brokenRules.count == 0 ? true : false
         }
@@ -81,14 +81,14 @@ extension AccountViewModel{
     private func validateEmail(){
         if(email.isEmpty)
         {
-            self.brokenRules.append(BrokenRule(name:"Email",message:"An email address must be provided."))
+            self.brokenRules.append(SignUpBrokenRule(name:"Email",message:"An email address must be provided."))
         }
         else {
              let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
              let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
              if (!emailPred.evaluate(with: email))
              {
-                self.brokenRules.append(BrokenRule(name:"Email",message:"The email address is badly formatted."))
+                self.brokenRules.append(SignUpBrokenRule(name:"Email",message:"The email address is badly formatted."))
              }
         }
     }
@@ -98,7 +98,7 @@ extension AccountViewModel{
     private func validatePassword(){
         if(password.isEmpty || password.count<6)
         {
-            self.brokenRules.append(BrokenRule(name:"Password",message:"The password must be 6 characters long or more."))
+            self.brokenRules.append(SignUpBrokenRule(name:"Password",message:"The password must be 6 characters long or more."))
         }
     }
 }
@@ -107,7 +107,7 @@ extension AccountViewModel{
 extension AccountViewModel{
     func validateConfirmPassword(){
         if(self.confirmPassword.isEmpty || !self.confirmPassword.elementsEqual(self.password)){
-            self.brokenRules.append(BrokenRule(name:"Confirm Password",message:"Those passwords did not match."))
+            self.brokenRules.append(SignUpBrokenRule(name:"Confirm Password",message:"Those passwords did not match."))
         }
     }
 }
@@ -116,7 +116,7 @@ extension AccountViewModel{
 extension AccountViewModel{
     func validateUsername(){
         if (self.username.isEmpty){
-             self.brokenRules.append(BrokenRule(name:"Username",message:"Username must be provided."))
+             self.brokenRules.append(SignUpBrokenRule(name:"Username",message:"Username must be provided."))
         }
         else
         {
@@ -124,7 +124,7 @@ extension AccountViewModel{
             let usernamePred = NSPredicate(format:"SELF MATCHES %@",usernameRegEX )
             if (!usernamePred.evaluate(with: username))
             {
-                 self.brokenRules.append(BrokenRule(name:"Username",
+                 self.brokenRules.append(SignUpBrokenRule(name:"Username",
                  message:"Username must start of letter and be between 6 and 20 characters."))
             }
         }
@@ -137,14 +137,14 @@ extension AccountViewModel{
     {
         if(self.phone.isEmpty)
         {
-            self.brokenRules.append(BrokenRule(name:"phone",message: "Phone number must be provided."))
+            self.brokenRules.append(SignUpBrokenRule(name:"phone",message: "Phone number must be provided."))
         }
         else {
             let phoneRegex = "^\\d{11}$"
             let phonePred = NSPredicate(format:"SELF MATCHES %@",phoneRegex)
             if (!phonePred.evaluate(with: phone))
             {
-                 self.brokenRules.append(BrokenRule(name:"phone",message: "Phone number is badly formatted."))
+                 self.brokenRules.append(SignUpBrokenRule(name:"phone",message: "Phone number is badly formatted."))
             }
         }
     }
