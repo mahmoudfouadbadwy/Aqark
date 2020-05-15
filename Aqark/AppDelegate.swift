@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         window = UIWindow()
         window?.makeKeyAndVisible()
-        let rootController = SignUpView()
+        let rootController = FirstScreenViewController()
         window?.rootViewController = rootController
         /* end fouad*/
         /* start saied*/

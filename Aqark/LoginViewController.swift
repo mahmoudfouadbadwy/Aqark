@@ -52,6 +52,9 @@ class LoginViewController: UIViewController{
     
     @IBAction func signUp(_ sender: Any) {
         //Transfer user role to sign up view
+        let signUpView = SignUpView()
+        signUpView.role = userRole
+        self.present(signUpView, animated: true)
     }
     
     func showAlert(title:String,message:String){

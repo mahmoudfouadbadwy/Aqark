@@ -9,14 +9,14 @@
 import UIKit
 //MARK:- Life cycle and Properties
 class SignUpView: UIViewController  {
-    @IBOutlet weak var phoneNumber: UITextField!
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var email: UITextField!
-    @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var confirmPassword: UITextField!
-    @IBOutlet weak var company: UITextField!
-    @IBOutlet weak var countries: UIPickerView!
-    private var role:String = "lawyer"
+    @IBOutlet private weak var phoneNumber: UITextField!
+    @IBOutlet private weak var username: UITextField!
+    @IBOutlet private weak var email: UITextField!
+    @IBOutlet private weak var password: UITextField!
+    @IBOutlet private weak var confirmPassword: UITextField!
+    @IBOutlet private weak var company: UITextField!
+    @IBOutlet private weak var countries: UIPickerView!
+    var role:String = "lawyer"
     private var accountViewModel:AccountViewModel!
     private let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     private var countriesPicker:[String] = Countries().countries
