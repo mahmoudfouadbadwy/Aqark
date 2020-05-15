@@ -10,9 +10,14 @@ import Foundation
 import Firebase
 
 class DataAccessLayer{
-    func login(userEmail:String,userPassword:String){
+    func login(userEmail:String,userPassword:String,completionForLogin:@escaping(_ result:String?,_ error:String?)->Void){
         Auth.auth().signIn(withEmail: userEmail, password: userPassword) { (result, error) in
-            print(error.debugDescription)
+            
+            if(error != nil){
+                completionForLogin(nil,error!.localizedDescription)
+            }else{
+                completionForLogin("Successfully Logged in \(result?.user.email ?? "user")",nil)
+            }
         }
     }
 }

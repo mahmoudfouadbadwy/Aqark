@@ -40,15 +40,15 @@ import UIKit
     
     //MARK: Floating Label
     
-    //    required init?(coder aDecoder: NSCoder) {
-    //        super.init(coder:aDecoder)
-    //        updateTextImage()
-    //        self._placeholder = (self._placeholder != nil) ? self._placeholder : placeholder
-    //        placeholder = self._placeholder
-    //        self.floatingLabel = UILabel(frame: CGRect.zero)
-    //        self.addTarget(self, action: #selector(addFloatingLabel), for: .editingDidBegin)
-    //        self.addTarget(self, action:#selector(removeFloatingLabel), for: .editingDidEnd)
-    //    }
+//        required init?(coder aDecoder: NSCoder) {
+//            super.init(coder:aDecoder)
+////            updateTextImage()
+//            self._placeholder = (self._placeholder != nil) ? self._placeholder : placeholder
+//            placeholder = self._placeholder
+//            self.floatingLabel = UILabel(frame: CGRect.zero)
+//            self.addTarget(self, action: #selector(addFloatingLabel), for: .editingDidBegin)
+//            self.addTarget(self, action:#selector(removeFloatingLabel), for: .editingDidEnd)
+//        }
     
     var floatingLabel = UILabel(frame: CGRect.zero)
     var floatingLabelHeight : CGFloat = 14
@@ -100,7 +100,7 @@ import UIKit
     @objc func removeFloatingLabel(){
         if self.text == "" {
             UIView.animate(withDuration: 0.13){
-                self.subviews[2].removeFromSuperview()
+                self.subviews[3].removeFromSuperview()
                 self.setNeedsDisplay()
             }
             self.placeholder = self._placeholder

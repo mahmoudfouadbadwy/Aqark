@@ -9,38 +9,59 @@
 import UIKit
 
 class LoginViewController: UIViewController{
-
+    
     @IBOutlet weak var userEmailTextField: CustomTextField!
     @IBOutlet weak var userPasswordTextField: CustomTextField!
     private var loginViewModel : LoginViewModel!
-    
+    @IBOutlet weak var loginActivityIndicator: UIActivityIndicatorView!
+    var userRole : String!
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(userRole)
+        loginViewModel = LoginViewModel()
         userEmailTextField.delegate = self
         userPasswordTextField.delegate = self
-        loginViewModel = LoginViewModel()
     }
-
-
+      
     @IBAction func login(_ sender: Any) {
+        view.endEditing(true)
+        loginActivityIndicator.startAnimating()
         loginViewModel.userEmail = userEmailTextField.text
         loginViewModel.userPassword = userPasswordTextField.text
         if(loginViewModel.isValid){
-            loginViewModel.authenticateLogin()
-            showAlert(message: "Valid Login")
+            if(loginViewModel.checkNetworkConnection()){
+                loginViewModel.authenticateLogin { (result,error) in
+                    if let error = error {
+                        self.loginActivityIndicator.stopAnimating()
+                        self.showAlert(title: "Logged", message: error)
+                        //TODO: move to account details view
+                    }else{
+                        self.loginActivityIndicator.stopAnimating()
+                        self.showAlert(title:"Invalid Login", message: result!)
+                    }
+                }
+            }else{
+                showAlert(title: "Connection", message: "Check yout internet connection")
+            }
         }else{
-            showAlert(message: loginViewModel.brokenRules.first!.message)
+            loginActivityIndicator.stopAnimating()
+            showAlert(title: "Invalid Login", message: loginViewModel.brokenRules.first!.message)
             print(loginViewModel.brokenRules)
         }
     }
     
-    func showAlert(message:String){
-        let alert = UIAlertController(title: "Invalid Login", message: message, preferredStyle: UIAlertController.Style.alert)
+    @IBAction func signUp(_ sender: Any) {
+        //Transfer user role to sign up view
+    }
+    
+    func showAlert(title:String,message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel){(okAction) in
             alert.dismiss(animated: true, completion: nil)}
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
 }
 
 extension LoginViewController : UITextFieldDelegate{

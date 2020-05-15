@@ -12,18 +12,38 @@ class FirstScreenViewController: UIViewController {
     
     @IBOutlet weak var rolesPicker: UIPickerView!
     var roles : [String] = [String]()
-    
-    override func viewDidLoad() {
+    var userRole : String = "User"
+    private var loginViewModel : LoginViewModel!
+    override func viewDidLoad(){
         super.viewDidLoad()
-        rolesPicker.delegate = self
-        rolesPicker.dataSource = self
-        roles = ["User","Lawyer","Interior Designer"]
-    }
+        loginViewModel = LoginViewModel()
+        if(loginViewModel.checkNetworkConnection()){
+            rolesPicker.delegate = self
+            rolesPicker.dataSource = self
+            roles = ["User","Lawyer","Interior Designer"]
+        }else{
+            //PlaceHolder image for no internet connection.
+            print("noConnection")
+        }
+        }
     
     @IBAction func submit(_ sender: Any) {
-        let loginView = LoginViewController()
-        self.present(loginView, animated: true)
+        if(loginViewModel.checkNetworkConnection()){
+            let loginView = LoginViewController()
+                  loginView.userRole = userRole
+                  self.present(loginView, animated: true)
+        }else{
+            showAlert(title: "Connection", message: "Check your internet connection")
+        }
     }
+    
+    func showAlert(title:String,message:String){
+          let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+          let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel){(okAction) in
+              alert.dismiss(animated: true, completion: nil)}
+          alert.addAction(okAction)
+          self.present(alert, animated: true, completion: nil)
+      }
 }
 
 extension FirstScreenViewController : UIPickerViewDelegate,UIPickerViewDataSource{
@@ -41,7 +61,6 @@ extension FirstScreenViewController : UIPickerViewDelegate,UIPickerViewDataSourc
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(roles[row])
+        userRole = roles[row]
     }
- 
 }

@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import ReachabilitySwift
+
 
 class LoginViewModel : ValidationProtocol{
     var userEmail : String!
@@ -45,8 +47,20 @@ class LoginViewModel : ValidationProtocol{
         return emailPred.evaluate(with: email)
     }
     
-    func authenticateLogin(){
-        dao.login(userEmail: userEmail, userPassword: userPassword)
+    func authenticateLogin(completion:@escaping(_ result:String?,_ error :String?)->Void){
+        dao.login(userEmail: userEmail, userPassword: userPassword) { (result,error) in
+            
+            if let error = error {
+                completion(nil,error)
+            }else{
+                completion(result,nil)
+            }
+        }
+    }
+    func checkNetworkConnection()->Bool{
+        let connection = Reachability()
+        guard let status = connection?.isReachable else{return false}
+        return status
     }
 }
 
