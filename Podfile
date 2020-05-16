@@ -11,6 +11,7 @@ target 'Aqark' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'GooglePlaces','~> 3.7.0'
+  pod 'ReachabilitySwift','~> 3.0'
   
 
   target 'AqarkTests' do

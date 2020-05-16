@@ -8,10 +8,11 @@
 
 import UIKit
 
-class SearchModel {
+class AdvertisementSearchModel {
     var image: UIImage!
     var propertyType: String!
     var advertisementType: String!
+    var advertisementId: String!
     var price: String!
     var address: String!
     var country: String!
@@ -20,9 +21,10 @@ class SearchModel {
     var bathRoomsNumber: String!
     
     
-    init(image: UIImage, propertyType: String,advertisementType: String ,price: String, address: String, country: String, size: String, bedRoomsNumber: String,bathRoomsNumber: String){
+    init(image: UIImage, propertyType: String,advertisementType: String ,advertisementId: String,price: String, address: String, country: String, size: String, bedRoomsNumber: String,bathRoomsNumber: String){
        self.image = image
         self.propertyType = propertyType
+        self.advertisementId = advertisementId
         self.price = price
         self.address = address
         self.country = country

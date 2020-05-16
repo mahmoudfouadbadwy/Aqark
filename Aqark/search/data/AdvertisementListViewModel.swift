@@ -9,23 +9,22 @@
 import Foundation
 import UIKit
 
-class AdvertismentsListViewModel{
+class AdvertisementListViewModel{
     
     var advertismentsViewModel : [AdvertisementViewModel] = [AdvertisementViewModel]()
-    private var data : AdvertisementData
+    private var dataAccess : AdvertisementData
     
-    init(data : AdvertisementData ) {
-        self.data = data
-        populateAds()
+    init(dataAccess : AdvertisementData ) {
+        self.dataAccess = dataAccess
     }
     
-    
-    private func populateAds(){
-        
-        let ads = AdvertisementData.getAllAdvertisements()
-        self.advertismentsViewModel = ads.map{ ad in
-            return AdvertisementViewModel(model: ad)
+    func populateAds(completionForPopulateAds : @escaping (_ adsResults:[AdvertisementViewModel]) -> Void){
+        AdvertisementData().getAllAdvertisements(){(searchResults) in
+        self.advertismentsViewModel = searchResults.map{ ad in
+            AdvertisementViewModel(model: ad)
         }
+        completionForPopulateAds(self.advertismentsViewModel )
+    }
     }
 }
 
@@ -40,7 +39,7 @@ class AdvertisementViewModel{
     var bedRoomsNumber: String!
     var bathRoomsNumber: String!
 
-    init(model : SearchModel){
+    init(model : AdvertisementSearchModel){
         self.image = model.image
         self.propertyType = model.propertyType
         self.price = model.price
@@ -51,5 +50,5 @@ class AdvertisementViewModel{
         self.bathRoomsNumber = model.bathRoomsNumber
         
             }
-    
 }
+
