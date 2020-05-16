@@ -30,7 +30,7 @@ class AdvertisementListViewModel{
 
 class AdvertisementViewModel{
     
-    var image: UIImage!
+    var image: String!
     var propertyType: String!
     var price: String!
     var address: String!

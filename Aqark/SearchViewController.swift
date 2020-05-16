@@ -8,14 +8,15 @@
 
 import UIKit
 import GooglePlaces
-import Firebase
 import ReachabilitySwift
+import SDWebImage
 
 
 class SearchViewController: UIViewController{
     
+    @IBOutlet weak var placeHolderView: UIView!
+    @IBOutlet weak var labelPlaceHolder: UILabel!
     @IBOutlet weak var imagePlaceHolder: UIImageView!
-    @IBOutlet weak var searchActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchCollectionView: UICollectionView!
     var collectionViewFlowLayout:UICollectionViewFlowLayout!
@@ -24,10 +25,11 @@ class SearchViewController: UIViewController{
     private var data : AdvertisementData!
     private var filteredAdsList = [AdvertisementViewModel]()
     private var unFilteredAdsList = [AdvertisementViewModel]()
+    private let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     private var arrOfAdViewModel : [AdvertisementViewModel]?{
         didSet{
             self.searchCollectionView.reloadData()
-            self.searchActivityIndicator.stopAnimating()
+            stopIndicator()
 
         }
     }
@@ -35,7 +37,9 @@ class SearchViewController: UIViewController{
         didSet{
             filterContentForSearchBarText(searchBar.text!)
             if filteredAdsList.count == 0 {
-                imagePlaceHolder.image = UIImage(named: "villa")!
+                placeHolderView.isHidden = false
+                imagePlaceHolder.image = UIImage(named: "search_not_found")
+                labelPlaceHolder.text = "No Advertisements Found"
             }
         }
     }
@@ -43,50 +47,60 @@ class SearchViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         if !checkNetworkConnection(){
-            print("not connected")
-            searchActivityIndicator.stopAnimating()
-            imagePlaceHolder.image = UIImage(named: "apartment")!
+           placeHolderView.isHidden = false
+            imagePlaceHolder.image = UIImage(named: "search_no_connection")
+            labelPlaceHolder.text = "No Internet Connection"
+
+
             
-        }
-          
-        
-        searchActivityIndicator.startAnimating()
+        }else{
+        placeHolderView.isHidden = true
+        showIndicator()
          searchBar.delegate = self
          searchCollectionView.register(UINib(nibName: "AdvertisementCellCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
         updateFlowLayout()
+        searchComponents()
         self.data = AdvertisementData()
         self.advertismentsListViewModel = AdvertisementListViewModel(dataAccess: self.data)
         
-        //
-        searchController.obscuresBackgroundDuringPresentation = false
-        //
-        searchController.searchBar.placeholder = "Search Location"
-        //
-        navigationItem.searchController = searchController
-        //
-        definesPresentationContext = true
-     
-        searchCollectionView.reloadData()
         advertismentsListViewModel.populateAds { (dataResults) in
             self.arrOfAdViewModel = dataResults
             
         }
+          searchCollectionView.reloadData()
+    }
+        
+}
+}
+
+
+//MARK: - UIViewIndicator
+extension SearchViewController{
+    func showIndicator()
+    {
+        networkIndicator.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        networkIndicator.center = view.center
+        networkIndicator.startAnimating()
+        view.addSubview(networkIndicator)
+    }
+    
+    func stopIndicator() {
+        networkIndicator.stopAnimating()
     }
 }
 
-func checkNetworkConnection()->Bool
-{
-    let connection = Reachability()
-    guard let status = connection?.isReachable else{return false}
-    return status
-}
 
 //MARK: CollectionView
 
 extension SearchViewController : UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if advertismentsListViewModel != nil{
         return isFiltering ? filteredAdsList.count : advertismentsListViewModel.advertismentsViewModel.count
+        }else{
+            return 0
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -104,7 +118,8 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
             }
         }
         
-        cell.advertisementImage?.image = adViewModel.image
+        cell.advertisementImage?.sd_setImage(with: URL(string: adViewModel.image), placeholderImage: UIImage(named: "search_apartment"))
+//        cell.advertisementImage?.image = UIImage(named: adViewModel.image)
         cell.propertyTypeLabel?.text = adViewModel.propertyType
         cell.proprtyAddressLabel?.text = adViewModel.address
         cell.propertyPriceLabel?.text = adViewModel.price
@@ -184,7 +199,7 @@ extension SearchViewController:  GMSAutocompleteViewControllerDelegate{
 
 //MARK: Search Bar
 extension SearchViewController:  UISearchBarDelegate{
-    
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchBar.becomeFirstResponder()
         appearAutoCompleteData()
@@ -203,6 +218,14 @@ extension SearchViewController:  UISearchBarDelegate{
     
      private var isFiltering: Bool {
         return (searchBar.text?.isEmpty)! && !searchController.isActive ? false : true
+    }
+    
+    func searchComponents() {
+        searchController.searchBar.placeholder = "Search Location"
+        //for iOS 11, you add the searchBar to the navigationItem. This is necessary because Interface Builder is not yet compatible with UISearchController.
+        navigationItem.searchController = searchController
+        // by setting definesPresentationContext on your view controller to true, you ensure that the search bar doesn’t remain on the screen if the user navigates to
+        definesPresentationContext = true
     }
 }
 

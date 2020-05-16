@@ -9,21 +9,23 @@
 import Foundation
 import Firebase
 import UIKit
+import SDWebImage
 
 class AdvertisementData{
     
     var advertisementsData = [AdvertisementSearchModel]()
-    var advertisementImage : UIImage!
+    var advertisementImage : String!
     var advertisementPropertyType : String!
     var advertisementType : String!
     var advertisementId  : String!
     var advertisementAddress : String!
     var advertisementCountry : String!
-    var advertisementPropertySize : Int!
-    var advertisementBedRoomsNum : Int!
-    var advertisementBathRoomsNum : Int!
-    var advertisementPropertyPrice : Int!
+    var advertisementPropertySize : String!
+    var advertisementBedRoomsNum : String!
+    var advertisementBathRoomsNum : String!
+    var advertisementPropertyPrice : String!
     var advertisementPropertyLocation : String!
+   
     
     func getAllAdvertisements(completionForGetAllAdvertisements : @escaping (_ searchResults:[AdvertisementSearchModel]) -> Void){
         
@@ -33,29 +35,35 @@ class AdvertisementData{
                 let dict = child.value as? [String : Any]
                 let key = child.key as? Any
                 
-                //self.pimages = dict["images"] as! UIImage
-                self.advertisementPropertyType = dict!["property type"] as? String
+
+//
+                let images = dict!["images"] as? [Any]
+//                for index in 0...images!.count - 1 {
+                self.advertisementImage = images![0] as? String
+//                 print(self.advertisementImage)
+//                }
+                
+                self.advertisementPropertyType = dict!["propertyType"] as? String
                 self.advertisementType = dict!["Advertisement Type"] as? String
                 self.advertisementCountry = dict!["country"] as? String
                 self.advertisementId = key as? String
-                self.advertisementPropertySize = dict!["size"] as? Int
-                self.advertisementBedRoomsNum = dict!["bedRooms"] as? Int
-                self.advertisementBathRoomsNum = dict!["bathRooms"] as? Int
-                self.advertisementPropertyPrice = dict!["price"] as? Int
+                self.advertisementPropertySize = dict!["size"] as? String
+                self.advertisementBedRoomsNum = dict!["bedRooms"] as? String
+                self.advertisementBathRoomsNum = dict!["bathRooms"] as? String
+                self.advertisementPropertyPrice = dict!["price"] as? String
                 var addressDictionary = dict!["Address"]  as! [String : AnyObject]
                 self.advertisementPropertyLocation = addressDictionary["location"] as? String
-                
+              
                 self.advertisementsData.append(AdvertisementSearchModel(
-                    image: UIImage(named: "search_apartment")!,
-                    propertyType: self.advertisementPropertyType,
+                    image: self.advertisementImage, propertyType  : self.advertisementPropertyType,
                     advertisementType: self.advertisementType,
                     advertisementId: self.advertisementId,
-                    price: String(self.advertisementPropertyPrice),
+                    price: self.advertisementPropertyPrice,
                     address: self.advertisementPropertyLocation,
                     country: self.advertisementCountry,
-                    size: String(self.advertisementPropertySize),
-                    bedRoomsNumber: String(self.advertisementBedRoomsNum),
-                    bathRoomsNumber: String( self.advertisementBathRoomsNum)))
+                    size: self.advertisementPropertySize,
+                    bedRoomsNumber: self.advertisementBedRoomsNum,
+                    bathRoomsNumber:  self.advertisementBathRoomsNum))
              
                 completionForGetAllAdvertisements(self.advertisementsData)
             }

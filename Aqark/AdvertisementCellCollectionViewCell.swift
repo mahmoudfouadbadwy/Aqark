@@ -11,6 +11,7 @@ import UIKit
 class AdvertisementCellCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var advertisementImage: UIImageView!
+    //    @IBOutlet weak var advertisementImage: UIImageView!
     @IBOutlet weak var propertyTypeLabel: UILabel!
     
     @IBOutlet weak var propertyPriceLabel: UILabel!

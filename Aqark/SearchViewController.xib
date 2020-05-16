@@ -11,8 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="Aqark" customModuleProvider="target">
             <connections>
-                <outlet property="imagePlaceHolder" destination="Y24-5T-c0w" id="xVd-gb-GwY"/>
-                <outlet property="searchActivityIndicator" destination="MWO-O4-9o2" id="hgC-0c-Ti4"/>
+                <outlet property="imagePlaceHolder" destination="pSL-cz-Sbn" id="qgB-K2-PFp"/>
+                <outlet property="labelPlaceHolder" destination="V6q-qp-wXR" id="ysG-7T-2mM"/>
+                <outlet property="placeHolderView" destination="x0z-XJ-IzO" id="gee-Wd-j69"/>
                 <outlet property="searchBar" destination="A96-AO-fov" id="5bX-9w-cTM"/>
                 <outlet property="searchCollectionView" destination="04f-JC-67H" id="81L-eJ-fPD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -24,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="04f-JC-67H">
-                    <rect key="frame" x="0.0" y="145" width="375" height="522"/>
+                    <rect key="frame" x="0.0" y="133" width="375" height="534"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NlW-P8-jzi">
                         <size key="itemSize" width="50" height="50"/>
@@ -37,48 +38,89 @@
                         <outlet property="delegate" destination="-1" id="le0-zX-IB7"/>
                     </connections>
                 </collectionView>
-                <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A96-AO-fov">
+                <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="A96-AO-fov">
                     <rect key="frame" x="0.0" y="31" width="375" height="56"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="SEF-YK-Syz"/>
                     </connections>
                 </searchBar>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MWO-O4-9o2">
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MWO-O4-9o2">
                     <rect key="frame" x="169" y="315" width="37" height="37"/>
                     <color key="color" red="0.77187904789999995" green="0.19247232710000001" blue="0.15004918780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </activityIndicatorView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y24-5T-c0w">
-                    <rect key="frame" x="0.0" y="145" width="375" height="522"/>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sort" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffu-xv-Thz">
-                    <rect key="frame" x="295" y="95" width="41" height="33"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffu-xv-Thz">
+                    <rect key="frame" x="292" y="95" width="41" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="41" id="Ipe-IG-zL7"/>
+                        <constraint firstAttribute="height" constant="33" id="uFI-zG-0Yu"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="search_notification" translatesAutoresizingMaskIntoConstraints="NO" id="Zsm-Go-PSd">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_notification" translatesAutoresizingMaskIntoConstraints="NO" id="Zsm-Go-PSd">
                     <rect key="frame" x="23" y="99" width="20" height="26"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="TGk-3c-kA2"/>
+                        <constraint firstAttribute="width" constant="20" id="qqe-GE-h6h"/>
+                    </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="search_swap" translatesAutoresizingMaskIntoConstraints="NO" id="f3Y-Lq-flE">
-                    <rect key="frame" x="338" y="101" width="17" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_swap" translatesAutoresizingMaskIntoConstraints="NO" id="f3Y-Lq-flE">
+                    <rect key="frame" x="335" y="101" width="20" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="eaH-qL-na2"/>
+                        <constraint firstAttribute="height" constant="26" id="hLP-JI-ib0"/>
+                    </constraints>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x0z-XJ-IzO">
+                    <rect key="frame" x="0.0" y="87" width="375" height="580"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Internet Connection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6q-qp-wXR">
+                            <rect key="frame" x="0.0" y="318" width="375" height="23"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_no_connection" translatesAutoresizingMaskIntoConstraints="NO" id="pSL-cz-Sbn">
+                            <rect key="frame" x="92" y="130" width="183" height="180"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="183" id="C5c-Hd-vmK"/>
+                                <constraint firstAttribute="height" constant="180" id="iq1-Cr-je0"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="pSL-cz-Sbn" secondAttribute="trailing" constant="100" id="3gx-qq-r6W"/>
+                        <constraint firstItem="pSL-cz-Sbn" firstAttribute="top" secondItem="x0z-XJ-IzO" secondAttribute="top" constant="130" id="852-7G-ohX"/>
+                        <constraint firstItem="V6q-qp-wXR" firstAttribute="leading" secondItem="x0z-XJ-IzO" secondAttribute="leading" id="Cvl-rr-qQe"/>
+                        <constraint firstItem="V6q-qp-wXR" firstAttribute="top" secondItem="pSL-cz-Sbn" secondAttribute="bottom" constant="8" id="HIL-yq-0xQ"/>
+                        <constraint firstAttribute="trailing" secondItem="V6q-qp-wXR" secondAttribute="trailing" id="K5d-AC-fWM"/>
+                        <constraint firstItem="V6q-qp-wXR" firstAttribute="width" secondItem="x0z-XJ-IzO" secondAttribute="width" id="kUl-Ak-llh"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="04f-JC-67H" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="125" id="7ti-GO-Rd5"/>
-                <constraint firstItem="04f-JC-67H" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="OAM-Mm-RbA"/>
-                <constraint firstItem="04f-JC-67H" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="RJk-8C-Cxw"/>
-                <constraint firstItem="Y24-5T-c0w" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="em2-5s-02u"/>
-                <constraint firstItem="Y24-5T-c0w" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="evq-kR-Opr"/>
-                <constraint firstItem="Y24-5T-c0w" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="125" id="k3K-Xz-R8S"/>
+                <constraint firstItem="x0z-XJ-IzO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="8QQ-4N-HNU"/>
+                <constraint firstItem="04f-JC-67H" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8Yf-Dy-D7T"/>
+                <constraint firstItem="04f-JC-67H" firstAttribute="top" secondItem="ffu-xv-Thz" secondAttribute="bottom" constant="5" id="CXg-LM-hmp"/>
+                <constraint firstItem="Zsm-Go-PSd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="23" id="GjN-oC-Cri"/>
+                <constraint firstItem="04f-JC-67H" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="JAn-4y-IRl"/>
+                <constraint firstItem="x0z-XJ-IzO" firstAttribute="top" secondItem="A96-AO-fov" secondAttribute="bottom" id="JOX-X2-jdG"/>
+                <constraint firstItem="x0z-XJ-IzO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="V0D-PF-OQS"/>
+                <constraint firstItem="x0z-XJ-IzO" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Yne-Hl-GAY"/>
+                <constraint firstItem="ffu-xv-Thz" firstAttribute="top" secondItem="A96-AO-fov" secondAttribute="bottom" constant="8" id="e44-1v-adZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ffu-xv-Thz" secondAttribute="trailing" constant="42" id="ebN-c6-og1"/>
+                <constraint firstItem="04f-JC-67H" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="g00-Mv-CN7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="f3Y-Lq-flE" secondAttribute="trailing" constant="20" id="hmT-xP-KAH"/>
+                <constraint firstItem="A96-AO-fov" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="11" id="m1Z-xW-Elk"/>
+                <constraint firstItem="A96-AO-fov" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="mZV-Pf-YMh"/>
+                <constraint firstItem="Zsm-Go-PSd" firstAttribute="top" secondItem="A96-AO-fov" secondAttribute="bottom" constant="12" id="o27-86-fBJ"/>
                 <constraint firstItem="MWO-O4-9o2" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="q1g-Lb-ITF"/>
-                <constraint firstItem="04f-JC-67H" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tE7-8S-6IH"/>
-                <constraint firstItem="Y24-5T-c0w" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="wOQ-PF-Oxq"/>
+                <constraint firstItem="A96-AO-fov" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="s5h-LG-VGi"/>
+                <constraint firstItem="f3Y-Lq-flE" firstAttribute="top" secondItem="A96-AO-fov" secondAttribute="bottom" constant="14" id="um5-bx-RGs"/>
                 <constraint firstItem="MWO-O4-9o2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wk6-4X-aCp"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -97,6 +139,7 @@
         </collectionView>
     </objects>
     <resources>
+        <image name="search_no_connection" width="384" height="384"/>
         <image name="search_notification" width="12" height="15"/>
         <image name="search_swap" width="11" height="14"/>
     </resources>
