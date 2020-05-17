@@ -34,8 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         searchViewController = SearchViewController(nibName: "SearchViewController", bundle: nil)
         GMSPlacesClient.provideAPIKey("AIzaSyAcITFeVhQQ970eJjH0fZ8lY8jwxksplso")
         window?.rootViewController = searchViewController
-        
-
         window?.makeKeyAndVisible()
 
         /* end shrouk*/
