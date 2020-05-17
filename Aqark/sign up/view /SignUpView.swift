@@ -16,7 +16,7 @@ class SignUpView: UIViewController  {
     @IBOutlet private weak var confirmPassword: UITextField!
     @IBOutlet private weak var company: UITextField!
     @IBOutlet private weak var countries: UIPickerView!
-    var role:String = "lawyer"
+    var role:String = "user"
     private var accountViewModel:AccountViewModel!
     private let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     private var countriesPicker:[String] = Countries().countries
@@ -96,7 +96,7 @@ extension SignUpView{
             accountViewModel.performCreation(dataAccess: DataAccess(),completion: {
                 (result) in
                 self.stopIndicator()
-                self.showAlert(with: result)
+                self.gotoProfileView()
             })
         }
         else
@@ -104,13 +104,21 @@ extension SignUpView{
             self.showAlert(with: accountViewModel.brokenRules[0].message)
         }
     }
+    
+    func gotoProfileView()
+    {
+        let profileView:ProfileViewController = ProfileViewController()
+        self.present(profileView, animated: true)
+    }
 }
 
 //MARK: - ALertView
 extension SignUpView{
     func showAlert(with message:String){
         let alert:UIAlertController = UIAlertController(title: "Validation Message", message:message , preferredStyle: .alert)
-        let ok:UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let ok:UIAlertAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+             alert.dismiss(animated: true)
+        }
         alert.addAction(ok)
         self.present(alert, animated: true, completion: nil)
     }

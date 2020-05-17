@@ -23,7 +23,6 @@ class FirstScreenViewController: UIViewController {
             roles = ["User","Lawyer","Interior Designer"]
         }else{
             //PlaceHolder image for no internet connection.
-            print("noConnection")
         }
         }
     

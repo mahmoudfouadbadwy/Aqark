@@ -17,7 +17,6 @@ class LoginViewController: UIViewController{
     var userRole : String!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(userRole)
         loginViewModel = LoginViewModel()
         userEmailTextField.delegate = self
         userPasswordTextField.delegate = self
@@ -31,13 +30,11 @@ class LoginViewController: UIViewController{
         if(loginViewModel.isValid){
             if(loginViewModel.checkNetworkConnection()){
                 loginViewModel.authenticateLogin { (result,error) in
+                    self.loginActivityIndicator.stopAnimating()
                     if let error = error {
-                        self.loginActivityIndicator.stopAnimating()
-                        self.showAlert(title: "Logged", message: error)
-                        //TODO: move to account details view
+                        self.showAlert(title: "Invalid Login", message: error)
                     }else{
-                        self.loginActivityIndicator.stopAnimating()
-                        self.showAlert(title:"Invalid Login", message: result!)
+                        self.gotoProfileView()
                     }
                 }
             }else{
@@ -63,6 +60,12 @@ class LoginViewController: UIViewController{
             alert.dismiss(animated: true, completion: nil)}
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func gotoProfileView()
+    {
+       let profileView:ProfileViewController = ProfileViewController()
+       self.present(profileView, animated: true)
     }
     
 }
