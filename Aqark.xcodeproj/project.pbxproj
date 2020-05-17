@@ -113,7 +113,6 @@
 				BFBAED852468A5CA00996DE8 /* model */,
 				BF06B40D24679EAD005D7151 /* view model */,
 				BF06B40A24679DCE005D7151 /* view */,
-				BFCF0BC224677F8000A43D8B /* AppDelegate.swift */,
 			);
 			path = search;
 			sourceTree = "<group>";
@@ -427,6 +426,7 @@
 				BF06B40024679D0D005D7151 /* property details */,
 				BF06B3FF24679CEA005D7151 /* search */,
 				BFCF0BC624677F8000A43D8B /* Main.storyboard */,
+				BFCF0BC224677F8000A43D8B /* AppDelegate.swift */,
 				BFCF0BCC24677F8100A43D8B /* Assets.xcassets */,
 				BFCF0BCE24677F8100A43D8B /* LaunchScreen.storyboard */,
 				BFCF0BD124677F8100A43D8B /* Info.plist */,
