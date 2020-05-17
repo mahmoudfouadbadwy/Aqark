@@ -24,6 +24,7 @@
 		BF3AD391246A3F610013FF4B /* DataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD390246A3F610013FF4B /* DataAccess.swift */; };
 		BF3B26932470281E0064BDF0 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3B26922470281E0064BDF0 /* Profile.swift */; };
 		BF3B2695247029850064BDF0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3B2694247029850064BDF0 /* ProfileViewModel.swift */; };
+		BF3B269824702C410064BDF0 /* ProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3B269724702C410064BDF0 /* ProfileData.swift */; };
 		BF4423332469D1B80050BD8A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4423312469D1B80050BD8A /* SignUpView.swift */; };
 		BF4423342469D1B80050BD8A /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF4423322469D1B80050BD8A /* SignUpView.xib */; };
 		BF66CC1E246C678B00C9FD01 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF66CC1D246C678B00C9FD01 /* Countries.swift */; };
