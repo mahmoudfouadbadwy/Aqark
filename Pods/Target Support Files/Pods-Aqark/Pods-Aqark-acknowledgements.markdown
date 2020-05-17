@@ -2483,11 +2483,11 @@ Copyright 2020 Google
 
 ## GoogleMaps
 
-Copyright 2020 Google
+Copyright 2019 Google
 
 ## GooglePlaces
 
-Copyright 2020 Google
+Copyright 2019 Google
 
 ## GoogleUtilities
 

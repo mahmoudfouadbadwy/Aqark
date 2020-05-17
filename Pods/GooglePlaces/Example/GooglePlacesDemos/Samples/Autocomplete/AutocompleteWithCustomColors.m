@@ -325,6 +325,9 @@
 
   GMSAutocompleteViewController *acController = [[GMSStyledAutocompleteViewController alloc] init];
   acController.delegate = self;
+  [acController setAutocompleteBoundsUsingNorthEastCorner:self.autocompleteBoundsNorthEastCorner
+                                          SouthWestCorner:self.autocompleteBoundsSouthWestCorner];
+  acController.autocompleteBoundsMode = self.autocompleteBoundsMode;
   acController.autocompleteFilter = self.autocompleteFilter;
   acController.placeFields = self.placeFields;
   acController.tableCellBackgroundColor = backgroundColor;

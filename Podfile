@@ -12,7 +12,7 @@ target 'Aqark' do
   pod 'Firebase/Storage'
   
   pod 'YPImagePicker', '~> 4.2'
- pod 'GooglePlaces', '~> 3.8'
+ pod 'GooglePlaces', '~> 3.7.0'
 pod 'ReachabilitySwift' , '~> 3.0'
 
   target 'AqarkTests' do

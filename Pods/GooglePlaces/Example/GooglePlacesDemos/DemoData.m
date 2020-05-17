@@ -35,9 +35,14 @@
   return self;
 }
 
-- (UIViewController *)createViewControllerWithAutocompleteFilter:
-                          (GMSAutocompleteFilter *)autocompleteFilter
-                                                     placeFields:(GMSPlaceField)placeFields {
+- (UIViewController *)
+    createViewControllerWithAutocompleteBoundsMode:(GMSAutocompleteBoundsMode)autocompleteBoundsMode
+                 autocompleteBoundsNorthEastCorner:
+                     (CLLocationCoordinate2D)autocompleteBoundsNorthEastCorner
+                 autocompleteBoundsSouthWestCorner:
+                     (CLLocationCoordinate2D)autocompleteBoundsSouthWestCorner
+                                autocompleteFilter:(GMSAutocompleteFilter *)autocompleteFilter
+                                       placeFields:(GMSPlaceField)placeFields {
   // Construct the demo view controller.
   UIViewController *demoViewController = [[_viewControllerClass alloc] init];
 
@@ -45,6 +50,9 @@
   if ([demoViewController isKindOfClass:[AutocompleteBaseViewController class]]) {
     AutocompleteBaseViewController *controller =
         (AutocompleteBaseViewController *)demoViewController;
+    controller.autocompleteBoundsNorthEastCorner = autocompleteBoundsNorthEastCorner;
+    controller.autocompleteBoundsSouthWestCorner = autocompleteBoundsSouthWestCorner;
+    controller.autocompleteBoundsMode = autocompleteBoundsMode;
     controller.autocompleteFilter = autocompleteFilter;
     controller.placeFields = placeFields;
   }

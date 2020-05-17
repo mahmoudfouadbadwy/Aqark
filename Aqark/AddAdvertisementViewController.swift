@@ -53,6 +53,7 @@ class AddAdvertisementViewController: UIViewController  {
     var advertisementType:String = "Rent"
     var propertyType:String = "Apartment"
     var selectedImages : [Data] = [Data]()
+   
     var numberOfAdvertisementPerMonth:Int!
     
     //dirctins
@@ -60,6 +61,9 @@ class AddAdvertisementViewController: UIViewController  {
     var longitude : String = ""
     
     
+    // autocomplete google sdk
+    var autocompletecontroller = GMSAutocompleteViewController()
+    var filter = GMSAutocompleteFilter()
     
     //MARK:- viewdidLoad
     
@@ -68,13 +72,14 @@ class AddAdvertisementViewController: UIViewController  {
         
         
         //collectionView
-        
-        
         collectionView.delegate = self
         collectionView.dataSource = self
         registerCellOfCollectionView()
         collectionView.register(UINib(nibName: "AddAdvertisementsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "idAddAdvertisementsCollectionViewCell")
         
+        
+        //autocomplete delegation
+        autocompletecontroller.delegate = self
         
         //stack view
         countryView.isHidden = true
@@ -134,10 +139,12 @@ class AddAdvertisementViewController: UIViewController  {
     
     // select address to open google autocomplete
     @IBAction func addAutoCompleteAddress(_ sender: Any) {
+
+        filter.type = .address  //suitable filter type
+        filter.country = "eg"  //appropriate country code
+        autocompletecontroller.autocompleteFilter = filter
         addressTxtField.resignFirstResponder()
-        let acController = GMSAutocompleteViewController()
-        acController.delegate = self
-        present(acController, animated: true, completion: nil)
+        present(autocompletecontroller, animated: true, completion: nil)
     }
     
     
@@ -365,7 +372,7 @@ class AddAdvertisementViewController: UIViewController  {
                     priceTxtField.placeholder = "minimum price is 500$"
                 case "Villa":
                     priceTxtField.placeholder = "minimum price is 5000$"
-                case "room":
+                case "Room":
                     priceTxtField.placeholder = "minimum price is 200$ "
                 default:
                     print("noselection")
@@ -377,7 +384,7 @@ class AddAdvertisementViewController: UIViewController  {
                     priceTxtField.placeholder = "minimum price is 50,000$ "
                 case "Villa":
                     priceTxtField.placeholder = "minimum price is 500,000$ "
-                case "room":
+                case "Room":
                     priceTxtField.placeholder = "minimum price is 10,000$ "
                 
                 default:
@@ -522,10 +529,10 @@ extension UITextField {
 
 //MARK: - extension configration for autocompleteview
 
-extension AddAdvertisementViewController: GMSAutocompleteViewControllerDelegate {
+extension AddAdvertisementViewController: GMSAutocompleteViewControllerDelegate  {
     
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-
+       
         addressTxtField.text = place.name
         latitude = "\(place.coordinate.latitude)"
         longitude =  "\(place.coordinate.longitude)"
