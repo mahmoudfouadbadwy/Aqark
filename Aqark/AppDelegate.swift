@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /* start zeinab*/
     /* end zeinab*/
     /* start zeyad*/
+    var firstScreen:FirstScreenViewController?
     /* end zeyad*/
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -38,7 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         /* end shrouk*/
         /* start fouad*/
-    
+//        window = UIWindow()
+//        window?.makeKeyAndVisible()
+//        let rootController = FirstScreenViewController()
+//        window?.rootViewController = rootController
         /* end fouad*/
         /* start saied*/
         /* end saied*/
