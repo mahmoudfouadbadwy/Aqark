@@ -5,7 +5,7 @@
 //  Created by Mahmoud Fouad on 5/10/20.
 //  Copyright © 2020 ITI. All rights reserved.
 //
-
+import GooglePlaces
 import UIKit
 import CoreData
 import Firebase
@@ -32,6 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         /* end fouad*/
         /* start saied*/
+        
+        // Set the Google Place API's autocomplete UI control
+        GMSPlacesClient.provideAPIKey("AIzaSyAcITFeVhQQ970eJjH0fZ8lY8jwxksplso")
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let mainVC = AddAdvertisementViewController(nibName: "AddAdvertisementViewController", bundle: nil)
+        window?.rootViewController = mainVC
+        window?.makeKeyAndVisible()
         /* end saied*/
         /* start zeinab*/
         /* end zeinab*/

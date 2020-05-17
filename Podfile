@@ -11,6 +11,9 @@ target 'Aqark' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   
+  pod 'YPImagePicker', '~> 4.2'
+ pod 'GooglePlaces', '~> 3.8'
+pod 'ReachabilitySwift' , '~> 3.0'
 
   target 'AqarkTests' do
     inherit! :search_paths
