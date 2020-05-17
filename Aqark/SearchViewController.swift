@@ -40,6 +40,10 @@ class SearchViewController: UIViewController{
                 placeHolderView.isHidden = false
                 imagePlaceHolder.image = UIImage(named: "search_not_found")
                 labelPlaceHolder.text = "No Advertisements Found"
+            }else{
+                placeHolderView.isHidden = true
+
+
             }
         }
     }
@@ -54,7 +58,7 @@ class SearchViewController: UIViewController{
 
             
         }else{
-        placeHolderView.isHidden = true
+            placeHolderView.isHidden = true
         showIndicator()
          searchBar.delegate = self
          searchCollectionView.register(UINib(nibName: "AdvertisementCellCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
@@ -110,6 +114,8 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
         if isFiltering {
             adViewModel = filteredAdsList[indexPath.row]
         } else {
+            placeHolderView.isHidden = true
+
             if let arrOfAdViewModel = arrOfAdViewModel{
                 adViewModel = arrOfAdViewModel[indexPath.row]
             }
