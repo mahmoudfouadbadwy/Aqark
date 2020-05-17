@@ -29,6 +29,9 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        self.advertisementsCollection.register(UINib(nibName: "ProfileAdvertisementCell", bundle: nil), forCellWithReuseIdentifier: "profileCell")
+        self.advertisementsCollection.dataSource = self
+        self.advertisementsCollection.delegate = self
     }
 }
 
@@ -123,6 +126,20 @@ extension ProfileViewController{
                 print("\(error.localizedDescription)")
         })
     }
+}
+
+extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell:ProfileAdvertisementCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileAdvertisementCell
+        
+        return cell
+    }
+    
+    
 }
 
 //MARK: - UIViewIndicator

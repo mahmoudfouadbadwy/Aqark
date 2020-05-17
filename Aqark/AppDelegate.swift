@@ -31,18 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         /* start shrouk*/
         FirebaseApp.configure()
-        window = UIWindow(frame:UIScreen.main.bounds)
-        searchViewController = SearchViewController(nibName: "SearchViewController", bundle: nil)
         GMSPlacesClient.provideAPIKey("AIzaSyAcITFeVhQQ970eJjH0fZ8lY8jwxksplso")
-        window?.rootViewController = searchViewController
-        window?.makeKeyAndVisible()
-
         /* end shrouk*/
         /* start fouad*/
-//        window = UIWindow()
-//        window?.makeKeyAndVisible()
-//        let rootController = FirstScreenViewController()
-//        window?.rootViewController = rootController
+        window = UIWindow()
+        window?.makeKeyAndVisible()
+        let rootController = FirstScreenViewController()
+        window?.rootViewController = rootController
         /* end fouad*/
         /* start saied*/
         /* end saied*/
