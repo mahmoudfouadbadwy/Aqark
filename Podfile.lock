@@ -99,16 +99,14 @@ PODS:
     - SDWebImage/Core (= 5.8.0)
   - SDWebImage/Core (5.8.0)
 
-
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
-  - ReachabilitySwift (~> 3.0)
   - GooglePlaces (~> 3.7.0)
+  - ReachabilitySwift (~> 3.0)
   - SDWebImage
-
 
 SPEC REPOS:
   trunk:
@@ -135,7 +133,6 @@ SPEC REPOS:
     - ReachabilitySwift
     - SDWebImage
 
-
 SPEC CHECKSUMS:
   Firebase: b28e55c60efd98963cd9011fe2fac5a10c2ba124
   FirebaseAnalytics: 7386fc2176e3f93ad8ef34b5b1f2b33a891e4962
@@ -158,11 +155,8 @@ SPEC CHECKSUMS:
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
-
-
-PODFILE CHECKSUM: c2ba5208a71cf5ba6c3b131b66fb4b5fe2b2fa23
   SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
 
-
+PODFILE CHECKSUM: 8b5743c15f77df24735f0ea2e505bd4ed9cd4293
 
 COCOAPODS: 1.8.4

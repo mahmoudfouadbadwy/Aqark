@@ -39,10 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         /* end shrouk*/
         /* start fouad*/
-        window = UIWindow()
-        window?.makeKeyAndVisible()
-        let rootController = FirstScreenViewController()
-        window?.rootViewController = rootController
+//        window = UIWindow()
+//        window?.makeKeyAndVisible()
+//        let rootController = FirstScreenViewController()
+//        window?.rootViewController = rootController
         /* end fouad*/
         /* start saied*/
         /* end saied*/
