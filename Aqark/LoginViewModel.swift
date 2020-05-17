@@ -57,6 +57,7 @@ class LoginViewModel : ValidationProtocol{
             }
         }
     }
+    
     func checkNetworkConnection()->Bool{
         let connection = Reachability()
         guard let status = connection?.isReachable else{return false}

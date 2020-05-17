@@ -33,11 +33,11 @@ class LoginViewController: UIViewController{
                 loginViewModel.authenticateLogin { (result,error) in
                     if let error = error {
                         self.loginActivityIndicator.stopAnimating()
-                        self.showAlert(title: "Logged", message: error)
-                        //TODO: move to account details view
+                        self.showAlert(title: "Invalid Login", message: error)
                     }else{
                         self.loginActivityIndicator.stopAnimating()
-                        self.showAlert(title:"Invalid Login", message: result!)
+                        self.showAlert(title:"Logged", message: result!)
+                        //TODO: move to account details view
                     }
                 }
             }else{
@@ -46,12 +46,10 @@ class LoginViewController: UIViewController{
         }else{
             loginActivityIndicator.stopAnimating()
             showAlert(title: "Invalid Login", message: loginViewModel.brokenRules.first!.message)
-            print(loginViewModel.brokenRules)
         }
     }
     
     @IBAction func signUp(_ sender: Any) {
-        //Transfer user role to sign up view
         let signUpView = SignUpView()
         signUpView.role = userRole
         self.present(signUpView, animated: true)

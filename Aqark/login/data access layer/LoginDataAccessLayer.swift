@@ -12,7 +12,6 @@ import Firebase
 class LoginDataAccessLayer{
     func login(userEmail:String,userPassword:String,completionForLogin:@escaping(_ result:String?,_ error:String?)->Void){
         Auth.auth().signIn(withEmail: userEmail, password: userPassword) { (result, error) in
-            
             if(error != nil){
                 completionForLogin(nil,error!.localizedDescription)
             }else{
