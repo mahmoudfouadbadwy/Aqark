@@ -39,6 +39,14 @@
 		BFE9F4482469930200E44777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFE9F4462469930200E44777 /* GoogleService-Info.plist */; };
 		BFF39A36246FF92E0041AD24 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF39A34246FF92E0041AD24 /* ProfileViewController.swift */; };
 		BFF39A37246FF92E0041AD24 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF39A35246FF92E0041AD24 /* ProfileViewController.xib */; };
+		C60D0F0C2469EC23008A637D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60D0F0A2469EC23008A637D /* SearchViewController.swift */; };
+		C60D0F0D2469EC24008A637D /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C60D0F0B2469EC23008A637D /* SearchViewController.xib */; };
+		C60D0F102469EC6A008A637D /* AdvertisementCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60D0F0E2469EC6A008A637D /* AdvertisementCellCollectionViewCell.swift */; };
+		C60D0F112469EC6A008A637D /* AdvertisementCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C60D0F0F2469EC6A008A637D /* AdvertisementCellCollectionViewCell.xib */; };
+		C60D0F172469FA43008A637D /* AdvertisementSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60D0F162469FA43008A637D /* AdvertisementSearchModel.swift */; };
+		C63F74DE246BC56F00142EE0 /* AdvertisementData .swift in Sources */ = {isa = PBXBuildFile; fileRef = C63F74DD246BC56F00142EE0 /* AdvertisementData .swift */; };
+		C63F74E0246BD12400142EE0 /* AdvertisementListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63F74DF246BD12400142EE0 /* AdvertisementListViewModel.swift */; };
+		C67EE8B524708DC1005F266A /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67EE8B424708DC1005F266A /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +98,14 @@
 		BFE9F4462469930200E44777 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BFF39A34246FF92E0041AD24 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BFF39A35246FF92E0041AD24 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		C60D0F0A2469EC23008A637D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = Aqark/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
+		C60D0F0B2469EC23008A637D /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchViewController.xib; path = Aqark/SearchViewController.xib; sourceTree = SOURCE_ROOT; };
+		C60D0F0E2469EC6A008A637D /* AdvertisementCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdvertisementCellCollectionViewCell.swift; path = Aqark/AdvertisementCellCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		C60D0F0F2469EC6A008A637D /* AdvertisementCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AdvertisementCellCollectionViewCell.xib; path = Aqark/AdvertisementCellCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		C60D0F162469FA43008A637D /* AdvertisementSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdvertisementSearchModel.swift; path = Aqark/AdvertisementSearchModel.swift; sourceTree = SOURCE_ROOT; };
+		C63F74DD246BC56F00142EE0 /* AdvertisementData .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdvertisementData .swift"; sourceTree = "<group>"; };
+		C63F74DF246BD12400142EE0 /* AdvertisementListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdvertisementListViewModel.swift; path = Aqark/search/data/AdvertisementListViewModel.swift; sourceTree = SOURCE_ROOT; };
+		C67EE8B424708DC1005F266A /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AqarkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -144,9 +160,12 @@
 		BF06B3FF24679CEA005D7151 /* search */ = {
 			isa = PBXGroup;
 			children = (
+				C67EE8B624708DD3005F266A /* Network */,
+				C63F74DC246BC4CA00142EE0 /* data */,
 				BFBAED852468A5CA00996DE8 /* model */,
 				BF06B40D24679EAD005D7151 /* view model */,
 				BF06B40A24679DCE005D7151 /* view */,
+				BFCF0BC224677F8000A43D8B /* AppDelegate.swift */,
 			);
 			path = search;
 			sourceTree = "<group>";
@@ -237,6 +256,10 @@
 		BF06B40A24679DCE005D7151 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				C60D0F0A2469EC23008A637D /* SearchViewController.swift */,
+				C60D0F0B2469EC23008A637D /* SearchViewController.xib */,
+				C60D0F0E2469EC6A008A637D /* AdvertisementCellCollectionViewCell.swift */,
+				C60D0F0F2469EC6A008A637D /* AdvertisementCellCollectionViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -244,6 +267,7 @@
 		BF06B40D24679EAD005D7151 /* view model */ = {
 			isa = PBXGroup;
 			children = (
+				C63F74DF246BD12400142EE0 /* AdvertisementListViewModel.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -454,6 +478,7 @@
 		BFBAED852468A5CA00996DE8 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				C60D0F162469FA43008A637D /* AdvertisementSearchModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -491,7 +516,6 @@
 				BF06B40124679D1C005D7151 /* agent properties */,
 				BF06B40024679D0D005D7151 /* property details */,
 				BF06B3FF24679CEA005D7151 /* search */,
-				BFCF0BC224677F8000A43D8B /* AppDelegate.swift */,
 				BFCF0BC624677F8000A43D8B /* Main.storyboard */,
 				BFCF0BCC24677F8100A43D8B /* Assets.xcassets */,
 				BFCF0BCE24677F8100A43D8B /* LaunchScreen.storyboard */,
@@ -510,6 +534,22 @@
 			path = AqarkTests;
 			sourceTree = "<group>";
 		};
+		C63F74DC246BC4CA00142EE0 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				C63F74DD246BC56F00142EE0 /* AdvertisementData .swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		C67EE8B624708DD3005F266A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C67EE8B424708DC1005F266A /* Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -522,6 +562,7 @@
 				BFCF0BBC24677F8000A43D8B /* Frameworks */,
 				BFCF0BBD24677F8000A43D8B /* Resources */,
 				D45E4AAB93810210160ACF83 /* [CP] Embed Pods Frameworks */,
+				BB2B36A047F467E53A63DF39 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -601,6 +642,8 @@
 				3E943FC8246A053300A1FF83 /* FirstScreenViewController.xib in Resources */,
 				BFCF0BCD24677F8100A43D8B /* Assets.xcassets in Resources */,
 				BF4423342469D1B80050BD8A /* SignUpView.xib in Resources */,
+				C60D0F0D2469EC24008A637D /* SearchViewController.xib in Resources */,
+				C60D0F112469EC6A008A637D /* AdvertisementCellCollectionViewCell.xib in Resources */,
 				BFCF0BC824677F8000A43D8B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -660,6 +703,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BB2B36A047F467E53A63DF39 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Aqark/Pods-Aqark-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Aqark/Pods-Aqark-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Aqark/Pods-Aqark-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D45E4AAB93810210160ACF83 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -703,6 +763,13 @@
 				3EE3B130246B66EA00885768 /* LoginViewController.swift in Sources */,
 				3EA836A0246CEFE2009AD024 /* LoginDataAccessLayer.swift in Sources */,
 				BF3B26932470281E0064BDF0 /* Profile.swift in Sources */,
+				C60D0F0C2469EC23008A637D /* SearchViewController.swift in Sources */,
+				C63F74E0246BD12400142EE0 /* AdvertisementListViewModel.swift in Sources */,
+				C67EE8B524708DC1005F266A /* Network.swift in Sources */,
+				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
+				C63F74DE246BC56F00142EE0 /* AdvertisementData .swift in Sources */,
+				C60D0F102469EC6A008A637D /* AdvertisementCellCollectionViewCell.swift in Sources */,
+				C60D0F172469FA43008A637D /* AdvertisementSearchModel.swift in Sources */,
 				BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */,
 				3EA83699246CE07C009AD024 /* LoginViewModel.swift in Sources */,
 			);
