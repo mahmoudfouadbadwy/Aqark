@@ -99,6 +99,12 @@ PODS:
     - SDWebImage/Core (= 5.8.0)
   - SDWebImage/Core (5.8.0)
 
+  - PryntTrimmerView (4.0.0)
+  - SteviaLayout (4.7.3)
+  - YPImagePicker (4.2.0):
+    - PryntTrimmerView (~> 4.0.0)
+    - SteviaLayout (~> 4.7.3)
+
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
@@ -106,7 +112,11 @@ DEPENDENCIES:
   - Firebase/Storage
   - GooglePlaces (~> 3.7.0)
   - ReachabilitySwift (~> 3.0)
+
   - SDWebImage
+
+  - YPImagePicker (~> 4.2)
+
 
 SPEC REPOS:
   trunk:
@@ -132,6 +142,10 @@ SPEC REPOS:
     - PromisesObjC
     - ReachabilitySwift
     - SDWebImage
+    - PryntTrimmerView
+    - SteviaLayout
+    - YPImagePicker
+
 
 SPEC CHECKSUMS:
   Firebase: b28e55c60efd98963cd9011fe2fac5a10c2ba124
@@ -156,7 +170,11 @@ SPEC CHECKSUMS:
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
+  PryntTrimmerView: 67e67573ffd4c073f1308effa66aefd0cfa667a0
+  SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
+  YPImagePicker: accf310f9526641a84372c0ecf943547d9b1e52c
 
 PODFILE CHECKSUM: 8b5743c15f77df24735f0ea2e505bd4ed9cd4293
+
 
 COCOAPODS: 1.8.4
