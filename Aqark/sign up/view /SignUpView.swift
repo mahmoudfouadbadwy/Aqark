@@ -60,12 +60,12 @@ extension SignUpView{
     
   func setIcons()
   {
-        self.email.setIcon(UIImage(named: "signup_email")!)
-        self.password.setIcon(UIImage(named: "signup_password")!)
-        self.confirmPassword.setIcon(UIImage(named: "signup_password")!)
-        self.username.setIcon(UIImage(named: "signup_username")!)
-        self.phoneNumber.setIcon(UIImage(named: "signup_phone")!)
-        self.company.setIcon(UIImage(named: "signup_company")!)
+        self.email.setSignUPIcons(UIImage(named: "signup_email")!)
+        self.password.setSignUPIcons(UIImage(named: "signup_password")!)
+        self.confirmPassword.setSignUPIcons(UIImage(named: "signup_password")!)
+        self.username.setSignUPIcons(UIImage(named: "signup_username")!)
+        self.phoneNumber.setSignUPIcons(UIImage(named: "signup_phone")!)
+        self.company.setSignUPIcons(UIImage(named: "signup_company")!)
   }
   func showUserView()
   {
@@ -189,7 +189,7 @@ extension SignUpView:UITextFieldDelegate{
 
 //MARK: - UITextField
 extension UITextField {
-    func setIcon(_ image: UIImage) {
+    func setSignUPIcons(_ image: UIImage) {
         let iconView = UIImageView(frame:
             CGRect(x: 10, y: 5, width: 20, height: 20))
         iconView.image = image

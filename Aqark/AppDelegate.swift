@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     /* start shrouk*/
-    var searchViewController: SearchViewController?
     /* end shrouk*/
     /* start fouad*/
     /* end fouad*/
@@ -24,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /* start zeinab*/
     /* end zeinab*/
     /* start zeyad*/
-    var firstScreen:FirstScreenViewController?
     /* end zeyad*/
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -36,8 +34,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /* start fouad*/
         window = UIWindow()
         window?.makeKeyAndVisible()
-        let rootController = FirstScreenViewController()
-        window?.rootViewController = rootController
+        let tabBarController = UITabBarController()
+        let searchTab = SearchViewController()
+        let searchNavigationController = UINavigationController(rootViewController: searchTab)
+        let accountTab = FirstScreenViewController()
+        let accountNavigationController = UINavigationController(rootViewController: accountTab)
+        searchTab.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: ""), tag: 1)
+        accountTab.tabBarItem = UITabBarItem(title: "Account", image: UIImage(named: "signup_username"), tag: 2)
+        let controllers = [accountNavigationController,searchNavigationController]
+        tabBarController.viewControllers = controllers
+        window?.rootViewController = tabBarController
+        
         /* end fouad*/
         /* start saied*/
         /* end saied*/

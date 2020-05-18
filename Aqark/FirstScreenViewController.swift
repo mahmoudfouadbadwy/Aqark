@@ -30,7 +30,7 @@ class FirstScreenViewController: UIViewController {
         if(loginViewModel.checkNetworkConnection()){
             let loginView = LoginViewController()
                   loginView.userRole = userRole
-                  self.present(loginView, animated: true)
+            self.navigationController?.pushViewController(loginView, animated: true)
         }else{
             showAlert(title: "Connection", message: "Check your internet connection")
         }
