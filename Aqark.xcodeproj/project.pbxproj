@@ -31,6 +31,13 @@
 		BF77D47B2471698E00455A25 /* ProfileAdvertisementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77D4792471698E00455A25 /* ProfileAdvertisementCell.swift */; };
 		BF77D47C2471698E00455A25 /* ProfileAdvertisementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF77D47A2471698E00455A25 /* ProfileAdvertisementCell.xib */; };
 		BF96078A246B26C1002B63D5 /* SignupBrokenRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF960789246B26C1002B63D5 /* SignupBrokenRule.swift */; };
+		BF42996C246DAC3D00525E67 /* PropertyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF42996A246DAC3D00525E67 /* PropertyDetailView.swift */; };
+		BF42996D246DAC3D00525E67 /* PropertyDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF42996B246DAC3D00525E67 /* PropertyDetailView.xib */; };
+		BF5410B1246F56C300489C5D /* Advertisment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5410B0246F56C300489C5D /* Advertisment.swift */; };
+		BF60EDCA247168B8008A0C05 /* AmenitiesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60EDC8247168B8008A0C05 /* AmenitiesCollectionViewCell.swift */; };
+		BF60EDCB247168B8008A0C05 /* AmenitiesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF60EDC9247168B8008A0C05 /* AmenitiesCollectionViewCell.xib */; };
+		BFB002B524703F6200854F34 /* PropertyDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB002B424703F6200854F34 /* PropertyDetailViewModel.swift */; };
+		BFB002BB2470486000854F34 /* PropertyDetailDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB002BA2470486000854F34 /* PropertyDetailDataAccess.swift */; };
 		BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF0BC224677F8000A43D8B /* AppDelegate.swift */; };
 		BFCF0BC824677F8000A43D8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFCF0BC624677F8000A43D8B /* Main.storyboard */; };
 		BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFCF0BC924677F8000A43D8B /* Aqark.xcdatamodeld */; };
@@ -89,6 +96,13 @@
 		BF77D4792471698E00455A25 /* ProfileAdvertisementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAdvertisementCell.swift; sourceTree = "<group>"; };
 		BF77D47A2471698E00455A25 /* ProfileAdvertisementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileAdvertisementCell.xib; sourceTree = "<group>"; };
 		BF960789246B26C1002B63D5 /* SignupBrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupBrokenRule.swift; sourceTree = "<group>"; };
+		BF42996A246DAC3D00525E67 /* PropertyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PropertyDetailView.swift; path = "view /PropertyDetailView.swift"; sourceTree = SOURCE_ROOT; };
+		BF42996B246DAC3D00525E67 /* PropertyDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PropertyDetailView.xib; path = "view /PropertyDetailView.xib"; sourceTree = SOURCE_ROOT; };
+		BF5410B0246F56C300489C5D /* Advertisment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Advertisment.swift; path = "view /Advertisment.swift"; sourceTree = SOURCE_ROOT; };
+		BF60EDC8247168B8008A0C05 /* AmenitiesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenitiesCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		BF60EDC9247168B8008A0C05 /* AmenitiesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmenitiesCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		BFB002B424703F6200854F34 /* PropertyDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PropertyDetailViewModel.swift; path = "view /PropertyDetailViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		BFB002BA2470486000854F34 /* PropertyDetailDataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDetailDataAccess.swift; sourceTree = "<group>"; };
 		BFCF0BBF24677F8000A43D8B /* Aqark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aqark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFCF0BC224677F8000A43D8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFCF0BC724677F8000A43D8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -176,6 +190,7 @@
 		BF06B40024679D0D005D7151 /* property details */ = {
 			isa = PBXGroup;
 			children = (
+				BFB002B9247047D000854F34 /* PropertyDetailDataAccess */,
 				BFBAED842468A5C000996DE8 /* model */,
 				BF06B40F24679EC1005D7151 /* view model */,
 				BF06B40E24679EBB005D7151 /* view  */,
@@ -278,6 +293,10 @@
 		BF06B40E24679EBB005D7151 /* view  */ = {
 			isa = PBXGroup;
 			children = (
+				BF42996A246DAC3D00525E67 /* PropertyDetailView.swift */,
+				BF42996B246DAC3D00525E67 /* PropertyDetailView.xib */,
+				BF60EDC8247168B8008A0C05 /* AmenitiesCollectionViewCell.swift */,
+				BF60EDC9247168B8008A0C05 /* AmenitiesCollectionViewCell.xib */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -285,6 +304,7 @@
 		BF06B40F24679EC1005D7151 /* view model */ = {
 			isa = PBXGroup;
 			children = (
+				BFB002B424703F6200854F34 /* PropertyDetailViewModel.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -418,6 +438,12 @@
 				BF3B269724702C410064BDF0 /* ProfileData.swift */,
 			);
 			path = "data access";
+		BFB002B9247047D000854F34 /* PropertyDetailDataAccess */ = {
+			isa = PBXGroup;
+			children = (
+				BFB002BA2470486000854F34 /* PropertyDetailDataAccess.swift */,
+			);
+			path = PropertyDetailDataAccess;
 			sourceTree = "<group>";
 		};
 		BFBAED7D2468A56700996DE8 /* model */ = {
@@ -476,6 +502,7 @@
 		BFBAED842468A5C000996DE8 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				BF5410B0246F56C300489C5D /* Advertisment.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -641,6 +668,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF60EDCB247168B8008A0C05 /* AmenitiesCollectionViewCell.xib in Resources */,
+				BF42996D246DAC3D00525E67 /* PropertyDetailView.xib in Resources */,
 				BFCF0BD024677F8100A43D8B /* LaunchScreen.storyboard in Resources */,
 				BFE9F4472469930200E44777 /* GoogleService-Info.plist in Resources */,
 				BFF39A37246FF92E0041AD24 /* ProfileViewController.xib in Resources */,
@@ -780,6 +809,13 @@
 				C60D0F172469FA43008A637D /* AdvertisementSearchModel.swift in Sources */,
 				BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */,
 				3EA83699246CE07C009AD024 /* LoginViewModel.swift in Sources */,
+				BFB002B524703F6200854F34 /* PropertyDetailViewModel.swift in Sources */,
+				BF5410B1246F56C300489C5D /* Advertisment.swift in Sources */,
+				BF60EDCA247168B8008A0C05 /* AmenitiesCollectionViewCell.swift in Sources */,
+				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
+				BF42996C246DAC3D00525E67 /* PropertyDetailView.swift in Sources */,
+				BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */,
+				BFB002BB2470486000854F34 /* PropertyDetailDataAccess.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

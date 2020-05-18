@@ -42,6 +42,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /* start saied*/
         /* end saied*/
         /* start zeinab*/
+        window = UIWindow()
+        window?.makeKeyAndVisible()
+        let rootController = PropertyDetailView()
+        window?.rootViewController = rootController
+        
         /* end zeinab*/
         /* start zeyad*/
         /* end zeyad*/
