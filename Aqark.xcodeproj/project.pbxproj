@@ -4,6 +4,7 @@
 	classes = {
 	};
 	objectVersion = 51;
+    rootObject = BFCF0BB724677F7F00A43D8B /* Project object */;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -1086,6 +1087,7 @@
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = BFCF0BB724677F7F00A43D8B /* Project object */;
+
 }
 }
+
