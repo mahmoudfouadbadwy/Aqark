@@ -12,17 +12,17 @@ class LoginViewController: UIViewController{
     
     @IBOutlet weak var userEmailTextField: CustomTextField!
     @IBOutlet weak var userPasswordTextField: CustomTextField!
-    private var loginViewModel : LoginViewModel!
     @IBOutlet weak var loginActivityIndicator: UIActivityIndicatorView!
     var userRole : String!
+    private var loginViewModel : LoginViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(userRole)
         loginViewModel = LoginViewModel()
         userEmailTextField.delegate = self
         userPasswordTextField.delegate = self
     }
-      
+    
     @IBAction func login(_ sender: Any) {
         view.endEditing(true)
         loginActivityIndicator.startAnimating()
