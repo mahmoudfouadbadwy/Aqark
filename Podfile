@@ -13,6 +13,8 @@ target 'Aqark' do
   pod 'ReachabilitySwift' , '~> 3.0'
   pod 'GooglePlaces','~> 3.7.0'
   pod 'SDWebImage'
+  
+  
 
 
   target 'AqarkTests' do

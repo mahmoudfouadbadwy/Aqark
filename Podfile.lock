@@ -130,7 +130,6 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
-
     - ReachabilitySwift
     - SDWebImage
 
@@ -159,6 +158,5 @@ SPEC CHECKSUMS:
   SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
 
 PODFILE CHECKSUM: 8b5743c15f77df24735f0ea2e505bd4ed9cd4293
-
 
 COCOAPODS: 1.8.4
