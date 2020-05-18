@@ -25,7 +25,7 @@ class AdvertisementData{
     var advertisementBathRoomsNum : String!
     var advertisementPropertyPrice : String!
     var advertisementPropertyLocation : String!
-   
+    var addressDictionary: [String: String] = [:]
     
     func getAllAdvertisements(completionForGetAllAdvertisements : @escaping (_ searchResults:[AdvertisementSearchModel]) -> Void){
         
@@ -33,27 +33,33 @@ class AdvertisementData{
         ref.child("Advertisements").observe(.value, with: {snapshot in
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 let dict = child.value as? [String : Any]
-                let key = child.key as? Any
+                let key = child.key as Any
                 
 
 //
                 let images = dict!["images"] as? [Any]
 //                for index in 0...images!.count - 1 {
-                self.advertisementImage = images![0] as? String
+                self.advertisementImage = images?[0] as? String ?? "search_apartment"
 //                 print(self.advertisementImage)
 //                }
                 
-                self.advertisementPropertyType = dict!["propertyType"] as? String
-                self.advertisementType = dict!["Advertisement Type"] as? String
-                self.advertisementCountry = dict!["country"] as? String
+                self.advertisementPropertyType = dict?["propertyType"] as? String ?? "Not Applied"
+                self.advertisementType = dict?["Advertisement Type"] as? String ?? "Not Applied"
+                self.advertisementCountry = dict?["country"] as? String ?? "Not Applied"
                 self.advertisementId = key as? String
-                self.advertisementPropertySize = dict!["size"] as? String
-                self.advertisementBedRoomsNum = dict!["bedRooms"] as? String
-                self.advertisementBathRoomsNum = dict!["bathRooms"] as? String
-                self.advertisementPropertyPrice = dict!["price"] as? String
-                var addressDictionary = dict!["Address"]  as! [String : AnyObject]
-                self.advertisementPropertyLocation = addressDictionary["location"] as? String
-              
+                self.advertisementPropertySize = dict?["size"] as? String ?? "Not Applied"
+                self.advertisementBedRoomsNum = dict?["bedRooms"] as? String ?? "Not Applied"
+                self.advertisementBathRoomsNum = dict?["bathRooms"] as? String ?? "Not Applied"
+                self.advertisementPropertyPrice = dict?["price"] as? String ?? "Not Applied"
+                
+                if var unwrappedAddressDict = dict?["Address"] {
+                     unwrappedAddressDict = dict?["Address"] as! [String : String]
+                    self.addressDictionary = unwrappedAddressDict as! [String : String]
+                    self.advertisementPropertyLocation = self.addressDictionary["location"] ?? "Not Applied"
+                }else{
+                    self.advertisementPropertyLocation = "Not Applied"
+                }
+
                 self.advertisementsData.append(AdvertisementSearchModel(
                     image: self.advertisementImage, propertyType  : self.advertisementPropertyType,
                     advertisementType: self.advertisementType,

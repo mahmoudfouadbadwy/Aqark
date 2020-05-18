@@ -71,7 +71,7 @@ class SearchViewController: UIViewController{
             self.arrOfAdViewModel = dataResults
             
         }
-          searchCollectionView.reloadData()
+//          searchCollectionView.reloadData()
     }
         
 }
@@ -95,7 +95,6 @@ extension SearchViewController{
 
 
 //MARK: CollectionView
-
 extension SearchViewController : UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -109,8 +108,8 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AdvertisementCellCollectionViewCell
+        updateCellLayout(cell: cell)
         var adViewModel : AdvertisementViewModel
-        
         if isFiltering {
             adViewModel = filteredAdsList[indexPath.row]
         } else {
@@ -125,7 +124,6 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
         }
         
         cell.advertisementImage?.sd_setImage(with: URL(string: adViewModel.image), placeholderImage: UIImage(named: "search_apartment"))
-//        cell.advertisementImage?.image = UIImage(named: adViewModel.image)
         cell.propertyTypeLabel?.text = adViewModel.propertyType
         cell.proprtyAddressLabel?.text = adViewModel.address
         cell.propertyPriceLabel?.text = adViewModel.price
@@ -135,12 +133,23 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
         return cell
     }
     
+    func updateCellLayout(cell : UICollectionViewCell ){
+    cell.layer.cornerRadius = 10
+    cell.layer.masksToBounds = true
+    cell.layer.shadowColor = UIColor.black.cgColor
+    cell.layer.shadowOffset = CGSize(width: 2.0, height: 3.0)
+    cell.layer.shadowRadius = 4.0
+    cell.layer.shadowOpacity = 0.5
+    cell.layer.masksToBounds = false
+    cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
+    }
+    
     func updateFlowLayout()
     {
         if collectionViewFlowLayout == nil
         {
             let numberOfItemPerRow :CGFloat = 1
-            let minimunLineSpacing :CGFloat = 0
+            let minimunLineSpacing :CGFloat = 2
             let minimunInteritemSpacing :CGFloat = 0
             
             let width = (searchCollectionView.frame.width / numberOfItemPerRow)
