@@ -1028,6 +1028,7 @@
 	rootObject = BFCF0BB724677F7F00A43D8B /* Project object */;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 <<<<<<< HEAD
 
@@ -1035,3 +1036,5 @@
 >>>>>>> parent of 32ee0e9... Update project.pbxproj
 =======
 >>>>>>> parent of 369d6ef... revert commit
+=======
+>>>>>>> parent of 32ee0e9... Update project.pbxproj
