@@ -10,13 +10,9 @@
 		3E943FC7246A053300A1FF83 /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E943FC5246A053300A1FF83 /* FirstScreenViewController.swift */; };
 		3E943FC8246A053300A1FF83 /* FirstScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E943FC6246A053300A1FF83 /* FirstScreenViewController.xib */; };
 		3E943FCA246A262400A1FF83 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E943FC9246A262400A1FF83 /* CustomButton.swift */; };
-		3EA83699246CE07C009AD024 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA83698246CE07C009AD024 /* LoginViewModel.swift */; };
 		3EA8369B246CE13A009AD024 /* ValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8369A246CE13A009AD024 /* ValidationProtocol.swift */; };
 		3EA8369D246CE15C009AD024 /* LoginBrokenRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8369C246CE15C009AD024 /* LoginBrokenRule.swift */; };
 		3EA836A0246CEFE2009AD024 /* LoginDataAccessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8369F246CEFE2009AD024 /* LoginDataAccessLayer.swift */; };
-		3EE3B130246B66EA00885768 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE3B12E246B66EA00885768 /* LoginViewController.swift */; };
-		3EE3B131246B66EB00885768 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EE3B12F246B66EA00885768 /* LoginViewController.xib */; };
-		3EF20022246B8B50001F3451 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF20021246B8B50001F3451 /* CustomTextField.swift */; };
 		7056A0D613EFCF7CC97F41EB /* Pods_Aqark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */; };
 		AB359ED5E1D6FD408208700F /* Pods_AqarkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */; };
 		BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD38A246A3B120013FF4B /* AccountViewModel.swift */; };
@@ -34,6 +30,16 @@
 		BF634C952472DFF600B65B90 /* Advertisment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634C942472DFF600B65B90 /* Advertisment.swift */; };
 		BF634C972472E00B00B65B90 /* PropertyDetailDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634C962472E00B00B65B90 /* PropertyDetailDataAccess.swift */; };
 		BF634C9C2472E76300B65B90 /* PropertyDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634C9B2472E76300B65B90 /* PropertyDetailViewModel.swift */; };
+		BF634C9E2473373200B65B90 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634C9D2473373200B65B90 /* LoginViewModel.swift */; };
+		BF634CA224733A9000B65B90 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634C9F24733A8F00B65B90 /* CustomTextField.swift */; };
+		BF634CA324733A9000B65B90 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634CA024733A8F00B65B90 /* LoginViewController.swift */; };
+		BF634CA424733A9000B65B90 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF634CA124733A8F00B65B90 /* LoginViewController.xib */; };
+		BF634CA924733C9700B65B90 /* AdvertisementCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF634CA524733C9500B65B90 /* AdvertisementCellCollectionViewCell.xib */; };
+		BF634CAA24733C9700B65B90 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF634CA624733C9600B65B90 /* SearchViewController.xib */; };
+		BF634CAB24733C9700B65B90 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634CA724733C9600B65B90 /* SearchViewController.swift */; };
+		BF634CAC24733C9700B65B90 /* AdvertisementCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634CA824733C9600B65B90 /* AdvertisementCellCollectionViewCell.swift */; };
+		BF634CAE24733D8200B65B90 /* AdvertisementSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634CAD24733D8200B65B90 /* AdvertisementSearchModel.swift */; };
+		BF634CB024733DA800B65B90 /* AdvertisementListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634CAF24733DA800B65B90 /* AdvertisementListViewModel.swift */; };
 		BF66CC1E246C678B00C9FD01 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF66CC1D246C678B00C9FD01 /* Countries.swift */; };
 		BF77D47B2471698E00455A25 /* ProfileAdvertisementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77D4792471698E00455A25 /* ProfileAdvertisementCell.swift */; };
 		BF77D47C2471698E00455A25 /* ProfileAdvertisementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF77D47A2471698E00455A25 /* ProfileAdvertisementCell.xib */; };
@@ -55,13 +61,7 @@
 		BFE9F4482469930200E44777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFE9F4462469930200E44777 /* GoogleService-Info.plist */; };
 		BFF39A36246FF92E0041AD24 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF39A34246FF92E0041AD24 /* ProfileViewController.swift */; };
 		BFF39A37246FF92E0041AD24 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF39A35246FF92E0041AD24 /* ProfileViewController.xib */; };
-		C60D0F0C2469EC23008A637D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60D0F0A2469EC23008A637D /* SearchViewController.swift */; };
-		C60D0F0D2469EC24008A637D /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C60D0F0B2469EC23008A637D /* SearchViewController.xib */; };
-		C60D0F102469EC6A008A637D /* AdvertisementCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60D0F0E2469EC6A008A637D /* AdvertisementCellCollectionViewCell.swift */; };
-		C60D0F112469EC6A008A637D /* AdvertisementCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C60D0F0F2469EC6A008A637D /* AdvertisementCellCollectionViewCell.xib */; };
-		C60D0F172469FA43008A637D /* AdvertisementSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60D0F162469FA43008A637D /* AdvertisementSearchModel.swift */; };
 		C63F74DE246BC56F00142EE0 /* AdvertisementData .swift in Sources */ = {isa = PBXBuildFile; fileRef = C63F74DD246BC56F00142EE0 /* AdvertisementData .swift */; };
-		C63F74E0246BD12400142EE0 /* AdvertisementListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63F74DF246BD12400142EE0 /* AdvertisementListViewModel.swift */; };
 		C67EE8B524708DC1005F266A /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67EE8B424708DC1005F266A /* Network.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,16 +76,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3E943FC5246A053300A1FF83 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstScreenViewController.swift; path = Aqark/FirstScreenViewController.swift; sourceTree = SOURCE_ROOT; };
-		3E943FC6246A053300A1FF83 /* FirstScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FirstScreenViewController.xib; path = Aqark/FirstScreenViewController.xib; sourceTree = SOURCE_ROOT; };
-		3E943FC9246A262400A1FF83 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = Aqark/CustomButton.swift; sourceTree = SOURCE_ROOT; };
-		3EA83698246CE07C009AD024 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = Aqark/LoginViewModel.swift; sourceTree = SOURCE_ROOT; };
-		3EA8369A246CE13A009AD024 /* ValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ValidationProtocol.swift; path = Aqark/ValidationProtocol.swift; sourceTree = SOURCE_ROOT; };
-		3EA8369C246CE15C009AD024 /* LoginBrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginBrokenRule.swift; path = Aqark/LoginBrokenRule.swift; sourceTree = SOURCE_ROOT; };
+		3E943FC5246A053300A1FF83 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstScreenViewController.swift; path = "Aqark/login/view /FirstScreenViewController.swift"; sourceTree = SOURCE_ROOT; };
+		3E943FC6246A053300A1FF83 /* FirstScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FirstScreenViewController.xib; path = "Aqark/login/view /FirstScreenViewController.xib"; sourceTree = SOURCE_ROOT; };
+		3E943FC9246A262400A1FF83 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = "Aqark/login/view /CustomButton.swift"; sourceTree = SOURCE_ROOT; };
+		3EA8369A246CE13A009AD024 /* ValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ValidationProtocol.swift; path = "Aqark/login/view model/ValidationProtocol.swift"; sourceTree = SOURCE_ROOT; };
+		3EA8369C246CE15C009AD024 /* LoginBrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginBrokenRule.swift; path = "Aqark/login/view model/LoginBrokenRule.swift"; sourceTree = SOURCE_ROOT; };
 		3EA8369F246CEFE2009AD024 /* LoginDataAccessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataAccessLayer.swift; sourceTree = "<group>"; };
-		3EE3B12E246B66EA00885768 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Aqark/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
-		3EE3B12F246B66EA00885768 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Aqark/LoginViewController.xib; sourceTree = SOURCE_ROOT; };
-		3EF20021246B8B50001F3451 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomTextField.swift; path = Aqark/CustomTextField.swift; sourceTree = SOURCE_ROOT; };
 		58560B4C74A5E0F6183A61D7 /* Pods-AqarkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AqarkTests.debug.xcconfig"; path = "Target Support Files/Pods-AqarkTests/Pods-AqarkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aqark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B20C334276836267C28034 /* Pods-Aqark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqark.debug.xcconfig"; path = "Target Support Files/Pods-Aqark/Pods-Aqark.debug.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +102,16 @@
 		BF634C942472DFF600B65B90 /* Advertisment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Advertisment.swift; sourceTree = "<group>"; };
 		BF634C962472E00B00B65B90 /* PropertyDetailDataAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyDetailDataAccess.swift; sourceTree = "<group>"; };
 		BF634C9B2472E76300B65B90 /* PropertyDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyDetailViewModel.swift; sourceTree = "<group>"; };
+		BF634C9D2473373200B65B90 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		BF634C9F24733A8F00B65B90 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		BF634CA024733A8F00B65B90 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BF634CA124733A8F00B65B90 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		BF634CA524733C9500B65B90 /* AdvertisementCellCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvertisementCellCollectionViewCell.xib; sourceTree = "<group>"; };
+		BF634CA624733C9600B65B90 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		BF634CA724733C9600B65B90 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BF634CA824733C9600B65B90 /* AdvertisementCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		BF634CAD24733D8200B65B90 /* AdvertisementSearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementSearchModel.swift; sourceTree = "<group>"; };
+		BF634CAF24733DA800B65B90 /* AdvertisementListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementListViewModel.swift; sourceTree = "<group>"; };
 		BF66CC1D246C678B00C9FD01 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		BF77D4792471698E00455A25 /* ProfileAdvertisementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAdvertisementCell.swift; sourceTree = "<group>"; };
 		BF77D47A2471698E00455A25 /* ProfileAdvertisementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileAdvertisementCell.xib; sourceTree = "<group>"; };
@@ -130,13 +136,7 @@
 		BFE9F4462469930200E44777 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BFF39A34246FF92E0041AD24 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BFF39A35246FF92E0041AD24 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
-		C60D0F0A2469EC23008A637D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = Aqark/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
-		C60D0F0B2469EC23008A637D /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchViewController.xib; path = Aqark/SearchViewController.xib; sourceTree = SOURCE_ROOT; };
-		C60D0F0E2469EC6A008A637D /* AdvertisementCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdvertisementCellCollectionViewCell.swift; path = Aqark/AdvertisementCellCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
-		C60D0F0F2469EC6A008A637D /* AdvertisementCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AdvertisementCellCollectionViewCell.xib; path = Aqark/AdvertisementCellCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
-		C60D0F162469FA43008A637D /* AdvertisementSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdvertisementSearchModel.swift; path = Aqark/AdvertisementSearchModel.swift; sourceTree = SOURCE_ROOT; };
 		C63F74DD246BC56F00142EE0 /* AdvertisementData .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdvertisementData .swift"; sourceTree = "<group>"; };
-		C63F74DF246BD12400142EE0 /* AdvertisementListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdvertisementListViewModel.swift; path = Aqark/search/data/AdvertisementListViewModel.swift; sourceTree = SOURCE_ROOT; };
 		C67EE8B424708DC1005F266A /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AqarkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -289,10 +289,10 @@
 		BF06B40A24679DCE005D7151 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				C60D0F0A2469EC23008A637D /* SearchViewController.swift */,
-				C60D0F0B2469EC23008A637D /* SearchViewController.xib */,
-				C60D0F0E2469EC6A008A637D /* AdvertisementCellCollectionViewCell.swift */,
-				C60D0F0F2469EC6A008A637D /* AdvertisementCellCollectionViewCell.xib */,
+				BF634CA824733C9600B65B90 /* AdvertisementCellCollectionViewCell.swift */,
+				BF634CA524733C9500B65B90 /* AdvertisementCellCollectionViewCell.xib */,
+				BF634CA724733C9600B65B90 /* SearchViewController.swift */,
+				BF634CA624733C9600B65B90 /* SearchViewController.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -300,7 +300,7 @@
 		BF06B40D24679EAD005D7151 /* view model */ = {
 			isa = PBXGroup;
 			children = (
-				C63F74DF246BD12400142EE0 /* AdvertisementListViewModel.swift */,
+				BF634CAF24733DA800B65B90 /* AdvertisementListViewModel.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -341,12 +341,12 @@
 		BF06B41224679EE2005D7151 /* view  */ = {
 			isa = PBXGroup;
 			children = (
+				BF634C9F24733A8F00B65B90 /* CustomTextField.swift */,
+				BF634CA024733A8F00B65B90 /* LoginViewController.swift */,
+				BF634CA124733A8F00B65B90 /* LoginViewController.xib */,
 				3E943FC5246A053300A1FF83 /* FirstScreenViewController.swift */,
 				3E943FC6246A053300A1FF83 /* FirstScreenViewController.xib */,
 				3E943FC9246A262400A1FF83 /* CustomButton.swift */,
-				3EE3B12E246B66EA00885768 /* LoginViewController.swift */,
-				3EE3B12F246B66EA00885768 /* LoginViewController.xib */,
-				3EF20021246B8B50001F3451 /* CustomTextField.swift */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -354,7 +354,7 @@
 		BF06B41324679EE8005D7151 /* view model */ = {
 			isa = PBXGroup;
 			children = (
-				3EA83698246CE07C009AD024 /* LoginViewModel.swift */,
+				BF634C9D2473373200B65B90 /* LoginViewModel.swift */,
 				3EA8369A246CE13A009AD024 /* ValidationProtocol.swift */,
 				3EA8369C246CE15C009AD024 /* LoginBrokenRule.swift */,
 			);
@@ -541,7 +541,7 @@
 		BFBAED852468A5CA00996DE8 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				C60D0F162469FA43008A637D /* AdvertisementSearchModel.swift */,
+				BF634CAD24733D8200B65B90 /* AdvertisementSearchModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -569,7 +569,6 @@
 		BFCF0BC124677F8000A43D8B /* Aqark */ = {
 			isa = PBXGroup;
 			children = (
-				BFCF0BC224677F8000A43D8B /* AppDelegate.swift */,
 				BFE9F4462469930200E44777 /* GoogleService-Info.plist */,
 				BF06B40724679D83005D7151 /* payment */,
 				BF06B40624679D78005D7151 /* admin */,
@@ -700,20 +699,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF634CA424733A9000B65B90 /* LoginViewController.xib in Resources */,
 				BFCF0BD024677F8100A43D8B /* LaunchScreen.storyboard in Resources */,
 				BF9BD7D32472CA160057A12D /* AddAdvertisementViewController.xib in Resources */,
 				BF634C8E2472DFA000B65B90 /* AmenitiesCollectionViewCell.xib in Resources */,
 				BFE9F4472469930200E44777 /* GoogleService-Info.plist in Resources */,
 				BF9BD7D12472CA150057A12D /* AddAdvertisementsCollectionViewCell.xib in Resources */,
 				BFF39A37246FF92E0041AD24 /* ProfileViewController.xib in Resources */,
-				3EE3B131246B66EB00885768 /* LoginViewController.xib in Resources */,
 				BF77D47C2471698E00455A25 /* ProfileAdvertisementCell.xib in Resources */,
 				3E943FC8246A053300A1FF83 /* FirstScreenViewController.xib in Resources */,
 				BF634C912472DFA000B65B90 /* PropertyDetailView.xib in Resources */,
+				BF634CA924733C9700B65B90 /* AdvertisementCellCollectionViewCell.xib in Resources */,
 				BFCF0BCD24677F8100A43D8B /* Assets.xcassets in Resources */,
 				BF4423342469D1B80050BD8A /* SignUpView.xib in Resources */,
-				C60D0F0D2469EC24008A637D /* SearchViewController.xib in Resources */,
-				C60D0F112469EC6A008A637D /* AdvertisementCellCollectionViewCell.xib in Resources */,
+				BF634CAA24733C9700B65B90 /* SearchViewController.xib in Resources */,
 				BFCF0BC824677F8000A43D8B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -816,43 +815,43 @@
 			files = (
 				BF9BD7C72472C9BA0057A12D /* AddAdvertisementDataSource.swift in Sources */,
 				BF96078A246B26C1002B63D5 /* SignupBrokenRule.swift in Sources */,
+				BF634CA324733A9000B65B90 /* LoginViewController.swift in Sources */,
 				BF3AD391246A3F610013FF4B /* DataAccess.swift in Sources */,
 				BF3B269824702C410064BDF0 /* ProfileData.swift in Sources */,
+				BF634CA224733A9000B65B90 /* CustomTextField.swift in Sources */,
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
 				BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */,
 				BF634C902472DFA000B65B90 /* PropertyDetailView.swift in Sources */,
 				BF9BD7D22472CA150057A12D /* AddAdvertisementsCollectionViewCell.swift in Sources */,
+				BF634CAB24733C9700B65B90 /* SearchViewController.swift in Sources */,
+				BF634CAE24733D8200B65B90 /* AdvertisementSearchModel.swift in Sources */,
+				BF634CB024733DA800B65B90 /* AdvertisementListViewModel.swift in Sources */,
+				BF634C9E2473373200B65B90 /* LoginViewModel.swift in Sources */,
 				BF3AD38E246A3BB00013FF4B /* User.swift in Sources */,
 				BF4423332469D1B80050BD8A /* SignUpView.swift in Sources */,
 				BFF39A36246FF92E0041AD24 /* ProfileViewController.swift in Sources */,
 				BF66CC1E246C678B00C9FD01 /* Countries.swift in Sources */,
 				BF634C9C2472E76300B65B90 /* PropertyDetailViewModel.swift in Sources */,
 				BF9BD7CB2472C9F70057A12D /* AddAdvertisementViewModel.swift in Sources */,
+				BF634CAC24733C9700B65B90 /* AdvertisementCellCollectionViewCell.swift in Sources */,
 				3EA8369B246CE13A009AD024 /* ValidationProtocol.swift in Sources */,
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
 				3EA8369D246CE15C009AD024 /* LoginBrokenRule.swift in Sources */,
 				3E943FCA246A262400A1FF83 /* CustomButton.swift in Sources */,
-				3EF20022246B8B50001F3451 /* CustomTextField.swift in Sources */,
 				3E943FC7246A053300A1FF83 /* FirstScreenViewController.swift in Sources */,
 				BF3B2695247029850064BDF0 /* ProfileViewModel.swift in Sources */,
-				3EE3B130246B66EA00885768 /* LoginViewController.swift in Sources */,
 				BF9BD7C92472C9D00057A12D /* AddAdvertisementModel.swift in Sources */,
 				3EA836A0246CEFE2009AD024 /* LoginDataAccessLayer.swift in Sources */,
 				BF77D47B2471698E00455A25 /* ProfileAdvertisementCell.swift in Sources */,
 				BF634C8F2472DFA000B65B90 /* AmenitiesCollectionViewCell.swift in Sources */,
 				BF3B26932470281E0064BDF0 /* Profile.swift in Sources */,
-				C60D0F0C2469EC23008A637D /* SearchViewController.swift in Sources */,
-				C63F74E0246BD12400142EE0 /* AdvertisementListViewModel.swift in Sources */,
 				BF634C972472E00B00B65B90 /* PropertyDetailDataAccess.swift in Sources */,
 				BF9BD7D02472CA150057A12D /* AddAdvertisementViewController.swift in Sources */,
 				C67EE8B524708DC1005F266A /* Network.swift in Sources */,
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
 				C63F74DE246BC56F00142EE0 /* AdvertisementData .swift in Sources */,
 				BF634C952472DFF600B65B90 /* Advertisment.swift in Sources */,
-				C60D0F102469EC6A008A637D /* AdvertisementCellCollectionViewCell.swift in Sources */,
-				C60D0F172469FA43008A637D /* AdvertisementSearchModel.swift in Sources */,
 				BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */,
-				3EA83699246CE07C009AD024 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
