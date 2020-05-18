@@ -33,17 +33,6 @@
 		3EE3B131246B66EB00885768 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EE3B12F246B66EA00885768 /* LoginViewController.xib */; };
 		3EF20022246B8B50001F3451 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF20021246B8B50001F3451 /* CustomTextField.swift */; };
 		7056A0D613EFCF7CC97F41EB /* Pods_Aqark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */; };
-		825B19CA246C4021008BBA33 /* AddAdvertisementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B19C9246C4021008BBA33 /* AddAdvertisementModel.swift */; };
-		825E98AB246DBEB300848C2A /* AddAdvertisementDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825E98AA246DBEB300848C2A /* AddAdvertisementDataSource.swift */; };
-		825F648F246D53CE00C0F0D1 /* AddAdvertisementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F648E246D53CE00C0F0D1 /* AddAdvertisementViewModel.swift */; };
-		825FA16B246FFAA800A1F167 /* technology.png in Resources */ = {isa = PBXBuildFile; fileRef = 825FA16A246FFAA800A1F167 /* technology.png */; };
-		825FA16E246FFED400A1F167 /* AddAdvertisementsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825FA16C246FFED400A1F167 /* AddAdvertisementsCollectionViewCell.swift */; };
-		825FA16F246FFED400A1F167 /* AddAdvertisementsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825FA16D246FFED400A1F167 /* AddAdvertisementsCollectionViewCell.xib */; };
-		825FA1712470023200A1F167 /* natura.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 825FA1702470023200A1F167 /* natura.jpg */; };
-		82C3EC7A2469E4C800CA845A /* AddAdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C3EC782469E4C800CA845A /* AddAdvertisementViewController.swift */; };
-		82C3EC7B2469E4C800CA845A /* AddAdvertisementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82C3EC792469E4C800CA845A /* AddAdvertisementViewController.xib */; };
-		82C3EC85246AA49A00CA845A /* advertisement_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 82C3EC84246AA49A00CA845A /* advertisement_check.png */; };
-		82C3EC87246AA4A600CA845A /* advertisement_uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 82C3EC86246AA4A600CA845A /* advertisement_uncheck.png */; };
 		AB359ED5E1D6FD408208700F /* Pods_AqarkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */; };
 		BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD38A246A3B120013FF4B /* AccountViewModel.swift */; };
 		BF3AD38E246A3BB00013FF4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD38D246A3BB00013FF4B /* User.swift */; };
@@ -53,6 +42,7 @@
 		BF66CC1E246C678B00C9FD01 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF66CC1D246C678B00C9FD01 /* Countries.swift */; };
 		BF96078A246B26C1002B63D5 /* SignupBrokenRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF960789246B26C1002B63D5 /* SignupBrokenRule.swift */; };
 		BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF0BC224677F8000A43D8B /* AppDelegate.swift */; };
+		BFCF0BC824677F8000A43D8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFCF0BC624677F8000A43D8B /* Main.storyboard */; };
 		BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFCF0BC924677F8000A43D8B /* Aqark.xcdatamodeld */; };
 		BFCF0BCD24677F8100A43D8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFCF0BCC24677F8100A43D8B /* Assets.xcassets */; };
 		BFCF0BD024677F8100A43D8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFCF0BCE24677F8100A43D8B /* LaunchScreen.storyboard */; };
@@ -99,17 +89,6 @@
 		58560B4C74A5E0F6183A61D7 /* Pods-AqarkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AqarkTests.debug.xcconfig"; path = "Target Support Files/Pods-AqarkTests/Pods-AqarkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aqark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B20C334276836267C28034 /* Pods-Aqark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqark.debug.xcconfig"; path = "Target Support Files/Pods-Aqark/Pods-Aqark.debug.xcconfig"; sourceTree = "<group>"; };
-		825B19C9246C4021008BBA33 /* AddAdvertisementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddAdvertisementModel.swift; path = Aqark/AddAdvertisementModel.swift; sourceTree = SOURCE_ROOT; };
-		825E98AA246DBEB300848C2A /* AddAdvertisementDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddAdvertisementDataSource.swift; path = Aqark/AddAdvertisementDataSource.swift; sourceTree = SOURCE_ROOT; };
-		825F648E246D53CE00C0F0D1 /* AddAdvertisementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddAdvertisementViewModel.swift; path = Aqark/AddAdvertisementViewModel.swift; sourceTree = SOURCE_ROOT; };
-		825FA16A246FFAA800A1F167 /* technology.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = technology.png; sourceTree = "<group>"; };
-		825FA16C246FFED400A1F167 /* AddAdvertisementsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddAdvertisementsCollectionViewCell.swift; path = Aqark/AddAdvertisementsCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
-		825FA16D246FFED400A1F167 /* AddAdvertisementsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AddAdvertisementsCollectionViewCell.xib; path = Aqark/AddAdvertisementsCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
-		825FA1702470023200A1F167 /* natura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = natura.jpg; sourceTree = "<group>"; };
-		82C3EC782469E4C800CA845A /* AddAdvertisementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddAdvertisementViewController.swift; path = Aqark/AddAdvertisementViewController.swift; sourceTree = SOURCE_ROOT; };
-		82C3EC792469E4C800CA845A /* AddAdvertisementViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AddAdvertisementViewController.xib; path = Aqark/AddAdvertisementViewController.xib; sourceTree = SOURCE_ROOT; };
-		82C3EC84246AA49A00CA845A /* advertisement_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = advertisement_check.png; sourceTree = "<group>"; };
-		82C3EC86246AA4A600CA845A /* advertisement_uncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = advertisement_uncheck.png; sourceTree = "<group>"; };
 		88E560A844B318E2835E7F97 /* Pods-Aqark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqark.release.xcconfig"; path = "Target Support Files/Pods-Aqark/Pods-Aqark.release.xcconfig"; sourceTree = "<group>"; };
 		B77402FFEAE979F1B4E1F970 /* Pods-AqarkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AqarkTests.release.xcconfig"; path = "Target Support Files/Pods-AqarkTests/Pods-AqarkTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF3AD38A246A3B120013FF4B /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
@@ -121,6 +100,7 @@
 		BF960789246B26C1002B63D5 /* SignupBrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupBrokenRule.swift; sourceTree = "<group>"; };
 		BFCF0BBF24677F8000A43D8B /* Aqark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aqark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFCF0BC224677F8000A43D8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BFCF0BC724677F8000A43D8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BFCF0BCA24677F8000A43D8B /* Aqark.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Aqark.xcdatamodel; sourceTree = "<group>"; };
 		BFCF0BCC24677F8100A43D8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFCF0BCF24677F8100A43D8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -176,13 +156,6 @@
 				3EA8369F246CEFE2009AD024 /* LoginDataAccessLayer.swift */,
 			);
 			path = "data access layer";
-		825E98A9246DBE7A00848C2A /* Data source */ = {
-			isa = PBXGroup;
-			children = (
-				825E98AA246DBEB300848C2A /* AddAdvertisementDataSource.swift */,
-			);
-			name = "Data source";
-			path = "Aqark/advertisement/Data source";
 			sourceTree = "<group>";
 		};
 		AD923418C8264B7A9F4E1EDA /* Pods */ = {
@@ -261,7 +234,6 @@
 		BF06B40524679D4C005D7151 /* advertisement */ = {
 			isa = PBXGroup;
 			children = (
-				825E98A9246DBE7A00848C2A /* Data source */,
 				BFBAED7F2468A59500996DE8 /* model */,
 				BF06B41924679F15005D7151 /* view model */,
 				BF06B41824679F0D005D7151 /* view  */,
@@ -389,10 +361,6 @@
 		BF06B41824679F0D005D7151 /* view  */ = {
 			isa = PBXGroup;
 			children = (
-				82C3EC782469E4C800CA845A /* AddAdvertisementViewController.swift */,
-				82C3EC792469E4C800CA845A /* AddAdvertisementViewController.xib */,
-				825FA16C246FFED400A1F167 /* AddAdvertisementsCollectionViewCell.swift */,
-				825FA16D246FFED400A1F167 /* AddAdvertisementsCollectionViewCell.xib */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -400,7 +368,6 @@
 		BF06B41924679F15005D7151 /* view model */ = {
 			isa = PBXGroup;
 			children = (
-				825F648E246D53CE00C0F0D1 /* AddAdvertisementViewModel.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -470,7 +437,6 @@
 		BFBAED7F2468A59500996DE8 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				825B19C9246C4021008BBA33 /* AddAdvertisementModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -554,11 +520,8 @@
 				BF06B40024679D0D005D7151 /* property details */,
 				BF06B3FF24679CEA005D7151 /* search */,
 				BFCF0BC224677F8000A43D8B /* AppDelegate.swift */,
+				BFCF0BC624677F8000A43D8B /* Main.storyboard */,
 				BFCF0BCC24677F8100A43D8B /* Assets.xcassets */,
-				82C3EC86246AA4A600CA845A /* advertisement_uncheck.png */,
-				82C3EC84246AA49A00CA845A /* advertisement_check.png */,
-				825FA16A246FFAA800A1F167 /* technology.png */,
-				825FA1702470023200A1F167 /* natura.jpg */,
 				BFCF0BCE24677F8100A43D8B /* LaunchScreen.storyboard */,
 				BFCF0BD124677F8100A43D8B /* Info.plist */,
 				BFCF0BC924677F8000A43D8B /* Aqark.xcdatamodeld */,
@@ -587,7 +550,6 @@
 				BFCF0BBC24677F8000A43D8B /* Frameworks */,
 				BFCF0BBD24677F8000A43D8B /* Resources */,
 				D45E4AAB93810210160ACF83 /* [CP] Embed Pods Frameworks */,
-				55C9A5B7F8E147A97B705907 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -660,10 +622,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82C3EC85246AA49A00CA845A /* advertisement_check.png in Resources */,
-				82C3EC87246AA4A600CA845A /* advertisement_uncheck.png in Resources */,
-				82C3EC7B2469E4C800CA845A /* AddAdvertisementViewController.xib in Resources */,
-				825FA16B246FFAA800A1F167 /* technology.png in Resources */,
 				BFCF0BD024677F8100A43D8B /* LaunchScreen.storyboard in Resources */,
 				BFE9F4472469930200E44777 /* GoogleService-Info.plist in Resources */,
 				3EE3B131246B66EB00885768 /* LoginViewController.xib in Resources */,
@@ -675,9 +633,6 @@
 				BF4423342469D1B80050BD8A /* SignUpView.xib in Resources */,
 				3E8DCD9424723C77002DD4C0 /* AdminUserTableViewCell.xib in Resources */,
 				BFCF0BC824677F8000A43D8B /* Main.storyboard in Resources */,
-				825FA16F246FFED400A1F167 /* AddAdvertisementsCollectionViewCell.xib in Resources */,
-				825FA1712470023200A1F167 /* natura.jpg in Resources */,
-				BFCF0BCD24677F8100A43D8B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,23 +667,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		55C9A5B7F8E147A97B705907 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Aqark/Pods-Aqark-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Aqark/Pods-Aqark-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Aqark/Pods-Aqark-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		76A0996E96B7D70E645846A6 /* [CP] Check Pods Manifest.lock */ = {
@@ -804,13 +742,6 @@
 				BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */,
 				3EA83699246CE07C009AD024 /* LoginViewModel.swift in Sources */,
 				3E8DCD9624723E5F002DD4C0 /* AdminUsersListViewModel.swift in Sources */,
-				825E98AB246DBEB300848C2A /* AddAdvertisementDataSource.swift in Sources */,
-				825FA16E246FFED400A1F167 /* AddAdvertisementsCollectionViewCell.swift in Sources */,
-				825F648F246D53CE00C0F0D1 /* AddAdvertisementViewModel.swift in Sources */,
-				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
-				82C3EC7A2469E4C800CA845A /* AddAdvertisementViewController.swift in Sources */,
-				BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */,
-				825B19CA246C4021008BBA33 /* AddAdvertisementModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -833,6 +764,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		BFCF0BC624677F8000A43D8B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFCF0BC724677F8000A43D8B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		BFCF0BCE24677F8100A43D8B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1089,5 +1028,8 @@
 	};
 
 }
+<<<<<<< HEAD
 }
 
+=======
+>>>>>>> parent of 32ee0e9... Update project.pbxproj
