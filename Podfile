@@ -10,7 +10,7 @@ target 'Aqark' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
-  
+  pod 'SDWebImage', '~> 5.0'
 
   target 'AqarkTests' do
     inherit! :search_paths

@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		7056A0D613EFCF7CC97F41EB /* Pods_Aqark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */; };
 		AB359ED5E1D6FD408208700F /* Pods_AqarkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */; };
+		BF42996C246DAC3D00525E67 /* PropertyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF42996A246DAC3D00525E67 /* PropertyDetailView.swift */; };
+		BF42996D246DAC3D00525E67 /* PropertyDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF42996B246DAC3D00525E67 /* PropertyDetailView.xib */; };
+		BF5410B1246F56C300489C5D /* Advertisment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5410B0246F56C300489C5D /* Advertisment.swift */; };
+		BF60EDCA247168B8008A0C05 /* AmenitiesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60EDC8247168B8008A0C05 /* AmenitiesCollectionViewCell.swift */; };
+		BF60EDCB247168B8008A0C05 /* AmenitiesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF60EDC9247168B8008A0C05 /* AmenitiesCollectionViewCell.xib */; };
+		BFB002B524703F6200854F34 /* PropertyDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB002B424703F6200854F34 /* PropertyDetailViewModel.swift */; };
+		BFB002BB2470486000854F34 /* PropertyDetailDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB002BA2470486000854F34 /* PropertyDetailDataAccess.swift */; };
 		BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF0BC224677F8000A43D8B /* AppDelegate.swift */; };
 		BFCF0BC824677F8000A43D8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFCF0BC624677F8000A43D8B /* Main.storyboard */; };
 		BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFCF0BC924677F8000A43D8B /* Aqark.xcdatamodeld */; };
@@ -35,6 +42,13 @@
 		80B20C334276836267C28034 /* Pods-Aqark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqark.debug.xcconfig"; path = "Target Support Files/Pods-Aqark/Pods-Aqark.debug.xcconfig"; sourceTree = "<group>"; };
 		88E560A844B318E2835E7F97 /* Pods-Aqark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqark.release.xcconfig"; path = "Target Support Files/Pods-Aqark/Pods-Aqark.release.xcconfig"; sourceTree = "<group>"; };
 		B77402FFEAE979F1B4E1F970 /* Pods-AqarkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AqarkTests.release.xcconfig"; path = "Target Support Files/Pods-AqarkTests/Pods-AqarkTests.release.xcconfig"; sourceTree = "<group>"; };
+		BF42996A246DAC3D00525E67 /* PropertyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PropertyDetailView.swift; path = "view /PropertyDetailView.swift"; sourceTree = SOURCE_ROOT; };
+		BF42996B246DAC3D00525E67 /* PropertyDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PropertyDetailView.xib; path = "view /PropertyDetailView.xib"; sourceTree = SOURCE_ROOT; };
+		BF5410B0246F56C300489C5D /* Advertisment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Advertisment.swift; path = "view /Advertisment.swift"; sourceTree = SOURCE_ROOT; };
+		BF60EDC8247168B8008A0C05 /* AmenitiesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenitiesCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		BF60EDC9247168B8008A0C05 /* AmenitiesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmenitiesCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		BFB002B424703F6200854F34 /* PropertyDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PropertyDetailViewModel.swift; path = "view /PropertyDetailViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		BFB002BA2470486000854F34 /* PropertyDetailDataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDetailDataAccess.swift; sourceTree = "<group>"; };
 		BFCF0BBF24677F8000A43D8B /* Aqark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aqark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFCF0BC224677F8000A43D8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFCF0BC724677F8000A43D8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,6 +116,7 @@
 		BF06B40024679D0D005D7151 /* property details */ = {
 			isa = PBXGroup;
 			children = (
+				BFB002B9247047D000854F34 /* PropertyDetailDataAccess */,
 				BFBAED842468A5C000996DE8 /* model */,
 				BF06B40F24679EC1005D7151 /* view model */,
 				BF06B40E24679EBB005D7151 /* view  */,
@@ -196,6 +211,10 @@
 		BF06B40E24679EBB005D7151 /* view  */ = {
 			isa = PBXGroup;
 			children = (
+				BF42996A246DAC3D00525E67 /* PropertyDetailView.swift */,
+				BF42996B246DAC3D00525E67 /* PropertyDetailView.xib */,
+				BF60EDC8247168B8008A0C05 /* AmenitiesCollectionViewCell.swift */,
+				BF60EDC9247168B8008A0C05 /* AmenitiesCollectionViewCell.xib */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -203,6 +222,7 @@
 		BF06B40F24679EC1005D7151 /* view model */ = {
 			isa = PBXGroup;
 			children = (
+				BFB002B424703F6200854F34 /* PropertyDetailViewModel.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -305,6 +325,14 @@
 			path = "view model";
 			sourceTree = "<group>";
 		};
+		BFB002B9247047D000854F34 /* PropertyDetailDataAccess */ = {
+			isa = PBXGroup;
+			children = (
+				BFB002BA2470486000854F34 /* PropertyDetailDataAccess.swift */,
+			);
+			path = PropertyDetailDataAccess;
+			sourceTree = "<group>";
+		};
 		BFBAED7D2468A56700996DE8 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +385,7 @@
 		BFBAED842468A5C000996DE8 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				BF5410B0246F56C300489C5D /* Advertisment.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -504,6 +533,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF60EDCB247168B8008A0C05 /* AmenitiesCollectionViewCell.xib in Resources */,
+				BF42996D246DAC3D00525E67 /* PropertyDetailView.xib in Resources */,
 				BFCF0BD024677F8100A43D8B /* LaunchScreen.storyboard in Resources */,
 				BFE9F4472469930200E44777 /* GoogleService-Info.plist in Resources */,
 				BFCF0BCD24677F8100A43D8B /* Assets.xcassets in Resources */,
@@ -590,8 +621,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFB002B524703F6200854F34 /* PropertyDetailViewModel.swift in Sources */,
+				BF5410B1246F56C300489C5D /* Advertisment.swift in Sources */,
+				BF60EDCA247168B8008A0C05 /* AmenitiesCollectionViewCell.swift in Sources */,
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
+				BF42996C246DAC3D00525E67 /* PropertyDetailView.swift in Sources */,
 				BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */,
+				BFB002BB2470486000854F34 /* PropertyDetailDataAccess.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
