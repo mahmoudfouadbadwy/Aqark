@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 import SDWebImage
-
+import ReachabilitySwift
 
 class PropertyDetailView: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout{
 
@@ -31,6 +31,8 @@ class PropertyDetailView: UIViewController,UICollectionViewDelegate,UICollection
     @IBOutlet weak var size: UILabel!
     @IBOutlet weak var bedroom: UILabel!
     @IBOutlet weak var bathroom: UILabel!
+    @IBOutlet weak var wholeView: UIScrollView!
+    @IBOutlet weak var noNetConnection: UIView!
     
     var images = [UIImage]()
     var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
@@ -55,18 +57,34 @@ class PropertyDetailView: UIViewController,UICollectionViewDelegate,UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.showIndicator()
-        self.AmenitiesCollectionView.register(UINib(nibName: "AmenitiesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
-        setUpButtonCallPhonConstraints()
-        self.propertyDataAccess = PropertyDetailDataAccess()
-        self.propertyViewModel = PropertyDetailViewModel(propertyDataAccess: self.propertyDataAccess)
-        propertyViewModel.populateAdvertisement{(dataResult) in
-            self.adOfViewModel = dataResult
+        if !checkNetworkConnection(){
+            wholeView.isHidden = true
+            makeCall.isHidden = true
+            noNetConnection.isHidden = false
             
-            self.setUpPropertyDetailView()
-            self.setImageMap()
-            self.setScrollImage()
+        }else{
+            self.showIndicator()
+            self.AmenitiesCollectionView.register(UINib(nibName: "AmenitiesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+            setUpButtonCallPhonConstraints()
+            self.propertyDataAccess = PropertyDetailDataAccess()
+            self.propertyViewModel = PropertyDetailViewModel(propertyDataAccess: self.propertyDataAccess)
+            propertyViewModel.populateAdvertisement{(dataResult) in
+                self.adOfViewModel = dataResult
+                
+                self.setUpPropertyDetailView()
+                self.setImageMap()
+                self.setScrollImage()
+            }
         }
+    }
+    
+    // MARK: - check network connnection
+    
+    func checkNetworkConnection()->Bool
+    {
+        let connection = Reachability()
+        guard let status = connection?.isReachable else{return false}
+        return status
     }
 
      // MARK: - SetUp View Data
@@ -126,7 +144,7 @@ class PropertyDetailView: UIViewController,UICollectionViewDelegate,UICollection
             frame.origin.x = scrollImage.frame.size.width * CGFloat(index)
             frame.size = scrollImage.frame.size
             let imageView = UIImageView(frame: frame)
-         imageView.sd_setImage(with: URL(string: arrayOfImages[index]), placeholderImage: UIImage(named: ""))
+         imageView.sd_setImage(with: URL(string: arrayOfImages[index]), placeholderImage: nil)
             self.scrollImage.addSubview(imageView)
         }
         scrollImage.contentSize = CGSize(width: scrollImage.frame.size.width * CGFloat(images.count), height: scrollImage.frame.size.height)
@@ -229,6 +247,8 @@ class PropertyDetailView: UIViewController,UICollectionViewDelegate,UICollection
 extension PropertyDetailView{
     func showIndicator()
     {
+        self.wholeView.isHidden=true
+        self.makeCall.isHidden=true
         networkIndicator.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         networkIndicator.center = view.center
         networkIndicator.startAnimating()
@@ -236,6 +256,8 @@ extension PropertyDetailView{
     }
     
     func stopIndicator() {
+        self.wholeView.isHidden=false
+        self.makeCall.isHidden=false
         networkIndicator.stopAnimating()
     }
 }

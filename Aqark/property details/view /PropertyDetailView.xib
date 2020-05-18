@@ -22,6 +22,7 @@
                 <outlet property="hours" destination="iPf-w6-MPW" id="255-Ih-Ecr"/>
                 <outlet property="imageMapView" destination="xVs-vz-NMN" id="Pbq-sV-zjh"/>
                 <outlet property="makeCall" destination="9Oe-fy-NHu" id="6TS-kt-fBQ"/>
+                <outlet property="noNetConnection" destination="Ci8-QP-del" id="tvY-PB-xiS"/>
                 <outlet property="pageControl" destination="H6j-0p-6ni" id="ufq-Ca-fzy"/>
                 <outlet property="price" destination="PlL-tY-eTA" id="QUK-8h-c9b"/>
                 <outlet property="report" destination="SF6-W4-I8P" id="LiL-At-3eZ"/>
@@ -30,6 +31,7 @@
                 <outlet property="type" destination="Q2y-FE-6U9" id="s8i-XQ-aaa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="views" destination="66m-EG-jjR" id="dFZ-F2-YpD"/>
+                <outlet property="wholeView" destination="z4f-aC-jAy" id="FVm-aE-VGx"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -742,6 +744,38 @@
                         <action selector="callSomeone:" destination="-1" eventType="touchUpInside" id="THX-Wc-sJM"/>
                     </connections>
                 </button>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ci8-QP-del">
+                    <rect key="frame" x="0.0" y="20" width="375" height="1214"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZY0-b3-4KO">
+                            <rect key="frame" x="8" y="112" width="359" height="282"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PropertyDetail_NoInternetConn" translatesAutoresizingMaskIntoConstraints="NO" id="uJ3-G9-9DM">
+                                    <rect key="frame" x="0.0" y="0.0" width="359" height="282"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="282" id="AUv-BB-TXr"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="uJ3-G9-9DM" firstAttribute="leading" secondItem="ZY0-b3-4KO" secondAttribute="leading" id="6sX-FZ-bWz"/>
+                                <constraint firstAttribute="trailing" secondItem="uJ3-G9-9DM" secondAttribute="trailing" id="Scz-ZR-Idm"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="282" id="Z5h-tM-zxs"/>
+                                <constraint firstAttribute="bottom" secondItem="uJ3-G9-9DM" secondAttribute="bottom" id="amu-YT-G0m"/>
+                                <constraint firstAttribute="height" constant="282" id="nlk-8Y-TtL"/>
+                                <constraint firstItem="uJ3-G9-9DM" firstAttribute="top" secondItem="ZY0-b3-4KO" secondAttribute="top" id="t8I-v6-w58"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="ZY0-b3-4KO" firstAttribute="top" secondItem="Ci8-QP-del" secondAttribute="top" constant="112" id="6IE-fC-bgR"/>
+                        <constraint firstItem="ZY0-b3-4KO" firstAttribute="leading" secondItem="Ci8-QP-del" secondAttribute="leading" constant="8" id="7oq-44-Iqf"/>
+                        <constraint firstAttribute="bottom" secondItem="ZY0-b3-4KO" secondAttribute="bottom" constant="820" id="QIU-rS-1h7"/>
+                        <constraint firstAttribute="trailing" secondItem="ZY0-b3-4KO" secondAttribute="trailing" constant="8" id="uAH-OG-nZr"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -751,9 +785,13 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="9Oe-fy-NHu" secondAttribute="bottom" constant="584" id="Iit-z1-ocd"/>
                 <constraint firstItem="y0T-eV-lfN" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="KTq-eD-VEF"/>
                 <constraint firstItem="z4f-aC-jAy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="N4u-Zk-a1t"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ci8-QP-del" secondAttribute="trailing" id="eNB-vQ-hEh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Ci8-QP-del" secondAttribute="bottom" id="hyH-Ix-v2r"/>
+                <constraint firstItem="Ci8-QP-del" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jCt-Oq-LEU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="z4f-aC-jAy" secondAttribute="bottom" id="kTh-ox-E8G"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9Oe-fy-NHu" secondAttribute="trailing" id="pLV-dq-9hC"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="z4f-aC-jAy" secondAttribute="trailing" id="tVy-CN-QJZ"/>
+                <constraint firstItem="Ci8-QP-del" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="yTZ-6w-ui8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -761,6 +799,7 @@
         </view>
     </objects>
     <resources>
+        <image name="PropertyDetail_NoInternetConn" width="800" height="600"/>
         <image name="PropertyDetail_bathroom" width="21" height="18"/>
         <image name="PropertyDetail_bed" width="22" height="19"/>
         <image name="PropertyDetail_feedback" width="15" height="14"/>
