@@ -44,6 +44,7 @@ class AddAdvertisementViewController: UIViewController  {
     @IBOutlet weak var switchButton: UISwitch!
     
     
+    
     // collectionView
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -55,6 +56,8 @@ class AddAdvertisementViewController: UIViewController  {
     var selectedImages : [Data] = [Data]()
    
     var numberOfAdvertisementPerMonth:Int!
+    
+    var payment = "free"
     
     //dirctins
     var latitude : String = ""
@@ -160,7 +163,8 @@ class AddAdvertisementViewController: UIViewController  {
     @IBAction func saveAdvertisement(_ sender: Any) {
         
         
-        addAdvertisementVM = AddAdvertisementViewModel(propertyType: self.propertyType,
+        addAdvertisementVM = AddAdvertisementViewModel(payment:self.payment,
+                                                       propertyType: self.propertyType,
                                                        advertisementType: self.advertisementType,
                                                        price: self.priceTxtField.text!,
                                                        bedrooms: self.BedroomsTxtField.text!,
@@ -187,15 +191,23 @@ class AddAdvertisementViewController: UIViewController  {
             if checkNetworkConnection(){
                 
                 if switchButton.isOn{
+                    
                     //start indecator
                     showIndicator()
+                    
                     // upload advertisements
                     addAdvertisementVM.save()
+                    
+                    //stop indecator
+                    
+                    
+                    
                 }else{
                     //navigate to payment viewcontroller
                     print("navegaion")
                 }
-              
+                
+                
             }else{
                 alertControllerMessage(title: "no Internet Connection", message: "please check for internet connnectoin")
             }
@@ -237,8 +249,8 @@ class AddAdvertisementViewController: UIViewController  {
         config.isScrollToChangeModesEnabled = true
         config.onlySquareImagesFromCamera = true
         config.usesFrontCamera = false
-    //    config.showsPhotoFilters = true
-     //   config.showsVideoTrimmer = true
+       // config.showsPhotoFilters = true
+       // config.showsVideoTrimmer = true
         config.shouldSaveNewPicturesToAlbum = true
         config.albumName = "DefaultYPImagePickerAlbumName"
         config.startOnScreen = YPPickerScreen.library
@@ -298,10 +310,10 @@ class AddAdvertisementViewController: UIViewController  {
 
         if let myButtonImage = sender.currentImage, let buttonAppuyerImage = UIImage(named: "advertisement_uncheck.png"), myButtonImage.pngData() == buttonAppuyerImage.pngData()
         {
-            sender.setImage(UIImage(named: "advertisement_check.png"), for: .normal)
+            sender.setImage(UIImage(named: "advertisement_check"), for: .normal)
             selectAmenitiesDic[sender.tag] = selectAmenitiesValue(tagNumber: sender.tag)
         }else{
-            sender.setImage(UIImage(named: "advertisement_uncheck.png"), for: .normal)
+            sender.setImage(UIImage(named: "advertisement_uncheck"), for: .normal)
             selectAmenitiesDic.removeValue(forKey: sender.tag)
         }
   
@@ -400,6 +412,18 @@ class AddAdvertisementViewController: UIViewController  {
         let actionButton = UIAlertAction(title: "ok", style: .default, handler: nil)
         alertController.addAction(actionButton)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    //MARK:- switch toggle function
+    @IBAction func switchToggle(_ sender: UISwitch) {
+        
+        if sender.isOn {
+            self.payment = "free"
+        }else{
+            self.payment = "premium"
+        }
+        
     }
     
     

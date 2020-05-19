@@ -16,14 +16,14 @@
 		7056A0D613EFCF7CC97F41EB /* Pods_Aqark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */; };
 		826A9A1D2473E4990046E562 /* AddAdvertisementDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A1C2473E4990046E562 /* AddAdvertisementDataSource.swift */; };
 		826A9A1F2473E4A40046E562 /* AddAdvertisementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A1E2473E4A40046E562 /* AddAdvertisementModel.swift */; };
-		826A9A242473E4B30046E562 /* AddAdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A202473E4B30046E562 /* AddAdvertisementViewController.swift */; };
-		826A9A252473E4B30046E562 /* AddAdvertisementsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A212473E4B30046E562 /* AddAdvertisementsCollectionViewCell.swift */; };
-		826A9A262473E4B30046E562 /* AddAdvertisementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 826A9A222473E4B30046E562 /* AddAdvertisementViewController.xib */; };
-		826A9A272473E4B30046E562 /* AddAdvertisementsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 826A9A232473E4B30046E562 /* AddAdvertisementsCollectionViewCell.xib */; };
 		826A9A2C2473E4C20046E562 /* ExtensionAddAdvertisementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A282473E4C20046E562 /* ExtensionAddAdvertisementViewModel.swift */; };
 		826A9A2D2473E4C20046E562 /* AddAdvertisementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A292473E4C20046E562 /* AddAdvertisementViewModel.swift */; };
 		826A9A2E2473E4C20046E562 /* AddAdvertisementBrokenRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A2A2473E4C20046E562 /* AddAdvertisementBrokenRule.swift */; };
 		826A9A2F2473E4C20046E562 /* FileAddAdvertisementViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A2B2473E4C20046E562 /* FileAddAdvertisementViewModelProtocol.swift */; };
+		826A9A362473EAC40046E562 /* AddAdvertisementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 826A9A322473EAC40046E562 /* AddAdvertisementViewController.xib */; };
+		826A9A372473EAC40046E562 /* AddAdvertisementsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 826A9A332473EAC40046E562 /* AddAdvertisementsCollectionViewCell.xib */; };
+		826A9A382473EAC40046E562 /* AddAdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A342473EAC40046E562 /* AddAdvertisementViewController.swift */; };
+		826A9A392473EAC40046E562 /* AddAdvertisementsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A352473EAC40046E562 /* AddAdvertisementsCollectionViewCell.swift */; };
 		AB359ED5E1D6FD408208700F /* Pods_AqarkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */; };
 		BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD38A246A3B120013FF4B /* AccountViewModel.swift */; };
 		BF3AD38E246A3BB00013FF4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD38D246A3BB00013FF4B /* User.swift */; };
@@ -90,14 +90,14 @@
 		80B20C334276836267C28034 /* Pods-Aqark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqark.debug.xcconfig"; path = "Target Support Files/Pods-Aqark/Pods-Aqark.debug.xcconfig"; sourceTree = "<group>"; };
 		826A9A1C2473E4990046E562 /* AddAdvertisementDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAdvertisementDataSource.swift; sourceTree = "<group>"; };
 		826A9A1E2473E4A40046E562 /* AddAdvertisementModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAdvertisementModel.swift; sourceTree = "<group>"; };
-		826A9A202473E4B30046E562 /* AddAdvertisementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddAdvertisementViewController.swift; path = "../../../../Project Graduation/Aqark/Aqark/advertisement/view/AddAdvertisementViewController.swift"; sourceTree = "<group>"; };
-		826A9A212473E4B30046E562 /* AddAdvertisementsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAdvertisementsCollectionViewCell.swift; sourceTree = "<group>"; };
-		826A9A222473E4B30046E562 /* AddAdvertisementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAdvertisementViewController.xib; sourceTree = "<group>"; };
-		826A9A232473E4B30046E562 /* AddAdvertisementsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAdvertisementsCollectionViewCell.xib; sourceTree = "<group>"; };
 		826A9A282473E4C20046E562 /* ExtensionAddAdvertisementViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionAddAdvertisementViewModel.swift; sourceTree = "<group>"; };
 		826A9A292473E4C20046E562 /* AddAdvertisementViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAdvertisementViewModel.swift; sourceTree = "<group>"; };
 		826A9A2A2473E4C20046E562 /* AddAdvertisementBrokenRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAdvertisementBrokenRule.swift; sourceTree = "<group>"; };
 		826A9A2B2473E4C20046E562 /* FileAddAdvertisementViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileAddAdvertisementViewModelProtocol.swift; sourceTree = "<group>"; };
+		826A9A322473EAC40046E562 /* AddAdvertisementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAdvertisementViewController.xib; sourceTree = "<group>"; };
+		826A9A332473EAC40046E562 /* AddAdvertisementsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAdvertisementsCollectionViewCell.xib; sourceTree = "<group>"; };
+		826A9A342473EAC40046E562 /* AddAdvertisementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAdvertisementViewController.swift; sourceTree = "<group>"; };
+		826A9A352473EAC40046E562 /* AddAdvertisementsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAdvertisementsCollectionViewCell.swift; sourceTree = "<group>"; };
 		88E560A844B318E2835E7F97 /* Pods-Aqark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqark.release.xcconfig"; path = "Target Support Files/Pods-Aqark/Pods-Aqark.release.xcconfig"; sourceTree = "<group>"; };
 		B77402FFEAE979F1B4E1F970 /* Pods-AqarkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AqarkTests.release.xcconfig"; path = "Target Support Files/Pods-AqarkTests/Pods-AqarkTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF3AD38A246A3B120013FF4B /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
@@ -406,10 +406,10 @@
 		BF06B41824679F0D005D7151 /* view  */ = {
 			isa = PBXGroup;
 			children = (
-				826A9A212473E4B30046E562 /* AddAdvertisementsCollectionViewCell.swift */,
-				826A9A232473E4B30046E562 /* AddAdvertisementsCollectionViewCell.xib */,
-				826A9A202473E4B30046E562 /* AddAdvertisementViewController.swift */,
-				826A9A222473E4B30046E562 /* AddAdvertisementViewController.xib */,
+				826A9A352473EAC40046E562 /* AddAdvertisementsCollectionViewCell.swift */,
+				826A9A332473EAC40046E562 /* AddAdvertisementsCollectionViewCell.xib */,
+				826A9A342473EAC40046E562 /* AddAdvertisementViewController.swift */,
+				826A9A322473EAC40046E562 /* AddAdvertisementViewController.xib */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -708,9 +708,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				826A9A262473E4B30046E562 /* AddAdvertisementViewController.xib in Resources */,
+				826A9A362473EAC40046E562 /* AddAdvertisementViewController.xib in Resources */,
 				BF634CA424733A9000B65B90 /* LoginViewController.xib in Resources */,
-				826A9A272473E4B30046E562 /* AddAdvertisementsCollectionViewCell.xib in Resources */,
+				826A9A372473EAC40046E562 /* AddAdvertisementsCollectionViewCell.xib in Resources */,
 				BFCF0BD024677F8100A43D8B /* LaunchScreen.storyboard in Resources */,
 				BF6DC68D2473522B0030AE52 /* AmenitiesCollectionViewCell.xib in Resources */,
 				BFE9F4472469930200E44777 /* GoogleService-Info.plist in Resources */,
@@ -833,7 +833,6 @@
 				BF6DC68E2473522B0030AE52 /* PropertyDetailView.swift in Sources */,
 				BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */,
 				BF634CAB24733C9700B65B90 /* SearchViewController.swift in Sources */,
-				826A9A242473E4B30046E562 /* AddAdvertisementViewController.swift in Sources */,
 				BF634CAE24733D8200B65B90 /* AdvertisementSearchModel.swift in Sources */,
 				826A9A2C2473E4C20046E562 /* ExtensionAddAdvertisementViewModel.swift in Sources */,
 				BF634CB024733DA800B65B90 /* AdvertisementListViewModel.swift in Sources */,
@@ -855,12 +854,13 @@
 				BF3B2695247029850064BDF0 /* ProfileViewModel.swift in Sources */,
 				BF6DC68F2473522B0030AE52 /* AmenitiesCollectionViewCell.swift in Sources */,
 				3EA836A0246CEFE2009AD024 /* LoginDataAccessLayer.swift in Sources */,
+				826A9A382473EAC40046E562 /* AddAdvertisementViewController.swift in Sources */,
 				BF77D47B2471698E00455A25 /* ProfileAdvertisementCell.swift in Sources */,
 				BF3B26932470281E0064BDF0 /* Profile.swift in Sources */,
 				BF6DC688247352030030AE52 /* PropertyDetailViewModel.swift in Sources */,
+				826A9A392473EAC40046E562 /* AddAdvertisementsCollectionViewCell.swift in Sources */,
 				826A9A1D2473E4990046E562 /* AddAdvertisementDataSource.swift in Sources */,
 				C67EE8B524708DC1005F266A /* Network.swift in Sources */,
-				826A9A252473E4B30046E562 /* AddAdvertisementsCollectionViewCell.swift in Sources */,
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
 				C63F74DE246BC56F00142EE0 /* AdvertisementData .swift in Sources */,
 				BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */,
