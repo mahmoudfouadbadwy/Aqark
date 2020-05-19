@@ -16,11 +16,11 @@ class PropertyDetailDataAccess {
     var ref: DatabaseReference!
     var databaseHandle:DatabaseHandle?
     var advertisment:[Advertisment]=[Advertisment]()
-    let userID = "UserId"    
+  //  let userID = "UserId"    
     
     func gatDataFromFirebase(completionForGetPropertyDetail : @escaping (_ propertyResult: [Advertisment]) -> Void){
         ref = Database.database().reference()
-        ref.child("Advertisements").child("-M7Xp9-2Es12ochkafgY").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("Advertisements").child("-M7eFLOujLmmXhjM7CdK").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
             let price = value?["price"] as? String ?? ""

@@ -54,24 +54,17 @@ class SearchViewController: UIViewController{
            placeHolderView.isHidden = false
             imagePlaceHolder.image = UIImage(named: "search_no_connection")
             labelPlaceHolder.text = "No Internet Connection"
-
-
-            
         }else{
             placeHolderView.isHidden = true
         showIndicator()
          searchBar.delegate = self
          searchCollectionView.register(UINib(nibName: "AdvertisementCellCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
         updateFlowLayout()
-        searchComponents()
         self.data = AdvertisementData()
         self.advertismentsListViewModel = AdvertisementListViewModel(dataAccess: self.data)
-        
         advertismentsListViewModel.populateAds { (dataResults) in
             self.arrOfAdViewModel = dataResults
-            
         }
-//          searchCollectionView.reloadData()
     }
         
 }
@@ -131,6 +124,10 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
         cell.numberOfBathRoomsLabel?.text = adViewModel.bathRoomsNumber
         cell.propertySizeLabel?.text = adViewModel.size
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            self.navigationController?.pushViewController(PropertyDetailView(), animated: true)
     }
     
     func updateCellLayout(cell : UICollectionViewCell ){
@@ -233,14 +230,6 @@ extension SearchViewController:  UISearchBarDelegate{
     
      private var isFiltering: Bool {
         return (searchBar.text?.isEmpty)! && !searchController.isActive ? false : true
-    }
-    
-    func searchComponents() {
-        searchController.searchBar.placeholder = "Search Location"
-        //for iOS 11, you add the searchBar to the navigationItem. This is necessary because Interface Builder is not yet compatible with UISearchController.
-        navigationItem.searchController = searchController
-        // by setting definesPresentationContext on your view controller to true, you ensure that the search bar doesn’t remain on the screen if the user navigates to
-        definesPresentationContext = true
     }
 }
 

@@ -39,9 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let searchNavigationController = UINavigationController(rootViewController: searchTab)
         let accountTab = FirstScreenViewController()
         let accountNavigationController = UINavigationController(rootViewController: accountTab)
-        searchTab.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search_bed"), tag: 1)
+        searchTab.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search_search"), tag: 1)
         accountTab.tabBarItem = UITabBarItem(title: "Account", image: UIImage(named: "signup_username"), tag: 2)
-        let controllers = [accountNavigationController,searchNavigationController]
+        let controllers = [searchNavigationController,accountNavigationController]
         tabBarController.viewControllers = controllers
         window?.rootViewController = tabBarController
         
