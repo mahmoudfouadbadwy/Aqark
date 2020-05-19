@@ -26,6 +26,7 @@ struct AddAdvertisementModel{
     var description: String
     var aminities : [String]
     var date : String
-    var images :[Data] 
+    var images :[Data]
+    var payment : String
     
 }
