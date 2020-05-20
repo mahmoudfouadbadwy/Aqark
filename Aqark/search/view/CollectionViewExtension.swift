@@ -9,7 +9,7 @@
 import UIKit
 
 extension SearchViewController : UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if advertismentsListViewModel != nil{
             return isFiltering ? filteredAdsList.count : advertismentsListViewModel.advertismentsViewModel.count
@@ -17,8 +17,8 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
             return 0
         }
     }
-    
-    
+
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AdvertisementCellCollectionViewCell
         updateCellLayout(cell: cell)
@@ -30,14 +30,14 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
 
             if let arrOfAdViewModel = arrOfAdViewModel{
                 adViewModel = arrOfAdViewModel[indexPath.row]
-            
+
             }
             else{
                 adViewModel = self.advertismentsListViewModel.advertismentsViewModel[indexPath.row]
-                
+
             }
         }
-        
+
         cell.advertisementImage?.sd_setImage(with: URL(string: adViewModel.image), placeholderImage: UIImage(named: "NoImage"))
         cell.propertyTypeLabel?.text = adViewModel.propertyType
         cell.proprtyAddressLabel?.text = adViewModel.address
@@ -51,9 +51,9 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
     print((arrOfAdViewModel![indexPath.row].advertisementId)!)
     }
 
-    
-    
-   
+
+
+
     func updateCellLayout(cell : UICollectionViewCell ){
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
@@ -64,7 +64,7 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
     }
-    
+
     func updateFlowLayout()
     {
         if collectionViewFlowLayout == nil
@@ -74,7 +74,7 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
             let minimunInteritemSpacing :CGFloat = 20
             let width = (searchCollectionView.frame.width / numberOfItemPerRow)
             let height = (searchCollectionView.frame.height/3.5)
-            
+
             collectionViewFlowLayout = UICollectionViewFlowLayout()
             collectionViewFlowLayout.itemSize = CGSize(width: width, height: height)
             collectionViewFlowLayout.scrollDirection = .vertical
@@ -85,5 +85,5 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
         }
     }
 
-    
+
 }

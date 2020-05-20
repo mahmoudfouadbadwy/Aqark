@@ -15,7 +15,7 @@ extension SearchViewController:  UISearchBarDelegate{
         appearAutoCompleteData()
         filterContentForSearchBarText(searchBar.text!)
     }
-    
+
 func filterContentForSearchBarText(_ searchText: String){
         let advertisementList = advertismentsListViewModel.advertismentsViewModel
         unFilteredAdsList = advertisementList
@@ -25,10 +25,10 @@ func filterContentForSearchBarText(_ searchText: String){
         }
         searchCollectionView.reloadData()
     }
-    
+
    var isFiltering: Bool {
         return (searchBar.text?.isEmpty)! && !searchController.isActive ? false : true
     }
-    
-    
+
+
 }
