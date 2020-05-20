@@ -7,13 +7,15 @@
 //
 
 import UIKit
-import GooglePlaces
 import ReachabilitySwift
 import SDWebImage
 
-
 class SearchViewController: UIViewController{
-    
+    @IBOutlet weak var filterImage: UIImageView!
+    @IBOutlet weak var filterBtn: UIButton!
+    @IBOutlet weak var swapLabel: UIImageView!
+    @IBOutlet weak var notificationBtn: UIButton!
+    @IBOutlet weak var sortBtn: UIButton!
     @IBOutlet weak var placeHolderView: UIView!
     @IBOutlet weak var labelPlaceHolder: UILabel!
     @IBOutlet weak var imagePlaceHolder: UIImageView!
@@ -22,18 +24,27 @@ class SearchViewController: UIViewController{
     var collectionViewFlowLayout:UICollectionViewFlowLayout!
     var advertismentsListViewModel : AdvertisementListViewModel!
     let searchController = UISearchController(searchResultsController: nil)
-    private var data : AdvertisementData!
-    private var filteredAdsList = [AdvertisementViewModel]()
-    private var unFilteredAdsList = [AdvertisementViewModel]()
-    private let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
-    private var arrOfAdViewModel : [AdvertisementViewModel]?{
+    var data : AdvertisementData!
+    var filteredAdsList = [AdvertisementViewModel]()
+    var unFilteredAdsList = [AdvertisementViewModel]()
+    let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
+    var arrOfAdViewModel : [AdvertisementViewModel]?{
         didSet{
             self.searchCollectionView.reloadData()
             stopIndicator()
-
+            swapLabel.isHidden = false
+            notificationBtn.isHidden = false
+            sortBtn.isHidden = false
+            searchBar.isHidden = false
+            filterBtn.isHidden = false
+            filterImage.isHidden = false
+            UIView.animate(withDuration:0.5) {
+                self.view.alpha = 1
+            }
         }
     }
-    private var searchBarText:String!{
+    
+   var searchBarText:String!{
         didSet{
             filterContentForSearchBarText(searchBar.text!)
             if filteredAdsList.count == 0 {
@@ -42,8 +53,6 @@ class SearchViewController: UIViewController{
                 labelPlaceHolder.text = "No Advertisements Found"
             }else{
                 placeHolderView.isHidden = true
-
-
             }
         }
     }
@@ -51,25 +60,42 @@ class SearchViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         if !checkNetworkConnection(){
-           placeHolderView.isHidden = false
+            placeHolderView.isHidden = false
             imagePlaceHolder.image = UIImage(named: "search_no_connection")
             labelPlaceHolder.text = "No Internet Connection"
         }else{
+            showIndicator()
             placeHolderView.isHidden = true
-        showIndicator()
-         searchBar.delegate = self
-         searchCollectionView.register(UINib(nibName: "AdvertisementCellCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
-        updateFlowLayout()
-        self.data = AdvertisementData()
-        self.advertismentsListViewModel = AdvertisementListViewModel(dataAccess: self.data)
-        advertismentsListViewModel.populateAds { (dataResults) in
-            self.arrOfAdViewModel = dataResults
+            searchBar.delegate = self
+            searchBar.layer.borderWidth = 1
+            searchBar.layer.cornerRadius = 5
+            searchBar.layer.shadowColor = UIColor.lightGray.cgColor
+            searchBar.layer.borderColor = UIColor.lightGray.cgColor
+            if let textField = self.searchBar.subviews.first?.subviews.compactMap({ $0 as? UITextField }).first {
+                textField.subviews.first?.isHidden = true
+                textField.layer.backgroundColor = UIColor.white.cgColor
+                textField.layer.masksToBounds = true
+            }
+        
+            searchCollectionView.register(UINib(nibName: "AdvertisementCellCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
+            updateFlowLayout()
+            self.data = AdvertisementData()
+            self.advertismentsListViewModel = AdvertisementListViewModel(dataAccess: self.data)
+            
+            advertismentsListViewModel.populateAds { (dataResults) in
+                self.arrOfAdViewModel = dataResults
+                
+            }
         }
     }
-        
+    
+func checkNetworkConnection()->Bool
+    {
+        let connection = Reachability()
+        guard let status = connection?.isReachable else{return false}
+        return status
+    }
 }
-}
-
 
 //MARK: - UIViewIndicator
 extension SearchViewController{
@@ -86,151 +112,5 @@ extension SearchViewController{
     }
 }
 
-
-//MARK: CollectionView
-extension SearchViewController : UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if advertismentsListViewModel != nil{
-        return isFiltering ? filteredAdsList.count : advertismentsListViewModel.advertismentsViewModel.count
-        }else{
-            return 0
-        }
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AdvertisementCellCollectionViewCell
-        updateCellLayout(cell: cell)
-        var adViewModel : AdvertisementViewModel
-        if isFiltering {
-            adViewModel = filteredAdsList[indexPath.row]
-        } else {
-            placeHolderView.isHidden = true
-
-            if let arrOfAdViewModel = arrOfAdViewModel{
-                adViewModel = arrOfAdViewModel[indexPath.row]
-            }
-            else{
-                adViewModel = self.advertismentsListViewModel.advertismentsViewModel[indexPath.row]
-            }
-        }
-        
-        cell.advertisementImage?.sd_setImage(with: URL(string: adViewModel.image), placeholderImage: UIImage(named: "search_apartment"))
-        cell.propertyTypeLabel?.text = adViewModel.propertyType
-        cell.proprtyAddressLabel?.text = adViewModel.address
-        cell.propertyPriceLabel?.text = adViewModel.price
-        cell.numberOfBedsLabel?.text = adViewModel.bedRoomsNumber
-        cell.numberOfBathRoomsLabel?.text = adViewModel.bathRoomsNumber
-        cell.propertySizeLabel?.text = adViewModel.size
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            self.navigationController?.pushViewController(PropertyDetailView(), animated: true)
-    }
-    
-    func updateCellLayout(cell : UICollectionViewCell ){
-    cell.layer.cornerRadius = 10
-    cell.layer.masksToBounds = true
-    cell.layer.shadowColor = UIColor.black.cgColor
-    cell.layer.shadowOffset = CGSize(width: 2.0, height: 3.0)
-    cell.layer.shadowRadius = 4.0
-    cell.layer.shadowOpacity = 0.5
-    cell.layer.masksToBounds = false
-    cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
-    }
-    
-    func updateFlowLayout()
-    {
-        if collectionViewFlowLayout == nil
-        {
-            let numberOfItemPerRow :CGFloat = 1
-            let minimunLineSpacing :CGFloat = 2
-            let minimunInteritemSpacing :CGFloat = 0
-            
-            let width = (searchCollectionView.frame.width / numberOfItemPerRow)
-            let height = (searchCollectionView.frame.height/3)
-            
-            collectionViewFlowLayout = UICollectionViewFlowLayout()
-            collectionViewFlowLayout.itemSize = CGSize(width: width, height: height)
-            collectionViewFlowLayout.scrollDirection = .vertical
-            collectionViewFlowLayout.sectionInset = UIEdgeInsets.zero
-            collectionViewFlowLayout.minimumLineSpacing = minimunLineSpacing
-            collectionViewFlowLayout.minimumInteritemSpacing = minimunInteritemSpacing
-            searchCollectionView.setCollectionViewLayout(collectionViewFlowLayout, animated: true)
-        }
-    }
-}
-
-//MARK: AutoComplete View Controller
-extension SearchViewController:  GMSAutocompleteViewControllerDelegate{
-  
-    // Handle the user's selection.
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        // Get the place name from 'GMSAutocompleteViewController'
-           searchBar.text = place.name
-        
-        // Then display the name in textField
-        searchBarText = searchBar.text
-
-        // Dismiss the GMSAutocompleteViewController when something is selected
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // Handle the error
-        print("Error: ", error.localizedDescription)
-    }
-    
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        // Dismiss when the user canceled the action
-        dismiss(animated: true, completion: nil)
-    }
-    
-    //autocomplete
-  private func appearAutoCompleteData(){
-        
-        searchBar.resignFirstResponder()
-        let autocompleteController = GMSAutocompleteViewController()
-        autocompleteController.delegate = self
-        
-        // Specify the place data types to return.
-        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-            UInt(GMSPlaceField.placeID.rawValue))!
-        autocompleteController.placeFields = fields
-        
-        // Specify a filter.
-        let filter = GMSAutocompleteFilter()
-        filter.type = .address
-        filter.country = "eg"
-        autocompleteController.autocompleteFilter = filter;
-        present(autocompleteController, animated: true, completion: nil)
-    }
-}
-
-//MARK: Search Bar
-extension SearchViewController:  UISearchBarDelegate{
-
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchBar.becomeFirstResponder()
-        appearAutoCompleteData()
-        filterContentForSearchBarText(searchBar.text!)
-    }
-    
-   private func filterContentForSearchBarText(_ searchText: String){
-        let advertisementList = advertismentsListViewModel.advertismentsViewModel
-        unFilteredAdsList = advertisementList
-        let searchText = searchBar.text ?? ""
-        filteredAdsList = advertisementList.filter { advertisement -> Bool in
-        return advertisement.address.lowercased().contains(searchText.lowercased())
-        }
-        searchCollectionView.reloadData()
-    }
-    
-     private var isFiltering: Bool {
-        return (searchBar.text?.isEmpty)! && !searchController.isActive ? false : true
-    }
-}
 
 

@@ -25,11 +25,13 @@ class AdvertisementCellCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var propertySizeLabel: UILabel!
     
     
+    
   
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    
+        advertisementImage.layer.cornerRadius = 10
+        advertisementImage.clipsToBounds = true
     }
    
     

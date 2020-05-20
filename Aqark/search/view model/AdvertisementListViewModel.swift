@@ -38,6 +38,7 @@ class AdvertisementViewModel{
     var size: String!
     var bedRoomsNumber: String!
     var bathRoomsNumber: String!
+    var advertisementId : String!
 
     init(model : AdvertisementSearchModel){
         self.image = model.image
@@ -48,6 +49,7 @@ class AdvertisementViewModel{
         self.size = model.size
         self.bedRoomsNumber = model.bedRoomsNumber
         self.bathRoomsNumber = model.bathRoomsNumber
+        self.advertisementId = model.advertisementId
         
             }
 }

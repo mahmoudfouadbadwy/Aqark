@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdvertisementSearchModel {
+struct AdvertisementSearchModel {
     var image: String!
     var propertyType: String!
     var advertisementType: String!
@@ -21,17 +21,4 @@ class AdvertisementSearchModel {
     var bathRoomsNumber: String!
     
     
-    init(image: String, propertyType: String,advertisementType: String ,advertisementId: String,price: String, address: String, country: String, size: String, bedRoomsNumber: String,bathRoomsNumber: String){
-       self.image = image
-        self.propertyType = propertyType
-        self.advertisementId = advertisementId
-        self.price = price
-        self.address = address
-        self.country = country
-        self.size = size
-        self.bedRoomsNumber = bedRoomsNumber
-        self.bathRoomsNumber = bathRoomsNumber
-        self.advertisementType = advertisementType
-       
-    }
     }
