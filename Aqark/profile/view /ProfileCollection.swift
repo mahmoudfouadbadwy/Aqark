@@ -10,12 +10,11 @@ import UIKit
 extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return listOfAdvertisements.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:ProfileAdvertisementCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileAdvertisementCell
-        if listOfAdvertisements.count>0{
             let advertisement:ProfileAdvertisementViewModel = listOfAdvertisements[indexPath.row]
             cell.propertyType.text = advertisement.propertyType
             cell.propertyPrice.text = advertisement.price
@@ -23,7 +22,6 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
             cell.propertyAddress.text = advertisement.address
             cell.bedNumber.text = advertisement.bedroom
             cell.bathRoomNumber.text = advertisement.bathroom
-        }
        
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
