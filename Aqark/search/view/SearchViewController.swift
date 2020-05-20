@@ -43,7 +43,6 @@ class SearchViewController: UIViewController{
             }
         }
     }
-    
    var searchBarText:String!{
         didSet{
             filterContentForSearchBarText(searchBar.text!)
@@ -51,6 +50,8 @@ class SearchViewController: UIViewController{
                 placeHolderView.isHidden = false
                 imagePlaceHolder.image = UIImage(named: "search_not_found")
                 labelPlaceHolder.text = "No Advertisements Found"
+                sortBtn.isHidden = true
+                swapLabel.isHidden = true
             }else{
                 placeHolderView.isHidden = true
             }
@@ -61,6 +62,7 @@ class SearchViewController: UIViewController{
         super.viewDidLoad()
         if !checkNetworkConnection(){
             placeHolderView.isHidden = false
+                self.view.alpha = 1
             imagePlaceHolder.image = UIImage(named: "search_no_connection")
             labelPlaceHolder.text = "No Internet Connection"
         }else{
@@ -76,7 +78,6 @@ class SearchViewController: UIViewController{
                 textField.layer.backgroundColor = UIColor.white.cgColor
                 textField.layer.masksToBounds = true
             }
-        
             searchCollectionView.register(UINib(nibName: "AdvertisementCellCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
             updateFlowLayout()
             self.data = AdvertisementData()
@@ -88,7 +89,7 @@ class SearchViewController: UIViewController{
             }
         }
     }
-    
+
 func checkNetworkConnection()->Bool
     {
         let connection = Reachability()

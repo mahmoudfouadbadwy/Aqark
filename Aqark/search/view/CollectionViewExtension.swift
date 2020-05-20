@@ -30,7 +30,9 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
 
             if let arrOfAdViewModel = arrOfAdViewModel{
                 adViewModel = arrOfAdViewModel[indexPath.row]
-
+                sortBtn.isHidden = false
+                swapLabel.isHidden = false
+            
             }
             else{
                 adViewModel = self.advertismentsListViewModel.advertismentsViewModel[indexPath.row]
@@ -45,10 +47,17 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
         cell.numberOfBedsLabel?.text = adViewModel.bedRoomsNumber
         cell.numberOfBathRoomsLabel?.text = adViewModel.bathRoomsNumber
         cell.propertySizeLabel?.text = adViewModel.size
+        if adViewModel.advertisementType == "Rent"{
+            cell.currencyLabel?.text = "EGP/month"
+        }else{
+             cell.currencyLabel?.text = "EGP"
+        }
         return cell
     }
  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-    print((arrOfAdViewModel![indexPath.row].advertisementId)!)
+    let adId = (arrOfAdViewModel![indexPath.row].advertisementId)!
+    let propertyDetailVC = PropertyDetailView()
+    self.navigationController?.pushViewController(propertyDetailVC, animated: true)
     }
 
 
