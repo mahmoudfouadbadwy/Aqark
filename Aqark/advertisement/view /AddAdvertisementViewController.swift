@@ -295,7 +295,7 @@ class AddAdvertisementViewController: UIViewController  {
     
     func setupImageInLeftTextField(){
         priceTxtField.setIcon(UIImage(named: "Advertisement_ic_monetization_on_24px.pdf")!)
-        phoneTxtField.setIcon(UIImage(named: "Advertisement_Mask Group 25.pdf")!)
+        phoneTxtField.setIcon(UIImage(named: "Advertisement_flag.pdf")!)
         sizeTxtField.setIcon(UIImage(named:"Advertisement_house-size_2.pdf")!)
         addressTxtField.setIcon(UIImage(named: "Advertisement_Mask Group 22.pdf")!)
         BedroomsTxtField.setIcon(UIImage(named: "Advertisement_bed.pdf")!)
