@@ -40,7 +40,7 @@ class ProfileViewModel{
     var country:String
     var address:String
     var company:String
-    var experience:String
+    var phone:String
     init(profile:Profile) {
         self.role = profile.role
         self.picture = profile.picture
@@ -48,7 +48,7 @@ class ProfileViewModel{
         self.username = profile.username
         self.company = profile.company
         self.address = profile.address
-        self.experience = profile.experience
+        self.phone = profile.phone
         self.country = profile.country
     }
 }

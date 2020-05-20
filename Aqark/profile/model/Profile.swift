@@ -15,7 +15,7 @@ struct Profile{
     var country:String
     var address:String
     var company:String
-    var experience:String
+    var phone:String
 }
 
 struct AdvertismentsStore {
@@ -33,12 +33,4 @@ struct ProfileAdvertisement {
     var bed:String
     var bathroom:String
     var propertySize:String
-//    init(type:String,price:String,address:String,bed:String,bathroom:String,size:String) {
-//        self.propertyType = type
-//        self.price = price
-//        self.address = address
-//        self.bed = bed
-//        self.bathroom = bathroom
-//        self.propertySize = size
-//    }
 }

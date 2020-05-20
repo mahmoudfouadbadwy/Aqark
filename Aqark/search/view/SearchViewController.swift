@@ -38,7 +38,7 @@ class SearchViewController: UIViewController{
             searchBar.isHidden = false
             filterBtn.isHidden = false
             filterImage.isHidden = false
-            UIView.animate(withDuration:0.5) {
+            UIView.animate(withDuration:2) {
                 self.view.alpha = 1
             }
         }

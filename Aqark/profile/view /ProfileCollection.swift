@@ -18,7 +18,7 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
             let advertisement:ProfileAdvertisementViewModel = listOfAdvertisements[indexPath.row]
             cell.propertyType.text = advertisement.propertyType
             cell.propertyPrice.text = advertisement.price
-            cell.propertySize.text = advertisement.size
+        cell.propertySize.text = "\(advertisement.size ?? "") sqm"
             cell.propertyAddress.text = advertisement.address
             cell.bedNumber.text = advertisement.bedroom
             cell.bathRoomNumber.text = advertisement.bathroom
@@ -36,7 +36,7 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.frame.width - 20, height: collectionView.frame.height / 3)
+        return CGSize(width: collectionView.frame.width - 20, height: 150)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10.0, left: 0.0, bottom: 0.0, right: 0.0)
@@ -44,7 +44,7 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
     
     func setupCollection()
     {
-        self.advertisementsCollection.register(UINib(nibName: "ProfileAdvertisementCell", bundle: nil), forCellWithReuseIdentifier: "profileCell")
+        self.advertisementsCollection.register(UINib(nibName: "AdvertisementCell", bundle: nil), forCellWithReuseIdentifier: "profileCell")
         self.advertisementsCollection.dataSource = self
         self.advertisementsCollection.delegate = self
         let advertisementViewModel:ProfileAdvertisementListViewModel =

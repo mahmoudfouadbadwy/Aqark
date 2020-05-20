@@ -19,14 +19,8 @@ extension ProfileViewController{
     }
     func setupOptionalViews(hide status:Bool)
     {
-        countryIcon.isHidden = status
-        countryName.isHidden = status
-        addressIcon.isHidden = status
-        addressText.isHidden = status
-        companyIcon.isHidden = status
-        companyName.isHidden = status
-        experienceIcon.isHidden = status
-        experienceValue.isHidden = status
+        optionalText.isHidden = status
+        optionalIcons.isHidden = status
     }
     func setProfilePicture()
     {
@@ -36,7 +30,7 @@ extension ProfileViewController{
     {
         if name.elementsEqual("")
         {
-            self.companyName.text = "--"
+            self.companyName.text = "No Value"
         }else
         {
             self.companyName.text = name
@@ -46,7 +40,7 @@ extension ProfileViewController{
     {
         if (address.elementsEqual(""))
         {
-            self.addressText.text = "--"
+            self.addressText.text = "No Value"
         }
         else
         {
@@ -54,16 +48,6 @@ extension ProfileViewController{
         }
     }
     
-    func setExperience(with experience:String){
-        if experience.elementsEqual("")
-        {
-            self.experienceValue.text = "--"
-        }
-        else
-        {
-            self.experienceValue.text = experience
-        }
-    }
     
 }
 

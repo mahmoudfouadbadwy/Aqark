@@ -30,6 +30,7 @@
 		826A9A422474CBA50046E562 /* extensionForYPimagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A412474CBA50046E562 /* extensionForYPimagePicker.swift */; };
 		826A9A442474CC730046E562 /* extensionviewPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A432474CC730046E562 /* extensionviewPicker.swift */; };
 		AB359ED5E1D6FD408208700F /* Pods_AqarkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */; };
+		BF36E8692475A3F200FD9192 /* AdvertisementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF36E8682475A3F100FD9192 /* AdvertisementCell.xib */; };
 		BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD38A246A3B120013FF4B /* AccountViewModel.swift */; };
 		BF3AD38E246A3BB00013FF4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD38D246A3BB00013FF4B /* User.swift */; };
 		BF3AD391246A3F610013FF4B /* DataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD390246A3F610013FF4B /* DataAccess.swift */; };
@@ -58,7 +59,6 @@
 		BF6DC68F2473522B0030AE52 /* AmenitiesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DC68B247352280030AE52 /* AmenitiesCollectionViewCell.swift */; };
 		BF6DC6902473522B0030AE52 /* PropertyDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF6DC68C2473522A0030AE52 /* PropertyDetailView.xib */; };
 		BF77D47B2471698E00455A25 /* ProfileAdvertisementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77D4792471698E00455A25 /* ProfileAdvertisementCell.swift */; };
-		BF77D47C2471698E00455A25 /* ProfileAdvertisementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF77D47A2471698E00455A25 /* ProfileAdvertisementCell.xib */; };
 		BF96078A246B26C1002B63D5 /* SignupBrokenRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF960789246B26C1002B63D5 /* SignupBrokenRule.swift */; };
 		BFC578B5247431E800C77873 /* SignUpUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC578B4247431E800C77873 /* SignUpUI.swift */; };
 		BFC578B7247432E700C77873 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC578B6247432E700C77873 /* CreateAccount.swift */; };
@@ -121,6 +121,7 @@
 		826A9A432474CC730046E562 /* extensionviewPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionviewPicker.swift; sourceTree = "<group>"; };
 		88E560A844B318E2835E7F97 /* Pods-Aqark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqark.release.xcconfig"; path = "Target Support Files/Pods-Aqark/Pods-Aqark.release.xcconfig"; sourceTree = "<group>"; };
 		B77402FFEAE979F1B4E1F970 /* Pods-AqarkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AqarkTests.release.xcconfig"; path = "Target Support Files/Pods-AqarkTests/Pods-AqarkTests.release.xcconfig"; sourceTree = "<group>"; };
+		BF36E8682475A3F100FD9192 /* AdvertisementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvertisementCell.xib; sourceTree = "<group>"; };
 		BF3AD38A246A3B120013FF4B /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		BF3AD38D246A3BB00013FF4B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BF3AD390246A3F610013FF4B /* DataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAccess.swift; sourceTree = "<group>"; };
@@ -149,7 +150,6 @@
 		BF6DC68B247352280030AE52 /* AmenitiesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmenitiesCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF6DC68C2473522A0030AE52 /* PropertyDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropertyDetailView.xib; sourceTree = "<group>"; };
 		BF77D4792471698E00455A25 /* ProfileAdvertisementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAdvertisementCell.swift; sourceTree = "<group>"; };
-		BF77D47A2471698E00455A25 /* ProfileAdvertisementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileAdvertisementCell.xib; sourceTree = "<group>"; };
 		BF960789246B26C1002B63D5 /* SignupBrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupBrokenRule.swift; sourceTree = "<group>"; };
 		BFC578B4247431E800C77873 /* SignUpUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUI.swift; sourceTree = "<group>"; };
 		BFC578B6247432E700C77873 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
@@ -424,10 +424,10 @@
 		BF06B41624679F00005D7151 /* view  */ = {
 			isa = PBXGroup;
 			children = (
+				BF36E8682475A3F100FD9192 /* AdvertisementCell.xib */,
 				BFF39A34246FF92E0041AD24 /* ProfileViewController.swift */,
 				BFF39A35246FF92E0041AD24 /* ProfileViewController.xib */,
 				BF77D4792471698E00455A25 /* ProfileAdvertisementCell.swift */,
-				BF77D47A2471698E00455A25 /* ProfileAdvertisementCell.xib */,
 				BFC578BA24744D8F00C77873 /* ProfileCollection.swift */,
 				BFC578BC24744F0600C77873 /* ProfileNavigationProperties.swift */,
 				BFC578BE247462B100C77873 /* ProfileUI.swift */,
@@ -749,6 +749,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				826A9A362473EAC40046E562 /* AddAdvertisementViewController.xib in Resources */,
+				BF36E8692475A3F200FD9192 /* AdvertisementCell.xib in Resources */,
 				BF634CA424733A9000B65B90 /* LoginViewController.xib in Resources */,
 				BF4355842474E1DE001DA5D8 /* AdvertisementCellCollectionViewCell.xib in Resources */,
 				826A9A372473EAC40046E562 /* AddAdvertisementsCollectionViewCell.xib in Resources */,
@@ -757,7 +758,6 @@
 				BFE9F4472469930200E44777 /* GoogleService-Info.plist in Resources */,
 				BFF39A37246FF92E0041AD24 /* ProfileViewController.xib in Resources */,
 				BF4355892474E1DE001DA5D8 /* SearchViewController.xib in Resources */,
-				BF77D47C2471698E00455A25 /* ProfileAdvertisementCell.xib in Resources */,
 				3E943FC8246A053300A1FF83 /* FirstScreenViewController.xib in Resources */,
 				BF6DC6902473522B0030AE52 /* PropertyDetailView.xib in Resources */,
 				BFCF0BCD24677F8100A43D8B /* Assets.xcassets in Resources */,

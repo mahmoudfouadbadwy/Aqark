@@ -29,7 +29,7 @@ extension ProfileViewController{
                 self?.countryName.text = profileData.country
                 self?.setCompanyName(with: profileData.company)
                 self?.setAddress(with: profileData.address)
-                self?.setExperience(with: profileData.experience)
+                self?.phoneValue.text = profileData.phone
                 self?.setupOptionalViews(hide: false)
             }
             
