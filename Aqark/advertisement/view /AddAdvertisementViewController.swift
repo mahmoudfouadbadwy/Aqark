@@ -28,27 +28,14 @@ class AddAdvertisementViewController: UIViewController  {
     @IBOutlet var pickerView: UIPickerView!
     @IBOutlet weak var countryView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
-    
-    // indicator
-    var networkIndicator = UIActivityIndicatorView()
-    
-    // YPImagePicker
-    var config = YPImagePickerConfiguration()
-
-    // viewMdoelObject
-    var addAdvertisementVM: AddAdvertisementViewModel!
-    
-    //indicator
-    var activityIndicator:UIActivityIndicatorView!
-    
     @IBOutlet weak var switchButton: UISwitch!
-    
-    
-    
-    // collectionView
     @IBOutlet weak var collectionView: UICollectionView!
     
-    // varibales
+    var networkIndicator = UIActivityIndicatorView()
+    var config = YPImagePickerConfiguration()
+    var addAdvertisementVM: AddAdvertisementViewModel!
+    var activityIndicator:UIActivityIndicatorView!
+   
     var selectAmenitiesDic:[Int: String] = [Int:String]()
     var pickerViewPropertyType:[String] = [String]()
     var advertisementType:String = "Rent"
@@ -58,8 +45,6 @@ class AddAdvertisementViewController: UIViewController  {
     var numberOfAdvertisementPerMonth:Int!
     
     var payment = "free"
-    
-    //dirctins
     var latitude : String = ""
     var longitude : String = ""
     
@@ -120,15 +105,14 @@ class AddAdvertisementViewController: UIViewController  {
     }
     
     //MARK:- view will Apper
-    override func viewWillAppear(_ animated: Bool) {
-       
-        // update Placeholder For PriceTextFeild
+    override func viewWillAppear(_ animated: Bool)
+    {
         updatePlaceholderForPriceTextFeild()
     }
     
-    
     // show view to select countries
-    @IBAction func showCounties(_ sender: Any) {
+    @IBAction func showCounties(_ sender: Any)
+    {
         countryView.isHidden = false
         scrollView.isScrollEnabled = false
     }
@@ -295,7 +279,10 @@ class AddAdvertisementViewController: UIViewController  {
     
     func setupImageInLeftTextField(){
         priceTxtField.setIcon(UIImage(named: "Advertisement_ic_monetization_on_24px.pdf")!)
-//        phoneTxtField.setIcon(UIImage(named: "Advertisement_Mask Group 25.pdf")!)
+
+
+        phoneTxtField.setIcon(UIImage(named: "Advertisement_flag.pdf")!)
+
         sizeTxtField.setIcon(UIImage(named:"Advertisement_house-size_2.pdf")!)
         addressTxtField.setIcon(UIImage(named: "Advertisement_Mask Group 22.pdf")!)
         BedroomsTxtField.setIcon(UIImage(named: "Advertisement_bed.pdf")!)
@@ -429,77 +416,7 @@ class AddAdvertisementViewController: UIViewController  {
     
 }
 
-//MARK:- extension congigraiton for viewPicker
-extension AddAdvertisementViewController: UIPickerViewDelegate, UIPickerViewDataSource{
-    
-    
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerViewPropertyType.count
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
-        return pickerViewPropertyType[row]
-    }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        propertyType = pickerViewPropertyType[row]
-        
-        updatePlaceholderForPriceTextFeild()
-    }
-    
-    
-}
 
-
-
-
-//MARK: - extension configration for YPimagepicker
-
-extension AddAdvertisementViewController{
-    
-    @objc func choosePhotos(){
-        let picker = YPImagePicker(configuration: config)
-        
-        picker.didFinishPicking { [unowned picker] items, cancelled in
-            for item in items {
-                switch item {
-                case .photo(let photo):
-                    
-                    let myImage = photo.image.jpegData(compressionQuality: 0.75)
-                    
-                    if self.selectedImages.count > 0
-                    {
-                        if self.selectedImages.count >= 5{
-                            
-                            print("error you shokd have only five imae")
-                            break
-                        }
-                        if self.selectedImages.contains(myImage!){
-                            print("i found it her !")
-                            continue
-                        }
-                        self.selectedImages.append(myImage!)
-                        
-                    }else{
-                        self.selectedImages.append(myImage!)
-                    }
-                    
-                    self.collectionView.reloadData()
-                    
-                case .video(let video):
-                    print(video)
-                }
-            }
-            print(self.selectedImages)
-            picker.dismiss(animated: true, completion: nil)
-        }
-        present(picker, animated: true, completion: nil)
-    }
-  
-}
 
 
 //MARK: - configraiton for textField taps
@@ -514,121 +431,3 @@ extension AddAdvertisementViewController{
 //    }
 //}
 
-
-
-//MARK: - extension configration for textField image and underline
-
-extension UITextField {
-    
-    func setUnderLine() {
-        let border = CALayer()
-        let defulatSize = CGFloat(1)
-        border.borderColor = UIColor.lightGray.cgColor
-        border.borderWidth = defulatSize
-        
-        border.frame = CGRect(x: 0,
-                              y: self.frame.height - (defulatSize + CGFloat(3)) ,
-                              width: self.frame.width,
-                              height: defulatSize)
-        
-        self.layer.addSublayer(border)
-        //self.layer.masksToBounds = true
-    }
-    
-    
-    func setIcon(_ image: UIImage) {
-        let iconView = UIImageView(frame:CGRect(x: 10, y: 5, width: 20, height: 20))
-        iconView.image = image
-        
-        let iconContainerView: UIView = UIView(frame:CGRect(x: 20, y: 0, width: 40, height: 40))
-        iconContainerView.addSubview(iconView)
-        
-        rightView = iconContainerView
-        rightViewMode = .always
-    }
-      
-}
-
-
-
-//MARK: - extension configration for autocompleteview
-
-extension AddAdvertisementViewController: GMSAutocompleteViewControllerDelegate  {
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-       
-        addressTxtField.text = place.name
-        latitude = "\(place.coordinate.latitude)"
-        longitude =  "\(place.coordinate.longitude)"
-        phoneTxtField.becomeFirstResponder()
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // Handle the error
-        print("Error configration for autocompleteview : ", error.localizedDescription)
-    }
-    
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        // Dismiss when the user canceled the action
-        dismiss(animated: true, completion: nil)
-    }
-}
-
-//MARK: - extention configration collection view
-
-
-extension AddAdvertisementViewController: UICollectionViewDataSource , UICollectionViewDelegate {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return selectedImages.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "idAddAdvertisementsCollectionViewCell", for: indexPath) as! AddAdvertisementsCollectionViewCell
-        cell.imageForCell.image = UIImage(data: selectedImages[indexPath.row])
-        return cell
-    }
-    
-    
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedImages.remove(at: indexPath.row)
-        self.collectionView.deleteItems(at: [indexPath])
-        //self.collectionView.reloadData()
-    }
-    
-    func registerCellOfCollectionView()
-    {
-        
-        var collectionViewFlowLayout:UICollectionViewFlowLayout!
-        if collectionViewFlowLayout == nil
-        {
-            let minimunLineSpacing :CGFloat = 10
-            let minimunInteritemSpacing :CGFloat = 0
-
-            let width = (collectionView.bounds.size.height)
-            let height = (collectionView.bounds.size.height)
-            
-            
-            collectionViewFlowLayout = UICollectionViewFlowLayout()
-            collectionViewFlowLayout.itemSize = CGSize(width: width, height: height)
-            
-            collectionViewFlowLayout.scrollDirection = .horizontal
-            collectionViewFlowLayout.sectionInset = UIEdgeInsets.zero
-            
-            collectionViewFlowLayout.minimumLineSpacing = minimunLineSpacing
-            collectionViewFlowLayout.minimumInteritemSpacing = minimunInteritemSpacing
-            collectionView.setCollectionViewLayout(collectionViewFlowLayout , animated: true)
-            
-            
-        }
-    }
-    
-    
-    
-}

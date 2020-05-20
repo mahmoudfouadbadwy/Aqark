@@ -32,9 +32,7 @@ extension AddAdvertisementViewModel{
              sizeValidate(value: size)
         }
         if((phone.isEmpty) || (phone.isEmpty == false)){
-            
             phoneValidate(value: phone)
-             
         }
         if(location.isEmpty){
              self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "location", message: "add your location"))
@@ -48,8 +46,6 @@ extension AddAdvertisementViewModel{
         if(images.count == 0){
             self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "images", message: "select images"))
         }
-        
-    
     }
     
     func phoneValidate(value: String){
@@ -89,8 +85,6 @@ extension AddAdvertisementViewModel{
     func PriceTextFeildError(){
 
         var myMessage = ""
-        
-        
         let PRICE_REGEX = "^[1-9][0-9]*$"
         let priceTest = NSPredicate(format: "SELF MATCHES %@", PRICE_REGEX)
         if (price.isEmpty){
@@ -113,7 +107,6 @@ extension AddAdvertisementViewModel{
                          case "Room" where  myPrice! < 200:
                              myMessage = "minimum price is 200$ "
                              self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: myMessage ))
-                         
                          default:
                              print("NoError")
                         }
@@ -138,9 +131,7 @@ extension AddAdvertisementViewModel{
                 self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: " inValid price"))
             }
         }
-        
-       
+    }
     
     
-}
 }
