@@ -54,6 +54,15 @@
 		BF77D47B2471698E00455A25 /* ProfileAdvertisementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77D4792471698E00455A25 /* ProfileAdvertisementCell.swift */; };
 		BF77D47C2471698E00455A25 /* ProfileAdvertisementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF77D47A2471698E00455A25 /* ProfileAdvertisementCell.xib */; };
 		BF96078A246B26C1002B63D5 /* SignupBrokenRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF960789246B26C1002B63D5 /* SignupBrokenRule.swift */; };
+		BFC578B5247431E800C77873 /* SignUpUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC578B4247431E800C77873 /* SignUpUI.swift */; };
+		BFC578B7247432E700C77873 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC578B6247432E700C77873 /* CreateAccount.swift */; };
+		BFC578B92474345500C77873 /* SignUpAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC578B82474345500C77873 /* SignUpAlertView.swift */; };
+		BFC578BB24744D8F00C77873 /* ProfileCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC578BA24744D8F00C77873 /* ProfileCollection.swift */; };
+		BFC578BD24744F0600C77873 /* ProfileNavigationProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC578BC24744F0600C77873 /* ProfileNavigationProperties.swift */; };
+		BFC578BF247462B100C77873 /* ProfileUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC578BE247462B100C77873 /* ProfileUI.swift */; };
+		BFC578C12474631800C77873 /* BindingProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC578C02474631800C77873 /* BindingProfileData.swift */; };
+		BFC578C5247497F200C77873 /* ProfileAdvertisements.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC578C4247497F200C77873 /* ProfileAdvertisements.swift */; };
+		BFC578C724749A1F00C77873 /* ProfileAdvertisementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC578C624749A1F00C77873 /* ProfileAdvertisementViewModel.swift */; };
 		BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF0BC224677F8000A43D8B /* AppDelegate.swift */; };
 		BFCF0BC824677F8000A43D8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFCF0BC624677F8000A43D8B /* Main.storyboard */; };
 		BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFCF0BC924677F8000A43D8B /* Aqark.xcdatamodeld */; };
@@ -129,6 +138,15 @@
 		BF77D4792471698E00455A25 /* ProfileAdvertisementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAdvertisementCell.swift; sourceTree = "<group>"; };
 		BF77D47A2471698E00455A25 /* ProfileAdvertisementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileAdvertisementCell.xib; sourceTree = "<group>"; };
 		BF960789246B26C1002B63D5 /* SignupBrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupBrokenRule.swift; sourceTree = "<group>"; };
+		BFC578B4247431E800C77873 /* SignUpUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUI.swift; sourceTree = "<group>"; };
+		BFC578B6247432E700C77873 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
+		BFC578B82474345500C77873 /* SignUpAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAlertView.swift; sourceTree = "<group>"; };
+		BFC578BA24744D8F00C77873 /* ProfileCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollection.swift; sourceTree = "<group>"; };
+		BFC578BC24744F0600C77873 /* ProfileNavigationProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavigationProperties.swift; sourceTree = "<group>"; };
+		BFC578BE247462B100C77873 /* ProfileUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUI.swift; sourceTree = "<group>"; };
+		BFC578C02474631800C77873 /* BindingProfileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingProfileData.swift; sourceTree = "<group>"; };
+		BFC578C4247497F200C77873 /* ProfileAdvertisements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAdvertisements.swift; sourceTree = "<group>"; };
+		BFC578C624749A1F00C77873 /* ProfileAdvertisementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAdvertisementViewModel.swift; sourceTree = "<group>"; };
 		BFCF0BBF24677F8000A43D8B /* Aqark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aqark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFCF0BC224677F8000A43D8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFCF0BC724677F8000A43D8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -372,6 +390,9 @@
 			children = (
 				BF4423312469D1B80050BD8A /* SignUpView.swift */,
 				BF4423322469D1B80050BD8A /* SignUpView.xib */,
+				BFC578B4247431E800C77873 /* SignUpUI.swift */,
+				BFC578B6247432E700C77873 /* CreateAccount.swift */,
+				BFC578B82474345500C77873 /* SignUpAlertView.swift */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -391,6 +412,10 @@
 				BFF39A35246FF92E0041AD24 /* ProfileViewController.xib */,
 				BF77D4792471698E00455A25 /* ProfileAdvertisementCell.swift */,
 				BF77D47A2471698E00455A25 /* ProfileAdvertisementCell.xib */,
+				BFC578BA24744D8F00C77873 /* ProfileCollection.swift */,
+				BFC578BC24744F0600C77873 /* ProfileNavigationProperties.swift */,
+				BFC578BE247462B100C77873 /* ProfileUI.swift */,
+				BFC578C02474631800C77873 /* BindingProfileData.swift */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -399,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				BF3B2694247029850064BDF0 /* ProfileViewModel.swift */,
+				BFC578C624749A1F00C77873 /* ProfileAdvertisementViewModel.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -464,6 +490,7 @@
 			isa = PBXGroup;
 			children = (
 				BF3B269724702C410064BDF0 /* ProfileData.swift */,
+				BFC578C4247497F200C77873 /* ProfileAdvertisements.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -828,7 +855,10 @@
 				BF6DC686247351E30030AE52 /* Advertisment.swift in Sources */,
 				BF3AD391246A3F610013FF4B /* DataAccess.swift in Sources */,
 				BF3B269824702C410064BDF0 /* ProfileData.swift in Sources */,
+				BFC578C12474631800C77873 /* BindingProfileData.swift in Sources */,
+				BFC578C5247497F200C77873 /* ProfileAdvertisements.swift in Sources */,
 				BF634CA224733A9000B65B90 /* CustomTextField.swift in Sources */,
+				BFC578B7247432E700C77873 /* CreateAccount.swift in Sources */,
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
 				BF6DC68E2473522B0030AE52 /* PropertyDetailView.swift in Sources */,
 				BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */,
@@ -838,11 +868,13 @@
 				BF634CB024733DA800B65B90 /* AdvertisementListViewModel.swift in Sources */,
 				BF634C9E2473373200B65B90 /* LoginViewModel.swift in Sources */,
 				826A9A2F2473E4C20046E562 /* FileAddAdvertisementViewModelProtocol.swift in Sources */,
+				BFC578B5247431E800C77873 /* SignUpUI.swift in Sources */,
 				BF3AD38E246A3BB00013FF4B /* User.swift in Sources */,
 				BF4423332469D1B80050BD8A /* SignUpView.swift in Sources */,
 				826A9A2E2473E4C20046E562 /* AddAdvertisementBrokenRule.swift in Sources */,
 				BFF39A36246FF92E0041AD24 /* ProfileViewController.swift in Sources */,
 				BF66CC1E246C678B00C9FD01 /* Countries.swift in Sources */,
+				BFC578BD24744F0600C77873 /* ProfileNavigationProperties.swift in Sources */,
 				BF634CAC24733C9700B65B90 /* AdvertisementCellCollectionViewCell.swift in Sources */,
 				3EA8369B246CE13A009AD024 /* ValidationProtocol.swift in Sources */,
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
@@ -857,7 +889,11 @@
 				826A9A382473EAC40046E562 /* AddAdvertisementViewController.swift in Sources */,
 				BF77D47B2471698E00455A25 /* ProfileAdvertisementCell.swift in Sources */,
 				BF3B26932470281E0064BDF0 /* Profile.swift in Sources */,
+				BFC578B92474345500C77873 /* SignUpAlertView.swift in Sources */,
+				BFC578C724749A1F00C77873 /* ProfileAdvertisementViewModel.swift in Sources */,
 				BF6DC688247352030030AE52 /* PropertyDetailViewModel.swift in Sources */,
+				BFC578BB24744D8F00C77873 /* ProfileCollection.swift in Sources */,
+				BFC578BF247462B100C77873 /* ProfileUI.swift in Sources */,
 				826A9A392473EAC40046E562 /* AddAdvertisementsCollectionViewCell.swift in Sources */,
 				826A9A1D2473E4990046E562 /* AddAdvertisementDataSource.swift in Sources */,
 				C67EE8B524708DC1005F266A /* Network.swift in Sources */,

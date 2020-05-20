@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 class LoginViewController: UIViewController{
     
     @IBOutlet weak var userEmailTextField: CustomTextField!
@@ -20,6 +20,7 @@ class LoginViewController: UIViewController{
         loginViewModel = LoginViewModel()
         userEmailTextField.delegate = self
         userPasswordTextField.delegate = self
+        self.navigationItem.title = "Login"
     }
       
     @IBAction func login(_ sender: Any) {
@@ -32,7 +33,7 @@ class LoginViewController: UIViewController{
                 loginViewModel.authenticateLogin { (result,error) in
                     self.loginActivityIndicator.stopAnimating()
                     if let error = error {
-                        self.showAlert(title: "Invalid Login", message: error)
+                        self.showAlert(title: "Login Validation", message: error)
                     }else{
                         self.gotoProfileView()
                     }
@@ -42,8 +43,7 @@ class LoginViewController: UIViewController{
             }
         }else{
             loginActivityIndicator.stopAnimating()
-            showAlert(title: "Invalid Login", message: loginViewModel.brokenRules.first!.message)
-            print(loginViewModel.brokenRules)
+            showAlert(title: "Login Validation", message: loginViewModel.brokenRules.first!.message)
         }
     }
     
@@ -51,7 +51,7 @@ class LoginViewController: UIViewController{
         //Transfer user role to sign up view
         let signUpView = SignUpView()
         signUpView.role = userRole
-        self.present(signUpView, animated: true)
+        self.navigationController?.pushViewController(signUpView, animated: true)
     }
     
     func showAlert(title:String,message:String){
@@ -65,8 +65,9 @@ class LoginViewController: UIViewController{
     func gotoProfileView()
     {
        let profileView:ProfileViewController = ProfileViewController()
-       self.present(profileView, animated: true)
+       self.navigationController?.pushViewController(profileView, animated: true)
     }
+  
     
 }
 

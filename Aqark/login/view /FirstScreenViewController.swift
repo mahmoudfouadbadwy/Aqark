@@ -16,6 +16,7 @@ class FirstScreenViewController: UIViewController {
     private var loginViewModel : LoginViewModel!
     override func viewDidLoad(){
         super.viewDidLoad()
+        self.navigationItem.title = "Role"
         loginViewModel = LoginViewModel()
         if(loginViewModel.checkNetworkConnection()){
             rolesPicker.delegate = self

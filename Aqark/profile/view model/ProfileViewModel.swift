@@ -16,13 +16,18 @@ class ProfileStore{
     
     func  getProfileData(onSuccess:@escaping(ProfileViewModel)->Void,onFailure:@escaping(Error)->Void)
     {
-    profileDataAccess.getProfileData(onSuccess: {
-    (profileData) in
-         onSuccess(ProfileViewModel(profile: profileData))
-    }, onFailure: {
-    (error) in
-        onFailure(error)
-    })
+        profileDataAccess.getProfileData(onSuccess: {
+            (profileData) in
+            onSuccess(ProfileViewModel(profile: profileData))
+        }, onFailure: {
+            (error) in
+            onFailure(error)
+        })
+    }
+    
+    func logout()
+    {
+        profileDataAccess.profileLogout()
     }
     
     

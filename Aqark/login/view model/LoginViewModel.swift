@@ -29,7 +29,7 @@ class LoginViewModel : ValidationProtocol{
                 self.brokenRules.append(LoginBrokenRule(propertyName: "User Email", message: "The email or password you entered is invalid"))
             }
         }else{
-            self.brokenRules.append(LoginBrokenRule(propertyName: "User Email", message: "Email is required"))
+            self.brokenRules.append(LoginBrokenRule(propertyName: "User Email", message: "An email address must be provided."))
         }
         
         if(!(userPassword.isEmpty)){
@@ -37,7 +37,7 @@ class LoginViewModel : ValidationProtocol{
                 self.brokenRules.append(LoginBrokenRule(propertyName: "User Password", message: "The email or password you entered is invalid"))
             }
         }else{
-            self.brokenRules.append(LoginBrokenRule(propertyName: "User password", message: "Password is required"))
+            self.brokenRules.append(LoginBrokenRule(propertyName: "User password", message: "The password must be 6 characters long or more."))
         }
     }
     

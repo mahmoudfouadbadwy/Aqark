@@ -17,3 +17,28 @@ struct Profile{
     var company:String
     var experience:String
 }
+
+struct AdvertismentsStore {
+    var allAdvertisements :[ProfileAdvertisement] = []
+    mutating func addAdvertisement( _ advertisement:ProfileAdvertisement)
+    {
+       allAdvertisements.append(advertisement)
+    }
+}
+
+struct ProfileAdvertisement {
+    var propertyType:String
+    var price:String
+    var address:String
+    var bed:String
+    var bathroom:String
+    var propertySize:String
+//    init(type:String,price:String,address:String,bed:String,bathroom:String,size:String) {
+//        self.propertyType = type
+//        self.price = price
+//        self.address = address
+//        self.bed = bed
+//        self.bathroom = bathroom
+//        self.propertySize = size
+//    }
+}
