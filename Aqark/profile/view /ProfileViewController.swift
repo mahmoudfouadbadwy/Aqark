@@ -33,17 +33,9 @@ class ProfileViewController: UIViewController {
         self.advertisementsCollection.dataSource = self
         self.advertisementsCollection.delegate = self
         
-        editProfile.addTarget(self, action: #selector(goToAddAdvertisement), for: .touchUpInside)
     }
     
-    @objc func goToAddAdvertisement(){
-       
-        
-        let addadver:UIViewController = AddAdvertisementViewController()
-        self.present(addadver, animated: true)
-        
-  
-    }
+    
 }
 
 //MARK: - Profile Data
