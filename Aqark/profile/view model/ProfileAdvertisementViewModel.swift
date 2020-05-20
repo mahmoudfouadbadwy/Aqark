@@ -33,19 +33,17 @@ class ProfileAdvertisementListViewModel{
     }
     func getAllAdvertisements(completion:@escaping([ProfileAdvertisementViewModel])->Void)
     {
-        advertisementsData.getProfileAdvertisementsIDs(completion: {[weak self]
+        advertisementsData.getProfileAdvertisementsIDs(completion: {
             (store) in
-            print(store.allAdvertisements.count)
             for advertisement in store.allAdvertisements
             {
-                print(advertisement)
-                self?.advertisements.append(ProfileAdvertisementViewModel(advertisement: advertisement))
+                self.advertisements.append(ProfileAdvertisementViewModel(advertisement: advertisement))
+                if self.advertisements.count == store.allAdvertisements.count
+                {
+                     completion((self.advertisements))
+                }
             }
-//            self?.advertisements = store.allAdvertisements.map{
-//                advertisement in ProfileAdvertisementViewModel(advertisement: advertisement)
-//            }
-            //print(self?.advertisements)
-            completion((self?.advertisements ?? []))
         })
+       
     }
 }

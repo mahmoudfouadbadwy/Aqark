@@ -43,14 +43,13 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
         cell.advertisementImage?.sd_setImage(with: URL(string: adViewModel.image), placeholderImage: UIImage(named: "NoImage"))
         cell.propertyTypeLabel?.text = adViewModel.propertyType
         cell.proprtyAddressLabel?.text = adViewModel.address
-        cell.propertyPriceLabel?.text = adViewModel.price
         cell.numberOfBedsLabel?.text = adViewModel.bedRoomsNumber
         cell.numberOfBathRoomsLabel?.text = adViewModel.bathRoomsNumber
-        cell.propertySizeLabel?.text = adViewModel.size
+        cell.propertySizeLabel?.text = "\(adViewModel.size ?? "") sqm"
         if adViewModel.advertisementType == "Rent"{
-            cell.currencyLabel?.text = "EGP/month"
+            cell.propertyPriceLabel?.text = "\(adViewModel.price ?? "") EGP/month"
         }else{
-             cell.currencyLabel?.text = "EGP"
+            cell.propertyPriceLabel?.text = "\(adViewModel.price ?? "") EGP"
         }
         return cell
     }

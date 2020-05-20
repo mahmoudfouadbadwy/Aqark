@@ -46,10 +46,14 @@ extension ProfileDataAccess{
                     
                     let advertisement:ProfileAdvertisement = ProfileAdvertisement(propertyType:propertyType,price:price,address:location,bed:bedrooms,bathroom:bathrooms,propertySize:size)
                     advertisementsStore.addAdvertisement(advertisement)
-                    completion(advertisementsStore)
+                    if advertisementsStore.allAdvertisements.count == arrOfIDs.count{
+                        completion(advertisementsStore)
+                    }
+                   
                 }
             }
         }
+        
     }
     
 }

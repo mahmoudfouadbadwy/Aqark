@@ -34,13 +34,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setNavigationProperties()
         setupView()
-
         setupCollection()
-
-        self.advertisementsCollection.register(UINib(nibName: "ProfileAdvertisementCell", bundle: nil), forCellWithReuseIdentifier: "profileCell")
-        self.advertisementsCollection.dataSource = self
-        self.advertisementsCollection.delegate = self
-        
     }
     
     
