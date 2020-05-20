@@ -10,8 +10,7 @@ import UIKit
 
 extension SearchViewController:  UISearchBarDelegate{
 
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.becomeFirstResponder()
         appearAutoCompleteData()
         filterContentForSearchBarText(searchBar.text!)
