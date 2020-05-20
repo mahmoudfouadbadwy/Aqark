@@ -20,7 +20,7 @@ class PropertyDetailDataAccess {
     
     func gatDataFromFirebase(completionForGetPropertyDetail : @escaping (_ propertyResult: [Advertisment]) -> Void){
         ref = Database.database().reference()
-        ref.child("Advertisements").child("-M7eFLOujLmmXhjM7CdK").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("Advertisements").child("-M7ioq3ddJbzwwxcLmBP").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
             let price = value?["price"] as? String ?? ""

@@ -9,7 +9,8 @@
 import UIKit
 
 class AdvertisementCellCollectionViewCell: UICollectionViewCell {
-
+    @IBOutlet weak var currencyLabel: UILabel!
+    
     @IBOutlet weak var advertisementImage: UIImageView!
     //    @IBOutlet weak var advertisementImage: UIImageView!
     @IBOutlet weak var propertyTypeLabel: UILabel!
