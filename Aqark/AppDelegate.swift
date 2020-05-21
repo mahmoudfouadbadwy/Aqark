@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         //let rootController = FirstScreenViewController()
-        let rootController = AdminUsersViewController()
+        let rootController = AdminTabBarController()
         window?.rootViewController = rootController
         /* end fouad*/
         /* start saied*/

@@ -11,6 +11,8 @@ target 'Aqark' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'ReachabilitySwift' , '~> 3.0'
+  pod 'SDWebImage'
+  pod 'Cosmos', '~> 18.0'
   target 'AqarkTests' do
     inherit! :search_paths
     # Pods for testing
