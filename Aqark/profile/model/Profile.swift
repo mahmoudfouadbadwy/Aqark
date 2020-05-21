@@ -16,6 +16,7 @@ struct Profile{
     var address:String
     var company:String
     var phone:String
+    var experience:String
 }
 
 struct AdvertismentsStore {
@@ -33,4 +34,7 @@ struct ProfileAdvertisement {
     var bed:String
     var bathroom:String
     var propertySize:String
+    var propertyImage:String
+    var paymentType:String
+    var advertisementType:String
 }

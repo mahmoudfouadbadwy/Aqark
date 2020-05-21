@@ -1,4 +1,5 @@
 PODS:
+  - Cosmos (18.0.1)
   - Firebase/Auth (6.24.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.5.3)
@@ -105,6 +106,7 @@ PODS:
     - SteviaLayout (~> 4.4.1)
 
 DEPENDENCIES:
+  - Cosmos (~> 18.0)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -116,6 +118,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Cosmos
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -143,6 +146,7 @@ SPEC REPOS:
     - YPImagePicker
 
 SPEC CHECKSUMS:
+  Cosmos: 7dfaa3f52584ca5f94ab74b5c2e264019cc9f7f5
   Firebase: b28e55c60efd98963cd9011fe2fac5a10c2ba124
   FirebaseAnalytics: 7386fc2176e3f93ad8ef34b5b1f2b33a891e4962
   FirebaseAuth: 7047aec89c0b17ecd924a550c853f0c27ac6015e
@@ -169,6 +173,6 @@ SPEC CHECKSUMS:
   SteviaLayout: 523469269059f2c6da02820bb2ff28a5fe0780aa
   YPImagePicker: 5dd3814b47b1208e9c8cc8f6ef77fe90db3723b6
 
-PODFILE CHECKSUM: a64fad67a03f34a40596a554bfc5ef861a182649
+PODFILE CHECKSUM: e92752caf0dbb5dc91944c9455992877ab7f45e7
 
 COCOAPODS: 1.8.4

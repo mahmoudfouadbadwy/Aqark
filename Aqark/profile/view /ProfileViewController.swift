@@ -10,18 +10,17 @@ import UIKit
 //MARK: - Live Cycle and Properties
 class ProfileViewController: UIViewController {
     
-    @IBOutlet weak var optionalIcons: UIStackView!
-    @IBOutlet weak var optionalText: UIStackView!
+    @IBOutlet weak var containerHeight: NSLayoutConstraint!
+    @IBOutlet weak var experienceValue: UILabel!
+    @IBOutlet weak var containerStack: UIStackView!
     @IBOutlet  weak var phoneValue: UILabel!
     @IBOutlet  weak var editProfile: UIButton!
     @IBOutlet  weak var advertisementsCollection: UICollectionView!
     @IBOutlet  weak var companyName: UILabel!
     @IBOutlet  weak var addressText: UILabel!
-    @IBOutlet  weak var email: UILabel!
     @IBOutlet  weak var username: UILabel!
     @IBOutlet  weak var countryName: UILabel!
     @IBOutlet  weak var profilePicture: UIImageView!
-    @IBOutlet  weak var userRole: UILabel!
     let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     let profileDataAccess:ProfileDataAccess = ProfileDataAccess()
     var listOfAdvertisements:[ProfileAdvertisementViewModel] = []{

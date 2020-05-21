@@ -15,9 +15,7 @@ extension ProfileViewController{
         profileViewModel.getProfileData(onSuccess: {[weak self]
             (profileData) in
             self?.stopIndicator()
-            self?.userRole.text = profileData.role
             self?.username.text = profileData.username
-            self?.email.text = profileData.email
             self?.setProfilePicture()
             self?.editProfile.isHidden = false
             if profileData.role.lowercased().elementsEqual("user")
@@ -30,6 +28,7 @@ extension ProfileViewController{
                 self?.setCompanyName(with: profileData.company)
                 self?.setAddress(with: profileData.address)
                 self?.phoneValue.text = profileData.phone
+                self?.setExperience(exp: profileData.experience)
                 self?.setupOptionalViews(hide: false)
             }
             

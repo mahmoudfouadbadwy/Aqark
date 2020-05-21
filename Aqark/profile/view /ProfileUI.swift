@@ -19,8 +19,8 @@ extension ProfileViewController{
     }
     func setupOptionalViews(hide status:Bool)
     {
-        optionalText.isHidden = status
-        optionalIcons.isHidden = status
+        containerStack.isHidden = status
+        containerHeight.constant = 0
     }
     func setProfilePicture()
     {
@@ -45,6 +45,17 @@ extension ProfileViewController{
         else
         {
             self.addressText.text = address
+        }
+    }
+    func setExperience(exp:String)
+    {
+        if (exp.elementsEqual(""))
+        {
+            self.experienceValue.text = "No Value"
+        }
+        else
+        {
+            self.experienceValue.text =  exp
         }
     }
     

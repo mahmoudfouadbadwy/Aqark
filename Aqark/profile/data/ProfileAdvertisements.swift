@@ -43,8 +43,10 @@ extension ProfileDataAccess{
                     let bedrooms = value?["bedRooms"] as? String ?? ""
                     let bathrooms = value?["bathRooms"] as? String ?? ""
                     let size = value?["size"] as? String ?? ""
-                    
-                    let advertisement:ProfileAdvertisement = ProfileAdvertisement(propertyType:propertyType,price:price,address:location,bed:bedrooms,bathroom:bathrooms,propertySize:size)
+                    let images = value?["images"] as? [String] ?? []
+                    let payment = value?["payment"] as? String ?? ""
+                    let advertisementType = value?["AdvertisementType"] as? String ?? ""
+                    let advertisement:ProfileAdvertisement = ProfileAdvertisement(propertyType:propertyType,price:price,address:location,bed:bedrooms,bathroom:bathrooms,propertySize:size, propertyImage: images[0], paymentType: payment, advertisementType: advertisementType)
                     advertisementsStore.addAdvertisement(advertisement)
                     if advertisementsStore.allAdvertisements.count == arrOfIDs.count{
                         completion(advertisementsStore)

@@ -14,6 +14,9 @@ class ProfileAdvertisementViewModel{
     var bedroom:String!
     var bathroom:String!
     var size:String!
+    var image:String!
+    var payment:String!
+    var advertisementType:String!
     init(advertisement:ProfileAdvertisement) {
         self.propertyType = advertisement.propertyType
         self.price = advertisement.price
@@ -21,6 +24,9 @@ class ProfileAdvertisementViewModel{
         self.bedroom = advertisement.bed
         self.bathroom = advertisement.bathroom
         self.size = advertisement.propertySize
+        self.image = advertisement.propertyImage
+        self.payment = advertisement.paymentType
+        self.advertisementType = advertisement.advertisementType
     }
 }
 

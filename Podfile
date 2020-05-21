@@ -14,6 +14,7 @@ target 'Aqark' do
   pod 'GooglePlaces','~> 3.7.0'
   pod 'SDWebImage'
   pod 'YPImagePicker','~> 3.5.2'
+  pod 'Cosmos', '~> 18.0'
 
 
   target 'AqarkTests' do

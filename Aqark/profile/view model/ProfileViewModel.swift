@@ -41,6 +41,7 @@ class ProfileViewModel{
     var address:String
     var company:String
     var phone:String
+    var experience:String
     init(profile:Profile) {
         self.role = profile.role
         self.picture = profile.picture
@@ -50,5 +51,6 @@ class ProfileViewModel{
         self.address = profile.address
         self.phone = profile.phone
         self.country = profile.country
+        self.experience = profile.experience
     }
 }

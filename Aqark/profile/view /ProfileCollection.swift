@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -15,14 +16,22 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:ProfileAdvertisementCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileAdvertisementCell
-            let advertisement:ProfileAdvertisementViewModel = listOfAdvertisements[indexPath.row]
-            cell.propertyType.text = advertisement.propertyType
-            cell.propertyPrice.text = advertisement.price
+        let advertisement:ProfileAdvertisementViewModel = listOfAdvertisements[indexPath.row]
+        cell.propertyType.text = advertisement.propertyType
+        if advertisement.advertisementType.lowercased().elementsEqual("rent")
+        {
+            cell.propertyPrice.text = "\(advertisement.price ?? "") EGP/month"
+        }else
+        {
+            cell.propertyPrice.text = "\(advertisement.price ?? "") EGP"
+        }
+      
         cell.propertySize.text = "\(advertisement.size ?? "") sqm"
-            cell.propertyAddress.text = advertisement.address
-            cell.bedNumber.text = advertisement.bedroom
-            cell.bathRoomNumber.text = advertisement.bathroom
-       
+        cell.propertyAddress.text = advertisement.address
+        cell.bedNumber.text = advertisement.bedroom
+        cell.bathRoomNumber.text = advertisement.bathroom
+        cell.propertyImage.sd_setImage(with: URL(string: advertisement.image), placeholderImage: UIImage(named: "NoImage"))
+        cell.paymentType.text = advertisement.payment.capitalized
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
         cell.layer.shadowColor = UIColor.black.cgColor
@@ -48,7 +57,7 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
         self.advertisementsCollection.dataSource = self
         self.advertisementsCollection.delegate = self
         let advertisementViewModel:ProfileAdvertisementListViewModel =
-        ProfileAdvertisementListViewModel(data: profileDataAccess)
+            ProfileAdvertisementListViewModel(data: profileDataAccess)
         advertisementViewModel.getAllAdvertisements(completion: {[weak self]
             (advertisements) in
             self?.listOfAdvertisements = advertisements
