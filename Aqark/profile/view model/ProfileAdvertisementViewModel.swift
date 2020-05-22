@@ -9,7 +9,7 @@
 import Foundation
 class ProfileAdvertisementViewModel{
     var propertyType:String!
-    var price:String!
+    var price:Double!
     var address:String!
     var bedroom:String!
     var bathroom:String!
@@ -17,6 +17,7 @@ class ProfileAdvertisementViewModel{
     var image:String!
     var payment:String!
     var advertisementType:String!
+    var advertisementId:String!
     init(advertisement:ProfileAdvertisement) {
         self.propertyType = advertisement.propertyType
         self.price = advertisement.price
@@ -27,6 +28,7 @@ class ProfileAdvertisementViewModel{
         self.image = advertisement.propertyImage
         self.payment = advertisement.paymentType
         self.advertisementType = advertisement.advertisementType
+        self.advertisementId = advertisement.advertisementId
     }
 }
 
@@ -51,5 +53,17 @@ class ProfileAdvertisementListViewModel{
             }
         })
        
+    }
+}
+
+class AdvertisementDelete
+{
+    var data:ProfileDataAccess
+    init(dataAcees:ProfileDataAccess) {
+        self.data = dataAcees
+    }
+    func deleteAdvertisement(id:String)
+    {
+        data.deleteAdvertisment(id: id)
     }
 }

@@ -11,55 +11,28 @@ import UIKit
 extension ProfileViewController{
     func setupView()
     {
-        profilePicture.isHidden = true
-        editProfile.isHidden = true
-        bindData()
-        showIndicator()
-        setupOptionalViews(hide: true)
+        hideAllElements(status: true)
+        rate.settings.updateOnTouch = false
+    }
+     func hideAllElements(status:Bool)
+    {
+        profilePicture.isHidden = status
+        editProfile.isHidden = status
+        rate.isHidden = status
+        setupOptionalViews(hide: status)
     }
     func setupOptionalViews(hide status:Bool)
     {
         containerStack.isHidden = status
         containerHeight.constant = 0
     }
-    func setProfilePicture()
+    func setUpNoConnectionView()
     {
-        profilePicture.isHidden = false
+        hideAllElements(status: true)
+        noAdvertisementsLabel.isHidden = false
+        noAdvertisementsLabel.text = "Internet Connection Not Available"
+        
     }
-    func setCompanyName(with name:String)
-    {
-        if name.elementsEqual("")
-        {
-            self.companyName.text = "No Value"
-        }else
-        {
-            self.companyName.text = name
-        }
-    }
-    func setAddress(with address:String)
-    {
-        if (address.elementsEqual(""))
-        {
-            self.addressText.text = "No Value"
-        }
-        else
-        {
-            self.addressText.text = address
-        }
-    }
-    func setExperience(exp:String)
-    {
-        if (exp.elementsEqual(""))
-        {
-            self.experienceValue.text = "No Value"
-        }
-        else
-        {
-            self.experienceValue.text =  exp
-        }
-    }
-    
-    
 }
 
 //MARK: - UIViewIndicator

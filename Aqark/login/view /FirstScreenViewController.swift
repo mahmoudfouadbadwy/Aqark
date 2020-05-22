@@ -17,6 +17,7 @@ class FirstScreenViewController: UIViewController {
     override func viewDidLoad(){
         super.viewDidLoad()
         self.navigationItem.title = "Role"
+        self.navigationItem.hidesBackButton = true
         loginViewModel = LoginViewModel()
         if(loginViewModel.checkNetworkConnection()){
             rolesPicker.delegate = self
