@@ -9,7 +9,7 @@
 import UIKit
 
 extension SearchViewController : UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if advertismentsListViewModel != nil{
             return isFiltering ? filteredAdsList.count : advertismentsListViewModel.advertismentsViewModel.count
@@ -17,15 +17,26 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
             return 0
         }
     }
-
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AdvertisementCellCollectionViewCell
         updateCellLayout(cell: cell)
         var adViewModel : AdvertisementViewModel
         if isFiltering {
             adViewModel = filteredAdsList[indexPath.row]
-        } else {
+        }else if isSorting == "High Price"{
+            adViewModel = sortedAdsListByHighPrice[indexPath.row]
+            print(adViewModel)
+        }else if isSorting == "Low Price"{
+            adViewModel = sortedAdsListByLowPrice[indexPath.row]
+        }
+        else if isSorting == "Newest"{
+            adViewModel = sortedAdsListByNewestDate[indexPath.row]
+            
+        }else if isSorting == "Oldest"{
+            adViewModel = sortedAdsListByOldestDate[indexPath.row]
+        }
+        else {
             placeHolderView.isHidden = true
             if let arrOfAdViewModel = arrOfAdViewModel{
                 adViewModel = arrOfAdViewModel[indexPath.row]
@@ -49,15 +60,16 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
         }
         return cell
     }
- func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-    let adId = (arrOfAdViewModel![indexPath.row].advertisementId)!
-    let propertyDetailVC = PropertyDetailView()
-    self.navigationController?.pushViewController(propertyDetailVC, animated: true)
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        let adId = (arrOfAdViewModel![indexPath.row].advertisementId)!
+        let propertyDetailVC = PropertyDetailView()
+        self.navigationController?.pushViewController(propertyDetailVC, animated: true)
     }
-
-
-
-
+    
+    
+    
+    
     func updateCellLayout(cell : UICollectionViewCell ){
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
@@ -68,7 +80,7 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
     }
-
+    
     func updateFlowLayout()
     {
         if collectionViewFlowLayout == nil
@@ -78,7 +90,7 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
             let minimunInteritemSpacing :CGFloat = 20
             let width = (searchCollectionView.frame.width / numberOfItemPerRow)
             let height = (searchCollectionView.frame.height/3.5)
-
+            
             collectionViewFlowLayout = UICollectionViewFlowLayout()
             collectionViewFlowLayout.itemSize = CGSize(width: width, height: height)
             collectionViewFlowLayout.scrollDirection = .vertical
@@ -88,6 +100,4 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
             searchCollectionView.setCollectionViewLayout(collectionViewFlowLayout, animated: true)
         }
     }
-
-
 }

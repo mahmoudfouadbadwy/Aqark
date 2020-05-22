@@ -30,7 +30,6 @@ class AdvertisementListViewModel{
 }
 
 class AdvertisementViewModel{
-    
     var image: String!
     var propertyType: String!
     var price: String!
@@ -41,6 +40,7 @@ class AdvertisementViewModel{
     var bathRoomsNumber: String!
     var advertisementId : String!
     var advertisementType : String!
+    var advertisementDate : String!
 
     init(model : AdvertisementSearchModel){
         self.image = model.image
@@ -53,7 +53,9 @@ class AdvertisementViewModel{
         self.bathRoomsNumber = model.bathRoomsNumber
         self.advertisementId = model.advertisementId
         self.advertisementType = model.advertisementType
+        self.advertisementDate = model.date
         
             }
 }
+
 

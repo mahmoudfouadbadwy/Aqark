@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,7 +29,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="04f-JC-67H">
-                    <rect key="frame" x="0.0" y="133" width="375" height="534"/>
+                    <rect key="frame" x="0.0" y="113" width="375" height="554"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NlW-P8-jzi">
                         <size key="itemSize" width="50" height="50"/>
@@ -44,7 +43,7 @@
                     </connections>
                 </collectionView>
                 <searchBar hidden="YES" contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search Location" translatesAutoresizingMaskIntoConstraints="NO" id="A96-AO-fov">
-                    <rect key="frame" x="9.5" y="32" width="356" height="46.5"/>
+                    <rect key="frame" x="9.5" y="12" width="356" height="46.5"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="barTintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -54,28 +53,31 @@
                     </connections>
                 </searchBar>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAO-Wd-sCG">
-                    <rect key="frame" x="231" y="38" width="89" height="32.5"/>
+                    <rect key="frame" x="231" y="18" width="89" height="32.5"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                     <state key="normal" title="Filters">
                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_swap" translatesAutoresizingMaskIntoConstraints="NO" id="f3Y-Lq-flE">
-                    <rect key="frame" x="338" y="89" width="22" height="25"/>
+                    <rect key="frame" x="338" y="69" width="22" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="22" id="2SY-KT-Yl1"/>
                         <constraint firstAttribute="height" constant="25" id="FB0-AU-nCe"/>
                     </constraints>
                 </imageView>
                 <imageView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_filter" translatesAutoresizingMaskIntoConstraints="NO" id="0pO-cq-hOi">
-                    <rect key="frame" x="306.5" y="48" width="21.5" height="16.5"/>
+                    <rect key="frame" x="306.5" y="28" width="21.5" height="16.5"/>
                 </imageView>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kn1-X9-QlG">
-                    <rect key="frame" x="299" y="89" width="36" height="33"/>
+                    <rect key="frame" x="299" y="69" width="36" height="33"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <state key="normal" title="Sort">
                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="showSortingActionSheet:" destination="-1" eventType="touchUpInside" id="8ms-g9-cxi"/>
+                    </connections>
                 </button>
                 <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x0z-XJ-IzO">
                     <rect key="frame" x="-6" y="133" width="375" height="534"/>
@@ -97,7 +99,7 @@
                     <viewLayoutGuide key="safeArea" id="1gb-vK-qAa"/>
                 </view>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxT-Va-E8v">
-                    <rect key="frame" x="15" y="89" width="22" height="25"/>
+                    <rect key="frame" x="15" y="69" width="22" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="22" id="1jk-JK-ouB"/>
                         <constraint firstAttribute="height" constant="25" id="XMH-tK-0aa"/>
@@ -133,18 +135,6 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="40.799999999999997" y="-85.007496251874073"/>
         </view>
-        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" dataMode="none" id="KYh-R3-Wf9">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JQT-X2-HdN">
-                <size key="itemSize" width="50" height="50"/>
-                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-            </collectionViewFlowLayout>
-            <point key="canvasLocation" x="153" y="578"/>
-        </collectionView>
     </objects>
     <resources>
         <image name="search_filter" width="186" height="186"/>

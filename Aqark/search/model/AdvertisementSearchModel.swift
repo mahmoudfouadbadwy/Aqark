@@ -19,6 +19,7 @@ struct AdvertisementSearchModel {
     var size: String!
     var bedRoomsNumber: String!
     var bathRoomsNumber: String!
+    var date : String!
     
     
     }

@@ -25,6 +25,7 @@ class AdvertisementData{
     var advertisementBathRoomsNum : String!
     var advertisementPropertyPrice : String!
     var advertisementPropertyLocation : String!
+    var advertisementDate : String!
     var addressDictionary: [String: String] = [:]
     
     func getAllAdvertisements(completionForGetAllAdvertisements : @escaping (_ searchResults:[AdvertisementSearchModel]) -> Void){
@@ -49,6 +50,7 @@ class AdvertisementData{
         self.advertisementCountry = dict?["country"] as? String ?? "Not Applied"
         self.advertisementId = key
         self.advertisementPropertySize = dict?["size"] as? String ?? "Not Applied"
+        self.advertisementDate = dict?["date"] as? String ?? "Not Applied"
         self.advertisementBedRoomsNum = dict?["bedRooms"] as? String ?? "Not Applied"
         self.advertisementBathRoomsNum = dict?["bathRooms"] as? String ?? "Not Applied"
         self.advertisementPropertyPrice = dict?["price"] as? String ?? "Not Applied"
@@ -68,7 +70,9 @@ class AdvertisementData{
             country: self.advertisementCountry,
             size: self.advertisementPropertySize,
             bedRoomsNumber: self.advertisementBedRoomsNum,
-            bathRoomsNumber:  self.advertisementBathRoomsNum)
+            bathRoomsNumber:  self.advertisementBathRoomsNum,
+            date : self.advertisementDate
+        )
     }
 }
 

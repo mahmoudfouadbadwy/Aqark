@@ -10,7 +10,9 @@ import UIKit
 import ReachabilitySwift
 import SDWebImage
 
-class SearchViewController: UIViewController{
+class SearchViewController: UIViewController,UIActionSheetDelegate{
+    
+    
     @IBOutlet weak var filterImage: UIImageView!
     @IBOutlet weak var filterBtn: UIButton!
     @IBOutlet weak var swapLabel: UIImageView!
@@ -21,11 +23,16 @@ class SearchViewController: UIViewController{
     @IBOutlet weak var imagePlaceHolder: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchCollectionView: UICollectionView!
+    var isSorting: String = "default"
     var collectionViewFlowLayout:UICollectionViewFlowLayout!
     var advertismentsListViewModel : AdvertisementListViewModel!
     let searchController = UISearchController(searchResultsController: nil)
     var data : AdvertisementData!
     var filteredAdsList = [AdvertisementViewModel]()
+    var sortedAdsListByHighPrice = [AdvertisementViewModel]()
+    var sortedAdsListByLowPrice = [AdvertisementViewModel]()
+    var sortedAdsListByNewestDate = [AdvertisementViewModel]()
+    var sortedAdsListByOldestDate = [AdvertisementViewModel]()
     var unFilteredAdsList = [AdvertisementViewModel]()
     let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     var arrOfAdViewModel : [AdvertisementViewModel]?{
@@ -43,7 +50,7 @@ class SearchViewController: UIViewController{
             }
         }
     }
-   var searchBarText:String!{
+    var searchBarText:String!{
         didSet{
             filterContentForSearchBarText(searchBar.text!)
             if filteredAdsList.count == 0 {
@@ -58,11 +65,12 @@ class SearchViewController: UIViewController{
         }
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if !checkNetworkConnection(){
             placeHolderView.isHidden = false
-                self.view.alpha = 1
+            self.view.alpha = 1
             imagePlaceHolder.image = UIImage(named: "search_no_connection")
             labelPlaceHolder.text = "No Internet Connection"
         }else{
@@ -83,7 +91,7 @@ class SearchViewController: UIViewController{
             self.data = AdvertisementData()
             self.advertismentsListViewModel = AdvertisementListViewModel(dataAccess: self.data)
             advertismentsListViewModel.populateAds {
-             (dataResults) in
+                (dataResults) in
                 if dataResults.isEmpty{
                     self.stopIndicator()
                     self.placeHolderView.isHidden = false
@@ -92,15 +100,73 @@ class SearchViewController: UIViewController{
                     self.sortBtn.isHidden = true
                     self.swapLabel.isHidden = true
                 }else{
-//            self.arrOfAdViewModel?.removeAll()
-            self.arrOfAdViewModel = dataResults
-                         }
+                    //            self.arrOfAdViewModel?.removeAll()
+                    self.arrOfAdViewModel = dataResults
+                    self.sortedAdsListByHighPrice = self.arrOfAdViewModel?.sorted{
+                        $0.price > $1.price
+                        } as! [AdvertisementViewModel]
+                    
+                    self.sortedAdsListByLowPrice = self.arrOfAdViewModel?.sorted{
+                        $0.price < $1.price
+                        } as! [AdvertisementViewModel]
+                    self.sortedAdsListByNewestDate = self.arrOfAdViewModel?.sorted{
+                        $0.advertisementDate > $1.advertisementDate
+                        } as! [AdvertisementViewModel]
+                    self.sortedAdsListByOldestDate = self.arrOfAdViewModel?.sorted{
+                        $0.advertisementDate < $1.advertisementDate
+                        } as! [AdvertisementViewModel]
+                }
             }
         }
     }
-
-
-func checkNetworkConnection()->Bool
+    
+    
+    
+    @IBAction func showSortingActionSheet(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Price(High)", style: .default , handler:{ (UIAlertAction)in
+            print("User click high price button")
+            self.isSorting = "High Price"
+            self.searchCollectionView.reloadData()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Price(Low)", style: .default , handler:{ (UIAlertAction)in
+            print("User click low price button")
+            self.isSorting = "Low Price"
+            self.searchCollectionView.reloadData()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Newest", style: .default , handler:{ (UIAlertAction)in
+            print("User click newest button")
+            self.isSorting = "Newest"
+            self.searchCollectionView.reloadData()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Oldest", style: .default , handler:{ (UIAlertAction)in
+            print("User click oldest button")
+            self.isSorting = "Oldest"
+            self.searchCollectionView.reloadData()
+        }))
+        alert.addAction(UIAlertAction(title: "Default", style: .default , handler:{ (UIAlertAction)in
+                  print("User click oldest button")
+                  self.isSorting = "default"
+                  self.searchCollectionView.reloadData()
+              }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
+            print("User click Dismiss button")
+        }))
+        
+        self.present(alert, animated: true, completion: {
+            print("completion block")
+        })
+    }
+    
+    
+    
+    
+    func checkNetworkConnection()->Bool
     {
         let connection = Reachability()
         guard let status = connection?.isReachable else{return false}
