@@ -82,13 +82,23 @@ class SearchViewController: UIViewController{
             updateFlowLayout()
             self.data = AdvertisementData()
             self.advertismentsListViewModel = AdvertisementListViewModel(dataAccess: self.data)
-            
-            advertismentsListViewModel.populateAds { (dataResults) in
-                self.arrOfAdViewModel = dataResults
-                
+            advertismentsListViewModel.populateAds {
+             (dataResults) in
+                if dataResults.isEmpty{
+                    self.stopIndicator()
+                    self.placeHolderView.isHidden = false
+                    self.imagePlaceHolder.image = UIImage(named: "search_not_found")
+                    self.labelPlaceHolder.text = "No Advertisements Found"
+                    self.sortBtn.isHidden = true
+                    self.swapLabel.isHidden = true
+                }else{
+//            self.arrOfAdViewModel?.removeAll()
+            self.arrOfAdViewModel = dataResults
+                         }
             }
         }
     }
+
 
 func checkNetworkConnection()->Bool
     {

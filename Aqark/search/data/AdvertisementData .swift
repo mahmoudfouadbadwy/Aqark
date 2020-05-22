@@ -28,16 +28,16 @@ class AdvertisementData{
     var addressDictionary: [String: String] = [:]
     
     func getAllAdvertisements(completionForGetAllAdvertisements : @escaping (_ searchResults:[AdvertisementSearchModel]) -> Void){
-        
         let ref = Database.database().reference()
         ref.child("Advertisements").observe(.value, with: {snapshot in
+            self.advertisementsData.removeAll()
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 let dict = child.value as? [String : Any]
                 let key = child.key as String
                 self.advertisementsData.append(self.createAdvertisementSearchModel(dict: dict , key: key))
-                completionForGetAllAdvertisements(self.advertisementsData)
-                
             }
+            completionForGetAllAdvertisements(self.advertisementsData)
+
         })
     }
     
