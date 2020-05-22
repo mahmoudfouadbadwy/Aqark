@@ -31,6 +31,7 @@
 		3E7997792474751E005E2C85 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7997732474751D005E2C85 /* CustomTextField.swift */; };
 		3E79977A2474751E005E2C85 /* FirstScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7997742474751D005E2C85 /* FirstScreenViewController.xib */; };
 		3E79977B2474751E005E2C85 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7997752474751D005E2C85 /* LoginViewController.swift */; };
+		3EC960792477B39500F4C4B5 /* CustomSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC960782477B39500F4C4B5 /* CustomSegment.swift */; };
 		7056A0D613EFCF7CC97F41EB /* Pods_Aqark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */; };
 		AB359ED5E1D6FD408208700F /* Pods_AqarkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */; };
 		BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD38A246A3B120013FF4B /* AccountViewModel.swift */; };
@@ -85,6 +86,7 @@
 		3E7997732474751D005E2C85 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTextField.swift; path = Aqark/login/view/CustomTextField.swift; sourceTree = SOURCE_ROOT; };
 		3E7997742474751D005E2C85 /* FirstScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FirstScreenViewController.xib; path = Aqark/login/view/FirstScreenViewController.xib; sourceTree = SOURCE_ROOT; };
 		3E7997752474751D005E2C85 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Aqark/login/view/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		3EC960782477B39500F4C4B5 /* CustomSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomSegment.swift; path = Aqark/admin/view/CustomSegment.swift; sourceTree = SOURCE_ROOT; };
 		58560B4C74A5E0F6183A61D7 /* Pods-AqarkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AqarkTests.debug.xcconfig"; path = "Target Support Files/Pods-AqarkTests/Pods-AqarkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aqark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B20C334276836267C28034 /* Pods-Aqark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqark.debug.xcconfig"; path = "Target Support Files/Pods-Aqark/Pods-Aqark.debug.xcconfig"; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				3E79974B24747446005E2C85 /* AdminUsersViewController.xib */,
 				3E79974824747445005E2C85 /* AdminUserTableViewCell.swift */,
 				3E79974924747446005E2C85 /* AdminUserTableViewCell.xib */,
+				3EC960782477B39500F4C4B5 /* CustomSegment.swift */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				3E7997792474751E005E2C85 /* CustomTextField.swift in Sources */,
 				BF96078A246B26C1002B63D5 /* SignupBrokenRule.swift in Sources */,
 				3E7997762474751E005E2C85 /* FirstScreenViewController.swift in Sources */,
+				3EC960792477B39500F4C4B5 /* CustomSegment.swift in Sources */,
 				BF3AD391246A3F610013FF4B /* DataAccess.swift in Sources */,
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
 				3E7997782474751E005E2C85 /* CustomButton.swift in Sources */,

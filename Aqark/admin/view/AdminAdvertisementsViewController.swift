@@ -10,10 +10,14 @@ import UIKit
 
 class AdminAdvertisementsViewController: UIViewController {
 
+    @IBOutlet weak var customSegment: CustomSegment!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func selectedValueChanged(_ sender: Any) {
+        print(customSegment.selectedIndex)
+    }
 }

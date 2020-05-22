@@ -11,7 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdminUsersViewController" customModule="Aqark" customModuleProvider="target">
             <connections>
                 <outlet property="usersSearchBar" destination="gIB-CO-7UO" id="TQA-BJ-cOq"/>
-                <outlet property="usersSegment" destination="DBL-v6-aIh" id="TJw-I8-jUN"/>
+                <outlet property="usersSegment" destination="dKb-bi-xkV" id="opT-Bl-9FB"/>
                 <outlet property="usersTableView" destination="cJi-QR-Tii" id="gYW-xo-DaN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,32 +21,36 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DBL-v6-aIh">
-                    <rect key="frame" x="0.0" y="44" width="414" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <segments>
-                        <segment title="Users"/>
-                        <segment title="Lawyers"/>
-                        <segment title="Interior Designers"/>
-                    </segments>
-                    <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <connections>
-                        <action selector="usersSegmentValueChanged:" destination="-1" eventType="valueChanged" id="TIh-DA-INQ"/>
-                    </connections>
-                </segmentedControl>
-                <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gIB-CO-7UO">
-                    <rect key="frame" x="0.0" y="75" width="414" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="gIB-CO-7UO">
+                    <rect key="frame" x="0.0" y="108" width="414" height="56"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cJi-QR-Tii">
-                    <rect key="frame" x="0.0" y="119" width="414" height="743"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKb-bi-xkV" customClass="CustomSegment" customModule="Aqark" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="54" width="414" height="46"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <connections>
+                        <action selector="changeUserType:" destination="-1" eventType="valueChanged" id="hYo-uo-8Ol"/>
+                    </connections>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cJi-QR-Tii">
+                    <rect key="frame" x="0.0" y="172" width="414" height="690"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="dKb-bi-xkV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="1vv-op-9t0"/>
+                <constraint firstItem="gIB-CO-7UO" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="4jK-A0-Dte"/>
+                <constraint firstItem="dKb-bi-xkV" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="8eq-vn-mtU"/>
+                <constraint firstItem="dKb-bi-xkV" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Onp-x0-MBe"/>
+                <constraint firstItem="cJi-QR-Tii" firstAttribute="top" secondItem="gIB-CO-7UO" secondAttribute="bottom" constant="8" id="b8N-xv-648"/>
+                <constraint firstItem="cJi-QR-Tii" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="fyG-yG-r4S"/>
+                <constraint firstItem="gIB-CO-7UO" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="gAO-a8-nRD"/>
+                <constraint firstItem="dKb-bi-xkV" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.0513393" id="j4Y-9Z-Yyr"/>
+                <constraint firstItem="cJi-QR-Tii" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="lp0-lR-dG2"/>
+                <constraint firstItem="cJi-QR-Tii" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="ru5-ur-b0s"/>
+                <constraint firstItem="gIB-CO-7UO" firstAttribute="top" secondItem="dKb-bi-xkV" secondAttribute="bottom" constant="8" id="seB-nx-wS8"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="131.8840579710145" y="110.49107142857143"/>
         </view>

@@ -11,32 +11,30 @@ import Cosmos
 
 class AdminUserTableViewCell: UITableViewCell {
 
+
+    @IBOutlet weak var cardBackgroundView: UIView!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userRating: CosmosView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        shadowAndBorderForCell(yourTableViewCell: self)
     }
-    
-    func shadowAndBorderForCell(yourTableViewCell : UITableViewCell){
-    // SHADOW AND BORDER FOR CELL
-    //yourTableViewCell.contentView.layer.cornerRadius = 5
-    yourTableViewCell.contentView.layer.borderWidth = 0.5
-    yourTableViewCell.contentView.layer.borderColor = UIColor.lightGray.cgColor
-    yourTableViewCell.contentView.layer.masksToBounds = true
-    yourTableViewCell.layer.shadowColor = UIColor.gray.cgColor
-    yourTableViewCell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-    yourTableViewCell.layer.shadowRadius = 2.0
-    yourTableViewCell.layer.shadowOpacity = 1.0
-    yourTableViewCell.layer.masksToBounds = false
-    yourTableViewCell.layer.shadowPath = UIBezierPath(roundedRect:yourTableViewCell.bounds, cornerRadius:yourTableViewCell.contentView.layer.cornerRadius).cgPath
-    }
-    
+        
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
+    override func layoutSubviews() {
+        contentView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 1.0)
+        cardBackgroundView.backgroundColor = .white
+        cardBackgroundView.layer.cornerRadius = 10.0
+        cardBackgroundView.layer.masksToBounds = false
+        cardBackgroundView.layer.shadowColor = UIColor.black.cgColor
+        cardBackgroundView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        cardBackgroundView.layer.shadowOpacity = 0.8
+    }
 }

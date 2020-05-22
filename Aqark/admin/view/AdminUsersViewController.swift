@@ -13,7 +13,8 @@ import Cosmos
 class AdminUsersViewController: UIViewController{
     
     @IBOutlet weak var usersSearchBar: UISearchBar!
-    @IBOutlet weak var usersSegment: UISegmentedControl!
+
+    @IBOutlet weak var usersSegment: CustomSegment!
     @IBOutlet weak var usersTableView: UITableView!
     private var adminUsersListViewModel : AdminUsersListViewModel!
     private var dataAccess : AdminDataAccessLayer!
@@ -35,9 +36,10 @@ class AdminUsersViewController: UIViewController{
         }
     }
     
-    @IBAction func usersSegmentValueChanged(_ sender: Any) {
-        adminUsersListViewModel.getUsersByType(type: usersSegment.selectedSegmentIndex)
-        self.usersTableView.reloadData()
+
+    @IBAction func changeUserType(_ sender: Any) {
+        adminUsersListViewModel.getUsersByType(type: usersSegment.selectedIndex)
+           self.usersTableView.reloadData()
     }
 }
 
@@ -56,8 +58,9 @@ extension AdminUsersViewController : UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return usersTableView.frame.height / 8.0
+        return usersTableView.frame.height / 7.0
     }
+    
 }
 
 extension String {
@@ -69,7 +72,8 @@ extension String {
 
 extension AdminUsersViewController : UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        adminUsersListViewModel.getFilteredUsers(type: usersSegment.selectedSegmentIndex, searchText: searchText)
+        adminUsersListViewModel.getFilteredUsers(type: usersSegment.selectedIndex, searchText: searchText)
         usersTableView.reloadData()
     }
 }
+
