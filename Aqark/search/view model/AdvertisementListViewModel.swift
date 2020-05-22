@@ -20,6 +20,7 @@ class AdvertisementListViewModel{
     
     func populateAds(completionForPopulateAds : @escaping (_ adsResults:[AdvertisementViewModel]) -> Void){
         AdvertisementData().getAllAdvertisements(){(searchResults) in
+            self.advertismentsViewModel.removeAll()
         self.advertismentsViewModel = searchResults.map{ ad in
             AdvertisementViewModel(model: ad)
         }

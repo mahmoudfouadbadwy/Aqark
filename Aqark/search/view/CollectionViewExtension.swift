@@ -27,19 +27,15 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
             adViewModel = filteredAdsList[indexPath.row]
         } else {
             placeHolderView.isHidden = true
-
             if let arrOfAdViewModel = arrOfAdViewModel{
                 adViewModel = arrOfAdViewModel[indexPath.row]
                 sortBtn.isHidden = false
                 swapLabel.isHidden = false
-            
-            }
-            else{
+            }else{
                 adViewModel = self.advertismentsListViewModel.advertismentsViewModel[indexPath.row]
-
             }
         }
-
+        
         cell.advertisementImage?.sd_setImage(with: URL(string: adViewModel.image), placeholderImage: UIImage(named: "NoImage"))
         cell.propertyTypeLabel?.text = adViewModel.propertyType
         cell.proprtyAddressLabel?.text = adViewModel.address
