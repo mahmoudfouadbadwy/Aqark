@@ -10,7 +10,7 @@ import UIKit
 import YPImagePicker
 import GooglePlaces
 import ReachabilitySwift
-
+import SDWebImage
 
 class AddAdvertisementViewController: UIViewController  {
 
@@ -23,13 +23,19 @@ class AddAdvertisementViewController: UIViewController  {
     @IBOutlet weak var countyTxtField: UITextField!
     
     @IBOutlet weak var describtionTxtView: UITextView!
-    @IBOutlet weak var addButtonOutlet: UIButton!
+    @IBOutlet weak var saveAndEditButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet var pickerView: UIPickerView!
     @IBOutlet weak var countryView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var switchButton: UISwitch!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    //edit
+    @IBOutlet weak var segment: UISegmentedControl!
+    @IBOutlet weak var bedRoomStepper: UIStepper!
+    @IBOutlet weak var bathRoomStepper: UIStepper!
+    @IBOutlet var amentiesButton: [UIButton]!
     
     var networkIndicator = UIActivityIndicatorView()
     var config = YPImagePickerConfiguration()
@@ -40,68 +46,36 @@ class AddAdvertisementViewController: UIViewController  {
     var pickerViewPropertyType:[String] = [String]()
     var advertisementType:String = "Rent"
     var propertyType:String = "Apartment"
-    var selectedImages : [Data] = [Data]()
-   
     var numberOfAdvertisementPerMonth:Int!
     
     var payment = "free"
     var latitude : String = ""
     var longitude : String = ""
     
-    
+    //Edit
+    var advertisementId = ""
+    var selectedImages : [Data] = [Data]()
+    var urlImages : [String] = [String]()
+    var urlImageDeleted:[String]=[String]()
+    var editAdvertisementDataSource :EditAdvertisementDataSource!
+    var dateOfAdvertisement:String!
     // autocomplete google sdk
     var autocompletecontroller = GMSAutocompleteViewController()
     var filter = GMSAutocompleteFilter()
     
     //MARK:- viewdidLoad
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+          
+        setupView()
         
-        
-        //collectionView
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        registerCellOfCollectionView()
-        collectionView.register(UINib(nibName: "AddAdvertisementsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "idAddAdvertisementsCollectionViewCell")
-        
-        
-        //autocomplete delegation
-        autocompletecontroller.delegate = self
-        
-        //stack view
-        countryView.isHidden = true
-        let screenSize: CGRect = UIScreen.main.bounds
-        countryView.heightConstraint?.constant = screenSize.height;
-        
-        
-        // picker view
-        pickerViewPropertyType = ["Apartment" , "Villa" ,  "Room" ]
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        
-        
-        // add tapgestrure Regoginzer to imageview
-        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(choosePhotos)))
-        imageView.isUserInteractionEnabled = true
-        
-        // configtation of YPOmagePicker
-        configtationYPOmagePicker()
-        
-        // setup textFeild under line
-        setupTextFeildUnderLine()
-        
-        // setup image in letf textfield
-        setupImageInLeftTextField()
-        
-        // setup button
-        addButtonOutlet.layer.cornerRadius = 20
-        
-        //setup textview
-        describtionTxtView.layer.borderWidth = 1
-        describtionTxtView.layer.borderColor = UIColor.red.cgColor
-        describtionTxtView.layer.cornerRadius = 12
-     
+        //advertisementId = "-M7wutuGKjIscdwp2Gox"
+        if(advertisementId.isEmpty == false)
+        {
+            reloadViewData()
+        }
     }
     
     //MARK:- view will Apper
@@ -136,7 +110,7 @@ class AddAdvertisementViewController: UIViewController  {
     
     
     @IBAction func increaseBedRoomNumber(_ sender: UIStepper) {
-        self.BedroomsTxtField.text = String(Int(sender.value))
+       self.BedroomsTxtField.text = String(Int(sender.value))
     }
     
     @IBAction func increaseBathRoomNumber(_ sender: UIStepper) {
@@ -161,7 +135,8 @@ class AddAdvertisementViewController: UIViewController  {
                                                        country: self.countyTxtField.text!,
                                                        description: self.describtionTxtView.text!,
                                                        aminities: self.selectAmenitiesDic,
-                                                       images: self.selectedImages)
+                                                       dataImages: self.selectedImages,
+                                                       urlImages:self.urlImages)
         
         
         if addAdvertisementVM.isValid == false{
@@ -179,8 +154,14 @@ class AddAdvertisementViewController: UIViewController  {
                     //start indecator
                     showIndicator()
                     
-                    // upload advertisements
-                    addAdvertisementVM.save()
+                    
+                    if(advertisementId.isEmpty == false){
+                        addAdvertisementVM.editAdvertisement(id : advertisementId , date : dateOfAdvertisement)
+                        
+                    }else{
+                        // upload advertisements
+                        addAdvertisementVM.save()
+                    }
                     
                     //stop indecator
                     
@@ -303,44 +284,43 @@ class AddAdvertisementViewController: UIViewController  {
             sender.setImage(UIImage(named: "advertisement_uncheck"), for: .normal)
             selectAmenitiesDic.removeValue(forKey: sender.tag)
         }
-  
     }
     
     func selectAmenitiesValue(tagNumber : Int)-> String{
         var value:String = ""
         switch tagNumber {
-        case 0:
-            value = "Furnished"
-        case 1:
-            value = "Shared Spa"
-        case 2:
-            value = "Central A/C"
-        case 3:
-            value = "Maids Room"
-        case 4:
-            value = "Security"
-        case 5:
-            value = "Kitchen Appliances"
-        case 6:
-            value = "Networked"
-        case 7:
-            value = "Covered Parking"
-        case 8:
-            value = "Pets Allowed"
-        case 9:
-            value = "Barbecue Area"
-        case 10:
-            value = "Balcony"
-        case 11:
-            value = "Walk-in Closet"
-        case 12:
-            value = "Study"
-        case 13:
-            value = "Private garden"
-        case 14:
-            value = "Children's Play Area"
-        default:
-            print("switch problem")
+            case 0:
+                value = "Furnished"
+            case 1:
+                value = "Shared Spa"
+            case 2:
+                value = "Central A/C"
+            case 3:
+                value = "Maids Room"
+            case 4:
+                value = "Security"
+            case 5:
+                value = "Kitchen Appliances"
+            case 6:
+                value = "Networked"
+            case 7:
+                value = "Covered Parking"
+            case 8:
+                value = "Pets Allowed"
+            case 9:
+                value = "Barbecue Area"
+            case 10:
+                value = "Balcony"
+            case 11:
+                value = "Walk-in Closet"
+            case 12:
+                value = "Study"
+            case 13:
+                value = "Private garden"
+            case 14:
+                value = "Children's Play Area"
+            default:
+                print("switch problem")
         }
         return value
     }
@@ -400,7 +380,7 @@ class AddAdvertisementViewController: UIViewController  {
         alertController.addAction(actionButton)
         self.present(alertController, animated: true, completion: nil)
     }
-    
+   
     
     //MARK:- switch toggle function
     @IBAction func switchToggle(_ sender: UISwitch) {
@@ -414,11 +394,6 @@ class AddAdvertisementViewController: UIViewController  {
     }
     
     
-}
-
-
-
-
 //MARK: - configraiton for textField taps
 
 //extension AddAdvertisementViewController : UITextFieldDelegate{
@@ -431,3 +406,199 @@ class AddAdvertisementViewController: UIViewController  {
 //    }
 //}
 
+
+
+    func setupView(){
+        //collectionView
+           collectionView.delegate = self
+           collectionView.dataSource = self
+           registerCellOfCollectionView()
+           collectionView.register(UINib(nibName: "AddAdvertisementsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "idAddAdvertisementsCollectionViewCell")
+           
+           
+           //autocomplete delegation
+           autocompletecontroller.delegate = self
+           
+           //stack view
+           countryView.isHidden = true
+           let screenSize: CGRect = UIScreen.main.bounds
+           countryView.heightConstraint?.constant = screenSize.height;
+           
+           
+           // picker view
+           pickerViewPropertyType = ["Apartment" , "Villa" ,  "Room" ]
+           pickerView.delegate = self
+           pickerView.dataSource = self
+           
+           
+           // add tapgestrure Regoginzer to imageview
+           imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(choosePhotos)))
+           imageView.isUserInteractionEnabled = true
+           
+           // configtation of YPOmagePicker
+           configtationYPOmagePicker()
+           
+           // setup textFeild under line
+           setupTextFeildUnderLine()
+           
+           // setup image in letf textfield
+           setupImageInLeftTextField()
+           
+           // setup button
+           saveAndEditButton.layer.cornerRadius = 20
+           
+           //setup textview
+           describtionTxtView.layer.borderWidth = 1
+           describtionTxtView.layer.borderColor = UIColor.red.cgColor
+           describtionTxtView.layer.cornerRadius = 12
+    
+    }
+    
+    //Edit
+    func selectEditAmenitiesValue(value : String)->Int{
+        var tag = 0
+           switch value {
+               case "Furnished":
+                   tag = 0
+               case "Shared Spa":
+                   tag = 1
+               case "Central A/C":
+                   tag = 2
+               case "Maids Room":
+                   tag = 3
+               case "Security":
+                   tag = 4
+               case "Kitchen Appliances":
+                    tag = 5
+               case "Networked":
+                    tag = 6
+               case "Covered Parking":
+                    tag = 7
+               case "Pets Allowed":
+                    tag = 8
+               case "Barbecue Area":
+                    tag = 9
+               case "Balcony":
+                    tag = 10
+               case "Walk-in Closet":
+                    tag = 11
+               case "Study":
+                   tag = 12
+               case "Private garden":
+                   tag = 13
+               case "Children's Play Area":
+                   tag = 14
+               default:
+                   print("switch problem")
+           }
+           return tag
+       }
+       
+    
+    
+    
+    
+    
+}
+
+
+
+//MARK: - extenion Edit advertisement
+
+
+extension AddAdvertisementViewController {
+    
+    
+    func reloadViewData(){
+        
+        saveAndEditButton.setTitle("Edit", for: .normal)
+        editAdvertisementDataSource = EditAdvertisementDataSource(advertisementId: advertisementId)
+        editAdvertisementDataSource.fetchAdvertisement { (myValue) in
+            
+            self.dateOfAdvertisement = myValue.date
+            
+            let formatter = DateFormatter()
+            formatter.timeZone = TimeZone.current
+            formatter.dateFormat = "yyyy-MM-dd HH:mm"
+            
+            let currentDate = Date()
+            let lastTimeForEdit = formatter.date(from: myValue.date!)!.addingTimeInterval(24*60*60)
+
+            
+            if (currentDate <= lastTimeForEdit)
+            {
+                print("can make change")
+                
+                // put all in feilds
+                self.priceTxtField.text = myValue.price
+                self.sizeTxtField.text = myValue.size
+                self.addressTxtField.text = myValue.Address!["location"]
+                self.phoneTxtField.text = myValue.phone
+                self.BedroomsTxtField.text = myValue.bedRooms
+                self.BathroomTxtField.text = myValue.bathRooms
+                self.countyTxtField.text = myValue.country
+                self.describtionTxtView.text = myValue.description
+                
+                // segment
+                self.advertisementType = myValue.AdvertisementType!
+                if(self.advertisementType == "Rent"){
+                    self.segment.selectedSegmentIndex = 0
+                }else{
+                    self.segment.selectedSegmentIndex = 1
+                }
+                //picker
+                self.propertyType = myValue.propertyType!
+                print(self.propertyType)
+                if(self.propertyType == "Apartment"){
+                    print(self.propertyType)
+                   self.pickerView.selectRow(2, inComponent: 0, animated: true)
+                }
+                else if(self.propertyType == "Villa"){
+                    print(self.propertyType)
+                    self.pickerView.selectRow(2, inComponent: 0, animated: true)
+                }
+                else{
+                    print(self.propertyType)
+                    self.pickerView.selectRow(2, inComponent: 0, animated: true)
+                }
+            
+                
+                //switchButton
+                self.payment = myValue.payment!
+                if (self.payment == "free"){
+                    self.switchButton.isOn = true
+                }else{
+                    self.switchButton.isOn = false
+                }
+                
+                // bedroom and bathroom stepper
+                self.bedRoomStepper.value = Double(myValue.bedRooms!)!
+                self.bathRoomStepper.value = Double(myValue.bathRooms!)!
+                
+                
+                
+                //animaities
+               
+                for i in myValue.amenities!
+                {
+                    let tag = self.selectEditAmenitiesValue(value: i)
+                    self.amentiesButton[tag].setImage(UIImage(named: "advertisement_check"), for: .normal)
+                    self.selectAmenitiesDic[tag] = i
+                }
+               
+                //image
+                
+                self.urlImages = myValue.images!
+                print(self.urlImages)
+                self.collectionView.reloadData()
+                
+                
+            }else{
+                print("can't make change you have only  one day to change ")
+            }
+            
+
+        }
+    }
+    
+}

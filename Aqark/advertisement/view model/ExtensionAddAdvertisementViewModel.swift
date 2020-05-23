@@ -43,7 +43,7 @@ extension AddAdvertisementViewModel{
         if(description.isEmpty){
              self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "description", message: "add your description"))
         }
-        if(images.count == 0){
+        if(dataImages.count + urlImages.count == 0){
             self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "images", message: "select images"))
         }
     }
