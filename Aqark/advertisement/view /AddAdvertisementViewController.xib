@@ -13,8 +13,9 @@
             <connections>
                 <outlet property="BathroomTxtField" destination="16J-1M-yns" id="KzN-8V-neI"/>
                 <outlet property="BedroomsTxtField" destination="TJK-mw-9q1" id="lp3-Or-KUw"/>
-                <outlet property="addButtonOutlet" destination="mBn-ZN-rDe" id="3fv-1k-exx"/>
                 <outlet property="addressTxtField" destination="Gaw-mu-GOa" id="RgY-EQ-K7U"/>
+                <outlet property="bathRoomStepper" destination="rbQ-Il-VUm" id="Hfw-s1-ip8"/>
+                <outlet property="bedRoomStepper" destination="agb-Xv-V0X" id="nXK-ZG-hrc"/>
                 <outlet property="collectionView" destination="0nD-RG-1Xj" id="nAA-QZ-Agk"/>
                 <outlet property="countryView" destination="nqw-q4-AQI" id="nAO-8A-aCY"/>
                 <outlet property="countyTxtField" destination="Hu4-Rk-EEU" id="H8r-TG-zYO"/>
@@ -23,10 +24,27 @@
                 <outlet property="phoneTxtField" destination="8DF-y9-1wa" id="yGJ-dz-lXV"/>
                 <outlet property="pickerView" destination="gS5-gY-fdG" id="ROf-Oa-9ma"/>
                 <outlet property="priceTxtField" destination="U6h-Nh-KNg" id="Ofb-0s-XvQ"/>
+                <outlet property="saveAndEditButton" destination="mBn-ZN-rDe" id="3fv-1k-exx"/>
                 <outlet property="scrollView" destination="LdZ-eO-PIZ" id="YMi-XN-64Q"/>
+                <outlet property="segment" destination="TBL-O5-Qi2" id="LBK-rN-0kK"/>
                 <outlet property="sizeTxtField" destination="xJF-1q-9Vv" id="1Mk-VU-gzq"/>
                 <outlet property="switchButton" destination="HiC-Wu-8xS" id="SV4-LT-WaJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="amentiesButton" destination="Ui5-ST-szb" collectionClass="NSMutableArray" id="fKT-OX-Bzc"/>
+                <outletCollection property="amentiesButton" destination="MEv-u1-mUQ" collectionClass="NSMutableArray" id="gIW-ZN-lBf"/>
+                <outletCollection property="amentiesButton" destination="AHA-sv-xMD" collectionClass="NSMutableArray" id="amm-vz-fe3"/>
+                <outletCollection property="amentiesButton" destination="sRx-Sz-Q15" collectionClass="NSMutableArray" id="JOc-cn-VfV"/>
+                <outletCollection property="amentiesButton" destination="qmU-BI-3dZ" collectionClass="NSMutableArray" id="fRN-Bb-kqq"/>
+                <outletCollection property="amentiesButton" destination="32o-aM-VWt" collectionClass="NSMutableArray" id="HTK-dL-49G"/>
+                <outletCollection property="amentiesButton" destination="YsI-af-fUO" collectionClass="NSMutableArray" id="Z1P-h4-trO"/>
+                <outletCollection property="amentiesButton" destination="1u8-jr-vbW" collectionClass="NSMutableArray" id="z5V-ZW-fpt"/>
+                <outletCollection property="amentiesButton" destination="eiT-Gu-H7e" collectionClass="NSMutableArray" id="tgS-j0-Sq7"/>
+                <outletCollection property="amentiesButton" destination="OMF-o9-TBu" collectionClass="NSMutableArray" id="p2R-Zc-ygz"/>
+                <outletCollection property="amentiesButton" destination="lnB-CM-2Am" collectionClass="NSMutableArray" id="uqJ-67-Uds"/>
+                <outletCollection property="amentiesButton" destination="PCR-cT-qPe" collectionClass="NSMutableArray" id="Rjg-bf-wCd"/>
+                <outletCollection property="amentiesButton" destination="2QG-Pn-3lb" collectionClass="NSMutableArray" id="E19-iW-PDF"/>
+                <outletCollection property="amentiesButton" destination="Huy-Zg-cxN" collectionClass="NSMutableArray" id="xJI-9I-GgM"/>
+                <outletCollection property="amentiesButton" destination="LU0-lZ-dMv" collectionClass="NSMutableArray" id="PHk-zH-RIt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
