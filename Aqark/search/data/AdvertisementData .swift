@@ -53,7 +53,7 @@ class AdvertisementData{
         self.advertisementDate = dict?["date"] as? String ?? "Not Applied"
         self.advertisementBedRoomsNum = dict?["bedRooms"] as? String ?? "Not Applied"
         self.advertisementBathRoomsNum = dict?["bathRooms"] as? String ?? "Not Applied"
-        self.advertisementPropertyPrice = dict?["price"] as? String ?? "Not Applied"
+        self.advertisementPropertyPrice = dict?["price"] as? String ?? "0"
         if var unwrappedAddressDict = dict?["Address"] {
             unwrappedAddressDict = dict?["Address"] as! [String : String]
             self.addressDictionary = unwrappedAddressDict as! [String : String]
@@ -65,7 +65,7 @@ class AdvertisementData{
             image: self.advertisementImage, propertyType  : self.advertisementPropertyType,
             advertisementType: self.advertisementType,
             advertisementId: self.advertisementId,
-            price: self.advertisementPropertyPrice,
+            price: Double(self.advertisementPropertyPrice),
             address: self.advertisementPropertyLocation,
             country: self.advertisementCountry,
             size: self.advertisementPropertySize,

@@ -29,22 +29,19 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     let searchController = UISearchController(searchResultsController: nil)
     var data : AdvertisementData!
     var filteredAdsList = [AdvertisementViewModel]()
-    var sortedAdsListByHighPrice = [AdvertisementViewModel]()
-    var sortedAdsListByLowPrice = [AdvertisementViewModel]()
-    var sortedAdsListByNewestDate = [AdvertisementViewModel]()
-    var sortedAdsListByOldestDate = [AdvertisementViewModel]()
+    var sortedList = [AdvertisementViewModel]()
+    var adsSortedList = [AdvertisementViewModel]()
     var unFilteredAdsList = [AdvertisementViewModel]()
     let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
-    var arrOfAdViewModel : [AdvertisementViewModel]?{
+    var arrOfAdViewModel : [AdvertisementViewModel]!{
         didSet{
             self.searchCollectionView.reloadData()
             stopIndicator()
-            swapLabel.isHidden = false
             notificationBtn.isHidden = false
-            sortBtn.isHidden = false
             searchBar.isHidden = false
             filterBtn.isHidden = false
             filterImage.isHidden = false
+            self.manageAppearence(placeHolderView: false, sortBtn: false, swapLabel: false)
             UIView.animate(withDuration:2) {
                 self.view.alpha = 1
             }
@@ -54,11 +51,9 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         didSet{
             filterContentForSearchBarText(searchBar.text!)
             if filteredAdsList.count == 0 {
-                placeHolderView.isHidden = false
                 imagePlaceHolder.image = UIImage(named: "search_not_found")
                 labelPlaceHolder.text = "No Advertisements Found"
-                sortBtn.isHidden = true
-                swapLabel.isHidden = true
+                self.manageAppearence(placeHolderView: false, sortBtn: true, swapLabel: true)
             }else{
                 placeHolderView.isHidden = true
             }
@@ -74,6 +69,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             imagePlaceHolder.image = UIImage(named: "search_no_connection")
             labelPlaceHolder.text = "No Internet Connection"
         }else{
+            floatingButton()
             showIndicator()
             placeHolderView.isHidden = true
             searchBar.delegate = self
@@ -94,84 +90,105 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
                 (dataResults) in
                 if dataResults.isEmpty{
                     self.stopIndicator()
-                    self.placeHolderView.isHidden = false
                     self.imagePlaceHolder.image = UIImage(named: "search_not_found")
                     self.labelPlaceHolder.text = "No Advertisements Found"
-                    self.sortBtn.isHidden = true
-                    self.swapLabel.isHidden = true
+                    self.view.alpha = 1
+                    self.manageAppearence(placeHolderView: false, sortBtn: true, swapLabel: true)
                 }else{
-                    //            self.arrOfAdViewModel?.removeAll()
                     self.arrOfAdViewModel = dataResults
-                    self.sortedAdsListByHighPrice = self.arrOfAdViewModel?.sorted{
-                        $0.price > $1.price
-                        } as! [AdvertisementViewModel]
-                    
-                    self.sortedAdsListByLowPrice = self.arrOfAdViewModel?.sorted{
-                        $0.price < $1.price
-                        } as! [AdvertisementViewModel]
-                    self.sortedAdsListByNewestDate = self.arrOfAdViewModel?.sorted{
-                        $0.advertisementDate > $1.advertisementDate
-                        } as! [AdvertisementViewModel]
-                    self.sortedAdsListByOldestDate = self.arrOfAdViewModel?.sorted{
-                        $0.advertisementDate < $1.advertisementDate
-                        } as! [AdvertisementViewModel]
                 }
             }
         }
     }
     
+    func manageAppearence(placeHolderView : Bool,sortBtn: Bool,swapLabel: Bool ){
+        self.placeHolderView.isHidden = placeHolderView
+        self.sortBtn.isHidden = sortBtn
+        self.swapLabel.isHidden = swapLabel
+    }
+    
+    func sortData(str : String)->[AdvertisementViewModel]{
+        switch str {
+        case "High Price":
+            self.adsSortedList = self.arrOfAdViewModel.sorted{
+                $0.price > $1.price
+                }
+        case "Low Price":
+            self.adsSortedList = self.arrOfAdViewModel.sorted{
+                $0.price < $1.price
+                }
+        case "Newest":
+             self.adsSortedList = self.arrOfAdViewModel.sorted{
+                $0.advertisementDate > $1.advertisementDate
+                }
+        case "Oldest":
+             self.adsSortedList = self.arrOfAdViewModel.sorted{
+                $0.advertisementDate < $1.advertisementDate
+                }
+        default:
+            print("default")
+        }
+         return self.adsSortedList
+    }
     
     
     @IBAction func showSortingActionSheet(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "Price(High)", style: .default , handler:{ (UIAlertAction)in
-            print("User click high price button")
             self.isSorting = "High Price"
             self.searchCollectionView.reloadData()
         }))
         
         alert.addAction(UIAlertAction(title: "Price(Low)", style: .default , handler:{ (UIAlertAction)in
-            print("User click low price button")
             self.isSorting = "Low Price"
             self.searchCollectionView.reloadData()
         }))
         
         alert.addAction(UIAlertAction(title: "Newest", style: .default , handler:{ (UIAlertAction)in
-            print("User click newest button")
             self.isSorting = "Newest"
             self.searchCollectionView.reloadData()
         }))
         
         alert.addAction(UIAlertAction(title: "Oldest", style: .default , handler:{ (UIAlertAction)in
-            print("User click oldest button")
             self.isSorting = "Oldest"
             self.searchCollectionView.reloadData()
         }))
         alert.addAction(UIAlertAction(title: "Default", style: .default , handler:{ (UIAlertAction)in
-                  print("User click oldest button")
-                  self.isSorting = "default"
-                  self.searchCollectionView.reloadData()
-              }))
+            self.isSorting = "default"
+            self.searchCollectionView.reloadData()
+        }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
             print("User click Dismiss button")
         }))
         
         self.present(alert, animated: true, completion: {
-            print("completion block")
         })
     }
-    
-    
-    
-    
+  
+    var btn = UIButton(type: .custom)
+    func floatingButton(){
+        btn.frame = CGRect(x: 285, y: 500, width: 100, height: 50)
+        btn.setTitle("All Defects", for: .normal)
+        btn.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        btn.clipsToBounds = true
+//        btn.layer.cornerRadius = 50
+        btn.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        btn.layer.borderWidth = 3.0
+//        btn.addTarget(self,action: #selector(DestinationVC.buttonTapped), for: UIControlEvent.touchUpInside)
+        if let window = UIApplication.shared.keyWindow {
+            window.addSubview(btn)
+        }
+    }
+  
     func checkNetworkConnection()->Bool
     {
         let connection = Reachability()
         guard let status = connection?.isReachable else{return false}
         return status
     }
+    
 }
 
 //MARK: - UIViewIndicator

@@ -32,7 +32,7 @@ class AdvertisementListViewModel{
 class AdvertisementViewModel{
     var image: String!
     var propertyType: String!
-    var price: String!
+    var price: Double!
     var address: String!
     var country: String!
     var size: String!

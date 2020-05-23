@@ -25,18 +25,18 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
         if isFiltering {
             adViewModel = filteredAdsList[indexPath.row]
         }else if isSorting == "High Price"{
-            adViewModel = sortedAdsListByHighPrice[indexPath.row]
-            print(adViewModel)
+             sortedList = self.sortData(str: isSorting)
+            adViewModel = sortedList[indexPath.row]
         }else if isSorting == "Low Price"{
-            adViewModel = sortedAdsListByLowPrice[indexPath.row]
-        }
-        else if isSorting == "Newest"{
-            adViewModel = sortedAdsListByNewestDate[indexPath.row]
-            
+             sortedList = self.sortData(str: isSorting)
+            adViewModel = sortedList[indexPath.row]
+        }else if isSorting == "Newest"{
+             sortedList = self.sortData(str: isSorting)
+            adViewModel = sortedList[indexPath.row]
         }else if isSorting == "Oldest"{
-            adViewModel = sortedAdsListByOldestDate[indexPath.row]
-        }
-        else {
+             sortedList = self.sortData(str: isSorting)
+            adViewModel = sortedList[indexPath.row]
+        }else {
             placeHolderView.isHidden = true
             if let arrOfAdViewModel = arrOfAdViewModel{
                 adViewModel = arrOfAdViewModel[indexPath.row]
@@ -54,9 +54,9 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
         cell.numberOfBathRoomsLabel?.text = adViewModel.bathRoomsNumber
         cell.propertySizeLabel?.text = "\(adViewModel.size ?? "") sqm"
         if adViewModel.advertisementType == "Rent"{
-            cell.propertyPriceLabel?.text = "\(adViewModel.price ?? "") EGP/month"
+            cell.propertyPriceLabel?.text = "\(adViewModel.price ?? 0) EGP/month"
         }else{
-            cell.propertyPriceLabel?.text = "\(adViewModel.price ?? "") EGP"
+            cell.propertyPriceLabel?.text = "\(adViewModel.price ?? 0) EGP"
         }
         return cell
     }
