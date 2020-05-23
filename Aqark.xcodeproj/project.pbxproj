@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E4A75C2247906F000E7ECB3 /* AdminAdvertisementsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A75C1247906F000E7ECB3 /* AdminAdvertisementsListViewModel.swift */; };
+		3E4A75C42479072100E7ECB3 /* AdminAdvertisementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A75C32479072000E7ECB3 /* AdminAdvertisementViewModel.swift */; };
 		3E79974C24747446005E2C85 /* AdminTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E79974424747445005E2C85 /* AdminTabBarController.swift */; };
 		3E79974D24747446005E2C85 /* AdminUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E79974524747445005E2C85 /* AdminUsersViewController.swift */; };
 		3E79974E24747446005E2C85 /* AdminAdvertisementsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E79974624747445005E2C85 /* AdminAdvertisementsViewController.xib */; };
@@ -32,6 +34,8 @@
 		3E79977A2474751E005E2C85 /* FirstScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7997742474751D005E2C85 /* FirstScreenViewController.xib */; };
 		3E79977B2474751E005E2C85 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7997752474751D005E2C85 /* LoginViewController.swift */; };
 		3EC960792477B39500F4C4B5 /* CustomSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC960782477B39500F4C4B5 /* CustomSegment.swift */; };
+		3EDD5C692478E7C300D7BCEA /* AdminAdvertisementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD5C672478E7C300D7BCEA /* AdminAdvertisementCollectionViewCell.swift */; };
+		3EDD5C6A2478E7C400D7BCEA /* AdminAdvertisementCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EDD5C682478E7C300D7BCEA /* AdminAdvertisementCollectionViewCell.xib */; };
 		7056A0D613EFCF7CC97F41EB /* Pods_Aqark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */; };
 		AB359ED5E1D6FD408208700F /* Pods_AqarkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */; };
 		BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD38A246A3B120013FF4B /* AccountViewModel.swift */; };
@@ -62,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E4A75C1247906F000E7ECB3 /* AdminAdvertisementsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAdvertisementsListViewModel.swift; sourceTree = "<group>"; };
+		3E4A75C32479072000E7ECB3 /* AdminAdvertisementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAdvertisementViewModel.swift; sourceTree = "<group>"; };
 		3E79974424747445005E2C85 /* AdminTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdminTabBarController.swift; path = Aqark/admin/view/AdminTabBarController.swift; sourceTree = SOURCE_ROOT; };
 		3E79974524747445005E2C85 /* AdminUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdminUsersViewController.swift; path = Aqark/admin/view/AdminUsersViewController.swift; sourceTree = SOURCE_ROOT; };
 		3E79974624747445005E2C85 /* AdminAdvertisementsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdminAdvertisementsViewController.xib; path = Aqark/admin/view/AdminAdvertisementsViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -87,6 +93,8 @@
 		3E7997742474751D005E2C85 /* FirstScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FirstScreenViewController.xib; path = Aqark/login/view/FirstScreenViewController.xib; sourceTree = SOURCE_ROOT; };
 		3E7997752474751D005E2C85 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Aqark/login/view/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		3EC960782477B39500F4C4B5 /* CustomSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomSegment.swift; path = Aqark/admin/view/CustomSegment.swift; sourceTree = SOURCE_ROOT; };
+		3EDD5C672478E7C300D7BCEA /* AdminAdvertisementCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdminAdvertisementCollectionViewCell.swift; path = Aqark/admin/view/AdminAdvertisementCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		3EDD5C682478E7C300D7BCEA /* AdminAdvertisementCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AdminAdvertisementCollectionViewCell.xib; path = Aqark/admin/view/AdminAdvertisementCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		58560B4C74A5E0F6183A61D7 /* Pods-AqarkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AqarkTests.debug.xcconfig"; path = "Target Support Files/Pods-AqarkTests/Pods-AqarkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aqark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B20C334276836267C28034 /* Pods-Aqark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqark.debug.xcconfig"; path = "Target Support Files/Pods-Aqark/Pods-Aqark.debug.xcconfig"; sourceTree = "<group>"; };
@@ -394,6 +402,8 @@
 				3E79974824747445005E2C85 /* AdminUserTableViewCell.swift */,
 				3E79974924747446005E2C85 /* AdminUserTableViewCell.xib */,
 				3EC960782477B39500F4C4B5 /* CustomSegment.swift */,
+				3EDD5C672478E7C300D7BCEA /* AdminAdvertisementCollectionViewCell.swift */,
+				3EDD5C682478E7C300D7BCEA /* AdminAdvertisementCollectionViewCell.xib */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -403,6 +413,8 @@
 			children = (
 				3E7997552474745C005E2C85 /* AdminUsersListViewModel.swift */,
 				3E7997542474745C005E2C85 /* AdminUserViewModel.swift */,
+				3E4A75C1247906F000E7ECB3 /* AdminAdvertisementsListViewModel.swift */,
+				3E4A75C32479072000E7ECB3 /* AdminAdvertisementViewModel.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -628,6 +640,7 @@
 				3E79974F24747446005E2C85 /* AdminTabBarController.xib in Resources */,
 				BFCF0BD024677F8100A43D8B /* LaunchScreen.storyboard in Resources */,
 				BFE9F4472469930200E44777 /* GoogleService-Info.plist in Resources */,
+				3EDD5C6A2478E7C400D7BCEA /* AdminAdvertisementCollectionViewCell.xib in Resources */,
 				3E79974E24747446005E2C85 /* AdminAdvertisementsViewController.xib in Resources */,
 				3E79977A2474751E005E2C85 /* FirstScreenViewController.xib in Resources */,
 				3E79975324747446005E2C85 /* AdminUsersViewController.xib in Resources */,
@@ -742,8 +755,11 @@
 				3E79974C24747446005E2C85 /* AdminTabBarController.swift in Sources */,
 				3E79976F247474FD005E2C85 /* LoginBrokenRule.swift in Sources */,
 				3E79974D24747446005E2C85 /* AdminUsersViewController.swift in Sources */,
+				3EDD5C692478E7C300D7BCEA /* AdminAdvertisementCollectionViewCell.swift in Sources */,
 				3E79976024747499005E2C85 /* AdminUser.swift in Sources */,
 				BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */,
+				3E4A75C2247906F000E7ECB3 /* AdminAdvertisementsListViewModel.swift in Sources */,
+				3E4A75C42479072100E7ECB3 /* AdminAdvertisementViewModel.swift in Sources */,
 				3E799769247474E7005E2C85 /* LoginDataAccessLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

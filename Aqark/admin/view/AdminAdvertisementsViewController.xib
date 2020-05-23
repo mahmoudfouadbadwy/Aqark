@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdminAdvertisementsViewController" customModule="Aqark" customModuleProvider="target">
             <connections>
+                <outlet property="advertisementsCollectionView" destination="RZq-cW-fdy" id="Oic-y6-9XS"/>
+                <outlet property="advertisementsSearchBar" destination="nQi-Pc-4TE" id="bm6-mN-kdy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,7 +19,32 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+            <subviews>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="nQi-Pc-4TE">
+                    <rect key="frame" x="0.0" y="54" width="414" height="56"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="RZq-cW-fdy">
+                    <rect key="frame" x="0.0" y="118" width="414" height="744"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EFI-em-8wC">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="nQi-Pc-4TE" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="8yZ-Qp-Qaq"/>
+                <constraint firstItem="RZq-cW-fdy" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="9Df-yb-RwN"/>
+                <constraint firstItem="nQi-Pc-4TE" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="RAl-Fg-Syu"/>
+                <constraint firstItem="nQi-Pc-4TE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="SVf-bo-gKg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="RZq-cW-fdy" secondAttribute="bottom" id="gdW-Bs-E7F"/>
+                <constraint firstItem="RZq-cW-fdy" firstAttribute="top" secondItem="nQi-Pc-4TE" secondAttribute="bottom" constant="8" id="kwA-dl-AU8"/>
+                <constraint firstItem="RZq-cW-fdy" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="l6K-I5-sDz"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="131.8840579710145" y="84.375"/>
         </view>

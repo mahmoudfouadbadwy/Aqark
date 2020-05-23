@@ -45,14 +45,14 @@ class AdminUsersViewController: UIViewController{
 
 extension AdminUsersViewController : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return adminUsersListViewModel.adminViewList.count
+        return adminUsersListViewModel.adminUsersViewList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let userCell = usersTableView.dequeueReusableCell(withIdentifier: "User Cell", for: indexPath) as? AdminUserTableViewCell
-        userCell?.userName.text = adminUsersListViewModel.adminViewList[indexPath.row].userName
-        userCell?.userRating.rating = adminUsersListViewModel.adminViewList[indexPath.row].userRating.toDouble() ?? 0.0
-        let userImageURL = URL(string: adminUsersListViewModel.adminViewList[indexPath.row].userImage)
+        userCell?.userName.text = adminUsersListViewModel.adminUsersViewList[indexPath.row].userName
+        userCell?.userRating.rating = adminUsersListViewModel.adminUsersViewList[indexPath.row].userRating.toDouble() ?? 0.0
+        let userImageURL = URL(string: adminUsersListViewModel.adminUsersViewList[indexPath.row].userImage)
         userCell?.userImage.sd_setImage(with: userImageURL, placeholderImage: UIImage(named: "signup_company"))
         return userCell!
     }

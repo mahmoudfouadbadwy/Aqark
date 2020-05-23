@@ -10,14 +10,20 @@ import UIKit
 
 class AdminAdvertisementsViewController: UIViewController {
 
-    @IBOutlet weak var customSegment: CustomSegment!
+    @IBOutlet weak var advertisementsCollectionView: UICollectionView!
+    @IBOutlet weak var advertisementsSearchBar: UISearchBar!
+    
+    private var adminAdvertisementListViewModel : AdminAdvertisementsListViewModel!
+    private var dataAccess : AdminDataAccessLayer!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        advertisementsCollectionView.register(UINib(nibName: "AdminAdvertisementCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Advertisement Cell")
+        dataAccess = AdminDataAccessLayer()
+        adminAdvertisementListViewModel = AdminAdvertisementsListViewModel(dataAccess:dataAccess)
+        adminAdvertisementListViewModel.populateAdvertisements {
+            print("hi")
+        }
     }
 
-    @IBAction func selectedValueChanged(_ sender: Any) {
-        print(customSegment.selectedIndex)
-    }
 }

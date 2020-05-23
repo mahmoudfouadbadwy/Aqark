@@ -23,6 +23,23 @@ struct UserRole {
     static let interiorDesigner = "interior designer"
 }
 
-struct advertisementKey {
-    
+struct AdvertisementKey {
+    static let address = "Address"
+    static let longitude = "longitude"
+    static let latitude = "latitude"
+    static let location = "location"
+    static let advertisementType = "Advertisement Type"
+    static let userId = "UserId"
+    static let amenities = "amenities"
+    static let bathRooms = "bathRooms"
+    static let bedRooms = "bedRooms"
+    static let country = "country"
+    static let date = "date"
+    static let description = "description"
+    static let images = "images"
+    static let payment = "payment"
+    static let phone = "phone"
+    static let price = "price"
+    static let propertyType = "propertyType"
+    static let size = "size"
 }

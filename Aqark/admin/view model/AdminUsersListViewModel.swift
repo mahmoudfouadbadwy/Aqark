@@ -10,7 +10,7 @@ import Foundation
 
 class AdminUsersListViewModel{
     
-    var adminViewList : [AdminUserViewModel] = [AdminUserViewModel]()
+    var adminUsersViewList : [AdminUserViewModel] = [AdminUserViewModel]()
     var adminUsersList : [AdminUserViewModel] = [AdminUserViewModel]()
     var adminLawyersList : [AdminUserViewModel] = [AdminUserViewModel]()
     var adminInteriorDesignersList : [AdminUserViewModel] = [AdminUserViewModel]()
@@ -44,17 +44,17 @@ class AdminUsersListViewModel{
                 adminInteriorDesignersList.append(interiorDesigner)
             }
         }
-        adminViewList = adminUsersList
+        adminUsersViewList = adminUsersList
     }
     
     func getUsersByType(type:Int){
         switch type {
         case 0:
-            adminViewList = adminUsersList
+            adminUsersViewList = adminUsersList
         case 1:
-            adminViewList = adminLawyersList
+            adminUsersViewList = adminLawyersList
         default:
-            adminViewList = adminInteriorDesignersList
+            adminUsersViewList = adminInteriorDesignersList
         }
     }
     
@@ -62,24 +62,24 @@ class AdminUsersListViewModel{
         if(searchText.isEmpty){
             switch type {
             case 0:
-                adminViewList = adminUsersList
+                adminUsersViewList = adminUsersList
             case 1:
-                adminViewList = adminLawyersList
+                adminUsersViewList = adminLawyersList
             default:
-                adminViewList = adminInteriorDesignersList
+                adminUsersViewList = adminInteriorDesignersList
             }
         }else{
             switch type{
             case 0:
-                adminViewList = adminUsersList.filter{(user:AdminUserViewModel) -> Bool in
+                adminUsersViewList = adminUsersList.filter{(user:AdminUserViewModel) -> Bool in
                     return user.userName.lowercased().contains(searchText.lowercased())
                 }
             case 1:
-                adminViewList = adminLawyersList.filter{(user:AdminUserViewModel) -> Bool in
+                adminUsersViewList = adminLawyersList.filter{(user:AdminUserViewModel) -> Bool in
                     return user.userName.lowercased().contains(searchText.lowercased())
                 }
             default:
-                adminViewList = adminInteriorDesignersList.filter{(user:AdminUserViewModel) -> Bool in
+                adminUsersViewList = adminInteriorDesignersList.filter{(user:AdminUserViewModel) -> Bool in
                     return user.userName.lowercased().contains(searchText.lowercased())
                 }            }
         }

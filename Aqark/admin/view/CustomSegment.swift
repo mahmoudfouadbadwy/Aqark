@@ -36,9 +36,9 @@ import UIKit
     }
     
     func setupView(){
-        layer.cornerRadius = frame.height / 2
-        layer.borderColor = UIColor.black.cgColor
-        layer.borderWidth = 2
+//        //layer.cornerRadius = frame.height / 2
+//        layer.borderColor = UIColor.black.cgColor
+//        layer.borderWidth = 2
         
         backgroundColor = UIColor.clear
         setupLabels()
