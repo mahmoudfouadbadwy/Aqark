@@ -36,16 +36,16 @@ class ProfileViewModel{
     var role:String
     var picture:String
     var username:String
-    var email:String
     var country:String
     var address:String
     var company:String
     var phone:String
     var experience:String
+    var rate:Double
     init(profile:Profile) {
         self.role = profile.role
         self.picture = profile.picture
-        self.email = profile.email
+        self.rate = profile.rate
         self.username = profile.username
         self.company = profile.company
         self.address = profile.address
