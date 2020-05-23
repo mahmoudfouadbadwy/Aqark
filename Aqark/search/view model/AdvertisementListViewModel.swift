@@ -13,7 +13,6 @@ class AdvertisementListViewModel{
     
     var advertismentsViewModel : [AdvertisementViewModel] = [AdvertisementViewModel]()
     private var dataAccess : AdvertisementData
-    
     init(dataAccess : AdvertisementData ) {
         self.dataAccess = dataAccess
     }

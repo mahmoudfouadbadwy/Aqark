@@ -12,10 +12,8 @@
             <connections>
                 <outlet property="filterBtn" destination="EAO-Wd-sCG" id="beJ-wt-9vm"/>
                 <outlet property="filterImage" destination="0pO-cq-hOi" id="jIp-Ie-LJ4"/>
-                <outlet property="imagePlaceHolder" destination="pSL-cz-Sbn" id="qgB-K2-PFp"/>
                 <outlet property="labelPlaceHolder" destination="V6q-qp-wXR" id="ysG-7T-2mM"/>
                 <outlet property="notificationBtn" destination="OxT-Va-E8v" id="fpX-NU-VCm"/>
-                <outlet property="placeHolderView" destination="x0z-XJ-IzO" id="gee-Wd-j69"/>
                 <outlet property="searchBar" destination="A96-AO-fov" id="5bX-9w-cTM"/>
                 <outlet property="searchCollectionView" destination="04f-JC-67H" id="81L-eJ-fPD"/>
                 <outlet property="sortBtn" destination="kn1-X9-QlG" id="2gT-W8-FXf"/>
@@ -79,25 +77,13 @@
                         <action selector="showSortingActionSheet:" destination="-1" eventType="touchUpInside" id="8ms-g9-cxi"/>
                     </connections>
                 </button>
-                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x0z-XJ-IzO">
-                    <rect key="frame" x="-6" y="133" width="375" height="534"/>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Internet Connection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6q-qp-wXR">
+                    <rect key="frame" x="0.0" y="322" width="375" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Internet Connection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6q-qp-wXR">
-                            <rect key="frame" x="0.0" y="318" width="375" height="23"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="search_no_connection" translatesAutoresizingMaskIntoConstraints="NO" id="pSL-cz-Sbn">
-                            <rect key="frame" x="96" y="116" width="183" height="180"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <viewLayoutGuide key="safeArea" id="1gb-vK-qAa"/>
-                </view>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxT-Va-E8v">
                     <rect key="frame" x="15" y="69" width="22" height="25"/>
                     <constraints>
@@ -138,7 +124,6 @@
     </objects>
     <resources>
         <image name="search_filter" width="186" height="186"/>
-        <image name="search_no_connection" width="384" height="384"/>
         <image name="search_notification" width="12" height="15"/>
         <image name="search_swap" width="11" height="14"/>
     </resources>
