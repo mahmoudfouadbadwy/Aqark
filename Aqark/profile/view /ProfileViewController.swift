@@ -64,6 +64,9 @@ class ProfileViewController: UIViewController {
             }
             else
             {
+                UIView.animate(withDuration: 1) {
+                     self.view.alpha = 0.5
+                }
                 showIndicator()
                 bindProfileData()
                 bindCollectionData()

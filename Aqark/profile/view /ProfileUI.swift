@@ -24,13 +24,21 @@ extension ProfileViewController{
     func setupOptionalViews(hide status:Bool)
     {
         containerStack.isHidden = status
-        containerHeight.constant = 0
+        
     }
     func setUpNoConnectionView()
     {
         hideAllElements(status: true)
         noAdvertisementsLabel.isHidden = false
         noAdvertisementsLabel.text = "Internet Connection Not Available"
+        
+    }
+    
+    func showByAnimation()
+    {
+        UIView.animate(withDuration: 1) {
+            self.view.alpha = 1
+        }
         
     }
 }

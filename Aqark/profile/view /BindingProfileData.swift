@@ -20,7 +20,8 @@ extension ProfileViewController{
             self?.rate.rating = profileData.rate
             if profileData.role.lowercased().elementsEqual("user")
             {
-                self?.setupOptionalViews(hide: true)
+                 self?.setupOptionalViews(hide: true)
+                 self?.containerHeight.constant = 0
             }
             else
             {

@@ -39,6 +39,7 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
             (advertisements) in
             self?.stopIndicator()
             self?.listOfAdvertisements = advertisements
+            self?.showByAnimation()
         })
     }
    private func setCellConfiguration(cell:UICollectionViewCell)

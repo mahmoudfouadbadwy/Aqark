@@ -23,6 +23,11 @@ extension ProfileDataAccess{
                     completion(store)
                 })
             }
+            else
+            {
+            
+                completion(AdvertismentsStore())
+            }
         }
     }
     
