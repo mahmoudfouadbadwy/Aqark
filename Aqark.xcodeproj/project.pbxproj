@@ -226,28 +226,6 @@
 			path = data;
 			sourceTree = "<group>";
 		};
-		82608A2D2476C9EE005946C1 /* sperator */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = sperator;
-			sourceTree = "<group>";
-		};
-		82608A302476CCFA005946C1 /* seperator */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = seperator;
-			sourceTree = "<group>";
-		};
-		82608A3324787501005946C1 /* seperator */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = seperator;
-			path = "../view /seperator";
-			sourceTree = "<group>";
-		};
 		AD923418C8264B7A9F4E1EDA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -497,7 +475,6 @@
 			isa = PBXGroup;
 			children = (
 				82608A3424787525005946C1 /* extentionEditAdvertisementViewModel.swift */,
-				82608A3324787501005946C1 /* seperator */,
 				826A9A292473E4C20046E562 /* AddAdvertisementViewModel.swift */,
 				826A9A282473E4C20046E562 /* ExtensionAddAdvertisementViewModel.swift */,
 				826A9A2B2473E4C20046E562 /* FileAddAdvertisementViewModelProtocol.swift */,
@@ -564,7 +541,6 @@
 			isa = PBXGroup;
 			children = (
 				82608A2E2476CA1D005946C1 /* EditAdvertisementDataSource.swift */,
-				82608A2D2476C9EE005946C1 /* sperator */,
 				826A9A1C2473E4990046E562 /* AddAdvertisementDataSource.swift */,
 			);
 			path = data;
@@ -588,7 +564,6 @@
 			isa = PBXGroup;
 			children = (
 				82608A312476CD20005946C1 /* EditAdvertisementModel.swift */,
-				82608A302476CCFA005946C1 /* seperator */,
 				826A9A1E2473E4A40046E562 /* AddAdvertisementModel.swift */,
 				826A9A2A2473E4C20046E562 /* AddAdvertisementBrokenRule.swift */,
 			);

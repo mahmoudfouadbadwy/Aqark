@@ -39,10 +39,9 @@ class AddAdvertisementViewModel : AddAdvertisementViewModelProtocol{
             return self.borkenRule.count == 0 ? true : false
         }
     }
-  
+    
     
     init(payment : String , propertyType: String , advertisementType:String?, price: String , bedrooms: String , bathroom: String? , size: String , phone: String , location: String , latitude: String , longitude: String , country: String? , description: String , aminities : [Int:String] ,dataImages :[Data] , urlImages:[String]) {
-        
         self.payment = payment
         self.propertyType = propertyType
         self.advertisementType = advertisementType
@@ -61,11 +60,7 @@ class AddAdvertisementViewModel : AddAdvertisementViewModelProtocol{
         self.urlImages = urlImages
     }
     
-    
-    
-    
     func save(){
-        
         let now = Date()
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone.current
@@ -88,12 +83,7 @@ class AddAdvertisementViewModel : AddAdvertisementViewModelProtocol{
                                                           date: dateString,
                                                           images: dataImages,
                                                           payment: payment)
-        
-        
         addAdvertisementDataSource = AddAdvertisementDataSource()
         addAdvertisementDataSource.initializeAddAdvertisementDataSource(advertisement: addAdvertisementModel)
-        
     }
-    
-    
 }
