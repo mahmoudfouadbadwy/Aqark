@@ -18,9 +18,10 @@ class AdminAdvertisementsListViewModel{
     
     func populateAdvertisements(completionForPopulateAdvertisements:@escaping() -> Void){
         dataAccess.getAdvertisements { (advertisementsData) in
-            for ad in advertisementsData{
-                print(ad.advertisementCountry)
+            self.adminAdvertisementsViewList = advertisementsData.map{ (advertisementData) in
+                        return AdminAdvertisementViewModel(adminAdvertisment: advertisementData)
             }
+            completionForPopulateAdvertisements()
         }
         
     }

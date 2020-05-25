@@ -16,7 +16,7 @@ struct AdminAdvertisement{
     var advertisemetentUserId : String
     var advertisementPropertyAmenities : [String]
     var advertisementPropertyBathRooms : String
-    var advertisementPropertyBedRoom : String
+    var advertisementPropertyBeds : String
     var advertisementCountry : String
     var advertisementDate : String
     var advertisementPropertyDescription : String

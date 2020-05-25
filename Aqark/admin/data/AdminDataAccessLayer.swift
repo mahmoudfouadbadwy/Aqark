@@ -59,18 +59,18 @@ class AdminDataAccessLayer{
         let advertisementPropertyLocation = advertisementPropertyAddress[AdvertisementKey.location] as! String
         let advertisementType = advertisementDictionary[AdvertisementKey.advertisementType] as! String
         let advertisementUserId = advertisementDictionary[AdvertisementKey.userId] as! String
-        let advertisementPropertyAmenities = advertisementDictionary[AdvertisementKey.amenities] as! [String]
+        let advertisementPropertyAmenities = advertisementDictionary[AdvertisementKey.amenities] as? [String] ?? []
         let advertisementPropertyBathRooms = advertisementDictionary[AdvertisementKey.bathRooms] as! String
-        let advertisementPropertyBedRooms = advertisementDictionary[AdvertisementKey.bedRooms] as! String
+        let advertisementPropertyBeds = advertisementDictionary[AdvertisementKey.bedRooms] as! String
         let advertisementPropertyCountry = advertisementDictionary[AdvertisementKey.country] as! String
         let advertisementPropertyDate = advertisementDictionary[AdvertisementKey.date] as! String
         let advetisementPropertyDescription = advertisementDictionary[AdvertisementKey.description] as! String
-        let advertisementPropertyImages = advertisementDictionary[AdvertisementKey.images] as! [String]
+        let advertisementPropertyImages = advertisementDictionary[AdvertisementKey.images] as? [String] ?? []
         let advertisementPayment = advertisementDictionary[AdvertisementKey.payment] as! String
         let advertisementPhone = advertisementDictionary[AdvertisementKey.phone] as! String
         let advertisementPropertyPrice = advertisementDictionary[AdvertisementKey.price] as! String
         let advertisementPropertyType = advertisementDictionary[AdvertisementKey.propertyType] as! String
         let advertisementPropertySize = advertisementDictionary[AdvertisementKey.size] as! String
-        let advertisement = AdminAdvertisement(advertisementId: advertisementId, advertisementPropertyatitude: advertisementPropertyLatitude, advertisementPropertyLongitude: advertisementPropertyLongitude, advertisementPropertyLocation: advertisementPropertyLocation, advertisementType: advertisementType, advertisemetentUserId: advertisementUserId, advertisementPropertyAmenities: advertisementPropertyAmenities, advertisementPropertyBathRooms: advertisementPropertyBathRooms, advertisementPropertyBedRoom: advertisementPropertyBedRooms, advertisementCountry: advertisementPropertyCountry, advertisementDate: advertisementPropertyDate, advertisementPropertyDescription: advetisementPropertyDescription, advertismentsPropertyImages: advertisementPropertyImages, advertisementPayment: advertisementPayment, adevertisementPhone: advertisementPhone, advertisementPropertyPrice: advertisementPropertyPrice, advertisementPropertyType: advertisementPropertyType, advertisementPropertySize: advertisementPropertySize)
+        let advertisement = AdminAdvertisement(advertisementId: advertisementId, advertisementPropertyatitude: advertisementPropertyLatitude, advertisementPropertyLongitude: advertisementPropertyLongitude, advertisementPropertyLocation: advertisementPropertyLocation, advertisementType: advertisementType, advertisemetentUserId: advertisementUserId, advertisementPropertyAmenities: advertisementPropertyAmenities, advertisementPropertyBathRooms: advertisementPropertyBathRooms, advertisementPropertyBeds: advertisementPropertyBeds, advertisementCountry: advertisementPropertyCountry, advertisementDate: advertisementPropertyDate, advertisementPropertyDescription: advetisementPropertyDescription, advertismentsPropertyImages: advertisementPropertyImages, advertisementPayment: advertisementPayment, adevertisementPhone: advertisementPhone, advertisementPropertyPrice: advertisementPropertyPrice, advertisementPropertyType: advertisementPropertyType, advertisementPropertySize: advertisementPropertySize)
         return advertisement
     }}

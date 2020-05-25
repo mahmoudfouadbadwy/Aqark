@@ -413,8 +413,8 @@
 			children = (
 				3E7997552474745C005E2C85 /* AdminUsersListViewModel.swift */,
 				3E7997542474745C005E2C85 /* AdminUserViewModel.swift */,
-				3E4A75C1247906F000E7ECB3 /* AdminAdvertisementsListViewModel.swift */,
 				3E4A75C32479072000E7ECB3 /* AdminAdvertisementViewModel.swift */,
+				3E4A75C1247906F000E7ECB3 /* AdminAdvertisementsListViewModel.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";

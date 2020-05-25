@@ -9,5 +9,21 @@
 import Foundation
 
 class AdminAdvertisementViewModel{
+    var advertisementPropertyImages : [String] = [String]()
+    var advertisementPropertyType : String = ""
+    var advertisementPropertyAddress : String = ""
+    var advertisementPropertyPrice : String = ""
+    var advertisementPropertySize : String = ""
+    var advertisementPropertyBedsNumber : String = ""
+    var advertisementPropertyBathRoomsNumber : String = ""
     
+    init(adminAdvertisment:AdminAdvertisement) {
+        self.advertisementPropertyImages = adminAdvertisment.advertismentsPropertyImages
+        self.advertisementPropertyType = adminAdvertisment.advertisementPropertyType
+        self.advertisementPropertyAddress = adminAdvertisment.advertisementPropertyLocation
+        self.advertisementPropertyPrice = adminAdvertisment.advertisementPropertyPrice
+        self.advertisementPropertySize = adminAdvertisment.advertisementPropertySize
+        self.advertisementPropertyBedsNumber = adminAdvertisment.advertisementPropertyBeds
+        self.advertisementPropertyBathRoomsNumber = adminAdvertisment.advertisementPropertyBathRooms
+    }
 }
