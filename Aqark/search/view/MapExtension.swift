@@ -23,7 +23,6 @@ extension SearchViewController : MKMapViewDelegate{
            self.mapView.isHidden = true
            self.isMapHidden = true
            self.actionButton.imageView.image("search_map")
-        
         }
     }
     view.addSubview(actionButton)
@@ -36,6 +35,7 @@ extension SearchViewController : MKMapViewDelegate{
         searchBar.text = view.annotation?.subtitle ?? ""
         searchBarText = searchBar.text
         mapView.isHidden = true
+        actionButton.imageView.image("search_map")
     }
     
     func putLocationOnMap(){
