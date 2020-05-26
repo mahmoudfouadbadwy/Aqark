@@ -9,15 +9,13 @@
 import UIKit
 import ReachabilitySwift
 import SDWebImage
+import JJFloatingActionButton
+import MapKit
+import Foundation
 
 class SearchViewController: UIViewController,UIActionSheetDelegate{
-    /// the float button's trailing padding
-                  fileprivate let floatButtonTrailingPadding: CGFloat = 15
-
-              /// the float button's bottom padding
-              fileprivate let floatButtonBottomPadding: CGFloat = 15
     
-    
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var filterImage: UIImageView!
     @IBOutlet weak var filterBtn: UIButton!
     @IBOutlet weak var swapLabel: UIImageView!
@@ -26,8 +24,16 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var labelPlaceHolder: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchCollectionView: UICollectionView!
-    var btn = UIButton(type: .custom)
+    var isMapHidden = true
+    let reuseIdentifier = "MyIdentifier"
+    var counts: [String: Int] = [:]
+    var numberOfPropertiesInLocation : Int!
+    var addressForMap : String!
     var adViewModel : AdvertisementViewModel!
+    var maps: [Map] = []
+    var arrayOfLongitude = [Double]()
+    var latitude : Double = 0
+    var longitude : Double = 0
     var isSorting: String = "default"
     var collectionViewFlowLayout:UICollectionViewFlowLayout!
     var advertismentsListViewModel : AdvertisementListViewModel!
@@ -63,6 +69,8 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         }
     }
     
+  let actionButton = JJFloatingActionButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if !checkNetworkConnection(){
@@ -71,13 +79,25 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             labelPlaceHolder.text = "No Internet Connection"
         }else{
             manageSearchBar()
-            floatingButton()
             showIndicator()
             setUpCollectionView()
             getCollectionViewData()
+            floationgBtn()
+            labelPlaceHolder.isHidden = true
         }
     }
-    
+    func addAnnotations(coords: [CLLocation]){
+        for coord in coords{
+                  let CLLCoordType = CLLocationCoordinate2D(latitude: coord.coordinate.latitude,
+                                                            longitude: coord.coordinate.longitude);
+                  let anno = MKPointAnnotation();
+                  anno.coordinate = CLLCoordType;
+                  mapView.addAnnotation(anno);
+              }
+
+
+    }
+  
     func manageAppearence(sortBtn: Bool,swapLabel: Bool ){
         self.sortBtn.isHidden = sortBtn
         self.swapLabel.isHidden = swapLabel

@@ -7,30 +7,48 @@
 //
 
 import UIKit
+import MapKit
+import Foundation
 
-extension SearchViewController{
-//func floatingButton(){
-//       btn.frame = CGRect(x: 285, y: 500, width: 100, height: 50)
-//       btn.translatesAutoresizingMaskIntoConstraints = false
-       //        NSLayoutConstraint.activate([
-       //            btn.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-       //            btn.topAnchor.constraint(equalTo: view.topAnchor, constant: 390),
-       //            btn.widthAnchor.constraint(equalToConstant: 75),
-       //            btn.heightAnchor.constraint(equalToConstant: 75)
-       //          ])
-//       btn.setTitle("Maps", for: .normal)
-//       btn.backgroundColor = .white
-//       btn.clipsToBounds = true
-       //        btn.layer.cornerRadius = 50
-//       btn.layer.borderColor = UIColor.red.cgColor
-//       btn.layer.borderWidth = 1.0
-       //        btn.addTarget(self,action: #selector(DestinationVC.buttonTapped), for: UIControlEvent.touchUpInside)
-//       if let window = UIApplication.shared.keyWindow {
-//           window.addSubview(btn)
-//       }
-    ////////////////////////
-//    button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-//       view.addSubview(button)
-   
-//   }
+extension SearchViewController : MKMapViewDelegate{
+
+    func floationgBtn(){
+        self.actionButton.buttonColor = .lightGray
+    actionButton.addItem(title: "item 1", image: UIImage(named: "search_filter")?.withRenderingMode(.alwaysTemplate)) { item in
+        print("floating btn")
+        if self.isMapHidden{
+        self.mapView.isHidden = false
+        self.isMapHidden = false
+        self.actionButton.imageView.image("search_heart")
+        }else{
+           self.mapView.isHidden = true
+           self.isMapHidden = true
+           self.actionButton.imageView.image("search_filter")
+        
+        }
+    }
+    view.addSubview(actionButton)
+    actionButton.translatesAutoresizingMaskIntoConstraints = false
+    actionButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
+    actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        searchBar.text = view.annotation?.subtitle ?? ""
+        searchBarText = searchBar.text
+        mapView.isHidden = true
+    }
+    
+    func putLocationOnMap(){
+          for item in self.arrOfAdViewModel{
+              self.longitude = item.longtiude
+              self.latitude = item.latitude
+              self.addressForMap = String(item.address)
+              self.numberOfPropertiesInLocation = self.counts[self.addressForMap]
+              let map = Map(
+                  title: String(self.numberOfPropertiesInLocation) , coordinate: CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude),subtitle: addressForMap)
+              maps.append(map)
+              mapView.addAnnotations(maps)
+          }
+      }
 }

@@ -35,6 +35,8 @@ class AdvertisementViewModel{
     var address: String!
     var country: String!
     var size: String!
+    var longtiude : Double!
+    var latitude : Double!
     var bedRoomsNumber: String!
     var bathRoomsNumber: String!
     var advertisementId : String!
@@ -53,7 +55,8 @@ class AdvertisementViewModel{
         self.advertisementId = model.advertisementId
         self.advertisementType = model.advertisementType
         self.advertisementDate = model.date
-        
+        self.latitude = Double(model.latitude)
+        self.longtiude = Double(model.longtiude)
             }
 }
 

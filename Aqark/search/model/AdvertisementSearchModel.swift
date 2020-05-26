@@ -20,6 +20,7 @@ struct AdvertisementSearchModel {
     var bedRoomsNumber: String!
     var bathRoomsNumber: String!
     var date : String!
-    
+    var longtiude: Double!
+    var latitude: Double!
     
     }

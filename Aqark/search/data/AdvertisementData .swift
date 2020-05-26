@@ -25,6 +25,8 @@ class AdvertisementData{
     var advertisementBathRoomsNum : String!
     var advertisementPropertyPrice : String!
     var advertisementPropertyLocation : String!
+    var advertisementPropertyLongtiude : String!
+    var advertisementPropertyLatitude : String!
     var advertisementDate : String!
     var addressDictionary: [String: String] = [:]
     
@@ -58,6 +60,8 @@ class AdvertisementData{
             unwrappedAddressDict = dict?["Address"] as! [String : String]
             self.addressDictionary = unwrappedAddressDict as! [String : String]
             self.advertisementPropertyLocation = self.addressDictionary["location"] ?? "Not Applied"
+            self.advertisementPropertyLatitude = self.addressDictionary["latitude"] ?? "Not Applied"
+            self.advertisementPropertyLongtiude = self.addressDictionary["longitude"] ?? "Not Applied"
         }else{
             self.advertisementPropertyLocation = "Not Applied"
         }
@@ -71,7 +75,9 @@ class AdvertisementData{
             size: self.advertisementPropertySize,
             bedRoomsNumber: self.advertisementBedRoomsNum,
             bathRoomsNumber:  self.advertisementBathRoomsNum,
-            date : self.advertisementDate
+            date : self.advertisementDate,
+             longtiude: Double(self.advertisementPropertyLongtiude),
+            latitude: Double(self.advertisementPropertyLatitude)
         )
     }
 }

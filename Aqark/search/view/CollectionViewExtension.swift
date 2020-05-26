@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 extension SearchViewController : UICollectionViewDataSource{
     
@@ -83,13 +84,19 @@ extension SearchViewController{
                 self.manageAppearence(sortBtn: true, swapLabel: true)
             }else{
                 self.arrOfAdViewModel = dataResults
+               self.arrOfAdViewModel.forEach { self.counts[$0.address, default: 0] += 1 }
+                print(self.counts)
+                self.putLocationOnMap()
             }
         }
     }
-    
+  
+
     func getCellData(indexPath : IndexPath){
+        
         if isFiltering {
             adViewModel = filteredAdsList[indexPath.row]
+            print(filteredAdsList.count)
         }else if isSorting == "High Price"{
             sortedList = self.sortData(str: isSorting)
             adViewModel = sortedList[indexPath.row]
