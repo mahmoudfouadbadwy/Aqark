@@ -50,8 +50,8 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
         return cell
     }
  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-    let adId = (arrOfAdViewModel![indexPath.row].advertisementId)!
     let propertyDetailVC = PropertyDetailView()
+    propertyDetailVC.advertisementId = (arrOfAdViewModel![indexPath.row].advertisementId)!
     self.navigationController?.pushViewController(propertyDetailVC, animated: true)
     }
 

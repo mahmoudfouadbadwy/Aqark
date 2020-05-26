@@ -9,27 +9,20 @@
 import Foundation
 
 class PropertyDetailViewModel {
-    var adverisementViewModel :[AdverisementViewModel] = [AdverisementViewModel]()
     private var propertyDataAccess:PropertyDetailDataAccess
-    
     init(propertyDataAccess :PropertyDetailDataAccess) {
         self.propertyDataAccess = propertyDataAccess
     }
     
-     func populateAdvertisement(completionForPopulateAd : @escaping (_ adResult:[AdverisementViewModel]) -> Void){
-        propertyDataAccess.gatDataFromFirebase(){(searchResult) in
-        self.adverisementViewModel = searchResult.map { ad in
-            AdverisementViewModel(advertise: ad)
-        
-        }
-            completionForPopulateAd(self.adverisementViewModel)
+    func populateAdvertisement(id:String,completion:@escaping(AdverisementViewModel,AgentViewModel)->Void){
+        propertyDataAccess.gatAdvertisementDetialby(id: id) { (advertisemant,user) in
+            completion(AdverisementViewModel(advertisement: advertisemant),AgentViewModel(agent: user))
         }
     }
-    
 }
 
-class AdverisementViewModel {
- 
+class AdverisementViewModel{
+    
     var userID:String!
     var advertismentType:String!
     var bathroom:String!
@@ -39,33 +32,43 @@ class AdverisementViewModel {
     var date:String!
     var description:String!
     var phone:String!
-    var price:String!
+    var price:Double!
     var propertysize:String!
     var latitude:String!
     var longitude:String!
     var location:String!
     var amenities:[String]!
     var images:[String]!
- //   var advertisementId:String!
     
-    init(advertise:Advertisment){
-        self.userID=advertise.userID
-        self.advertismentType=advertise.advertismentType
-        self.propertyType=advertise.propertyType
-        self.bathroom=advertise.bathroom
-        self.bedroom=advertise.bedroom
-        self.country=advertise.country
-        self.date=advertise.date
-        self.description=advertise.description
-        self.phone=advertise.phone
-        self.price=advertise.price
-        self.propertysize=advertise.size
-        self.latitude=advertise.latitude
-        self.longitude=advertise.longitude
-        self.location=advertise.location
-        self.amenities=advertise.amenities
-        self.images=advertise.images
-    //    self.advertisementId=advertise.advertismentID
+    init(advertisement:Advertisment){
+        self.userID=advertisement.userID
+        self.advertismentType=advertisement.advertismentType
+        self.propertyType=advertisement.propertyType
+        self.bathroom=advertisement.bathroom
+        self.bedroom=advertisement.bedroom
+        self.country=advertisement.country
+        self.date=advertisement.date
+        self.description=advertisement.description
+        self.phone=advertisement.phone
+        self.price=advertisement.price
+        self.propertysize=advertisement.size
+        self.latitude=advertisement.latitude
+        self.longitude=advertisement.longitude
+        self.location=advertisement.location
+        self.amenities=advertisement.amenities
+        self.images=advertisement.images
     }
-   
+}
+    
+class AgentViewModel
+{
+    var username:String!
+    var company:String!
+    var rate:Double!
+    
+    init(agent:Agent) {
+        self.username = agent.name
+        self.company = agent.company
+        self.rate = agent.rate
+    }
 }

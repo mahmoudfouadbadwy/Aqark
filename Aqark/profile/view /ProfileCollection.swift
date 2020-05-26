@@ -8,21 +8,8 @@
 
 import UIKit
 import SDWebImage
-extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSource{
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listOfAdvertisements.count
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell:ProfileAdvertisementCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileAdvertisementCell
-        setCellData(cell: cell, indexPath: indexPath)
-        setCellConfiguration(cell: cell)
-        return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
-    
+
+extension ProfileViewController{
     func setupCollection()
     {
         self.advertisementsCollection.register(UINib(nibName: "AdvertisementCell", bundle: nil), forCellWithReuseIdentifier: "profileCell")
@@ -42,7 +29,7 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
             self?.showByAnimation()
         })
     }
-   private func setCellConfiguration(cell:UICollectionViewCell)
+    private func setCellConfiguration(cell:UICollectionViewCell)
     {
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
@@ -53,7 +40,7 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
     }
-   private func setCellData(cell:ProfileAdvertisementCell,indexPath:IndexPath)
+    private func setCellData(cell:ProfileAdvertisementCell,indexPath:IndexPath)
     {
         let advertisement:ProfileAdvertisementViewModel = listOfAdvertisements[indexPath.row]
         cell.propertyType.text = advertisement.propertyType
@@ -75,12 +62,32 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
 }
 
 
+
+extension ProfileViewController:UICollectionViewDataSource{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return listOfAdvertisements.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell:ProfileAdvertisementCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileAdvertisementCell
+        setCellData(cell: cell, indexPath: indexPath)
+        setCellConfiguration(cell: cell)
+        return cell
+    }
+}
+
+extension ProfileViewController:UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    }
+}
+
+
 extension ProfileViewController:UICollectionViewDelegateFlowLayout
 {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.frame.width - 20, height: 150)
+        return CGSize(width: collectionView.frame.width - 40, height: 150)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10.0, left: 0.0, bottom: 0.0, right: 0.0)

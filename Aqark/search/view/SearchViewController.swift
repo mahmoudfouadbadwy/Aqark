@@ -60,6 +60,7 @@ class SearchViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Advertisements"
         if !checkNetworkConnection(){
             placeHolderView.isHidden = false
                 self.view.alpha = 1
