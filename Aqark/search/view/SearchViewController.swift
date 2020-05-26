@@ -24,6 +24,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var labelPlaceHolder: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchCollectionView: UICollectionView!
+    let actionButton = JJFloatingActionButton()
     var isMapHidden = true
     let reuseIdentifier = "MyIdentifier"
     var counts: [String: Int] = [:]
@@ -52,7 +53,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             searchBar.isHidden = false
             filterBtn.isHidden = false
             filterImage.isHidden = false
-            self.manageAppearence(sortBtn: false, swapLabel: false)
+            self.manageAppearence(sortBtn: false, swapLabel: false, labelPlaceHolder: true)
             UIView.animate(withDuration:2) {
                 self.view.alpha = 1
             }
@@ -62,14 +63,12 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         didSet{
             filterContentForSearchBarText(searchBar.text!)
             if filteredAdsList.count == 0 {
-                labelPlaceHolder.isHidden = false
                 labelPlaceHolder.text = "No Advertisements Found"
-                self.manageAppearence(sortBtn: true, swapLabel: true)
+                self.manageAppearence(sortBtn: true, swapLabel: true, labelPlaceHolder: false)
             }
-        }
     }
-    
-  let actionButton = JJFloatingActionButton()
+}
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,21 +85,11 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             labelPlaceHolder.isHidden = true
         }
     }
-    func addAnnotations(coords: [CLLocation]){
-        for coord in coords{
-                  let CLLCoordType = CLLocationCoordinate2D(latitude: coord.coordinate.latitude,
-                                                            longitude: coord.coordinate.longitude);
-                  let anno = MKPointAnnotation();
-                  anno.coordinate = CLLCoordType;
-                  mapView.addAnnotation(anno);
-              }
 
-
-    }
-  
-    func manageAppearence(sortBtn: Bool,swapLabel: Bool ){
+    func manageAppearence(sortBtn: Bool,swapLabel: Bool, labelPlaceHolder : Bool ){
         self.sortBtn.isHidden = sortBtn
         self.swapLabel.isHidden = swapLabel
+        self.labelPlaceHolder.isHidden = labelPlaceHolder
     }
     
     @IBAction func showSortingActionSheet(_ sender: Any) {

@@ -14,16 +14,15 @@ extension SearchViewController : MKMapViewDelegate{
 
     func floationgBtn(){
         self.actionButton.buttonColor = .lightGray
-    actionButton.addItem(title: "item 1", image: UIImage(named: "search_filter")?.withRenderingMode(.alwaysTemplate)) { item in
-        print("floating btn")
+    actionButton.addItem(title: "item 1", image: UIImage(named: "search_map")?.withRenderingMode(.alwaysTemplate)) { item in
         if self.isMapHidden{
         self.mapView.isHidden = false
         self.isMapHidden = false
-        self.actionButton.imageView.image("search_heart")
+        self.actionButton.imageView.image("search_list")
         }else{
            self.mapView.isHidden = true
            self.isMapHidden = true
-           self.actionButton.imageView.image("search_filter")
+           self.actionButton.imageView.image("search_map")
         
         }
     }

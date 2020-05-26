@@ -19,8 +19,6 @@ extension SearchViewController :  GMSAutocompleteViewControllerDelegate {
        
         // Then display the name in textField
         searchBarText = searchBar.text
-        print(searchBarText)
-        print("\(place.coordinate)")
 //               var longitude =  "\(place.coordinate.longitude)"
         // Dismiss the GMSAutocompleteViewController when something is selected
         dismiss(animated: true, completion: nil)

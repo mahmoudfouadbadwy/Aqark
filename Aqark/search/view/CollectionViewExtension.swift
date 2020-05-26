@@ -81,12 +81,12 @@ extension SearchViewController{
                 self.stopIndicator()
                 self.labelPlaceHolder.text = "No Advertisements Found"
                 self.view.alpha = 1
-                self.manageAppearence(sortBtn: true, swapLabel: true)
+                self.manageAppearence(sortBtn: true, swapLabel: true, labelPlaceHolder: false)
             }else{
                 self.arrOfAdViewModel = dataResults
-               self.arrOfAdViewModel.forEach { self.counts[$0.address, default: 0] += 1 }
-                print(self.counts)
+                self.arrOfAdViewModel.forEach { self.counts[$0.address, default: 0] += 1 }
                 self.putLocationOnMap()
+                self.labelPlaceHolder.isHidden = true
             }
         }
     }
@@ -96,7 +96,6 @@ extension SearchViewController{
         
         if isFiltering {
             adViewModel = filteredAdsList[indexPath.row]
-            print(filteredAdsList.count)
         }else if isSorting == "High Price"{
             sortedList = self.sortData(str: isSorting)
             adViewModel = sortedList[indexPath.row]
@@ -112,8 +111,7 @@ extension SearchViewController{
         }else {
             if let arrOfAdViewModel = arrOfAdViewModel{
                 adViewModel = arrOfAdViewModel[indexPath.row]
-                sortBtn.isHidden = false
-                swapLabel.isHidden = false
+                manageAppearence(sortBtn: false, swapLabel: false, labelPlaceHolder: true)
             }else{
                 adViewModel = self.advertismentsListViewModel.advertismentsViewModel[indexPath.row]
             }
