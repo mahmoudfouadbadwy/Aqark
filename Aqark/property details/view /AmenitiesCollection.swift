@@ -33,7 +33,7 @@ extension PropertyDetailView{
             image = UIImage(named: "PropertyDetail_Furnished")!
         case "Private garden":
             image = UIImage(named: "PropertyDetail_garden")!
-        case "kitchen Appliances":
+        case "Kitchen Appliances":
             image = UIImage(named: "PropertyDetail_kitchen")!
         case "Maids Room":
             image = UIImage(named: "PropertyDetail_Maids room")!
