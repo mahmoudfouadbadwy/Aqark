@@ -94,9 +94,12 @@
 		BFF39A37246FF92E0041AD24 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF39A35246FF92E0041AD24 /* ProfileViewController.xib */; };
 		C61CFE3224765998000EC0EF /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61CFE3024765998000EC0EF /* PaymentViewController.swift */; };
 		C61CFE3324765999000EC0EF /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C61CFE3124765998000EC0EF /* PaymentViewController.xib */; };
+		C64DD274247C170900D65012 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64DD273247C170900D65012 /* Map.swift */; };
 		C67921BA2474BF0800A24192 /* AdvertisementData .swift in Sources */ = {isa = PBXBuildFile; fileRef = C67921B92474BF0700A24192 /* AdvertisementData .swift */; };
 		C67921BC2474BF2100A24192 /* AdvertisementSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67921BB2474BF2100A24192 /* AdvertisementSearchModel.swift */; };
 		C67921BE2474BF3000A24192 /* AdvertisementListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67921BD2474BF2F00A24192 /* AdvertisementListViewModel.swift */; };
+		C67FDA382479469C00028E96 /* SortingExtenision.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67FDA372479469C00028E96 /* SortingExtenision.swift */; };
+		C67FDA3A2479495500028E96 /* MapExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67FDA392479495500028E96 /* MapExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,9 +206,12 @@
 		BFF39A35246FF92E0041AD24 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		C61CFE3024765998000EC0EF /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaymentViewController.swift; path = Aqark/payment/view/PaymentViewController.swift; sourceTree = SOURCE_ROOT; };
 		C61CFE3124765998000EC0EF /* PaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PaymentViewController.xib; path = Aqark/payment/view/PaymentViewController.xib; sourceTree = SOURCE_ROOT; };
+		C64DD273247C170900D65012 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		C67921B92474BF0700A24192 /* AdvertisementData .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AdvertisementData .swift"; sourceTree = "<group>"; };
 		C67921BB2474BF2100A24192 /* AdvertisementSearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementSearchModel.swift; sourceTree = "<group>"; };
 		C67921BD2474BF2F00A24192 /* AdvertisementListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementListViewModel.swift; sourceTree = "<group>"; };
+		C67FDA372479469C00028E96 /* SortingExtenision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingExtenision.swift; sourceTree = "<group>"; };
+		C67FDA392479495500028E96 /* MapExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapExtension.swift; sourceTree = "<group>"; };
 		DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AqarkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -363,6 +369,9 @@
 				BF43557E2474E1DC001DA5D8 /* SearchBar.swift */,
 				BF4355812474E1DD001DA5D8 /* SearchViewController.swift */,
 				BF4355822474E1DD001DA5D8 /* SearchViewController.xib */,
+				C67FDA372479469C00028E96 /* SortingExtenision.swift */,
+				C67FDA392479495500028E96 /* MapExtension.swift */,
+				C64DD273247C170900D65012 /* Map.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -952,6 +961,7 @@
 				BF4355862474E1DE001DA5D8 /* AdvertisementCellCollectionViewCell.swift in Sources */,
 				BF8111B7247A36410059D571 /* BindDetails.swift in Sources */,
 				3EA8369B246CE13A009AD024 /* ValidationProtocol.swift in Sources */,
+				C67FDA3A2479495500028E96 /* MapExtension.swift in Sources */,
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
 				3EA8369D246CE15C009AD024 /* LoginBrokenRule.swift in Sources */,
 				3E943FCA246A262400A1FF83 /* CustomButton.swift in Sources */,
@@ -976,6 +986,7 @@
 				BF77D47B2471698E00455A25 /* ProfileAdvertisementCell.swift in Sources */,
 				BF3B26932470281E0064BDF0 /* Profile.swift in Sources */,
 				BFC578B92474345500C77873 /* SignUpAlertView.swift in Sources */,
+				C64DD274247C170900D65012 /* Map.swift in Sources */,
 				BFC578C724749A1F00C77873 /* ProfileAdvertisementViewModel.swift in Sources */,
 				BF6DC688247352030030AE52 /* PropertyDetailViewModel.swift in Sources */,
 				BFC578BB24744D8F00C77873 /* ProfileCollection.swift in Sources */,
@@ -985,6 +996,7 @@
 				826A9A3E2474CA8A0046E562 /* extensionAutocompleteView.swift in Sources */,
 				82608A3524787525005946C1 /* extentionEditAdvertisementViewModel.swift in Sources */,
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
+				C67FDA382479469C00028E96 /* SortingExtenision.swift in Sources */,
 				BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

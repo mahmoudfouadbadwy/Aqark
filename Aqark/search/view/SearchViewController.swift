@@ -9,104 +9,101 @@
 import UIKit
 import ReachabilitySwift
 import SDWebImage
+import JJFloatingActionButton
+import MapKit
+import Foundation
 
-class SearchViewController: UIViewController{
+class SearchViewController: UIViewController,UIActionSheetDelegate{
+    
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var filterImage: UIImageView!
     @IBOutlet weak var filterBtn: UIButton!
     @IBOutlet weak var swapLabel: UIImageView!
     @IBOutlet weak var notificationBtn: UIButton!
     @IBOutlet weak var sortBtn: UIButton!
-    @IBOutlet weak var placeHolderView: UIView!
     @IBOutlet weak var labelPlaceHolder: UILabel!
-    @IBOutlet weak var imagePlaceHolder: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchCollectionView: UICollectionView!
+    let actionButton = JJFloatingActionButton()
+    var isMapHidden = true
+    let reuseIdentifier = "MyIdentifier"
+    var counts: [String: Int] = [:]
+    var numberOfPropertiesInLocation : Int!
+    var addressForMap : String!
+    var adViewModel : AdvertisementViewModel!
+    var maps: [Map] = []
+    var arrayOfLongitude = [Double]()
+    var latitude : Double = 0
+    var longitude : Double = 0
+    var isSorting: String = "default"
     var collectionViewFlowLayout:UICollectionViewFlowLayout!
     var advertismentsListViewModel : AdvertisementListViewModel!
     let searchController = UISearchController(searchResultsController: nil)
     var data : AdvertisementData!
     var filteredAdsList = [AdvertisementViewModel]()
+    var sortedList = [AdvertisementViewModel]()
+    var adsSortedList = [AdvertisementViewModel]()
     var unFilteredAdsList = [AdvertisementViewModel]()
     let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
-    var arrOfAdViewModel : [AdvertisementViewModel]?{
+    var arrOfAdViewModel : [AdvertisementViewModel]!{
         didSet{
             self.searchCollectionView.reloadData()
             stopIndicator()
-            swapLabel.isHidden = false
             notificationBtn.isHidden = false
-            sortBtn.isHidden = false
             searchBar.isHidden = false
             filterBtn.isHidden = false
             filterImage.isHidden = false
+            self.manageAppearence(sortBtn: false, swapLabel: false, labelPlaceHolder: true)
             UIView.animate(withDuration:2) {
                 self.view.alpha = 1
             }
         }
     }
-   var searchBarText:String!{
+    var searchBarText:String!{
         didSet{
             filterContentForSearchBarText(searchBar.text!)
             if filteredAdsList.count == 0 {
-                placeHolderView.isHidden = false
-                imagePlaceHolder.image = UIImage(named: "search_not_found")
                 labelPlaceHolder.text = "No Advertisements Found"
-                sortBtn.isHidden = true
-                swapLabel.isHidden = true
-            }else{
-                placeHolderView.isHidden = true
+                self.manageAppearence(sortBtn: true, swapLabel: true, labelPlaceHolder: false)
             }
-        }
     }
+}
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Advertisements"
         if !checkNetworkConnection(){
-            placeHolderView.isHidden = false
-                self.view.alpha = 1
-            imagePlaceHolder.image = UIImage(named: "search_no_connection")
+            labelPlaceHolder.isHidden = false
+            self.view.alpha = 1
             labelPlaceHolder.text = "No Internet Connection"
         }else{
+            manageSearchBar()
             showIndicator()
-            placeHolderView.isHidden = true
-            searchBar.delegate = self
-            searchBar.layer.borderWidth = 1
-            searchBar.layer.cornerRadius = 5
-            searchBar.layer.shadowColor = UIColor.lightGray.cgColor
-            searchBar.layer.borderColor = UIColor.lightGray.cgColor
-            if let textField = self.searchBar.subviews.first?.subviews.compactMap({ $0 as? UITextField }).first {
-                textField.subviews.first?.isHidden = true
-                textField.layer.backgroundColor = UIColor.white.cgColor
-                textField.layer.masksToBounds = true
-            }
-            searchCollectionView.register(UINib(nibName: "AdvertisementCellCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
-            updateFlowLayout()
-            self.data = AdvertisementData()
-            self.advertismentsListViewModel = AdvertisementListViewModel(dataAccess: self.data)
-            advertismentsListViewModel.populateAds {
-             (dataResults) in
-                if dataResults.isEmpty{
-                    self.stopIndicator()
-                    self.placeHolderView.isHidden = false
-                    self.imagePlaceHolder.image = UIImage(named: "search_not_found")
-                    self.labelPlaceHolder.text = "No Advertisements Found"
-                    self.sortBtn.isHidden = true
-                    self.swapLabel.isHidden = true
-                }else{
-//            self.arrOfAdViewModel?.removeAll()
-            self.arrOfAdViewModel = dataResults
-                         }
-            }
+            setUpCollectionView()
+            getCollectionViewData()
+            floationgBtn()
+            labelPlaceHolder.isHidden = true
         }
     }
 
-
-func checkNetworkConnection()->Bool
+    func manageAppearence(sortBtn: Bool,swapLabel: Bool, labelPlaceHolder : Bool ){
+        self.sortBtn.isHidden = sortBtn
+        self.swapLabel.isHidden = swapLabel
+        self.labelPlaceHolder.isHidden = labelPlaceHolder
+    }
+    
+    @IBAction func showSortingActionSheet(_ sender: Any) {
+        showSortingAlert()
+    }
+    
+    func checkNetworkConnection()->Bool
     {
         let connection = Reachability()
         guard let status = connection?.isReachable else{return false}
         return status
     }
+   
 }
 
 //MARK: - UIViewIndicator

@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import MapKit
 
-extension SearchViewController : UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
-
+extension SearchViewController : UICollectionViewDataSource{
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if advertismentsListViewModel != nil{
             return isFiltering ? filteredAdsList.count : advertismentsListViewModel.advertismentsViewModel.count
@@ -17,25 +18,11 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
             return 0
         }
     }
-
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AdvertisementCellCollectionViewCell
         updateCellLayout(cell: cell)
-        var adViewModel : AdvertisementViewModel
-        if isFiltering {
-            adViewModel = filteredAdsList[indexPath.row]
-        } else {
-            placeHolderView.isHidden = true
-            if let arrOfAdViewModel = arrOfAdViewModel{
-                adViewModel = arrOfAdViewModel[indexPath.row]
-                sortBtn.isHidden = false
-                swapLabel.isHidden = false
-            }else{
-                adViewModel = self.advertismentsListViewModel.advertismentsViewModel[indexPath.row]
-            }
-        }
-        
+        getCellData(indexPath: indexPath)
         cell.advertisementImage?.sd_setImage(with: URL(string: adViewModel.image), placeholderImage: UIImage(named: "NoImage"))
         cell.propertyTypeLabel?.text = adViewModel.propertyType
         cell.proprtyAddressLabel?.text = adViewModel.address
@@ -43,21 +30,32 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
         cell.numberOfBathRoomsLabel?.text = adViewModel.bathRoomsNumber
         cell.propertySizeLabel?.text = "\(adViewModel.size ?? "") sqm"
         if adViewModel.advertisementType == "Rent"{
-            cell.propertyPriceLabel?.text = "\(adViewModel.price ?? "") EGP/month"
+            cell.propertyPriceLabel?.text = "\(adViewModel.price ?? 0) EGP/month"
         }else{
-            cell.propertyPriceLabel?.text = "\(adViewModel.price ?? "") EGP"
+            cell.propertyPriceLabel?.text = "\(adViewModel.price ?? 0) EGP"
         }
         return cell
     }
- func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-    let propertyDetailVC = PropertyDetailView()
-    propertyDetailVC.advertisementId = (arrOfAdViewModel![indexPath.row].advertisementId)!
-    self.navigationController?.pushViewController(propertyDetailVC, animated: true)
+}
+
+extension SearchViewController: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        let adId = (arrOfAdViewModel![indexPath.row].advertisementId)!
+        let propertyDetailVC = PropertyDetailView()
+        self.navigationController?.pushViewController(propertyDetailVC, animated: true)
     }
+}
 
+extension SearchViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width - 20, height: collectionView.frame.height/3)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+    }
+}
 
-
-
+extension SearchViewController{
     func updateCellLayout(cell : UICollectionViewCell ){
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
@@ -68,26 +66,55 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
     }
-
-    func updateFlowLayout()
+    
+    func setUpCollectionView()
     {
-        if collectionViewFlowLayout == nil
-        {
-            let numberOfItemPerRow :CGFloat = 1.03
-            let minimunLineSpacing :CGFloat = 10
-            let minimunInteritemSpacing :CGFloat = 20
-            let width = (searchCollectionView.frame.width / numberOfItemPerRow)
-            let height = (searchCollectionView.frame.height/3.5)
-
-            collectionViewFlowLayout = UICollectionViewFlowLayout()
-            collectionViewFlowLayout.itemSize = CGSize(width: width, height: height)
-            collectionViewFlowLayout.scrollDirection = .vertical
-            collectionViewFlowLayout.sectionInset = UIEdgeInsets.zero
-            collectionViewFlowLayout.minimumLineSpacing = minimunLineSpacing
-            collectionViewFlowLayout.minimumInteritemSpacing = minimunInteritemSpacing
-            searchCollectionView.setCollectionViewLayout(collectionViewFlowLayout, animated: true)
+        searchCollectionView.register(UINib(nibName: "AdvertisementCellCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
+    }
+    
+    func getCollectionViewData(){
+        self.data = AdvertisementData()
+        self.advertismentsListViewModel = AdvertisementListViewModel(dataAccess: self.data)
+        advertismentsListViewModel.populateAds {
+            (dataResults) in
+            if dataResults.isEmpty{
+                self.stopIndicator()
+                self.labelPlaceHolder.text = "No Advertisements Found"
+                self.view.alpha = 1
+                self.manageAppearence(sortBtn: true, swapLabel: true, labelPlaceHolder: false)
+            }else{
+                self.arrOfAdViewModel = dataResults
+                self.arrOfAdViewModel.forEach { self.counts[$0.address, default: 0] += 1 }
+                self.putLocationOnMap()
+                self.labelPlaceHolder.isHidden = true
+            }
         }
     }
+  
 
-
+    func getCellData(indexPath : IndexPath){
+        
+        if isFiltering {
+            adViewModel = filteredAdsList[indexPath.row]
+        }else if isSorting == "High Price"{
+            sortedList = self.sortData(str: isSorting)
+            adViewModel = sortedList[indexPath.row]
+        }else if isSorting == "Low Price"{
+            sortedList = self.sortData(str: isSorting)
+            adViewModel = sortedList[indexPath.row]
+        }else if isSorting == "Newest"{
+            sortedList = self.sortData(str: isSorting)
+            adViewModel = sortedList[indexPath.row]
+        }else if isSorting == "Oldest"{
+            sortedList = self.sortData(str: isSorting)
+            adViewModel = sortedList[indexPath.row]
+        }else {
+            if let arrOfAdViewModel = arrOfAdViewModel{
+                adViewModel = arrOfAdViewModel[indexPath.row]
+                manageAppearence(sortBtn: false, swapLabel: false, labelPlaceHolder: true)
+            }else{
+                adViewModel = self.advertismentsListViewModel.advertismentsViewModel[indexPath.row]
+            }
+        }
+    }
 }

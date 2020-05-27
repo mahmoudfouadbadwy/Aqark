@@ -25,6 +25,9 @@ class AdvertisementData{
     var advertisementBathRoomsNum : String!
     var advertisementPropertyPrice : String!
     var advertisementPropertyLocation : String!
+    var advertisementPropertyLongtiude : String!
+    var advertisementPropertyLatitude : String!
+    var advertisementDate : String!
     var addressDictionary: [String: String] = [:]
     
     func getAllAdvertisements(completionForGetAllAdvertisements : @escaping (_ searchResults:[AdvertisementSearchModel]) -> Void){
@@ -49,13 +52,16 @@ class AdvertisementData{
         self.advertisementCountry = dict?["country"] as? String ?? "Not Applied"
         self.advertisementId = key
         self.advertisementPropertySize = dict?["size"] as? String ?? "Not Applied"
+        self.advertisementDate = dict?["date"] as? String ?? "Not Applied"
         self.advertisementBedRoomsNum = dict?["bedRooms"] as? String ?? "Not Applied"
         self.advertisementBathRoomsNum = dict?["bathRooms"] as? String ?? "Not Applied"
-        self.advertisementPropertyPrice = dict?["price"] as? String ?? "Not Applied"
+        self.advertisementPropertyPrice = dict?["price"] as? String ?? "0"
         if var unwrappedAddressDict = dict?["Address"] {
             unwrappedAddressDict = dict?["Address"] as! [String : String]
             self.addressDictionary = unwrappedAddressDict as! [String : String]
             self.advertisementPropertyLocation = self.addressDictionary["location"] ?? "Not Applied"
+            self.advertisementPropertyLatitude = self.addressDictionary["latitude"] ?? "Not Applied"
+            self.advertisementPropertyLongtiude = self.addressDictionary["longitude"] ?? "Not Applied"
         }else{
             self.advertisementPropertyLocation = "Not Applied"
         }
@@ -63,12 +69,16 @@ class AdvertisementData{
             image: self.advertisementImage, propertyType  : self.advertisementPropertyType,
             advertisementType: self.advertisementType,
             advertisementId: self.advertisementId,
-            price: self.advertisementPropertyPrice,
+            price: Double(self.advertisementPropertyPrice),
             address: self.advertisementPropertyLocation,
             country: self.advertisementCountry,
             size: self.advertisementPropertySize,
             bedRoomsNumber: self.advertisementBedRoomsNum,
-            bathRoomsNumber:  self.advertisementBathRoomsNum)
+            bathRoomsNumber:  self.advertisementBathRoomsNum,
+            date : self.advertisementDate,
+             longtiude: Double(self.advertisementPropertyLongtiude),
+            latitude: Double(self.advertisementPropertyLatitude)
+        )
     }
 }
 

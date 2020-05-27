@@ -11,26 +11,16 @@ import UIKit
 class AdvertisementCellCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var advertisementImage: UIImageView!
     @IBOutlet weak var propertyTypeLabel: UILabel!
-    
     @IBOutlet weak var propertyPriceLabel: UILabel!
-    
     @IBOutlet weak var proprtyAddressLabel: UILabel!
-    
     @IBOutlet weak var numberOfBedsLabel: UILabel!
-    
     @IBOutlet weak var numberOfBathRoomsLabel: UILabel!
-    
     @IBOutlet weak var propertySizeLabel: UILabel!
     
-    
-    
-  
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         advertisementImage.layer.cornerRadius = 10
         advertisementImage.clipsToBounds = true
     }
-   
-    
 }
