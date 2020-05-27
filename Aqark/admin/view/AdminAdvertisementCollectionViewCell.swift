@@ -16,11 +16,14 @@ class AdminAdvertisementCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var advertisementPropertyBedNumbers: UILabel!
     @IBOutlet weak var advertisementPropertyBathRoomNumbers: UILabel!
     @IBOutlet weak var advertisementPropertySize: UILabel!
-    
+    var adminAdvertisementsCollectionDelegate : AdminAdvertisementsCollectionDelegate?
+    var adminAdvertisementsCellIndex : IndexPath?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longGesturePressed(gesture:)))
+            addGestureRecognizer(longPressGesture)
     }
     
     override func layoutSubviews() {
@@ -34,4 +37,11 @@ class AdminAdvertisementCollectionViewCell: UICollectionViewCell {
         layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
     }
 
+    @objc func longGesturePressed(gesture:UILongPressGestureRecognizer){
+        if gesture.state != .ended {
+            return
+        }else{
+            adminAdvertisementsCollectionDelegate?.adminAdvertisementsCollectionDelegate(indexPath: adminAdvertisementsCellIndex!)
+        }
+    }
 }

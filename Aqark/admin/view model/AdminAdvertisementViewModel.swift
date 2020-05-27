@@ -9,6 +9,7 @@
 import Foundation
 
 class AdminAdvertisementViewModel{
+    var advertisementId : String = ""
     var advertisementPropertyImages : [String] = [String]()
     var advertisementPropertyType : String = ""
     var advertisementPropertyAddress : String = ""
@@ -18,6 +19,7 @@ class AdminAdvertisementViewModel{
     var advertisementPropertyBathRoomsNumber : String = ""
     
     init(adminAdvertisment:AdminAdvertisement) {
+        self.advertisementId = adminAdvertisment.advertisementId
         self.advertisementPropertyImages = adminAdvertisment.advertismentsPropertyImages
         self.advertisementPropertyType = adminAdvertisment.advertisementPropertyType
         self.advertisementPropertyAddress = adminAdvertisment.advertisementPropertyLocation

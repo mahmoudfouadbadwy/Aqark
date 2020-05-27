@@ -22,6 +22,9 @@ class AdminUsersListViewModel{
     
     func populateUsers(completionForPopulateUsers : @escaping() -> Void){
         dataAccess.getUsers { (usersData) in
+            self.adminUsersList.removeAll()
+            self.adminLawyersList.removeAll()
+            self.adminInteriorDesignersList.removeAll()
             self.filter(allUsersData: usersData)
             //            self.adminUsersList = usersData.map { userData in
             //                return AdminUserViewModel(adminUser: userData)

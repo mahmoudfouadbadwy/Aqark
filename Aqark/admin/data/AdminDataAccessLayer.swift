@@ -16,6 +16,7 @@ class AdminDataAccessLayer{
         var users = [AdminUser]()
         let usersRef = ref.child("Users")
         usersRef.observe(.value) { (snapShot) in
+            users.removeAll()
             for child in snapShot.children.allObjects as! [DataSnapshot]{
                 users.append(self.createUser(child: child))
             }
@@ -27,6 +28,7 @@ class AdminDataAccessLayer{
         var advertisements = [AdminAdvertisement]()
         let advertisementsRef = ref.child("Advertisements")
         advertisementsRef.observe(.value) { (snapShot) in
+            advertisements.removeAll()
             for child in snapShot.children.allObjects as! [DataSnapshot]{
                 advertisements.append(self.createAdvertisement(child: child))
             }
@@ -73,4 +75,26 @@ class AdminDataAccessLayer{
         let advertisementPropertySize = advertisementDictionary[AdvertisementKey.size] as! String
         let advertisement = AdminAdvertisement(advertisementId: advertisementId, advertisementPropertyatitude: advertisementPropertyLatitude, advertisementPropertyLongitude: advertisementPropertyLongitude, advertisementPropertyLocation: advertisementPropertyLocation, advertisementType: advertisementType, advertisemetentUserId: advertisementUserId, advertisementPropertyAmenities: advertisementPropertyAmenities, advertisementPropertyBathRooms: advertisementPropertyBathRooms, advertisementPropertyBeds: advertisementPropertyBeds, advertisementCountry: advertisementPropertyCountry, advertisementDate: advertisementPropertyDate, advertisementPropertyDescription: advetisementPropertyDescription, advertismentsPropertyImages: advertisementPropertyImages, advertisementPayment: advertisementPayment, adevertisementPhone: advertisementPhone, advertisementPropertyPrice: advertisementPropertyPrice, advertisementPropertyType: advertisementPropertyType, advertisementPropertySize: advertisementPropertySize)
         return advertisement
-    }}
+    }
+    
+    func deleteAdvertisment(id:String)
+    {
+        deleteFromUsersAds(by: id)
+        deleteFromAdvertisements(by: id)
+    }
+    
+    private func deleteFromUsersAds(by id:String)
+    {
+        guard let userID = Auth.auth().currentUser?.uid else {return}
+        ref.child("Users_Ads").child(userID).child("advertisements").observeSingleEvent(of: .value) { (data) in
+            var advertisements = data.value as! [String]
+            advertisements.removeAll{$0 == id}
+            self.ref.child("Users_Ads").child(userID).child("advertisements").setValue(advertisements)
+        }
+    }
+    
+    private func deleteFromAdvertisements(by id:String)
+    {
+        ref.child("Advertisements").child(id).removeValue()
+    }
+}

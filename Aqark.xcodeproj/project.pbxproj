@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3E4A75C2247906F000E7ECB3 /* AdminAdvertisementsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A75C1247906F000E7ECB3 /* AdminAdvertisementsListViewModel.swift */; };
 		3E4A75C42479072100E7ECB3 /* AdminAdvertisementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A75C32479072000E7ECB3 /* AdminAdvertisementViewModel.swift */; };
+		3E5FB38A247EA8CB00F661E0 /* AdminAdvertisementsCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5FB389247EA8CB00F661E0 /* AdminAdvertisementsCollectionDelegate.swift */; };
 		3E79974C24747446005E2C85 /* AdminTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E79974424747445005E2C85 /* AdminTabBarController.swift */; };
 		3E79974D24747446005E2C85 /* AdminUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E79974524747445005E2C85 /* AdminUsersViewController.swift */; };
 		3E79974E24747446005E2C85 /* AdminAdvertisementsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E79974624747445005E2C85 /* AdminAdvertisementsViewController.xib */; };
@@ -68,6 +69,7 @@
 /* Begin PBXFileReference section */
 		3E4A75C1247906F000E7ECB3 /* AdminAdvertisementsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAdvertisementsListViewModel.swift; sourceTree = "<group>"; };
 		3E4A75C32479072000E7ECB3 /* AdminAdvertisementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAdvertisementViewModel.swift; sourceTree = "<group>"; };
+		3E5FB389247EA8CB00F661E0 /* AdminAdvertisementsCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAdvertisementsCollectionDelegate.swift; sourceTree = "<group>"; };
 		3E79974424747445005E2C85 /* AdminTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdminTabBarController.swift; path = Aqark/admin/view/AdminTabBarController.swift; sourceTree = SOURCE_ROOT; };
 		3E79974524747445005E2C85 /* AdminUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdminUsersViewController.swift; path = Aqark/admin/view/AdminUsersViewController.swift; sourceTree = SOURCE_ROOT; };
 		3E79974624747445005E2C85 /* AdminAdvertisementsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdminAdvertisementsViewController.xib; path = Aqark/admin/view/AdminAdvertisementsViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -404,6 +406,7 @@
 				3EC960782477B39500F4C4B5 /* CustomSegment.swift */,
 				3EDD5C672478E7C300D7BCEA /* AdminAdvertisementCollectionViewCell.swift */,
 				3EDD5C682478E7C300D7BCEA /* AdminAdvertisementCollectionViewCell.xib */,
+				3E5FB389247EA8CB00F661E0 /* AdminAdvertisementsCollectionDelegate.swift */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -734,6 +737,7 @@
 				3E7997792474751E005E2C85 /* CustomTextField.swift in Sources */,
 				BF96078A246B26C1002B63D5 /* SignupBrokenRule.swift in Sources */,
 				3E7997762474751E005E2C85 /* FirstScreenViewController.swift in Sources */,
+				3E5FB38A247EA8CB00F661E0 /* AdminAdvertisementsCollectionDelegate.swift in Sources */,
 				3EC960792477B39500F4C4B5 /* CustomSegment.swift in Sources */,
 				BF3AD391246A3F610013FF4B /* DataAccess.swift in Sources */,
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
