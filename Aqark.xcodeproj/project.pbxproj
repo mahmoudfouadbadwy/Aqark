@@ -14,6 +14,10 @@
 		3EA8369D246CE15C009AD024 /* LoginBrokenRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8369C246CE15C009AD024 /* LoginBrokenRule.swift */; };
 		3EA836A0246CEFE2009AD024 /* LoginDataAccessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8369F246CEFE2009AD024 /* LoginDataAccessLayer.swift */; };
 		7056A0D613EFCF7CC97F41EB /* Pods_Aqark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */; };
+		823D6EA2247DDA7200F0B0FF /* extensionEditAdvertisement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D6EA1247DDA7200F0B0FF /* extensionEditAdvertisement.swift */; };
+		823D6EA4247DDB9D00F0B0FF /* extensionSelectAmenities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D6EA3247DDB9D00F0B0FF /* extensionSelectAmenities.swift */; };
+		823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D6EA5247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift */; };
+		823D6EA8247DDEE600F0B0FF /* extensionSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D6EA7247DDEE600F0B0FF /* extensionSetupView.swift */; };
 		82608A2F2476CA1D005946C1 /* EditAdvertisementDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82608A2E2476CA1D005946C1 /* EditAdvertisementDataSource.swift */; };
 		82608A322476CD20005946C1 /* EditAdvertisementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82608A312476CD20005946C1 /* EditAdvertisementModel.swift */; };
 		82608A3524787525005946C1 /* extentionEditAdvertisementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82608A3424787525005946C1 /* extentionEditAdvertisementViewModel.swift */; };
@@ -109,6 +113,10 @@
 		58560B4C74A5E0F6183A61D7 /* Pods-AqarkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AqarkTests.debug.xcconfig"; path = "Target Support Files/Pods-AqarkTests/Pods-AqarkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aqark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B20C334276836267C28034 /* Pods-Aqark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqark.debug.xcconfig"; path = "Target Support Files/Pods-Aqark/Pods-Aqark.debug.xcconfig"; sourceTree = "<group>"; };
+		823D6EA1247DDA7200F0B0FF /* extensionEditAdvertisement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionEditAdvertisement.swift; sourceTree = "<group>"; };
+		823D6EA3247DDB9D00F0B0FF /* extensionSelectAmenities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionSelectAmenities.swift; sourceTree = "<group>"; };
+		823D6EA5247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionSegmentAndTxtPlaceholder.swift; sourceTree = "<group>"; };
+		823D6EA7247DDEE600F0B0FF /* extensionSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionSetupView.swift; sourceTree = "<group>"; };
 		82608A2E2476CA1D005946C1 /* EditAdvertisementDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAdvertisementDataSource.swift; sourceTree = "<group>"; };
 		82608A312476CD20005946C1 /* EditAdvertisementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAdvertisementModel.swift; sourceTree = "<group>"; };
 		82608A3424787525005946C1 /* extentionEditAdvertisementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extentionEditAdvertisementViewModel.swift; sourceTree = "<group>"; };
@@ -467,6 +475,10 @@
 				826A9A3F2474CB2E0046E562 /* extensionTextFieldImageAndUnderline.swift */,
 				826A9A412474CBA50046E562 /* extensionForYPimagePicker.swift */,
 				826A9A432474CC730046E562 /* extensionviewPicker.swift */,
+				823D6EA1247DDA7200F0B0FF /* extensionEditAdvertisement.swift */,
+				823D6EA3247DDB9D00F0B0FF /* extensionSelectAmenities.swift */,
+				823D6EA5247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift */,
+				823D6EA7247DDEE600F0B0FF /* extensionSetupView.swift */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -895,9 +907,11 @@
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
 				BF6DC68E2473522B0030AE52 /* PropertyDetailView.swift in Sources */,
 				BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */,
+				823D6EA2247DDA7200F0B0FF /* extensionEditAdvertisement.swift in Sources */,
 				826A9A3B2474C8570046E562 /* extentionConfigrationCollectionView.swift in Sources */,
 				826A9A2C2473E4C20046E562 /* ExtensionAddAdvertisementViewModel.swift in Sources */,
 				BF634C9E2473373200B65B90 /* LoginViewModel.swift in Sources */,
+				823D6EA4247DDB9D00F0B0FF /* extensionSelectAmenities.swift in Sources */,
 				826A9A2F2473E4C20046E562 /* FileAddAdvertisementViewModelProtocol.swift in Sources */,
 				BFC578B5247431E800C77873 /* SignUpUI.swift in Sources */,
 				BF3AD38E246A3BB00013FF4B /* User.swift in Sources */,
@@ -908,6 +922,7 @@
 				826A9A402474CB2E0046E562 /* extensionTextFieldImageAndUnderline.swift in Sources */,
 				82608A2F2476CA1D005946C1 /* EditAdvertisementDataSource.swift in Sources */,
 				BF66CC1E246C678B00C9FD01 /* Countries.swift in Sources */,
+				823D6EA8247DDEE600F0B0FF /* extensionSetupView.swift in Sources */,
 				BFC578BD24744F0600C77873 /* ProfileNavigationProperties.swift in Sources */,
 				BF4355862474E1DE001DA5D8 /* AdvertisementCellCollectionViewCell.swift in Sources */,
 				3EA8369B246CE13A009AD024 /* ValidationProtocol.swift in Sources */,
@@ -917,6 +932,7 @@
 				BF6DC684247351CD0030AE52 /* PropertyDetailDataAccess.swift in Sources */,
 				826A9A1F2473E4A40046E562 /* AddAdvertisementModel.swift in Sources */,
 				3E943FC7246A053300A1FF83 /* FirstScreenViewController.swift in Sources */,
+				823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */,
 				C61CFE3224765998000EC0EF /* PaymentViewController.swift in Sources */,
 				BF3B2695247029850064BDF0 /* ProfileViewModel.swift in Sources */,
 				BF6DC68F2473522B0030AE52 /* AmenitiesCollectionViewCell.swift in Sources */,
