@@ -15,6 +15,7 @@ class EditAdvertisementDataSource{
     var storageRef: StorageReference!
     var advertisementId :String!
     var editAdvertisementModel : EditAdvertisementModel!
+    var images:[String]!
    
     init(advertisementId: String) {
         self.dataBaseRef = Database.database().reference()
@@ -57,48 +58,78 @@ class EditAdvertisementDataSource{
     
     
     func deleteStorgeImage(urlImages : [String]){
-        storageRef = Storage.storage().reference(withPath: "images/\(urlImages[0])")
-        storageRef.delete { error in
-            if let error = error
-            {
-                print(error.localizedDescription)
-            }
-            else
-            {
-                print("sucess you deleted image ")
+        for i in urlImages{
+            storageRef = Storage.storage().reference(withPath: "images/\(i)")
+            storageRef.delete { error in
+                if let error = error
+                {
+                    print(error.localizedDescription)
+                }
+                else
+                {
+                    print("sucess you deleted image ")
+                }
             }
         }
     }
     
-    func updateAdvertisement(advertisement : AddAdvertisementModel){
+    func updateAdvertisement(advertisement : EditAdvertisementModel){
         
         
         let userID:String = Auth.auth().currentUser!.uid
         
-        let address = ["location": advertisement.location,
-                    "latitude":advertisement.latitude,
-                    "longitude": advertisement.longitude]
-        
         
         
         let add = [ "propertyType": advertisement.propertyType,
-                "Advertisement Type": advertisement.advertisementType,
+                "Advertisement Type": advertisement.AdvertisementType,
                 "price" : advertisement.price,
-                "bedRooms" : advertisement.bedrooms,
-                "bathRooms" : advertisement.bathroom,
+                "bedRooms" : advertisement.bedRooms,
+                "bathRooms" : advertisement.bathRooms,
                 "size" : advertisement.size,
                 "phone" : advertisement.phone,
                 "country": advertisement.country,
                 "description": advertisement.description,
                 "date" : advertisement.date,
-                "Address" : address,
-                "amenities" : advertisement.aminities,
+                "Address" : advertisement.Address,
+                "amenities" : advertisement.amenities,
                 "UserId" : userID,
                 "payment" : advertisement.payment] as [String : Any]
   
         dataBaseRef.child("Advertisements").child(advertisementId).setValue(add)
         
     }
+    
+    func uploadeImageToStorage(dataImages : [Data] , compeltion : @escaping ()->()){
+        let meta = StorageMetadata.init()
+        meta.contentType = "image/jpeg"
+        for i in dataImages{
+            print(i)
+            let randomUUID = UUID.init().uuidString
+            storageRef = Storage.storage().reference(withPath: "images/\(randomUUID).jpg")
+            print(randomUUID)
+            self.storageRef.putData(i, metadata: meta) {[weak self] (metadata, error) in
+                self!.getImageUrl {[weak self] (value, myError) in
+                    if myError == nil{
+                        self?.images.append(value!)
+                        if self?.images.count == dataImages.count
+                        {
+                            compeltion()
+                        }
+                    }else{
+                        // show alert cant fitch url
+                        
+                    }
+                }
+            }
+        }
+    }
+    func getImageUrl(comoletionValue : @escaping (String? , Error?)->Void){
+        self.storageRef.downloadURL {(url, error) in
+            guard let url = url else {return}
+            comoletionValue("\(url)", error)
+        }
+    }
+    
     
 
 }

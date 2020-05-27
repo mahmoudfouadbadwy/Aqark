@@ -24,9 +24,11 @@ class AddAdvertisementViewModel : AddAdvertisementViewModelProtocol{
     var country: String!
     var description: String!
     var aminities : [Int:String]!
-    var dataImages :[Data]
-    var urlImages :[String]
+    var dataImages :[Data]?
+    var urlImages :[String]?
+    var deletedImage :[String]?
     var payment : String!
+    var date :String!
     
     var editAdvertisementDataSource: EditAdvertisementDataSource!
     var addAdvertisementDataSource: AddAdvertisementDataSource!
@@ -41,7 +43,7 @@ class AddAdvertisementViewModel : AddAdvertisementViewModelProtocol{
     }
     
     
-    init(payment : String , propertyType: String , advertisementType:String?, price: String , bedrooms: String , bathroom: String? , size: String , phone: String , location: String , latitude: String , longitude: String , country: String? , description: String , aminities : [Int:String] ,dataImages :[Data] , urlImages:[String]) {
+    init(payment : String , propertyType: String , advertisementType:String?, price: String , bedrooms: String , bathroom: String? , size: String , phone: String , location: String , latitude: String , longitude: String , country: String? , description: String , aminities : [Int:String] ,dataImages :[Data] , urlImages:[String] , deletedImage : [String]) {
         self.payment = payment
         self.propertyType = propertyType
         self.advertisementType = advertisementType
@@ -58,6 +60,7 @@ class AddAdvertisementViewModel : AddAdvertisementViewModelProtocol{
         self.aminities = aminities
         self.dataImages = dataImages
         self.urlImages = urlImages
+        self.deletedImage = deletedImage
     }
     
     func save(){
@@ -81,7 +84,7 @@ class AddAdvertisementViewModel : AddAdvertisementViewModelProtocol{
                                                           description: description,
                                                           aminities: amins ,
                                                           date: dateString,
-                                                          images: dataImages,
+                                                          images: dataImages!,
                                                           payment: payment)
         addAdvertisementDataSource = AddAdvertisementDataSource()
         addAdvertisementDataSource.initializeAddAdvertisementDataSource(advertisement: addAdvertisementModel)

@@ -16,51 +16,67 @@ extension AddAdvertisementViewModel{
     
     func editAdvertisement(id :String , date:String)
     {
+        var newImages:[String] = [String]()
        editAdvertisementDataSource = EditAdvertisementDataSource(advertisementId: id)
         // delete image in urlimage array
-//        if(urlImages.count > 0){
-//            extractImageNameFromUrl(urlImags: urlImages,completion : { x in
-//                editAdvertisementDataSource.deleteStorgeImage(urlImages : x)
-//            })
-//        }
-        //upload images if in seleted images have data
-        if(dataImages.count > 0){
-            // we will have complition her to change image data to string
+        if let imageWillDelete = deletedImage{
+            if(imageWillDelete.count > 0){
+                extractImageNameFromUrl(urlImags: imageWillDelete,completion : { x in
+                    editAdvertisementDataSource.deleteStorgeImage(urlImages : x)
+                })
+            }
         }
+         self.date = date
+        //upload images if in seleted images have data
+        if let dataImages = dataImages{
+            if(dataImages.count > 0){
+                // we will have complition her to change image data to string
+                editAdvertisementDataSource.uploadeImageToStorage(dataImages : dataImages ,  compeltion: uploadNow)
+            }
+        }else{
+            uploadNow()
+        }
+       
+       
+        
+    }
+    
+    func uploadNow(){
         //updata data
         let amins = Array(aminities.values)
-        let addAdvertisementModel = AddAdvertisementModel(propertyType: propertyType,
-                                                          advertisementType: advertisementType,
-                                                          price: price,
-                                                          bedrooms: bedrooms,
-                                                          bathroom: bathroom,
-                                                          size: size,
-                                                          phone: phone,
-                                                          location: location,
-                                                          latitude: latitude,
-                                                          longitude: longitude,
-                                                          country: country,
-                                                          description: description,
-                                                          aminities: amins ,
-                                                          date: date,
-                                                          images: dataImages,
-                                                          payment: payment)
+        let address = ["location": location,
+                       "latitude": latitude,
+                       "longitude": longitude]
         
+        let editAdvertisementModel = EditAdvertisementModel(phone: phone,
+                                                            bathRooms: bathroom,
+                                                            country: country,
+                                                            bedRooms: bedrooms,
+                                                            AdvertisementType: advertisementType,
+                                                            date: self.date,
+                                                            description: description,
+                                                            price: price,
+                                                            payment: payment,
+                                                            propertyType: propertyType,
+                                                            images: nil,
+                                                            Address: address as! [String : String],
+                                                            size: size,
+                                                            UserId: nil,
+                                                            amenities: amins)
         
-        editAdvertisementDataSource.updateAdvertisement(advertisement : addAdvertisementModel )
-        
+        editAdvertisementDataSource.updateAdvertisement(advertisement : editAdvertisementModel)
     }
     
     func extractImageNameFromUrl(urlImags : [String] , completion: ([String])->())
     {
-        var allImages:[String] = [String]()
+        var allImagesWillDeleteit:[String] = [String]()
         for i in urlImags{
             let parts = i.components(separatedBy: "%2F")
             let x = parts[1].components(separatedBy: "?")
-            allImages.append(x[0])
+            allImagesWillDeleteit.append(x[0])
         }
         
-        completion(allImages)
+        completion(allImagesWillDeleteit)
     }
     
     
