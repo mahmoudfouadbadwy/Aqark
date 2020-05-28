@@ -49,7 +49,7 @@ class AccountViewModel:Validation{
 }
 //MARK: -  Perform Creation
 extension AccountViewModel{
-    func performCreation(dataAccess:DataAccess,completion:@escaping (String)->Void)
+    func performCreation(dataAccess:SignUpDataAccess,completion:@escaping (String)->Void)
     {
        let user =  User(email:email, password: password, username: username, phone: phone, country: country, company: company, role: role)
         dataAccess.createAccount(user:user, completion: {(result)in

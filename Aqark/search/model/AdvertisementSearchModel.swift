@@ -13,12 +13,14 @@ struct AdvertisementSearchModel {
     var propertyType: String!
     var advertisementType: String!
     var advertisementId: String!
-    var price: String!
+    var price: Double!
     var address: String!
     var country: String!
     var size: String!
     var bedRoomsNumber: String!
     var bathRoomsNumber: String!
-    
+    var date : String!
+    var longtiude: Double!
+    var latitude: Double!
     
     }

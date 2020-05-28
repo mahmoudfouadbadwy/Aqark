@@ -18,18 +18,14 @@ class Advertisment {
     var date :String!
     var description :String!
     var phone :String!
-    var price :String!
+    var price :Double!
     var size :String!
-  //  var views :String!
     var latitude :String!
     var longitude :String!
     var location :String!
     var amenities :[String]!
     var images :[String]!
-  //  var advertismentID :String!
-    
-    
-    init(userID :String, advertismentType :String, propertyType :String, bathroom :String, bedroom :String, country :String, date :String, description :String, phone :String, price :String, size :String, latitude :String,longitude :String , location :String,amenities :[String], images :[String]) {
+    init(userID :String, advertismentType :String, propertyType :String, bathroom :String, bedroom :String, country :String, date :String, description :String, phone :String, price :Double, size :String, latitude :String,longitude :String , location :String,amenities :[String], images :[String]) {
         self.advertismentType = advertismentType
         self.propertyType = propertyType
         self.bathroom = bathroom
@@ -40,15 +36,18 @@ class Advertisment {
         self.phone = phone
         self.price = price
         self.size = size
- //       self.views = views
         self.latitude = latitude
         self.longitude = longitude
-       self.location = location
+        self.location = location
         self.amenities = amenities
         self.images = images
         self.images = images
-       // self.advertismentID = advertismentID
     }
-    
-    
+}
+
+
+struct Agent{
+    var name:String
+    var company:String
+    var rate:Double
 }

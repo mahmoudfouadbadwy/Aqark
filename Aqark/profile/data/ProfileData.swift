@@ -18,7 +18,6 @@ class ProfileDataAccess{
             {
                 let value = snapshot.value as? NSDictionary
                 let username = value?["username"] as? String ?? ""
-                let email = value?["email"] as? String ?? ""
                 let userRole = value?["role"] as? String ?? ""
                 let picture = value?["picture"] as? String ?? ""
                 let country = value?["country"] as? String ?? ""
@@ -26,7 +25,9 @@ class ProfileDataAccess{
                 let company = value?["company"] as? String ?? ""
                 let phone = value?["phone"] as? String ?? ""
                 let exp = value?["experience"] as? String ?? ""
-                let profile:Profile = Profile(role: userRole, picture: picture, username: username, email: email, country: country, address: address, company: company, phone: phone, experience: exp)
+                let rate = value?["rate"] as? Double ?? 0.0
+               
+                let profile:Profile = Profile(role: userRole, picture: picture, username: username, country: country, address: address, company: company, phone: phone, experience: exp, rate: rate)
                 onSuccess(profile)
                 
             }

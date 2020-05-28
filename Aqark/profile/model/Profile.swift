@@ -11,12 +11,12 @@ struct Profile{
     var role:String
     var picture:String
     var username:String
-    var email:String
     var country:String
     var address:String
     var company:String
     var phone:String
     var experience:String
+    var rate:Double
 }
 
 struct AdvertismentsStore {
@@ -29,7 +29,7 @@ struct AdvertismentsStore {
 
 struct ProfileAdvertisement {
     var propertyType:String
-    var price:String
+    var price:Double
     var address:String
     var bed:String
     var bathroom:String
@@ -37,4 +37,5 @@ struct ProfileAdvertisement {
     var propertyImage:String
     var paymentType:String
     var advertisementType:String
+    var advertisementId:String
 }

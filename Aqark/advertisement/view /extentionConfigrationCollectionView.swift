@@ -14,24 +14,36 @@ extension AddAdvertisementViewController: UICollectionViewDataSource , UICollect
 {
     func numberOfSections(in collectionView: UICollectionView) -> Int
     {
-        return 1
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return selectedImages.count
+        var count = 0
+        if section == 0{
+            count = selectedImages.count
+        }
+        else{
+            count = urlImages.count
+        }
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "idAddAdvertisementsCollectionViewCell", for: indexPath) as! AddAdvertisementsCollectionViewCell
-        cell.imageForCell.image = UIImage(data: selectedImages[indexPath.row])
+        
+        if indexPath.section == 0{
+            cell.imageForCell.image = UIImage(data: selectedImages[indexPath.row])
+        }else{
+            cell.imageForCell.sd_setImage(with: URL(string: urlImages[indexPath.row]), placeholderImage: UIImage(named: "search_villa"))
+        }
+        
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        self.selectedImages.remove(at: indexPath.row)
-        self.collectionView.deleteItems(at: [indexPath])
+         alertDesitionMaking(title: "Delete ", message: "Are you sure delete image " , index : indexPath)
     }
     func registerCellOfCollectionView()
     {
@@ -51,5 +63,28 @@ extension AddAdvertisementViewController: UICollectionViewDataSource , UICollect
             collectionView.setCollectionViewLayout(collectionViewFlowLayout , animated: true)
         }
     }
-    
+
+    func alertDesitionMaking(title: String , message : String , index : IndexPath){
+           
+        let alertController = UIAlertController(title: "Delete Image", message: "Are you sure delete image" , preferredStyle: .alert)
+        let cancelButton = UIAlertAction(title: "cancel", style: .cancel ,handler: nil)
+        let okButton = UIAlertAction(title: "ok", style: .default) { (_) in
+            if index.section == 0{
+                self.selectedImages.remove(at: index.row)
+                self.collectionView.deleteItems(at: [index])
+            }else{
+                self.urlImageDeleted.append(self.urlImages[index.row])
+                self.urlImages.remove(at: index.row)
+                self.collectionView.deleteItems(at: [index])
+                // we will go to fire base to delete image forom there
+                
+            }
+            
+        }
+        alertController.addAction(okButton)
+        alertController.addAction(cancelButton)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+
 }

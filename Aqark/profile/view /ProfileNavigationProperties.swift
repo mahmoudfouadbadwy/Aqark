@@ -20,7 +20,8 @@ extension ProfileViewController{
     @objc func logout(sender: UIBarButtonItem){
        let profileViewModel:ProfileStore = ProfileStore(by: profileDataAccess)
         profileViewModel.logout()
-        self.navigationController?.popToRootViewController(animated: true)
+        
+        self.navigationController?.pushViewController(FirstScreenViewController(), animated: true)
     }
     @objc func goToAddAdvertisement()
     {
