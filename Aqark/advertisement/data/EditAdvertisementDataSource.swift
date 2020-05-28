@@ -77,7 +77,7 @@ class EditAdvertisementDataSource{
     
     func updateAdvertisement(advertisement : EditAdvertisementModel){
         let userID:String = Auth.auth().currentUser!.uid
-        let add = [ "propertyType" : advertisement.propertyType ?? "",
+        let add : [String : Any] = [ "propertyType" : advertisement.propertyType ?? "",
                 "Advertisement Type" : advertisement.AdvertisementType ?? "",
                 "price" : advertisement.price ?? "",
                 "bedRooms" : advertisement.bedRooms ?? "",
@@ -91,7 +91,7 @@ class EditAdvertisementDataSource{
                 "amenities" : advertisement.amenities ?? "",
                 "UserId" : userID ,
                 "payment" : advertisement.payment ?? "",
-                "images" : images + urlImages] as [String : Any]
+                "images" : images + urlImages]
         
         dataBaseRef.child("Advertisements").child(advertisementId).setValue(add)
 
