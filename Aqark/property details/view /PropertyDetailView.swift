@@ -11,7 +11,8 @@ import MapKit
 import ReachabilitySwift
 import JJFloatingActionButton
 import Cosmos
-class PropertyDetailView: UIViewController{
+
+class PropertyDetailView: UIViewController,UIActionSheetDelegate{
    
     @IBOutlet weak var content: UIView!
     @IBOutlet weak var amenitiesTopSpace: NSLayoutConstraint!
@@ -32,13 +33,20 @@ class PropertyDetailView: UIViewController{
     @IBOutlet weak var numberOfViews: UILabel!
     @IBOutlet weak var imageSlider: ImageSlider!
     private let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
-    private var propertyViewModel : PropertyDetailViewModel!
-    private var propertyDataAccess : PropertyDetailDataAccess!
+    var propertyViewModel : PropertyDetailViewModel!
+    var propertyDataAccess : PropertyDetailDataAccess!
     var advertisementDetails:AdverisementViewModel!
+    var advertisementReportViewModel: ReportViewModel!
+    var reportData: ReportData!
     var agent:AgentViewModel!
     var advertisementId:String!
     var downloadedImages:[UIImage] = []
     let callButton = JJFloatingActionButton()
+    var inappropriateThings : String!
+    var fakeNumber : String!
+    var fakeData : String!
+    var deceitfulPerson : String!
+    var reportModel : ReportModel!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Property Details"
@@ -50,7 +58,7 @@ class PropertyDetailView: UIViewController{
                 self?.advertisementDetails = advertisement
                 self?.agent = agent
                 self?.bindAdvertisementData()
-            }
+                }
         }
         else{
             content.isHidden = true
@@ -70,7 +78,10 @@ class PropertyDetailView: UIViewController{
         mapItem.openInMaps(launchOptions: options)
     }
     
-//MARK: - check network connnection
+    @IBAction func showReportActionSheet(_ sender: Any) {
+        showReportActionSheet()
+    }
+    //MARK: - check network connnection
    private func checkNetworkConnection()->Bool
     {
         let connection = Reachability()

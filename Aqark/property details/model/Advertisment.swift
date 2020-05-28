@@ -26,6 +26,7 @@ class Advertisment {
     var amenities :[String]!
     var images :[String]!
     init(userID :String, advertismentType :String, propertyType :String, bathroom :String, bedroom :String, country :String, date :String, description :String, phone :String, price :Double, size :String, latitude :String,longitude :String , location :String,amenities :[String], images :[String]) {
+        self.userID = userID
         self.advertismentType = advertismentType
         self.propertyType = propertyType
         self.bathroom = bathroom

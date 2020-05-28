@@ -95,6 +95,10 @@
 		C61CFE3224765998000EC0EF /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61CFE3024765998000EC0EF /* PaymentViewController.swift */; };
 		C61CFE3324765999000EC0EF /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C61CFE3124765998000EC0EF /* PaymentViewController.xib */; };
 		C64DD274247C170900D65012 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64DD273247C170900D65012 /* Map.swift */; };
+		C66E3B78247FB96D00E1BAF2 /* ReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B77247FB96D00E1BAF2 /* ReportData.swift */; };
+		C66E3B7A247FCC0B00E1BAF2 /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B79247FCC0B00E1BAF2 /* ReportModel.swift */; };
+		C66E3B7C247FCDED00E1BAF2 /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B7B247FCDED00E1BAF2 /* ReportViewModel.swift */; };
+		C66E3B7E247FD8E900E1BAF2 /* ReportExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B7D247FD8E900E1BAF2 /* ReportExtension.swift */; };
 		C67921BA2474BF0800A24192 /* AdvertisementData .swift in Sources */ = {isa = PBXBuildFile; fileRef = C67921B92474BF0700A24192 /* AdvertisementData .swift */; };
 		C67921BC2474BF2100A24192 /* AdvertisementSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67921BB2474BF2100A24192 /* AdvertisementSearchModel.swift */; };
 		C67921BE2474BF3000A24192 /* AdvertisementListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67921BD2474BF2F00A24192 /* AdvertisementListViewModel.swift */; };
@@ -207,6 +211,10 @@
 		C61CFE3024765998000EC0EF /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaymentViewController.swift; path = Aqark/payment/view/PaymentViewController.swift; sourceTree = SOURCE_ROOT; };
 		C61CFE3124765998000EC0EF /* PaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PaymentViewController.xib; path = Aqark/payment/view/PaymentViewController.xib; sourceTree = SOURCE_ROOT; };
 		C64DD273247C170900D65012 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		C66E3B77247FB96D00E1BAF2 /* ReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportData.swift; sourceTree = "<group>"; };
+		C66E3B79247FCC0B00E1BAF2 /* ReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
+		C66E3B7B247FCDED00E1BAF2 /* ReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
+		C66E3B7D247FD8E900E1BAF2 /* ReportExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportExtension.swift; sourceTree = "<group>"; };
 		C67921B92474BF0700A24192 /* AdvertisementData .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AdvertisementData .swift"; sourceTree = "<group>"; };
 		C67921BB2474BF2100A24192 /* AdvertisementSearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementSearchModel.swift; sourceTree = "<group>"; };
 		C67921BD2474BF2F00A24192 /* AdvertisementListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementListViewModel.swift; sourceTree = "<group>"; };
@@ -397,6 +405,7 @@
 				BFA42D97247BF93E00A986E8 /* AmenitiesCell.swift */,
 				BFA42D98247BF93E00A986E8 /* AmenitiesCell.xib */,
 				BFA42D9B247BFCE000A986E8 /* AmenitiesCollection.swift */,
+				C66E3B7D247FD8E900E1BAF2 /* ReportExtension.swift */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -405,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				BF6DC687247352020030AE52 /* PropertyDetailViewModel.swift */,
+				C66E3B7B247FCDED00E1BAF2 /* ReportViewModel.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -572,6 +582,7 @@
 			isa = PBXGroup;
 			children = (
 				BF6DC683247351CC0030AE52 /* PropertyDetailDataAccess.swift */,
+				C66E3B77247FB96D00E1BAF2 /* ReportData.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -645,6 +656,7 @@
 			isa = PBXGroup;
 			children = (
 				BF6DC685247351E30030AE52 /* Advertisment.swift */,
+				C66E3B79247FCC0B00E1BAF2 /* ReportModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -921,6 +933,7 @@
 				BF96078A246B26C1002B63D5 /* SignupBrokenRule.swift in Sources */,
 				BF634CA324733A9000B65B90 /* LoginViewController.swift in Sources */,
 				C67921BA2474BF0800A24192 /* AdvertisementData .swift in Sources */,
+				C66E3B7E247FD8E900E1BAF2 /* ReportExtension.swift in Sources */,
 				826A9A2D2473E4C20046E562 /* AddAdvertisementViewModel.swift in Sources */,
 				BF4355872474E1DE001DA5D8 /* GooglePlaceAutoComplete.swift in Sources */,
 				BF6DC686247351E30030AE52 /* Advertisment.swift in Sources */,
@@ -936,11 +949,8 @@
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
 				BF6DC68E2473522B0030AE52 /* PropertyDetailView.swift in Sources */,
 				BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */,
-
 				BFA42D9C247BFCE000A986E8 /* AmenitiesCollection.swift in Sources */,
-
 				823D6EA2247DDA7200F0B0FF /* extensionEditAdvertisement.swift in Sources */,
-
 				826A9A3B2474C8570046E562 /* extentionConfigrationCollectionView.swift in Sources */,
 				826A9A2C2473E4C20046E562 /* ExtensionAddAdvertisementViewModel.swift in Sources */,
 				BF634C9E2473373200B65B90 /* LoginViewModel.swift in Sources */,
@@ -961,7 +971,9 @@
 				BF4355862474E1DE001DA5D8 /* AdvertisementCellCollectionViewCell.swift in Sources */,
 				BF8111B7247A36410059D571 /* BindDetails.swift in Sources */,
 				3EA8369B246CE13A009AD024 /* ValidationProtocol.swift in Sources */,
+				C66E3B7C247FCDED00E1BAF2 /* ReportViewModel.swift in Sources */,
 				C67FDA3A2479495500028E96 /* MapExtension.swift in Sources */,
+				C66E3B78247FB96D00E1BAF2 /* ReportData.swift in Sources */,
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
 				3EA8369D246CE15C009AD024 /* LoginBrokenRule.swift in Sources */,
 				3E943FCA246A262400A1FF83 /* CustomButton.swift in Sources */,
@@ -969,13 +981,11 @@
 				BF6DC684247351CD0030AE52 /* PropertyDetailDataAccess.swift in Sources */,
 				826A9A1F2473E4A40046E562 /* AddAdvertisementModel.swift in Sources */,
 				3E943FC7246A053300A1FF83 /* FirstScreenViewController.swift in Sources */,
-
 				BFA42D99247BF93E00A986E8 /* AmenitiesCell.swift in Sources */,
-
 				823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */,
-
 				C61CFE3224765998000EC0EF /* PaymentViewController.swift in Sources */,
 				BF3B2695247029850064BDF0 /* ProfileViewModel.swift in Sources */,
+				C66E3B7A247FCC0B00E1BAF2 /* ReportModel.swift in Sources */,
 				82608A322476CD20005946C1 /* EditAdvertisementModel.swift in Sources */,
 				BF43558A2474E1DE001DA5D8 /* CollectionViewExtension.swift in Sources */,
 				3EA836A0246CEFE2009AD024 /* LoginDataAccessLayer.swift in Sources */,

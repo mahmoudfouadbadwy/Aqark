@@ -9,7 +9,7 @@
 import Foundation
 
 class PropertyDetailViewModel {
-    private var propertyDataAccess:PropertyDetailDataAccess
+     var propertyDataAccess:PropertyDetailDataAccess
     init(propertyDataAccess :PropertyDetailDataAccess) {
         self.propertyDataAccess = propertyDataAccess
     }
