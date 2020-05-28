@@ -46,6 +46,9 @@ extension AddAdvertisementViewController {
                 self.countyTxtField.text = myValue.country
                 self.describtionTxtView.text = myValue.description
                 
+                self.latitude = myValue.Address!["latitude"]!
+                self.longitude = myValue.Address!["longitude"]!
+                
                 // segment
                 self.advertisementType = myValue.AdvertisementType!
                 if(self.advertisementType == "Rent"){
