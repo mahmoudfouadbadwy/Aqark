@@ -68,16 +68,16 @@ extension SearchViewController : MKMapViewDelegate{
             latitudinalMeters: 10000,
             longitudinalMeters: 1000000)
         mapView.setRegion(region, animated: false)
-        
-        if #available(iOS 13.0, *) {
-            mapView.setCameraBoundary(
-                MKMapView.CameraBoundary(coordinateRegion: region),
-                animated: true)
-            let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 3000000)
-            mapView.setCameraZoomRange(zoomRange, animated: false)
-        } else {
-            //                 Fallback on earlier versions
-        }
+//
+//        if #available(iOS 13.0, *) {
+//            mapView.setCameraBoundary(
+//                MKMapView.CameraBoundary(coordinateRegion: region),
+//                animated: true)
+//            let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 3000000)
+//            mapView.setCameraZoomRange(zoomRange, animated: false)
+//        } else {
+//            //                 Fallback on earlier versions
+//        }
     }
 }
 
