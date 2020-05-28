@@ -58,6 +58,8 @@
 		BF634CA324733A9000B65B90 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634CA024733A8F00B65B90 /* LoginViewController.swift */; };
 		BF634CA424733A9000B65B90 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF634CA124733A8F00B65B90 /* LoginViewController.xib */; };
 		BF66CC1E246C678B00C9FD01 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF66CC1D246C678B00C9FD01 /* Countries.swift */; };
+		BF6D507824804B4000FFDD30 /* AgentPropertiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D507624804B4000FFDD30 /* AgentPropertiesView.swift */; };
+		BF6D507924804B4000FFDD30 /* AgentPropertiesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF6D507724804B4000FFDD30 /* AgentPropertiesView.xib */; };
 		BF6DC684247351CD0030AE52 /* PropertyDetailDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DC683247351CC0030AE52 /* PropertyDetailDataAccess.swift */; };
 		BF6DC686247351E30030AE52 /* Advertisment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DC685247351E30030AE52 /* Advertisment.swift */; };
 		BF6DC688247352030030AE52 /* PropertyDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DC687247352020030AE52 /* PropertyDetailViewModel.swift */; };
@@ -167,6 +169,8 @@
 		BF634CA024733A8F00B65B90 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BF634CA124733A8F00B65B90 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		BF66CC1D246C678B00C9FD01 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
+		BF6D507624804B4000FFDD30 /* AgentPropertiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentPropertiesView.swift; sourceTree = "<group>"; };
+		BF6D507724804B4000FFDD30 /* AgentPropertiesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgentPropertiesView.xib; sourceTree = "<group>"; };
 		BF6DC683247351CC0030AE52 /* PropertyDetailDataAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyDetailDataAccess.swift; sourceTree = "<group>"; };
 		BF6DC685247351E30030AE52 /* Advertisment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Advertisment.swift; sourceTree = "<group>"; };
 		BF6DC687247352020030AE52 /* PropertyDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyDetailViewModel.swift; sourceTree = "<group>"; };
@@ -288,6 +292,7 @@
 		BF06B40124679D1C005D7151 /* agent properties */ = {
 			isa = PBXGroup;
 			children = (
+				BF6D50752480494D00FFDD30 /* data */,
 				BFBAED832468A5B600996DE8 /* model */,
 				BF06B41124679ED7005D7151 /* view model */,
 				BF06B41024679ED1005D7151 /* view */,
@@ -412,6 +417,8 @@
 		BF06B41024679ED1005D7151 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				BF6D507624804B4000FFDD30 /* AgentPropertiesView.swift */,
+				BF6D507724804B4000FFDD30 /* AgentPropertiesView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -572,6 +579,13 @@
 			isa = PBXGroup;
 			children = (
 				BF6DC683247351CC0030AE52 /* PropertyDetailDataAccess.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		BF6D50752480494D00FFDD30 /* data */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -813,6 +827,7 @@
 				C61CFE3324765999000EC0EF /* PaymentViewController.xib in Resources */,
 				BFE9F4472469930200E44777 /* GoogleService-Info.plist in Resources */,
 				BFF39A37246FF92E0041AD24 /* ProfileViewController.xib in Resources */,
+				BF6D507924804B4000FFDD30 /* AgentPropertiesView.xib in Resources */,
 				BF4355892474E1DE001DA5D8 /* SearchViewController.xib in Resources */,
 				3E943FC8246A053300A1FF83 /* FirstScreenViewController.xib in Resources */,
 				BF6DC6902473522B0030AE52 /* PropertyDetailView.xib in Resources */,
@@ -936,11 +951,8 @@
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
 				BF6DC68E2473522B0030AE52 /* PropertyDetailView.swift in Sources */,
 				BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */,
-
 				BFA42D9C247BFCE000A986E8 /* AmenitiesCollection.swift in Sources */,
-
 				823D6EA2247DDA7200F0B0FF /* extensionEditAdvertisement.swift in Sources */,
-
 				826A9A3B2474C8570046E562 /* extentionConfigrationCollectionView.swift in Sources */,
 				826A9A2C2473E4C20046E562 /* ExtensionAddAdvertisementViewModel.swift in Sources */,
 				BF634C9E2473373200B65B90 /* LoginViewModel.swift in Sources */,
@@ -969,11 +981,9 @@
 				BF6DC684247351CD0030AE52 /* PropertyDetailDataAccess.swift in Sources */,
 				826A9A1F2473E4A40046E562 /* AddAdvertisementModel.swift in Sources */,
 				3E943FC7246A053300A1FF83 /* FirstScreenViewController.swift in Sources */,
-
 				BFA42D99247BF93E00A986E8 /* AmenitiesCell.swift in Sources */,
-
+				BF6D507824804B4000FFDD30 /* AgentPropertiesView.swift in Sources */,
 				823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */,
-
 				C61CFE3224765998000EC0EF /* PaymentViewController.swift in Sources */,
 				BF3B2695247029850064BDF0 /* ProfileViewModel.swift in Sources */,
 				82608A322476CD20005946C1 /* EditAdvertisementModel.swift in Sources */,
