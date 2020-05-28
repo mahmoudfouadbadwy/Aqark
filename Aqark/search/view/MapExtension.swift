@@ -32,7 +32,7 @@ extension SearchViewController : MKMapViewDelegate{
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        searchBar.text = view.annotation?.subtitle ?? ""
+        searchBar.text = view.annotation?.title ?? ""
         searchBarText = searchBar.text
         mapView.isHidden = true
         actionButton.imageView.image("search_map")
@@ -45,9 +45,21 @@ extension SearchViewController : MKMapViewDelegate{
               self.addressForMap = String(item.address)
               self.numberOfPropertiesInLocation = self.counts[self.addressForMap]
               let map = Map(
-                  title: String(self.numberOfPropertiesInLocation) , coordinate: CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude),subtitle: addressForMap)
+                  title: addressForMap, coordinate: CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude),subtitle: String(self.numberOfPropertiesInLocation))
               maps.append(map)
               mapView.addAnnotations(maps)
           }
       }
+    
+    func centerToLocation(
+      _ location: CLLocation,
+      regionRadius: CLLocationDistance = 1000
+    ) {
+      let coordinateRegion = MKCoordinateRegion(
+        center: location.coordinate,
+        latitudinalMeters: regionRadius,
+        longitudinalMeters: regionRadius)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
 }
+

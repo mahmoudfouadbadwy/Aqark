@@ -81,7 +81,7 @@ extension SearchViewController{
                 self.stopIndicator()
                 self.labelPlaceHolder.text = "No Advertisements Found"
                 self.view.alpha = 1
-                self.manageAppearence(sortBtn: true, swapLabel: true, labelPlaceHolder: false)
+                self.manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
             }else{
                 self.arrOfAdViewModel = dataResults
                 self.arrOfAdViewModel.forEach { self.counts[$0.address, default: 0] += 1 }
@@ -93,9 +93,9 @@ extension SearchViewController{
   
 
     func getCellData(indexPath : IndexPath){
-        
         if isFiltering {
             adViewModel = filteredAdsList[indexPath.row]
+            notificationBtn.isHidden = false
         }else if isSorting == "High Price"{
             sortedList = self.sortData(str: isSorting)
             adViewModel = sortedList[indexPath.row]
@@ -111,7 +111,7 @@ extension SearchViewController{
         }else {
             if let arrOfAdViewModel = arrOfAdViewModel{
                 adViewModel = arrOfAdViewModel[indexPath.row]
-                manageAppearence(sortBtn: false, swapLabel: false, labelPlaceHolder: true)
+                manageAppearence(sortBtn: false, labelPlaceHolder: true, notificationBtn: true)
             }else{
                 adViewModel = self.advertismentsListViewModel.advertismentsViewModel[indexPath.row]
             }

@@ -60,8 +60,8 @@ class AdvertisementData{
             unwrappedAddressDict = dict?["Address"] as! [String : String]
             self.addressDictionary = unwrappedAddressDict as! [String : String]
             self.advertisementPropertyLocation = self.addressDictionary["location"] ?? "Not Applied"
-            self.advertisementPropertyLatitude = self.addressDictionary["latitude"] ?? "Not Applied"
-            self.advertisementPropertyLongtiude = self.addressDictionary["longitude"] ?? "Not Applied"
+            self.advertisementPropertyLatitude = self.addressDictionary["latitude"] ?? "0.0"
+            self.advertisementPropertyLongtiude = self.addressDictionary["longitude"] ?? "0.0"
         }else{
             self.advertisementPropertyLocation = "Not Applied"
         }
