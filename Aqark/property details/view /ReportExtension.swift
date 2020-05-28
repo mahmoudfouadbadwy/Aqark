@@ -41,10 +41,9 @@ extension PropertyDetailView {
     }
     func reportAdvertisement(report : String){
         self.reportData = ReportData()
-        reportModel = ReportModel(reportText: report, advertisementId: self.advertisementId, userId: "fjihdyug5785h" , agentId: self.advertisementDetails.userID)
         self.advertisementReportViewModel = ReportViewModel(dataAccess: reportData)
-        advertisementReportViewModel.setReportData(reportModel: reportModel)
-        print(advertisementReportViewModel.userAuth)
+        self.advertisementReportViewModel.setReportData(reportContent : report,advertisementId: self.advertisementId,agentId: advertisementDetails.userID)
+    
        
     }
     

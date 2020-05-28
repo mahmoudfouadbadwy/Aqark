@@ -41,7 +41,7 @@ class AdverisementViewModel{
     var images:[String]!
     
     init(advertisement:Advertisment){
-        self.userID=advertisement.userID
+        self.userID = advertisement.userID
         self.advertismentType=advertisement.advertismentType
         self.propertyType=advertisement.propertyType
         self.bathroom=advertisement.bathroom

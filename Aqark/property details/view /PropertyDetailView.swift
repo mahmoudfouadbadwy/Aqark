@@ -46,7 +46,6 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     var fakeNumber : String!
     var fakeData : String!
     var deceitfulPerson : String!
-    var reportModel : ReportModel!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Property Details"

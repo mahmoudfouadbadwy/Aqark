@@ -9,20 +9,25 @@
 import Foundation
 import Firebase
 class ReportViewModel{
-       var reportText: String!
-       var advertisementId: String!
-//       var userAuth : String!
-       var agentId: String!
+     
        var dataAccess : ReportData!
        var reportModel: ReportModel!
-       var userAuth  = Auth.auth().currentUser!.uid as String
-    
+      
     init(dataAccess : ReportData) {
           self.dataAccess = dataAccess
       }
-    func setReportData(reportModel : ReportModel){
-        ReportData().addReport(reportModel: reportModel)
+    func setReportData(reportContent : String, advertisementId : String,agentId : String){
+        reportModel = ReportModel(reportText: reportContent, advertisementId: advertisementId, userId: self.getUserId() , agentId: agentId)
+        dataAccess.addReport(reportModel: reportModel)
         
+    }
+    
+    func getUserId()-> String{
+        
+        if let user = Auth.auth().currentUser{
+            return user.uid
+        }
+       return ""
     }
     
 }
