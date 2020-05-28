@@ -60,7 +60,7 @@ class AddAdvertisementViewController: UIViewController  {
         super.viewDidLoad()
         blackIndicatorView.isHidden = true
         setupView()
-        advertisementId = "-M8Pr1cRcBgD_-L2k9tK"
+       
         if(advertisementId.isEmpty == false)
         {
             reloadViewData()

@@ -16,7 +16,7 @@ extension AddAdvertisementViewModel{
     
     func editAdvertisement(id :String , date:String)
     {
-        var newImages:[String] = [String]()
+        
        editAdvertisementDataSource = EditAdvertisementDataSource(advertisementId: id)
         // delete image in urlimage array
         if let imageWillDelete = deletedImage{
