@@ -28,7 +28,6 @@ class AddAdvertisementViewController: UIViewController  {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var switchButton: UISwitch!
     @IBOutlet weak var collectionView: UICollectionView!
-    //edit
     @IBOutlet weak var segment: UISegmentedControl!
     @IBOutlet weak var bedRoomStepper: UIStepper!
     @IBOutlet weak var bathRoomStepper: UIStepper!
@@ -45,28 +44,47 @@ class AddAdvertisementViewController: UIViewController  {
     var payment = "free"
     var latitude : String = ""
     var longitude : String = ""
-    //Edit
     var advertisementId = ""
     var selectedImages : [Data] = [Data]()
     var urlImages : [String] = [String]()
     var urlImageDeleted:[String]=[String]()
     var editAdvertisementDataSource :EditAdvertisementDataSource!
     var dateOfAdvertisement:String!
-    // autocomplete google sdk
     var autocompletecontroller = GMSAutocompleteViewController()
     var filter = GMSAutocompleteFilter()
+    @IBOutlet weak var blackIndicatorView: UIView!
     
     //MARK:- viewdidLoad
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        blackIndicatorView.isHidden = true
         setupView()
-        //advertisementId = "-M8HUT6R5Nu0yBkJjW2n"
         if(advertisementId.isEmpty == false)
         {
             reloadViewData()
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(self.chnageIndicatorStatus), name: .indicator, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.viewAlert), name: .alert, object: nil)
+        
     }
+    @objc func chnageIndicatorStatus()
+    {
+        stopIndicator()
+        blackIndicatorView.isHidden = true
+        alertControllerMessage(title: "succes", message: " your advertrisement uploaded succesfuly")
+    }
+    
+    @objc func viewAlert()
+    {
+        alertControllerMessage(title: "can't upload", message: "you have only 2 free advertisement if you want to add new add you should fo to payment")
+        stopIndicator()
+        blackIndicatorView.isHidden = true
+        
+        // go to payment page
+        
+    }
+    
     //MARK:- view will Apper
     override func viewWillAppear(_ animated: Bool)
     {
@@ -124,14 +142,19 @@ class AddAdvertisementViewController: UIViewController  {
             alertControllerMessage(title: alertValues.brokenType, message: alertValues.message)
         }else{
             //check rechability
-            if checkNetworkConnection(){
-                if switchButton.isOn{
+            if checkNetworkConnection()
+            {
+                if switchButton.isOn
+                {
                     showIndicator()
-                    if(advertisementId.isEmpty == false){
+                    blackIndicatorView.isHidden = false
+                    if(advertisementId.isEmpty == false)
+                    {
                         addAdvertisementVM.editAdvertisement(id : advertisementId , date : dateOfAdvertisement)
                     }else{
                         addAdvertisementVM.save()
                     }
+                    
                 }else{
                     print("navegaion")
                 }
@@ -220,7 +243,16 @@ class AddAdvertisementViewController: UIViewController  {
         
     }
     
+    //MARK: - deinit
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
+//MARK: - notification center
 
+extension Notification.Name{
+    static let indicator = Notification.Name("indicator")
+    static let alert = Notification.Name("alert")
+}

@@ -16,6 +16,7 @@
                 <outlet property="addressTxtField" destination="Gaw-mu-GOa" id="RgY-EQ-K7U"/>
                 <outlet property="bathRoomStepper" destination="rbQ-Il-VUm" id="Hfw-s1-ip8"/>
                 <outlet property="bedRoomStepper" destination="agb-Xv-V0X" id="nXK-ZG-hrc"/>
+                <outlet property="blackIndicatorView" destination="FRK-zo-qPG" id="DmS-H7-Arw"/>
                 <outlet property="collectionView" destination="0nD-RG-1Xj" id="nAA-QZ-Agk"/>
                 <outlet property="countryView" destination="nqw-q4-AQI" id="nAO-8A-aCY"/>
                 <outlet property="countyTxtField" destination="Hu4-Rk-EEU" id="H8r-TG-zYO"/>
@@ -175,7 +176,7 @@
                                         <action selector="switchToggle:" destination="-1" eventType="valueChanged" id="YXG-Al-Tpu"/>
                                     </connections>
                                 </switch>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Advertisement avalible for this mounth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGd-Tu-ZFs">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free Advertisement" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGd-Tu-ZFs">
                                     <rect key="frame" x="84" y="1302" width="276" height="14.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <nil key="textColor"/>
@@ -1202,10 +1203,18 @@
                                 <outletCollection property="gestureRecognizers" destination="Zhe-ba-rB9" appends="YES" id="BTJ-v0-h1U"/>
                             </connections>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRK-zo-qPG" userLabel="blackView">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.57298801369863017" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="FRK-zo-qPG" firstAttribute="leading" secondItem="LdZ-eO-PIZ" secondAttribute="leading" id="A2h-Bp-pKZ"/>
                         <constraint firstItem="lys-AD-7KE" firstAttribute="top" secondItem="LdZ-eO-PIZ" secondAttribute="top" id="JOu-Tm-Rrd"/>
+                        <constraint firstAttribute="trailing" secondItem="FRK-zo-qPG" secondAttribute="trailing" id="KNI-8L-P4h"/>
                         <constraint firstItem="lys-AD-7KE" firstAttribute="leading" secondItem="LdZ-eO-PIZ" secondAttribute="leading" id="MXC-DA-kwA"/>
+                        <constraint firstItem="FRK-zo-qPG" firstAttribute="top" secondItem="LdZ-eO-PIZ" secondAttribute="top" id="VAP-TJ-7eE"/>
+                        <constraint firstAttribute="bottom" secondItem="FRK-zo-qPG" secondAttribute="bottom" id="dzC-hF-X6j"/>
                         <constraint firstAttribute="bottom" secondItem="lys-AD-7KE" secondAttribute="bottom" id="lhE-Rw-ebS"/>
                         <constraint firstAttribute="trailing" secondItem="lys-AD-7KE" secondAttribute="trailing" id="lke-6b-NB6"/>
                     </constraints>
