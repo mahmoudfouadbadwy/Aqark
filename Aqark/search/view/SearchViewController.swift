@@ -82,24 +82,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             getCollectionViewData()
             floationgBtn()
             labelPlaceHolder.isHidden = true
-            let initialLocation = CLLocation(latitude: 26.8205528,longitude: 30.8024979)
-            centerToLocation(initialLocation)
-//            let egyptCenter = CLLocation(latitude: 26.8205528, longitude: 30.8024979)
-//               let region = MKCoordinateRegion(
-//                 center: egyptCenter.coordinate,
-//                 latitudinalMeters: 50000,
-//                 longitudinalMeters: 60000)
-//            if #available(iOS 13.0, *) {
-//                mapView.setCameraBoundary(
-//                    MKMapView.CameraBoundary(coordinateRegion: region),
-//                    animated: true)
-//                let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
-//                mapView.setCameraZoomRange(zoomRange, animated: true)
-//            } else {
-//                // Fallback on earlier versions
-//            }
-
-               
+            limitRegion()
         }
     }
 
