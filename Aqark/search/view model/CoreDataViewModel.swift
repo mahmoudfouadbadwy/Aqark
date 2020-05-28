@@ -29,6 +29,11 @@ class CoreDataViewModel{
         let remove = dataAccess.deleteFromFav(id: id)
         
     }
+
+    func getStoredOfCoreData () -> [String]{
+        let array = dataAccess.getAllStored()
+        return array
+    }
  
     
 }

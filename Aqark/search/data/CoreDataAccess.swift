@@ -26,16 +26,9 @@ class CoreDataAccess: NSObject{
     {
         let allData = getAllPropertiesFromCoreData()
         if (allData.count < 5){
-            
             let newProperty = PropertyEntity(context: managedContext)
             newProperty.advertismentId = id
-            do{
-                try managedContext.save()
-                print(" save in core data in addToProperties:")
-            }
-            catch let error as NSError{
-                print("error saving in core data in addToProperties: \(error)")
-            }
+            self.saveChangesOfCoredata()
         }
         else{
             print("you have maximum 5 Advertisment")
@@ -56,23 +49,24 @@ class CoreDataAccess: NSObject{
     
     func deleteFromFav(id : String)
     {
-        let allData = getAllPropertiesFromCoreData()
-        let property : PropertyEntity = PropertyEntity(context: managedContext)
-        property.advertismentId = id
-        
-        for index in 0 ..< allData.count{
-            if (allData[index] == property){
-                managedContext.delete(allData[index])
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PropertyEntity")
+        let predicate = NSPredicate(format: "advertismentId == %@", id)
+        request.predicate = predicate
+        if let result = try? managedContext.fetch(request) {
+            for object in result {
+                managedContext.delete(object as! NSManagedObject)
             }
         }
+       self.saveChangesOfCoredata()
+    }
+    
+    func saveChangesOfCoredata(){
         do{
             try managedContext.save()
-          
         }
         catch let error as NSError{
             print("del saving in core data in addToProperties: \(error)")
         }
-            
     }
     
     func checkValue (id:String)->Int{
@@ -96,4 +90,21 @@ class CoreDataAccess: NSObject{
         return 0
     }
     
+    func getAllStored () -> [String]{
+        var propertyArray = [PropertyEntity]()
+        var PropertyOfStrings: [String]!
+        let request : NSFetchRequest<PropertyEntity> = PropertyEntity.fetchRequest()
+        do{
+            propertyArray = try managedContext.fetch(request)
+            for index in 0 ..< propertyArray.count{
+                PropertyOfStrings[index] = propertyArray[index].advertismentId!
+            }
+        }catch let error as NSError {
+            print("Could not fetch \(error)")
+        }
+        
+        return PropertyOfStrings
+    }
+
+
 }
