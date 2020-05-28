@@ -18,7 +18,6 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var filterImage: UIImageView!
     @IBOutlet weak var filterBtn: UIButton!
-    @IBOutlet weak var swapLabel: UIImageView!
     @IBOutlet weak var notificationBtn: UIButton!
     @IBOutlet weak var sortBtn: UIButton!
     @IBOutlet weak var labelPlaceHolder: UILabel!
@@ -49,11 +48,10 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         didSet{
             self.searchCollectionView.reloadData()
             stopIndicator()
-            notificationBtn.isHidden = false
             searchBar.isHidden = false
             filterBtn.isHidden = false
             filterImage.isHidden = false
-            self.manageAppearence(sortBtn: false, swapLabel: false, labelPlaceHolder: true)
+            self.manageAppearence(sortBtn: false, labelPlaceHolder: true, notificationBtn: false)
             UIView.animate(withDuration:2) {
                 self.view.alpha = 1
             }
@@ -64,7 +62,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             filterContentForSearchBarText(searchBar.text!)
             if filteredAdsList.count == 0 {
                 labelPlaceHolder.text = "No Advertisements Found"
-                self.manageAppearence(sortBtn: true, swapLabel: true, labelPlaceHolder: false)
+                self.manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: false)
             }
     }
 }
@@ -74,7 +72,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         super.viewDidLoad()
         self.navigationItem.title = "Advertisements"
         if !checkNetworkConnection(){
-            labelPlaceHolder.isHidden = false
+           manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
             self.view.alpha = 1
             labelPlaceHolder.text = "No Internet Connection"
         }else{
@@ -84,13 +82,14 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             getCollectionViewData()
             floationgBtn()
             labelPlaceHolder.isHidden = true
+            limitRegion()
         }
     }
 
-    func manageAppearence(sortBtn: Bool,swapLabel: Bool, labelPlaceHolder : Bool ){
+    func manageAppearence(sortBtn: Bool, labelPlaceHolder : Bool,notificationBtn : Bool ){
         self.sortBtn.isHidden = sortBtn
-        self.swapLabel.isHidden = swapLabel
         self.labelPlaceHolder.isHidden = labelPlaceHolder
+        self.notificationBtn.isHidden = notificationBtn
     }
     
     @IBAction func showSortingActionSheet(_ sender: Any) {

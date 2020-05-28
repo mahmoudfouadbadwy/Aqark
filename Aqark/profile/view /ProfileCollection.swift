@@ -78,6 +78,9 @@ extension ProfileViewController:UICollectionViewDataSource{
 
 extension ProfileViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let editView:AddAdvertisementViewController = AddAdvertisementViewController()
+        editView.advertisementId = listOfAdvertisements[indexPath.row].advertisementId
+        self.navigationController?.pushViewController(editView, animated: true)
     }
 }
 
