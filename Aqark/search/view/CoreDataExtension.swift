@@ -12,32 +12,62 @@ import UIKit
 
 extension SearchViewController:FavouriteProtocol{
     
+    func setupCoredata (){
+        self.coreDataViewModel=CoreDataViewModel(dataAccess: CoreDataAccess())
+    }
+    
+    func setFavouriteButton (cell: AdvertisementCellCollectionViewCell,index: Int){
+        let storedIds = coreDataViewModel?.getAllAdvertisment()
+        if (storedIds!.count != 0){
+            for i in 0..<storedIds!.count{
+                if(storedIds![i] == arrOfAdViewModel![index].advertisementId){
+                    cell.favButton.tintColor = UIColor.red
+                }
+            }
+        }
+        
+        cell.favButton.tag = index
+        cell.delegat = self
+    }
+    
     func addToFav(favButton: UIButton) {
 
         if isFiltering{
             
-            if (coreDataViewModel?.checkFav(id: filteredAdsList[favButton.tag].advertisementId!) != 0){
+            if (favButton.tintColor == UIColor.red){
                 
                 favButton.tintColor = UIColor.lightGray
-                self.coreDataViewModel!.deleteFromFavou(id:filteredAdsList[favButton.tag].advertisementId!)
+                self.coreDataViewModel!.deleteAdvertismentFromFavourite(id:filteredAdsList[favButton.tag].advertisementId!)
             }else{
-                
-                favButton.tintColor = UIColor.red
-                self.coreDataViewModel!.addPropertyToFavourite(id: filteredAdsList[favButton.tag].advertisementId!)
+                if((coreDataViewModel?.checkNumberOfAdvertisment())!){
+                    favButton.tintColor = UIColor.red
+                    self.coreDataViewModel!.addAdvertismentToFavourite(id: filteredAdsList[favButton.tag].advertisementId!)
+                }else{
+                    let alert = UIAlertController(title: "Add To Favourite", message: "Can't add to favourite maximum 5 Ads can be added ", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
             
         }else{
-        
+            
             guard let advertisment = arrOfAdViewModel?[favButton.tag] else { return }
 
-            if (coreDataViewModel?.checkFav(id: advertisment.advertisementId!) != 0){
+            if (favButton.tintColor == UIColor.red){
                
                 favButton.tintColor = UIColor.lightGray
-                self.coreDataViewModel!.deleteFromFavou(id: (advertisment.advertisementId))
+                self.coreDataViewModel!.deleteAdvertismentFromFavourite(id: (advertisment.advertisementId))
     
             }else{
-                favButton.tintColor = UIColor.red
-                self.coreDataViewModel!.addPropertyToFavourite(id: (advertisment.advertisementId))
+                if((coreDataViewModel?.checkNumberOfAdvertisment())!){
+                    favButton.tintColor = UIColor.red
+                    self.coreDataViewModel!.addAdvertismentToFavourite(id: (advertisment.advertisementId))
+                }else{
+                    let alert = UIAlertController(title: "Add To Favourite", message: "Can't add to favourite maximum 5 Ads can be added ", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                
             }
        
         }

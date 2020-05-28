@@ -16,23 +16,26 @@ class CoreDataViewModel{
         self.dataAccess = dataAccess
     }
     
-    func addPropertyToFavourite(id :String){
-        let addToFav = dataAccess.addTofavourite(id: id)
+    func addAdvertismentToFavourite(id :String){
+        dataAccess.addToFavourite(id: id)
     
     }
 
-    func checkFav (id:String)->Int{
-        let check = dataAccess.checkValue(id: id)
-        return check
+    func isAdvertismentExist (id:String)->Bool{
+        
+        return dataAccess.isIdExist(id: id)
     }
-    func deleteFromFavou (id : String){
-        let remove = dataAccess.deleteFromFav(id: id)
+    func deleteAdvertismentFromFavourite (id : String){
+        dataAccess.deleteFromFavourite(id: id)
         
     }
-
-    func getStoredOfCoreData () -> [String]{
-        let array = dataAccess.getAllStored()
-        return array
+    
+    func checkNumberOfAdvertisment()->Bool{
+        return dataAccess.checkNumOfAds()
+    }
+    
+    func getAllAdvertisment () -> [String]{
+        return dataAccess.getAllAdvertisment()
     }
  
     

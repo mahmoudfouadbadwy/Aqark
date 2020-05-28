@@ -22,32 +22,14 @@ class CoreDataAccess: NSObject{
         fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "PropertyEntity")
     }
 
-    func addTofavourite(id : String)
+    func addToFavourite(id : String)
     {
-        let allData = getAllPropertiesFromCoreData()
-        if (allData.count < 5){
-            let newProperty = PropertyEntity(context: managedContext)
-            newProperty.advertismentId = id
-            self.saveChangesOfCoredata()
-        }
-        else{
-            print("you have maximum 5 Advertisment")
-        }
-        
+        let newProperty = PropertyEntity(context: managedContext)
+        newProperty.advertismentId = id
+        self.saveChangesToCoredata()
     }
     
-    func getAllPropertiesFromCoreData()-> [NSManagedObject]{
-        
-        do{
-            Properties =  try managedContext.fetch(fetchRequest)
-        }
-        catch let error as NSError{
-            print("  getAllPropertiesFromCoreData       \(error)")
-        }
-        return Properties
-    }
-    
-    func deleteFromFav(id : String)
+    func deleteFromFavourite(id : String)
     {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PropertyEntity")
         let predicate = NSPredicate(format: "advertismentId == %@", id)
@@ -57,19 +39,29 @@ class CoreDataAccess: NSObject{
                 managedContext.delete(object as! NSManagedObject)
             }
         }
-       self.saveChangesOfCoredata()
+        self.saveChangesToCoredata()
     }
     
-    func saveChangesOfCoredata(){
+    func getAllAdvertisment()-> [String]{
+        
         do{
-            try managedContext.save()
+            Properties =  try managedContext.fetch(fetchRequest)
+        }catch let error as NSError{
+            print("getAllPropertiesFromCoreData \(error)")
         }
-        catch let error as NSError{
-            print("del saving in core data in addToProperties: \(error)")
-        }
+        let adArray = convertToStringArray(myArray: Properties)
+        return adArray
     }
     
-    func checkValue (id:String)->Int{
+    func checkNumOfAds() -> Bool{
+        let allData = getAllAdvertisment()
+        if (allData.count < 5){
+            return true
+        }
+        return false
+    }
+    
+    func isIdExist (id:String)->Bool{
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PropertyEntity")
         let predicate = NSPredicate(format: "advertismentId == %@", id)
@@ -77,34 +69,41 @@ class CoreDataAccess: NSObject{
         do{
             let count = try managedContext.count(for: request)
             if(count == 0){
-                print("no matching object")
+                print("no matching object exists")
+                return false
             }
             else{
                 print("matching object exists")
-                return count
+                return true
             }
         }
         catch let error as NSError {
             print("Could not fetch \(error)")
         }
-        return 0
+        return false
     }
     
-    func getAllStored () -> [String]{
-        var propertyArray = [PropertyEntity]()
-        var PropertyOfStrings: [String]!
-        let request : NSFetchRequest<PropertyEntity> = PropertyEntity.fetchRequest()
-        do{
-            propertyArray = try managedContext.fetch(request)
-            for index in 0 ..< propertyArray.count{
-                PropertyOfStrings[index] = propertyArray[index].advertismentId!
+    func convertToStringArray(myArray: [NSManagedObject]) -> [String] {
+        var stringArray: [String] = []
+        for item in myArray {
+            var str : String = ""
+            for attribute in item.entity.attributesByName {
+                if let value = item.value(forKey: attribute.key) {
+                    str = value as! String
+                }
             }
-        }catch let error as NSError {
-            print("Could not fetch \(error)")
+            stringArray.append(str)
         }
-        
-        return PropertyOfStrings
+        return stringArray
     }
-
+    
+    func saveChangesToCoredata(){
+        do{
+            try managedContext.save()
+        }
+        catch let error as NSError{
+            print(" saving in core data : \(error)")
+        }
+    }
 
 }

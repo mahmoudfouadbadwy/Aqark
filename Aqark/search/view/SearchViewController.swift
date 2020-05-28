@@ -22,12 +22,8 @@ class SearchViewController: UIViewController{
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchCollectionView: UICollectionView!
     
-    var coreDataAccess: CoreDataAccess=CoreDataAccess()
-    var coreDataViewModel: CoreDataViewModel?{
-        didSet{
-            self.searchCollectionView.reloadData()
-        }
-    }
+    var coreDataViewModel: CoreDataViewModel?
+    
     var optionalValue : AdvertisementViewModel!
     var collectionViewFlowLayout:UICollectionViewFlowLayout!
     var advertismentsListViewModel : AdvertisementListViewModel!
@@ -95,8 +91,7 @@ class SearchViewController: UIViewController{
                 self.arrOfAdViewModel = dataResults
                 
             }
-            self.coreDataAccess=CoreDataAccess()
-            self.coreDataViewModel=CoreDataViewModel(dataAccess: self.coreDataAccess)
+           self.setupCoredata()
         }
     }
 
