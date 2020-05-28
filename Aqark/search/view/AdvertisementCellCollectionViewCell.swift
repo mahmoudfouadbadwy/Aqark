@@ -21,16 +21,16 @@ class AdvertisementCellCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var numberOfBathRoomsLabel: UILabel!
     
     @IBOutlet weak var propertySizeLabel: UILabel!
-    
-    
-    
-  
+    @IBOutlet weak var favButton: UIButton!
+    var delegat:FavouriteProtocol?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         advertisementImage.layer.cornerRadius = 10
         advertisementImage.clipsToBounds = true
     }
-   
-    
+    @IBAction func addToFavoutiteButtonMethod(_ sender: Any) {
+        
+        delegat?.addToFav(favButton: sender as! UIButton)
+    }
 }

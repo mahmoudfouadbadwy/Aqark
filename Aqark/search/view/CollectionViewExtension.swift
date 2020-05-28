@@ -51,6 +51,9 @@ extension SearchViewController : UICollectionViewDataSource,UICollectionViewDele
         }else{
             cell.propertyPriceLabel?.text = "\(adViewModel.price ?? "") EGP"
         }
+        cell.favButton.tag = indexPath.row
+        cell.delegat = self
+
         return cell
     }
  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){

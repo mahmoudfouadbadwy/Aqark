@@ -21,6 +21,14 @@ class SearchViewController: UIViewController{
     @IBOutlet weak var imagePlaceHolder: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchCollectionView: UICollectionView!
+    
+    var coreDataAccess: CoreDataAccess=CoreDataAccess()
+    var coreDataViewModel: CoreDataViewModel?{
+        didSet{
+            self.searchCollectionView.reloadData()
+        }
+    }
+    var optionalValue : AdvertisementViewModel!
     var collectionViewFlowLayout:UICollectionViewFlowLayout!
     var advertismentsListViewModel : AdvertisementListViewModel!
     let searchController = UISearchController(searchResultsController: nil)
@@ -87,6 +95,8 @@ class SearchViewController: UIViewController{
                 self.arrOfAdViewModel = dataResults
                 
             }
+            self.coreDataAccess=CoreDataAccess()
+            self.coreDataViewModel=CoreDataViewModel(dataAccess: self.coreDataAccess)
         }
     }
 
