@@ -70,6 +70,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Advertisements"
         if !checkNetworkConnection(){
            manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
             self.view.alpha = 1

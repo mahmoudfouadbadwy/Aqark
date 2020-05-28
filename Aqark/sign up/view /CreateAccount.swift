@@ -25,7 +25,7 @@ extension SignUpView{
         if (accountViewModel.isValid)
         {
             showIndicator()
-            accountViewModel.performCreation(dataAccess: DataAccess(),completion: {
+            accountViewModel.performCreation(dataAccess: SignUpDataAccess(),completion: {
                 (result) in
                 self.stopIndicator()
                 self.gotoProfileView()

@@ -11,6 +11,29 @@ import YPImagePicker
 
 extension AddAdvertisementViewController{
     
+    
+    //MARK:-func configtation of YPOmagePicker
+       
+       func configtationYPOmagePicker(){
+           config.isScrollToChangeModesEnabled = true
+           config.onlySquareImagesFromCamera = true
+           config.usesFrontCamera = false
+           config.shouldSaveNewPicturesToAlbum = true
+           config.albumName = "DefaultYPImagePickerAlbumName"
+           config.startOnScreen = YPPickerScreen.library
+           config.screens = [.library, .photo]
+           config.showsCrop = .none
+           config.targetImageSize = YPImageSize.original
+           config.overlayView = UIView()
+           config.hidesStatusBar = true
+           config.hidesBottomBar = false
+           config.preferredStatusBarStyle = UIStatusBarStyle.default
+           config.library.maxNumberOfItems = 5
+           config.library.minNumberOfItems = 1
+           
+       }
+    
+    
     @objc func choosePhotos(){
         let picker = YPImagePicker(configuration: config)
         

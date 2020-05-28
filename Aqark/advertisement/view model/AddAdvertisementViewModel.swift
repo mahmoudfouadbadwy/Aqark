@@ -24,10 +24,13 @@ class AddAdvertisementViewModel : AddAdvertisementViewModelProtocol{
     var country: String!
     var description: String!
     var aminities : [Int:String]!
-    var images :[Data]!
+    var dataImages :[Data]?
+    var urlImages :[String]?
+    var deletedImage :[String]?
     var payment : String!
+    var date :String!
     
-    
+    var editAdvertisementDataSource: EditAdvertisementDataSource!
     var addAdvertisementDataSource: AddAdvertisementDataSource!
     var borkenRule: [AddAdvertisementBrokenRule] = [AddAdvertisementBrokenRule]()
     
@@ -38,10 +41,9 @@ class AddAdvertisementViewModel : AddAdvertisementViewModelProtocol{
             return self.borkenRule.count == 0 ? true : false
         }
     }
-  
     
-    init(payment : String , propertyType: String , advertisementType:String?, price: String , bedrooms: String , bathroom: String? , size: String , phone: String , location: String , latitude: String , longitude: String , country: String? , description: String , aminities : [Int:String] , images :[Data]) {
-        
+    
+    init(payment : String , propertyType: String , advertisementType:String?, price: String , bedrooms: String , bathroom: String? , size: String , phone: String , location: String , latitude: String , longitude: String , country: String? , description: String , aminities : [Int:String] ,dataImages :[Data] , urlImages:[String] , deletedImage : [String]) {
         self.payment = payment
         self.propertyType = propertyType
         self.advertisementType = advertisementType
@@ -56,14 +58,12 @@ class AddAdvertisementViewModel : AddAdvertisementViewModelProtocol{
         self.country = country
         self.description = description
         self.aminities = aminities
-        self.images = images
+        self.dataImages = dataImages
+        self.urlImages = urlImages
+        self.deletedImage = deletedImage
     }
     
-    
-    
-    
     func save(){
-        
         let now = Date()
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone.current
@@ -84,14 +84,9 @@ class AddAdvertisementViewModel : AddAdvertisementViewModelProtocol{
                                                           description: description,
                                                           aminities: amins ,
                                                           date: dateString,
-                                                          images: images,
+                                                          images: dataImages!,
                                                           payment: payment)
-        
-        
-        addAdvertisementDataSource = AddAdvertisementDataSource(advertisement: addAdvertisementModel)
-    
-        
+        addAdvertisementDataSource = AddAdvertisementDataSource()
+        addAdvertisementDataSource.initializeAddAdvertisementDataSource(advertisement: addAdvertisementModel)
     }
-    
-    
 }
