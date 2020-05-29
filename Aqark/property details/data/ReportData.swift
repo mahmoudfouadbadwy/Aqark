@@ -15,11 +15,7 @@ class ReportData{
      var reportModel: ReportModel!
     var idAutoGenerator :String!
     
-
-    
-     
-
-    func addReport(reportModel : ReportModel){
+    func addReport(reportModel : ReportModel,completion:@escaping(_ result: Bool?)->Void){
         self.dataBaseRef = Database.database().reference()
         idAutoGenerator = dataBaseRef.childByAutoId().key!
         newReport = [
@@ -28,7 +24,11 @@ class ReportData{
         "AgentId": reportModel.agentId,
         "UserId": reportModel.userId
     ]
-        self.dataBaseRef.child("Reports").child(idAutoGenerator!).setValue(newReport)
+        
+     self.dataBaseRef.child("Reports").child(idAutoGenerator!).setValue(newReport)
+        completion(true)
+    
     }
+    
 }
  

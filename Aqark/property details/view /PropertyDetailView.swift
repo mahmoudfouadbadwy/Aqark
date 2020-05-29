@@ -78,7 +78,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     }
     
     @IBAction func showReportActionSheet(_ sender: Any) {
-        showReportActionSheet()
+        preformReport()
     }
     //MARK: - check network connnection
    private func checkNetworkConnection()->Bool
