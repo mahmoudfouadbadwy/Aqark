@@ -15,12 +15,17 @@ class LoginViewController: UIViewController{
     private var loginViewModel : LoginViewModel!
     @IBOutlet weak var loginActivityIndicator: UIActivityIndicatorView!
     var userRole : String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loginViewModel = LoginViewModel()
         userEmailTextField.delegate = self
         userPasswordTextField.delegate = self
         self.navigationItem.title = "Login"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
     }
       
     @IBAction func login(_ sender: Any) {
@@ -35,7 +40,11 @@ class LoginViewController: UIViewController{
                     if let error = error {
                         self.showAlert(title: "Login Validation", message: error)
                     }else{
-                        self.gotoProfileView()
+                        if(self.loginViewModel.isAdminLogged()){
+                            self.gotoAdminView()
+                        }else{
+                            self.gotoProfileView()
+                        }
                     }
                 }
             }else{
@@ -68,7 +77,26 @@ class LoginViewController: UIViewController{
        self.navigationController?.pushViewController(profileView, animated: true)
     }
   
+    func gotoAdminView(){
+        let adminView:AdminTabBarController = AdminTabBarController()
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.pushViewController(adminView, animated: true)
+    }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        if(!userEmailTextField.text!.isEmpty){
+            userEmailTextField.text = ""
+            userEmailTextField.removeFloatingLabel()
+            userEmailTextField._placeholder = "Email"
+        }
+        
+        if(!userPasswordTextField.text!.isEmpty){
+            userPasswordTextField.text = ""
+            userPasswordTextField.removeFloatingLabel()
+            userPasswordTextField._placeholder = "Password"
+        }
+    }
 }
 
 extension LoginViewController : UITextFieldDelegate{
