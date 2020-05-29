@@ -42,7 +42,7 @@ class Advertisment {
         self.location = location
         self.amenities = amenities
         self.images = images
-        self.images = images
+        self.userID = userID
     }
 }
 

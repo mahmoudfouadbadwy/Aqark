@@ -16,7 +16,7 @@ extension AddAdvertisementViewModel{
     
     func editAdvertisement(id :String , date:String)
     {
-        var newImages:[String] = [String]()
+        
        editAdvertisementDataSource = EditAdvertisementDataSource(advertisementId: id)
         // delete image in urlimage array
         if let imageWillDelete = deletedImage{
@@ -26,19 +26,26 @@ extension AddAdvertisementViewModel{
                 })
             }
         }
+        
          self.date = date
         //upload images if in seleted images have data
-        if let dataImages = dataImages{
-            if(dataImages.count > 0){
-                // we will have complition her to change image data to string
-                editAdvertisementDataSource.uploadeImageToStorage(dataImages : dataImages ,  compeltion: uploadNow)
+        if let dataImages = dataImages
+        {
+            if(dataImages.count > 0)
+            {
+                editAdvertisementDataSource.dataImages = dataImages
             }
-        }else{
-            uploadNow()
         }
-       
-       
         
+        if let imageurl = urlImages
+        {
+            if imageurl.count > 0
+            {
+                editAdvertisementDataSource.urlImages = imageurl
+            }
+        }
+        
+        uploadNow()
     }
     
     func uploadNow(){
@@ -58,13 +65,19 @@ extension AddAdvertisementViewModel{
                                                             price: price,
                                                             payment: payment,
                                                             propertyType: propertyType,
-                                                            images: nil,
-                                                            Address: address as! [String : String],
+                                                            images: urlImages,
+                                                            Address: address as? [String : String],
                                                             size: size,
                                                             UserId: nil,
                                                             amenities: amins)
         
-        editAdvertisementDataSource.updateAdvertisement(advertisement : editAdvertisementModel)
+        if (dataImages!.count > 0){
+            editAdvertisementDataSource.uploadeImageToStorage(advertisement: editAdvertisementModel)
+        }else{
+            editAdvertisementDataSource.updateAdvertisement(advertisement : editAdvertisementModel)
+        }
+        
+        
     }
     
     func extractImageNameFromUrl(urlImags : [String] , completion: ([String])->())

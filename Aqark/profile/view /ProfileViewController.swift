@@ -45,10 +45,15 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         if(checkNetworkConnection())
         {
-            setupView()
-            setNavigationProperties()
-            setupCollection()
-            noAdvertisementsLabel.isHidden = true
+            if Auth.auth().currentUser == nil{
+                self.navigationController?.pushViewController(FirstScreenViewController(), animated: true)
+            }else
+            {
+                setupView()
+                setNavigationProperties()
+                setupCollection()
+                noAdvertisementsLabel.isHidden = true
+            }
         }
         else
         {
@@ -65,7 +70,7 @@ class ProfileViewController: UIViewController {
             else
             {
                 UIView.animate(withDuration: 1) {
-                     self.view.alpha = 0.5
+                    self.view.alpha = 0.5
                 }
                 showIndicator()
                 bindProfileData()

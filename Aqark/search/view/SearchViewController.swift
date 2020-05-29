@@ -23,6 +23,8 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var labelPlaceHolder: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchCollectionView: UICollectionView!
+    var coreDataViewModel: CoreDataViewModel?
+    var optionalValue : AdvertisementViewModel!
     let actionButton = JJFloatingActionButton()
     var isMapHidden = true
     let reuseIdentifier = "MyIdentifier"
@@ -78,6 +80,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         }else{
             manageSearchBar()
             showIndicator()
+            self.setupCoredata()
             setUpCollectionView()
             getCollectionViewData()
             floationgBtn()

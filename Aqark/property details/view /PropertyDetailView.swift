@@ -77,9 +77,35 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         mapItem.openInMaps(launchOptions: options)
     }
     
+
     @IBAction func showReportActionSheet(_ sender: Any) {
         preformReport()
     }
+
+
+    @IBAction func openPropertiesView(_ sender: Any) {
+        let properties = AgentPropertiesView()
+        properties.agentId =  advertisementDetails.userID
+        properties.agentName = agent.username
+        self.navigationController?.pushViewController(properties, animated: true)
+        
+    }
+
+    @IBAction func showLawyers(_ sender: Any) {
+        let servicesView = ServicesViewController()
+        servicesView.serviceRole = "lawyer"
+        self.navigationController?.pushViewController(servicesView, animated: true)
+    }
+    
+    
+    @IBAction func showInteriorDesigners(_ sender: Any) {
+        let servicesView = ServicesViewController()
+        servicesView.serviceRole = "interior designer"
+        self.navigationController?.pushViewController(servicesView, animated: true)
+    }
+    
+
+
     //MARK: - check network connnection
    private func checkNetworkConnection()->Bool
     {
