@@ -81,6 +81,9 @@
                                                     <rect key="frame" x="241" y="0.0" width="107" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                                     <state key="normal" title="Report" image="PropertyDetail_feedback"/>
+                                                    <connections>
+                                                        <action selector="showReportActionSheet:" destination="-1" eventType="touchUpInside" id="7ON-Vo-imd"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
