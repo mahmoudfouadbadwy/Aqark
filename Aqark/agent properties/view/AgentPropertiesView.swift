@@ -7,24 +7,81 @@
 //
 
 import UIKit
-
+import Cosmos
+import ReachabilitySwift
 class AgentPropertiesView: UIViewController {
-
+    
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var advertisementsCollection: UICollectionView!
+    @IBOutlet weak var rateLabel: UILabel!
+    @IBOutlet weak var rate: CosmosView!
+    var agentId:String!
+    var agentName:String!
+    let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
+    let agentDataAccess:AgentDataAccess = AgentDataAccess()
+    var listOfAdvertisements:[AgentAdvertisementViewModel] = []{
+        didSet{
+            if listOfAdvertisements.count>0{
+                statusLabel.isHidden = true
+            }
+            else
+            {
+                statusLabel.text = "No Advertisements Available"
+                statusLabel.isHidden = false
+            }
+            advertisementsCollection.reloadData()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        if(checkNetworkConnection())
+        {
+            statusLabel.isHidden = true
+            self.navigationItem.title = "\(agentName ?? "Agent")'s Properties"
+        }
+        else
+        {
+            statusLabel.isHidden = false
+            statusLabel.text = "Internet Connection Not Available"
+        }
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        if(checkNetworkConnection())
+        {
+            showIndicator()
+            setupCollection()
+            bindCollectionData()
+            setupAgentRate()
+            statusLabel.isHidden = true
+        }
+        else
+        {
+            statusLabel.isHidden = false
+            statusLabel.text = "Internet Connection Not Available"
+        }
     }
-    */
+    
+    
+    func checkNetworkConnection()->Bool
+    {
+        let connection = Reachability()
+        guard let status = connection?.isReachable else{return false}
+        return status
+    }
+}
 
+
+//MARK: - UIViewIndicator
+extension AgentPropertiesView{
+    func showIndicator()
+    {
+        networkIndicator.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        networkIndicator.center = view.center
+        networkIndicator.startAnimating()
+        view.addSubview(networkIndicator)
+    }
+    
+    func stopIndicator() {
+        networkIndicator.stopAnimating()
+    }
 }

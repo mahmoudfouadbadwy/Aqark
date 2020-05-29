@@ -92,6 +92,13 @@
 		BFCF0BDB24677F8100A43D8B /* AqarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF0BDA24677F8100A43D8B /* AqarkTests.swift */; };
 		BFE9F4472469930200E44777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFE9F4462469930200E44777 /* GoogleService-Info.plist */; };
 		BFE9F4482469930200E44777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFE9F4462469930200E44777 /* GoogleService-Info.plist */; };
+		BFF016172481067800C3B7C0 /* AgentAdvertisementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF016152481067800C3B7C0 /* AgentAdvertisementCell.swift */; };
+		BFF0161A24810CB800C3B7C0 /* AgentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0161924810CB800C3B7C0 /* AgentViewModel.swift */; };
+		BFF0161C24810D1F00C3B7C0 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0161B24810D1F00C3B7C0 /* Agent.swift */; };
+		BFF0161E24810D8F00C3B7C0 /* AgentDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0161D24810D8F00C3B7C0 /* AgentDataAccess.swift */; };
+		BFF01620248113A400C3B7C0 /* AgentCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0161F248113A400C3B7C0 /* AgentCollection.swift */; };
+		BFF0162224811AD800C3B7C0 /* AgentAdvertisementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF0162124811AD800C3B7C0 /* AgentAdvertisementCell.xib */; };
+		BFF016242481306800C3B7C0 /* RatingExtenesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF016232481306800C3B7C0 /* RatingExtenesion.swift */; };
 		BFF39A36246FF92E0041AD24 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF39A34246FF92E0041AD24 /* ProfileViewController.swift */; };
 		BFF39A37246FF92E0041AD24 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF39A35246FF92E0041AD24 /* ProfileViewController.xib */; };
 		C61CFE3224765998000EC0EF /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61CFE3024765998000EC0EF /* PaymentViewController.swift */; };
@@ -206,6 +213,13 @@
 		BFCF0BDA24677F8100A43D8B /* AqarkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AqarkTests.swift; sourceTree = "<group>"; };
 		BFCF0BDC24677F8100A43D8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFE9F4462469930200E44777 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BFF016152481067800C3B7C0 /* AgentAdvertisementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentAdvertisementCell.swift; sourceTree = "<group>"; };
+		BFF0161924810CB800C3B7C0 /* AgentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentViewModel.swift; sourceTree = "<group>"; };
+		BFF0161B24810D1F00C3B7C0 /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
+		BFF0161D24810D8F00C3B7C0 /* AgentDataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDataAccess.swift; sourceTree = "<group>"; };
+		BFF0161F248113A400C3B7C0 /* AgentCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCollection.swift; sourceTree = "<group>"; };
+		BFF0162124811AD800C3B7C0 /* AgentAdvertisementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgentAdvertisementCell.xib; sourceTree = "<group>"; };
+		BFF016232481306800C3B7C0 /* RatingExtenesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingExtenesion.swift; sourceTree = "<group>"; };
 		BFF39A34246FF92E0041AD24 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BFF39A35246FF92E0041AD24 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		C61CFE3024765998000EC0EF /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaymentViewController.swift; path = Aqark/payment/view/PaymentViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -417,8 +431,12 @@
 		BF06B41024679ED1005D7151 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				BFF0162124811AD800C3B7C0 /* AgentAdvertisementCell.xib */,
+				BFF016152481067800C3B7C0 /* AgentAdvertisementCell.swift */,
 				BF6D507624804B4000FFDD30 /* AgentPropertiesView.swift */,
 				BF6D507724804B4000FFDD30 /* AgentPropertiesView.xib */,
+				BFF0161F248113A400C3B7C0 /* AgentCollection.swift */,
+				BFF016232481306800C3B7C0 /* RatingExtenesion.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -426,6 +444,7 @@
 		BF06B41124679ED7005D7151 /* view model */ = {
 			isa = PBXGroup;
 			children = (
+				BFF0161924810CB800C3B7C0 /* AgentViewModel.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -586,6 +605,7 @@
 		BF6D50752480494D00FFDD30 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				BFF0161D24810D8F00C3B7C0 /* AgentDataAccess.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -651,6 +671,7 @@
 		BFBAED832468A5B600996DE8 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				BFF0161B24810D1F00C3B7C0 /* Agent.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -828,6 +849,7 @@
 				BFE9F4472469930200E44777 /* GoogleService-Info.plist in Resources */,
 				BFF39A37246FF92E0041AD24 /* ProfileViewController.xib in Resources */,
 				BF6D507924804B4000FFDD30 /* AgentPropertiesView.xib in Resources */,
+				BFF0162224811AD800C3B7C0 /* AgentAdvertisementCell.xib in Resources */,
 				BF4355892474E1DE001DA5D8 /* SearchViewController.xib in Resources */,
 				3E943FC8246A053300A1FF83 /* FirstScreenViewController.xib in Resources */,
 				BF6DC6902473522B0030AE52 /* PropertyDetailView.xib in Resources */,
@@ -966,10 +988,12 @@
 				826A9A2E2473E4C20046E562 /* AddAdvertisementBrokenRule.swift in Sources */,
 				BFF39A36246FF92E0041AD24 /* ProfileViewController.swift in Sources */,
 				826A9A402474CB2E0046E562 /* extensionTextFieldImageAndUnderline.swift in Sources */,
+				BFF016242481306800C3B7C0 /* RatingExtenesion.swift in Sources */,
 				82608A2F2476CA1D005946C1 /* EditAdvertisementDataSource.swift in Sources */,
 				BF66CC1E246C678B00C9FD01 /* Countries.swift in Sources */,
 				823D6EA8247DDEE600F0B0FF /* extensionSetupView.swift in Sources */,
 				BFC578BD24744F0600C77873 /* ProfileNavigationProperties.swift in Sources */,
+				BFF016172481067800C3B7C0 /* AgentAdvertisementCell.swift in Sources */,
 				BF4355862474E1DE001DA5D8 /* AdvertisementCellCollectionViewCell.swift in Sources */,
 				BF8111B7247A36410059D571 /* BindDetails.swift in Sources */,
 				3EA8369B246CE13A009AD024 /* ValidationProtocol.swift in Sources */,
@@ -984,10 +1008,14 @@
 				BFA42D99247BF93E00A986E8 /* AmenitiesCell.swift in Sources */,
 				BF6D507824804B4000FFDD30 /* AgentPropertiesView.swift in Sources */,
 				823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */,
+				BFF0161A24810CB800C3B7C0 /* AgentViewModel.swift in Sources */,
 				C61CFE3224765998000EC0EF /* PaymentViewController.swift in Sources */,
 				BF3B2695247029850064BDF0 /* ProfileViewModel.swift in Sources */,
 				82608A322476CD20005946C1 /* EditAdvertisementModel.swift in Sources */,
 				BF43558A2474E1DE001DA5D8 /* CollectionViewExtension.swift in Sources */,
+				BFF0161E24810D8F00C3B7C0 /* AgentDataAccess.swift in Sources */,
+				BFF0161C24810D1F00C3B7C0 /* Agent.swift in Sources */,
+				BFF01620248113A400C3B7C0 /* AgentCollection.swift in Sources */,
 				3EA836A0246CEFE2009AD024 /* LoginDataAccessLayer.swift in Sources */,
 				826A9A382473EAC40046E562 /* AddAdvertisementViewController.swift in Sources */,
 				BF4355882474E1DE001DA5D8 /* SearchViewController.swift in Sources */,

@@ -70,7 +70,14 @@ class PropertyDetailView: UIViewController{
         mapItem.openInMaps(launchOptions: options)
     }
     
-//MARK: - check network connnection
+    @IBAction func openPropertiesView(_ sender: Any) {
+        let properties = AgentPropertiesView()
+        properties.agentId =  advertisementDetails.userID
+        properties.agentName = agent.username
+        self.navigationController?.pushViewController(properties, animated: true)
+        
+    }
+    //MARK: - check network connnection
    private func checkNetworkConnection()->Bool
     {
         let connection = Reachability()

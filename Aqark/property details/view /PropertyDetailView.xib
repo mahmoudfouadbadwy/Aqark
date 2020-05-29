@@ -384,6 +384,9 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <state key="normal" title="Properties"/>
+                                                            <connections>
+                                                                <action selector="openPropertiesView:" destination="-1" eventType="touchUpInside" id="8UK-VO-jBp"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
