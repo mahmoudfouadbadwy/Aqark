@@ -11,11 +11,11 @@ import UIKit
 class AdminTabBarController: UITabBarController {
     
     var adminUsersViewModel : AdminUsersListViewModel!
-    var dataAccess : AdminDataAccessLayer!
+    var dataAccess : AdminDataAccess!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataAccess = AdminDataAccessLayer()
+        dataAccess = AdminDataAccess()
         adminUsersViewModel = AdminUsersListViewModel(dataAccess: dataAccess)
         setupTabBarController()
         self.navigationItem.hidesBackButton = true

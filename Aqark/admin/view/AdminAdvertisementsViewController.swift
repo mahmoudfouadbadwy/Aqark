@@ -13,8 +13,8 @@ class AdminAdvertisementsViewController: UIViewController {
     @IBOutlet weak var advertisementsCollectionView: UICollectionView!
     @IBOutlet weak var advertisementsSearchBar: UISearchBar!
     
-    private var adminAdvertisementListViewModel : AdminAdvertisementsListViewModel!
-    private var dataAccess : AdminDataAccessLayer!
+    private var adminAdvertisementViewModel : AdminAdvertisementsListViewModel!
+    private var dataAccess : AdminDataAccess!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +22,10 @@ class AdminAdvertisementsViewController: UIViewController {
         advertisementsCollectionView.delegate = self
         advertisementsCollectionView.dataSource = self
         advertisementsSearchBar.delegate = self
-        dataAccess = AdminDataAccessLayer()
-        adminAdvertisementListViewModel = AdminAdvertisementsListViewModel(dataAccess:dataAccess)
-        adminAdvertisementListViewModel.populateAdvertisements {
+        self.navigationItem.title = "Advertisements"
+        dataAccess = AdminDataAccess()
+        adminAdvertisementViewModel = AdminAdvertisementsListViewModel(dataAccess:dataAccess)
+        adminAdvertisementViewModel.populateAdvertisements {
             self.advertisementsCollectionView.reloadData()
         }
     }
@@ -36,8 +37,8 @@ extension AdminAdvertisementsViewController : UICollectionViewDelegate,UICollect
         showAlert { (result) in
             if(result){
                 self.advertisementsCollectionView.performBatchUpdates({
-                    self.adminAdvertisementListViewModel.deleteAdvertisement(adminAdvertisement: self.adminAdvertisementListViewModel.adminAdvertisementsViewList[indexPath.row])
-                    self.adminAdvertisementListViewModel.adminAdvertisementsViewList.remove(at: indexPath
+                    self.adminAdvertisementViewModel.deleteAdvertisement(adminAdvertisement: self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row])
+                    self.adminAdvertisementViewModel.adminAdvertisementsViewList.remove(at: indexPath
                         .row)
                     self.advertisementsCollectionView.deleteItems(at: [indexPath])
                 }) { (finished) in
@@ -48,24 +49,24 @@ extension AdminAdvertisementsViewController : UICollectionViewDelegate,UICollect
     }
      
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.adminAdvertisementListViewModel.adminAdvertisementsViewList.count
+        self.adminAdvertisementViewModel.adminAdvertisementsViewList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let advertisementCell = advertisementsCollectionView.dequeueReusableCell(withReuseIdentifier: "Advertisement Cell", for: indexPath) as! AdminAdvertisementCollectionViewCell
         advertisementCell.adminAdvertisementsCollectionDelegate = self
         advertisementCell.adminAdvertisementsCellIndex = indexPath
-        advertisementCell.advertisementPropertyType.text = self.adminAdvertisementListViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyType
-        advertisementCell.advertisementPropertyPrice.text = self.adminAdvertisementListViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyPrice
-        advertisementCell.advertisementPropertyAddress.text = self.adminAdvertisementListViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyAddress
-        advertisementCell.advertisementPropertySize.text = self.adminAdvertisementListViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertySize
-        advertisementCell.advertisementPropertyBedNumbers.text = self.adminAdvertisementListViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyBedsNumber
-        advertisementCell.advertisementPropertyBathRoomNumbers.text = self.adminAdvertisementListViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyBathRoomsNumber
-        if(self.adminAdvertisementListViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyImages.isEmpty){
+        advertisementCell.advertisementPropertyType.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyType
+        advertisementCell.advertisementPropertyPrice.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyPrice
+        advertisementCell.advertisementPropertyAddress.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyAddress
+        advertisementCell.advertisementPropertySize.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertySize
+        advertisementCell.advertisementPropertyBedNumbers.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyBedsNumber
+        advertisementCell.advertisementPropertyBathRoomNumbers.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyBathRoomsNumber
+        if(self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyImages.isEmpty){
             let advertisementPropertyImageURL = URL(string: "https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg")
             advertisementCell.advertisementPropertyImage.sd_setImage(with:advertisementPropertyImageURL , placeholderImage: UIImage(named: "signup_company"))
         }else{
-            let advertisementPropertyImageURL = URL(string:self.adminAdvertisementListViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyImages[0])
+            let advertisementPropertyImageURL = URL(string:self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyImages[0])
             advertisementCell.advertisementPropertyImage.sd_setImage(with:advertisementPropertyImageURL , placeholderImage: UIImage(named: "signup_company"))
         }
         return advertisementCell
@@ -96,7 +97,7 @@ extension AdminAdvertisementsViewController : UICollectionViewDelegateFlowLayout
 
 extension AdminAdvertisementsViewController:UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        adminAdvertisementListViewModel.getFilteredAdvertisements(searchText: searchText)
+        adminAdvertisementViewModel.getFilteredAdvertisements(searchText: searchText)
         advertisementsCollectionView.reloadData()
     }
 }

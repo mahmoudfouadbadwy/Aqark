@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct  UserKey {
+struct  AdminUserKey {
     static let userName = "username"
     static let userEmail = "email"
     static let userPhone = "phone"
@@ -17,13 +17,13 @@ struct  UserKey {
     static let userRole = "role"
 }
 
-struct UserRole {
+struct AdminUserRole {
     static let user = "user"
     static let lawyer = "lawyer"
     static let interiorDesigner = "interior designer"
 }
 
-struct AdvertisementKey {
+struct AdminAdvertisementKey {
     static let address = "Address"
     static let longitude = "longitude"
     static let latitude = "latitude"

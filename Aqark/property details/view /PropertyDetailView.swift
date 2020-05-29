@@ -70,7 +70,20 @@ class PropertyDetailView: UIViewController{
         mapItem.openInMaps(launchOptions: options)
     }
     
-//MARK: - check network connnection
+    @IBAction func showLawyers(_ sender: Any) {
+        let servicesView = ServicesViewController()
+        servicesView.serviceRole = "lawyer"
+        self.navigationController?.pushViewController(servicesView, animated: true)
+    }
+    
+    
+    @IBAction func showInteriorDesigners(_ sender: Any) {
+        let servicesView = ServicesViewController()
+        servicesView.serviceRole = "interior designer"
+        self.navigationController?.pushViewController(servicesView, animated: true)
+    }
+    
+    //MARK: - check network connnection
    private func checkNetworkConnection()->Bool
     {
         let connection = Reachability()

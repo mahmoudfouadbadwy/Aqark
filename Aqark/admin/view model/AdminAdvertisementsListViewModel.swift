@@ -12,9 +12,9 @@ class AdminAdvertisementsListViewModel{
     var adminAdvertisementsViewList : [AdminAdvertisementViewModel] = [AdminAdvertisementViewModel]()
     var adminAdvertisementsList : [AdminAdvertisementViewModel] = [AdminAdvertisementViewModel]()
     var adminFilteredAdvertisementsList : [AdminAdvertisementViewModel] = [AdminAdvertisementViewModel]()
-    let dataAccess : AdminDataAccessLayer!
+    let dataAccess : AdminDataAccess!
     
-    init(dataAccess:AdminDataAccessLayer) {
+    init(dataAccess:AdminDataAccess) {
         self.dataAccess = dataAccess
     }
     

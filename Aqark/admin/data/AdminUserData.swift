@@ -8,9 +8,9 @@
 
 import Foundation
 import Firebase
-class AdminDataAccessLayer{
+class AdminDataAccess{
     
-    var ref = Database.database().reference()
+    let ref = Database.database().reference()
     
     func getUsers(completionForGetUsers : @escaping(_ usersData : [AdminUser]) -> Void){
         var users = [AdminUser]()
@@ -27,12 +27,12 @@ class AdminDataAccessLayer{
     private func createUser(child:DataSnapshot) -> AdminUser{
         let userId = child.key
         let userDictionary = child.value as! [String : Any]
-        let userName = userDictionary[UserKey.userName] as! String
-        let userEmail = userDictionary[UserKey.userEmail] as! String
-        let userPhone = userDictionary[UserKey.userPhone] as? String ?? "No Phone"
-        let userCountry = userDictionary[UserKey.userCountry] as? String ?? "No Country"
-        let userCompany = userDictionary[UserKey.userCompany] as? String ?? "No Company"
-        let userRole = userDictionary[UserKey.userRole] as! String
+        let userName = userDictionary[AdminUserKey.userName] as! String
+        let userEmail = userDictionary[AdminUserKey.userEmail] as! String
+        let userPhone = userDictionary[AdminUserKey.userPhone] as? String ?? "No Phone"
+        let userCountry = userDictionary[AdminUserKey.userCountry] as? String ?? "No Country"
+        let userCompany = userDictionary[AdminUserKey.userCompany] as? String ?? "No Company"
+        let userRole = userDictionary[AdminUserKey.userRole] as! String
         let userExperience = "4"
         let userRating = "4"
         let userImage = "https://cdn1.vectorstock.com/i/1000x1000/26/40/profile-placeholder-image-gray-silhouette-no-vector-22122640.jpg"

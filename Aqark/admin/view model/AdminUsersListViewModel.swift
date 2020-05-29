@@ -14,9 +14,9 @@ class AdminUsersListViewModel{
     var adminUsersList : [AdminUserViewModel] = [AdminUserViewModel]()
     var adminLawyersList : [AdminUserViewModel] = [AdminUserViewModel]()
     var adminInteriorDesignersList : [AdminUserViewModel] = [AdminUserViewModel]()
-    let dataAccess : AdminDataAccessLayer
+    let dataAccess : AdminDataAccess
     
-    init(dataAccess:AdminDataAccessLayer) {
+    init(dataAccess:AdminDataAccess) {
         self.dataAccess = dataAccess
     }
     
@@ -36,10 +36,10 @@ class AdminUsersListViewModel{
     private func filter(allUsersData : [AdminUser]){
         for user in allUsersData{
             switch user.userRole.lowercased() {
-            case UserRole.user:
+            case AdminUserRole.user:
                 let user = AdminUserViewModel(adminUser: user)
                 adminUsersList.append(user)
-            case UserRole.lawyer.lowercased():
+            case AdminUserRole.lawyer.lowercased():
                 let lawyer = AdminUserViewModel(adminUser: user)
                 adminLawyersList.append(lawyer)
             default:

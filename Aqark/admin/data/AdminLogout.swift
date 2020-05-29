@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-extension AdminDataAccessLayer{
+extension AdminDataAccess{
     
     func logout()
       {

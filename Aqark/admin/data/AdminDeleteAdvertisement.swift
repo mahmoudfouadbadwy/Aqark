@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-extension AdminDataAccessLayer{
+extension AdminDataAccess{
     func deleteAdvertisment(adminAdvertisement:AdminAdvertisementViewModel){
         deleteFromUsersAds(by: adminAdvertisement.advertisementUserId, and: adminAdvertisement.advertisementId)
         deleteFromAdvertisements(by: adminAdvertisement.advertisementId)
