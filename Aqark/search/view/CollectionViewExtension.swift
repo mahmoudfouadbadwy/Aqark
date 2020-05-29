@@ -34,6 +34,9 @@ extension SearchViewController : UICollectionViewDataSource{
         }else{
             cell.propertyPriceLabel?.text = "\(adViewModel.price ?? 0) EGP"
         }
+        
+        self.setFavouriteButton(cell: cell, index: indexPath.row)
+
         return cell
     }
 }
