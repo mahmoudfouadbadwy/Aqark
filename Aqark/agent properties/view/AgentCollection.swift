@@ -77,7 +77,10 @@ extension AgentPropertiesView:UICollectionViewDataSource{
 
 extension AgentPropertiesView:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       
+       let details = PropertyDetailView()
+        details.advertisementId = listOfAdvertisements[indexPath.row] .advertisementId
+        self.navigationController?.pushViewController(details, animated: true)
+        
     }
 }
 

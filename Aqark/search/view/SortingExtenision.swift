@@ -61,7 +61,7 @@ extension SearchViewController{
              }))
              
              alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
-                 print("User click Dismiss button")
+                
              }))
              
              self.present(alert, animated: true, completion: {

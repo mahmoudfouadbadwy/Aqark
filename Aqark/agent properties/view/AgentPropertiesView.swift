@@ -11,12 +11,14 @@ import Cosmos
 import ReachabilitySwift
 class AgentPropertiesView: UIViewController {
     
+    @IBOutlet weak var rateHeight: NSLayoutConstraint!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var advertisementsCollection: UICollectionView!
     @IBOutlet weak var rateLabel: UILabel!
     @IBOutlet weak var rate: CosmosView!
     var agentId:String!
     var agentName:String!
+    var agentRateViewModel:AgentRateViewModel!
     let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     let agentDataAccess:AgentDataAccess = AgentDataAccess()
     var listOfAdvertisements:[AgentAdvertisementViewModel] = []{
