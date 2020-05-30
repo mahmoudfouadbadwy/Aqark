@@ -17,7 +17,7 @@ extension SearchViewController:FavouriteProtocol{
     }
     
     func setFavouriteButton (cell: AdvertisementCellCollectionViewCell,index: Int){
-        let storedIds = coreDataViewModel?.getAllAdvertisment()
+        let storedIds = coreDataViewModel?.getAllFavouriteAdvertisment()
         if (storedIds!.count != 0){
             for i in 0..<storedIds!.count{
                 if(storedIds![i] == arrOfAdViewModel![index].advertisementId){
