@@ -50,5 +50,5 @@ class Advertisment {
 struct Agent{
     var name:String
     var company:String
-    var rate:Double
+    var rate:[String:Double]
 }

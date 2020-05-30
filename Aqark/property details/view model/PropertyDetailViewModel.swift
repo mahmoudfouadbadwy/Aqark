@@ -64,7 +64,7 @@ class AgentViewModel
 {
     var username:String!
     var company:String!
-    var rate:Double!
+    var rate:[String:Double]!
     
     init(agent:Agent) {
         self.username = agent.name

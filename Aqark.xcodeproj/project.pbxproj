@@ -908,8 +908,8 @@
 		BFCF0BC124677F8000A43D8B /* Aqark */ = {
 			isa = PBXGroup;
 			children = (
-				3ED938D72480A825005BF1EF /* services */,
 				BFE9F4462469930200E44777 /* GoogleService-Info.plist */,
+				3ED938D72480A825005BF1EF /* services */,
 				BF06B40724679D83005D7151 /* payment */,
 				BF06B40624679D78005D7151 /* admin */,
 				BF06B40524679D4C005D7151 /* advertisement */,
@@ -1171,11 +1171,8 @@
 				BF8CD7A6247AE0E300DA60BA /* ImageSlider.swift in Sources */,
 				BFC578C12474631800C77873 /* BindingProfileData.swift in Sources */,
 				C67921BC2474BF2100A24192 /* AdvertisementSearchModel.swift in Sources */,
-
 				825F587A2481834300DF60FB /* EditProfileDataSource.swift in Sources */,
-
 				3E69A8BF247EF5BC00193605 /* AdminUsersListViewModel.swift in Sources */,
-
 				BFC578C5247497F200C77873 /* ProfileAdvertisements.swift in Sources */,
 				BF634CA224733A9000B65B90 /* CustomTextField.swift in Sources */,
 				BFC578B7247432E700C77873 /* CreateAccount.swift in Sources */,
@@ -1185,13 +1182,10 @@
 				BF7C9765247D917A00E8F516 /* FavouriteProtocol.swift in Sources */,
 				BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */,
 				BFA42D9C247BFCE000A986E8 /* AmenitiesCollection.swift in Sources */,
-
 				823D6EA2247DDA7200F0B0FF /* extensionEditAdvertisement.swift in Sources */,
 				825F58742481425300DF60FB /* EditProfileViewModel.swift in Sources */,
-
 				3E69A8D5247EF5E000193605 /* CustomSegment.swift in Sources */,
 				823D6EA2247DDA7200F0B0FF /* extensionEditAdvertisement.swift in Sources */,
-
 				826A9A3B2474C8570046E562 /* extentionConfigrationCollectionView.swift in Sources */,
 				3E69A8D2247EF5E000193605 /* AdminTabBarController.swift in Sources */,
 				826A9A2C2473E4C20046E562 /* ExtensionAddAdvertisementViewModel.swift in Sources */,
@@ -1210,11 +1204,8 @@
 				BFA42D96247BED1900A986E8 /* CallingButton.swift in Sources */,
 				BF4423332469D1B80050BD8A /* SignUpView.swift in Sources */,
 				826A9A2E2473E4C20046E562 /* AddAdvertisementBrokenRule.swift in Sources */,
-
 				825F58782481682200DF60FB /* EditProfileBrokenRule.swift in Sources */,
-
 				3ED938E12480B04B005BF1EF /* ServicesListViewModel.swift in Sources */,
-
 				BFF39A36246FF92E0041AD24 /* ProfileViewController.swift in Sources */,
 				3E69A8D4247EF5E000193605 /* AdminAdvertisementsCollectionDelegate.swift in Sources */,
 				826A9A402474CB2E0046E562 /* extensionTextFieldImageAndUnderline.swift in Sources */,
@@ -1225,12 +1216,9 @@
 				3E69A8C1247EF5BC00193605 /* AdminUserViewModel.swift in Sources */,
 				BF66CC1E246C678B00C9FD01 /* Countries.swift in Sources */,
 				823D6EA8247DDEE600F0B0FF /* extensionSetupView.swift in Sources */,
-
 				825F587C2481CFBE00DF60FB /* EditProfileModel.swift in Sources */,
-
 				3E69A8B4247EF59600193605 /* AdminUserData.swift in Sources */,
 				3E736C6F2480CAF2004D8B81 /* ServicesCollectionViewCell.swift in Sources */,
-
 				BFC578BD24744F0600C77873 /* ProfileNavigationProperties.swift in Sources */,
 				BFF016172481067800C3B7C0 /* AgentAdvertisementCell.swift in Sources */,
 				BF4355862474E1DE001DA5D8 /* AdvertisementCellCollectionViewCell.swift in Sources */,
@@ -1247,11 +1235,9 @@
 				826A9A1F2473E4A40046E562 /* AddAdvertisementModel.swift in Sources */,
 				3E943FC7246A053300A1FF83 /* FirstScreenViewController.swift in Sources */,
 				BFA42D99247BF93E00A986E8 /* AmenitiesCell.swift in Sources */,
-
 				BF6D507824804B4000FFDD30 /* AgentPropertiesView.swift in Sources */,
 				823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */,
 				BFF0161A24810CB800C3B7C0 /* AgentViewModel.swift in Sources */,
-
 				823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */,
 				C61CFE3224765998000EC0EF /* PaymentViewController.swift in Sources */,
 				BF3B2695247029850064BDF0 /* ProfileViewModel.swift in Sources */,
