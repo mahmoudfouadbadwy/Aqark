@@ -18,6 +18,13 @@
 		823D6EA4247DDB9D00F0B0FF /* extensionSelectAmenities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D6EA3247DDB9D00F0B0FF /* extensionSelectAmenities.swift */; };
 		823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D6EA5247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift */; };
 		823D6EA8247DDEE600F0B0FF /* extensionSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D6EA7247DDEE600F0B0FF /* extensionSetupView.swift */; };
+		825DF58824801EDA0019C27C /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825DF58624801EDA0019C27C /* EditProfileViewController.swift */; };
+		825DF58924801EDA0019C27C /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825DF58724801EDA0019C27C /* EditProfileViewController.xib */; };
+		825F58742481425300DF60FB /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F58732481425300DF60FB /* EditProfileViewModel.swift */; };
+		825F5876248166EC00DF60FB /* EditProfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F5875248166EC00DF60FB /* EditProfileProtocol.swift */; };
+		825F58782481682200DF60FB /* EditProfileBrokenRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F58772481682200DF60FB /* EditProfileBrokenRule.swift */; };
+		825F587A2481834300DF60FB /* EditProfileDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F58792481834300DF60FB /* EditProfileDataSource.swift */; };
+		825F587C2481CFBE00DF60FB /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F587B2481CFBE00DF60FB /* EditProfileModel.swift */; };
 		82608A2F2476CA1D005946C1 /* EditAdvertisementDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82608A2E2476CA1D005946C1 /* EditAdvertisementDataSource.swift */; };
 		82608A322476CD20005946C1 /* EditAdvertisementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82608A312476CD20005946C1 /* EditAdvertisementModel.swift */; };
 		82608A3524787525005946C1 /* extentionEditAdvertisementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82608A3424787525005946C1 /* extentionEditAdvertisementViewModel.swift */; };
@@ -126,6 +133,13 @@
 		823D6EA3247DDB9D00F0B0FF /* extensionSelectAmenities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionSelectAmenities.swift; sourceTree = "<group>"; };
 		823D6EA5247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionSegmentAndTxtPlaceholder.swift; sourceTree = "<group>"; };
 		823D6EA7247DDEE600F0B0FF /* extensionSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionSetupView.swift; sourceTree = "<group>"; };
+		825DF58624801EDA0019C27C /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		825DF58724801EDA0019C27C /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
+		825F58732481425300DF60FB /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		825F5875248166EC00DF60FB /* EditProfileProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileProtocol.swift; sourceTree = "<group>"; };
+		825F58772481682200DF60FB /* EditProfileBrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileBrokenRule.swift; sourceTree = "<group>"; };
+		825F58792481834300DF60FB /* EditProfileDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileDataSource.swift; sourceTree = "<group>"; };
+		825F587B2481CFBE00DF60FB /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
 		82608A2E2476CA1D005946C1 /* EditAdvertisementDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAdvertisementDataSource.swift; sourceTree = "<group>"; };
 		82608A312476CD20005946C1 /* EditAdvertisementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAdvertisementModel.swift; sourceTree = "<group>"; };
 		82608A3424787525005946C1 /* extentionEditAdvertisementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extentionEditAdvertisementViewModel.swift; sourceTree = "<group>"; };
@@ -477,6 +491,8 @@
 				BFC578BC24744F0600C77873 /* ProfileNavigationProperties.swift */,
 				BFC578BE247462B100C77873 /* ProfileUI.swift */,
 				BFC578C02474631800C77873 /* BindingProfileData.swift */,
+				825DF58724801EDA0019C27C /* EditProfileViewController.xib */,
+				825DF58624801EDA0019C27C /* EditProfileViewController.swift */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -486,6 +502,9 @@
 			children = (
 				BF3B2694247029850064BDF0 /* ProfileViewModel.swift */,
 				BFC578C624749A1F00C77873 /* ProfileAdvertisementViewModel.swift */,
+				825F58732481425300DF60FB /* EditProfileViewModel.swift */,
+				825F58772481682200DF60FB /* EditProfileBrokenRule.swift */,
+				825F5875248166EC00DF60FB /* EditProfileProtocol.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -564,6 +583,7 @@
 			children = (
 				BF3B269724702C410064BDF0 /* ProfileData.swift */,
 				BFC578C4247497F200C77873 /* ProfileAdvertisements.swift */,
+				825F58792481834300DF60FB /* EditProfileDataSource.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -613,6 +633,7 @@
 			isa = PBXGroup;
 			children = (
 				BF3B26922470281E0064BDF0 /* Profile.swift */,
+				825F587B2481CFBE00DF60FB /* EditProfileModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -810,6 +831,7 @@
 				BFCF0BD024677F8100A43D8B /* LaunchScreen.storyboard in Resources */,
 				BF8CD7AF247AFB0E00DA60BA /* ImageSlider.xib in Resources */,
 				BFA42D9A247BF93E00A986E8 /* AmenitiesCell.xib in Resources */,
+				825DF58924801EDA0019C27C /* EditProfileViewController.xib in Resources */,
 				C61CFE3324765999000EC0EF /* PaymentViewController.xib in Resources */,
 				BFE9F4472469930200E44777 /* GoogleService-Info.plist in Resources */,
 				BFF39A37246FF92E0041AD24 /* ProfileViewController.xib in Resources */,
@@ -929,6 +951,7 @@
 				BF8CD7A6247AE0E300DA60BA /* ImageSlider.swift in Sources */,
 				BFC578C12474631800C77873 /* BindingProfileData.swift in Sources */,
 				C67921BC2474BF2100A24192 /* AdvertisementSearchModel.swift in Sources */,
+				825F587A2481834300DF60FB /* EditProfileDataSource.swift in Sources */,
 				BFC578C5247497F200C77873 /* ProfileAdvertisements.swift in Sources */,
 				BF634CA224733A9000B65B90 /* CustomTextField.swift in Sources */,
 				BFC578B7247432E700C77873 /* CreateAccount.swift in Sources */,
@@ -936,27 +959,29 @@
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
 				BF6DC68E2473522B0030AE52 /* PropertyDetailView.swift in Sources */,
 				BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */,
-
 				BFA42D9C247BFCE000A986E8 /* AmenitiesCollection.swift in Sources */,
-
 				823D6EA2247DDA7200F0B0FF /* extensionEditAdvertisement.swift in Sources */,
-
+				825F58742481425300DF60FB /* EditProfileViewModel.swift in Sources */,
 				826A9A3B2474C8570046E562 /* extentionConfigrationCollectionView.swift in Sources */,
 				826A9A2C2473E4C20046E562 /* ExtensionAddAdvertisementViewModel.swift in Sources */,
 				BF634C9E2473373200B65B90 /* LoginViewModel.swift in Sources */,
+				825DF58824801EDA0019C27C /* EditProfileViewController.swift in Sources */,
 				823D6EA4247DDB9D00F0B0FF /* extensionSelectAmenities.swift in Sources */,
 				826A9A2F2473E4C20046E562 /* FileAddAdvertisementViewModelProtocol.swift in Sources */,
 				BFC578B5247431E800C77873 /* SignUpUI.swift in Sources */,
+				825F5876248166EC00DF60FB /* EditProfileProtocol.swift in Sources */,
 				BF3AD38E246A3BB00013FF4B /* User.swift in Sources */,
 				826A9A422474CBA50046E562 /* extensionForYPimagePicker.swift in Sources */,
 				BFA42D96247BED1900A986E8 /* CallingButton.swift in Sources */,
 				BF4423332469D1B80050BD8A /* SignUpView.swift in Sources */,
 				826A9A2E2473E4C20046E562 /* AddAdvertisementBrokenRule.swift in Sources */,
+				825F58782481682200DF60FB /* EditProfileBrokenRule.swift in Sources */,
 				BFF39A36246FF92E0041AD24 /* ProfileViewController.swift in Sources */,
 				826A9A402474CB2E0046E562 /* extensionTextFieldImageAndUnderline.swift in Sources */,
 				82608A2F2476CA1D005946C1 /* EditAdvertisementDataSource.swift in Sources */,
 				BF66CC1E246C678B00C9FD01 /* Countries.swift in Sources */,
 				823D6EA8247DDEE600F0B0FF /* extensionSetupView.swift in Sources */,
+				825F587C2481CFBE00DF60FB /* EditProfileModel.swift in Sources */,
 				BFC578BD24744F0600C77873 /* ProfileNavigationProperties.swift in Sources */,
 				BF4355862474E1DE001DA5D8 /* AdvertisementCellCollectionViewCell.swift in Sources */,
 				BF8111B7247A36410059D571 /* BindDetails.swift in Sources */,
@@ -969,11 +994,8 @@
 				BF6DC684247351CD0030AE52 /* PropertyDetailDataAccess.swift in Sources */,
 				826A9A1F2473E4A40046E562 /* AddAdvertisementModel.swift in Sources */,
 				3E943FC7246A053300A1FF83 /* FirstScreenViewController.swift in Sources */,
-
 				BFA42D99247BF93E00A986E8 /* AmenitiesCell.swift in Sources */,
-
 				823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */,
-
 				C61CFE3224765998000EC0EF /* PaymentViewController.swift in Sources */,
 				BF3B2695247029850064BDF0 /* ProfileViewModel.swift in Sources */,
 				82608A322476CD20005946C1 /* EditAdvertisementModel.swift in Sources */,
