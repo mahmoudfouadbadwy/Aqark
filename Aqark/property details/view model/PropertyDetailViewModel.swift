@@ -9,7 +9,7 @@
 import Foundation
 
 class PropertyDetailViewModel {
-    private var propertyDataAccess:PropertyDetailDataAccess
+     var propertyDataAccess:PropertyDetailDataAccess
     init(propertyDataAccess :PropertyDetailDataAccess) {
         self.propertyDataAccess = propertyDataAccess
     }
@@ -41,7 +41,7 @@ class AdverisementViewModel{
     var images:[String]!
     
     init(advertisement:Advertisment){
-        self.userID=advertisement.userID
+        self.userID = advertisement.userID
         self.advertismentType=advertisement.advertismentType
         self.propertyType=advertisement.propertyType
         self.bathroom=advertisement.bathroom

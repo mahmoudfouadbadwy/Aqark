@@ -36,12 +36,14 @@
             <rect key="frame" x="0.0" y="0.0" width="348" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bcu-cN-UrJ">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcu-cN-UrJ">
                     <rect key="frame" x="0.0" y="0.0" width="348" height="667"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Internet Connection Not Available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptg-wq-NFX">
-                            <rect key="frame" x="0.0" y="324.5" width="348" height="18"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Internet Connection Not Available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JT8-hx-fwa">
+                            <rect key="frame" x="53" y="324" width="242.5" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -81,6 +83,9 @@
                                                     <rect key="frame" x="241" y="0.0" width="107" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                                     <state key="normal" title="Report" image="PropertyDetail_feedback"/>
+                                                    <connections>
+                                                        <action selector="showReportActionSheet:" destination="-1" eventType="touchUpInside" id="7ON-Vo-imd"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -312,11 +317,17 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="174" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="Lawyers"/>
+                                                    <connections>
+                                                        <action selector="showLawyers:" destination="-1" eventType="touchUpInside" id="fAP-yr-1nf"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEa-z2-slx">
                                                     <rect key="frame" x="174" y="0.0" width="174" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="Interior Designers"/>
+                                                    <connections>
+                                                        <action selector="showInteriorDesigners:" destination="-1" eventType="touchUpInside" id="2ga-qN-Fg6"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -383,6 +394,9 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <state key="normal" title="Properties"/>
+                                                            <connections>
+                                                                <action selector="openPropertiesView:" destination="-1" eventType="touchUpInside" id="8UK-VO-jBp"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -441,6 +455,7 @@
                                 <constraint firstItem="nnm-Rt-dKQ" firstAttribute="top" secondItem="fao-1g-rgR" secondAttribute="bottom" constant="2" id="Dwq-vs-dwn"/>
                                 <constraint firstItem="3Wr-Oo-JWB" firstAttribute="top" secondItem="nnm-Rt-dKQ" secondAttribute="bottom" constant="2" id="Fgs-kr-417"/>
                                 <constraint firstAttribute="trailing" secondItem="nnm-Rt-dKQ" secondAttribute="trailing" id="GUT-Qe-XNo"/>
+                                <constraint firstAttribute="height" constant="1200" id="J3a-gS-UaH"/>
                                 <constraint firstAttribute="trailing" secondItem="H2D-J9-18G" secondAttribute="trailing" id="LUb-6s-bii"/>
                                 <constraint firstItem="0Zr-Xy-MxW" firstAttribute="leading" secondItem="f9R-cU-fgD" secondAttribute="leading" id="SFa-IG-tWz"/>
                                 <constraint firstItem="jZG-hP-I59" firstAttribute="top" secondItem="iLE-Fm-KKk" secondAttribute="bottom" constant="2" id="SbH-AS-QNf"/>
@@ -455,7 +470,6 @@
                                 <constraint firstItem="fao-1g-rgR" firstAttribute="top" secondItem="J5O-oI-l4e" secondAttribute="bottom" constant="2" id="dj6-5S-o45"/>
                                 <constraint firstItem="J5O-oI-l4e" firstAttribute="leading" secondItem="f9R-cU-fgD" secondAttribute="leading" id="faR-BX-beq"/>
                                 <constraint firstItem="qUN-tt-KQi" firstAttribute="top" secondItem="3Wr-Oo-JWB" secondAttribute="bottom" constant="2" id="gre-AZ-8zw"/>
-                                <constraint firstAttribute="height" constant="1200" id="hgP-fY-JLL"/>
                                 <constraint firstAttribute="trailing" secondItem="fao-1g-rgR" secondAttribute="trailing" id="lCn-nz-1qX"/>
                                 <constraint firstAttribute="trailing" secondItem="jZG-hP-I59" secondAttribute="trailing" id="lee-d3-qHj"/>
                                 <constraint firstAttribute="trailing" secondItem="qUN-tt-KQi" secondAttribute="trailing" id="nr2-Ov-Gc9"/>
@@ -469,12 +483,12 @@
                     </subviews>
                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="f9R-cU-fgD" firstAttribute="top" secondItem="bcu-cN-UrJ" secondAttribute="top" id="1pv-e7-jlv"/>
                         <constraint firstAttribute="trailing" secondItem="f9R-cU-fgD" secondAttribute="trailing" id="4HD-Cy-QhL"/>
-                        <constraint firstItem="ptg-wq-NFX" firstAttribute="width" secondItem="bcu-cN-UrJ" secondAttribute="width" id="8xF-vs-Ye0"/>
-                        <constraint firstItem="ptg-wq-NFX" firstAttribute="centerX" secondItem="bcu-cN-UrJ" secondAttribute="centerX" id="EKv-OZ-81t"/>
-                        <constraint firstItem="f9R-cU-fgD" firstAttribute="top" secondItem="bcu-cN-UrJ" secondAttribute="top" id="JDR-2c-kTg"/>
+                        <constraint firstAttribute="bottom" secondItem="f9R-cU-fgD" secondAttribute="bottom" id="6S7-V8-2Aa"/>
+                        <constraint firstItem="JT8-hx-fwa" firstAttribute="centerY" secondItem="bcu-cN-UrJ" secondAttribute="centerY" id="Dmz-QT-ayT"/>
                         <constraint firstItem="f9R-cU-fgD" firstAttribute="leading" secondItem="bcu-cN-UrJ" secondAttribute="leading" id="ckp-sr-VQ7"/>
-                        <constraint firstItem="ptg-wq-NFX" firstAttribute="centerY" secondItem="bcu-cN-UrJ" secondAttribute="centerY" id="qEL-Wk-kRM"/>
+                        <constraint firstItem="JT8-hx-fwa" firstAttribute="centerX" secondItem="bcu-cN-UrJ" secondAttribute="centerX" id="qQI-M8-fx8"/>
                     </constraints>
                 </scrollView>
             </subviews>

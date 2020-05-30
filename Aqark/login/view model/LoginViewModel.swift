@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 import ReachabilitySwift
 
 
@@ -61,6 +62,10 @@ class LoginViewModel : ValidationProtocol{
         let connection = Reachability()
         guard let status = connection?.isReachable else{return false}
         return status
+    }
+    
+    func isAdminLogged() -> Bool{
+        return Auth.auth().currentUser?.email == "aqark@admin.com"
     }
 }
 
