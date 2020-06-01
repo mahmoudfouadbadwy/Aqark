@@ -22,6 +22,8 @@ extension SearchViewController:FavouriteProtocol{
             for i in 0..<storedIds!.count{
                 if(storedIds![i] == arrOfAdViewModel![index].advertisementId){
                     cell.favButton.tintColor = UIColor.red
+                }else if(storedIds![i] != arrOfAdViewModel![index].advertisementId){
+                    cell.favButton.tintColor = UIColor.lightGray
                 }
             }
         }

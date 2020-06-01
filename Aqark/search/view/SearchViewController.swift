@@ -81,11 +81,22 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             manageSearchBar()
             showIndicator()
             self.setupCoredata()
-            setUpCollectionView()
-            getCollectionViewData()
+           // setUpCollectionView()
+           // getCollectionViewData()
             floationgBtn()
             labelPlaceHolder.isHidden = true
             limitRegion()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if !checkNetworkConnection(){
+            manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
+            self.view.alpha = 1
+            labelPlaceHolder.text = "No Internet Connection"
+        }else{
+            setUpCollectionView()
+            getCollectionViewData()
         }
     }
 

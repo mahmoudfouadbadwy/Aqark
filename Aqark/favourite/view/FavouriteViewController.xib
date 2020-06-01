@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavouriteViewController" customModule="Aqark" customModuleProvider="target">
             <connections>
                 <outlet property="favouriteCollectionView" destination="cYb-PX-ADX" id="TyC-hu-eMt"/>
+                <outlet property="labelPlaceHolder" destination="5Sv-Yy-VdF" id="PbE-AU-3em"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -34,14 +35,23 @@
                         <outlet property="delegate" destination="-1" id="x1x-Eq-Dvw"/>
                     </connections>
                 </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Sv-Yy-VdF">
+                    <rect key="frame" x="57" y="139" width="260" height="23"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="cYb-PX-ADX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Ckk-cW-4yW"/>
                 <constraint firstItem="cYb-PX-ADX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="GBa-O2-cDD"/>
                 <constraint firstItem="cYb-PX-ADX" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Hez-Tb-EoZ"/>
+                <constraint firstItem="5Sv-Yy-VdF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="119" id="OQW-3q-sAB"/>
+                <constraint firstItem="5Sv-Yy-VdF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="57" id="Pz6-wL-rM1"/>
                 <constraint firstItem="cYb-PX-ADX" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Y9s-fj-TeT"/>
                 <constraint firstItem="cYb-PX-ADX" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="h5T-0R-9eg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5Sv-Yy-VdF" secondAttribute="trailing" constant="58" id="msf-Ac-X0o"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="133.59999999999999" y="118.29085457271366"/>

@@ -29,6 +29,8 @@ class FavouriteDataAccess {
     var advertisementPropertyLatitude : String!
     var advertisementDate : String!
     var addressDictionary: [String: String] = [:]
+    var advertismentCount = 0
+    
     
     func getFavouriteAdsFromCoredata () -> [String] {
         let coreDataAccess: CoreDataAccess = CoreDataAccess()
@@ -36,23 +38,32 @@ class FavouriteDataAccess {
         return idsArray()
     }
     
-    func getAllFavouriteAdvertisements(completionForGetAllAdvertisements : @escaping (_ searchResults:[FavouriteModel]) -> Void){
+    func deleteFavouriteAdsFromCoredata (id: String){
+        let coreDataAccess: CoreDataAccess = CoreDataAccess()
+        CoreDataAccess.deleteFromFavourite(coreDataAccess)(id: id)
+    }
+    
+    func getAllFavouriteAdvertisements(completionForGetAllAdvertisements : @escaping (_ searchResults:[FavouriteModel],Int) -> Void){
         let ref = Database.database().reference()
         let idsArray = self.getFavouriteAdsFromCoredata()
         if (idsArray.count != 0){
             for index in 0..<idsArray.count{
-                ref.child("Advertisements").child(idsArray[index]).observe(.value, with: {snapshot in
-                    self.advertisementsData.removeAll()
+                ref.child("Advertisements").child(idsArray[index]).observeSingleEvent(of: .value, with: { (snapshot) in
+                    if snapshot.exists(){
                         let dict = snapshot.value as? [String : Any]
                         let key = snapshot.key as String
-                        print("  key  \(key)")
-                        print("  dict  \(dict ?? ["defaultvalue":"dict"])")
                         self.advertisementsData.append(self.createAdvertisementSearchModel(dict: dict , key: key))
-                    completionForGetAllAdvertisements(self.advertisementsData)
+                        if (self.advertismentCount+self.advertisementsData.count == idsArray.count){
+                        completionForGetAllAdvertisements(self.advertisementsData,self.advertismentCount)
+                        }
+                    }else{
+                        self.advertismentCount += 1
+                        self.deleteFavouriteAdsFromCoredata (id: idsArray[index])
+                    }
                 })
             }
         }
- 
+        
     }
     
     func createAdvertisementSearchModel(dict : [String : Any]?, key : String)-> FavouriteModel{
@@ -86,11 +97,7 @@ class FavouriteDataAccess {
             size: self.advertisementPropertySize,
             bedRoomsNumber: self.advertisementBedRoomsNum,
             bathRoomsNumber:  self.advertisementBathRoomsNum,
-            date : self.advertisementDate,
-            longtiude: Double(self.advertisementPropertyLongtiude),
-            latitude: Double(self.advertisementPropertyLatitude)
+            date : self.advertisementDate
         )
     }
 }
-
-

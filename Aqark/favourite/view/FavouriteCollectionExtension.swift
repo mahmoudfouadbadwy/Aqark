@@ -11,18 +11,14 @@ import UIKit
 extension FavouriteViewController : UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("  count  \(favouriteListViewModel.favouriteViewModel.count)")
-        if favouriteListViewModel != nil{
-            return favouriteListViewModel.favouriteViewModel.count
-        }else{
-            return 0
-        }
+            print("  count  \(arrOfAdViewModel.count)")
+            return arrOfAdViewModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! FavouriteCollectionViewCell
         updateCellLayout(cell: cell)
-        getCellData(indexPath: indexPath)
+        adViewModel = arrOfAdViewModel[indexPath.row]
         cell.advertisementImage?.sd_setImage(with: URL(string: adViewModel.image), placeholderImage: UIImage(named: "NoImage"))
         cell.propertyTypeLabel?.text = adViewModel.propertyType
         cell.proprtyAddressLabel?.text = adViewModel.address
@@ -44,7 +40,7 @@ extension FavouriteViewController : UICollectionViewDataSource{
 extension FavouriteViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         let propertyDetailVC = PropertyDetailView()
-        propertyDetailVC.advertisementId = (arrOfAdViewModel![indexPath.row].advertisementId)!
+        propertyDetailVC.advertisementId = (arrOfAdViewModel[indexPath.row].advertisementId)!
         self.navigationController?.pushViewController(propertyDetailVC, animated: true)
     }
 }
@@ -77,25 +73,21 @@ extension FavouriteViewController{
     
     func getCollectionViewData(){
         self.dataAccess = FavouriteDataAccess()
-        self.favouriteListViewModel = FavouriteListViewModel(dataAccess: self.dataAccess)
-        favouriteListViewModel.populateAds {
-            (dataResults) in
-          //  if dataResults.isEmpty{
-//                print("  is empty  ")
-//            }else{
-            print("  result  \(dataResults)  ")
-                self.arrOfAdViewModel = dataResults
-           // }
+        self.dataAccess.getAllFavouriteAdvertisements { (allFavAds, numOfFavAds) in
+            self.adsCount = numOfFavAds
+            
+            if allFavAds.isEmpty{
+                self.labelPlaceHolder.isHidden = false
+                self.labelPlaceHolder.text = "There is no advertisements in favourite list."
+                print("  is empty  ")
+            }else{
+                self.arrOfAdViewModel = allFavAds
+                self.favouriteCollectionView.reloadData()
+                self.stopIndicator()
+            }
+            print(" numOfFavAds  \(numOfFavAds)  ")
+            self.showDeletedAdsAlert()
         }
     }
-    
-    func getCellData(indexPath : IndexPath){
-        
-            if let arrOfAdViewModel = arrOfAdViewModel{
-                adViewModel = arrOfAdViewModel[indexPath.row]
-            }else{
-                adViewModel = self.favouriteListViewModel.favouriteViewModel[indexPath.row]
-            }
-        
-    }
+
 }

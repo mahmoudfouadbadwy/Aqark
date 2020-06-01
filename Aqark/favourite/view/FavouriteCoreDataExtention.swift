@@ -21,11 +21,11 @@ extension FavouriteViewController:FavouriteProtocol{
         print("  storedIds  \(storedIds?.count) ")
         if (storedIds?.count != 0){
             for i in 0..<storedIds!.count{
-                if(storedIds![i] == arrOfAdViewModel![index].advertisementId){
+                if(storedIds![i] == arrOfAdViewModel[index].advertisementId){
                     cell.favButton.tintColor = UIColor.red
             }
         }
-    }
+        }
         
         cell.favButton.tag = index
         cell.delegat = self
@@ -33,13 +33,25 @@ extension FavouriteViewController:FavouriteProtocol{
     
     func addToFav(favButton: UIButton) {
  
-        guard let advertisment = arrOfAdViewModel?[favButton.tag] else { return }
+        let advertisment = arrOfAdViewModel[favButton.tag] 
         
         if (favButton.tintColor == UIColor.red){
-            
-            favButton.tintColor = UIColor.lightGray
-            self.coreDataViewModel!.deleteAdvertismentFromFavourite(id: (advertisment.advertisementId))
-            
+            let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this advertisement from favorite list ? ", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { (action) in
+                favButton.tintColor = UIColor.lightGray
+                self.coreDataViewModel!.deleteAdvertismentFromFavourite(id: (advertisment.advertisementId))
+                print("  favButton.tag  \(favButton.tag)")
+                self.arrOfAdViewModel.remove(at: favButton.tag)
+                if(self.arrOfAdViewModel.count == 0){
+                    self.labelPlaceHolder.isHidden = false
+                    self.labelPlaceHolder.text = "There is no advertisements in favourite list."
+                }
+                self.favouriteCollectionView.reloadData()
+
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        
         }else{
             if((coreDataViewModel?.checkNumberOfAdvertisment())!){
                 favButton.tintColor = UIColor.red

@@ -55,7 +55,7 @@ class CoreDataAccess: NSObject{
     
     func checkNumOfAds() -> Bool{
         let allData = getAllAdvertisment()
-        if (allData.count < 5){
+        if (allData.count < 20){
             return true
         }
         return false
