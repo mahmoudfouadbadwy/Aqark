@@ -55,7 +55,7 @@ class PropertyDetailDataAccess {
                 let user = snapshot.value as! NSDictionary
                 let name = user["username"] as? String ?? ""
                 let company = user ["company"] as? String ?? ""
-                let rate = user["rate"] as? Double ?? 0.0                
+                let rate = user["rate"] as? [String:Double] ?? ["":0.0]
                 completion(Agent(name: name,company:company,rate:rate))
             }
         }

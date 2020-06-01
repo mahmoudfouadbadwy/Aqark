@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import ReachabilitySwift
 
 class PropertyDetailViewModel {
      var propertyDataAccess:PropertyDetailDataAccess
@@ -73,11 +74,22 @@ class AgentViewModel
 {
     var username:String!
     var company:String!
-    var rate:Double!
+    var rate:[String:Double]!
     
     init(agent:Agent) {
         self.username = agent.name
         self.company = agent.company
         self.rate = agent.rate
+    }
+}
+
+struct PropertyDetailsNetworking{
+    
+    //MARK: - check network connnection
+   static func checkNetworkConnection()->Bool
+    {
+        let connection = Reachability()
+        guard let status = connection?.isReachable else{return false}
+        return status
     }
 }

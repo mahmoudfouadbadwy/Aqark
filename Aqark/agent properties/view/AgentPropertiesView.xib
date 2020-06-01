@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="advertisementsCollection" destination="Ocg-fK-MRq" id="6qK-57-yHB"/>
                 <outlet property="rate" destination="pT2-jI-qco" id="MPO-pZ-nBL"/>
+                <outlet property="rateHeight" destination="QJg-qS-lcy" id="m00-eP-UzZ"/>
                 <outlet property="rateLabel" destination="JJL-hB-6zg" id="mf9-V2-OV0"/>
                 <outlet property="statusLabel" destination="Cie-lW-ZQ1" id="UXl-wd-603"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -35,6 +36,11 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pT2-jI-qco" customClass="CosmosView" customModule="Cosmos">
                             <rect key="frame" x="127.5" y="50" width="120" height="50"/>
                             <viewLayoutGuide key="safeArea" id="T2X-Vl-rWK"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
                     <constraints>

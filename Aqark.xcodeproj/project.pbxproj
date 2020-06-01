@@ -50,6 +50,13 @@
 		823D6EA4247DDB9D00F0B0FF /* extensionSelectAmenities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D6EA3247DDB9D00F0B0FF /* extensionSelectAmenities.swift */; };
 		823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D6EA5247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift */; };
 		823D6EA8247DDEE600F0B0FF /* extensionSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D6EA7247DDEE600F0B0FF /* extensionSetupView.swift */; };
+		825DF58824801EDA0019C27C /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825DF58624801EDA0019C27C /* EditProfileViewController.swift */; };
+		825DF58924801EDA0019C27C /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825DF58724801EDA0019C27C /* EditProfileViewController.xib */; };
+		825F58742481425300DF60FB /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F58732481425300DF60FB /* EditProfileViewModel.swift */; };
+		825F5876248166EC00DF60FB /* EditProfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F5875248166EC00DF60FB /* EditProfileProtocol.swift */; };
+		825F58782481682200DF60FB /* EditProfileBrokenRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F58772481682200DF60FB /* EditProfileBrokenRule.swift */; };
+		825F587A2481834300DF60FB /* EditProfileDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F58792481834300DF60FB /* EditProfileDataSource.swift */; };
+		825F587C2481CFBE00DF60FB /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825F587B2481CFBE00DF60FB /* EditProfileModel.swift */; };
 		82608A2F2476CA1D005946C1 /* EditAdvertisementDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82608A2E2476CA1D005946C1 /* EditAdvertisementDataSource.swift */; };
 		82608A322476CD20005946C1 /* EditAdvertisementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82608A312476CD20005946C1 /* EditAdvertisementModel.swift */; };
 		82608A3524787525005946C1 /* extentionEditAdvertisementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82608A3424787525005946C1 /* extentionEditAdvertisementViewModel.swift */; };
@@ -103,6 +110,16 @@
 		BF77D47B2471698E00455A25 /* ProfileAdvertisementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77D4792471698E00455A25 /* ProfileAdvertisementCell.swift */; };
 		BF7C9765247D917A00E8F516 /* FavouriteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C9764247D917A00E8F516 /* FavouriteProtocol.swift */; };
 		BF8111B7247A36410059D571 /* BindDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8111B6247A36410059D571 /* BindDetails.swift */; };
+		BF8189552481D833005256E3 /* AgentRateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8189542481D832005256E3 /* AgentRateViewModel.swift */; };
+		BF8189572481D8FF005256E3 /* AgentRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8189562481D8FF005256E3 /* AgentRate.swift */; };
+		BF8475D82483E35600D01A9D /* AdminReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8475D62483E35600D01A9D /* AdminReportsView.swift */; };
+		BF8475D92483E35600D01A9D /* AdminReportsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8475D72483E35600D01A9D /* AdminReportsView.xib */; };
+		BF8475E82483EDF600D01A9D /* AdminReportsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8475E62483EDF600D01A9D /* AdminReportsCell.swift */; };
+		BF8475E92483EDF600D01A9D /* AdminReportsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8475E72483EDF600D01A9D /* AdminReportsCell.xib */; };
+		BF8475EB2483EF4900D01A9D /* ReportsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8475EA2483EF4900D01A9D /* ReportsCollection.swift */; };
+		BF8475ED2483F14700D01A9D /* AdminReportsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8475EC2483F14700D01A9D /* AdminReportsData.swift */; };
+		BF8475EF2483F4C200D01A9D /* AdminReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8475EE2483F4C200D01A9D /* AdminReport.swift */; };
+		BF8475F1248411BC00D01A9D /* AdminReportsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8475F0248411BC00D01A9D /* AdminReportsViewModel.swift */; };
 		BF8CD7A6247AE0E300DA60BA /* ImageSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CD7A4247AE0E300DA60BA /* ImageSlider.swift */; };
 		BF8CD7A9247AE9CB00DA60BA /* DownloadSliderImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CD7A8247AE9CB00DA60BA /* DownloadSliderImages.swift */; };
 		BF8CD7AF247AFB0E00DA60BA /* ImageSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8CD7AE247AFB0E00DA60BA /* ImageSlider.xib */; };
@@ -177,18 +194,18 @@
 		3E69A8BB247EF5BB00193605 /* AdminUsersListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUsersListViewModel.swift; sourceTree = "<group>"; };
 		3E69A8BC247EF5BB00193605 /* AdminAdvertisementViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminAdvertisementViewModel.swift; sourceTree = "<group>"; };
 		3E69A8BD247EF5BB00193605 /* AdminUserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUserViewModel.swift; sourceTree = "<group>"; };
-		3E69A8C2247EF5DD00193605 /* AdminAdvertisementCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdminAdvertisementCollectionViewCell.xib; path = Aqark/admin/view/AdminAdvertisementCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
-		3E69A8C3247EF5DD00193605 /* AdminUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdminUsersViewController.swift; path = Aqark/admin/view/AdminUsersViewController.swift; sourceTree = SOURCE_ROOT; };
-		3E69A8C4247EF5DD00193605 /* AdminUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdminUserTableViewCell.swift; path = Aqark/admin/view/AdminUserTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		3E69A8C5247EF5DE00193605 /* AdminUserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdminUserTableViewCell.xib; path = Aqark/admin/view/AdminUserTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		3E69A8C2247EF5DD00193605 /* AdminAdvertisementCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdminAdvertisementCollectionViewCell.xib; path = "Aqark/admin/view /advertisements/AdminAdvertisementCollectionViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		3E69A8C3247EF5DD00193605 /* AdminUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdminUsersViewController.swift; path = "Aqark/admin/view /users/AdminUsersViewController.swift"; sourceTree = SOURCE_ROOT; };
+		3E69A8C4247EF5DD00193605 /* AdminUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdminUserTableViewCell.swift; path = "Aqark/admin/view /users/AdminUserTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		3E69A8C5247EF5DE00193605 /* AdminUserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdminUserTableViewCell.xib; path = "Aqark/admin/view /users/AdminUserTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		3E69A8C6247EF5DE00193605 /* AdminTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdminTabBarController.swift; path = Aqark/admin/view/AdminTabBarController.swift; sourceTree = SOURCE_ROOT; };
 		3E69A8C7247EF5DE00193605 /* AdminTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdminTabBarController.xib; path = Aqark/admin/view/AdminTabBarController.xib; sourceTree = SOURCE_ROOT; };
-		3E69A8C8247EF5DE00193605 /* AdminAdvertisementsCollectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdminAdvertisementsCollectionDelegate.swift; path = Aqark/admin/view/AdminAdvertisementsCollectionDelegate.swift; sourceTree = SOURCE_ROOT; };
-		3E69A8C9247EF5DF00193605 /* CustomSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSegment.swift; path = Aqark/admin/view/CustomSegment.swift; sourceTree = SOURCE_ROOT; };
-		3E69A8CA247EF5DF00193605 /* AdminAdvertisementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdminAdvertisementsViewController.swift; path = Aqark/admin/view/AdminAdvertisementsViewController.swift; sourceTree = SOURCE_ROOT; };
-		3E69A8CB247EF5DF00193605 /* AdminAdvertisementsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdminAdvertisementsViewController.xib; path = Aqark/admin/view/AdminAdvertisementsViewController.xib; sourceTree = SOURCE_ROOT; };
-		3E69A8CC247EF5E000193605 /* AdminAdvertisementCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdminAdvertisementCollectionViewCell.swift; path = Aqark/admin/view/AdminAdvertisementCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
-		3E69A8CD247EF5E000193605 /* AdminUsersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdminUsersViewController.xib; path = Aqark/admin/view/AdminUsersViewController.xib; sourceTree = SOURCE_ROOT; };
+		3E69A8C8247EF5DE00193605 /* AdminAdvertisementsCollectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdminAdvertisementsCollectionDelegate.swift; path = "Aqark/admin/view /advertisements/AdminAdvertisementsCollectionDelegate.swift"; sourceTree = SOURCE_ROOT; };
+		3E69A8C9247EF5DF00193605 /* CustomSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSegment.swift; path = "Aqark/admin/view /users/CustomSegment.swift"; sourceTree = SOURCE_ROOT; };
+		3E69A8CA247EF5DF00193605 /* AdminAdvertisementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdminAdvertisementsViewController.swift; path = "Aqark/admin/view /advertisements/AdminAdvertisementsViewController.swift"; sourceTree = SOURCE_ROOT; };
+		3E69A8CB247EF5DF00193605 /* AdminAdvertisementsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdminAdvertisementsViewController.xib; path = "Aqark/admin/view /advertisements/AdminAdvertisementsViewController.xib"; sourceTree = SOURCE_ROOT; };
+		3E69A8CC247EF5E000193605 /* AdminAdvertisementCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdminAdvertisementCollectionViewCell.swift; path = "Aqark/admin/view /advertisements/AdminAdvertisementCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		3E69A8CD247EF5E000193605 /* AdminUsersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdminUsersViewController.xib; path = "Aqark/admin/view /users/AdminUsersViewController.xib"; sourceTree = SOURCE_ROOT; };
 		3E736C692480C897004D8B81 /* ServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
 		3E736C6A2480C897004D8B81 /* ServicesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServicesViewController.xib; sourceTree = "<group>"; };
 		3E736C6D2480CAF2004D8B81 /* ServicesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -214,6 +231,13 @@
 		823D6EA3247DDB9D00F0B0FF /* extensionSelectAmenities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionSelectAmenities.swift; sourceTree = "<group>"; };
 		823D6EA5247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionSegmentAndTxtPlaceholder.swift; sourceTree = "<group>"; };
 		823D6EA7247DDEE600F0B0FF /* extensionSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionSetupView.swift; sourceTree = "<group>"; };
+		825DF58624801EDA0019C27C /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		825DF58724801EDA0019C27C /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
+		825F58732481425300DF60FB /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		825F5875248166EC00DF60FB /* EditProfileProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileProtocol.swift; sourceTree = "<group>"; };
+		825F58772481682200DF60FB /* EditProfileBrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileBrokenRule.swift; sourceTree = "<group>"; };
+		825F58792481834300DF60FB /* EditProfileDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileDataSource.swift; sourceTree = "<group>"; };
+		825F587B2481CFBE00DF60FB /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
 		82608A2E2476CA1D005946C1 /* EditAdvertisementDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAdvertisementDataSource.swift; sourceTree = "<group>"; };
 		82608A312476CD20005946C1 /* EditAdvertisementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAdvertisementModel.swift; sourceTree = "<group>"; };
 		82608A3424787525005946C1 /* extentionEditAdvertisementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extentionEditAdvertisementViewModel.swift; sourceTree = "<group>"; };
@@ -268,6 +292,16 @@
 		BF77D4792471698E00455A25 /* ProfileAdvertisementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAdvertisementCell.swift; sourceTree = "<group>"; };
 		BF7C9764247D917A00E8F516 /* FavouriteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteProtocol.swift; sourceTree = "<group>"; };
 		BF8111B6247A36410059D571 /* BindDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindDetails.swift; sourceTree = "<group>"; };
+		BF8189542481D832005256E3 /* AgentRateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentRateViewModel.swift; sourceTree = "<group>"; };
+		BF8189562481D8FF005256E3 /* AgentRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentRate.swift; sourceTree = "<group>"; };
+		BF8475D62483E35600D01A9D /* AdminReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminReportsView.swift; sourceTree = "<group>"; };
+		BF8475D72483E35600D01A9D /* AdminReportsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminReportsView.xib; sourceTree = "<group>"; };
+		BF8475E62483EDF600D01A9D /* AdminReportsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminReportsCell.swift; sourceTree = "<group>"; };
+		BF8475E72483EDF600D01A9D /* AdminReportsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminReportsCell.xib; sourceTree = "<group>"; };
+		BF8475EA2483EF4900D01A9D /* ReportsCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsCollection.swift; sourceTree = "<group>"; };
+		BF8475EC2483F14700D01A9D /* AdminReportsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminReportsData.swift; sourceTree = "<group>"; };
+		BF8475EE2483F4C200D01A9D /* AdminReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminReport.swift; sourceTree = "<group>"; };
+		BF8475F0248411BC00D01A9D /* AdminReportsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminReportsViewModel.swift; sourceTree = "<group>"; };
 		BF8CD7A4247AE0E300DA60BA /* ImageSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSlider.swift; sourceTree = "<group>"; };
 		BF8CD7A8247AE9CB00DA60BA /* DownloadSliderImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSliderImages.swift; sourceTree = "<group>"; };
 		BF8CD7AE247AFB0E00DA60BA /* ImageSlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageSlider.xib; sourceTree = "<group>"; };
@@ -359,9 +393,9 @@
 		3E69A8B1247EF59600193605 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				3E69A8B2247EF59600193605 /* AdminUserData.swift */,
-				3ED938D1248050E4005BF1EF /* AdminAdvertisementData.swift */,
-				3ED938D324805187005BF1EF /* AdminDeleteAdvertisement.swift */,
+				BF8475E52483E5D900D01A9D /* advertisements */,
+				BF8475E42483E5CF00D01A9D /* reports */,
+				BF8475E32483E5C800D01A9D /* users */,
 				3ED938D524805234005BF1EF /* AdminLogout.swift */,
 				3E69A8B3247EF59600193605 /* AdminHelper.swift */,
 			);
@@ -609,6 +643,7 @@
 			isa = PBXGroup;
 			children = (
 				BFF0161924810CB800C3B7C0 /* AgentViewModel.swift */,
+				BF8189542481D832005256E3 /* AgentRateViewModel.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -667,6 +702,8 @@
 				BFC578BC24744F0600C77873 /* ProfileNavigationProperties.swift */,
 				BFC578BE247462B100C77873 /* ProfileUI.swift */,
 				BFC578C02474631800C77873 /* BindingProfileData.swift */,
+				825DF58724801EDA0019C27C /* EditProfileViewController.xib */,
+				825DF58624801EDA0019C27C /* EditProfileViewController.swift */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -676,6 +713,9 @@
 			children = (
 				BF3B2694247029850064BDF0 /* ProfileViewModel.swift */,
 				BFC578C624749A1F00C77873 /* ProfileAdvertisementViewModel.swift */,
+				825F58732481425300DF60FB /* EditProfileViewModel.swift */,
+				825F58772481682200DF60FB /* EditProfileBrokenRule.swift */,
+				825F5875248166EC00DF60FB /* EditProfileProtocol.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -714,18 +754,11 @@
 		BF06B41A24679F1E005D7151 /* view  */ = {
 			isa = PBXGroup;
 			children = (
-				3E69A8CC247EF5E000193605 /* AdminAdvertisementCollectionViewCell.swift */,
-				3E69A8C2247EF5DD00193605 /* AdminAdvertisementCollectionViewCell.xib */,
-				3E69A8C8247EF5DE00193605 /* AdminAdvertisementsCollectionDelegate.swift */,
-				3E69A8CA247EF5DF00193605 /* AdminAdvertisementsViewController.swift */,
-				3E69A8CB247EF5DF00193605 /* AdminAdvertisementsViewController.xib */,
+				BF8475DC2483E43D00D01A9D /* reports */,
+				BF8475DB2483E43000D01A9D /* advertisements */,
+				BF8475DA2483E42400D01A9D /* users */,
 				3E69A8C6247EF5DE00193605 /* AdminTabBarController.swift */,
 				3E69A8C7247EF5DE00193605 /* AdminTabBarController.xib */,
-				3E69A8C3247EF5DD00193605 /* AdminUsersViewController.swift */,
-				3E69A8CD247EF5E000193605 /* AdminUsersViewController.xib */,
-				3E69A8C4247EF5DD00193605 /* AdminUserTableViewCell.swift */,
-				3E69A8C5247EF5DE00193605 /* AdminUserTableViewCell.xib */,
-				3E69A8C9247EF5DF00193605 /* CustomSegment.swift */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -733,10 +766,9 @@
 		BF06B41B24679F26005D7151 /* view model */ = {
 			isa = PBXGroup;
 			children = (
-				3E69A8BA247EF5BA00193605 /* AdminAdvertisementsListViewModel.swift */,
-				3E69A8BC247EF5BB00193605 /* AdminAdvertisementViewModel.swift */,
-				3E69A8BB247EF5BB00193605 /* AdminUsersListViewModel.swift */,
-				3E69A8BD247EF5BB00193605 /* AdminUserViewModel.swift */,
+				BF8475DF2483E56C00D01A9D /* advertisements */,
+				BF8475DE2483E4C700D01A9D /* reports */,
+				BF8475DD2483E4A800D01A9D /* users */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -770,6 +802,7 @@
 			children = (
 				BF3B269724702C410064BDF0 /* ProfileData.swift */,
 				BFC578C4247497F200C77873 /* ProfileAdvertisements.swift */,
+				825F58792481834300DF60FB /* EditProfileDataSource.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -788,8 +821,120 @@
 			isa = PBXGroup;
 			children = (
 				BFF0161D24810D8F00C3B7C0 /* AgentDataAccess.swift */,
+				BF8189562481D8FF005256E3 /* AgentRate.swift */,
 			);
 			path = data;
+			sourceTree = "<group>";
+		};
+		BF8475DA2483E42400D01A9D /* users */ = {
+			isa = PBXGroup;
+			children = (
+				3E69A8C3247EF5DD00193605 /* AdminUsersViewController.swift */,
+				3E69A8CD247EF5E000193605 /* AdminUsersViewController.xib */,
+				3E69A8C4247EF5DD00193605 /* AdminUserTableViewCell.swift */,
+				3E69A8C5247EF5DE00193605 /* AdminUserTableViewCell.xib */,
+				3E69A8C9247EF5DF00193605 /* CustomSegment.swift */,
+			);
+			path = users;
+			sourceTree = "<group>";
+		};
+		BF8475DB2483E43000D01A9D /* advertisements */ = {
+			isa = PBXGroup;
+			children = (
+				3E69A8CC247EF5E000193605 /* AdminAdvertisementCollectionViewCell.swift */,
+				3E69A8C2247EF5DD00193605 /* AdminAdvertisementCollectionViewCell.xib */,
+				3E69A8C8247EF5DE00193605 /* AdminAdvertisementsCollectionDelegate.swift */,
+				3E69A8CA247EF5DF00193605 /* AdminAdvertisementsViewController.swift */,
+				3E69A8CB247EF5DF00193605 /* AdminAdvertisementsViewController.xib */,
+			);
+			path = advertisements;
+			sourceTree = "<group>";
+		};
+		BF8475DC2483E43D00D01A9D /* reports */ = {
+			isa = PBXGroup;
+			children = (
+				BF8475D62483E35600D01A9D /* AdminReportsView.swift */,
+				BF8475D72483E35600D01A9D /* AdminReportsView.xib */,
+				BF8475E62483EDF600D01A9D /* AdminReportsCell.swift */,
+				BF8475E72483EDF600D01A9D /* AdminReportsCell.xib */,
+				BF8475EA2483EF4900D01A9D /* ReportsCollection.swift */,
+			);
+			path = reports;
+			sourceTree = "<group>";
+		};
+		BF8475DD2483E4A800D01A9D /* users */ = {
+			isa = PBXGroup;
+			children = (
+				3E69A8BD247EF5BB00193605 /* AdminUserViewModel.swift */,
+				3E69A8BB247EF5BB00193605 /* AdminUsersListViewModel.swift */,
+			);
+			path = users;
+			sourceTree = "<group>";
+		};
+		BF8475DE2483E4C700D01A9D /* reports */ = {
+			isa = PBXGroup;
+			children = (
+				BF8475F0248411BC00D01A9D /* AdminReportsViewModel.swift */,
+			);
+			path = reports;
+			sourceTree = "<group>";
+		};
+		BF8475DF2483E56C00D01A9D /* advertisements */ = {
+			isa = PBXGroup;
+			children = (
+				3E69A8BC247EF5BB00193605 /* AdminAdvertisementViewModel.swift */,
+				3E69A8BA247EF5BA00193605 /* AdminAdvertisementsListViewModel.swift */,
+			);
+			path = advertisements;
+			sourceTree = "<group>";
+		};
+		BF8475E02483E59900D01A9D /* users */ = {
+			isa = PBXGroup;
+			children = (
+				3E69A8B6247EF5A800193605 /* AdminUser.swift */,
+			);
+			path = users;
+			sourceTree = "<group>";
+		};
+		BF8475E12483E5A000D01A9D /* advertisements */ = {
+			isa = PBXGroup;
+			children = (
+				3E69A8B7247EF5A900193605 /* AdminAdevertisement.swift */,
+			);
+			path = advertisements;
+			sourceTree = "<group>";
+		};
+		BF8475E22483E5B400D01A9D /* reports */ = {
+			isa = PBXGroup;
+			children = (
+				BF8475EE2483F4C200D01A9D /* AdminReport.swift */,
+			);
+			path = reports;
+			sourceTree = "<group>";
+		};
+		BF8475E32483E5C800D01A9D /* users */ = {
+			isa = PBXGroup;
+			children = (
+				3E69A8B2247EF59600193605 /* AdminUserData.swift */,
+			);
+			path = users;
+			sourceTree = "<group>";
+		};
+		BF8475E42483E5CF00D01A9D /* reports */ = {
+			isa = PBXGroup;
+			children = (
+				BF8475EC2483F14700D01A9D /* AdminReportsData.swift */,
+			);
+			path = reports;
+			sourceTree = "<group>";
+		};
+		BF8475E52483E5D900D01A9D /* advertisements */ = {
+			isa = PBXGroup;
+			children = (
+				3ED938D1248050E4005BF1EF /* AdminAdvertisementData.swift */,
+				3ED938D324805187005BF1EF /* AdminDeleteAdvertisement.swift */,
+			);
+			path = advertisements;
 			sourceTree = "<group>";
 		};
 		BF9BD7C52472C9820057A12D /* data */ = {
@@ -811,8 +956,9 @@
 		BFBAED7E2468A58900996DE8 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				3E69A8B7247EF5A900193605 /* AdminAdevertisement.swift */,
-				3E69A8B6247EF5A800193605 /* AdminUser.swift */,
+				BF8475E22483E5B400D01A9D /* reports */,
+				BF8475E12483E5A000D01A9D /* advertisements */,
+				BF8475E02483E59900D01A9D /* users */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -831,6 +977,7 @@
 			isa = PBXGroup;
 			children = (
 				BF3B26922470281E0064BDF0 /* Profile.swift */,
+				825F587B2481CFBE00DF60FB /* EditProfileModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -902,8 +1049,8 @@
 		BFCF0BC124677F8000A43D8B /* Aqark */ = {
 			isa = PBXGroup;
 			children = (
-				3ED938D72480A825005BF1EF /* services */,
 				BFE9F4462469930200E44777 /* GoogleService-Info.plist */,
+				3ED938D72480A825005BF1EF /* services */,
 				BF06B40724679D83005D7151 /* payment */,
 				BF06B40624679D78005D7151 /* admin */,
 				BF06B40524679D4C005D7151 /* advertisement */,
@@ -1031,12 +1178,15 @@
 				C65AD6572483AEC500A402FB /* ReviewCell.xib in Resources */,
 				3E736C702480CAF2004D8B81 /* ServicesCollectionViewCell.xib in Resources */,
 				BF36E8692475A3F200FD9192 /* AdvertisementCell.xib in Resources */,
+				BF8475D92483E35600D01A9D /* AdminReportsView.xib in Resources */,
+				BF8475E92483EDF600D01A9D /* AdminReportsCell.xib in Resources */,
 				BF634CA424733A9000B65B90 /* LoginViewController.xib in Resources */,
 				BF4355842474E1DE001DA5D8 /* AdvertisementCellCollectionViewCell.xib in Resources */,
 				826A9A372473EAC40046E562 /* AddAdvertisementsCollectionViewCell.xib in Resources */,
 				BFCF0BD024677F8100A43D8B /* LaunchScreen.storyboard in Resources */,
 				BF8CD7AF247AFB0E00DA60BA /* ImageSlider.xib in Resources */,
 				BFA42D9A247BF93E00A986E8 /* AmenitiesCell.xib in Resources */,
+				825DF58924801EDA0019C27C /* EditProfileViewController.xib in Resources */,
 				C61CFE3324765999000EC0EF /* PaymentViewController.xib in Resources */,
 				BFE9F4472469930200E44777 /* GoogleService-Info.plist in Resources */,
 				BFF39A37246FF92E0041AD24 /* ProfileViewController.xib in Resources */,
@@ -1166,27 +1316,38 @@
 				BF8CD7A6247AE0E300DA60BA /* ImageSlider.swift in Sources */,
 				BFC578C12474631800C77873 /* BindingProfileData.swift in Sources */,
 				C67921BC2474BF2100A24192 /* AdvertisementSearchModel.swift in Sources */,
+				825F587A2481834300DF60FB /* EditProfileDataSource.swift in Sources */,
 				3E69A8BF247EF5BC00193605 /* AdminUsersListViewModel.swift in Sources */,
 				BFC578C5247497F200C77873 /* ProfileAdvertisements.swift in Sources */,
 				BF634CA224733A9000B65B90 /* CustomTextField.swift in Sources */,
 				BFC578B7247432E700C77873 /* CreateAccount.swift in Sources */,
 				C67921BE2474BF3000A24192 /* AdvertisementListViewModel.swift in Sources */,
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
+				BF8475EF2483F4C200D01A9D /* AdminReport.swift in Sources */,
 				BF6DC68E2473522B0030AE52 /* PropertyDetailView.swift in Sources */,
 				BF7C9765247D917A00E8F516 /* FavouriteProtocol.swift in Sources */,
 				C65AD6562483AEC500A402FB /* ReviewCell.swift in Sources */,
 				BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */,
 				BFA42D9C247BFCE000A986E8 /* AmenitiesCollection.swift in Sources */,
+
+				825F58742481425300DF60FB /* EditProfileViewModel.swift in Sources */,
+
 				3E69A8D5247EF5E000193605 /* CustomSegment.swift in Sources */,
 				823D6EA2247DDA7200F0B0FF /* extensionEditAdvertisement.swift in Sources */,
 				826A9A3B2474C8570046E562 /* extentionConfigrationCollectionView.swift in Sources */,
 				3E69A8D2247EF5E000193605 /* AdminTabBarController.swift in Sources */,
 				826A9A2C2473E4C20046E562 /* ExtensionAddAdvertisementViewModel.swift in Sources */,
 				BF634C9E2473373200B65B90 /* LoginViewModel.swift in Sources */,
+
 				C65805CE2482A7C1003F3DA1 /* ReviewExtension.swift in Sources */,
+
+				825DF58824801EDA0019C27C /* EditProfileViewController.swift in Sources */,
+
 				823D6EA4247DDB9D00F0B0FF /* extensionSelectAmenities.swift in Sources */,
 				826A9A2F2473E4C20046E562 /* FileAddAdvertisementViewModelProtocol.swift in Sources */,
+				BF8475EB2483EF4900D01A9D /* ReportsCollection.swift in Sources */,
 				BFC578B5247431E800C77873 /* SignUpUI.swift in Sources */,
+				825F5876248166EC00DF60FB /* EditProfileProtocol.swift in Sources */,
 				BF3AD38E246A3BB00013FF4B /* User.swift in Sources */,
 				BF3A84E3247FEB920022F636 /* CoreDataViewModel.swift in Sources */,
 				3E69A8C0247EF5BC00193605 /* AdminAdvertisementViewModel.swift in Sources */,
@@ -1196,6 +1357,7 @@
 				BFA42D96247BED1900A986E8 /* CallingButton.swift in Sources */,
 				BF4423332469D1B80050BD8A /* SignUpView.swift in Sources */,
 				826A9A2E2473E4C20046E562 /* AddAdvertisementBrokenRule.swift in Sources */,
+				825F58782481682200DF60FB /* EditProfileBrokenRule.swift in Sources */,
 				3ED938E12480B04B005BF1EF /* ServicesListViewModel.swift in Sources */,
 				BFF39A36246FF92E0041AD24 /* ProfileViewController.swift in Sources */,
 				3E69A8D4247EF5E000193605 /* AdminAdvertisementsCollectionDelegate.swift in Sources */,
@@ -1208,6 +1370,7 @@
 				3E69A8C1247EF5BC00193605 /* AdminUserViewModel.swift in Sources */,
 				BF66CC1E246C678B00C9FD01 /* Countries.swift in Sources */,
 				823D6EA8247DDEE600F0B0FF /* extensionSetupView.swift in Sources */,
+				825F587C2481CFBE00DF60FB /* EditProfileModel.swift in Sources */,
 				3E69A8B4247EF59600193605 /* AdminUserData.swift in Sources */,
 				3E736C6F2480CAF2004D8B81 /* ServicesCollectionViewCell.swift in Sources */,
 				BFC578BD24744F0600C77873 /* ProfileNavigationProperties.swift in Sources */,
@@ -1222,15 +1385,20 @@
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
 				3EA8369D246CE15C009AD024 /* LoginBrokenRule.swift in Sources */,
 				3E943FCA246A262400A1FF83 /* CustomButton.swift in Sources */,
+				BF8475F1248411BC00D01A9D /* AdminReportsViewModel.swift in Sources */,
 				BF8CD7A9247AE9CB00DA60BA /* DownloadSliderImages.swift in Sources */,
+				BF8475E82483EDF600D01A9D /* AdminReportsCell.swift in Sources */,
 				BF6DC684247351CD0030AE52 /* PropertyDetailDataAccess.swift in Sources */,
 				826A9A1F2473E4A40046E562 /* AddAdvertisementModel.swift in Sources */,
 				3E943FC7246A053300A1FF83 /* FirstScreenViewController.swift in Sources */,
 				BFA42D99247BF93E00A986E8 /* AmenitiesCell.swift in Sources */,
-				823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */,
+
+				BF8475D82483E35600D01A9D /* AdminReportsView.swift in Sources */,
 				BF6D507824804B4000FFDD30 /* AgentPropertiesView.swift in Sources */,
 				823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */,
 				BFF0161A24810CB800C3B7C0 /* AgentViewModel.swift in Sources */,
+				823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */,
+
 				C61CFE3224765998000EC0EF /* PaymentViewController.swift in Sources */,
 				BF3B2695247029850064BDF0 /* ProfileViewModel.swift in Sources */,
 				C66E3B7A247FCC0B00E1BAF2 /* ReportModel.swift in Sources */,
@@ -1249,11 +1417,14 @@
 				826A9A382473EAC40046E562 /* AddAdvertisementViewController.swift in Sources */,
 				3ED938E52480C023005BF1EF /* ServiceHelper.swift in Sources */,
 				3E69A8BE247EF5BC00193605 /* AdminAdvertisementsListViewModel.swift in Sources */,
+
 				C65805CC2482910A003F3DA1 /* ReviewsViewModel.swift in Sources */,
+
 				BF4355882474E1DE001DA5D8 /* SearchViewController.swift in Sources */,
 				826A9A442474CC730046E562 /* extensionviewPicker.swift in Sources */,
 				3ED938DD2480A878005BF1EF /* ServiceUser.swift in Sources */,
 				BF4355852474E1DE001DA5D8 /* SearchBar.swift in Sources */,
+				BF8189552481D833005256E3 /* AgentRateViewModel.swift in Sources */,
 				BF77D47B2471698E00455A25 /* ProfileAdvertisementCell.swift in Sources */,
 				BF3B26932470281E0064BDF0 /* Profile.swift in Sources */,
 				3E69A8B9247EF5A900193605 /* AdminAdevertisement.swift in Sources */,
@@ -1268,8 +1439,10 @@
 				826A9A392473EAC40046E562 /* AddAdvertisementsCollectionViewCell.swift in Sources */,
 				3ED938D624805234005BF1EF /* AdminLogout.swift in Sources */,
 				3E69A8B8247EF5A900193605 /* AdminUser.swift in Sources */,
+				BF8475ED2483F14700D01A9D /* AdminReportsData.swift in Sources */,
 				826A9A1D2473E4990046E562 /* AddAdvertisementDataSource.swift in Sources */,
 				826A9A3E2474CA8A0046E562 /* extensionAutocompleteView.swift in Sources */,
+				BF8189572481D8FF005256E3 /* AgentRate.swift in Sources */,
 				82608A3524787525005946C1 /* extentionEditAdvertisementViewModel.swift in Sources */,
 				3ED938E32480B0A1005BF1EF /* ServiceUserViewModel.swift in Sources */,
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,

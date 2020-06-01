@@ -45,9 +45,10 @@ extension PropertyDetailView {
     }
 
     func showAlert(title : String){
-        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler:{ (UIAlertAction)in
-            
+
+        let alert = UIAlertController(title: "Report", message: title, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{ (UIAlertAction)in
+             alert.dismiss(animated: true)
         }))
         
         self.present(alert, animated: true, completion: nil)

@@ -23,7 +23,7 @@ extension PropertyDetailView{
         self.setUpAmenitiesCollection()
         self.username.text = self.agent.username
         self.company.text = self.agent.company
-        self.userRate.rating = self.agent.rate
+        self.setAgentRate()
         self.advertisementDescription.text = self.advertisementDetails.description
     }
     
@@ -43,6 +43,22 @@ extension PropertyDetailView{
     private func setSpecification()
     {
         self.specification.text = "\(self.advertisementDetails.propertyType ?? "") for \(self.advertisementDetails.advertismentType ?? "") in \(self.advertisementDetails.country ?? "")"
+    }
+    
+    private func setAgentRate()
+    {
+        let rates = self.agent.rate
+        var agentRate:Double = 0
+        for rate in rates ?? ["":0.0]
+        {
+            agentRate += rate.value
+        }
+        if rates?.count ?? 0>0{
+            agentRate /= Double(rates?.count ?? 1)
+        }
+        self.userRate.settings.fillMode =  .precise
+        self.userRate.rating = agentRate
+
     }
     
 }

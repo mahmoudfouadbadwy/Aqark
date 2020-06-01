@@ -26,9 +26,11 @@ class AdminTabBarController: UITabBarController {
     func setupTabBarController(){
         let adminUserViewController = AdminUsersViewController()
         let adminAdvertisementViewController = AdminAdvertisementsViewController()
+        let adminReportsView = AdminReportsView()
         adminUserViewController.tabBarItem = UITabBarItem(title: "Users", image: UIImage(named: "signup_company"), selectedImage: UIImage(named: "signup_company"))
         adminAdvertisementViewController.tabBarItem = UITabBarItem(title: "Advertisements", image: UIImage(named: "signup_company"), selectedImage: UIImage(named: "signup_company"))
-        self.viewControllers = [adminUserViewController,adminAdvertisementViewController]
+        adminReportsView.tabBarItem = UITabBarItem(title: "Reports", image: UIImage(named: "PropertyDetail_feedback"), tag: 3)
+        self.viewControllers = [adminUserViewController,adminAdvertisementViewController,adminReportsView]
     }
     
     @objc func logout(sender:UIBarButtonItem){
