@@ -23,7 +23,7 @@ class AdvertisementListViewModel{
         self.advertismentsViewModel = searchResults.map{ ad in
             AdvertisementViewModel(model: ad)
         }
-        completionForPopulateAds(self.advertismentsViewModel )
+        completionForPopulateAds(self.advertismentsViewModel)
     }
     }
 }

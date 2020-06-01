@@ -8,8 +8,6 @@
 
 import UIKit
 import Cosmos
-import ReachabilitySwift
-import Firebase
 import SDWebImage
 //MARK: - Live Cycle and Properties
 class ProfileViewController: UIViewController {
@@ -43,16 +41,18 @@ class ProfileViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        if(checkNetworkConnection())
+        if(ProfileNetworking.checkNetworkConnection())
         {
-            if Auth.auth().currentUser == nil{
-                self.navigationController?.pushViewController(FirstScreenViewController(), animated: true)
-            }else
+            if (ProfileNetworking.checkAuthuntication())
             {
                 setupView()
                 setNavigationProperties()
                 setupCollection()
                 noAdvertisementsLabel.isHidden = true
+            }
+            else
+            {
+          self.navigationController?.pushViewController(FirstScreenViewController(), animated: true)
             }
         }
         else
@@ -62,9 +62,9 @@ class ProfileViewController: UIViewController {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-        if (checkNetworkConnection())
+        if (ProfileNetworking.checkNetworkConnection())
         {
-            if Auth.auth().currentUser == nil{
+            if !ProfileNetworking.checkAuthuntication(){
                 self.navigationController?.pushViewController(FirstScreenViewController(), animated: true)
             }
             else
@@ -80,10 +80,5 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    func checkNetworkConnection()->Bool
-    {
-        let connection = Reachability()
-        guard let status = connection?.isReachable else{return false}
-        return status
-    }
+   
 }

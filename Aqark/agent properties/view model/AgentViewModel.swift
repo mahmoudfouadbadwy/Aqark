@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ReachabilitySwift
 class AgentAdvertisementViewModel{
     var propertyType:String!
     var price:Double!
@@ -62,5 +63,16 @@ class AgentAdvertisementListViewModel{
             
         })
         
+    }
+}
+
+
+struct AgentPropertiesNetworking
+{
+   static  func checkNetworkConnection()->Bool
+    {
+        let connection = Reachability()
+        guard let status = connection?.isReachable else{return false}
+        return status
     }
 }

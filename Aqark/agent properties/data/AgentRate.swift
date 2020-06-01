@@ -17,7 +17,7 @@ class AgentRate{
             let ref = Database.database().reference()
             let userId = getUserId()
             if userId != ""{
-                ref.child("Users").child(agentId).child("rate").child(userId).child("value").setValue(rate)
+                ref.child("Users").child(agentId).child("rate").child(userId).setValue(rate)
                 return true
             }
         }
