@@ -73,7 +73,13 @@ class AddAdvertisementViewController: UIViewController  {
     {
         stopIndicator()
         blackIndicatorView.isHidden = true
-        alertControllerMessage(title: "succes", message: " your advertrisement uploaded succesfuly")
+        
+        let alertController = UIAlertController(title: "succes", message: "your advertrisement uploaded succesfuly" , preferredStyle: .alert)
+        let actionButton = UIAlertAction(title: "ok", style: .default) { (_) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alertController.addAction(actionButton)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @objc func viewAlert()
@@ -199,14 +205,14 @@ class AddAdvertisementViewController: UIViewController  {
         //        BathroomTxtField.delegate = self
         //        countyTxtField.delegate = self
         
-        priceTxtField.setUnderLine()
-        phoneTxtField.setUnderLine()
-        sizeTxtField.setUnderLine()
-        addressTxtField.setUnderLine()
-        phoneTxtField.setUnderLine()
-        BedroomsTxtField.setUnderLine()
-        BathroomTxtField.setUnderLine()
-        countyTxtField.setUnderLine()
+//        priceTxtField.setUnderLine()
+//        phoneTxtField.setUnderLine()
+//        sizeTxtField.setUnderLine()
+//        addressTxtField.setUnderLine()
+//        phoneTxtField.setUnderLine()
+//        BedroomsTxtField.setUnderLine()
+//        BathroomTxtField.setUnderLine()
+//        countyTxtField.setUnderLine()
         
     }
     
@@ -224,8 +230,7 @@ class AddAdvertisementViewController: UIViewController  {
     }
     
     //MARK:- alertMessage
-    func alertControllerMessage(title: String , message : String){
-        
+    func alertControllerMessage(title: String , message : String ){
         let alertController = UIAlertController(title: title, message: message , preferredStyle: .alert)
         let actionButton = UIAlertAction(title: "ok", style: .default, handler: nil)
         alertController.addAction(actionButton)

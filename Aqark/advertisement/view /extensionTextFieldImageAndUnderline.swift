@@ -28,10 +28,10 @@ extension UITextField {
     
     
     func setIcon(_ image: UIImage) {
-        let iconView = UIImageView(frame:CGRect(x: 10, y: 5, width: 20, height: 20))
+        let iconView = UIImageView(frame:CGRect(x: 10, y: 10, width: 20, height: 20))
         iconView.image = image
         
-        let iconContainerView: UIView = UIView(frame:CGRect(x: 20, y: 0, width: 40, height: 40))
+        let iconContainerView: UIView = UIView(frame:CGRect(x: 20, y: 15, width: 40, height: 40))
         iconContainerView.addSubview(iconView)
         
         rightView = iconContainerView
