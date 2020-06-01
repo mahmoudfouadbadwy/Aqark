@@ -29,7 +29,7 @@ extension ProfileViewController{
     }
     
     @IBAction func editProfileBtn(_ sender: Any) {
-        if checkNetworkConnection(){
+        if ProfileNetworking.checkNetworkConnection(){
             let editViewController = EditProfileViewController()
             navigationController?.pushViewController(editViewController, animated: true)
         }else{

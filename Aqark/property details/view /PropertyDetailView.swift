@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import ReachabilitySwift
 import JJFloatingActionButton
 import Cosmos
 
@@ -49,7 +48,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Property Details"
-        if checkNetworkConnection(){
+        if PropertyDetailsNetworking.checkNetworkConnection(){
             self.showIndicator()
             self.propertyDataAccess = PropertyDetailDataAccess()
             self.propertyViewModel = PropertyDetailViewModel(propertyDataAccess: self.propertyDataAccess)
@@ -77,8 +76,6 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         mapItem.openInMaps(launchOptions: options)
     }
     
-
-
     @IBAction func openPropertiesView(_ sender: Any) {
         let properties = AgentPropertiesView()
         properties.agentId =  advertisementDetails.userID
@@ -93,25 +90,14 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
     
-    
     @IBAction func showInteriorDesigners(_ sender: Any) {
         let servicesView = ServicesViewController()
         servicesView.serviceRole = "interior designer"
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
-    
-
 
     @IBAction func showReportActionSheet(_ sender: Any) {
         preformReport()
-    }
-
-    //MARK: - check network connnection
-   private func checkNetworkConnection()->Bool
-    {
-        let connection = Reachability()
-        guard let status = connection?.isReachable else{return false}
-        return status
     }
 }
 

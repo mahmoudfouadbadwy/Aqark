@@ -30,9 +30,25 @@ class AdminReportsView: UIViewController {
     var agentsname:[String]!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !ReportNetwork.checkNetworkConnection(){
+            statusLabel.isHidden = false
+            statusLabel.text = "Internet Connetion Not Available"
+        }
         setupReportsCollection()
         setupCollectionGeusture()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidLoad()
+        if ReportNetwork.checkNetworkConnection(){
+            bindCollectionData()
+        }
+        else
+        {
+            statusLabel.isHidden = false
+            statusLabel.text = "Internet Connetion Not Available"
+        }
+    }
+    
 }
 
 //MARK: - UIViewIndicator

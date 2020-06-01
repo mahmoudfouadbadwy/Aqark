@@ -8,7 +8,7 @@
 
 import UIKit
 import Cosmos
-import ReachabilitySwift
+
 class AgentPropertiesView: UIViewController {
     
     @IBOutlet weak var rateHeight: NSLayoutConstraint!
@@ -36,22 +36,18 @@ class AgentPropertiesView: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        if(checkNetworkConnection())
-        {
-            statusLabel.isHidden = true
-            self.navigationItem.title = "\(agentName ?? "Agent")'s Properties"
-        }
-        else
+        if(!AgentPropertiesNetworking.checkNetworkConnection())
         {
             statusLabel.isHidden = false
             statusLabel.text = "Internet Connection Not Available"
         }
+        self.navigationItem.title = "\(agentName ?? "Agent")'s Properties"
+        setupCollection()
     }
     override func viewWillAppear(_ animated: Bool) {
-        if(checkNetworkConnection())
+        if(AgentPropertiesNetworking.checkNetworkConnection())
         {
             showIndicator()
-            setupCollection()
             bindCollectionData()
             setupAgentRate()
             statusLabel.isHidden = true
@@ -61,14 +57,6 @@ class AgentPropertiesView: UIViewController {
             statusLabel.isHidden = false
             statusLabel.text = "Internet Connection Not Available"
         }
-    }
-    
-    
-    func checkNetworkConnection()->Bool
-    {
-        let connection = Reachability()
-        guard let status = connection?.isReachable else{return false}
-        return status
     }
 }
 

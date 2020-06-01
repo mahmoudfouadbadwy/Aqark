@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import ReachabilitySwift
 class PropertyDetailViewModel {
      var propertyDataAccess:PropertyDetailDataAccess
     init(propertyDataAccess :PropertyDetailDataAccess) {
@@ -70,5 +70,16 @@ class AgentViewModel
         self.username = agent.name
         self.company = agent.company
         self.rate = agent.rate
+    }
+}
+
+struct PropertyDetailsNetworking{
+    
+    //MARK: - check network connnection
+   static func checkNetworkConnection()->Bool
+    {
+        let connection = Reachability()
+        guard let status = connection?.isReachable else{return false}
+        return status
     }
 }

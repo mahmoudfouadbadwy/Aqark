@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import ReachabilitySwift
 struct AdminReportViewModel{
     var reportId:String
     var reportContent:String
@@ -34,17 +34,30 @@ class AdminReportsList{
     
     func getAllReports(completion:@escaping([AdminReportViewModel],[String],[String])->Void)
     {
-        
-        adminReportData.getAdminReports(completion: {
-            (reports,users,agents) in
-            self.reportsList =  reports.map{report in AdminReportViewModel(report: report)}
-             completion(self.reportsList,users,agents)
-        })
-       
+        if (ReportNetwork.checkNetworkConnection()){
+            adminReportData.getAdminReports(completion: {
+                (reports,users,agents) in
+                self.reportsList =  reports.map{report in AdminReportViewModel(report: report)}
+                completion(self.reportsList,users,agents)
+            })
+        }
     }
     
     func deleteReport(reportId:String)
     {
+        if(ReportNetwork.checkNetworkConnection()){
        adminReportData.deleteReport(reportId: reportId)
+        }
+    }
+    
+    
+}
+
+struct ReportNetwork{
+   static func checkNetworkConnection()->Bool
+    {
+        let connection = Reachability()
+        guard let status = connection?.isReachable else{return false}
+        return status
     }
 }

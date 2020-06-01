@@ -14,11 +14,14 @@ extension AdminReportsView{
         self.reportsCollection.register(UINib(nibName: "AdminReportsCell", bundle: nil), forCellWithReuseIdentifier: "reportsCell")
         self.reportsCollection.delegate = self
         self.reportsCollection.dataSource = self
-        self.adminReportViewModel = AdminReportsList(reportData:  AdminReportsData())
+       
+    }
+    func bindCollectionData()
+    {
         showIndicator()
+         self.adminReportViewModel = AdminReportsList(reportData:  AdminReportsData())
         self.adminReportViewModel.getAllReports(completion: {[weak self]
             (reports,users,agents) in
-           
             self?.reports = reports
             self?.usersname  = users
             self?.agentsname = agents
@@ -58,7 +61,9 @@ extension AdminReportsView:UICollectionViewDataSource{
 }
 
 extension AdminReportsView:UICollectionViewDelegate{
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        /////
+    }
 }
 
 
