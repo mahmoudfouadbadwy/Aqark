@@ -25,7 +25,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var countryName: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
-    let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     let profileDataAccess:ProfileDataAccess = ProfileDataAccess()
     var listOfAdvertisements:[ProfileAdvertisementViewModel] = []{
         didSet{
@@ -69,16 +68,12 @@ class ProfileViewController: UIViewController {
             }
             else
             {
-                UIView.animate(withDuration: 1) {
-                    self.view.alpha = 0.5
-                }
-                showIndicator()
+               // showIndicator()
+                showActivityIndicator()
                 bindProfileData()
                 bindCollectionData()
                 noAdvertisementsLabel.isHidden = true
             }
         }
     }
-    
-   
 }

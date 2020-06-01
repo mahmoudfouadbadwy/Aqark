@@ -31,7 +31,6 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var dateOfAdvertisement: UILabel!
     @IBOutlet weak var numberOfViews: UILabel!
     @IBOutlet weak var imageSlider: ImageSlider!
-    private let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     var propertyViewModel : PropertyDetailViewModel!
     var propertyDataAccess : PropertyDetailDataAccess!
     var advertisementDetails:AdverisementViewModel!
@@ -49,7 +48,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         super.viewDidLoad()
         self.navigationItem.title = "Property Details"
         if PropertyDetailsNetworking.checkNetworkConnection(){
-            self.showIndicator()
+            self.showActivityIndicator()
             self.propertyDataAccess = PropertyDetailDataAccess()
             self.propertyViewModel = PropertyDetailViewModel(propertyDataAccess: self.propertyDataAccess)
             propertyViewModel.populateAdvertisement(id: advertisementId) {[weak self] (advertisement,agent) in
@@ -101,18 +100,6 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     }
 }
 
-//MARK: - UIViewIndicator
-extension PropertyDetailView{
-   private func showIndicator()
-    {
-        networkIndicator.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        networkIndicator.center = view.center
-        networkIndicator.startAnimating()
-        view.addSubview(networkIndicator)
-    }
-    func stopIndicator() {
-        networkIndicator.stopAnimating()
-    }
-}
+
 
 

@@ -34,27 +34,6 @@ extension ProfileViewController{
         
     }
     
-    func showByAnimation()
-    {
-        UIView.animate(withDuration: 1) {
-            self.view.alpha = 1
-        }
-        
-    }
 }
 
-//MARK: - UIViewIndicator
-extension ProfileViewController{
-    func showIndicator()
-    {
-        networkIndicator.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        networkIndicator.center = view.center
-        networkIndicator.startAnimating()
-        view.addSubview(networkIndicator)
-    }
-    
-    func stopIndicator() {
-        networkIndicator.stopAnimating()
-    }
-}
 

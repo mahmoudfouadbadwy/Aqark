@@ -18,14 +18,14 @@ extension AdminReportsView{
     }
     func bindCollectionData()
     {
-        showIndicator()
+        showActivityIndicator()
          self.adminReportViewModel = AdminReportsList(reportData:  AdminReportsData())
         self.adminReportViewModel.getAllReports(completion: {[weak self]
             (reports,users,agents) in
             self?.reports = reports
             self?.usersname  = users
             self?.agentsname = agents
-            self?.stopIndicator()
+            self?.stopActivityIndicator()
         })
     }
     
@@ -53,8 +53,7 @@ extension AdminReportsView:UICollectionViewDataSource{
         let cell:AdminReportsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "reportsCell", for: indexPath) as! AdminReportsCell
         cell.reportContent.text =
             "\(usersname[indexPath.row]) report \(agentsname[indexPath.row])'s advertisement for \(reports[indexPath.row].reportContent)"
-            
-        
+
         setCellConfiguration(cell:cell)
         return cell
     }
