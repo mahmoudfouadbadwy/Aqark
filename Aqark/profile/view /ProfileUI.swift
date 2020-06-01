@@ -13,6 +13,7 @@ extension ProfileViewController{
     {
         hideAllElements(status: true)
         rate.settings.updateOnTouch = false
+        
     }
      func hideAllElements(status:Bool)
     {

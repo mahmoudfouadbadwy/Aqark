@@ -20,94 +20,93 @@ extension AddAdvertisementViewController {
         
         saveAndEditButton.setTitle("Edit", for: .normal)
         editAdvertisementDataSource = EditAdvertisementDataSource(advertisementId: advertisementId)
-        editAdvertisementDataSource.fetchAdvertisement { (myValue) in
-            
+        addAdvertisementVM = AddAdvertisementViewModel(editDataSource : editAdvertisementDataSource)
+        addAdvertisementVM.fetchAdvertisement { (myValue) in
+     
             self.dateOfAdvertisement = myValue.date
-            
             let formatter = DateFormatter()
             formatter.timeZone = TimeZone.current
             formatter.dateFormat = "yyyy-MM-dd HH:mm"
-            
+
             let currentDate = Date()
             let lastTimeForEdit = formatter.date(from: myValue.date!)!.addingTimeInterval(24*60*60)
-            
-            
+
+
             if (currentDate <= lastTimeForEdit)
             {
-                print("can make change")
                 
-                // put all in feilds
                 self.priceTxtField.text = myValue.price
                 self.sizeTxtField.text = myValue.size
-                self.addressTxtField.text = myValue.Address!["location"]
                 self.phoneTxtField.text = myValue.phone
                 self.BedroomsTxtField.text = myValue.bedRooms
                 self.BathroomTxtField.text = myValue.bathRooms
                 self.countyTxtField.text = myValue.country
                 self.describtionTxtView.text = myValue.description
+                if let address = myValue.Address{
+                    self.addressTxtField.text = address["location"]
+                    self.latitude = address["latitude"] ?? ""
+                    self.longitude = address["longitude"] ?? ""
+                }
                 
-                self.latitude = myValue.Address!["latitude"]!
-                self.longitude = myValue.Address!["longitude"]!
-                
-                // segment
-                self.advertisementType = myValue.AdvertisementType!
-                if(self.advertisementType == "Rent"){
-                    self.segment.selectedSegmentIndex = 0
-                }else{
-                    self.segment.selectedSegmentIndex = 1
-                }
-                //picker
-                self.propertyType = myValue.propertyType!
-                print(self.propertyType)
-                if(self.propertyType == "Apartment"){
-                    print(self.propertyType)
-                    self.pickerView.selectRow(2, inComponent: 0, animated: true)
-                }
-                else if(self.propertyType == "Villa"){
-                    print(self.propertyType)
-                    self.pickerView.selectRow(2, inComponent: 0, animated: true)
-                }
-                else{
-                    print(self.propertyType)
-                    self.pickerView.selectRow(2, inComponent: 0, animated: true)
+                if let advertisementType = myValue.AdvertisementType{
+                    self.advertisementType = advertisementType
+                    if(self.advertisementType == "Rent"){
+                        self.segment.selectedSegmentIndex = 0
+                    }else{
+                        self.segment.selectedSegmentIndex = 1
+                    }
                 }
                 
                 
-                //switchButton
-                self.payment = myValue.payment!
-                if (self.payment == "free"){
-                    self.switchButton.isOn = true
-                }else{
-                    self.switchButton.isOn = false
+                if let propertyType = myValue.propertyType{
+                    self.propertyType = propertyType
+                    if(self.propertyType == "Apartment"){
+                        self.pickerView.selectRow(2, inComponent: 0, animated: true)
+                    }
+                    else if(self.propertyType == "Villa"){
+                        self.pickerView.selectRow(2, inComponent: 0, animated: true)
+                    }
+                    else{
+                        self.pickerView.selectRow(2, inComponent: 0, animated: true)
+                    }
                 }
                 
-                // bedroom and bathroom stepper
-                self.bedRoomStepper.value = Double(myValue.bedRooms!)!
-                self.bathRoomStepper.value = Double(myValue.bathRooms!)!
+                if case self.payment = myValue.payment{
+                    if (self.payment == "free"){
+                        self.switchButton.isOn = true
+                    }else{
+                        self.switchButton.isOn = false
+                    }
+                }
                 
+                if let bedroom = myValue.bedRooms{
+                    self.bedRoomStepper.value = Double(bedroom)!
+                }
                 
+                if let bathroom = myValue.bathRooms{
+                      self.bathRoomStepper.value = Double(bathroom)!
+                }
                 
-                //animaities
-                
-                for i in myValue.amenities!
+                if let myValue = myValue.amenities
                 {
-                    let tag = self.selectEditAmenitiesValue(value: i)
-                    self.amentiesButton[tag].setImage(UIImage(named: "advertisement_check"), for: .normal)
-                    self.selectAmenitiesDic[tag] = i
+                    for i in myValue
+                    {
+                        let tag = self.selectEditAmenitiesValue(value: i)
+                        self.amentiesButton[tag].setImage(UIImage(named: "advertisement_check"), for: .normal)
+                        self.selectAmenitiesDic[tag] = i
+                    }
                 }
                 
-                //image
-                
-                self.urlImages = myValue.images!
-                print(self.urlImages)
-                self.collectionView.reloadData()
-                
-                
+                if let urlImages = myValue.images{
+                    self.urlImages = urlImages
+                    self.collectionView.reloadData()
+                }
+
             }else{
                 print("can't make change you have only  one day to change ")
             }
-            
-            
+
+
         }
     }
     

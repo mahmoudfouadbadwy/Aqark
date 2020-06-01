@@ -24,12 +24,15 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var stepperExperiance: UIStepper!
     @IBOutlet weak var countryView: UIView!
     @IBOutlet weak var indicatorView: UIView!
+    @IBOutlet weak var viewForImage: UIView!
     
+    @IBOutlet weak var cameraChangeProfilePic: UIImageView!
     var networkIndicator = UIActivityIndicatorView()
     var imageViewPicker = UIImagePickerController()
     var autocompletecontroller = GMSAutocompleteViewController()
     var filter = GMSAutocompleteFilter()
     var profileData : ProfileDataAccess!
+    var profileStore : ProfileStore!
     var editProfileViewModel :EditProfileViewModel!
     var role = ""
     var profilePic :Any!
@@ -55,13 +58,20 @@ class EditProfileViewController: UIViewController {
     func setupView()
     {
         imageView.layer.cornerRadius = imageView.bounds.height / 2
+        viewForImage.layer.cornerRadius = viewForImage.bounds.height / 2
         indicatorView.isHidden = true
         countryView.isHidden = true
         autocompletecontroller.delegate = self
+        cameraChangeProfilePic.isUserInteractionEnabled = true
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openLibrary)))
+        cameraChangeProfilePic.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openLibrary)))
         fetchProfileDataFromFirebase()
        
+    }
+    deinit {
+        print("deinit")
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
@@ -112,6 +122,7 @@ extension EditProfileViewController{
        guard let status = connection?.isReachable else{return false}
        return status
     }
+    
 }
 
 
@@ -213,8 +224,9 @@ extension EditProfileViewController{
     
      func fetchProfileDataFromFirebase()
      {
-         profileData = ProfileDataAccess()
-         profileData.getProfileData(onSuccess: { (profile) in
+        profileData = ProfileDataAccess()
+        profileStore = ProfileStore(by: profileData)
+        profileStore.getProfileData(onSuccess: { (profile) in
             if (profile.role == "user")
              {
                  self.phoneNumberTxtField.isHidden = true
