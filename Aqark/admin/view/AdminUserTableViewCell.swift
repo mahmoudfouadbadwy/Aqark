@@ -24,11 +24,10 @@ class AdminUserTableViewCell: UITableViewCell {
         
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     override func layoutSubviews() {
+        
         contentView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 1.0)
         cardBackgroundView.backgroundColor = .white
         cardBackgroundView.layer.cornerRadius = 10.0
@@ -36,5 +35,14 @@ class AdminUserTableViewCell: UITableViewCell {
         cardBackgroundView.layer.shadowColor = UIColor.black.cgColor
         cardBackgroundView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         cardBackgroundView.layer.shadowOpacity = 0.8
+       // circularImage()
+    }
+    
+    private func circularImage(){
+                DispatchQueue.main.asyncAfter(deadline : .now() + 0.05) {
+                    self.userImage.layer.cornerRadius = self.userImage.frame.size.width / 2
+                self.userImage.layer.masksToBounds = true
+                self.userImage.layer.borderColor = UIColor.black.cgColor
+                self.userImage.layer.borderWidth = 1 }
     }
 }

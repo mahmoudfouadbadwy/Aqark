@@ -31,6 +31,7 @@ class AdminUsersViewController: UIViewController{
         adminUsersViewModel = AdminUsersListViewModel(dataAccess: dataAccess)
         adminUsersViewModel.populateUsers {
             self.usersTableView.reloadData()
+            self.usersTableView.reloadData()
         }
     }
     
@@ -49,23 +50,16 @@ extension AdminUsersViewController : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let userCell = usersTableView.dequeueReusableCell(withIdentifier: "User Cell", for: indexPath) as? AdminUserTableViewCell
         userCell?.userName.text = adminUsersViewModel.adminUsersViewList[indexPath.row].userName
-        userCell?.userRating.rating = adminUsersViewModel.adminUsersViewList[indexPath.row].userRating.toDouble() ?? 0.0
+        userCell?.userRating.rating = adminUsersViewModel.adminUsersViewList[indexPath.row].userRating
         let userImageURL = URL(string: adminUsersViewModel.adminUsersViewList[indexPath.row].userImage)
         userCell?.userImage.sd_setImage(with: userImageURL, placeholderImage: UIImage(named: "signup_company"))
         return userCell!
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return usersTableView.frame.height / 7.0
+        return usersTableView.frame.height / 4.0
     }
 }
-
-extension String {
-    func toDouble() -> Double? {
-        return NumberFormatter().number(from: self)?.doubleValue
-    }
-}
-
 
 extension AdminUsersViewController : UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

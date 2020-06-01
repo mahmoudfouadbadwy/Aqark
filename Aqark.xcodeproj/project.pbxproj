@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E0E988F2482C1CE0001F5DA /* CircularImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0E988E2482C1CD0001F5DA /* CircularImage.swift */; };
 		3E69A8B4247EF59600193605 /* AdminUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E69A8B2247EF59600193605 /* AdminUserData.swift */; };
 		3E69A8B5247EF59600193605 /* AdminHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E69A8B3247EF59600193605 /* AdminHelper.swift */; };
 		3E69A8B8247EF5A900193605 /* AdminUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E69A8B6247EF5A800193605 /* AdminUser.swift */; };
@@ -147,6 +148,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E0E988E2482C1CD0001F5DA /* CircularImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircularImage.swift; path = Aqark/services/view/CircularImage.swift; sourceTree = SOURCE_ROOT; };
 		3E69A8B2247EF59600193605 /* AdminUserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUserData.swift; sourceTree = "<group>"; };
 		3E69A8B3247EF59600193605 /* AdminHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminHelper.swift; sourceTree = "<group>"; };
 		3E69A8B6247EF5A800193605 /* AdminUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUser.swift; sourceTree = "<group>"; };
@@ -668,6 +670,7 @@
 				3E69A8C4247EF5DD00193605 /* AdminUserTableViewCell.swift */,
 				3E69A8C5247EF5DE00193605 /* AdminUserTableViewCell.xib */,
 				3E69A8C9247EF5DF00193605 /* CustomSegment.swift */,
+				3E0E988E2482C1CD0001F5DA /* CircularImage.swift */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -1103,6 +1106,7 @@
 				BFCF0BCB24677F8000A43D8B /* Aqark.xcdatamodeld in Sources */,
 				BF6DC68E2473522B0030AE52 /* PropertyDetailView.swift in Sources */,
 				BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */,
+				3E0E988F2482C1CE0001F5DA /* CircularImage.swift in Sources */,
 				BFA42D9C247BFCE000A986E8 /* AmenitiesCollection.swift in Sources */,
 				3E69A8D5247EF5E000193605 /* CustomSegment.swift in Sources */,
 				823D6EA2247DDA7200F0B0FF /* extensionEditAdvertisement.swift in Sources */,

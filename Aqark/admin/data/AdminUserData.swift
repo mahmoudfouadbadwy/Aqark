@@ -33,10 +33,24 @@ class AdminDataAccess{
         let userCountry = userDictionary[AdminUserKey.userCountry] as? String ?? "No Country"
         let userCompany = userDictionary[AdminUserKey.userCompany] as? String ?? "No Company"
         let userRole = userDictionary[AdminUserKey.userRole] as! String
-        let userExperience = "4"
-        let userRating = "4"
-        let userImage = "https://cdn1.vectorstock.com/i/1000x1000/26/40/profile-placeholder-image-gray-silhouette-no-vector-22122640.jpg"
+        let userExperience = userDictionary[AdminUserKey.userExperience] as? String ?? "Not Provided"
+        let userRatingDic = userDictionary[AdminUserKey.userRating] as? [String:Any] ?? [:]
+        let userRating = getUserRating(userRatingDic: userRatingDic)
+        let userImage = userDictionary[AdminUserKey.userPicture] as? String ?? ""
         let user = AdminUser(userId:userId, userName: userName, userEmail: userEmail, userPhone: userPhone, userCountry: userCountry, userCompany: userCompany, userRole: userRole, userRating: userRating, userExperience: userExperience, userImage: userImage)
         return user
     }
+    
+    private func getUserRating(userRatingDic : [String:Any])->Double{
+        var userRating = 0.0
+        if(userRatingDic.count == 0){
+            return userRating
+        }else{
+            for rate in userRatingDic{
+                userRating += rate.value as! Double
+            }
+            return userRating / Double(userRatingDic.count)
+        }
+    }
+    
 }

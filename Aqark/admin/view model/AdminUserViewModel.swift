@@ -10,7 +10,7 @@ import Foundation
 
  class AdminUserViewModel{
     var userName : String = ""
-    var userRating : String = ""
+    var userRating : Double = 0.0
     var userImage : String = ""
     
     init(adminUser : AdminUser) {

@@ -32,10 +32,23 @@ class ServiceDataAccess{
            let serviceUserCountry = serviceUserDictionary[ServiceUserKey.userCountry] as? String ?? "No Country"
            let serviceUserCompany = serviceUserDictionary[ServiceUserKey.userCompany] as? String ?? "No Company"
            let serviceUserRole = serviceUserDictionary[ServiceUserKey.userRole] as! String
-           let serviceUserExperience = "4"
-           let serviceUserRating = "4"
-           let serviceUserImage = "https://cdn1.vectorstock.com/i/1000x1000/26/40/profile-placeholder-image-gray-silhouette-no-vector-22122640.jpg"
-           let user = ServiceUser(userId:serviceUserId, userName: serviceUserName, userEmail: serviceUserEmail, userPhone: serviceUserPhone, userCountry: serviceUserCountry, userCompany: serviceUserCompany, userRole: serviceUserRole, userRating: serviceUserRating, userExperience: serviceUserExperience, userImage: serviceUserImage)
+        let serviceUserExperience = serviceUserDictionary[ServiceUserKey.userExperience] as? String ?? "Not Provided"
+        let serviceUserRatingDic = serviceUserDictionary[ServiceUserKey.userServiceRating] as? [String:Any] ?? [:]
+        let serviceUserServiceRating = getUserServiceRating(userRatingDic: serviceUserRatingDic)
+        let serviceUserImage = serviceUserDictionary[ServiceUserKey.userPicture] as? String ?? ""
+        let user = ServiceUser(userId:serviceUserId, userName: serviceUserName, userEmail: serviceUserEmail, userPhone: serviceUserPhone, userCountry: serviceUserCountry, userCompany: serviceUserCompany, userRole: serviceUserRole, userServiceRating: serviceUserServiceRating, userExperience: serviceUserExperience, userImage: serviceUserImage)
            return user
        }
+    
+    private func getUserServiceRating(userRatingDic : [String:Any])->Double{
+         var userRating = 0.0
+         if(userRatingDic.count == 0){
+             return userRating
+         }else{
+             for rate in userRatingDic{
+                 userRating += rate.value as! Double
+             }
+             return userRating / Double(userRatingDic.count)
+         }
+    }
 }

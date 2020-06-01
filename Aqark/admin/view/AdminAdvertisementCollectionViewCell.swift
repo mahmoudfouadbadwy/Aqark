@@ -22,6 +22,8 @@ class AdminAdvertisementCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        advertisementPropertyImage.layer.cornerRadius = 10
+            advertisementPropertyImage.clipsToBounds = true
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longGesturePressed(gesture:)))
             addGestureRecognizer(longPressGesture)
     }
