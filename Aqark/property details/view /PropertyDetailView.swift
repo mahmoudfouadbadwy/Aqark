@@ -14,6 +14,14 @@ import Cosmos
 
 class PropertyDetailView: UIViewController,UIActionSheetDelegate{
    
+    @IBOutlet weak var ReviewHeight: NSLayoutConstraint!
+    @IBOutlet weak var addReviewContentTextView: UITextView!
+    
+    @IBOutlet weak var submitReviewBtn: UIButton!
+    @IBOutlet weak var reviewTextView: UITextView!
+    @IBOutlet weak var addReviewBtn: UIButton!
+    @IBOutlet weak var reviewHeaderLabel: UILabel!
+  
     @IBOutlet weak var content: UIView!
     @IBOutlet weak var amenitiesTopSpace: NSLayoutConstraint!
     @IBOutlet weak var amenitiesHeight: NSLayoutConstraint!
@@ -37,15 +45,16 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     var propertyDataAccess : PropertyDetailDataAccess!
     var advertisementDetails:AdverisementViewModel!
     var advertisementReportViewModel: ReportViewModel!
+    var reviewData: ReviewData!
+    var advertisementReviewViewModel: ReviewsViewModel!
+    var reviewViewModel :ReviewViewModel!
     var reportData: ReportData!
     var agent:AgentViewModel!
     var advertisementId:String!
     var downloadedImages:[UIImage] = []
     let callButton = JJFloatingActionButton()
-    var inappropriateThings : String!
-    var fakeNumber : String!
-    var fakeData : String!
-    var deceitfulPerson : String!
+    var arrOfReviewsViewModel : [ReviewViewModel]!
+    @IBOutlet weak var reviewsCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Property Details"
@@ -56,7 +65,16 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
             propertyViewModel.populateAdvertisement(id: advertisementId) {[weak self] (advertisement,agent) in
                 self?.advertisementDetails = advertisement
                 self?.agent = agent
+                self?.reviewData = ReviewData()
                 self?.bindAdvertisementData()
+                self?.setUpReviewsCollectionView()
+                self?.advertisementReviewViewModel = ReviewsViewModel(dataAccess: self!.reviewData)
+                self?.manageReviewAppearence()
+                self?.advertisementReviewViewModel.populateAdvertisementReviews(id: self!.advertisementId, completionForPopulateReviews: { reviewsResults in
+                    self?.arrOfReviewsViewModel = reviewsResults
+                    self!.reviewsCollectionView.reloadData()
+                      })
+
                 }
         }
         else{
@@ -77,11 +95,17 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         mapItem.openInMaps(launchOptions: options)
     }
     
-
+    @IBAction func addReviewBtn(_ sender: Any) {
+        manageAddReviewOutlets()
+    }
+    
+    @IBAction func submitReview(_ sender: Any) {
+        addReview()
+    }
+    
     @IBAction func showReportActionSheet(_ sender: Any) {
         preformReport()
     }
-
 
     @IBAction func openPropertiesView(_ sender: Any) {
         let properties = AgentPropertiesView()

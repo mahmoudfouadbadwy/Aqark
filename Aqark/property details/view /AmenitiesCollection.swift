@@ -58,6 +58,7 @@ extension PropertyDetailView{
 
 extension PropertyDetailView:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == amenitiesCollection{
         if self.advertisementDetails.amenities.count > 0
         {
             return self.advertisementDetails.amenities.count
@@ -68,20 +69,40 @@ extension PropertyDetailView:UICollectionViewDataSource{
             amenitiesTopSpace.constant = 0
             return 0
         }
+        }else{
+            if let arrOfReviewsViewModel = arrOfReviewsViewModel{
+            return arrOfReviewsViewModel.count
+            }else{
+                return 0
+            }
+        }
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell:AmenitiesCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "amenitiesCell", for: indexPath) as! AmenitiesCell)
-        
+       
+         if collectionView == amenitiesCollection{
+             let cell:AmenitiesCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "amenitiesCell", for: indexPath) as! AmenitiesCell)
         cell.amenitiesText.text = self.advertisementDetails.amenities[indexPath.row]
         cell.amenitiesIcon.image = getAmenitiesIcon(amenities: self.advertisementDetails.amenities[indexPath.row])
-        return cell
+            return cell
+         }else{
+               let cell:ReviewCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "ReviewCell", for: indexPath) as! ReviewCell)
+             reviewViewModel = arrOfReviewsViewModel[indexPath.row]
+            cell.reviewerUserNameLabel.text = reviewViewModel.userName
+            cell.reviewContentTextView.text = reviewViewModel.reviewContent
+            cell.reviewerImage?.sd_setImage(with: URL(string: reviewViewModel.userImage), placeholderImage: UIImage(named: "NoImage"))
+            return cell
+        }
     }
 }
 
 extension PropertyDetailView:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == amenitiesCollection{
         return CGSize(width: collectionView.frame.width/2, height: collectionView.frame.height/3)
+        }else{
+            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+
+        }
     }
 }
 

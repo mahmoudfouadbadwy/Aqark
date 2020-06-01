@@ -19,9 +19,7 @@ class AdvertisementCellCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var favButton: UIButton!
     var delegat:FavouriteProtocol?
-
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

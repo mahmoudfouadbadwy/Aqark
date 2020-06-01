@@ -12,6 +12,7 @@ import FirebaseDatabase
 
 class PropertyDetailDataAccess {
     var ref: DatabaseReference!
+  
    
     func gatAdvertisementDetialby(id :String ,completion: @escaping (_ propertyResult:Advertisment,Agent)-> Void){
         ref = Database.database().reference()
@@ -40,7 +41,6 @@ class PropertyDetailDataAccess {
                 self.getUserDetails(id: userId, completion: {(user) in
                     completion(advertisment, user)
                 })
-                
             }
         })
     }

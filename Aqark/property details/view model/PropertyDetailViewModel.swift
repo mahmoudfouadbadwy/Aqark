@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class PropertyDetailViewModel {
      var propertyDataAccess:PropertyDetailDataAccess
@@ -19,6 +20,14 @@ class PropertyDetailViewModel {
             completion(AdverisementViewModel(advertisement: advertisemant),AgentViewModel(agent: user))
         }
     }
+    
+    func checkAdvertisementOwner(agentId: String)-> Bool{
+           if Auth.auth().currentUser?.uid == agentId {
+               return true
+           }else{
+               return false
+           }
+       }
 }
 
 class AdverisementViewModel{

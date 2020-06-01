@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Firebase
+
 
 struct ReportModel {
     var reportText: String!

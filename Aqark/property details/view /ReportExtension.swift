@@ -13,23 +13,19 @@ extension PropertyDetailView {
     func showReportActionSheet(){
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Posting Inappropriate things", style: .default , handler:{ (UIAlertAction)in
-            self.inappropriateThings = "Posting Inappropriate things"
-            self.reportAdvertisement(report: self.inappropriateThings)
+            self.reportAdvertisement(report: "Posting Inappropriate things")
         }))
         
         alert.addAction(UIAlertAction(title: "Fake Data", style: .default , handler:{ (UIAlertAction)in
-            self.fakeData = "Fake Data"
-            self.reportAdvertisement(report: self.fakeData)
+            self.reportAdvertisement(report: "Fake Data")
         }))
         
         alert.addAction(UIAlertAction(title: "Fake Number", style: .default , handler:{ (UIAlertAction)in
-            self.fakeNumber = "Fake Number"
-            self.reportAdvertisement(report: self.fakeNumber)
+            self.reportAdvertisement(report:  "Fake Number")
         }))
         
         alert.addAction(UIAlertAction(title: "Deceitful Person", style: .default , handler:{ (UIAlertAction)in
-            self.deceitfulPerson = "Deceitful Person"
-            self.reportAdvertisement(report: self.deceitfulPerson)
+            self.reportAdvertisement(report: "Deceitful Person")
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
@@ -49,11 +45,7 @@ extension PropertyDetailView {
     }
 
     func showAlert(title : String){
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: title, style: .default , handler:{ (UIAlertAction)in
-            
-        }))
-        
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler:{ (UIAlertAction)in
             
         }))
@@ -64,10 +56,14 @@ extension PropertyDetailView {
     func preformReport(){
         self.reportData = ReportData()
         self.advertisementReportViewModel = ReportViewModel(dataAccess: reportData)
+        if propertyViewModel.checkAdvertisementOwner(agentId: advertisementDetails.userID ){
+             self.showAlert(title: "You can not report your Advertisement")
+        }else{
         if advertisementReportViewModel.checkUserAuth(){
             showReportActionSheet()
         }else{
             self.showAlert(title: "Please Login To Report This Advertisement")
         }
+    }
     }
 }

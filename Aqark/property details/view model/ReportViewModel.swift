@@ -12,6 +12,7 @@ class ReportViewModel{
      
        var dataAccess : ReportData!
        var reportModel: ReportModel!
+    
  
     init(dataAccess : ReportData) {
           self.dataAccess = dataAccess
@@ -22,6 +23,7 @@ class ReportViewModel{
             completionForSetReportData(result)
         })
     }
+   
     
     func getUserId()-> String{
         if let user = Auth.auth().currentUser{
