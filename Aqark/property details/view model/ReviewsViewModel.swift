@@ -13,7 +13,7 @@ class ReviewsViewModel{
     
        var dataAccess : ReviewData!
        var reviewModel: ReviewModel!
-    var userModel : ReviewUserModel!
+      var userModel : ReviewUserModel!
     var reviewsViewModel : [ReviewViewModel] = [ReviewViewModel]()
     
     
@@ -23,7 +23,7 @@ class ReviewsViewModel{
           self.dataAccess = dataAccess
       }
     func setReviewData(reviewContent : String, advertisementId : String){
-        reviewModel = ReviewModel(reviewContent: reviewContent,userId: self.getUserId(), advertisementId : advertisementId)
+        reviewModel = ReviewModel(reviewContent: reviewContent,userId: self.getUserId(), advertisementId : advertisementId,userName:"",userImage:"")
         dataAccess.addReview(reviewModel: reviewModel)
         }
     

@@ -79,6 +79,7 @@
 		826A9A442474CC730046E562 /* extensionviewPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A432474CC730046E562 /* extensionviewPicker.swift */; };
 		AB359ED5E1D6FD408208700F /* Pods_AqarkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */; };
 		BF2F5ECB2485495E007AD263 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2F5ECA2485495E007AD263 /* Indicator.swift */; };
+		BF2F5ECD24859A47007AD263 /* ReviewUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2F5ECC24859A47007AD263 /* ReviewUserModel.swift */; };
 		BF36E8692475A3F200FD9192 /* AdvertisementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF36E8682475A3F100FD9192 /* AdvertisementCell.xib */; };
 		BF3A84E3247FEB920022F636 /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3A84E2247FEB920022F636 /* CoreDataViewModel.swift */; };
 		BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AD38A246A3B120013FF4B /* AccountViewModel.swift */; };
@@ -169,7 +170,6 @@
 		C66E3B7A247FCC0B00E1BAF2 /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B79247FCC0B00E1BAF2 /* ReportModel.swift */; };
 		C66E3B7C247FCDED00E1BAF2 /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B7B247FCDED00E1BAF2 /* ReportViewModel.swift */; };
 		C66E3B7E247FD8E900E1BAF2 /* ReportExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B7D247FD8E900E1BAF2 /* ReportExtension.swift */; };
-		C677D60224850ECD006EE4F3 /* ReviewUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C677D60124850ECD006EE4F3 /* ReviewUserModel.swift */; };
 		C67921BA2474BF0800A24192 /* AdvertisementData .swift in Sources */ = {isa = PBXBuildFile; fileRef = C67921B92474BF0700A24192 /* AdvertisementData .swift */; };
 		C67921BC2474BF2100A24192 /* AdvertisementSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67921BB2474BF2100A24192 /* AdvertisementSearchModel.swift */; };
 		C67921BE2474BF3000A24192 /* AdvertisementListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67921BD2474BF2F00A24192 /* AdvertisementListViewModel.swift */; };
@@ -264,6 +264,7 @@
 		88E560A844B318E2835E7F97 /* Pods-Aqark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqark.release.xcconfig"; path = "Target Support Files/Pods-Aqark/Pods-Aqark.release.xcconfig"; sourceTree = "<group>"; };
 		B77402FFEAE979F1B4E1F970 /* Pods-AqarkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AqarkTests.release.xcconfig"; path = "Target Support Files/Pods-AqarkTests/Pods-AqarkTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF2F5ECA2485495E007AD263 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
+		BF2F5ECC24859A47007AD263 /* ReviewUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewUserModel.swift; sourceTree = "<group>"; };
 		BF36E8682475A3F100FD9192 /* AdvertisementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvertisementCell.xib; sourceTree = "<group>"; };
 		BF3A84E2247FEB920022F636 /* CoreDataViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
 		BF3AD38A246A3B120013FF4B /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
@@ -357,7 +358,6 @@
 		C66E3B79247FCC0B00E1BAF2 /* ReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
 		C66E3B7B247FCDED00E1BAF2 /* ReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
 		C66E3B7D247FD8E900E1BAF2 /* ReportExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportExtension.swift; sourceTree = "<group>"; };
-		C677D60124850ECD006EE4F3 /* ReviewUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewUserModel.swift; sourceTree = "<group>"; };
 		C67921B92474BF0700A24192 /* AdvertisementData .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AdvertisementData .swift"; sourceTree = "<group>"; };
 		C67921BB2474BF2100A24192 /* AdvertisementSearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementSearchModel.swift; sourceTree = "<group>"; };
 		C67921BD2474BF2F00A24192 /* AdvertisementListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementListViewModel.swift; sourceTree = "<group>"; };
@@ -1025,10 +1025,10 @@
 		BFBAED842468A5C000996DE8 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				BF2F5ECC24859A47007AD263 /* ReviewUserModel.swift */,
 				BF6DC685247351E30030AE52 /* Advertisment.swift */,
 				C66E3B79247FCC0B00E1BAF2 /* ReportModel.swift */,
 				C65805C924828DAE003F3DA1 /* ReviewModel.swift */,
-				C677D60124850ECD006EE4F3 /* ReviewUserModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1328,7 +1328,7 @@
 				826A9A2D2473E4C20046E562 /* AddAdvertisementViewModel.swift in Sources */,
 				BF4355872474E1DE001DA5D8 /* GooglePlaceAutoComplete.swift in Sources */,
 				BF6DC686247351E30030AE52 /* Advertisment.swift in Sources */,
-				C677D60224850ECD006EE4F3 /* ReviewUserModel.swift in Sources */,
+				BF2F5ECD24859A47007AD263 /* ReviewUserModel.swift in Sources */,
 				BF3AD391246A3F610013FF4B /* SignUpDataAccess.swift in Sources */,
 				BF3B269824702C410064BDF0 /* ProfileData.swift in Sources */,
 				BF66602C2477C75B00EDF89F /* CoreDataExtension.swift in Sources */,
@@ -1349,7 +1349,6 @@
 				BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */,
 				BFA42D9C247BFCE000A986E8 /* AmenitiesCollection.swift in Sources */,
 				823D6EA2247DDA7200F0B0FF /* extensionEditAdvertisement.swift in Sources */,
-
 				825F58742481425300DF60FB /* EditProfileViewModel.swift in Sources */,
 				3E69A8D5247EF5E000193605 /* CustomSegment.swift in Sources */,
 				823D6EA2247DDA7200F0B0FF /* extensionEditAdvertisement.swift in Sources */,
@@ -1358,11 +1357,8 @@
 				3E69A8D2247EF5E000193605 /* AdminTabBarController.swift in Sources */,
 				826A9A2C2473E4C20046E562 /* ExtensionAddAdvertisementViewModel.swift in Sources */,
 				BF634C9E2473373200B65B90 /* LoginViewModel.swift in Sources */,
-
 				C65805CE2482A7C1003F3DA1 /* ReviewExtension.swift in Sources */,
-
 				825DF58824801EDA0019C27C /* EditProfileViewController.swift in Sources */,
-
 				823D6EA4247DDB9D00F0B0FF /* extensionSelectAmenities.swift in Sources */,
 				826A9A2F2473E4C20046E562 /* FileAddAdvertisementViewModelProtocol.swift in Sources */,
 				BF8475EB2483EF4900D01A9D /* ReportsCollection.swift in Sources */,
@@ -1413,12 +1409,10 @@
 				3E943FC7246A053300A1FF83 /* FirstScreenViewController.swift in Sources */,
 				BFA42D99247BF93E00A986E8 /* AmenitiesCell.swift in Sources */,
 				BF8475D82483E35600D01A9D /* AdminReportsView.swift in Sources */,
-
 				BF6D507824804B4000FFDD30 /* AgentPropertiesView.swift in Sources */,
 				823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */,
 				BFF0161A24810CB800C3B7C0 /* AgentViewModel.swift in Sources */,
 				823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */,
-
 				C61CFE3224765998000EC0EF /* PaymentViewController.swift in Sources */,
 				BF3B2695247029850064BDF0 /* ProfileViewModel.swift in Sources */,
 				C66E3B7A247FCC0B00E1BAF2 /* ReportModel.swift in Sources */,
@@ -1437,9 +1431,7 @@
 				826A9A382473EAC40046E562 /* AddAdvertisementViewController.swift in Sources */,
 				3ED938E52480C023005BF1EF /* ServiceHelper.swift in Sources */,
 				3E69A8BE247EF5BC00193605 /* AdminAdvertisementsListViewModel.swift in Sources */,
-
 				C65805CC2482910A003F3DA1 /* ReviewsViewModel.swift in Sources */,
-
 				BF4355882474E1DE001DA5D8 /* SearchViewController.swift in Sources */,
 				826A9A442474CC730046E562 /* extensionviewPicker.swift in Sources */,
 				3ED938DD2480A878005BF1EF /* ServiceUser.swift in Sources */,
