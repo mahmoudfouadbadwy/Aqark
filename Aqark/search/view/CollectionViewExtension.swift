@@ -35,7 +35,10 @@ extension SearchViewController : UICollectionViewDataSource{
             cell.propertyPriceLabel?.text = "\(adViewModel.price ?? 0) EGP"
         }
         
-        self.setFavouriteButton(cell: cell, index: indexPath.row)
+        
+        cell.favButton.setTitle(adViewModel.advertisementId, for: .normal)
+        self.setFavouriteButton(btn: cell.favButton, id: adViewModel.advertisementId)
+        cell.delegat = self
 
         return cell
     }

@@ -36,7 +36,7 @@ extension FavouriteViewController:FavouriteProtocol{
         let advertisment = arrOfAdViewModel[favButton.tag] 
         
         if (favButton.tintColor == UIColor.red){
-            let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this advertisement from favorite list ? ", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this advertisement from favourite list ? ", preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { (action) in
                 favButton.tintColor = UIColor.lightGray
                 self.coreDataViewModel!.deleteAdvertismentFromFavourite(id: (advertisment.advertisementId))
@@ -57,7 +57,7 @@ extension FavouriteViewController:FavouriteProtocol{
                 favButton.tintColor = UIColor.red
                 self.coreDataViewModel!.addAdvertismentToFavourite(id: (advertisment.advertisementId))
             }else{
-                let alert = UIAlertController(title: "Add To Favourite", message: "Can't add to favourite maximum 5 Ads can be added ", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Add To Favourite", message: "Can't add to favourite maximum 20 Ads can be added ", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }

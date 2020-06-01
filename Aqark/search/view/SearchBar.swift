@@ -30,10 +30,8 @@ extension SearchViewController:  UISearchBarDelegate{
     }
     
     func filterContentForSearchBarText(_ searchText: String){
-        let advertisementList = advertismentsListViewModel.advertismentsViewModel
-        unFilteredAdsList = advertisementList
         let searchText = searchBar.text ?? ""
-        filteredAdsList = advertisementList.filter { advertisement -> Bool in
+        filteredAdsList = arrOfAdViewModel.filter { advertisement -> Bool in
             return advertisement.address.lowercased().contains(searchText.lowercased())
         }
         searchCollectionView.reloadData()

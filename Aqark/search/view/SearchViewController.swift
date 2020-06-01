@@ -46,6 +46,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     var adsSortedList = [AdvertisementViewModel]()
     var unFilteredAdsList = [AdvertisementViewModel]()
     let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
+    var favouriteArray: [AdvertisementViewModel]!
     var arrOfAdViewModel : [AdvertisementViewModel]!{
         didSet{
             self.searchCollectionView.reloadData()
@@ -97,6 +98,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         }else{
             setUpCollectionView()
             getCollectionViewData()
+            self.searchCollectionView.reloadData()
         }
     }
 

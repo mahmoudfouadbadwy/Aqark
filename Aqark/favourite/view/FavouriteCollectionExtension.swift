@@ -11,7 +11,6 @@ import UIKit
 extension FavouriteViewController : UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            print("  count  \(arrOfAdViewModel.count)")
             return arrOfAdViewModel.count
     }
     
@@ -72,20 +71,16 @@ extension FavouriteViewController{
     }
     
     func getCollectionViewData(){
-        self.dataAccess = FavouriteDataAccess()
-        self.dataAccess.getAllFavouriteAdvertisements { (allFavAds, numOfFavAds) in
+        self.favouriteListViewModel.populateAds { (allFavAds, numOfFavAds) in
             self.adsCount = numOfFavAds
-            
             if allFavAds.isEmpty{
-                self.labelPlaceHolder.isHidden = false
-                self.labelPlaceHolder.text = "There is no advertisements in favourite list."
                 print("  is empty  ")
             }else{
                 self.arrOfAdViewModel = allFavAds
                 self.favouriteCollectionView.reloadData()
                 self.stopIndicator()
             }
-            print(" numOfFavAds  \(numOfFavAds)  ")
+            print(" numOfdelAds  \(numOfFavAds)  ")
             self.showDeletedAdsAlert()
         }
     }

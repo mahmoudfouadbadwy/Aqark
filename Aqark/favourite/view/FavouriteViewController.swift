@@ -15,10 +15,10 @@ class FavouriteViewController: UIViewController {
     @IBOutlet weak var labelPlaceHolder: UILabel!
     let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     var coreDataViewModel: CoreDataViewModel?
-    var adViewModel: FavouriteModel!
-    var dataAccess: FavouriteDataAccess!
+    var adViewModel: FavouriteViewModel!
     var adsCount:Int=0
-    var arrOfAdViewModel : [FavouriteModel]=[FavouriteModel]()
+    var favouriteListViewModel : FavouriteListViewModel=FavouriteListViewModel(dataAccess: FavouriteDataAccess())
+    var arrOfAdViewModel : [FavouriteViewModel]=[FavouriteViewModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +31,18 @@ class FavouriteViewController: UIViewController {
             favouriteCollectionView.isHidden = true
             labelPlaceHolder.text = "Internet connection not available"
         }else{
-            labelPlaceHolder.isHidden = true
-            showIndicator()
-            self.setupCoredata()
-            setUpCollectionView()
-            getCollectionViewData()
-            showDeletedAdsAlert()
-            self.favouriteCollectionView.reloadData()
+            if(favouriteListViewModel.getAllAdvertisment().count == 0){
+                self.labelPlaceHolder.isHidden = false
+                self.labelPlaceHolder.text = "There is no advertisements in favourite list."
+            }else{
+                labelPlaceHolder.isHidden = true
+                showIndicator()
+                self.setupCoredata()
+                setUpCollectionView()
+                getCollectionViewData()
+                showDeletedAdsAlert()
+                self.favouriteCollectionView.reloadData()
+            }
         }
     }
     
