@@ -42,17 +42,12 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         if(ProfileNetworking.checkNetworkConnection())
         {
-            if (ProfileNetworking.checkAuthuntication())
-            {
+           
                 setupView()
                 setNavigationProperties()
                 setupCollection()
                 noAdvertisementsLabel.isHidden = true
-            }
-            else
-            {
-          self.navigationController?.pushViewController(FirstScreenViewController(), animated: true)
-            }
+        
         }
         else
         {
@@ -68,7 +63,6 @@ class ProfileViewController: UIViewController {
             }
             else
             {
-               // showIndicator()
                 showActivityIndicator()
                 bindProfileData()
                 bindCollectionData()
