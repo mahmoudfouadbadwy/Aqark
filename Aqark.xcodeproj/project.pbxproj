@@ -54,6 +54,8 @@
 		BF43558A2474E1DE001DA5D8 /* CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4355832474E1DE001DA5D8 /* CollectionViewExtension.swift */; };
 		BF4423332469D1B80050BD8A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4423312469D1B80050BD8A /* SignUpView.swift */; };
 		BF4423342469D1B80050BD8A /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF4423322469D1B80050BD8A /* SignUpView.xib */; };
+		BF4E2F4D24866EB9001137AA /* FavouriteButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E2F4C24866EB9001137AA /* FavouriteButtonProtocol.swift */; };
+		BF4E2F4F24866F34001137AA /* FavouriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E2F4E24866F34001137AA /* FavouriteButton.swift */; };
 		BF634C9E2473373200B65B90 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634C9D2473373200B65B90 /* LoginViewModel.swift */; };
 		BF634CA224733A9000B65B90 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634C9F24733A8F00B65B90 /* CustomTextField.swift */; };
 		BF634CA324733A9000B65B90 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634CA024733A8F00B65B90 /* LoginViewController.swift */; };
@@ -178,6 +180,8 @@
 		BF4355832474E1DE001DA5D8 /* CollectionViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewExtension.swift; sourceTree = "<group>"; };
 		BF4423312469D1B80050BD8A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		BF4423322469D1B80050BD8A /* SignUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
+		BF4E2F4C24866EB9001137AA /* FavouriteButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteButtonProtocol.swift; sourceTree = "<group>"; };
+		BF4E2F4E24866F34001137AA /* FavouriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteButton.swift; sourceTree = "<group>"; };
 		BF634C9D2473373200B65B90 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		BF634C9F24733A8F00B65B90 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		BF634CA024733A8F00B65B90 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -431,6 +435,8 @@
 				BFA42D97247BF93E00A986E8 /* AmenitiesCell.swift */,
 				BFA42D98247BF93E00A986E8 /* AmenitiesCell.xib */,
 				BFA42D9B247BFCE000A986E8 /* AmenitiesCollection.swift */,
+				BF4E2F4E24866F34001137AA /* FavouriteButton.swift */,
+				BF4E2F4C24866EB9001137AA /* FavouriteButtonProtocol.swift */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -1055,6 +1061,7 @@
 				BF66CC1E246C678B00C9FD01 /* Countries.swift in Sources */,
 				823D6EA8247DDEE600F0B0FF /* extensionSetupView.swift in Sources */,
 				BFC578BD24744F0600C77873 /* ProfileNavigationProperties.swift in Sources */,
+				BF4E2F4D24866EB9001137AA /* FavouriteButtonProtocol.swift in Sources */,
 				BF4355862474E1DE001DA5D8 /* AdvertisementCellCollectionViewCell.swift in Sources */,
 				BF8111B7247A36410059D571 /* BindDetails.swift in Sources */,
 				3EA8369B246CE13A009AD024 /* ValidationProtocol.swift in Sources */,
@@ -1086,6 +1093,7 @@
 				BF4355852474E1DE001DA5D8 /* SearchBar.swift in Sources */,
 				BF77D47B2471698E00455A25 /* ProfileAdvertisementCell.swift in Sources */,
 				BF3B26932470281E0064BDF0 /* Profile.swift in Sources */,
+				BF4E2F4F24866F34001137AA /* FavouriteButton.swift in Sources */,
 				BFC578B92474345500C77873 /* SignUpAlertView.swift in Sources */,
 				C64DD274247C170900D65012 /* Map.swift in Sources */,
 				BFC578C724749A1F00C77873 /* ProfileAdvertisementViewModel.swift in Sources */,

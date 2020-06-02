@@ -73,13 +73,15 @@ extension FavouriteViewController{
     func getCollectionViewData(){
         self.favouriteListViewModel.populateAds { (allFavAds, numOfFavAds) in
             self.adsCount = numOfFavAds
+            print("  deleted Ads \(numOfFavAds) ")
+            self.stopIndicator()
             if allFavAds.isEmpty{
+                print("isEmpty")
             }else{
+                print("get ads")
                 self.arrOfAdViewModel = allFavAds
                 self.favouriteCollectionView.reloadData()
-                self.stopIndicator()
             }
-            self.showDeletedAdsAlert()
         }
     }
 

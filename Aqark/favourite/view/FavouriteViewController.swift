@@ -23,6 +23,20 @@ class FavouriteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Favourite"
+        if !checkNetworkConnection(){
+            favouriteCollectionView.isHidden = true
+            labelPlaceHolder.text = "Internet connection not available"
+        }else{
+            if(favouriteListViewModel.getAllAdvertisment().count == 0){
+                self.labelPlaceHolder.isHidden = false
+                self.labelPlaceHolder.text = "There is no advertisements in favourite list."
+            }else{
+                labelPlaceHolder.isHidden = true
+                self.setupCoredata()
+                setUpCollectionView()
+            }
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,8 +51,6 @@ class FavouriteViewController: UIViewController {
             }else{
                 labelPlaceHolder.isHidden = true
                 showIndicator()
-                self.setupCoredata()
-                setUpCollectionView()
                 getCollectionViewData()
                 showDeletedAdsAlert()
                 self.favouriteCollectionView.reloadData()

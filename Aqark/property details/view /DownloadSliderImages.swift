@@ -40,6 +40,7 @@ extension PropertyDetailView{
     {
         self.stopIndicator()
         imageSlider.configure(with: downloadedImages)
+        self.imageSlider.favBtnDelegate = self
     }
     
 }

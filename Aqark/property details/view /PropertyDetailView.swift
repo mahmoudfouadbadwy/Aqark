@@ -39,11 +39,14 @@ class PropertyDetailView: UIViewController{
     var advertisementId:String!
     var downloadedImages:[UIImage] = []
     let callButton = JJFloatingActionButton()
+    var coreDataViewModel: CoreDataViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Property Details"
         if checkNetworkConnection(){
             self.showIndicator()
+            self.setupCoredata()
+            checkIfFavourite()
             self.propertyDataAccess = PropertyDetailDataAccess()
             self.propertyViewModel = PropertyDetailViewModel(propertyDataAccess: self.propertyDataAccess)
             propertyViewModel.populateAdvertisement(id: advertisementId) {[weak self] (advertisement,agent) in

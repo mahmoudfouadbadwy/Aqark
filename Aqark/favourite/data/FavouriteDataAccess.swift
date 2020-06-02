@@ -48,7 +48,7 @@ class FavouriteDataAccess {
         let idsArray = self.getFavouriteAdsFromCoredata()
         if (idsArray.count != 0){
             for index in 0..<idsArray.count{
-                ref.child("Advertisements").child(idsArray[index]).observeSingleEvent(of: .value, with: { (snapshot) in
+                ref.child("Advertisements").child(idsArray[index]).observe(.value, with: { (snapshot) in
                     if snapshot.exists(){
                         let dict = snapshot.value as? [String : Any]
                         let key = snapshot.key as String
