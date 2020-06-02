@@ -24,9 +24,9 @@ extension ProfileViewController{
             ProfileAdvertisementListViewModel(data: profileDataAccess)
         advertisementViewModel.getAllAdvertisements(completion: {[weak self]
             (advertisements) in
-            self?.stopIndicator()
+            self?.stopActivityIndicator()
             self?.listOfAdvertisements = advertisements
-            self?.showByAnimation()
+         
         })
     }
     private func setCellConfiguration(cell:UICollectionViewCell)

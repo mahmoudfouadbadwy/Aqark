@@ -7,24 +7,54 @@
 //
 
 import UIKit
+import Cosmos
 
 class AgentPropertiesView: UIViewController {
-
+    
+    @IBOutlet weak var rateHeight: NSLayoutConstraint!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var advertisementsCollection: UICollectionView!
+    @IBOutlet weak var rateLabel: UILabel!
+    @IBOutlet weak var rate: CosmosView!
+    var agentId:String!
+    var agentName:String!
+    var agentRateViewModel:AgentRateViewModel!
+    let agentDataAccess:AgentDataAccess = AgentDataAccess()
+    var listOfAdvertisements:[AgentAdvertisementViewModel] = []{
+        didSet{
+            if listOfAdvertisements.count>0{
+                statusLabel.isHidden = true
+            }
+            else
+            {
+                statusLabel.text = "No Advertisements Available"
+                statusLabel.isHidden = false
+            }
+            advertisementsCollection.reloadData()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        if(!AgentPropertiesNetworking.checkNetworkConnection())
+        {
+            statusLabel.isHidden = false
+            statusLabel.text = "Internet Connection Not Available"
+        }
+        self.navigationItem.title = "\(agentName ?? "Agent")'s Properties"
+        setupCollection()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        if(AgentPropertiesNetworking.checkNetworkConnection())
+        {
+            showActivityIndicator()
+            bindCollectionData()
+            setupAgentRate()
+            statusLabel.isHidden = true
+        }
+        else
+        {
+            statusLabel.isHidden = false
+            statusLabel.text = "Internet Connection Not Available"
+        }
     }
-    */
-
 }

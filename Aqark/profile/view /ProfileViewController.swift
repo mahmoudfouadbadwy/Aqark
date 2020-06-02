@@ -8,8 +8,6 @@
 
 import UIKit
 import Cosmos
-import ReachabilitySwift
-import Firebase
 import SDWebImage
 //MARK: - Live Cycle and Properties
 class ProfileViewController: UIViewController {
@@ -27,7 +25,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var countryName: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
-    let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     let profileDataAccess:ProfileDataAccess = ProfileDataAccess()
     var listOfAdvertisements:[ProfileAdvertisementViewModel] = []{
         didSet{
@@ -43,12 +40,14 @@ class ProfileViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        if(checkNetworkConnection())
+        if(ProfileNetworking.checkNetworkConnection())
         {
-            setupView()
-            setNavigationProperties()
-            setupCollection()
-            noAdvertisementsLabel.isHidden = true
+           
+                setupView()
+                setNavigationProperties()
+                setupCollection()
+                noAdvertisementsLabel.isHidden = true
+        
         }
         else
         {
@@ -57,28 +56,18 @@ class ProfileViewController: UIViewController {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-        if (checkNetworkConnection())
+        if (ProfileNetworking.checkNetworkConnection())
         {
-            if Auth.auth().currentUser == nil{
+            if !ProfileNetworking.checkAuthuntication(){
                 self.navigationController?.pushViewController(FirstScreenViewController(), animated: true)
             }
             else
             {
-                UIView.animate(withDuration: 1) {
-                     self.view.alpha = 0.5
-                }
-                showIndicator()
+                showActivityIndicator()
                 bindProfileData()
                 bindCollectionData()
                 noAdvertisementsLabel.isHidden = true
             }
         }
-    }
-    
-    func checkNetworkConnection()->Bool
-    {
-        let connection = Reachability()
-        guard let status = connection?.isReachable else{return false}
-        return status
     }
 }

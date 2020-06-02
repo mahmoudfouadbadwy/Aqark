@@ -93,8 +93,7 @@ class EditAdvertisementDataSource{
                 "payment" : advertisement.payment ?? "",
                 "images" : images + urlImages]
         
-        dataBaseRef.child("Advertisements").child(advertisementId).setValue(add)
-
+        dataBaseRef.child("Advertisements").child(advertisementId).updateChildValues(add)
         NotificationCenter.default.post(name: .indicator, object: nil)
     }
     

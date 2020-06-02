@@ -72,7 +72,7 @@ import UIKit
         let labelHeight = self.bounds.height
         let labelWidth = self.bounds.width / CGFloat(items.count)
         for index in 0...labels.count - 1{
-            var label = labels[index]
+            let label = labels[index]
             let xPosition = CGFloat(index) * labelWidth
             label.frame = CGRect(x: xPosition, y: 0, width: labelWidth, height: labelHeight)
         }
@@ -94,7 +94,7 @@ import UIKit
     }
     
     func displayNewSelectedIndex(){
-        var label = labels[selectedIndex]
+        let label = labels[selectedIndex]
         self.thumbView.frame = label.frame
     }
 }

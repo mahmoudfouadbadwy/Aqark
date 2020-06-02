@@ -7,7 +7,8 @@
 //
 
 import Foundation
-
+import ReachabilitySwift
+import Firebase
 class ProfileStore{
     var profileDataAccess:ProfileDataAccess!
     init(by profileDataAccess:ProfileDataAccess) {
@@ -41,7 +42,7 @@ class ProfileViewModel{
     var company:String
     var phone:String
     var experience:String
-    var rate:Double
+    var rate:[String:Double]
     init(profile:Profile) {
         self.role = profile.role
         self.picture = profile.picture
@@ -52,5 +53,24 @@ class ProfileViewModel{
         self.phone = profile.phone
         self.country = profile.country
         self.experience = profile.experience
+    }
+}
+
+
+struct ProfileNetworking{
+    
+    static func checkAuthuntication()->Bool{
+        var status:Bool = false
+        if Auth.auth().currentUser != nil{
+            status = true
+        }
+        return status
+    }
+    
+    static func checkNetworkConnection()->Bool
+    {
+        let connection = Reachability()
+        guard let status = connection?.isReachable else{return false}
+        return status
     }
 }

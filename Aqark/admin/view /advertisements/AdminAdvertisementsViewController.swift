@@ -72,7 +72,7 @@ extension AdminAdvertisementsViewController : UICollectionViewDelegate,UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.adminAdvertisementViewModel.adminAdvertisementsViewList.count
+        return self.adminAdvertisementViewModel.adminAdvertisementsViewList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

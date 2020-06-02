@@ -17,7 +17,7 @@ extension ProfileViewController{
             self?.hideAllElements(status: false)
             self?.username.text = profileData.username
             self?.setProfilePicture(url:profileData.picture)
-            self?.rate.rating = profileData.rate
+            self?.setUserRate(rate:profileData.rate)
             if profileData.role.lowercased().elementsEqual("user")
             {
                  self?.setupOptionalViews(hide: true)
@@ -72,9 +72,26 @@ extension ProfileViewController{
         }
         else
         {
-            self.experienceValue.text =  exp
+            self.experienceValue.text =  "\(exp) year"
         }
     }
+    
+    private func setUserRate(rate:[String:Double])
+    {
+        let rates = rate
+        var userRate:Double = 0
+        for rate in rates
+        {
+            userRate += rate.value
+        }
+        if rates.count > 0 {
+            userRate /= Double(rates.count )
+        }
+        self.rate.settings.fillMode =  .precise
+        self.rate.rating = userRate
+        
+    }
+    
 }
 
 

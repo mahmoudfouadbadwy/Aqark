@@ -27,5 +27,17 @@ extension ProfileViewController{
     {
         self.navigationController?.pushViewController(AddAdvertisementViewController(), animated: true)
     }
+    
+    @IBAction func editProfileBtn(_ sender: Any) {
+        if ProfileNetworking.checkNetworkConnection(){
+            let editViewController = EditProfileViewController()
+            navigationController?.pushViewController(editViewController, animated: true)
+        }else{
+            let alertController = UIAlertController(title: "no Internet", message: "please check the internet connection", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "ok", style: .default, handler: nil)
+            alertController.addAction(alertAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
 }
 

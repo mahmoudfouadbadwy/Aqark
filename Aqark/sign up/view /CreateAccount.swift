@@ -24,10 +24,10 @@ extension SignUpView{
     {
         if (accountViewModel.isValid)
         {
-            showIndicator()
+            showActivityIndicator()
             accountViewModel.performCreation(dataAccess: SignUpDataAccess(),completion: {
                 (result) in
-                self.stopIndicator()
+                self.stopActivityIndicator()
                 self.gotoProfileView()
             })
         }

@@ -16,7 +16,7 @@ struct Profile{
     var company:String
     var phone:String
     var experience:String
-    var rate:Double
+    var rate:[String:Double]
 }
 
 struct AdvertismentsStore {
