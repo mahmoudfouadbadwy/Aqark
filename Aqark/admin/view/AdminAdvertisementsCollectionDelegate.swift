@@ -8,5 +8,5 @@
 
 import Foundation
 protocol AdminAdvertisementsCollectionDelegate {
-    func adminAdvertisementsCollectionDelegate(indexPath:IndexPath)
+    func removeAdvertisementDelegate(at indexPath:IndexPath)
 }

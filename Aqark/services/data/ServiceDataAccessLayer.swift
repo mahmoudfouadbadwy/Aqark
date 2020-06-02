@@ -10,10 +10,11 @@ import Foundation
 import Firebase
 
 class ServiceDataAccess{
-        
+    
+    let serviceUsersRef = Database.database().reference().child("Users")
+    
     func getServiceUsers(completionForGetServiceUsers:@escaping(_ serviceUsers:[ServiceUser])->Void){
         var serviceUsers = [ServiceUser]()
-        let serviceUsersRef = Database.database().reference().child("Users")
         serviceUsersRef.observe(.value) { (dataSnapShot) in
             serviceUsers.removeAll()
             for child in dataSnapShot.children.allObjects as! [DataSnapshot]{
@@ -24,31 +25,36 @@ class ServiceDataAccess{
     }
     
     private func createServiceUser(child:DataSnapshot) -> ServiceUser{
-           let serviceUserId = child.key
-           let serviceUserDictionary = child.value as! [String : Any]
-           let serviceUserName = serviceUserDictionary[ServiceUserKey.userName] as! String
-           let serviceUserEmail = serviceUserDictionary[ServiceUserKey.userEmail] as! String
-           let serviceUserPhone = serviceUserDictionary[ServiceUserKey.userPhone] as? String ?? "No Phone"
-           let serviceUserCountry = serviceUserDictionary[ServiceUserKey.userCountry] as? String ?? "No Country"
-           let serviceUserCompany = serviceUserDictionary[ServiceUserKey.userCompany] as? String ?? "No Company"
-           let serviceUserRole = serviceUserDictionary[ServiceUserKey.userRole] as! String
+        let serviceUserId = child.key
+        let serviceUserDictionary = child.value as! [String : Any]
+        let serviceUserName = serviceUserDictionary[ServiceUserKey.userName] as! String
+        let serviceUserEmail = serviceUserDictionary[ServiceUserKey.userEmail] as! String
+        let serviceUserPhone = serviceUserDictionary[ServiceUserKey.userPhone] as? String ?? "No Phone"
+        let serviceUserCountry = serviceUserDictionary[ServiceUserKey.userCountry] as? String ?? "No Country"
+        let serviceUserCompany = serviceUserDictionary[ServiceUserKey.userCompany] as? String ?? "No Company"
+        let serviceUserRole = serviceUserDictionary[ServiceUserKey.userRole] as! String
         let serviceUserExperience = serviceUserDictionary[ServiceUserKey.userExperience] as? String ?? "Not Provided"
         let serviceUserRatingDic = serviceUserDictionary[ServiceUserKey.userServiceRating] as? [String:Any] ?? [:]
         let serviceUserServiceRating = getUserServiceRating(userRatingDic: serviceUserRatingDic)
         let serviceUserImage = serviceUserDictionary[ServiceUserKey.userPicture] as? String ?? ""
         let user = ServiceUser(userId:serviceUserId, userName: serviceUserName, userEmail: serviceUserEmail, userPhone: serviceUserPhone, userCountry: serviceUserCountry, userCompany: serviceUserCompany, userRole: serviceUserRole, userServiceRating: serviceUserServiceRating, userExperience: serviceUserExperience, userImage: serviceUserImage)
-           return user
-       }
+        return user
+    }
+    
+    func rateServiceUser(rate:Double,userId:String,serviceUserId:String){
+        let serviceRate = ["\(userId)":rate]
+        serviceUsersRef.child(serviceUserId).child("service rate").setValue(serviceRate)
+    }
     
     private func getUserServiceRating(userRatingDic : [String:Any])->Double{
-         var userRating = 0.0
-         if(userRatingDic.count == 0){
-             return userRating
-         }else{
-             for rate in userRatingDic{
-                 userRating += rate.value as! Double
-             }
-             return userRating / Double(userRatingDic.count)
-         }
+        var userRating = 0.0
+        if(userRatingDic.count == 0){
+            return userRating
+        }else{
+            for rate in userRatingDic{
+                userRating += rate.value as! Double
+            }
+            return userRating / Double(userRatingDic.count)
+        }
     }
 }

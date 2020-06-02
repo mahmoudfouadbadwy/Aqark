@@ -20,9 +20,15 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var rateMeView: CosmosView!
     @IBOutlet weak var rateMeButton: UIButton!
     
+    var serviceUserCellIndex : IndexPath!
+    var rateServiceUserDelegate : ServiceUsersCollectionDelegate!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        serviceUserRating.settings.fillMode = .precise
+        rateMeView.settings.fillMode = .precise
         rateMeView.didFinishTouchingCosmos = {rating in
+           
             self.rateMeButton.alpha = 0
             self.rateMeButton.isHidden = false
             print(rating)
@@ -31,6 +37,7 @@ class ServicesCollectionViewCell: UICollectionViewCell {
                 self.rateMeButton.alpha = 1
             }) { (finished) in
                 self.rateMeView.isHidden = finished
+                 self.rateServiceUserDelegate.rateServiceUserDelegate(at: self.serviceUserCellIndex,rate:rating)
             }
         }
     }

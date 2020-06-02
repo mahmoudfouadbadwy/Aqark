@@ -38,6 +38,7 @@
 		3EA8369B246CE13A009AD024 /* ValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8369A246CE13A009AD024 /* ValidationProtocol.swift */; };
 		3EA8369D246CE15C009AD024 /* LoginBrokenRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8369C246CE15C009AD024 /* LoginBrokenRule.swift */; };
 		3EA836A0246CEFE2009AD024 /* LoginDataAccessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8369F246CEFE2009AD024 /* LoginDataAccessLayer.swift */; };
+		3ECEEF86248527D800690266 /* ServiceUsersCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECEEF85248527D800690266 /* ServiceUsersCollectionDelegate.swift */; };
 		3ED938D2248050E4005BF1EF /* AdminAdvertisementData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED938D1248050E4005BF1EF /* AdminAdvertisementData.swift */; };
 		3ED938D424805187005BF1EF /* AdminDeleteAdvertisement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED938D324805187005BF1EF /* AdminDeleteAdvertisement.swift */; };
 		3ED938D624805234005BF1EF /* AdminLogout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED938D524805234005BF1EF /* AdminLogout.swift */; };
@@ -179,6 +180,7 @@
 		3EA8369A246CE13A009AD024 /* ValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ValidationProtocol.swift; path = "Aqark/login/view model/ValidationProtocol.swift"; sourceTree = SOURCE_ROOT; };
 		3EA8369C246CE15C009AD024 /* LoginBrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginBrokenRule.swift; path = "Aqark/login/view model/LoginBrokenRule.swift"; sourceTree = SOURCE_ROOT; };
 		3EA8369F246CEFE2009AD024 /* LoginDataAccessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataAccessLayer.swift; sourceTree = "<group>"; };
+		3ECEEF85248527D800690266 /* ServiceUsersCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceUsersCollectionDelegate.swift; sourceTree = "<group>"; };
 		3ED938D1248050E4005BF1EF /* AdminAdvertisementData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAdvertisementData.swift; sourceTree = "<group>"; };
 		3ED938D324805187005BF1EF /* AdminDeleteAdvertisement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDeleteAdvertisement.swift; sourceTree = "<group>"; };
 		3ED938D524805234005BF1EF /* AdminLogout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminLogout.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				3E736C6A2480C897004D8B81 /* ServicesViewController.xib */,
 				3E736C6D2480CAF2004D8B81 /* ServicesCollectionViewCell.swift */,
 				3E736C6E2480CAF2004D8B81 /* ServicesCollectionViewCell.xib */,
+				3ECEEF85248527D800690266 /* ServiceUsersCollectionDelegate.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1134,6 +1137,7 @@
 				82608A2F2476CA1D005946C1 /* EditAdvertisementDataSource.swift in Sources */,
 				3E69A8C1247EF5BC00193605 /* AdminUserViewModel.swift in Sources */,
 				BF66CC1E246C678B00C9FD01 /* Countries.swift in Sources */,
+				3ECEEF86248527D800690266 /* ServiceUsersCollectionDelegate.swift in Sources */,
 				823D6EA8247DDEE600F0B0FF /* extensionSetupView.swift in Sources */,
 				3E69A8B4247EF59600193605 /* AdminUserData.swift in Sources */,
 				3E736C6F2480CAF2004D8B81 /* ServicesCollectionViewCell.swift in Sources */,

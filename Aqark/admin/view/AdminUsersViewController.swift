@@ -12,33 +12,72 @@ import Cosmos
 
 class AdminUsersViewController: UIViewController{
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var noLabel: UILabel!
     @IBOutlet weak var usersSearchBar: UISearchBar!
-
+    
     @IBOutlet weak var usersSegment: CustomSegment!
     @IBOutlet weak var usersTableView: UITableView!
     private var adminUsersViewModel : AdminUsersListViewModel!
     private var dataAccess : AdminDataAccess!
-    private var selectedUserIndex : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        usersTableView.register(UINib(nibName: "AdminUserTableViewCell", bundle: nil), forCellReuseIdentifier: "User Cell")
-        usersTableView.delegate = self
-        usersTableView.dataSource = self
-        usersSearchBar.delegate = self
-        self.navigationItem.title = "Users"
         dataAccess = AdminDataAccess()
         adminUsersViewModel = AdminUsersListViewModel(dataAccess: dataAccess)
-        adminUsersViewModel.populateUsers {
-            self.usersTableView.reloadData()
-            self.usersTableView.reloadData()
+        usersSearchBar.isHidden = true
+        usersSegment.isHidden = true
+        if(adminUsersViewModel.checkNetworkConnection()){
+            activityIndicator.startAnimating()
+            self.view.alpha = 0
+            
+            usersTableView.register(UINib(nibName: "AdminUserTableViewCell", bundle: nil), forCellReuseIdentifier: "User Cell")
+            usersTableView.delegate = self
+            usersTableView.dataSource = self
+            usersSearchBar.delegate = self
+            self.navigationItem.title = "Users"
+            
+            adminUsersViewModel.populateUsers {
+                self.activityIndicator.stopAnimating()
+                UIView.animate(withDuration:2) {
+                    self.view.alpha = 1
+                }
+                self.usersSegment.isHidden = false
+                if(self.adminUsersViewModel.adminUsersViewList.isEmpty){
+                    self.setLabelForZeroCount()
+                }else{
+                    self.usersSearchBar.isHidden = false
+                    self.usersTableView.reloadData()
+                }
+            }
+        }else{
+            noLabel.isHidden = false
+            noLabel.text = "No Internet Connection."
         }
     }
     
-
+    private func setLabelForZeroCount(){
+        noLabel.isHidden = false
+        usersSearchBar.isHidden = true
+        switch usersSegment.selectedIndex {
+        case 0:
+            noLabel.text = "No Available Users."
+        case 1:
+            noLabel.text = "No Available Lawyers."
+        default:
+            noLabel.text = "No Available Interior Designers."
+        }
+    }
+    
     @IBAction func changeUserType(_ sender: Any) {
         adminUsersViewModel.getUsersByType(type: usersSegment.selectedIndex)
-           self.usersTableView.reloadData()
+        if(self.adminUsersViewModel.adminUsersViewList.isEmpty){
+            self.setLabelForZeroCount()
+        }else{
+            usersSearchBar.isHidden = false
+            noLabel.isHidden = true
+        }
+        self.usersTableView.reloadData()
     }
 }
 

@@ -43,7 +43,7 @@ class AdminAdvertisementCollectionViewCell: UICollectionViewCell {
         if gesture.state != .ended {
             return
         }else{
-            adminAdvertisementsCollectionDelegate?.adminAdvertisementsCollectionDelegate(indexPath: adminAdvertisementsCellIndex!)
+            adminAdvertisementsCollectionDelegate?.removeAdvertisementDelegate(at: adminAdvertisementsCellIndex!)
         }
     }
 }

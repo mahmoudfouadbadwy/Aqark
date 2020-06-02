@@ -72,14 +72,16 @@ class PropertyDetailView: UIViewController{
     
     @IBAction func showLawyers(_ sender: Any) {
         let servicesView = ServicesViewController()
-        servicesView.serviceRole = "lawyer"
+        servicesView.serviceRole = "Lawyers"
+        servicesView.advertisementCountry = advertisementDetails.country
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
     
     
     @IBAction func showInteriorDesigners(_ sender: Any) {
         let servicesView = ServicesViewController()
-        servicesView.serviceRole = "interior designer"
+        servicesView.serviceRole = "Interior Desigenrs"
+         servicesView.advertisementCountry = advertisementDetails.country
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
     
