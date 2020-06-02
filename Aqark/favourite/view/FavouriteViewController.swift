@@ -18,25 +18,22 @@ class FavouriteViewController: UIViewController {
     var adViewModel: FavouriteViewModel!
     var adsCount:Int=0
     var favouriteListViewModel : FavouriteListViewModel=FavouriteListViewModel(dataAccess: FavouriteDataAccess())
-    var arrOfAdViewModel : [FavouriteViewModel]=[FavouriteViewModel]()
+    var arrOfAdViewModel : [FavouriteViewModel]=[FavouriteViewModel](){
+        didSet{
+            if arrOfAdViewModel.count == 0{
+                setEmptyAdvertisments(flag: false)
+            }else{
+                setEmptyAdvertisments(flag: true)
+            }
+            self.favouriteCollectionView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Favourite"
-        if !checkNetworkConnection(){
-            favouriteCollectionView.isHidden = true
-            labelPlaceHolder.text = "Internet connection not available"
-        }else{
-            if(favouriteListViewModel.getAllAdvertisment().count == 0){
-                self.labelPlaceHolder.isHidden = false
-                self.labelPlaceHolder.text = "There is no advertisements in favourite list."
-            }else{
-                labelPlaceHolder.isHidden = true
-                self.setupCoredata()
-                setUpCollectionView()
-            }
-        }
-        
+        self.setupCoredata()
+        setUpCollectionView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,16 +42,8 @@ class FavouriteViewController: UIViewController {
             favouriteCollectionView.isHidden = true
             labelPlaceHolder.text = "Internet connection not available"
         }else{
-            if(favouriteListViewModel.getAllAdvertisment().count == 0){
-                self.labelPlaceHolder.isHidden = false
-                self.labelPlaceHolder.text = "There is no advertisements in favourite list."
-            }else{
-                labelPlaceHolder.isHidden = true
-                showIndicator()
-                getCollectionViewData()
-                showDeletedAdsAlert()
-                self.favouriteCollectionView.reloadData()
-            }
+            labelPlaceHolder.isHidden = true
+            getCollectionViewData()
         }
     }
     
@@ -65,6 +54,11 @@ class FavouriteViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
             adsCount=0
         }
+    }
+    
+    func setEmptyAdvertisments(flag: Bool){
+        self.labelPlaceHolder.isHidden = flag
+        self.labelPlaceHolder.text = "There is no advertisements in favourite list."
     }
 
     func checkNetworkConnection()->Bool

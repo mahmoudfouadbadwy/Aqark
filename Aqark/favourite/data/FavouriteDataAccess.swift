@@ -13,7 +13,6 @@ import SDWebImage
 
 class FavouriteDataAccess {
     
-    var advertisementsData = [FavouriteModel]()
     var advertisementImage : String!
     var advertisementPropertyType : String!
     var advertisementType : String!
@@ -29,9 +28,7 @@ class FavouriteDataAccess {
     var advertisementPropertyLatitude : String!
     var advertisementDate : String!
     var addressDictionary: [String: String] = [:]
-    var advertismentCount = 0
-    
-    
+ 
     func getFavouriteAdsFromCoredata () -> [String] {
         let coreDataAccess: CoreDataAccess = CoreDataAccess()
         let idsArray = CoreDataAccess.getAllAdvertisment(coreDataAccess)
@@ -44,21 +41,24 @@ class FavouriteDataAccess {
     }
     
     func getAllFavouriteAdvertisements(completionForGetAllAdvertisements : @escaping (_ searchResults:[FavouriteModel],Int) -> Void){
+        var advertismentCount = 0
+        var advertisementsData = [FavouriteModel]()
         let ref = Database.database().reference()
         let idsArray = self.getFavouriteAdsFromCoredata()
         if (idsArray.count != 0){
             for index in 0..<idsArray.count{
-                ref.child("Advertisements").child(idsArray[index]).observe(.value, with: { (snapshot) in
+                ref.child("Advertisements").child(idsArray[index]).observeSingleEvent(of: .value, with: { (snapshot) in
                     if snapshot.exists(){
                         let dict = snapshot.value as? [String : Any]
                         let key = snapshot.key as String
-                        self.advertisementsData.append(self.createAdvertisementSearchModel(dict: dict , key: key))
-                        if (self.advertismentCount+self.advertisementsData.count == idsArray.count){
-                        completionForGetAllAdvertisements(self.advertisementsData,self.advertismentCount)
-                        }
+                        advertisementsData.append(self.createAdvertisementSearchModel(dict: dict , key: key))
                     }else{
-                        self.advertismentCount += 1
+                        
+                        advertismentCount += 1
                         self.deleteFavouriteAdsFromCoredata (id: idsArray[index])
+                    }
+                    if (advertismentCount + advertisementsData.count == idsArray.count){
+                        completionForGetAllAdvertisements(advertisementsData,advertismentCount)
                     }
                 })
             }
