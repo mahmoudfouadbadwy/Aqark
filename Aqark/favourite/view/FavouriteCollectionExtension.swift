@@ -74,13 +74,11 @@ extension FavouriteViewController{
         self.favouriteListViewModel.populateAds { (allFavAds, numOfFavAds) in
             self.adsCount = numOfFavAds
             if allFavAds.isEmpty{
-                print("  is empty  ")
             }else{
                 self.arrOfAdViewModel = allFavAds
                 self.favouriteCollectionView.reloadData()
                 self.stopIndicator()
             }
-            print(" numOfdelAds  \(numOfFavAds)  ")
             self.showDeletedAdsAlert()
         }
     }

@@ -18,7 +18,6 @@ extension FavouriteViewController:FavouriteProtocol{
     
     func setFavouriteButton (cell: FavouriteCollectionViewCell,index: Int){
         let storedIds = coreDataViewModel?.getAllFavouriteAdvertisment()
-        print("  storedIds  \(storedIds?.count) ")
         if (storedIds?.count != 0){
             for i in 0..<storedIds!.count{
                 if(storedIds![i] == arrOfAdViewModel[index].advertisementId){
@@ -26,7 +25,6 @@ extension FavouriteViewController:FavouriteProtocol{
             }
         }
         }
-        
         cell.favButton.tag = index
         cell.delegat = self
     }

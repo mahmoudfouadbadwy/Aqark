@@ -34,12 +34,16 @@ extension SearchViewController : UICollectionViewDataSource{
         }else{
             cell.propertyPriceLabel?.text = "\(adViewModel.price ?? 0) EGP"
         }
-        
-        
         cell.favButton.setTitle(adViewModel.advertisementId, for: .normal)
-        self.setFavouriteButton(btn: cell.favButton, id: adViewModel.advertisementId)
+        if (coreDataViewModel!.isAdvertismentExist(id: adViewModel.advertisementId)){
+            cell.favButton.tintColor = UIColor.red
+            print(indexPath.row)
+        }
+        else
+        {
+             cell.favButton.tintColor = UIColor.gray
+        }
         cell.delegat = self
-
         return cell
     }
 }

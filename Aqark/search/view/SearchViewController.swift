@@ -46,7 +46,6 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     var adsSortedList = [AdvertisementViewModel]()
     var unFilteredAdsList = [AdvertisementViewModel]()
     let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
-    var favouriteArray: [AdvertisementViewModel]!
     var arrOfAdViewModel : [AdvertisementViewModel]!{
         didSet{
             self.searchCollectionView.reloadData()
@@ -80,10 +79,8 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             labelPlaceHolder.text = "No Internet Connection"
         }else{
             manageSearchBar()
-            showIndicator()
             self.setupCoredata()
-           // setUpCollectionView()
-           // getCollectionViewData()
+            setUpCollectionView()
             floationgBtn()
             labelPlaceHolder.isHidden = true
             limitRegion()
@@ -96,7 +93,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             self.view.alpha = 1
             labelPlaceHolder.text = "No Internet Connection"
         }else{
-            setUpCollectionView()
+            showIndicator()
             getCollectionViewData()
             self.searchCollectionView.reloadData()
         }
