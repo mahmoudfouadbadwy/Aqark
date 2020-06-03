@@ -54,42 +54,53 @@ extension PropertyDetailView{
         }
         return image
     }
+    
+    func updateCellLayout(cell : UICollectionViewCell ){
+        cell.layer.cornerRadius = 10
+        cell.layer.masksToBounds = true
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOffset = CGSize(width: 2.0, height: 3.0)
+        cell.layer.shadowRadius = 4.0
+        cell.layer.shadowOpacity = 0.5
+        cell.layer.masksToBounds = false
+        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
+    }
 }
 
 extension PropertyDetailView:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == amenitiesCollection{
-        if self.advertisementDetails.amenities.count > 0
-        {
-            return self.advertisementDetails.amenities.count
-        }
-        else
-        {
-            amenitiesHeight.constant = 0
-            amenitiesTopSpace.constant = 0
-            return 0
-        }
+            if self.advertisementDetails.amenities.count > 0
+            {
+                return self.advertisementDetails.amenities.count
+            }
+            else
+            {
+                amenitiesHeight.constant = 0
+                amenitiesTopSpace.constant = 0
+                return 0
+            }
         }else{
             if let arrOfReviewsViewModel = arrOfReviewsViewModel{
-            return arrOfReviewsViewModel.count
+                return arrOfReviewsViewModel.count
             }else{
                 return 0
             }
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       
-         if collectionView == amenitiesCollection{
-             let cell:AmenitiesCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "amenitiesCell", for: indexPath) as! AmenitiesCell)
-        cell.amenitiesText.text = self.advertisementDetails.amenities[indexPath.row]
-        cell.amenitiesIcon.image = getAmenitiesIcon(amenities: self.advertisementDetails.amenities[indexPath.row])
+        
+        if collectionView == amenitiesCollection{
+            let cell:AmenitiesCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "amenitiesCell", for: indexPath) as! AmenitiesCell)
+            cell.amenitiesText.text = self.advertisementDetails.amenities[indexPath.row]
+            cell.amenitiesIcon.image = getAmenitiesIcon(amenities: self.advertisementDetails.amenities[indexPath.row])
             return cell
-         }else{
-               let cell:ReviewCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "ReviewCell", for: indexPath) as! ReviewCell)
-             reviewViewModel = arrOfReviewsViewModel[indexPath.row]
+        }else{
+            let cell:ReviewCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "ReviewCell", for: indexPath) as! ReviewCell)
+            reviewViewModel = arrOfReviewsViewModel[indexPath.row]
             cell.reviewerUserNameLabel.text = reviewViewModel.userName
             cell.reviewContentTextView.text = reviewViewModel.reviewContent
-            cell.reviewerImage?.sd_setImage(with: URL(string: reviewViewModel.userImage), placeholderImage: UIImage(named: "NoImage"))
+            updateCellLayout(cell: cell)
             return cell
         }
     }
@@ -98,11 +109,18 @@ extension PropertyDetailView:UICollectionViewDataSource{
 extension PropertyDetailView:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == amenitiesCollection{
-        return CGSize(width: collectionView.frame.width/2, height: collectionView.frame.height/3)
+            return CGSize(width: collectionView.frame.width/2, height: collectionView.frame.height/3)
         }else{
-            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
-
+            return CGSize(width: collectionView.frame.width - 50, height: collectionView.frame.height - 10)
+            
         }
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if collectionView == reviewsCollectionView
+        {
+            return UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+        }
+        return UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
     }
 }
 

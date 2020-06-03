@@ -15,7 +15,7 @@ extension PropertyDetailView {
         if !addReviewContentTextView.text.isEmpty{
         self.advertisementReviewViewModel.setReviewData(reviewContent: addReviewContentTextView.text, advertisementId : advertisementId)
             addReviewContentTextView.text = ""
-            ReviewHeight.constant = 0
+            inputStack.isHidden = true
             submitReviewBtn.isHidden = true
         }
     }
@@ -26,7 +26,7 @@ extension PropertyDetailView {
         
       }
     func manageReviewAppearence(){
-          ReviewHeight.constant = 0
+         inputStack.isHidden = true
         submitReviewBtn.isHidden = true
         if propertyViewModel.checkAdvertisementOwner(agentId: advertisementDetails.userID) || !advertisementReviewViewModel.checkUserAuth(){
         addReviewBtn.isHidden = true
@@ -35,9 +35,9 @@ extension PropertyDetailView {
         }
     }
     func manageAddReviewOutlets(){
-          ReviewHeight.constant = 136
-        submitReviewBtn.isHidden = false
-        
+          inputStack.isHidden = false
+          submitReviewBtn.isHidden = false
+          addReviewContentTextView.layer.cornerRadius = 20
         
     }
 

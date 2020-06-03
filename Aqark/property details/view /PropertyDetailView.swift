@@ -13,7 +13,9 @@ import Cosmos
 
 class PropertyDetailView: UIViewController,UIActionSheetDelegate{
    
-    @IBOutlet weak var ReviewHeight: NSLayoutConstraint!
+
+   
+    @IBOutlet weak var inputStack: UIStackView!
     @IBOutlet weak var addReviewContentTextView: UITextView!
     
     @IBOutlet weak var submitReviewBtn: UIButton!
@@ -130,7 +132,12 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     }
 
 
-
+    @IBAction func cancelReview(_ sender: Any) {
+        
+        inputStack.isHidden = true
+        
+    }
+    
   
 }
 

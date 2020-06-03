@@ -12,7 +12,7 @@ class ReviewCell: UICollectionViewCell {
 
     @IBOutlet weak var reviewerUserNameLabel: UILabel!
     @IBOutlet weak var reviewContentTextView: UITextView!
-    @IBOutlet weak var reviewerImage: UIImageView!
+   
  
     override func awakeFromNib() {
         super.awakeFromNib()

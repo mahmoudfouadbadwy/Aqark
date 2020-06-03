@@ -62,8 +62,6 @@
 		82608A2F2476CA1D005946C1 /* EditAdvertisementDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82608A2E2476CA1D005946C1 /* EditAdvertisementDataSource.swift */; };
 		82608A322476CD20005946C1 /* EditAdvertisementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82608A312476CD20005946C1 /* EditAdvertisementModel.swift */; };
 		82608A3524787525005946C1 /* extentionEditAdvertisementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82608A3424787525005946C1 /* extentionEditAdvertisementViewModel.swift */; };
-		8267DE512484832B00B4C60D /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 8267DE502484832B00B4C60D /* camera.png */; };
-		8267DE5324848A9900B4C60D /* photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8267DE5224848A9900B4C60D /* photo.png */; };
 		826A9A1D2473E4990046E562 /* AddAdvertisementDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A1C2473E4990046E562 /* AddAdvertisementDataSource.swift */; };
 		826A9A1F2473E4A40046E562 /* AddAdvertisementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A1E2473E4A40046E562 /* AddAdvertisementModel.swift */; };
 		826A9A2C2473E4C20046E562 /* ExtensionAddAdvertisementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A282473E4C20046E562 /* ExtensionAddAdvertisementViewModel.swift */; };
@@ -248,8 +246,6 @@
 		82608A2E2476CA1D005946C1 /* EditAdvertisementDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAdvertisementDataSource.swift; sourceTree = "<group>"; };
 		82608A312476CD20005946C1 /* EditAdvertisementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAdvertisementModel.swift; sourceTree = "<group>"; };
 		82608A3424787525005946C1 /* extentionEditAdvertisementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extentionEditAdvertisementViewModel.swift; sourceTree = "<group>"; };
-		8267DE502484832B00B4C60D /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
-		8267DE5224848A9900B4C60D /* photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo.png; sourceTree = "<group>"; };
 		826A9A1C2473E4990046E562 /* AddAdvertisementDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAdvertisementDataSource.swift; sourceTree = "<group>"; };
 		826A9A1E2473E4A40046E562 /* AddAdvertisementModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAdvertisementModel.swift; sourceTree = "<group>"; };
 		826A9A282473E4C20046E562 /* ExtensionAddAdvertisementViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionAddAdvertisementViewModel.swift; sourceTree = "<group>"; };
@@ -394,7 +390,6 @@
 		26F5D2F0E1BA59990B8F348E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8267DE502484832B00B4C60D /* camera.png */,
 				79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */,
 				DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */,
 			);
@@ -855,11 +850,6 @@
 		BF8475DA2483E42400D01A9D /* users */ = {
 			isa = PBXGroup;
 			children = (
-				3E69A8C3247EF5DD00193605 /* AdminUsersViewController.swift */,
-				3E69A8CD247EF5E000193605 /* AdminUsersViewController.xib */,
-				3E69A8C4247EF5DD00193605 /* AdminUserTableViewCell.swift */,
-				3E69A8C5247EF5DE00193605 /* AdminUserTableViewCell.xib */,
-				3E69A8C9247EF5DF00193605 /* CustomSegment.swift */,
 			);
 			path = users;
 			sourceTree = "<group>";
@@ -1092,7 +1082,6 @@
 				BFCF0BCC24677F8100A43D8B /* Assets.xcassets */,
 				BFCF0BCE24677F8100A43D8B /* LaunchScreen.storyboard */,
 				BFCF0BD124677F8100A43D8B /* Info.plist */,
-				8267DE5224848A9900B4C60D /* photo.png */,
 				BFCF0BC924677F8000A43D8B /* Aqark.xcdatamodeld */,
 			);
 			path = Aqark;
@@ -1225,9 +1214,7 @@
 				3E69A8D1247EF5E000193605 /* AdminUserTableViewCell.xib in Resources */,
 				3E943FC8246A053300A1FF83 /* FirstScreenViewController.xib in Resources */,
 				BF6DC6902473522B0030AE52 /* PropertyDetailView.xib in Resources */,
-				8267DE5324848A9900B4C60D /* photo.png in Resources */,
 				3E69A8D3247EF5E000193605 /* AdminTabBarController.xib in Resources */,
-				8267DE512484832B00B4C60D /* camera.png in Resources */,
 				3E69A8D9247EF5E000193605 /* AdminUsersViewController.xib in Resources */,
 				BFCF0BCD24677F8100A43D8B /* Assets.xcassets in Resources */,
 				BF4423342469D1B80050BD8A /* SignUpView.xib in Resources */,
