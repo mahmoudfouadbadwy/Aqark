@@ -18,7 +18,6 @@ class SignUpView: UIViewController  {
     @IBOutlet  weak var countries: UIPickerView!
     var role:String = "user"
     var accountViewModel:AccountViewModel!
-    let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     let countriesPicker:[String] = Countries().countries
     
     override func viewDidLoad() {

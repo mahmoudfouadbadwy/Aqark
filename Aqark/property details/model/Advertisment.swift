@@ -25,7 +25,9 @@ class Advertisment {
     var location :String!
     var amenities :[String]!
     var images :[String]!
+    
     init(userID :String, advertismentType :String, propertyType :String, bathroom :String, bedroom :String, country :String, date :String, description :String, phone :String, price :Double, size :String, latitude :String,longitude :String , location :String,amenities :[String], images :[String]) {
+        self.userID = userID
         self.advertismentType = advertismentType
         self.propertyType = propertyType
         self.bathroom = bathroom
@@ -41,7 +43,7 @@ class Advertisment {
         self.location = location
         self.amenities = amenities
         self.images = images
-        self.images = images
+        self.userID = userID
     }
 }
 
@@ -49,5 +51,5 @@ class Advertisment {
 struct Agent{
     var name:String
     var company:String
-    var rate:Double
+    var rate:[String:Double]
 }

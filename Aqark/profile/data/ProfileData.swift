@@ -25,7 +25,7 @@ class ProfileDataAccess{
                 let company = value?["company"] as? String ?? ""
                 let phone = value?["phone"] as? String ?? ""
                 let exp = value?["experience"] as? String ?? ""
-                let rate = value?["rate"] as? Double ?? 0.0
+                let rate = value?["rate"] as? [String:Double] ?? ["":0.0]
                
                 let profile:Profile = Profile(role: userRole, picture: picture, username: username, country: country, address: address, company: company, phone: phone, experience: exp, rate: rate)
                 onSuccess(profile)

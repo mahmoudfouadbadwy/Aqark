@@ -35,21 +35,6 @@ extension SignUpView{
     }
 }
 
-//MARK: - UIViewIndicator
-extension SignUpView{
-    func showIndicator()
-    {
-        networkIndicator.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        networkIndicator.center = view.center
-        networkIndicator.startAnimating()
-        view.addSubview(networkIndicator)
-    }
-    
-    func stopIndicator() {
-        networkIndicator.stopAnimating()
-    }
-}
-
 //MARK: - Picker view
 extension SignUpView:UIPickerViewDataSource,UIPickerViewDelegate{
     func setPickerDelegates()

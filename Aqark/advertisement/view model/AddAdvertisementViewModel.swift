@@ -42,6 +42,10 @@ class AddAdvertisementViewModel : AddAdvertisementViewModelProtocol{
         }
     }
     
+    init(editDataSource : EditAdvertisementDataSource) {
+        editAdvertisementDataSource = editDataSource
+    }
+    
     
     init(payment : String , propertyType: String , advertisementType:String?, price: String , bedrooms: String , bathroom: String? , size: String , phone: String , location: String , latitude: String , longitude: String , country: String? , description: String , aminities : [Int:String] ,dataImages :[Data] , urlImages:[String] , deletedImage : [String]) {
         self.payment = payment
