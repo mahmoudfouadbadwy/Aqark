@@ -44,8 +44,20 @@ extension AddAdvertisementViewController{
                     
                     let myImage = photo.image.jpegData(compressionQuality: 0.75)
                     
+                    
+                    let DataImageInString = "\(myImage ?? Data.init())"
+                    let splitDataImage = DataImageInString.split(separator: " ")
+                    let imageBytes = Int(splitDataImage[0])
+                    if let imageBytes = imageBytes{
+                        if imageBytes > 10000000{
+                            print("greater than ")
+                            continue
+                        }
+                    }
+                    
                     if self.selectedImages.count > 0
                     {
+                        self.selectedImages.append(myImage!)
                         if self.selectedImages.count >= 5{
                             
                             print("error you shokd have only five imae")
@@ -55,7 +67,7 @@ extension AddAdvertisementViewController{
                             print("i found it her !")
                             continue
                         }
-                        self.selectedImages.append(myImage!)
+                        
                         
                     }else{
                         self.selectedImages.append(myImage!)

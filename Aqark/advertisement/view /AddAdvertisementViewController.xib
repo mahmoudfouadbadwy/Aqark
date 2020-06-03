@@ -765,11 +765,162 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="TFh-Nl-jm5"/>
                                                     </constraints>
+
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="m0f-si-l2Q" firstAttribute="leading" secondItem="MOF-zz-Qdc" secondAttribute="leading" id="7lE-2I-lfT"/>
+                                                <constraint firstItem="RLR-cv-LKs" firstAttribute="leading" secondItem="m0f-si-l2Q" secondAttribute="trailing" id="VC7-t1-mie"/>
+                                                <constraint firstAttribute="trailing" secondItem="RLR-cv-LKs" secondAttribute="trailing" id="ps5-4m-hnz"/>
+                                            </constraints>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aev-mK-DmB">
+                                            <rect key="frame" x="0.0" y="280" width="355" height="40"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBY-5a-JMe">
+                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="40"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Children's Play Area" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9S-QU-NrC">
+                                                            <rect key="frame" x="30" y="10" width="325" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LU0-lZ-dMv">
+                                                            <rect key="frame" x="0.0" y="7.5" width="25" height="25"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="25" id="IT0-1E-z7x"/>
+                                                                <constraint firstAttribute="width" constant="25" id="bKj-Ha-Yvy"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button" image="advertisement_uncheck.png"/>
+                                                            <connections>
+                                                                <action selector="selectAmenities:" destination="-1" eventType="touchUpInside" id="4gj-dz-G7E"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="LU0-lZ-dMv" firstAttribute="centerY" secondItem="WBY-5a-JMe" secondAttribute="centerY" id="6s2-GB-I11"/>
+                                                        <constraint firstAttribute="trailing" secondItem="o9S-QU-NrC" secondAttribute="trailing" id="J6X-YD-HIT"/>
+                                                        <constraint firstAttribute="height" constant="40" id="Ns1-87-0Oj"/>
+                                                        <constraint firstItem="LU0-lZ-dMv" firstAttribute="leading" secondItem="WBY-5a-JMe" secondAttribute="leading" id="WD3-5g-zEq"/>
+                                                        <constraint firstItem="o9S-QU-NrC" firstAttribute="leading" secondItem="LU0-lZ-dMv" secondAttribute="trailing" constant="5" id="gWt-rT-tW7"/>
+                                                        <constraint firstItem="o9S-QU-NrC" firstAttribute="centerY" secondItem="WBY-5a-JMe" secondAttribute="centerY" id="glw-Pc-DDa"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="WBY-5a-JMe" secondAttribute="trailing" id="hb0-LP-sYY"/>
+                                                <constraint firstItem="WBY-5a-JMe" firstAttribute="leading" secondItem="aev-mK-DmB" secondAttribute="leading" id="wX0-XT-rjn"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                </stackView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwZ-ho-09k">
+                                    <rect key="frame" x="40" y="1171" width="60.5" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBn-ZN-rDe">
+                                    <rect key="frame" x="152.5" y="1288.5" width="70" height="40"/>
+                                    <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="G3h-O1-Kqc"/>
+                                        <constraint firstAttribute="width" constant="70" id="f6d-Yc-RWO"/>
+                                    </constraints>
+                                    <state key="normal" title="ADD">
+                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="saveAdvertisement:" destination="-1" eventType="touchUpInside" id="c5M-dW-a4O"/>
+                                    </connections>
+                                </button>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ja2-Nf-aK2">
+                                    <rect key="frame" x="20" y="190" width="335" height="282"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="county*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hu4-Rk-EEU">
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="rQe-Qh-4h5"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="showCounties:" destination="-1" eventType="editingDidBegin" id="Gat-C6-F9N"/>
+                                            </connections>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U6h-Nh-KNg">
+                                            <rect key="frame" x="0.0" y="42" width="335" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="12a-bK-bDQ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Size*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xJF-1q-9Vv">
+                                            <rect key="frame" x="0.0" y="84" width="335" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="kJz-y8-Opm"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gaw-mu-GOa">
+                                            <rect key="frame" x="0.0" y="126" width="335" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="Lz7-yU-pTn"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="addAutoCompleteAddress:" destination="-1" eventType="editingDidBegin" id="Wkc-K1-1dz"/>
+                                            </connections>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PhoneNumber*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8DF-y9-1wa">
+                                            <rect key="frame" x="0.0" y="168" width="335" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="NhQ-Wi-Nb7"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                        </textField>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zvR-a5-Acw">
+                                            <rect key="frame" x="0.0" y="210" width="335" height="32"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" placeholder="Bedrooms*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TJK-mw-9q1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="231" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="0wh-RO-AI7"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                </textField>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="agb-Xv-V0X">
+                                                    <rect key="frame" x="241" y="0.0" width="94" height="32"/>
+                                                    <connections>
+                                                        <action selector="increaseBedRoomNumber:" destination="-1" eventType="valueChanged" id="BCj-a4-a15"/>
+                                                    </connections>
+                                                </stepper>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Xoe-5F-f98">
+                                            <rect key="frame" x="0.0" y="250" width="335" height="32"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" placeholder="Bathrooms*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="16J-1M-yns">
+                                                    <rect key="frame" x="0.0" y="0.0" width="231" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="TFh-Nl-jm5"/>
+                                                    </constraints>
+
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="rbQ-Il-VUm">
-                                                    <rect key="frame" x="241" y="0.0" width="94" height="29"/>
+
+                                                   
+
+                                                    <rect key="frame" x="241" y="0.0" width="94" height="32"/>
+
                                                     <connections>
                                                         <action selector="increaseBathRoomNumber:" destination="-1" eventType="valueChanged" id="K8y-dY-Z7i"/>
                                                     </connections>
@@ -1020,7 +1171,11 @@
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
-                                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+
+                                                            
+
+                                                            <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="v6a-Bd-VMv">
                                                             <rect key="frame" x="0.0" y="350" width="335" height="30"/>

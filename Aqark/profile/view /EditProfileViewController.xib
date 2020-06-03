@@ -506,12 +506,6 @@
                 <constraint firstItem="hEW-0Y-Rt3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xtZ-YO-l4G"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="Dpr-Ol-vY0"/>
-                    <exclude reference="dXe-jx-P2u"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="138.40000000000001" y="109.29535232383809"/>
         </view>
     </objects>
