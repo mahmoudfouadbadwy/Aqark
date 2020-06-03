@@ -10,35 +10,45 @@ import UIKit
 
 extension PropertyDetailView {
     func addReview(){
-         
+        
         advertisementReviewViewModel = ReviewsViewModel(dataAccess: reviewData)
         if !addReviewContentTextView.text.isEmpty{
-        self.advertisementReviewViewModel.setReviewData(reviewContent: addReviewContentTextView.text, advertisementId : advertisementId)
+            self.advertisementReviewViewModel.setReviewData(reviewContent: addReviewContentTextView.text, advertisementId : advertisementId)
             addReviewContentTextView.text = ""
             inputStack.isHidden = true
             submitReviewBtn.isHidden = true
         }
     }
-
+    
     func setUpReviewsCollectionView()
-      {
-           reviewsCollectionView.register(UINib(nibName: "ReviewCell", bundle: nil), forCellWithReuseIdentifier: "ReviewCell")
+    {
+        reviewsCollectionView.register(UINib(nibName: "ReviewCell", bundle: nil), forCellWithReuseIdentifier: "ReviewCell")
         
-      }
+    }
+    
+    func bindReviewData(){
+        self.reviewData = ReviewData()
+        self.advertisementReviewViewModel = ReviewsViewModel(dataAccess: self.reviewData)
+        self.manageReviewAppearence()
+        self.advertisementReviewViewModel.populateAdvertisementReviews(id: self.advertisementId, completionForPopulateReviews: {[weak self] reviewsResults in
+            self?.arrOfReviewsViewModel = reviewsResults
+            self?.reviewsCollectionView.reloadData()
+        })
+    }
     func manageReviewAppearence(){
-         inputStack.isHidden = true
+        inputStack.isHidden = true
         submitReviewBtn.isHidden = true
         if propertyViewModel.checkAdvertisementOwner(agentId: advertisementDetails.userID) || !advertisementReviewViewModel.checkUserAuth(){
-        addReviewBtn.isHidden = true
+            addReviewBtn.isHidden = true
         }else{
             addReviewBtn.isHidden = false
         }
     }
     func manageAddReviewOutlets(){
-          inputStack.isHidden = false
-          submitReviewBtn.isHidden = false
-          addReviewContentTextView.layer.cornerRadius = 20
+        inputStack.isHidden = false
+        submitReviewBtn.isHidden = false
+        addReviewContentTextView.layer.cornerRadius = 20
         
     }
-
+    
 }

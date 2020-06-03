@@ -12,17 +12,12 @@ import JJFloatingActionButton
 import Cosmos
 
 class PropertyDetailView: UIViewController,UIActionSheetDelegate{
-   
-
-   
     @IBOutlet weak var inputStack: UIStackView!
     @IBOutlet weak var addReviewContentTextView: UITextView!
-    
     @IBOutlet weak var submitReviewBtn: UIButton!
     @IBOutlet weak var reviewTextView: UITextView!
     @IBOutlet weak var addReviewBtn: UIButton!
     @IBOutlet weak var reviewHeaderLabel: UILabel!
-  
     @IBOutlet weak var content: UIView!
     @IBOutlet weak var amenitiesTopSpace: NSLayoutConstraint!
     @IBOutlet weak var amenitiesHeight: NSLayoutConstraint!
@@ -53,8 +48,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     var advertisementId:String!
     var downloadedImages:[UIImage] = []
     let callButton = JJFloatingActionButton()
-
-     var coreDataViewModel: CoreDataViewModel?
+    var coreDataViewModel: CoreDataViewModel?
     var arrOfReviewsViewModel : [ReviewViewModel]!
     @IBOutlet weak var reviewsCollectionView: UICollectionView!
     override func viewDidLoad() {
@@ -67,17 +61,12 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
             propertyViewModel.populateAdvertisement(id: advertisementId) {[weak self] (advertisement,agent) in
                 self?.advertisementDetails = advertisement
                 self?.agent = agent
-                self?.reviewData = ReviewData()
                 self?.bindAdvertisementData()
                 self?.setUpReviewsCollectionView()
-                self?.advertisementReviewViewModel = ReviewsViewModel(dataAccess: self!.reviewData)
-                self?.manageReviewAppearence()
-                self?.advertisementReviewViewModel.populateAdvertisementReviews(id: self!.advertisementId, completionForPopulateReviews: { reviewsResults in
-                    self?.arrOfReviewsViewModel = reviewsResults
-                    self!.reviewsCollectionView.reloadData()
-                      })
-
-                }
+                self?.bindReviewData()
+            }
+            setupCoredata()
+            checkIfFavourite()
         }
         else{
             content.isHidden = true
@@ -97,7 +86,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         mapItem.openInMaps(launchOptions: options)
     }
     
-
+    
     @IBAction func addReviewBtn(_ sender: Any) {
         manageAddReviewOutlets()
     }
@@ -109,8 +98,8 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBAction func showReportActionSheet(_ sender: Any) {
         preformReport()
     }
-
-
+    
+    
     @IBAction func openPropertiesView(_ sender: Any) {
         let properties = AgentPropertiesView()
         properties.agentId =  advertisementDetails.userID
@@ -118,7 +107,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         self.navigationController?.pushViewController(properties, animated: true)
         
     }
-
+    
     @IBAction func showLawyers(_ sender: Any) {
         let servicesView = ServicesViewController()
         servicesView.serviceRole = "Lawyers"
@@ -129,18 +118,18 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBAction func showInteriorDesigners(_ sender: Any) {
         let servicesView = ServicesViewController()
         servicesView.serviceRole = "Interior Desigenrs"
-         servicesView.advertisementCountry = advertisementDetails.country
+        servicesView.advertisementCountry = advertisementDetails.country
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
-
-
+    
+    
     @IBAction func cancelReview(_ sender: Any) {
         
         inputStack.isHidden = true
         
     }
     
-  
+    
 }
 
 
