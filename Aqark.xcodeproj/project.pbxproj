@@ -60,7 +60,6 @@
 		82608A2F2476CA1D005946C1 /* EditAdvertisementDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82608A2E2476CA1D005946C1 /* EditAdvertisementDataSource.swift */; };
 		82608A322476CD20005946C1 /* EditAdvertisementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82608A312476CD20005946C1 /* EditAdvertisementModel.swift */; };
 		82608A3524787525005946C1 /* extentionEditAdvertisementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82608A3424787525005946C1 /* extentionEditAdvertisementViewModel.swift */; };
-		8267DE512484832B00B4C60D /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 8267DE502484832B00B4C60D /* camera.png */; };
 		8267DE5324848A9900B4C60D /* photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8267DE5224848A9900B4C60D /* photo.png */; };
 		826A9A1D2473E4990046E562 /* AddAdvertisementDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A1C2473E4990046E562 /* AddAdvertisementDataSource.swift */; };
 		826A9A1F2473E4A40046E562 /* AddAdvertisementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A1E2473E4A40046E562 /* AddAdvertisementModel.swift */; };
@@ -243,7 +242,6 @@
 		82608A2E2476CA1D005946C1 /* EditAdvertisementDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAdvertisementDataSource.swift; sourceTree = "<group>"; };
 		82608A312476CD20005946C1 /* EditAdvertisementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAdvertisementModel.swift; sourceTree = "<group>"; };
 		82608A3424787525005946C1 /* extentionEditAdvertisementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extentionEditAdvertisementViewModel.swift; sourceTree = "<group>"; };
-		8267DE502484832B00B4C60D /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		8267DE5224848A9900B4C60D /* photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo.png; sourceTree = "<group>"; };
 		826A9A1C2473E4990046E562 /* AddAdvertisementDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAdvertisementDataSource.swift; sourceTree = "<group>"; };
 		826A9A1E2473E4A40046E562 /* AddAdvertisementModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAdvertisementModel.swift; sourceTree = "<group>"; };
@@ -388,7 +386,6 @@
 		26F5D2F0E1BA59990B8F348E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8267DE502484832B00B4C60D /* camera.png */,
 				79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */,
 				DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */,
 			);
@@ -1205,7 +1202,6 @@
 				BF6DC6902473522B0030AE52 /* PropertyDetailView.xib in Resources */,
 				8267DE5324848A9900B4C60D /* photo.png in Resources */,
 				3E69A8D3247EF5E000193605 /* AdminTabBarController.xib in Resources */,
-				8267DE512484832B00B4C60D /* camera.png in Resources */,
 				3E69A8D9247EF5E000193605 /* AdminUsersViewController.xib in Resources */,
 				BFCF0BCD24677F8100A43D8B /* Assets.xcassets in Resources */,
 				BF4423342469D1B80050BD8A /* SignUpView.xib in Resources */,
@@ -1338,7 +1334,6 @@
 				BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */,
 				BFA42D9C247BFCE000A986E8 /* AmenitiesCollection.swift in Sources */,
 				823D6EA2247DDA7200F0B0FF /* extensionEditAdvertisement.swift in Sources */,
-
 				825F58742481425300DF60FB /* EditProfileViewModel.swift in Sources */,
 				3E69A8D5247EF5E000193605 /* CustomSegment.swift in Sources */,
 				823D6EA2247DDA7200F0B0FF /* extensionEditAdvertisement.swift in Sources */,
@@ -1346,11 +1341,8 @@
 				3E69A8D2247EF5E000193605 /* AdminTabBarController.swift in Sources */,
 				826A9A2C2473E4C20046E562 /* ExtensionAddAdvertisementViewModel.swift in Sources */,
 				BF634C9E2473373200B65B90 /* LoginViewModel.swift in Sources */,
-
 				C65805CE2482A7C1003F3DA1 /* ReviewExtension.swift in Sources */,
-
 				825DF58824801EDA0019C27C /* EditProfileViewController.swift in Sources */,
-
 				823D6EA4247DDB9D00F0B0FF /* extensionSelectAmenities.swift in Sources */,
 				826A9A2F2473E4C20046E562 /* FileAddAdvertisementViewModelProtocol.swift in Sources */,
 				BF8475EB2483EF4900D01A9D /* ReportsCollection.swift in Sources */,
@@ -1401,12 +1393,10 @@
 				3E943FC7246A053300A1FF83 /* FirstScreenViewController.swift in Sources */,
 				BFA42D99247BF93E00A986E8 /* AmenitiesCell.swift in Sources */,
 				BF8475D82483E35600D01A9D /* AdminReportsView.swift in Sources */,
-
 				BF6D507824804B4000FFDD30 /* AgentPropertiesView.swift in Sources */,
 				823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */,
 				BFF0161A24810CB800C3B7C0 /* AgentViewModel.swift in Sources */,
 				823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */,
-
 				C61CFE3224765998000EC0EF /* PaymentViewController.swift in Sources */,
 				BF3B2695247029850064BDF0 /* ProfileViewModel.swift in Sources */,
 				C66E3B7A247FCC0B00E1BAF2 /* ReportModel.swift in Sources */,
@@ -1425,9 +1415,7 @@
 				826A9A382473EAC40046E562 /* AddAdvertisementViewController.swift in Sources */,
 				3ED938E52480C023005BF1EF /* ServiceHelper.swift in Sources */,
 				3E69A8BE247EF5BC00193605 /* AdminAdvertisementsListViewModel.swift in Sources */,
-
 				C65805CC2482910A003F3DA1 /* ReviewsViewModel.swift in Sources */,
-
 				BF4355882474E1DE001DA5D8 /* SearchViewController.swift in Sources */,
 				826A9A442474CC730046E562 /* extensionviewPicker.swift in Sources */,
 				3ED938DD2480A878005BF1EF /* ServiceUser.swift in Sources */,
