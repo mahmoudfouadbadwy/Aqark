@@ -1,33 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="Aqark" customModuleProvider="target">
             <connections>
-                <outlet property="filterBtn" destination="EAO-Wd-sCG" id="beJ-wt-9vm"/>
-                <outlet property="filterImage" destination="0pO-cq-hOi" id="jIp-Ie-LJ4"/>
                 <outlet property="labelPlaceHolder" destination="V6q-qp-wXR" id="ysG-7T-2mM"/>
                 <outlet property="mapView" destination="LV1-0U-khI" id="Rry-Ab-97r"/>
-                <outlet property="notificationBtn" destination="OxT-Va-E8v" id="fpX-NU-VCm"/>
+                <outlet property="notificationBtn" destination="omt-Ed-JKc" id="648-tB-2jy"/>
                 <outlet property="searchBar" destination="A96-AO-fov" id="5bX-9w-cTM"/>
                 <outlet property="searchCollectionView" destination="04f-JC-67H" id="81L-eJ-fPD"/>
-                <outlet property="sortBtn" destination="kn1-X9-QlG" id="2gT-W8-FXf"/>
+                <outlet property="sortBtn" destination="ei5-zO-4Sl" id="snl-uh-ept"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" alpha="0.5" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <searchBar hidden="YES" contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search by Location" translatesAutoresizingMaskIntoConstraints="NO" id="A96-AO-fov">
+                    <rect key="frame" x="19" y="30" width="337.5" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="barTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="SEF-YK-Syz"/>
+                    </connections>
+                </searchBar>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="EoN-bx-TxH">
+                    <rect key="frame" x="19" y="80" width="337.5" height="33.5"/>
+                    <subviews>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omt-Ed-JKc">
+                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="29"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="notification" image="notification">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                        <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ei5-zO-4Sl">
+                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="29"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="Sort" image="sort">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="showSortingActionSheet:" destination="-1" eventType="touchUpInside" id="7jA-8J-0GS"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Internet Connection Not Available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6q-qp-wXR">
+                    <rect key="frame" x="64" y="324" width="247" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="04f-JC-67H">
-                    <rect key="frame" x="0.0" y="102.5" width="375" height="564.5"/>
+                    <rect key="frame" x="0.0" y="123.5" width="375" height="543.5"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NlW-P8-jzi">
                         <size key="itemSize" width="50" height="50"/>
@@ -40,56 +77,8 @@
                         <outlet property="delegate" destination="-1" id="le0-zX-IB7"/>
                     </connections>
                 </collectionView>
-                <searchBar hidden="YES" contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search Location" translatesAutoresizingMaskIntoConstraints="NO" id="A96-AO-fov">
-                    <rect key="frame" x="9.5" y="12" width="356" height="46.5"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="barTintColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="SEF-YK-Syz"/>
-                    </connections>
-                </searchBar>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAO-Wd-sCG">
-                    <rect key="frame" x="231" y="18" width="89" height="32.5"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                    <state key="normal" title="Filters">
-                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                </button>
-                <imageView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_filter" translatesAutoresizingMaskIntoConstraints="NO" id="0pO-cq-hOi">
-                    <rect key="frame" x="306.5" y="28" width="21.5" height="16.5"/>
-                </imageView>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kn1-X9-QlG">
-                    <rect key="frame" x="336" y="72.5" width="24" height="24"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="24" id="OQ8-v5-P40"/>
-                        <constraint firstAttribute="height" constant="24" id="k8N-0a-7iR"/>
-                    </constraints>
-                    <state key="normal" backgroundImage="search_swap">
-                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <connections>
-                        <action selector="showSortingActionSheet:" destination="-1" eventType="touchUpInside" id="8ms-g9-cxi"/>
-                    </connections>
-                </button>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Internet Connection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6q-qp-wXR">
-                    <rect key="frame" x="0.0" y="322" width="375" height="23"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxT-Va-E8v">
-                    <rect key="frame" x="15" y="72.5" width="24" height="24"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="24" id="FIe-wf-5lQ"/>
-                        <constraint firstAttribute="height" constant="24" id="kJr-Zd-474"/>
-                    </constraints>
-                    <state key="normal" backgroundImage="search_notification"/>
-                </button>
-                <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LV1-0U-khI">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LV1-0U-khI">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="PMb-It-p03"/>
                     </connections>
@@ -97,39 +86,31 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="0pO-cq-hOi" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="28" id="2En-8Y-4kY"/>
-                <constraint firstItem="EAO-Wd-sCG" firstAttribute="height" secondItem="A96-AO-fov" secondAttribute="height" multiplier="0.7" id="5YY-iA-bHw"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kn1-X9-QlG" secondAttribute="trailing" constant="15" id="791-DZ-oJt"/>
-                <constraint firstItem="A96-AO-fov" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.95" id="8ot-lv-YKE"/>
-                <constraint firstItem="0pO-cq-hOi" firstAttribute="width" secondItem="A96-AO-fov" secondAttribute="width" multiplier="0.06" id="9vx-cG-ZvF"/>
-                <constraint firstItem="kn1-X9-QlG" firstAttribute="top" secondItem="A96-AO-fov" secondAttribute="bottom" constant="14" id="BeM-fI-PcK"/>
-                <constraint firstItem="EAO-Wd-sCG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="18" id="Fnz-IU-yGX"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="A96-AO-fov" secondAttribute="trailing" constant="9.5" id="Ivd-d6-XeQ"/>
-                <constraint firstItem="0pO-cq-hOi" firstAttribute="height" secondItem="A96-AO-fov" secondAttribute="height" multiplier="0.35" id="KwQ-UU-rrN"/>
+                <constraint firstItem="04f-JC-67H" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0A7-AW-N5O"/>
+                <constraint firstItem="A96-AO-fov" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.9" id="8ot-lv-YKE"/>
+                <constraint firstItem="V6q-qp-wXR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Dxh-LY-OW7"/>
+                <constraint firstItem="EoN-bx-TxH" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.05" id="EVn-JR-VtH"/>
+                <constraint firstItem="04f-JC-67H" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="JUQ-Ri-dKe"/>
                 <constraint firstItem="LV1-0U-khI" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Mpc-LE-tNv"/>
+                <constraint firstItem="V6q-qp-wXR" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="NIM-Ok-oHo"/>
                 <constraint firstItem="LV1-0U-khI" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Qgz-ik-y7i"/>
-                <constraint firstItem="04f-JC-67H" firstAttribute="top" secondItem="OxT-Va-E8v" secondAttribute="bottom" constant="6" id="WfR-dz-vNA"/>
-                <constraint firstItem="OxT-Va-E8v" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="XDu-pk-KX3"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0pO-cq-hOi" secondAttribute="trailing" constant="47" id="aCP-6f-jtw"/>
-                <constraint firstItem="A96-AO-fov" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.07" id="fvO-QG-Ty4"/>
-                <constraint firstItem="EAO-Wd-sCG" firstAttribute="width" secondItem="A96-AO-fov" secondAttribute="width" multiplier="0.25" id="fvw-Lc-Olq"/>
-                <constraint firstItem="04f-JC-67H" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="g8C-ah-uMf"/>
-                <constraint firstItem="04f-JC-67H" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="gur-RN-00E"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="EAO-Wd-sCG" secondAttribute="trailing" constant="55" id="icq-tM-CDf"/>
-                <constraint firstItem="04f-JC-67H" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="jHN-XB-Ms0"/>
-                <constraint firstItem="04f-JC-67H" firstAttribute="top" secondItem="kn1-X9-QlG" secondAttribute="bottom" constant="6" id="lXO-vk-KCW"/>
-                <constraint firstItem="OxT-Va-E8v" firstAttribute="top" secondItem="A96-AO-fov" secondAttribute="bottom" constant="14" id="rJI-Qc-4aR"/>
+                <constraint firstItem="EoN-bx-TxH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VRV-Jn-6QF"/>
+                <constraint firstItem="04f-JC-67H" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="VTo-lC-aEa"/>
+                <constraint firstItem="EoN-bx-TxH" firstAttribute="top" secondItem="A96-AO-fov" secondAttribute="bottom" constant="10" id="YlF-55-kyz"/>
+                <constraint firstItem="A96-AO-fov" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.06" id="fvO-QG-Ty4"/>
+                <constraint firstItem="A96-AO-fov" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gAd-Sz-hNX"/>
+                <constraint firstItem="04f-JC-67H" firstAttribute="top" secondItem="EoN-bx-TxH" secondAttribute="bottom" constant="10" id="gMa-7L-iiv"/>
                 <constraint firstItem="LV1-0U-khI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="szF-yn-Shj"/>
                 <constraint firstItem="LV1-0U-khI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="uZb-S2-5yj"/>
-                <constraint firstItem="A96-AO-fov" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="zOK-gV-TPK"/>
+                <constraint firstItem="EoN-bx-TxH" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.9" id="yze-j6-OgS"/>
+                <constraint firstItem="A96-AO-fov" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="zOK-gV-TPK"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="40.799999999999997" y="-85.007496251874073"/>
         </view>
     </objects>
     <resources>
-        <image name="search_filter" width="186" height="186"/>
-        <image name="search_notification" width="12" height="15"/>
-        <image name="search_swap" width="11" height="14"/>
+        <image name="notification" width="21.5" height="26"/>
+        <image name="sort" width="29" height="29.5"/>
     </resources>
 </document>

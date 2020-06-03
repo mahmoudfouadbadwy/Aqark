@@ -14,15 +14,15 @@ extension SearchViewController : MKMapViewDelegate{
     
     func floationgBtn(){
         self.actionButton.buttonColor = .lightGray
-        actionButton.addItem(title: "item 1", image: UIImage(named: "search_map")?.withRenderingMode(.alwaysTemplate)) { item in
+        actionButton.addItem(title: "Map", image: UIImage(named: "map")?.withRenderingMode(.alwaysTemplate)) { item in
             if self.isMapHidden{
                 self.mapView.isHidden = false
                 self.isMapHidden = false
-                self.actionButton.imageView.image("search_list")
+                self.actionButton.imageView.image("search")
             }else{
                 self.mapView.isHidden = true
                 self.isMapHidden = true
-                self.actionButton.imageView.image("search_map")
+                self.actionButton.imageView.image("map")
             }
         }
         view.addSubview(actionButton)
@@ -35,7 +35,7 @@ extension SearchViewController : MKMapViewDelegate{
         searchBar.text = view.annotation?.title ?? ""
         searchBarText = searchBar.text
         mapView.isHidden = true
-        actionButton.imageView.image("search_map")
+        actionButton.imageView.image("map")
     }
     
     func putLocationOnMap(){
@@ -68,16 +68,6 @@ extension SearchViewController : MKMapViewDelegate{
             latitudinalMeters: 10000,
             longitudinalMeters: 1000000)
         mapView.setRegion(region, animated: false)
-//
-//        if #available(iOS 13.0, *) {
-//            mapView.setCameraBoundary(
-//                MKMapView.CameraBoundary(coordinateRegion: region),
-//                animated: true)
-//            let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 3000000)
-//            mapView.setCameraZoomRange(zoomRange, animated: false)
-//        } else {
-//            //                 Fallback on earlier versions
-//        }
     }
 }
 

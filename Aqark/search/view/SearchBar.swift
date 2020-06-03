@@ -26,7 +26,6 @@ extension SearchViewController:  UISearchBarDelegate{
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.becomeFirstResponder()
         appearAutoCompleteData()
-        filterContentForSearchBarText(searchBar.text!)
     }
     
     func filterContentForSearchBarText(_ searchText: String){
@@ -34,7 +33,11 @@ extension SearchViewController:  UISearchBarDelegate{
         filteredAdsList = arrOfAdViewModel.filter { advertisement -> Bool in
             return advertisement.address.lowercased().contains(searchText.lowercased())
         }
-        searchCollectionView.reloadData()
+        if filteredAdsList.count == 0{
+            labelPlaceHolder.text = "No Advertisements Available"
+            self.manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: false)
+        }
+        self.searchCollectionView.reloadData()
     }
     
     var isFiltering: Bool {
