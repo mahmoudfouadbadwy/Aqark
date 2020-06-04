@@ -8,28 +8,28 @@
 
 import UIKit
 
-extension PropertyDetailView : FavouriteButtonProtocol{
+extension PropertyDetailView {
     func setupCoredata (){
         self.coreDataViewModel=CoreDataViewModel(dataAccess: CoreDataAccess())
     }
     
     func checkIfFavourite (){
         if (coreDataViewModel!.isAdvertismentExist(id: self.advertisementId)){
-            imageSlider.favouriteButton.tintColor = #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)
+            favButton.image = UIImage(named: "red-heart")
         }else{
-            imageSlider.favouriteButton.tintColor = UIColor.white
+             favButton.image = UIImage(named: "heart")
         }
     }
     
-    func addAdvertismentToFav() {
-
+    @objc func toogleFavorite()
+    {
         if (coreDataViewModel!.isAdvertismentExist(id: self.advertisementId))
         {
-            imageSlider.favouriteButton.tintColor = UIColor.white
+             favButton.image = UIImage(named: "heart")
             self.coreDataViewModel!.deleteAdvertismentFromFavourite(id: self.advertisementId)
         }else{
             if((coreDataViewModel?.checkNumberOfAdvertisment())!){
-                imageSlider.favouriteButton.tintColor = #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)
+                 favButton.image = UIImage(named: "red-heart")
                 self.coreDataViewModel!.addAdvertismentToFavourite(id: self.advertisementId)
                 
             }else{

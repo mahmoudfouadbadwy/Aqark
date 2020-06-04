@@ -37,6 +37,10 @@ extension SearchViewController:  UISearchBarDelegate{
             labelPlaceHolder.text = "No Advertisements Available"
             self.manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: false)
         }
+        else
+        {
+            self.manageAppearence(sortBtn: false, labelPlaceHolder: true, notificationBtn: false)
+        }
         self.searchCollectionView.reloadData()
     }
     

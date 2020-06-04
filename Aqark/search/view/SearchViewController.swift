@@ -67,6 +67,9 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Advertisements"
+        sortBtn.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
+        notificationBtn.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
+        searchBar.barTintColor = UIColor(rgb: 0x1d3557)
         if SearchNetworking.checkNetworkConnection(){
             manageSearchBar()
             setupCoredata()

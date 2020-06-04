@@ -15,7 +15,7 @@ extension UIViewController{
         indicatorView?.backgroundColor = UIColor(white: 0, alpha: 0.5)
         let indicator = UIActivityIndicatorView(style: .whiteLarge)
         indicator.center = (indicatorView?.center)!
-        indicator.color = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        indicator.color = UIColor(rgb: 0xe63946)
         indicator.startAnimating()
         indicatorView?.addSubview(indicator)
         self.view.addSubview(indicatorView!)

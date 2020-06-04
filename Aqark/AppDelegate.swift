@@ -36,21 +36,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         let tabBarController = UITabBarController()
         tabBarController.tabBar.barTintColor = UIColor.white
-        tabBarController.tabBar.tintColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        tabBarController.tabBar.tintColor = UIColor(rgb: 0x1d3557)
         let searchTab = SearchViewController()
         let searchNavigationController = UINavigationController(rootViewController: searchTab)
         searchNavigationController.navigationBar.barTintColor = UIColor.white
-        searchNavigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1)]
+        searchNavigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(rgb: 0x1d3557)]
         
         let accountTab = ProfileViewController()
         let accountNavigationController = UINavigationController(rootViewController: accountTab)
         accountNavigationController.navigationBar.titleTextAttributes =
-            [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1)]
+            [NSAttributedString.Key.foregroundColor :  UIColor(rgb: 0x1d3557)]
         
         let favouriteTab = FavouriteViewController()
         let favouriteNavigationController = UINavigationController(rootViewController: favouriteTab)
         favouriteNavigationController.navigationBar.titleTextAttributes =
-            [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1)]
+            [NSAttributedString.Key.foregroundColor :  UIColor(rgb: 0x1d3557)]
         
         searchTab.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search"), tag: 1)
         accountTab.tabBarItem = UITabBarItem(title: "Account", image: UIImage(named: "profile"), tag: 2)

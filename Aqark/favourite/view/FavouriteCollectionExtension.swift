@@ -46,7 +46,7 @@ extension FavouriteViewController: UICollectionViewDelegate{
 
 extension FavouriteViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width - 20, height: collectionView.frame.height/3)
+        return CGSize(width: collectionView.frame.width - 20, height: collectionView.frame.height/3.5)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)

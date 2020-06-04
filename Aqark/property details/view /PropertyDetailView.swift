@@ -13,6 +13,9 @@ import Cosmos
 
 class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var inputStack: UIStackView!
+    
+    @IBOutlet weak var interiorDesigner: UIButton!
+    @IBOutlet weak var lawyers: UIButton!
     @IBOutlet weak var addReviewContentTextView: UITextView!
     @IBOutlet weak var submitReviewBtn: UIButton!
     @IBOutlet weak var reviewTextView: UITextView!
@@ -50,10 +53,16 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     let callButton = JJFloatingActionButton()
     var coreDataViewModel: CoreDataViewModel?
     var arrOfReviewsViewModel : [ReviewViewModel]!
+    var favButton : UIBarButtonItem!
     @IBOutlet weak var reviewsCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Property Details"
+        lawyers.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
+        interiorDesigner.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
+        favButton = UIBarButtonItem(image: UIImage(named: "heart"), style: .done, target: self, action: #selector(toogleFavorite))
+        
+        self.navigationItem.rightBarButtonItem = favButton
         if PropertyDetailsNetworking.checkNetworkConnection(){
             self.showActivityIndicator()
             self.propertyDataAccess = PropertyDetailDataAccess()

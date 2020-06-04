@@ -25,11 +25,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar hidden="YES" contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search by Location" translatesAutoresizingMaskIntoConstraints="NO" id="A96-AO-fov">
+                <searchBar hidden="YES" contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search by Location" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A96-AO-fov">
                     <rect key="frame" x="19" y="30" width="337.5" height="40"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="barTintColor" cocoaTouchSystemColor="darkTextColor"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="SEF-YK-Syz"/>

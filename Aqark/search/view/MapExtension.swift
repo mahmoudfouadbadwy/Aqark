@@ -13,7 +13,7 @@ import Foundation
 extension SearchViewController : MKMapViewDelegate{
     
     func floationgBtn(){
-        self.actionButton.buttonColor = #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1)
+        self.actionButton.buttonColor = UIColor(rgb: 0x1d3557)
         actionButton.addItem(title: "Map", image: UIImage(named: "map")?.withRenderingMode(.alwaysTemplate)) { item in
             if self.isMapHidden{
                 self.mapView.isHidden = false
