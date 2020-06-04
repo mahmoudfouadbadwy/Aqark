@@ -32,6 +32,8 @@ class FavouriteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Favourite"
+        self.view.backgroundColor = UIColor(rgb: 0xf1faee)
+        favouriteCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
         self.setupCoredata()
         setUpCollectionView()
     }

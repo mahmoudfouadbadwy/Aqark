@@ -109,7 +109,7 @@ extension PropertyDetailView:UICollectionViewDataSource{
 extension PropertyDetailView:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == amenitiesCollection{
-            return CGSize(width: collectionView.frame.width/2, height: collectionView.frame.height/3)
+            return CGSize(width: collectionView.frame.width/2, height: collectionView.frame.height/5)
         }else{
             return CGSize(width: collectionView.frame.width - 50, height: collectionView.frame.height - 10)
             

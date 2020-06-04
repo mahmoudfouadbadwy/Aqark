@@ -15,9 +15,9 @@ extension PropertyDetailView {
     
     func checkIfFavourite (){
         if (coreDataViewModel!.isAdvertismentExist(id: self.advertisementId)){
-            favButton.image = UIImage(named: "red-heart")
+            favButton.setImage(UIImage(named: "red-heart"), for: .normal)
         }else{
-             favButton.image = UIImage(named: "heart")
+             favButton.setImage( UIImage(named: "heart"), for: .normal)
         }
     }
     
@@ -25,11 +25,11 @@ extension PropertyDetailView {
     {
         if (coreDataViewModel!.isAdvertismentExist(id: self.advertisementId))
         {
-             favButton.image = UIImage(named: "heart")
+             favButton.setImage( UIImage(named: "heart"), for: .normal)
             self.coreDataViewModel!.deleteAdvertismentFromFavourite(id: self.advertisementId)
         }else{
             if((coreDataViewModel?.checkNumberOfAdvertisment())!){
-                 favButton.image = UIImage(named: "red-heart")
+                 favButton.setImage(UIImage(named: "red-heart"), for: .normal)
                 self.coreDataViewModel!.addAdvertismentToFavourite(id: self.advertisementId)
                 
             }else{

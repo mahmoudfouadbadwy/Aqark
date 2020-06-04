@@ -66,12 +66,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Advertisements"
-        sortBtn.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
-        notificationBtn.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
-        searchBar.barTintColor = UIColor(rgb: 0x1d3557)
-        self.view.backgroundColor = UIColor(rgb: 0xf1faee)
-        searchCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
+        setupViews()
         if SearchNetworking.checkNetworkConnection(){
             manageSearchBar()
             setupCoredata()
@@ -102,6 +97,16 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     
     @IBAction func showSortingActionSheet(_ sender: Any) {
         showSortingAlert()
+    }
+    
+    private func setupViews()
+    {
+        self.navigationItem.title = "Advertisements"
+        sortBtn.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
+        notificationBtn.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
+        searchBar.barTintColor = UIColor(rgb: 0x1d3557)
+        self.view.backgroundColor = UIColor(rgb: 0xf1faee)
+        searchCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
     }
     
 }

@@ -12,8 +12,21 @@ import JJFloatingActionButton
 import Cosmos
 
 class PropertyDetailView: UIViewController,UIActionSheetDelegate{
+    @IBOutlet weak var amenitiesHeader: UILabel!
+    @IBOutlet weak var cancelReview: UIButton!
+    @IBOutlet weak var reviewSection: UIView!
+    @IBOutlet weak var descriptionSection: UIView!
+    @IBOutlet weak var agentSection: UIView!
+    @IBOutlet weak var servicesSection: UIView!
+    @IBOutlet weak var amenitiesSection: UIView!
+    @IBOutlet weak var propertiesSection: UIView!
+    @IBOutlet weak var locationSection: UIView!
+    @IBOutlet weak var viewsSection: UIView!
+    @IBOutlet weak var specificationSection: UIView!
     @IBOutlet weak var inputStack: UIStackView!
-    
+    @IBOutlet weak var locationTitle: UILabel!
+    @IBOutlet weak var descriptionTitle: UILabel!
+    @IBOutlet weak var agentTitle: UILabel!
     @IBOutlet weak var porperties: UIButton!
     @IBOutlet weak var interiorDesigner: UIButton!
     @IBOutlet weak var lawyers: UIButton!
@@ -54,17 +67,11 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     let callButton = JJFloatingActionButton()
     var coreDataViewModel: CoreDataViewModel?
     var arrOfReviewsViewModel : [ReviewViewModel]!
-    var favButton : UIBarButtonItem!
+    var favButton : UIButton!
     @IBOutlet weak var reviewsCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Property Details"
-        lawyers.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
-        interiorDesigner.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
-        porperties.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
-        favButton = UIBarButtonItem(image: UIImage(named: "heart"), style: .done, target: self, action: #selector(toogleFavorite))
-        
-        self.navigationItem.rightBarButtonItem = favButton
+        setupViews()
         if PropertyDetailsNetworking.checkNetworkConnection(){
             self.showActivityIndicator()
             self.propertyDataAccess = PropertyDetailDataAccess()
@@ -76,6 +83,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
                 self?.setUpReviewsCollectionView()
                 self?.bindReviewData()
             }
+            setupFavoriteButton()
             setupCoredata()
             checkIfFavourite()
         }
@@ -137,6 +145,43 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBAction func cancelReview(_ sender: Any) {
         
         inputStack.isHidden = true
+        
+    }
+    
+    
+   private func setupViews()
+    {
+        self.navigationItem.title = "Property Details"
+        lawyers.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
+        interiorDesigner.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
+        porperties.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
+        locationTitle.textColor = UIColor(rgb: 0x457b9d)
+        agentTitle.textColor = UIColor(rgb: 0x457b9d)
+        descriptionTitle.textColor = UIColor(rgb: 0x457b9d)
+        reviewHeaderLabel.textColor = UIColor(rgb: 0x457b9d)
+        specificationSection.backgroundColor = UIColor(rgb: 0xf1faee)
+        viewsSection.backgroundColor = UIColor(rgb: 0xf1faee)
+        locationSection.backgroundColor = UIColor(rgb: 0xf1faee)
+        propertiesSection.backgroundColor = UIColor(rgb: 0xf1faee)
+        amenitiesSection.backgroundColor = UIColor(rgb: 0xf1faee)
+        agentSection.backgroundColor = UIColor(rgb: 0xf1faee)
+        servicesSection.backgroundColor = UIColor(rgb: 0xf1faee)
+        descriptionSection.backgroundColor = UIColor(rgb: 0xf1faee)
+        reviewSection.backgroundColor = UIColor(rgb: 0xf1faee)
+        amenitiesCollection.backgroundColor = UIColor(rgb: 0xf1faee)
+        amenitiesHeader.textColor = UIColor(rgb: 0x457b9d)
+    }
+    
+    
+   private func setupFavoriteButton()
+    {
+        favButton = UIButton(type: .custom)
+        favButton.setImage(UIImage(named: "heart"), for: .normal)
+        favButton.addTarget(self, action: #selector(toogleFavorite), for: .touchUpInside)
+        
+        favButton.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+        let barButton = UIBarButtonItem(customView: favButton)
+        self.navigationItem.rightBarButtonItem = barButton
         
     }
     

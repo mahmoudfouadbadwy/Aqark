@@ -21,14 +21,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBc-AY-4lU">
                         <rect key="frame" x="0.0" y="5" width="150" height="15"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="RPG-YN-pHe">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="RPG-YN-pHe">
                                 <rect key="frame" x="0.0" y="0.0" width="150" height="15"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PropertyDetail_Security" translatesAutoresizingMaskIntoConstraints="NO" id="5ul-kW-33f">
-                                        <rect key="frame" x="0.0" y="0.0" width="42.5" height="15"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Security" translatesAutoresizingMaskIntoConstraints="NO" id="5ul-kW-33f">
+                                        <rect key="frame" x="0.0" y="0.0" width="19" height="15"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HkE-OS-ZrT">
-                                        <rect key="frame" x="42.5" y="0.0" width="107.5" height="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HkE-OS-ZrT">
+                                        <rect key="frame" x="114.5" y="0.0" width="35.5" height="15"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -36,7 +36,6 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="RPG-YN-pHe" secondAttribute="bottom" id="9wx-ic-exw"/>
                             <constraint firstItem="RPG-YN-pHe" firstAttribute="top" secondItem="rBc-AY-4lU" secondAttribute="top" id="G5C-ot-Ghl"/>
@@ -62,6 +61,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="PropertyDetail_Security" width="14" height="18"/>
+        <image name="Security" width="19" height="24"/>
     </resources>
 </document>

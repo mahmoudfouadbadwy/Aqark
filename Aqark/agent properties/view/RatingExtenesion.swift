@@ -8,10 +8,10 @@
 
 
 import UIKit
-import Firebase
+
 extension AgentPropertiesView{
     func setupAgentRate(){
-        if checkLogin(){
+        if AgentRateViewModel.checkLogin(){
             rateLabel.text = "Please rate \(agentName ?? "Agent")'s properties"
             rate.didFinishTouchingCosmos = {[weak self]
                 rating in
@@ -30,12 +30,6 @@ extension AgentPropertiesView{
         {
             self.rateHeight.constant = 0
         }
-    }
-    
-    private func checkLogin()->Bool
-    {
-        guard let _ = Auth.auth().currentUser else {return false}
-        return true
     }
     
     private func showAlert(text:String,title:String)
