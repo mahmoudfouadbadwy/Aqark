@@ -46,6 +46,7 @@
                 <constraint firstItem="uMS-dW-vim" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="swM-24-cJZ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="152.80000000000001" y="196.55172413793105"/>
         </view>
     </objects>
 </document>

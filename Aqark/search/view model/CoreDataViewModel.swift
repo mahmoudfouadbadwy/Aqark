@@ -34,7 +34,7 @@ class CoreDataViewModel{
         return dataAccess.checkNumOfAds()
     }
     
-    func getAllAdvertisment () -> [String]{
+    func getAllFavouriteAdvertisment () -> [String]{
         return dataAccess.getAllAdvertisment()
     }
  

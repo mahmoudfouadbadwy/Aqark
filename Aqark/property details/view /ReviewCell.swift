@@ -12,11 +12,13 @@ class ReviewCell: UICollectionViewCell {
 
     @IBOutlet weak var reviewerUserNameLabel: UILabel!
     @IBOutlet weak var reviewContentTextView: UITextView!
-    @IBOutlet weak var reviewerImage: UIImageView!
+   
  
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+      reviewerUserNameLabel.textColor = UIColor(rgb: 0x1d3557)
+        
     }
 
 }

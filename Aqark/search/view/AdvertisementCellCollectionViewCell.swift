@@ -16,7 +16,6 @@ class AdvertisementCellCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var numberOfBedsLabel: UILabel!
     @IBOutlet weak var numberOfBathRoomsLabel: UILabel!
     @IBOutlet weak var propertySizeLabel: UILabel!
-
     @IBOutlet weak var favButton: UIButton!
     var delegat:FavouriteProtocol?
     
@@ -25,6 +24,7 @@ class AdvertisementCellCollectionViewCell: UICollectionViewCell {
         // Initialization code
         advertisementImage.layer.cornerRadius = 10
         advertisementImage.clipsToBounds = true
+        propertyTypeLabel.textColor = UIColor(rgb: 0x457b9d)
     }
 
     @IBAction func addToFavoutiteButtonMethod(_ sender: Any) {
