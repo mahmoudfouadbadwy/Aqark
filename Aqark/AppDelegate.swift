@@ -35,12 +35,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         let tabBarController = UITabBarController()
+        tabBarController.tabBar.barTintColor = UIColor.white
+        tabBarController.tabBar.tintColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
         let searchTab = SearchViewController()
         let searchNavigationController = UINavigationController(rootViewController: searchTab)
+        searchNavigationController.navigationBar.barTintColor = UIColor.white
+        searchNavigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1)]
+        
         let accountTab = ProfileViewController()
         let accountNavigationController = UINavigationController(rootViewController: accountTab)
+        accountNavigationController.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1)]
+        
         let favouriteTab = FavouriteViewController()
         let favouriteNavigationController = UINavigationController(rootViewController: favouriteTab)
+        favouriteNavigationController.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1)]
+        
         searchTab.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search"), tag: 1)
         accountTab.tabBarItem = UITabBarItem(title: "Account", image: UIImage(named: "profile"), tag: 2)
         favouriteTab.tabBarItem = UITabBarItem(title: "Favourite", image: UIImage(named: "favoriteTab"), tag: 3)

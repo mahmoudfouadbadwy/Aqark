@@ -27,7 +27,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apartment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gtd-qd-0WP">
                         <rect key="frame" x="211" y="20" width="117.5" height="39.5"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                        <color key="textColor" red="0.9444003807106599" green="0.040978203614905444" blue="0.080329743850202862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.57380741830000004" green="0.56553578380000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45555" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PnK-wy-npS">
@@ -80,8 +80,8 @@
                             <constraint firstAttribute="width" constant="28" id="VO5-ve-eLL"/>
                             <constraint firstAttribute="height" constant="25" id="ljb-zh-1Av"/>
                         </constraints>
-                        <color key="tintColor" red="0.74896138906478882" green="0.74905234575271606" blue="0.74893045425415039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <state key="normal" image="favoriteHeart"/>
+                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" image="heart"/>
                         <connections>
                             <action selector="addToFavoutiteButtonMethod:" destination="gTV-IL-0wX" eventType="touchUpInside" id="qkE-jh-3Pw"/>
                         </connections>
@@ -135,7 +135,7 @@
     <resources>
         <image name="bathroom" width="25.5" height="23"/>
         <image name="bedroom" width="29.5" height="25"/>
-        <image name="favoriteHeart" width="26" height="22"/>
+        <image name="heart" width="27" height="23"/>
         <image name="propertySize" width="24" height="26.5"/>
         <image name="propertyType" width="25" height="22"/>
     </resources>

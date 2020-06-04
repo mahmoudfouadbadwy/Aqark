@@ -36,7 +36,7 @@ extension SearchViewController : UICollectionViewDataSource{
         }
         cell.favButton.setTitle(adViewModel.advertisementId, for: .normal)
         if (coreDataViewModel!.isAdvertismentExist(id: adViewModel.advertisementId)){
-            cell.favButton.tintColor = UIColor.red
+            cell.favButton.tintColor = #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)
         }
         else
         {

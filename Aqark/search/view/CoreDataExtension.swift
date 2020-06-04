@@ -24,7 +24,7 @@ extension SearchViewController:FavouriteProtocol{
         }else{
             if((coreDataViewModel?.checkNumberOfAdvertisment())!){
                
-                favButton.tintColor = UIColor.red
+                favButton.tintColor =  #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)
                 self.coreDataViewModel!.addAdvertismentToFavourite(id: (favButton.titleLabel?.text)!)
             }else{
                 let alert = UIAlertController(title: "Add To Favourite", message: "Can't add to favourite maximum 20 Ads can be added ", preferredStyle: .alert)

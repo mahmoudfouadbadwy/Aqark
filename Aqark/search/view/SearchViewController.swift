@@ -63,23 +63,25 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             filterContentForSearchBarText(searchBar.text!)
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Advertisements"
-        manageSearchBar()
-        setupCoredata()
-        setUpCollectionView()
-        floationgBtn()
-        limitRegion()
+        if SearchNetworking.checkNetworkConnection(){
+            manageSearchBar()
+            setupCoredata()
+            setUpCollectionView()
+            floationgBtn()
+            limitRegion()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         if SearchNetworking.checkNetworkConnection(){
             if  !isFiltering  {
-               
-               getCollectionViewData()
+                
+                getCollectionViewData()
             }
         }else{
             manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)

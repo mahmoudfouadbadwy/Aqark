@@ -15,7 +15,7 @@ extension PropertyDetailView : FavouriteButtonProtocol{
     
     func checkIfFavourite (){
         if (coreDataViewModel!.isAdvertismentExist(id: self.advertisementId)){
-            imageSlider.favouriteButton.tintColor = UIColor.red
+            imageSlider.favouriteButton.tintColor = #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)
         }else{
             imageSlider.favouriteButton.tintColor = UIColor.white
         }
@@ -29,7 +29,7 @@ extension PropertyDetailView : FavouriteButtonProtocol{
             self.coreDataViewModel!.deleteAdvertismentFromFavourite(id: self.advertisementId)
         }else{
             if((coreDataViewModel?.checkNumberOfAdvertisment())!){
-                imageSlider.favouriteButton.tintColor = UIColor.red
+                imageSlider.favouriteButton.tintColor = #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)
                 self.coreDataViewModel!.addAdvertismentToFavourite(id: self.advertisementId)
                 
             }else{

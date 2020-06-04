@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="Aqark" customModuleProvider="target">
             <connections>
-                <outlet property="labelPlaceHolder" destination="V6q-qp-wXR" id="ysG-7T-2mM"/>
+                <outlet property="labelPlaceHolder" destination="qdB-aD-rvP" id="wqd-hl-2YH"/>
                 <outlet property="mapView" destination="LV1-0U-khI" id="Rry-Ab-97r"/>
                 <outlet property="notificationBtn" destination="omt-Ed-JKc" id="648-tB-2jy"/>
                 <outlet property="searchBar" destination="A96-AO-fov" id="5bX-9w-cTM"/>
@@ -38,18 +38,20 @@
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="EoN-bx-TxH">
                     <rect key="frame" x="19" y="80" width="337.5" height="33.5"/>
                     <subviews>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omt-Ed-JKc">
-                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="29"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omt-Ed-JKc">
+                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="22"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                             <state key="normal" title="notification" image="notification">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="titleColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                         </button>
-                        <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ei5-zO-4Sl">
-                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="29"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ei5-zO-4Sl">
+                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="22"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Sort" image="sort">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="titleColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
                                 <action selector="showSortingActionSheet:" destination="-1" eventType="touchUpInside" id="7jA-8J-0GS"/>
@@ -57,12 +59,6 @@
                         </button>
                     </subviews>
                 </stackView>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Internet Connection Not Available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6q-qp-wXR">
-                    <rect key="frame" x="64" y="324" width="247" height="19.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="04f-JC-67H">
                     <rect key="frame" x="0.0" y="123.5" width="375" height="543.5"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -77,8 +73,15 @@
                         <outlet property="delegate" destination="-1" id="le0-zX-IB7"/>
                     </connections>
                 </collectionView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Internet Connection Not Available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdB-aD-rvP">
+                    <rect key="frame" x="60.5" y="324" width="254" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LV1-0U-khI">
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <rect key="contentStretch" x="0.0" y="0.050000000000000003" width="1" height="1"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="PMb-It-p03"/>
                     </connections>
@@ -88,11 +91,10 @@
             <constraints>
                 <constraint firstItem="04f-JC-67H" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0A7-AW-N5O"/>
                 <constraint firstItem="A96-AO-fov" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.9" id="8ot-lv-YKE"/>
-                <constraint firstItem="V6q-qp-wXR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Dxh-LY-OW7"/>
                 <constraint firstItem="EoN-bx-TxH" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.05" id="EVn-JR-VtH"/>
+                <constraint firstItem="qdB-aD-rvP" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Fks-2F-G1R"/>
                 <constraint firstItem="04f-JC-67H" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="JUQ-Ri-dKe"/>
                 <constraint firstItem="LV1-0U-khI" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Mpc-LE-tNv"/>
-                <constraint firstItem="V6q-qp-wXR" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="NIM-Ok-oHo"/>
                 <constraint firstItem="LV1-0U-khI" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Qgz-ik-y7i"/>
                 <constraint firstItem="EoN-bx-TxH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VRV-Jn-6QF"/>
                 <constraint firstItem="04f-JC-67H" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="VTo-lC-aEa"/>
@@ -100,6 +102,7 @@
                 <constraint firstItem="A96-AO-fov" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.06" id="fvO-QG-Ty4"/>
                 <constraint firstItem="A96-AO-fov" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gAd-Sz-hNX"/>
                 <constraint firstItem="04f-JC-67H" firstAttribute="top" secondItem="EoN-bx-TxH" secondAttribute="bottom" constant="10" id="gMa-7L-iiv"/>
+                <constraint firstItem="qdB-aD-rvP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hgb-Iy-Adi"/>
                 <constraint firstItem="LV1-0U-khI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="szF-yn-Shj"/>
                 <constraint firstItem="LV1-0U-khI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="uZb-S2-5yj"/>
                 <constraint firstItem="EoN-bx-TxH" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.9" id="yze-j6-OgS"/>
@@ -110,7 +113,7 @@
         </view>
     </objects>
     <resources>
-        <image name="notification" width="21.5" height="26"/>
-        <image name="sort" width="29" height="29.5"/>
+        <image name="notification" width="16" height="19.5"/>
+        <image name="sort" width="21" height="22"/>
     </resources>
 </document>
