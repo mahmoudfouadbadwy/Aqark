@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 class AdvertisementListViewModel{
     
@@ -58,6 +59,16 @@ class AdvertisementViewModel{
         self.latitude = Double(model.latitude)
         self.longtiude = Double(model.longtiude)
             }
+}
+class MapViewModel: NSObject, MKAnnotation{
+    var title: String?
+    var coordinate: CLLocationCoordinate2D
+    var subtitle: String?
+ init(model : Map) {
+    self.title = model.title
+    self.coordinate = model.coordinate
+    self.subtitle = model.subtitle
+    }
 }
 
 

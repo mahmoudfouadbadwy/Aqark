@@ -18,12 +18,12 @@ class Map: NSObject, MKAnnotation {
   init(
     title: String?,
     coordinate: CLLocationCoordinate2D,
-    subtitle: String?
-  ) {
+    subtitle: String?)
+  {
     self.title = title
     self.coordinate = coordinate
     self.subtitle = subtitle
-    super.init()
+//    super.init()
   }
     
 }

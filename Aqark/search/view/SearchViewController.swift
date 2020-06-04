@@ -32,7 +32,9 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     var numberOfPropertiesInLocation : Int!
     var addressForMap : String!
     var adViewModel : AdvertisementViewModel!
-    var maps: [Map] = []
+    var mapViewModel : MapViewModel!
+    var maps : [MapViewModel] = []
+//    var maps: [Map] = []
     var arrayOfLongitude = [Double]()
     var latitude : Double = 0
     var longitude : Double = 0
@@ -63,8 +65,9 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         didSet{
             filterContentForSearchBarText(searchBar.text!)
             if filteredAdsList.count == 0 {
+                 self.manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: false)
                 labelPlaceHolder.text = "No Advertisements Found"
-                self.manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: false)
+               
             }
     }
 }

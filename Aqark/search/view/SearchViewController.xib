@@ -88,7 +88,7 @@
                     </constraints>
                     <state key="normal" backgroundImage="search_notification"/>
                 </button>
-                <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LV1-0U-khI">
+                <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LV1-0U-khI">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="PMb-It-p03"/>

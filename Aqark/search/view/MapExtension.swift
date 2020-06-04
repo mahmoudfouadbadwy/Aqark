@@ -36,6 +36,7 @@ extension SearchViewController : MKMapViewDelegate{
         searchBarText = searchBar.text
         mapView.isHidden = true
         actionButton.imageView.image("search_map")
+//        print(filteredAdsList.count)
     }
     
     func putLocationOnMap(){
@@ -44,10 +45,11 @@ extension SearchViewController : MKMapViewDelegate{
             self.latitude = item.latitude
             self.addressForMap = String(item.address)
             self.numberOfPropertiesInLocation = self.counts[self.addressForMap]
-            let map = Map(
-                title: addressForMap, coordinate: CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude),subtitle: String(self.numberOfPropertiesInLocation))
+            let map = MapViewModel(model: Map(title: addressForMap, coordinate: CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude), subtitle: String(self.numberOfPropertiesInLocation)))
+           
             maps.append(map)
             mapView.addAnnotations(maps)
+           
         }
     }
     
@@ -68,7 +70,7 @@ extension SearchViewController : MKMapViewDelegate{
             latitudinalMeters: 10000,
             longitudinalMeters: 1000000)
         mapView.setRegion(region, animated: false)
-//
+
 //        if #available(iOS 13.0, *) {
 //            mapView.setCameraBoundary(
 //                MKMapView.CameraBoundary(coordinateRegion: region),
@@ -76,8 +78,11 @@ extension SearchViewController : MKMapViewDelegate{
 //            let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 3000000)
 //            mapView.setCameraZoomRange(zoomRange, animated: false)
 //        } else {
-//            //                 Fallback on earlier versions
+//
 //        }
     }
+    
+    
+
 }
 
