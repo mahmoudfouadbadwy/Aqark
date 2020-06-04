@@ -32,6 +32,7 @@
 		3E736C6C2480C897004D8B81 /* ServicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E736C6A2480C897004D8B81 /* ServicesViewController.xib */; };
 		3E736C6F2480CAF2004D8B81 /* ServicesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E736C6D2480CAF2004D8B81 /* ServicesCollectionViewCell.swift */; };
 		3E736C702480CAF2004D8B81 /* ServicesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E736C6E2480CAF2004D8B81 /* ServicesCollectionViewCell.xib */; };
+		3E804B46248926E50097C855 /* AdminUsersDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E804B45248926E50097C855 /* AdminUsersDelegate.swift */; };
 		3E943FC7246A053300A1FF83 /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E943FC5246A053300A1FF83 /* FirstScreenViewController.swift */; };
 		3E943FC8246A053300A1FF83 /* FirstScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E943FC6246A053300A1FF83 /* FirstScreenViewController.xib */; };
 		3E943FCA246A262400A1FF83 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E943FC9246A262400A1FF83 /* CustomButton.swift */; };
@@ -191,7 +192,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3E0E988E2482C1CD0001F5DA /* CircularImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircularImage.swift; path = Aqark/services/view/CircularImage.swift; sourceTree = SOURCE_ROOT; };
+		3E0E988E2482C1CD0001F5DA /* CircularImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircularImage.swift; path = "Aqark/admin/view /users/CircularImage.swift"; sourceTree = SOURCE_ROOT; };
 		3E69A8B2247EF59600193605 /* AdminUserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUserData.swift; sourceTree = "<group>"; };
 		3E69A8B3247EF59600193605 /* AdminHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminHelper.swift; sourceTree = "<group>"; };
 		3E69A8B6247EF5A800193605 /* AdminUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUser.swift; sourceTree = "<group>"; };
@@ -216,6 +217,7 @@
 		3E736C6A2480C897004D8B81 /* ServicesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServicesViewController.xib; sourceTree = "<group>"; };
 		3E736C6D2480CAF2004D8B81 /* ServicesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesCollectionViewCell.swift; sourceTree = "<group>"; };
 		3E736C6E2480CAF2004D8B81 /* ServicesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServicesCollectionViewCell.xib; sourceTree = "<group>"; };
+		3E804B45248926E50097C855 /* AdminUsersDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUsersDelegate.swift; sourceTree = "<group>"; };
 		3E943FC5246A053300A1FF83 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstScreenViewController.swift; path = "Aqark/login/view /FirstScreenViewController.swift"; sourceTree = SOURCE_ROOT; };
 		3E943FC6246A053300A1FF83 /* FirstScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FirstScreenViewController.xib; path = "Aqark/login/view /FirstScreenViewController.xib"; sourceTree = SOURCE_ROOT; };
 		3E943FC9246A262400A1FF83 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = "Aqark/login/view /CustomButton.swift"; sourceTree = SOURCE_ROOT; };
@@ -407,7 +409,6 @@
 				BF8475E52483E5D900D01A9D /* advertisements */,
 				BF8475E42483E5CF00D01A9D /* reports */,
 				BF8475E32483E5C800D01A9D /* users */,
-				3ED938D524805234005BF1EF /* AdminLogout.swift */,
 				3E69A8B3247EF59600193605 /* AdminHelper.swift */,
 			);
 			path = data;
@@ -771,12 +772,6 @@
 				BF8475DA2483E42400D01A9D /* users */,
 				3E69A8C6247EF5DE00193605 /* AdminTabBarController.swift */,
 				3E69A8C7247EF5DE00193605 /* AdminTabBarController.xib */,
-				3E69A8C3247EF5DD00193605 /* AdminUsersViewController.swift */,
-				3E69A8CD247EF5E000193605 /* AdminUsersViewController.xib */,
-				3E69A8C4247EF5DD00193605 /* AdminUserTableViewCell.swift */,
-				3E69A8C5247EF5DE00193605 /* AdminUserTableViewCell.xib */,
-				3E69A8C9247EF5DF00193605 /* CustomSegment.swift */,
-				3E0E988E2482C1CD0001F5DA /* CircularImage.swift */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -860,6 +855,8 @@
 				3E69A8C4247EF5DD00193605 /* AdminUserTableViewCell.swift */,
 				3E69A8C5247EF5DE00193605 /* AdminUserTableViewCell.xib */,
 				3E69A8C9247EF5DF00193605 /* CustomSegment.swift */,
+				3E0E988E2482C1CD0001F5DA /* CircularImage.swift */,
+				3E804B45248926E50097C855 /* AdminUsersDelegate.swift */,
 			);
 			path = users;
 			sourceTree = "<group>";
@@ -941,6 +938,7 @@
 		BF8475E32483E5C800D01A9D /* users */ = {
 			isa = PBXGroup;
 			children = (
+				3ED938D524805234005BF1EF /* AdminLogout.swift */,
 				3E69A8B2247EF59600193605 /* AdminUserData.swift */,
 			);
 			path = users;
@@ -1385,6 +1383,7 @@
 				BFA42D96247BED1900A986E8 /* CallingButton.swift in Sources */,
 				BF4423332469D1B80050BD8A /* SignUpView.swift in Sources */,
 				826A9A2E2473E4C20046E562 /* AddAdvertisementBrokenRule.swift in Sources */,
+				3E804B46248926E50097C855 /* AdminUsersDelegate.swift in Sources */,
 				825F58782481682200DF60FB /* EditProfileBrokenRule.swift in Sources */,
 				3ED938E12480B04B005BF1EF /* ServicesListViewModel.swift in Sources */,
 				BFF39A36246FF92E0041AD24 /* ProfileViewController.swift in Sources */,

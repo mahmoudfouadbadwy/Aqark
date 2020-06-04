@@ -11,6 +11,7 @@ import Foundation
 class AdminAdvertisementViewModel{
     var advertisementId : String = ""
     var advertisementUserId : String = ""
+    var advertisementType : String = ""
     var advertisementPropertyImages : [String] = [String]()
     var advertisementPropertyType : String = ""
     var advertisementPropertyAddress : String = ""
@@ -22,12 +23,24 @@ class AdminAdvertisementViewModel{
     init(adminAdvertisment:AdminAdvertisement) {
         self.advertisementId = adminAdvertisment.advertisementId
         self.advertisementUserId = adminAdvertisment.advertisemetentUserId
+        self.advertisementType = adminAdvertisment.advertisementType
         self.advertisementPropertyImages = adminAdvertisment.advertismentsPropertyImages
         self.advertisementPropertyType = adminAdvertisment.advertisementPropertyType
         self.advertisementPropertyAddress = adminAdvertisment.advertisementPropertyLocation
-        self.advertisementPropertyPrice = adminAdvertisment.advertisementPropertyPrice
-        self.advertisementPropertySize = adminAdvertisment.advertisementPropertySize
+        self.advertisementPropertyPrice = adminAdvertisment.advertisementPropertyPrice + checkPropertyType(advertisementType: advertisementType)
+        self.advertisementPropertySize = adminAdvertisment.advertisementPropertySize + " sqm"
         self.advertisementPropertyBedsNumber = adminAdvertisment.advertisementPropertyBeds
         self.advertisementPropertyBathRoomsNumber = adminAdvertisment.advertisementPropertyBathRooms
+    }
+    
+    private func checkPropertyType(advertisementType:String)->String{
+        switch advertisementType {
+        case AdvertisementType.rent:
+            return " EGP/month"
+        case AdvertisementType.buy:
+            return " EGP"
+        default:
+            return ""
+        }
     }
 }

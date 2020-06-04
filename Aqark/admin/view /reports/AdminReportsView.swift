@@ -38,6 +38,7 @@ class AdminReportsView: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
+        self.tabBarController?.navigationItem.title = "Reports"
         if ReportNetwork.checkNetworkConnection(){
             bindCollectionData()
         }

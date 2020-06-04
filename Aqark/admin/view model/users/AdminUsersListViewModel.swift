@@ -100,5 +100,9 @@ class AdminUsersListViewModel{
     func logout(){
         dataAccess.logout()
     }
+    
+    func banUser(isBanned : Bool, userId : String){
+        dataAccess.banUser(isBanned: isBanned, userId: userId)
+    }
 }
 
