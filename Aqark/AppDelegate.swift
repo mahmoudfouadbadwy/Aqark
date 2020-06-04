@@ -35,20 +35,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         let tabBarController = UITabBarController()
-        tabBarController.tabBar.barTintColor = UIColor.white
+        tabBarController.tabBar.barTintColor = UIColor(rgb: 0xf1faee)
         tabBarController.tabBar.tintColor = UIColor(rgb: 0x1d3557)
         let searchTab = SearchViewController()
         let searchNavigationController = UINavigationController(rootViewController: searchTab)
-        searchNavigationController.navigationBar.barTintColor = UIColor.white
+        searchNavigationController.navigationBar.barTintColor = UIColor(rgb: 0xf1faee)
         searchNavigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(rgb: 0x1d3557)]
         
         let accountTab = ProfileViewController()
         let accountNavigationController = UINavigationController(rootViewController: accountTab)
+        accountNavigationController.navigationBar.barTintColor = UIColor(rgb: 0xf1faee)
         accountNavigationController.navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor :  UIColor(rgb: 0x1d3557)]
         
         let favouriteTab = FavouriteViewController()
         let favouriteNavigationController = UINavigationController(rootViewController: favouriteTab)
+        favouriteNavigationController.navigationBar.barTintColor = UIColor(rgb: 0xf1faee)
         favouriteNavigationController.navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor :  UIColor(rgb: 0x1d3557)]
         

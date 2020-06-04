@@ -14,6 +14,7 @@ import Cosmos
 class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var inputStack: UIStackView!
     
+    @IBOutlet weak var porperties: UIButton!
     @IBOutlet weak var interiorDesigner: UIButton!
     @IBOutlet weak var lawyers: UIButton!
     @IBOutlet weak var addReviewContentTextView: UITextView!
@@ -60,6 +61,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         self.navigationItem.title = "Property Details"
         lawyers.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
         interiorDesigner.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
+        porperties.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
         favButton = UIBarButtonItem(image: UIImage(named: "heart"), style: .done, target: self, action: #selector(toogleFavorite))
         
         self.navigationItem.rightBarButtonItem = favButton

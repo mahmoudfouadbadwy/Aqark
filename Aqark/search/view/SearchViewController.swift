@@ -70,6 +70,8 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         sortBtn.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
         notificationBtn.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
         searchBar.barTintColor = UIColor(rgb: 0x1d3557)
+        self.view.backgroundColor = UIColor(rgb: 0xf1faee)
+        searchCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
         if SearchNetworking.checkNetworkConnection(){
             manageSearchBar()
             setupCoredata()
