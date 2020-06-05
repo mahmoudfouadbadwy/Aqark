@@ -7,13 +7,12 @@
 //
 
 import UIKit
-import ReachabilitySwift
+
 
 class FavouriteViewController: UIViewController {
     
     @IBOutlet weak var favouriteCollectionView: UICollectionView!
     @IBOutlet weak var labelPlaceHolder: UILabel!
-    let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     var coreDataViewModel: CoreDataViewModel?
     var adViewModel: FavouriteViewModel!
     var adsCount:Int=0
@@ -40,7 +39,7 @@ class FavouriteViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
 
-        if !checkNetworkConnection(){
+        if !FavoriteNetworking.checkNetworkConnection(){
             favouriteCollectionView.isHidden = true
             labelPlaceHolder.text = "Internet connection not available"
         }else{
@@ -63,27 +62,6 @@ class FavouriteViewController: UIViewController {
         self.labelPlaceHolder.text = "There is no advertisements in favourite list."
     }
 
-    func checkNetworkConnection()->Bool
-    {
-        let connection = Reachability()
-        guard let status = connection?.isReachable else{return false}
-        return status
-    }
+    
     
 }
-
-//MARK: - UIViewIndicator
-extension FavouriteViewController{
-    func showIndicator()
-    {
-        networkIndicator.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        networkIndicator.center = view.center
-        networkIndicator.startAnimating()
-        view.addSubview(networkIndicator)
-    }
-    
-    func stopIndicator() {
-        networkIndicator.stopAnimating()
-    }
-}
-

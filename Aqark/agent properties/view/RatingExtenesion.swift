@@ -11,7 +11,7 @@ import UIKit
 
 extension AgentPropertiesView{
     func setupAgentRate(){
-        if AgentRateViewModel.checkLogin(){
+        if AgentRateViewModel.checkUser(userId: agentId){
             rateLabel.text = "Please rate \(agentName ?? "Agent")'s properties"
             rate.didFinishTouchingCosmos = {[weak self]
                 rating in

@@ -13,9 +13,14 @@ class AgentRateViewModel {
         return AgentRate().setUserRating(rate: rate,agentId:agentId)
     }
     
-  static  func checkLogin()->Bool
+    static func checkUser(userId:String)->Bool
     {
-        guard let _ = Auth.auth().currentUser else {return false}
-        return true
+        guard let user = Auth.auth().currentUser else {return false}
+        if user.uid.elementsEqual(userId)
+        {
+             return true
+        }
+        return false
     }
+  
 }
