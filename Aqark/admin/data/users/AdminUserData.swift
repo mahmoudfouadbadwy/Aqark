@@ -24,6 +24,10 @@ class AdminDataAccess{
         }
     }
     
+    func banUser(isBanned : Bool,userId : String){
+        ref.child("Users").child(userId).child("banned").setValue(isBanned)
+    }
+    
     private func createUser(child:DataSnapshot) -> AdminUser{
         let userId = child.key
         let userDictionary = child.value as! [String : Any]
@@ -36,8 +40,11 @@ class AdminDataAccess{
         let userExperience = userDictionary[AdminUserKey.userExperience] as? String ?? "Not Provided"
         let userRatingDic = userDictionary[AdminUserKey.userRating] as? [String:Any] ?? [:]
         let userRating = getUserRating(userRatingDic: userRatingDic)
-        let userImage = userDictionary[AdminUserKey.userPicture] as? String ?? ""
-        let user = AdminUser(userId:userId, userName: userName, userEmail: userEmail, userPhone: userPhone, userCountry: userCountry, userCompany: userCompany, userRole: userRole, userRating: userRating, userExperience: userExperience, userImage: userImage)
+
+        let userImage = userDictionary[AdminUserKey.userPicture] as?  String ?? ""
+        let isBanned = userDictionary[AdminUserKey.banned] as? Bool ?? false
+        let user = AdminUser(userId:userId, userName: userName, userEmail: userEmail, userPhone: userPhone, userCountry: userCountry, userCompany: userCompany, userRole: userRole, userRating: userRating, userExperience: userExperience, userImage: userImage, isBanned: isBanned)
+
         return user
     }
     

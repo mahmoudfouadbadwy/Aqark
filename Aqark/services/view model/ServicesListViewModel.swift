@@ -45,7 +45,25 @@ class ServicesListViewModel{
     
     func rateUserService(rate:Double,serviceUserId:String){
         if let loggedUserId = Auth.auth().currentUser?.uid{
-             dataAccess?.rateServiceUser(rate: rate, userId: loggedUserId, serviceUserId: serviceUserId)
+
+            let approximateRate = round(1000.0 * rate)/1000.0
+            dataAccess?.rateServiceUser(rate: approximateRate, userId: loggedUserId, serviceUserId: serviceUserId)
+        }
+    }
+    
+    func checkServiceUser(serviceUserId:String) -> Bool{
+        if(serviceUserId == Auth.auth().currentUser?.uid){
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    func checkLoggedUser() -> Bool{
+        if (Auth.auth().currentUser?.uid) != nil{
+            return true
+        }else{
+            return false
         }
     }
     

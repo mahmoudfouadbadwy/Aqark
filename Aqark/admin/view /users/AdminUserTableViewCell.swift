@@ -16,7 +16,9 @@ class AdminUserTableViewCell: UITableViewCell {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userRating: CosmosView!
-    
+    @IBOutlet weak var banUserButton: CustomButton!
+    var adminUserCellIndex : IndexPath!
+    var adminUserDelegate : AdminUsersDelegate!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,6 +38,20 @@ class AdminUserTableViewCell: UITableViewCell {
         cardBackgroundView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         cardBackgroundView.layer.shadowOpacity = 0.8
        // circularImage()
+    }
+    
+    private func circularImage(){
+                DispatchQueue.main.asyncAfter(deadline : .now() + 0.05) {
+                    self.userImage.layer.cornerRadius = self.userImage.frame.size.width / 2
+                self.userImage.layer.masksToBounds = true
+                self.userImage.layer.borderColor = UIColor.black.cgColor
+                self.userImage.layer.borderWidth = 1 }
+    }
+    
+    @IBAction func banUser(_ sender: Any) {
+        let isBanned =  adminUserDelegate.checkBannedUser(at : adminUserCellIndex)
+//        banUserButton.titleLabel?.text = !isBanned ? "Unban" : "Ban"
+        adminUserDelegate.banUserDelegate(isBanned: !isBanned, at: adminUserCellIndex)
     }
     
     private func circularImage(){

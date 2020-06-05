@@ -18,4 +18,5 @@ struct AdminUser{
     var userRating : Double
     var userExperience : String
     var userImage : String
+    var isBanned : Bool
 }

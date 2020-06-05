@@ -17,6 +17,8 @@ class ReviewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+      reviewerUserNameLabel.textColor = UIColor(rgb: 0x1d3557)
+        
     }
 
 }

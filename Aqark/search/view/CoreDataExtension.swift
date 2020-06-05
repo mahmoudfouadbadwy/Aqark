@@ -19,12 +19,16 @@ extension SearchViewController:FavouriteProtocol{
     func addToFav(favButton: UIButton) {
         if (coreDataViewModel!.isAdvertismentExist(id: (favButton.titleLabel?.text)!))
         {
-            favButton.tintColor = UIColor.lightGray
+
+            favButton.image("heart")
+
             self.coreDataViewModel!.deleteAdvertismentFromFavourite(id:(favButton.titleLabel?.text)!)
         }else{
             if((coreDataViewModel?.checkNumberOfAdvertisment())!){
                
-                favButton.tintColor = UIColor.red
+
+               favButton.image("red-heart")
+
                 self.coreDataViewModel!.addAdvertismentToFavourite(id: (favButton.titleLabel?.text)!)
             }else{
                 let alert = UIAlertController(title: "Add To Favourite", message: "Can't add to favourite maximum 20 Ads can be added ", preferredStyle: .alert)

@@ -10,4 +10,7 @@ import Foundation
 
 protocol ServiceUsersCollectionDelegate {
     func rateServiceUserDelegate(at indexPath : IndexPath,rate:Double)
+
+    func checkServiceUserDelegate(at indexPath : IndexPath) -> Bool
+    func checkLoggedUserDelegate() -> Bool
 }

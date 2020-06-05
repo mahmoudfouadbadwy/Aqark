@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 extension PropertyDetailView{
     func bindAdvertisementData(){
         self.getImages(images: self.advertisementDetails.images, completion:self.setSliderImages)
@@ -79,7 +79,7 @@ extension PropertyDetailView{
         }
         self.userRate.settings.fillMode =  .precise
         self.userRate.rating = agentRate
-
+        
     }
     
 }

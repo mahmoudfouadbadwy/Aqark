@@ -18,6 +18,9 @@ struct  AdminUserKey {
     static let userExperience = "experience"
     static let userRating = "rate"
     static let userPicture = "picture"
+
+    static let banned = "banned"
+
 }
 
 struct AdminUserRole {
@@ -45,4 +48,9 @@ struct AdminAdvertisementKey {
     static let price = "price"
     static let propertyType = "propertyType"
     static let size = "size"
+}
+
+struct AdvertisementType{
+    static let rent = "Rent"
+    static let buy = "Buy"
 }

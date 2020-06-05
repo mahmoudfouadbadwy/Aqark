@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import ReachabilitySwift
 class AdvertisementListViewModel{
     
     var advertismentsViewModel : [AdvertisementViewModel] = [AdvertisementViewModel]()
@@ -58,6 +58,16 @@ class AdvertisementViewModel{
         self.latitude = Double(model.latitude)
         self.longtiude = Double(model.longtiude)
             }
+}
+
+
+struct SearchNetworking{
+    static func checkNetworkConnection()->Bool
+    {
+        let connection = Reachability()
+        guard let status = connection?.isReachable else{return false}
+        return status
+    }
 }
 
 

@@ -35,8 +35,7 @@ class AdminUsersViewController: UIViewController{
             usersTableView.delegate = self
             usersTableView.dataSource = self
             usersSearchBar.delegate = self
-            self.navigationItem.title = "Users"
-            
+
             adminUsersViewModel.populateUsers {
                 self.activityIndicator.stopAnimating()
                 UIView.animate(withDuration:2) {
@@ -44,7 +43,9 @@ class AdminUsersViewController: UIViewController{
                 }
                 self.usersSegment.isHidden = false
                 if(self.adminUsersViewModel.adminUsersViewList.isEmpty){
-                    self.setLabelForZeroCount()
+
+                    self.setLabelForZeroCount(search: false)
+
                 }else{
                     self.usersSearchBar.isHidden = false
                     self.usersTableView.reloadData()
@@ -56,9 +57,15 @@ class AdminUsersViewController: UIViewController{
         }
     }
     
-    private func setLabelForZeroCount(){
+
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.navigationItem.title = "Users"
+        
+    }
+    
+    private func setLabelForZeroCount(search:Bool){        usersSearchBar.isHidden = !search
         noLabel.isHidden = false
-        usersSearchBar.isHidden = true
+
         switch usersSegment.selectedIndex {
         case 0:
             noLabel.text = "No Available Users."
@@ -72,7 +79,9 @@ class AdminUsersViewController: UIViewController{
     @IBAction func changeUserType(_ sender: Any) {
         adminUsersViewModel.getUsersByType(type: usersSegment.selectedIndex)
         if(self.adminUsersViewModel.adminUsersViewList.isEmpty){
-            self.setLabelForZeroCount()
+
+            self.setLabelForZeroCount(search: false)
+
         }else{
             usersSearchBar.isHidden = false
             noLabel.isHidden = true
@@ -88,10 +97,13 @@ extension AdminUsersViewController : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let userCell = usersTableView.dequeueReusableCell(withIdentifier: "User Cell", for: indexPath) as? AdminUserTableViewCell
+        userCell?.adminUserCellIndex = indexPath
+        userCell?.adminUserDelegate = self
         userCell?.userName.text = adminUsersViewModel.adminUsersViewList[indexPath.row].userName
         userCell?.userRating.rating = adminUsersViewModel.adminUsersViewList[indexPath.row].userRating
         let userImageURL = URL(string: adminUsersViewModel.adminUsersViewList[indexPath.row].userImage)
-        userCell?.userImage.sd_setImage(with: userImageURL, placeholderImage: UIImage(named: "signup_company"))
+        userCell?.userImage.sd_setImage(with: userImageURL, placeholderImage: UIImage(named: "profile_user"))
+        userCell?.banUserButton.setTitle(adminUsersViewModel.adminUsersViewList[indexPath.row].isBanned ? "Unban" : "Ban", for: .normal)
         return userCell!
     }
     
@@ -104,6 +116,22 @@ extension AdminUsersViewController : UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         adminUsersViewModel.getFilteredUsers(type: usersSegment.selectedIndex, searchText: searchText)
         usersTableView.reloadData()
+        if(self.adminUsersViewModel.adminUsersViewList.isEmpty){
+            self.setLabelForZeroCount(search: true)
+        }else{
+            noLabel.isHidden = true
+        }
     }
 }
 
+extension AdminUsersViewController:AdminUsersDelegate{
+    
+    func checkBannedUser(at indexPath: IndexPath) -> Bool {
+        return adminUsersViewModel.adminUsersViewList[indexPath.row].isBanned
+    }
+    
+    func banUserDelegate(isBanned : Bool ,at indexPath: IndexPath) {
+        let userId = adminUsersViewModel.adminUsersViewList[indexPath.row].userId
+        adminUsersViewModel.banUser(isBanned: isBanned, userId: userId)
+    }
+}

@@ -61,7 +61,8 @@ extension AdminReportsView:UICollectionViewDataSource{
 
 extension AdminReportsView:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        /////
+        AdminAdvertisementsViewController.reportedAdvertisementId = reports[indexPath.row].advertisementId
+        self.tabBarController?.selectedIndex = 1
     }
 }
 

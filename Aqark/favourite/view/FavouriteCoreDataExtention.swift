@@ -19,7 +19,9 @@ extension FavouriteViewController:FavouriteProtocol{
     func setFavouriteButton (cell: FavouriteCollectionViewCell,index: Int){
        
         if (coreDataViewModel!.isAdvertismentExist(id: arrOfAdViewModel[index].advertisementId)){
-            cell.favButton.tintColor = UIColor.red
+
+            cell.favButton.image("red-heart")
+
         }else{
             cell.favButton.tintColor = UIColor.gray
         }

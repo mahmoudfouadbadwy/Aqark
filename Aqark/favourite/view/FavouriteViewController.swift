@@ -31,7 +31,12 @@ class FavouriteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.navigationItem.title = "navBarFavourite".localize
+
+        self.view.backgroundColor = UIColor(rgb: 0xf1faee)
+        favouriteCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
+
         self.setupCoredata()
         setUpCollectionView()
     }
@@ -40,7 +45,9 @@ class FavouriteViewController: UIViewController {
 
         if !checkNetworkConnection(){
             favouriteCollectionView.isHidden = true
+
             labelPlaceHolder.text = "No Internet Connection".localize
+
         }else{
             labelPlaceHolder.isHidden = true
             getCollectionViewData()
@@ -58,7 +65,9 @@ class FavouriteViewController: UIViewController {
     
     func setEmptyAdvertisments(flag: Bool){
         self.labelPlaceHolder.isHidden = flag
+
         self.labelPlaceHolder.text = "There is no advertisements in favourite list".localize
+
     }
 
     func checkNetworkConnection()->Bool
