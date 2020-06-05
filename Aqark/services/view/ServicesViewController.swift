@@ -89,7 +89,7 @@ extension ServicesViewController:UICollectionViewDelegateFlowLayout{
 
 extension ServicesViewController:ServiceUsersCollectionDelegate{
     func checkLoggedUserDelegate() -> Bool {
-        servicesViewModel.checkLoggedUser()
+       return  servicesViewModel.checkLoggedUser()
     }
     
     
