@@ -10,6 +10,8 @@ import UIKit
 
 class AdminAdvertisementsViewController: UIViewController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var noLabel: UILabel!
     @IBOutlet weak var advertisementsCollectionView: UICollectionView!
     @IBOutlet weak var advertisementsSearchBar: UISearchBar!
     
@@ -18,22 +20,43 @@ class AdminAdvertisementsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        advertisementsCollectionView.register(UINib(nibName: "AdminAdvertisementCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Advertisement Cell")
-        advertisementsCollectionView.delegate = self
-        advertisementsCollectionView.dataSource = self
-        advertisementsSearchBar.delegate = self
-        self.navigationItem.title = "Advertisements"
+        
         dataAccess = AdminDataAccess()
         adminAdvertisementViewModel = AdminAdvertisementsListViewModel(dataAccess:dataAccess)
-        adminAdvertisementViewModel.populateAdvertisements {
-            self.advertisementsCollectionView.reloadData()
+        self.navigationItem.title = "Advertisements"
+        if(adminAdvertisementViewModel.checkNetworkConnection()){
+            activityIndicator.startAnimating()
+            self.view.alpha = 0
+            advertisementsCollectionView.register(UINib(nibName: "AdminAdvertisementCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Advertisement Cell")
+            advertisementsCollectionView.delegate = self
+            advertisementsCollectionView.dataSource = self
+            advertisementsSearchBar.delegate = self
+            adminAdvertisementViewModel.populateAdvertisements {
+                self.activityIndicator.stopAnimating()
+                UIView.animate(withDuration:2) {
+                    self.view.alpha = 1
+                }
+                if(self.adminAdvertisementViewModel.adminAdvertisementsViewList.isEmpty){
+                    self.setLabelForZeroCount()
+                }
+                self.advertisementsCollectionView.reloadData()
+            }
+        }else{
+            noLabel.isHidden = false
+            noLabel.text = "No Internet Connection."
         }
+        
+    }
+    
+    private func setLabelForZeroCount(){
+        noLabel.isHidden = false
+        noLabel.text = "No Available Advertisements"
     }
 }
 
 extension AdminAdvertisementsViewController : UICollectionViewDelegate,UICollectionViewDataSource,AdminAdvertisementsCollectionDelegate{
     
-    func adminAdvertisementsCollectionDelegate(indexPath: IndexPath) {
+    func removeAdvertisementDelegate(at indexPath: IndexPath) {
         showAlert { (result) in
             if(result){
                 self.advertisementsCollectionView.performBatchUpdates({
@@ -47,7 +70,7 @@ extension AdminAdvertisementsViewController : UICollectionViewDelegate,UICollect
             }
         }
     }
-     
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.adminAdvertisementViewModel.adminAdvertisementsViewList.count
     }
@@ -62,13 +85,8 @@ extension AdminAdvertisementsViewController : UICollectionViewDelegate,UICollect
         advertisementCell.advertisementPropertySize.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertySize
         advertisementCell.advertisementPropertyBedNumbers.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyBedsNumber
         advertisementCell.advertisementPropertyBathRoomNumbers.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyBathRoomsNumber
-        if(self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyImages.isEmpty){
-            let advertisementPropertyImageURL = URL(string: "https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg")
-            advertisementCell.advertisementPropertyImage.sd_setImage(with:advertisementPropertyImageURL , placeholderImage: UIImage(named: "signup_company"))
-        }else{
-            let advertisementPropertyImageURL = URL(string:self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyImages[0])
-            advertisementCell.advertisementPropertyImage.sd_setImage(with:advertisementPropertyImageURL , placeholderImage: UIImage(named: "signup_company"))
-        }
+        let advertisementPropertyImageURL = URL(string:self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyImages[0])
+        advertisementCell.advertisementPropertyImage.sd_setImage(with:advertisementPropertyImageURL , placeholderImage: UIImage(named: "signup_company"))
         return advertisementCell
     }
     

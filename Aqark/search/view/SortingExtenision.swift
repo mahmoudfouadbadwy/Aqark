@@ -36,31 +36,31 @@ extension SearchViewController{
     
     func showSortingAlert(){
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-             alert.addAction(UIAlertAction(title: "Price(High)", style: .default , handler:{ (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: "Price(High)".localize, style: .default , handler:{ (UIAlertAction)in
                  self.isSorting = "High Price"
                  self.searchCollectionView.reloadData()
              }))
              
-             alert.addAction(UIAlertAction(title: "Price(Low)", style: .default , handler:{ (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: "Price(Low)".localize, style: .default , handler:{ (UIAlertAction)in
                  self.isSorting = "Low Price"
                  self.searchCollectionView.reloadData()
              }))
              
-             alert.addAction(UIAlertAction(title: "Newest", style: .default , handler:{ (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: "Newest".localize, style: .default , handler:{ (UIAlertAction)in
                  self.isSorting = "Newest"
                  self.searchCollectionView.reloadData()
              }))
              
-             alert.addAction(UIAlertAction(title: "Oldest", style: .default , handler:{ (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: "Oldest".localize, style: .default , handler:{ (UIAlertAction)in
                  self.isSorting = "Oldest"
                  self.searchCollectionView.reloadData()
              }))
-             alert.addAction(UIAlertAction(title: "Default", style: .default , handler:{ (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: "Default".localize, style: .default , handler:{ (UIAlertAction)in
                  self.isSorting = "default"
                  self.searchCollectionView.reloadData()
              }))
              
-             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: "Cancel".localize, style: .cancel, handler:{ (UIAlertAction)in
                 
              }))
              

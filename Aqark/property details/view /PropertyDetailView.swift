@@ -12,15 +12,12 @@ import JJFloatingActionButton
 import Cosmos
 
 class PropertyDetailView: UIViewController,UIActionSheetDelegate{
-   
-    @IBOutlet weak var ReviewHeight: NSLayoutConstraint!
+    @IBOutlet weak var inputStack: UIStackView!
     @IBOutlet weak var addReviewContentTextView: UITextView!
-    
     @IBOutlet weak var submitReviewBtn: UIButton!
     @IBOutlet weak var reviewTextView: UITextView!
     @IBOutlet weak var addReviewBtn: UIButton!
     @IBOutlet weak var reviewHeaderLabel: UILabel!
-  
     @IBOutlet weak var content: UIView!
     @IBOutlet weak var amenitiesTopSpace: NSLayoutConstraint!
     @IBOutlet weak var amenitiesHeight: NSLayoutConstraint!
@@ -39,7 +36,6 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var dateOfAdvertisement: UILabel!
     @IBOutlet weak var numberOfViews: UILabel!
     @IBOutlet weak var imageSlider: ImageSlider!
-    private let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     var propertyViewModel : PropertyDetailViewModel!
     var propertyDataAccess : PropertyDetailDataAccess!
     var advertisementDetails:AdverisementViewModel!
@@ -52,29 +48,25 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     var advertisementId:String!
     var downloadedImages:[UIImage] = []
     let callButton = JJFloatingActionButton()
+    var coreDataViewModel: CoreDataViewModel?
     var arrOfReviewsViewModel : [ReviewViewModel]!
     @IBOutlet weak var reviewsCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Property Details"
+        self.navigationItem.title = "Property Details".localize
         if PropertyDetailsNetworking.checkNetworkConnection(){
-            self.showIndicator()
+            self.showActivityIndicator()
             self.propertyDataAccess = PropertyDetailDataAccess()
             self.propertyViewModel = PropertyDetailViewModel(propertyDataAccess: self.propertyDataAccess)
             propertyViewModel.populateAdvertisement(id: advertisementId) {[weak self] (advertisement,agent) in
                 self?.advertisementDetails = advertisement
                 self?.agent = agent
-                self?.reviewData = ReviewData()
                 self?.bindAdvertisementData()
                 self?.setUpReviewsCollectionView()
-                self?.advertisementReviewViewModel = ReviewsViewModel(dataAccess: self!.reviewData)
-                self?.manageReviewAppearence()
-                self?.advertisementReviewViewModel.populateAdvertisementReviews(id: self!.advertisementId, completionForPopulateReviews: { reviewsResults in
-                    self?.arrOfReviewsViewModel = reviewsResults
-                    self!.reviewsCollectionView.reloadData()
-                      })
-
-                }
+                self?.bindReviewData()
+            }
+            setupCoredata()
+            checkIfFavourite()
         }
         else{
             content.isHidden = true
@@ -94,7 +86,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         mapItem.openInMaps(launchOptions: options)
     }
     
-
+    
     @IBAction func addReviewBtn(_ sender: Any) {
         manageAddReviewOutlets()
     }
@@ -106,8 +98,8 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBAction func showReportActionSheet(_ sender: Any) {
         preformReport()
     }
-
-
+    
+    
     @IBAction func openPropertiesView(_ sender: Any) {
         let properties = AgentPropertiesView()
         properties.agentId =  advertisementDetails.userID
@@ -115,36 +107,31 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         self.navigationController?.pushViewController(properties, animated: true)
         
     }
-
+    
     @IBAction func showLawyers(_ sender: Any) {
         let servicesView = ServicesViewController()
-        servicesView.serviceRole = "lawyer"
+        servicesView.serviceRole = "Lawyers"
+        servicesView.advertisementCountry = advertisementDetails.country
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
     
     @IBAction func showInteriorDesigners(_ sender: Any) {
         let servicesView = ServicesViewController()
-        servicesView.serviceRole = "interior designer"
+        servicesView.serviceRole = "Interior Desigenrs"
+        servicesView.advertisementCountry = advertisementDetails.country
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
-
-
-
-  
+    
+    
+    @IBAction func cancelReview(_ sender: Any) {
+        
+        inputStack.isHidden = true
+        
+    }
+    
+    
 }
 
-//MARK: - UIViewIndicator
-extension PropertyDetailView{
-   private func showIndicator()
-    {
-        networkIndicator.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        networkIndicator.center = view.center
-        networkIndicator.startAnimating()
-        view.addSubview(networkIndicator)
-    }
-    func stopIndicator() {
-        networkIndicator.stopAnimating()
-    }
-}
+
 
 

@@ -21,7 +21,7 @@ class LoginViewController: UIViewController{
         loginViewModel = LoginViewModel()
         userEmailTextField.delegate = self
         userPasswordTextField.delegate = self
-        self.navigationItem.title = "Login"
+        self.navigationItem.title = "Login".localize
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,13 +88,13 @@ class LoginViewController: UIViewController{
         if(!userEmailTextField.text!.isEmpty){
             userEmailTextField.text = ""
             userEmailTextField.removeFloatingLabel()
-            userEmailTextField._placeholder = "Email"
+            userEmailTextField._placeholder = "Email".localize
         }
         
         if(!userPasswordTextField.text!.isEmpty){
             userPasswordTextField.text = ""
             userPasswordTextField.removeFloatingLabel()
-            userPasswordTextField._placeholder = "Password"
+            userPasswordTextField._placeholder = "Password".localize
         }
     }
 }

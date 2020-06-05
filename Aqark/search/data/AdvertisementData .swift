@@ -69,7 +69,7 @@ class AdvertisementData{
             image: self.advertisementImage, propertyType  : self.advertisementPropertyType,
             advertisementType: self.advertisementType,
             advertisementId: self.advertisementId,
-            price: Double(self.advertisementPropertyPrice),
+            price: self.advertisementPropertyPrice,
             address: self.advertisementPropertyLocation,
             country: self.advertisementCountry,
             size: self.advertisementPropertySize,

@@ -12,17 +12,17 @@ class FirstScreenViewController: UIViewController {
     
     @IBOutlet weak var rolesPicker: UIPickerView!
     var roles : [String] = [String]()
-    var userRole : String = "User"
+    var userRole : String = "User".localize
     private var loginViewModel : LoginViewModel!
     override func viewDidLoad(){
         super.viewDidLoad()
-        self.navigationItem.title = "Role"
+        self.navigationItem.title = "Role".localize
         self.navigationItem.hidesBackButton = true
         loginViewModel = LoginViewModel()
         if(loginViewModel.checkNetworkConnection()){
             rolesPicker.delegate = self
             rolesPicker.dataSource = self
-            roles = ["User","Lawyer","Interior Designer"]
+            roles = ["User".localize,"Lawyer".localize,"Interior Designer".localize]
         }else{
             //PlaceHolder image for no internet connection.
         }

@@ -1,0 +1,6 @@
+
+/* Class = "UILabel"; text = " Continue As:"; ObjectID = "eZ8-Mt-PQf"; */
+"eZ8-Mt-PQf.text" = " الاستمرار باستخدام";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "vsg-S3-jnN"; */
+"vsg-S3-jnN.normalTitle" = "موافق";

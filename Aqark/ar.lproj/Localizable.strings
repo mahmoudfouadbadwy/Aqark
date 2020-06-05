@@ -1,0 +1,118 @@
+/* 
+  Localizable.strings
+  Aqark
+
+  Created by AhmedSaeed on 6/3/20.
+  Copyright © 2020 ITI. All rights reserved.
+*/
+
+/********************************** Particpate in all views ********************************/
+"lang" = "ar";
+"tabBarSearch" = "بحث";
+"tabBarFavourite" = "المفضل";
+"tabBarAccount" = "البريد الاليكتروني" ;
+
+/********************************** search View ********************************/
+
+"No Advertisements Found" = "لا يوجد اعلانات" ;
+"Advertisements" = "الاعلانات";
+"No Internet Connection" = "لا يوجد اتصال بالانترنت";
+
+"Price(High)" = "اعلي سعر";
+"Price(Low)" = "اقل سعر";
+"Newest" = "الاجدد";
+"Oldest" = "الاقدم";
+"Default" = "بدون ترتيب";
+"Cancel" = "اغلاق";
+
+"sqm" = "متر مربع";
+"EGP/month" = "جنيه/شهر";
+"EGP" = "جنيه";
+
+"Apartment" = "شقه";
+"Villa" = "فيلا";
+"Room" = "غرفه";
+/********************************** favouriteView ********************************/
+"navBarFavourite" = "المفضله";
+"There is no advertisements in favourite list" = "لا يوجد اعلانات مفضله";
+
+
+/********************************** property Details ********************************/
+"Property Details" = "تفاصيل الاعلان";
+
+"in" = "في";
+"for" = "لل";
+
+"Rent" = "ايجار";
+"Buy" = "بيع";
+
+/********************************** login View ********************************/
+
+"Email" = "البريد الالكتروني";
+"Password" = "الرقم السري";
+"Login" = "تسجيل الدخول" ;
+
+"Role" = "الوظيفة";
+
+"User" = "مستخدم";
+"Lawyer" = "محامي";
+"Interior Designer" = "مصمم ديكور";
+
+/********************************** login View ********************************/
+"Sign Up" = "تسجيل" ;
+"Cairo" = "القاهره";
+"Alexandria" = "الاسكندريه";
+"Giza" = "الجيزه";
+"Qalyubiya" = "القليوبيه";
+"Port Said" = "بورسعيد";
+"Suez" = "السويس";
+"Luxor" = "الاقصر";
+"al-Mansura" = "المنصوره";
+"El-Mahalla El-Kubra" = "المحله الكبري";
+"Tanta" = "طنطا";
+"Asyut" = "اسيوط";
+"Ismailia" = "الاسماعيليه";
+"Faiyum" = "الفيوم";
+"Zagazig" = "الزقازيق";
+"Aswan" = "اسوان";
+"Damietta" = "دمياط";
+"Damanhur" = "دمنهور" ;
+"al-Minya" = "المنيا" ;
+"Beni Suef" = "بني سويف";
+"Qena" = "قنا";
+"Sohag" = "سوهاج";
+"Hurghada" = "الغردقه";
+"Banha" = "بنها";
+"Kafr el-Sheikh" = "كفر الشيخ";
+"Arish" = "العريش";
+"Minya" = "المنيا";
+"Sharqia" = "الشرقيه";
+"Beheira" = "البحيره";
+"Menofia" = "المنوفيه";
+
+/********************************** add advertisement ********************************/
+
+"Add Advertisement" = "اضافة اعلان";
+
+"Furnished" = "مفروشة";
+"Shared Spa" = "سبا مشترك";
+"Central A/C" = "تكييف مركزي";
+"Maids Room" = "غرفة للخادمة";
+"Security" = "الأمان";
+"Kitchen Appliances" = "أدوات المطبخ";
+"Networked" = "متصل بالشبكة";
+"Covered Parking" = "موقف للسيارات";
+"Pets Allowed" = "مسموح بالحيوانات الأليفة";
+"Barbecue Area" = "منطقة الشواء";
+"Balcony" = "شرفة";
+"Walk-in Closet" = "خزانة ملابس";
+"Study" = "دراسة";
+"Private garden" = "حديقة خاصة";
+"Children's Play Area" = "منطقة لعب الاطفال";
+
+
+"^[1-9][0-9]*$" = "^[١-٩][٠-٩]*$";
+"^[0][1]\\d{9}$" = "^[٠][١]\\d{9}$";
+
+"minimum price is" = "اقل سعر هو ";
+

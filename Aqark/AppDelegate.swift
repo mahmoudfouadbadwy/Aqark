@@ -39,9 +39,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let searchNavigationController = UINavigationController(rootViewController: searchTab)
         let accountTab = ProfileViewController()
         let accountNavigationController = UINavigationController(rootViewController: accountTab)
-        searchTab.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search_search"), tag: 1)
-        accountTab.tabBarItem = UITabBarItem(title: "Account", image: UIImage(named: "signup_username"), tag: 2)
-        let controllers = [searchNavigationController,accountNavigationController]
+        let favouriteTab = FavouriteViewController()
+        let favouriteNavigationController = UINavigationController(rootViewController: favouriteTab)
+        searchTab.tabBarItem = UITabBarItem(title: "tabBarSearch".localize, image: UIImage(named: "search_search"), tag: 1)
+        accountTab.tabBarItem = UITabBarItem(title: "tabBarAccount".localize, image: UIImage(named: "signup_username"), tag: 2)
+        favouriteTab.tabBarItem = UITabBarItem(title: "tabBarFavourite".localize, image: UIImage(named: "tab-heart"), tag: 3)
+        let controllers = [searchNavigationController,favouriteNavigationController,accountNavigationController]
         tabBarController.viewControllers = controllers
         window?.rootViewController = tabBarController
         

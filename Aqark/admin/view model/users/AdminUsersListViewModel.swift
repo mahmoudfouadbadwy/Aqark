@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ReachabilitySwift
 
 class AdminUsersListViewModel{
     
@@ -88,6 +89,13 @@ class AdminUsersListViewModel{
             }
         }
     }
+    
+    func checkNetworkConnection()->Bool{
+        let connection = Reachability()
+        guard let status = connection?.isReachable else{return false}
+        return status
+    }
+    
     
     func logout(){
         dataAccess.logout()

@@ -1,0 +1,119 @@
+/* 
+  Localizable.strings
+  Aqark
+
+  Created by AhmedSaeed on 6/3/20.
+  Copyright © 2020 ITI. All rights reserved.
+*/
+
+/********************************** Particpate in all views ********************************/
+"lang" = "en";
+"tabBarSearch" = "Search";
+"tabBarFavourite" = "Favourite";
+"tabBarAccount" = "Account" ;
+
+"No Internet Connection" = "No Internet Connection";
+"No Advertisements Found" = "No Advertisements Found" ;
+
+/********************************** search View ********************************/
+
+"Advertisements" = "Advertisements";
+
+"Price(High)" = "Price(High)";
+"Price(Low)" = "Price(Low)";
+"Newest" = "Newest";
+"Oldest" = "Oldest";
+"Default" = "Default";
+"Cancel" = "Cancel";
+
+"sqm" = "sqm";
+"EGP/month" = "EGP/month";
+"EGP" = "EGP";
+
+"Apartment" = "Apartment";    //and we use it in add advertisemnet
+"Villa" = "Villa";            //and we use it in add advertisemnet
+"Room" = "Room";              //and we use it in add advertisemnet
+/********************************** favouriteView ********************************/
+
+"navBarFavourite" = "Favourite";
+"There is no advertisements in favourite list" = "There is no advertisements in favourite list.";
+
+
+/********************************** property Details ********************************/
+
+"Property Details" = "Property Details";
+
+"in" = "in";
+"for" = "for";
+
+"Rent" = "Rent";  //and we use it in add advertisemnet
+"Buy" = "Buy";    //and we use it in add advertisemnet
+
+/********************************** login View ********************************/
+
+"Email" = "Email";
+"Password" = "Password";
+"Login" = "Login";
+"Role" = "Role";
+"User" = "User";
+"Lawyer" = "Lawyer";
+"Interior Designer" = "Interior Designer";
+
+/********************************** sign up ********************************/
+"Sign Up" = "Sign Up";
+"Cairo" = "Cairo";
+"Alexandria" = "Alexandria";
+"Giza" = "Giza";
+"Qalyubiya" = "Qalyubiya";
+"Port Said" = "Port Said";
+"Suez" = "Suez";
+"Luxor" = "Luxor";
+"al-Mansura" = "al-Mansura";
+"El-Mahalla El-Kubra" = "El-Mahalla El-Kubra";
+"Tanta" = "Tanta";
+"Asyut" = "Asyut";
+"Ismailia" = "Ismailia";
+"Faiyum" = "Faiyum";
+"Zagazig" = "Zagazig";
+"Aswan" = "Aswan";
+"Damietta" = "Damietta";
+"Damanhur" = "Damanhur" ;
+"al-Minya" = "al-Minya" ;
+"Beni Suef" = "Beni Suef";
+"Qena" = "Qena";
+"Sohag" = "Sohag";
+"Hurghada" = "Hurghada";
+"Banha" = "Banha";
+"Kafr el-Sheikh" = "Kafr el-Sheikh";
+"Arish" = "Arish";
+"Minya" = "Minya";
+"Sharqia" = "Sharqia";
+"Beheira" = "Beheira";
+"Menofia" = "Menofia";
+
+
+/**********************************  add advertisement ********************************/
+
+"Add Advertisement" = "Add Advertisement";
+
+"Furnished" = "Furnished";
+"Shared Spa" = "Shared Spa";
+"Central A/C" = "Central A/C";
+"Maids Room" = "Maids Room";
+"Security" = "Security";
+"Kitchen Appliances" = "Kitchen Appliances";
+"Networked" = "Networked";
+"Covered Parking" = "Covered Parking";
+"Pets Allowed" = "Pets Allowed";
+"Barbecue Area" = "Barbecue Area";
+"Balcony" = "شرفة";
+"Walk-in Closet" = "Walk-in Closet";
+"Study" = "Study";
+"Private garden" = "Private garden";
+"Children's Play Area" = "Children's Play Area";
+
+
+"^[1-9][0-9]*$" = "^[1-9][0-9]*$";
+"^[0][1]\\d{9}$" = "^[0][1]\\d{9}$";
+
+"minimum price is" = "minimum price is";

@@ -38,8 +38,8 @@ class AddAdvertisementViewController: UIViewController  {
     var activityIndicator:UIActivityIndicatorView!
     var selectAmenitiesDic:[Int: String] = [Int:String]()
     var pickerViewPropertyType:[String] = [String]()
-    var advertisementType:String = "Rent"
-    var propertyType:String = "Apartment"
+    var advertisementType:String = "Rent".localize
+    var propertyType:String = "Apartment".localize
     var numberOfAdvertisementPerMonth:Int!
     var payment = "free"
     var latitude : String = ""
@@ -59,6 +59,7 @@ class AddAdvertisementViewController: UIViewController  {
     {
         super.viewDidLoad()
         blackIndicatorView.isHidden = true
+        self.navigationItem.title = "Add Advertisement".localize
         setupView()
        
         if(advertisementId.isEmpty == false)
@@ -119,10 +120,10 @@ class AddAdvertisementViewController: UIViewController  {
         present(autocompletecontroller, animated: true, completion: nil)
     }
     @IBAction func increaseBedRoomNumber(_ sender: UIStepper) {
-        self.BedroomsTxtField.text = String(Int(sender.value))
+        self.BedroomsTxtField.text = self.convertNumbers(lang: "lang".localize, stringNumber: String(Int(sender.value))).1
     }
     @IBAction func increaseBathRoomNumber(_ sender: UIStepper) {
-        self.BathroomTxtField.text = String(Int(sender.value))
+        self.BathroomTxtField.text = self.convertNumbers(lang: "lang".localize, stringNumber: String(Int(sender.value))).1
     }
     //MARK: - func SaveButton
     @IBAction func saveAdvertisement(_ sender: Any) {
@@ -143,6 +144,7 @@ class AddAdvertisementViewController: UIViewController  {
                                                        dataImages: self.selectedImages,
                                                        urlImages:self.urlImages,
                                                        deletedImage : self.urlImageDeleted)
+        print(addAdvertisementVM.aminities , addAdvertisementVM.bedrooms , addAdvertisementVM.location , addAdvertisementVM.longitude , addAdvertisementVM.latitude , addAdvertisementVM.propertyType , addAdvertisementVM.advertisementType)
         
         if addAdvertisementVM.isValid == false{
             let alertValues = addAdvertisementVM.borkenRule[0]
@@ -261,4 +263,22 @@ class AddAdvertisementViewController: UIViewController  {
 extension Notification.Name{
     static let indicator = Notification.Name("indicator")
     static let alert = Notification.Name("alert")
+}
+
+
+extension AddAdvertisementViewController{
+
+    func convertNumbers(lang: String , stringNumber : String)->(NSNumber, String){
+        let formatter: NumberFormatter = NumberFormatter()
+        if lang.elementsEqual("en"){
+            formatter.locale = NSLocale(localeIdentifier: "EN") as Locale?
+        }else{
+            formatter.locale = NSLocale(localeIdentifier: "AR") as Locale?
+        }
+        guard let number = formatter.number(from: stringNumber)else{return(0 , "")}
+        guard let translatedNumber = formatter.string(from: number)else{return(0,"")}
+        
+        return(number , translatedNumber)
+    }
+
 }

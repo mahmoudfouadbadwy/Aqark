@@ -55,7 +55,7 @@ class CoreDataAccess: NSObject{
     
     func checkNumOfAds() -> Bool{
         let allData = getAllAdvertisment()
-        if (allData.count < 5){
+        if (allData.count < 20){
             return true
         }
         return false
@@ -69,11 +69,9 @@ class CoreDataAccess: NSObject{
         do{
             let count = try managedContext.count(for: request)
             if(count == 0){
-                print("no matching object exists")
                 return false
             }
             else{
-                print("matching object exists")
                 return true
             }
         }

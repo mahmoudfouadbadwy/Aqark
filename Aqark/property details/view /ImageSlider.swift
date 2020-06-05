@@ -13,7 +13,8 @@ class ImageSlider: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageController: UIPageControl!
-    
+    @IBOutlet weak var favouriteButton: UIButton!
+    var favBtnDelegate : FavouriteButtonProtocol?
     func configure(with images: [UIImage]) {
         
         // Get the scrollView width and height
@@ -78,6 +79,12 @@ class ImageSlider: UIView {
         
         scrollView.scrollRectToVisible(CGRect(x: slideToX, y:0, width:pageWidth, height:scrollView.frame.height), animated: true)
     }
+    
+    @IBAction func favouriteButtonAction(_ sender: Any) {
+        self.favBtnDelegate?.addAdvertismentToFav()
+   
+    }
+    
 }
 
 

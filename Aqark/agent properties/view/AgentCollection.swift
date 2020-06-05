@@ -24,7 +24,7 @@ extension AgentPropertiesView{
             AgentAdvertisementListViewModel(data: agentDataAccess)
         advertisementViewModel.getAllAdvertisements(agentId:agentId,completion: {[weak self]
             (advertisements) in
-            self?.stopIndicator()
+            self?.stopActivityIndicator()
             self?.listOfAdvertisements = advertisements
         })
     }

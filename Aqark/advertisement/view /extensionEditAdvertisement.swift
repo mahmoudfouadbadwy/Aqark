@@ -114,35 +114,35 @@ extension AddAdvertisementViewController {
        func selectEditAmenitiesValue(value : String)->Int{
            var tag = 0
            switch value {
-           case "Furnished":
+           case "Furnished".localize:
                tag = 0
-           case "Shared Spa":
+           case "Shared Spa".localize:
                tag = 1
-           case "Central A/C":
+           case "Central A/C".localize:
                tag = 2
-           case "Maids Room":
+           case "Maids Room".localize:
                tag = 3
-           case "Security":
+           case "Security".localize:
                tag = 4
-           case "Kitchen Appliances":
+           case "Kitchen Appliances".localize:
                tag = 5
-           case "Networked":
+           case "Networked".localize:
                tag = 6
-           case "Covered Parking":
+           case "Covered Parking".localize:
                tag = 7
-           case "Pets Allowed":
+           case "Pets Allowed".localize:
                tag = 8
-           case "Barbecue Area":
+           case "Barbecue Area".localize:
                tag = 9
-           case "Balcony":
+           case "Balcony".localize:
                tag = 10
-           case "Walk-in Closet":
+           case "Walk-in Closet".localize:
                tag = 11
-           case "Study":
+           case "Study".localize:
                tag = 12
-           case "Private garden":
+           case "Private garden".localize:
                tag = 13
-           case "Children's Play Area":
+           case "Children's Play Area".localize:
                tag = 14
            default:
                print("switch problem")

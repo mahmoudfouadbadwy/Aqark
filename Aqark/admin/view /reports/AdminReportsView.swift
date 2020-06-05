@@ -11,7 +11,6 @@ import UIKit
 class AdminReportsView: UIViewController {
     @IBOutlet weak var reportsCollection: UICollectionView!
     @IBOutlet weak var statusLabel: UILabel!
-    let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     var adminReportViewModel:AdminReportsList!
     var reports:[AdminReportViewModel]=[]{
         didSet{
@@ -49,20 +48,5 @@ class AdminReportsView: UIViewController {
         }
     }
     
-}
-
-//MARK: - UIViewIndicator
-extension AdminReportsView{
-    func showIndicator()
-    {
-        networkIndicator.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        networkIndicator.center = view.center
-        networkIndicator.startAnimating()
-        view.addSubview(networkIndicator)
-    }
-    
-    func stopIndicator() {
-        networkIndicator.stopAnimating()
-    }
 }
 

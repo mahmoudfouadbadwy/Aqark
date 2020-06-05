@@ -30,7 +30,7 @@ extension AddAdvertisementViewController{
          
          
          // picker view
-         pickerViewPropertyType = ["Apartment" , "Villa" ,  "Room" ]
+        pickerViewPropertyType = ["Apartment".localize , "Villa".localize ,  "Room".localize ]
          pickerView.delegate = self
          pickerView.dataSource = self
          

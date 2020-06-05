@@ -15,7 +15,7 @@ struct AdminUser{
     var userCountry : String
     var userCompany : String
     var userRole : String
-    var userRating : String
+    var userRating : Double
     var userExperience : String
     var userImage : String
 }

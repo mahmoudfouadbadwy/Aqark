@@ -24,19 +24,26 @@ extension SearchViewController : UICollectionViewDataSource{
         updateCellLayout(cell: cell)
         getCellData(indexPath: indexPath)
         cell.advertisementImage?.sd_setImage(with: URL(string: adViewModel.image), placeholderImage: UIImage(named: "NoImage"))
-        cell.propertyTypeLabel?.text = adViewModel.propertyType
+        cell.propertyTypeLabel?.text = adViewModel.propertyType.localize
         cell.proprtyAddressLabel?.text = adViewModel.address
-        cell.numberOfBedsLabel?.text = adViewModel.bedRoomsNumber
-        cell.numberOfBathRoomsLabel?.text = adViewModel.bathRoomsNumber
-        cell.propertySizeLabel?.text = "\(adViewModel.size ?? "") sqm"
-        if adViewModel.advertisementType == "Rent"{
-            cell.propertyPriceLabel?.text = "\(adViewModel.price ?? 0) EGP/month"
-        }else{
-            cell.propertyPriceLabel?.text = "\(adViewModel.price ?? 0) EGP"
-        }
-        
-        self.setFavouriteButton(cell: cell, index: indexPath.row)
+        cell.numberOfBedsLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.bedRoomsNumber).1
+        cell.numberOfBathRoomsLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.bathRoomsNumber).1
+        cell.propertySizeLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.size).1+"sqm".localize
 
+        if adViewModel.advertisementType == "Rent"{
+            cell.propertyPriceLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.price).1 + "EGP/month".localize
+        }else{
+            cell.propertyPriceLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.price).1 + "EGP".localize
+        }
+        cell.favButton.setTitle(adViewModel.advertisementId, for: .normal)
+        if (coreDataViewModel!.isAdvertismentExist(id: adViewModel.advertisementId)){
+            cell.favButton.tintColor = UIColor.red
+        }
+        else
+        {
+             cell.favButton.tintColor = UIColor.gray
+        }
+        cell.delegat = self
         return cell
     }
 }
@@ -82,7 +89,7 @@ extension SearchViewController{
             (dataResults) in
             if dataResults.isEmpty{
                 self.stopIndicator()
-                self.labelPlaceHolder.text = "No Advertisements Found"
+                self.labelPlaceHolder.text = "No Advertisements Found".localize
                 self.view.alpha = 1
                 self.manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
             }else{

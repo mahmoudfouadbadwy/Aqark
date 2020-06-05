@@ -18,12 +18,11 @@ class SignUpView: UIViewController  {
     @IBOutlet  weak var countries: UIPickerView!
     var role:String = "user"
     var accountViewModel:AccountViewModel!
-    let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     let countriesPicker:[String] = Countries().countries
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Sign Up"
+        self.navigationItem.title = "Sign Up".localize
         setupViews(as: role)
         setIcons()
         setTextFieldsDelegate()

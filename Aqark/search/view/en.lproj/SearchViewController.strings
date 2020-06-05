@@ -1,0 +1,9 @@
+
+/* Class = "UISearchBar"; placeholder = "Search Location"; ObjectID = "A96-AO-fov"; */
+"A96-AO-fov.placeholder" = "Search Location";
+
+/* Class = "UIButton"; normalTitle = "Filters"; ObjectID = "EAO-Wd-sCG"; */
+"EAO-Wd-sCG.normalTitle" = "Filters";
+
+/* Class = "UILabel"; text = "No Internet Connection"; ObjectID = "V6q-qp-wXR"; */
+"V6q-qp-wXR.text" = "No Internet Connection";

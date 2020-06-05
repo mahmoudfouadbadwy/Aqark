@@ -37,7 +37,7 @@ extension AdminDataAccess{
         let advertisementPropertyCountry = advertisementDictionary[AdminAdvertisementKey.country] as! String
         let advertisementPropertyDate = advertisementDictionary[AdminAdvertisementKey.date] as! String
         let advetisementPropertyDescription = advertisementDictionary[AdminAdvertisementKey.description] as! String
-        let advertisementPropertyImages = advertisementDictionary[AdminAdvertisementKey.images] as? [String] ?? []
+        let advertisementPropertyImages = advertisementDictionary[AdminAdvertisementKey.images] as? [String] ?? [""]
         let advertisementPayment = advertisementDictionary[AdminAdvertisementKey.payment] as! String
         let advertisementPhone = advertisementDictionary[AdminAdvertisementKey.phone] as! String
         let advertisementPropertyPrice = advertisementDictionary[AdminAdvertisementKey.price] as! String

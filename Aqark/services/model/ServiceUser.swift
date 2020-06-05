@@ -16,7 +16,7 @@ struct ServiceUser{
     var userCountry : String
     var userCompany : String
     var userRole : String
-    var userRating : String
+    var userServiceRating : Double
     var userExperience : String
     var userImage : String
 }

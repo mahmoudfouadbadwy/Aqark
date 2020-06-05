@@ -12,7 +12,7 @@ class ServiceUserViewModel{
     var serviceUserId : String = ""
     var serviceUserName : String = ""
     var serviceUserCountry : String = ""
-    var serviceUserRating : String = ""
+    var serviceUserServiceRating : Double = 0.0
     var serviceUserExperience : String = ""
     var serviceUserCompany : String = ""
     var ServiceUserImage : String = ""
@@ -21,9 +21,9 @@ class ServiceUserViewModel{
         self.serviceUserId = serviceUser.userId
         self.serviceUserName = serviceUser.userName
         self.serviceUserCountry  = serviceUser.userCountry
-        self.serviceUserRating = serviceUser.userRating
-        self.serviceUserExperience = serviceUser.userExperience
-        self.serviceUserCompany = serviceUser.userCompany
+        self.serviceUserServiceRating = serviceUser.userServiceRating
+        self.serviceUserExperience = serviceUser.userExperience + " years exp"
+        self.serviceUserCompany = serviceUser.userCompany + " company"
         self.ServiceUserImage = serviceUser.userImage
     }
 }

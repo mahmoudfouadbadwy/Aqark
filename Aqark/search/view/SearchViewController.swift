@@ -63,7 +63,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         didSet{
             filterContentForSearchBarText(searchBar.text!)
             if filteredAdsList.count == 0 {
-                labelPlaceHolder.text = "No Advertisements Found"
+                labelPlaceHolder.text = "No Advertisements Found".localize
                 self.manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: false)
             }
     }
@@ -72,20 +72,30 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Advertisements"
+        self.navigationItem.title = "Advertisements".localize
         if !checkNetworkConnection(){
            manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
             self.view.alpha = 1
-            labelPlaceHolder.text = "No Internet Connection"
+            labelPlaceHolder.text = "No Internet Connection".localize
         }else{
             manageSearchBar()
-            showIndicator()
             self.setupCoredata()
             setUpCollectionView()
-            getCollectionViewData()
             floationgBtn()
             labelPlaceHolder.isHidden = true
             limitRegion()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if !checkNetworkConnection(){
+            manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
+            self.view.alpha = 1
+            labelPlaceHolder.text = "No Internet Connection".localize
+        }else{
+            showIndicator()
+            getCollectionViewData()
+            self.searchCollectionView.reloadData()
         }
     }
 
@@ -125,3 +135,25 @@ extension SearchViewController{
 
 
 
+extension String{
+    
+    var localize:String{
+        return NSLocalizedString(self, comment: "")
+    }
+}
+
+extension SearchViewController{
+
+    func convertNumbers(lang: String , stringNumber : String)->(NSNumber, String){
+        let formatter: NumberFormatter = NumberFormatter()
+        if lang.elementsEqual("en"){
+            formatter.locale = NSLocale(localeIdentifier: "EN") as Locale?
+        }else{
+            formatter.locale = NSLocale(localeIdentifier: "AR") as Locale?
+        }
+        guard let number = formatter.number(from: stringNumber)else{return(0 , "")}
+        guard let translatedNumber = formatter.string(from: number)else{return(0,"")}
+        return(number , translatedNumber)
+    }
+
+}

@@ -1,0 +1,231 @@
+
+/* Class = "UITextField"; placeholder = "Bathrooms*"; ObjectID = "16J-1M-yns"; */
+"16J-1M-yns.placeholder" = "الحمامات";
+
+/* Class = "UITextField"; text = "1"; ObjectID = "16J-1M-yns"; */
+"16J-1M-yns.text" = "١";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "1u8-jr-vbW"; */
+"1u8-jr-vbW.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "2QG-Pn-3lb"; */
+"2QG-Pn-3lb.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Damietta"; ObjectID = "2oZ-gm-dSa"; */
+"2oZ-gm-dSa.normalTitle" = "دمياط";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "32o-aM-VWt"; */
+"32o-aM-VWt.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Walk-in Closet"; ObjectID = "3Vt-K5-01c"; */
+"3Vt-K5-01c.text" = "خزانة ملابس";
+
+/* Class = "UIButton"; normalTitle = "Aswan"; ObjectID = "3g0-OM-yxT"; */
+"3g0-OM-yxT.normalTitle" = "اسوان";
+
+/* Class = "UIButton"; normalTitle = "El-Mahalla El-Kubra"; ObjectID = "3j8-p6-jmc"; */
+"3j8-p6-jmc.normalTitle" = "المحله الكبري";
+
+/* Class = "UITextField"; placeholder = "PhoneNumber*"; ObjectID = "8DF-y9-1wa"; */
+"8DF-y9-1wa.placeholder" = "رقم الهاتف";
+
+/* Class = "UIButton"; normalTitle = "Cairo"; ObjectID = "9f3-sf-FOh"; */
+"9f3-sf-FOh.normalTitle" = "القاهره";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "AHA-sv-xMD"; */
+"AHA-sv-xMD.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Menofia"; ObjectID = "BKe-uY-BXR"; */
+"BKe-uY-BXR.normalTitle" = "المنوفيه";
+
+/* Class = "UILabel"; text = "Networked"; ObjectID = "CE0-1w-UVS"; */
+"CE0-1w-UVS.text" = "متصل بالشبكة";
+
+/* Class = "UILabel"; text = "Barbecue Area"; ObjectID = "Dw1-WP-W7V"; */
+"Dw1-WP-W7V.text" = "منطقة الشواء";
+
+/* Class = "UIButton"; normalTitle = "Qena"; ObjectID = "E1G-VD-QDM"; */
+"E1G-VD-QDM.normalTitle" = "قنا";
+
+/* Class = "UILabel"; text = "Central A/C"; ObjectID = "EZK-um-kZt"; */
+"EZK-um-kZt.text" = "تكييف مركزي";
+
+/* Class = "UIButton"; normalTitle = "Hurghada"; ObjectID = "FeZ-PC-JOe"; */
+"FeZ-PC-JOe.normalTitle" = "الغردقه";
+
+/* Class = "UITextField"; placeholder = "Address*"; ObjectID = "Gaw-mu-GOa"; */
+"Gaw-mu-GOa.placeholder" = "العنوان";
+
+/* Class = "UITextField"; placeholder = "county*"; ObjectID = "Hu4-Rk-EEU"; */
+"Hu4-Rk-EEU.placeholder" = "المحافظه";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Huy-Zg-cxN"; */
+"Huy-Zg-cxN.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Sharqia"; ObjectID = "IaE-H0-neo"; */
+"IaE-H0-neo.normalTitle" = "الشرقيه";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "LU0-lZ-dMv"; */
+"LU0-lZ-dMv.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "MEv-u1-mUQ"; */
+"MEv-u1-mUQ.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "al-Minya"; ObjectID = "MZW-ap-DZs"; */
+"MZW-ap-DZs.normalTitle" = "المنيا";
+
+/* Class = "UIButton"; normalTitle = "Arish"; ObjectID = "N3p-g1-rEK"; */
+"N3p-g1-rEK.normalTitle" = "العريش";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "OMF-o9-TBu"; */
+"OMF-o9-TBu.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Banha"; ObjectID = "OPn-XQ-APw"; */
+"OPn-XQ-APw.normalTitle" = "بنها";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "PCR-cT-qPe"; */
+"PCR-cT-qPe.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "PuA-Yb-Q4U"; */
+"PuA-Yb-Q4U.text" = "الوصف";
+
+/* Class = "UILabel"; text = "Covered Parking"; ObjectID = "RLV-HK-Kcc"; */
+"RLV-HK-Kcc.text" = "موقف للسيارات";
+
+/* Class = "UISegmentedControl"; TBL-O5-Qi2.segmentTitles[0] = "Rent"; ObjectID = "TBL-O5-Qi2"; */
+"TBL-O5-Qi2.segmentTitles[0]" = "ايجار";
+
+/* Class = "UISegmentedControl"; TBL-O5-Qi2.segmentTitles[1] = "Buy"; ObjectID = "TBL-O5-Qi2"; */
+"TBL-O5-Qi2.segmentTitles[1]" = "بيع";
+
+/* Class = "UITextField"; placeholder = "Bedrooms*"; ObjectID = "TJK-mw-9q1"; */
+"TJK-mw-9q1.placeholder" = "الغرف";
+
+/* Class = "UITextField"; text = "1"; ObjectID = "TJK-mw-9q1"; */
+"TJK-mw-9q1.text" = "١";
+
+/* Class = "UIButton"; normalTitle = "Zagazig"; ObjectID = "TU9-Qs-aQp"; */
+"TU9-Qs-aQp.normalTitle" = "الزقازيق";
+
+/* Class = "UITextField"; placeholder = "Price*"; ObjectID = "U6h-Nh-KNg"; */
+"U6h-Nh-KNg.placeholder" = "السعر";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Ui5-ST-szb"; */
+"Ui5-ST-szb.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Sohag"; ObjectID = "V9L-t5-TOB"; */
+"V9L-t5-TOB.normalTitle" = "سوهاج";
+
+/* Class = "UILabel"; text = "Amenities"; ObjectID = "Wpw-g3-9PN"; */
+"Wpw-g3-9PN.text" = "وسائل مساعده";
+
+/* Class = "UILabel"; text = "Shared Spa"; ObjectID = "YEG-YB-6Lc"; */
+"YEG-YB-6Lc.text" = "سبا مشترك";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "YsI-af-fUO"; */
+"YsI-af-fUO.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "al-Mansura"; ObjectID = "ZGj-Xu-RGS"; */
+"ZGj-Xu-RGS.normalTitle" = "المنصوره";
+
+/* Class = "UIButton"; normalTitle = "Port Said"; ObjectID = "ZTC-mB-1B1"; */
+"ZTC-mB-1B1.normalTitle" = "بورسعيد";
+
+/* Class = "UILabel"; text = "Furnished"; ObjectID = "aeA-LI-fcL"; */
+"aeA-LI-fcL.text" = "مفروشة";
+
+/* Class = "UIButton"; normalTitle = "Qalyubiya"; ObjectID = "ayP-e6-FMz"; */
+"ayP-e6-FMz.normalTitle" = "القليوبيه";
+
+/* Class = "UIButton"; normalTitle = "Minya"; ObjectID = "bze-0z-Yp0"; */
+"bze-0z-Yp0.normalTitle" = "المنيا";
+
+/* Class = "UILabel"; text = "Country"; ObjectID = "eKg-Av-7wY"; */
+"eKg-Av-7wY.text" = "المحافظه";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "eiT-Gu-H7e"; */
+"eiT-Gu-H7e.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Asyut"; ObjectID = "g1O-Rw-WJ1"; */
+"g1O-Rw-WJ1.normalTitle" = "اسيوط";
+
+/* Class = "UILabel"; text = "Security"; ObjectID = "gEH-mJ-j0H"; */
+"gEH-mJ-j0H.text" = "الأمان";
+
+/* Class = "UIButton"; normalTitle = "Ismailia"; ObjectID = "gZM-E5-Har"; */
+"gZM-E5-Har.normalTitle" = "الاسماعيليه";
+
+/* Class = "UILabel"; text = "Kitchen Appliances"; ObjectID = "ggz-Mt-o21"; */
+"ggz-Mt-o21.text" = "أدوات المطبخ";
+
+/* Class = "UIButton"; normalTitle = "Luxor"; ObjectID = "hgK-hS-h4a"; */
+"hgK-hS-h4a.normalTitle" = "الاقصر";
+
+/* Class = "UILabel"; text = "Add Image"; ObjectID = "hwZ-ho-09k"; */
+"hwZ-ho-09k.text" = "اضافة صور";
+
+/* Class = "UIButton"; normalTitle = "Kafr el-Sheikh"; ObjectID = "jZx-aA-t2c"; */
+"jZx-aA-t2c.normalTitle" = "كفر الشيخ";
+
+/* Class = "UILabel"; text = "Maids Room"; ObjectID = "kig-VP-F6W"; */
+"kig-VP-F6W.text" = "غرفة للخادمة";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lnB-CM-2Am"; */
+"lnB-CM-2Am.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Balcony"; ObjectID = "lwu-h2-1JI"; */
+"lwu-h2-1JI.text" = "شرفة";
+
+/* Class = "UIButton"; normalTitle = "ADD"; ObjectID = "mBn-ZN-rDe"; */
+"mBn-ZN-rDe.normalTitle" = "اضافه";
+
+/* Class = "UIButton"; normalTitle = "Tanta"; ObjectID = "mj7-cY-76L"; */
+"mj7-cY-76L.normalTitle" = "طنطا";
+
+/* Class = "UIButton"; normalTitle = "Faiyum"; ObjectID = "o7m-LF-Vjb"; */
+"o7m-LF-Vjb.normalTitle" = "الفيوم";
+
+/* Class = "UILabel"; text = "Children's Play Area"; ObjectID = "o9S-QU-NrC"; */
+"o9S-QU-NrC.text" = "منطقة لعب الاطفال";
+
+/* Class = "UIButton"; normalTitle = "Menofia"; ObjectID = "otp-1R-Odw"; */
+"otp-1R-Odw.normalTitle" = "المنوفيه";
+
+/* Class = "UILabel"; text = "Free Advertisement"; ObjectID = "pGd-Tu-ZFs"; */
+"pGd-Tu-ZFs.text" = "اعلان مجاني";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "qmU-BI-3dZ"; */
+"qmU-BI-3dZ.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Giza"; ObjectID = "rdn-Tf-UUU"; */
+"rdn-Tf-UUU.normalTitle" = "الجيزه";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "sRx-Sz-Q15"; */
+"sRx-Sz-Q15.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Pets Allowed"; ObjectID = "sZS-qQ-LBE"; */
+"sZS-qQ-LBE.text" = "مسموح بالحيوانات الأليفة";
+
+/* Class = "UIButton"; normalTitle = "Beni Suef"; ObjectID = "uXL-sy-Wuk"; */
+"uXL-sy-Wuk.normalTitle" = "بني سويف";
+
+/* Class = "UIButton"; normalTitle = "Beheira"; ObjectID = "vIt-GT-mUT"; */
+"vIt-GT-mUT.normalTitle" = "البحيره";
+
+/* Class = "UIButton"; normalTitle = "Damanhur"; ObjectID = "vfH-0q-5VW"; */
+"vfH-0q-5VW.normalTitle" = "دمنهور";
+
+/* Class = "UIButton"; normalTitle = "Alexandria"; ObjectID = "vrP-mF-Bae"; */
+"vrP-mF-Bae.normalTitle" = "الاسكندريه";
+
+/* Class = "UILabel"; text = "Private garden"; ObjectID = "wvo-Xq-U11"; */
+"wvo-Xq-U11.text" = "حديقة خاصة";
+
+/* Class = "UITextField"; placeholder = "Size*"; ObjectID = "xJF-1q-9Vv"; */
+"xJF-1q-9Vv.placeholder" = "المساحه";
+
+/* Class = "UILabel"; text = "Study"; ObjectID = "xj2-Mf-l4b"; */
+"xj2-Mf-l4b.text" = "دراسة";
+
+/* Class = "UIButton"; normalTitle = "Suez"; ObjectID = "yGD-mF-q7v"; */
+"yGD-mF-q7v.normalTitle" = "السويس";

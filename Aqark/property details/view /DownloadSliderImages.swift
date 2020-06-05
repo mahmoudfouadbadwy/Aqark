@@ -38,8 +38,9 @@ extension PropertyDetailView{
     
     func setSliderImages()
     {
-        self.stopIndicator()
+        self.stopActivityIndicator()
         imageSlider.configure(with: downloadedImages)
+        self.imageSlider.favBtnDelegate = self
     }
     
 }

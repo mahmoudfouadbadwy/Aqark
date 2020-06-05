@@ -31,35 +31,35 @@ extension AddAdvertisementViewController{
         var value:String = ""
         switch tagNumber {
         case 0:
-            value = "Furnished"
+            value = "Furnished".localize
         case 1:
-            value = "Shared Spa"
+            value = "Shared Spa".localize
         case 2:
-            value = "Central A/C"
+            value = "Central A/C".localize
         case 3:
-            value = "Maids Room"
+            value = "Maids Room".localize
         case 4:
-            value = "Security"
+            value = "Security".localize
         case 5:
-            value = "Kitchen Appliances"
+            value = "Kitchen Appliances".localize
         case 6:
-            value = "Networked"
+            value = "Networked".localize
         case 7:
-            value = "Covered Parking"
+            value = "Covered Parking".localize
         case 8:
-            value = "Pets Allowed"
+            value = "Pets Allowed".localize
         case 9:
-            value = "Barbecue Area"
+            value = "Barbecue Area".localize
         case 10:
-            value = "Balcony"
+            value = "Balcony".localize
         case 11:
-            value = "Walk-in Closet"
+            value = "Walk-in Closet".localize
         case 12:
-            value = "Study"
+            value = "Study".localize
         case 13:
-            value = "Private garden"
+            value = "Private garden".localize
         case 14:
-            value = "Children's Play Area"
+            value = "Children's Play Area".localize
         default:
             print("switch problem")
         }

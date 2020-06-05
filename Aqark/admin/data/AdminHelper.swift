@@ -15,6 +15,9 @@ struct  AdminUserKey {
     static let userCompany = "company"
     static let userCountry = "country"
     static let userRole = "role"
+    static let userExperience = "experience"
+    static let userRating = "rate"
+    static let userPicture = "picture"
 }
 
 struct AdminUserRole {

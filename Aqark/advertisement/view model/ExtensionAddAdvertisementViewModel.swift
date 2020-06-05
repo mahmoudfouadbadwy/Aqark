@@ -50,7 +50,7 @@ extension AddAdvertisementViewModel{
     
     func phoneValidate(value: String){
            
-        let PHONE_REGEX = "^[0][1]\\d{9}$"
+        let PHONE_REGEX = "^[0][1]\\d{9}$".localize
         
         let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
         
@@ -67,7 +67,7 @@ extension AddAdvertisementViewModel{
           
     func sizeValidate(value: String){
            
-        let SIZE_REGEX = "^[1-9][0-9]*$"
+        let SIZE_REGEX = "^[1-9][0-9]*$".localize
         let sizeTest = NSPredicate(format: "SELF MATCHES %@", SIZE_REGEX)
         
         if (value.isEmpty){
@@ -85,7 +85,7 @@ extension AddAdvertisementViewModel{
     func PriceTextFeildError(){
 
         var myMessage = ""
-        let PRICE_REGEX = "^[1-9][0-9]*$"
+        let PRICE_REGEX = "^[1-9][0-9]*$".localize
         let priceTest = NSPredicate(format: "SELF MATCHES %@", PRICE_REGEX)
         if (price.isEmpty){
             myMessage = "price is empty"
@@ -94,38 +94,41 @@ extension AddAdvertisementViewModel{
             
             if priceTest.evaluate(with: price) {
                 
-                let myPrice = Int(price)
-                 
-                 if advertisementType == "Rent"{
-                     switch propertyType {
-                         case "Apartment" where  myPrice! < 500:
-                             myMessage = "minimum price is 500$ "
-                             self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: myMessage ))
-                         case "Villa" where  myPrice! < 5000:
-                             myMessage = "minimum price is 5000$ "
-                             self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: myMessage ))
-                         case "Room" where  myPrice! < 200:
-                             myMessage = "minimum price is 200$ "
-                             self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: myMessage ))
-                         default:
-                             print("NoError")
-                        }
-                }else{
+                if let myPrice = price{
                     
-                    switch propertyType {
-                        case "Apartment" where  myPrice! < 50000:
-                            myMessage = "minimum price is 50,000$ "
-                            self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: myMessage ))
-                        case "Villa" where  myPrice! < 500000:
-                            myMessage = "minimum price is 500,000$ "
-                            self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: myMessage ))
-                        case "Room" where  myPrice! < 10000:
-                             myMessage = "minimum price is 10,000$ "
-                             self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: myMessage ))
-                        default:
-                            print("NoError")
+                    if advertisementType == "Rent".localize{
+                         switch propertyType {
+                         case "Apartment".localize where  self.convertNumbers(lang: "lang".localize, stringNumber: myPrice).0.intValue < self.convertNumbers(lang: "lang".localize, stringNumber: "500").0.intValue:
+                                myMessage = "minimum price is".localize + self.convertNumbers(lang: "lang".localize, stringNumber: "500").1 + "EGP".localize
+                                 self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: myMessage ))
+                         case "Villa".localize where  self.convertNumbers(lang: "lang".localize, stringNumber: myPrice).0.intValue < self.convertNumbers(lang: "lang".localize, stringNumber: "5000").0.intValue:
+                                myMessage = "minimum price is".localize + self.convertNumbers(lang: "lang".localize, stringNumber: "5000").1 + "EGP".localize
+                                 self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: myMessage ))
+                         case "Room".localize where  self.convertNumbers(lang: "lang".localize, stringNumber: myPrice).0.intValue < self.convertNumbers(lang: "lang".localize, stringNumber: "200").0.intValue:
+                                myMessage = "minimum price is".localize + self.convertNumbers(lang: "lang".localize, stringNumber: "200").1 + "EGP".localize
+                                 self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: myMessage ))
+                             default:
+                                 print("NoError")
+                            }
+                    }else{
+                        
+                        switch propertyType {
+                        case "Apartment".localize where  self.convertNumbers(lang: "lang".localize, stringNumber: myPrice).0.intValue < self.convertNumbers(lang: "lang".localize, stringNumber: "50000").0.intValue:
+                                myMessage = "minimum price is".localize + self.convertNumbers(lang: "lang".localize, stringNumber: "50000").1 + "EGP".localize
+                                self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: myMessage ))
+                        case "Villa".localize where  self.convertNumbers(lang: "lang".localize, stringNumber: myPrice).0.intValue < self.convertNumbers(lang: "lang".localize, stringNumber: "500000").0.intValue:
+                                myMessage = "minimum price is".localize + self.convertNumbers(lang: "lang".localize, stringNumber: "500000").1 + "EGP".localize
+                                self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: myMessage ))
+                        case "Room".localize where  self.convertNumbers(lang: "lang".localize, stringNumber: myPrice).0.intValue < self.convertNumbers(lang: "lang".localize, stringNumber: "10000").0.intValue:
+                                myMessage = "minimum price is".localize + self.convertNumbers(lang: "lang".localize, stringNumber: "10000").1 + "EGP".localize
+                                 self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: myMessage ))
+                            default:
+                                print("NoError")
+                        }
                     }
+                    
                 }
+                 
                 
             }else{
                 self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: " inValid price"))
@@ -134,4 +137,21 @@ extension AddAdvertisementViewModel{
     }
     
     
+}
+
+extension AddAdvertisementViewModel{
+
+    func convertNumbers(lang: String , stringNumber : String)->(NSNumber, String){
+        let formatter: NumberFormatter = NumberFormatter()
+        if lang.elementsEqual("en"){
+            formatter.locale = NSLocale(localeIdentifier: "EN") as Locale?
+        }else{
+            formatter.locale = NSLocale(localeIdentifier: "AR") as Locale?
+        }
+        guard let number = formatter.number(from: stringNumber)else{return(0 , "")}
+        guard let translatedNumber = formatter.string(from: number)else{return(0,"")}
+        
+        return(number , translatedNumber)
+    }
+
 }

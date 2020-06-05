@@ -45,7 +45,7 @@ class AddAdvertisementDataSource{
                     self.uploadeImageToStorage()
                 }else{
                     self.numberOfAdvertisement = value as! Int
-                    if(self.numberOfAdvertisement < 2)
+                    if(self.numberOfAdvertisement < 20)
                     {
                         self.uploadeImageToStorage()
                     }else{
