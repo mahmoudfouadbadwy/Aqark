@@ -18,6 +18,7 @@ extension ProfileViewController{
             self?.username.text = profileData.username
             self?.setProfilePicture(url:profileData.picture)
             self?.setUserRate(rate:profileData.rate)
+            self?.ban = profileData.ban
             if profileData.role.lowercased().elementsEqual("user")
             {
                  self?.setupOptionalViews(hide: true)

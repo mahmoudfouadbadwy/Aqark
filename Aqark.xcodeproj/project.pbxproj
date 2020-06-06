@@ -229,7 +229,7 @@
 		3E804B45248926E50097C855 /* AdminUsersDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUsersDelegate.swift; sourceTree = "<group>"; };
 		3E943FC5246A053300A1FF83 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstScreenViewController.swift; path = "Aqark/login/view /FirstScreenViewController.swift"; sourceTree = SOURCE_ROOT; };
 		3E943FC6246A053300A1FF83 /* FirstScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FirstScreenViewController.xib; path = "Aqark/login/view /FirstScreenViewController.xib"; sourceTree = SOURCE_ROOT; };
-		3E943FC9246A262400A1FF83 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = "Aqark/login/view /CustomButton.swift"; sourceTree = SOURCE_ROOT; };
+		3E943FC9246A262400A1FF83 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = Aqark/Utilities/CustomButton.swift; sourceTree = SOURCE_ROOT; };
 		3EA8369A246CE13A009AD024 /* ValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ValidationProtocol.swift; path = "Aqark/login/view model/ValidationProtocol.swift"; sourceTree = SOURCE_ROOT; };
 		3EA8369C246CE15C009AD024 /* LoginBrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginBrokenRule.swift; path = "Aqark/login/view model/LoginBrokenRule.swift"; sourceTree = SOURCE_ROOT; };
 		3EA8369F246CEFE2009AD024 /* LoginDataAccessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataAccessLayer.swift; sourceTree = "<group>"; };
@@ -682,12 +682,10 @@
 		BF06B41224679EE2005D7151 /* view  */ = {
 			isa = PBXGroup;
 			children = (
-				BF634C9F24733A8F00B65B90 /* CustomTextField.swift */,
 				BF634CA024733A8F00B65B90 /* LoginViewController.swift */,
 				BF634CA124733A8F00B65B90 /* LoginViewController.xib */,
 				3E943FC5246A053300A1FF83 /* FirstScreenViewController.swift */,
 				3E943FC6246A053300A1FF83 /* FirstScreenViewController.xib */,
-				3E943FC9246A262400A1FF83 /* CustomButton.swift */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -825,6 +823,8 @@
 			children = (
 				BF2F5ECA2485495E007AD263 /* Indicator.swift */,
 				BF0F8F2D24890BF40055EAD8 /* Color.swift */,
+				3E943FC9246A262400A1FF83 /* CustomButton.swift */,
+				BF634C9F24733A8F00B65B90 /* CustomTextField.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";

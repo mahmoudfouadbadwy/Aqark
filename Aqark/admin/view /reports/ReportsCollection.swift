@@ -53,7 +53,6 @@ extension AdminReportsView:UICollectionViewDataSource{
         let cell:AdminReportsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "reportsCell", for: indexPath) as! AdminReportsCell
         cell.reportContent.text =
             "\(usersname[indexPath.row]) report \(agentsname[indexPath.row])'s advertisement for \(reports[indexPath.row].reportContent)"
-
         setCellConfiguration(cell:cell)
         return cell
     }

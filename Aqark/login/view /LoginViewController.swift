@@ -10,14 +10,16 @@ import UIKit
 import Firebase
 class LoginViewController: UIViewController{
     
+    @IBOutlet weak var dontHaveAccount: UILabel!
     @IBOutlet weak var userEmailTextField: CustomTextField!
     @IBOutlet weak var userPasswordTextField: CustomTextField!
     private var loginViewModel : LoginViewModel!
-    @IBOutlet weak var loginActivityIndicator: UIActivityIndicatorView!
     var userRole : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(rgb: 0xf1faee)
+        dontHaveAccount.textColor = UIColor(rgb: 0x457b9d) 
         loginViewModel = LoginViewModel()
         userEmailTextField.delegate = self
         userPasswordTextField.delegate = self
@@ -30,15 +32,15 @@ class LoginViewController: UIViewController{
       
     @IBAction func login(_ sender: Any) {
         view.endEditing(true)
-        loginActivityIndicator.startAnimating()
+        self.showActivityIndicator()
         loginViewModel.userEmail = userEmailTextField.text
         loginViewModel.userPassword = userPasswordTextField.text
         if(loginViewModel.isValid){
             if(loginViewModel.checkNetworkConnection()){
                 loginViewModel.authenticateLogin { (result,error) in
-                    self.loginActivityIndicator.stopAnimating()
+                    self.stopActivityIndicator()
                     if let error = error {
-                        self.showAlert(title: "Login Validation", message: error)
+                        self.showAlert(title: "Login", message: error)
                     }else{
                         if(self.loginViewModel.isAdminLogged()){
                             self.gotoAdminView()
@@ -51,8 +53,8 @@ class LoginViewController: UIViewController{
                 showAlert(title: "Connection", message: "Check yout internet connection")
             }
         }else{
-            loginActivityIndicator.stopAnimating()
-            showAlert(title: "Login Validation", message: loginViewModel.brokenRules.first!.message)
+            self.stopActivityIndicator()
+            showAlert(title: "Login", message: loginViewModel.brokenRules.first!.message)
         }
     }
     

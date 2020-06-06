@@ -82,10 +82,10 @@ import UIKit
     
     @objc func addFloatingLabel(){
         if self.text == ""{
-            self.floatingLabel.textColor = floatingLabelColor
+            self.floatingLabel.textColor = UIColor(rgb: 0x457b9d)
             self.floatingLabel.font = floatingLabelFont
             self.floatingLabel.text = _placeholder
-            self.floatingLabel.layer.backgroundColor = UIColor.white.cgColor
+            self.floatingLabel.layer.backgroundColor = UIColor(rgb: 0xf1faee).cgColor
             self.floatingLabel.translatesAutoresizingMaskIntoConstraints = false
             self.floatingLabel.clipsToBounds = true
             self.floatingLabel.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.floatingLabelHeight)
