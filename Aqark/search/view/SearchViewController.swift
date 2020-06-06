@@ -100,6 +100,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     
     @IBAction func showSortingActionSheet(_ sender: Any) {
         showSortingAlert()
+
     }
     
     func checkNetworkConnection()->Bool

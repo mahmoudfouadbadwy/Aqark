@@ -16,6 +16,7 @@ target 'Aqark' do
   pod 'YPImagePicker','~> 3.5.2'
   pod 'Cosmos', '~> 18.0'
   pod 'JJFloatingActionButton'
+  
 
 
   target 'AqarkTests' do

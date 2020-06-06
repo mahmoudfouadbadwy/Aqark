@@ -9,15 +9,27 @@
 import UIKit
 import StoreKit
 
+
 class PaymentViewController: UIViewController {
 
+    @IBOutlet weak var premiumAdvertisementButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func makePremiumAdvertisement(_ sender: Any) {
+        PurchaseManager.instance.purchasePremiumAdvertisement{ success in
+            if success {
+                self.premiumAdvertisementButton.backgroundColor = .red
+            }else{
+            }
+        }
+            
+        }
+    
     /*
     // MARK: - Navigation
 

@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Firebase
 import GooglePlaces
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -30,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /* start shrouk*/
         FirebaseApp.configure()
         GMSPlacesClient.provideAPIKey("AIzaSyAcITFeVhQQ970eJjH0fZ8lY8jwxksplso")
+        PurchaseManager.instance.fetchProducts()
         /* end shrouk*/
         /* start fouad*/
         window = UIWindow()

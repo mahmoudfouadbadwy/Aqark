@@ -157,13 +157,13 @@
 		C61CFE3224765998000EC0EF /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61CFE3024765998000EC0EF /* PaymentViewController.swift */; };
 		C61CFE3324765999000EC0EF /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C61CFE3124765998000EC0EF /* PaymentViewController.xib */; };
 		C64DD274247C170900D65012 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64DD273247C170900D65012 /* Map.swift */; };
+		C6575846248BA5E600CB7CF6 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6575845248BA5E600CB7CF6 /* PurchaseManager.swift */; };
 		C65805CA24828DAE003F3DA1 /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65805C924828DAE003F3DA1 /* ReviewModel.swift */; };
 		C65805CC2482910A003F3DA1 /* ReviewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65805CB2482910A003F3DA1 /* ReviewsViewModel.swift */; };
 		C65805CE2482A7C1003F3DA1 /* ReviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65805CD2482A7C1003F3DA1 /* ReviewExtension.swift */; };
 		C65AD6562483AEC500A402FB /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65AD6542483AEC500A402FB /* ReviewCell.swift */; };
 		C65AD6572483AEC500A402FB /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C65AD6552483AEC500A402FB /* ReviewCell.xib */; };
 		C6621988248A8EE200BF4DC1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6621987248A8EE200BF4DC1 /* StoreKit.framework */; };
-		C662198A248AC87900BF4DC1 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6621989248AC87900BF4DC1 /* IAPHelper.swift */; };
 		C66E3B78247FB96D00E1BAF2 /* ReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B77247FB96D00E1BAF2 /* ReportData.swift */; };
 		C66E3B7A247FCC0B00E1BAF2 /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B79247FCC0B00E1BAF2 /* ReportModel.swift */; };
 		C66E3B7C247FCDED00E1BAF2 /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B7B247FCDED00E1BAF2 /* ReportViewModel.swift */; };
@@ -344,13 +344,13 @@
 		C61CFE3024765998000EC0EF /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaymentViewController.swift; path = Aqark/payment/view/PaymentViewController.swift; sourceTree = SOURCE_ROOT; };
 		C61CFE3124765998000EC0EF /* PaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PaymentViewController.xib; path = Aqark/payment/view/PaymentViewController.xib; sourceTree = SOURCE_ROOT; };
 		C64DD273247C170900D65012 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		C6575845248BA5E600CB7CF6 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		C65805C924828DAE003F3DA1 /* ReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
 		C65805CB2482910A003F3DA1 /* ReviewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewModel.swift; sourceTree = "<group>"; };
 		C65805CD2482A7C1003F3DA1 /* ReviewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewExtension.swift; sourceTree = "<group>"; };
 		C65AD6542483AEC500A402FB /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		C65AD6552483AEC500A402FB /* ReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
 		C6621987248A8EE200BF4DC1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		C6621989248AC87900BF4DC1 /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IAPHelper.swift; path = ../../../../IAPHelper.swift; sourceTree = "<group>"; };
 		C66E3B77247FB96D00E1BAF2 /* ReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportData.swift; sourceTree = "<group>"; };
 		C66E3B79247FCC0B00E1BAF2 /* ReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
 		C66E3B7B247FCDED00E1BAF2 /* ReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
@@ -954,7 +954,7 @@
 		BFBAED7D2468A56700996DE8 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				C6621989248AC87900BF4DC1 /* IAPHelper.swift */,
+				C6575845248BA5E600CB7CF6 /* PurchaseManager.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1367,6 +1367,7 @@
 				BFF016242481306800C3B7C0 /* RatingExtenesion.swift in Sources */,
 				3E69A8D8247EF5E000193605 /* AdminAdvertisementCollectionViewCell.swift in Sources */,
 				3E736C6B2480C897004D8B81 /* ServicesViewController.swift in Sources */,
+				C6575846248BA5E600CB7CF6 /* PurchaseManager.swift in Sources */,
 				82608A2F2476CA1D005946C1 /* EditAdvertisementDataSource.swift in Sources */,
 				C6BAED5624824C8600D964C5 /* ReviewData.swift in Sources */,
 				3E69A8C1247EF5BC00193605 /* AdminUserViewModel.swift in Sources */,
@@ -1439,7 +1440,6 @@
 				3E69A8B8247EF5A900193605 /* AdminUser.swift in Sources */,
 				BF8475ED2483F14700D01A9D /* AdminReportsData.swift in Sources */,
 				826A9A1D2473E4990046E562 /* AddAdvertisementDataSource.swift in Sources */,
-				C662198A248AC87900BF4DC1 /* IAPHelper.swift in Sources */,
 				826A9A3E2474CA8A0046E562 /* extensionAutocompleteView.swift in Sources */,
 				BF8189572481D8FF005256E3 /* AgentRate.swift in Sources */,
 				82608A3524787525005946C1 /* extentionEditAdvertisementViewModel.swift in Sources */,
@@ -1613,6 +1613,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HEG22CSPH9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Aqark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1635,6 +1639,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HEG22CSPH9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Aqark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
