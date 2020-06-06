@@ -347,7 +347,6 @@
 		BFA42D97247BF93E00A986E8 /* AmenitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenitiesCell.swift; sourceTree = "<group>"; };
 		BFA42D98247BF93E00A986E8 /* AmenitiesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmenitiesCell.xib; sourceTree = "<group>"; };
 		BFA42D9B247BFCE000A986E8 /* AmenitiesCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenitiesCollection.swift; sourceTree = "<group>"; };
-		BFBF4856248C3262007B373B /* PropertyDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropertyDetailView.xib; sourceTree = "<group>"; };
 		BFC578B4247431E800C77873 /* SignUpUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUI.swift; sourceTree = "<group>"; };
 		BFC578B6247432E700C77873 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
 		BFC578B82474345500C77873 /* SignUpAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAlertView.swift; sourceTree = "<group>"; };
@@ -493,14 +492,6 @@
 				3ED938DC2480A878005BF1EF /* ServiceUser.swift */,
 			);
 			path = model;
-			sourceTree = "<group>";
-		};
-		82ACAE01248C59CB002EF804 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				BFBF4856248C3262007B373B /* PropertyDetailView.xib */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		AD923418C8264B7A9F4E1EDA /* Pods */ = {
@@ -1142,7 +1133,6 @@
 				BFCF0BC024677F8000A43D8B /* Products */,
 				AD923418C8264B7A9F4E1EDA /* Pods */,
 				26F5D2F0E1BA59990B8F348E /* Frameworks */,
-				82ACAE01248C59CB002EF804 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
