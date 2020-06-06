@@ -11,6 +11,9 @@ import UIKit
 extension ProfileViewController{
     func setupView()
     {
+        self.view.backgroundColor = UIColor(rgb: 0xf1faee)
+        self.rate.backgroundColor = UIColor(rgb: 0xf1faee)
+        self.advertisementsCollection.backgroundColor = UIColor(rgb: 0xf1faee)
         hideAllElements(status: true)
         rate.settings.updateOnTouch = false
         

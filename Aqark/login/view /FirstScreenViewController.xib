@@ -39,14 +39,21 @@
                     <rect key="frame" x="0.0" y="222" width="414" height="448"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </pickerView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aqark_logo" translatesAutoresizingMaskIntoConstraints="NO" id="0LJ-Ow-2ux">
+                    <rect key="frame" x="62" y="54" width="290" height="224"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="0LJ-Ow-2ux" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="3SW-XW-Viv"/>
                 <constraint firstItem="vsg-S3-jnN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7K2-ww-ZyD"/>
+                <constraint firstItem="0LJ-Ow-2ux" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="HAB-YG-Puf"/>
+                <constraint firstItem="0LJ-Ow-2ux" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.7" id="Mkk-Cz-wSv"/>
                 <constraint firstItem="vsg-S3-jnN" firstAttribute="top" secondItem="XDr-Kt-xvd" secondAttribute="bottom" constant="130" id="Yjv-eX-dOb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="vsg-S3-jnN" secondAttribute="bottom" constant="30" id="dS5-O4-BIL"/>
                 <constraint firstItem="XDr-Kt-xvd" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="eTg-rq-MDu"/>
                 <constraint firstItem="vsg-S3-jnN" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="iKN-Wk-fhC"/>
+                <constraint firstItem="0LJ-Ow-2ux" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.25" id="mtH-2r-NcL"/>
                 <constraint firstItem="XDr-Kt-xvd" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.5" id="u1n-Cd-6LN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XDr-Kt-xvd" secondAttribute="trailing" id="uZK-qU-th1"/>
             </constraints>
@@ -54,4 +61,7 @@
             <point key="canvasLocation" x="124.6376811594203" y="111.83035714285714"/>
         </view>
     </objects>
+    <resources>
+        <image name="aqark_logo" width="211" height="211"/>
+    </resources>
 </document>

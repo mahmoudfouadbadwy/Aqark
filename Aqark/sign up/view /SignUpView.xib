@@ -32,7 +32,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="signup_email"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="Email"/>
                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
                             <real key="value" value="10"/>
                         </userDefinedRuntimeAttribute>
@@ -48,7 +48,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
                             <real key="value" value="10"/>
                         </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="signup_password"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="password"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Confirm Password"/>
                     </userDefinedRuntimeAttributes>
                 </textField>
@@ -61,8 +61,8 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
                             <real key="value" value="10"/>
                         </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="signup_username"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Username"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="user"/>
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z7z-rW-bUJ" customClass="CustomTextField" customModule="Aqark" customModuleProvider="target">
@@ -74,7 +74,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
                             <real key="value" value="10"/>
                         </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="signup_password"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="password"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Password"/>
                     </userDefinedRuntimeAttributes>
                 </textField>
@@ -87,10 +87,27 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
                             <real key="value" value="10"/>
                         </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="signup_phone"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="phone"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Mobile Number"/>
                     </userDefinedRuntimeAttributes>
                 </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wRP-7P-knr" customClass="CustomTextField" customModule="Aqark" customModuleProvider="target">
+                    <rect key="frame" x="37.5" y="350" width="300" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="signup_company"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Company"/>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8i-jX-oIR">
+                    <rect key="frame" x="20" y="380" width="335" height="133.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </pickerView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXW-RH-nVa" customClass="CustomButton" customModule="Aqark" customModuleProvider="target">
                     <rect key="frame" x="94" y="615" width="187.5" height="32"/>
                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -106,23 +123,6 @@
                         <action selector="createAccount:" destination="-1" eventType="touchUpInside" id="20O-IY-PhJ"/>
                     </connections>
                 </button>
-                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8i-jX-oIR">
-                    <rect key="frame" x="20" y="320" width="335" height="133.5"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </pickerView>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wRP-7P-knr" customClass="CustomTextField" customModule="Aqark" customModuleProvider="target">
-                    <rect key="frame" x="37.5" y="483.5" width="300" height="30"/>
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                            <real key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="signup_company"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Company"/>
-                    </userDefinedRuntimeAttributes>
-                </textField>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <gestureRecognizers/>
@@ -132,9 +132,7 @@
                 <constraint firstItem="z7z-rW-bUJ" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="5OK-VL-xwP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dXW-RH-nVa" secondAttribute="bottom" constant="20" id="Gsy-mr-idJ"/>
                 <constraint firstItem="TAb-2H-Rax" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NU2-yc-In8"/>
-                <constraint firstItem="wRP-7P-knr" firstAttribute="top" secondItem="i8i-jX-oIR" secondAttribute="bottom" constant="30" id="Pn2-l9-CCs"/>
                 <constraint firstItem="IfW-CJ-w3R" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RCF-tU-Urt"/>
-                <constraint firstItem="i8i-jX-oIR" firstAttribute="top" secondItem="IfW-CJ-w3R" secondAttribute="bottom" id="SEq-nB-N1M"/>
                 <constraint firstItem="204-s3-vwn" firstAttribute="top" secondItem="z7z-rW-bUJ" secondAttribute="bottom" constant="30" id="SVz-by-aYh"/>
                 <constraint firstItem="204-s3-vwn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TIf-7O-Yga"/>
                 <constraint firstItem="dXW-RH-nVa" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="TaP-UF-Zix"/>
@@ -149,7 +147,9 @@
                 <constraint firstItem="TAb-2H-Rax" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="mAH-Qh-gqy"/>
                 <constraint firstItem="i8i-jX-oIR" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.2" id="nPu-xH-lzP"/>
                 <constraint firstItem="204-s3-vwn" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="pbU-qB-QVc"/>
+                <constraint firstItem="i8i-jX-oIR" firstAttribute="top" secondItem="wRP-7P-knr" secondAttribute="bottom" id="pvv-7r-ezn"/>
                 <constraint firstItem="Igo-Md-67b" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="r0o-IP-Ys3"/>
+                <constraint firstItem="wRP-7P-knr" firstAttribute="top" secondItem="IfW-CJ-w3R" secondAttribute="bottom" constant="30" id="tQK-jM-8U9"/>
                 <constraint firstAttribute="trailing" secondItem="i8i-jX-oIR" secondAttribute="trailing" constant="20" id="y9V-DP-7tk"/>
                 <constraint firstItem="IfW-CJ-w3R" firstAttribute="top" secondItem="TAb-2H-Rax" secondAttribute="bottom" constant="30" id="ynJ-LF-hKQ"/>
             </constraints>
@@ -157,10 +157,10 @@
         </view>
     </objects>
     <resources>
+        <image name="Email" width="32" height="20.5"/>
+        <image name="password" width="34" height="33"/>
+        <image name="phone" width="34" height="27"/>
         <image name="signup_company" width="27" height="24"/>
-        <image name="signup_email" width="20" height="17"/>
-        <image name="signup_password" width="26" height="25"/>
-        <image name="signup_phone" width="26" height="21"/>
-        <image name="signup_username" width="12" height="12"/>
+        <image name="user" width="26" height="24.5"/>
     </resources>
 </document>
