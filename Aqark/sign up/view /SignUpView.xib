@@ -100,7 +100,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
                             <real key="value" value="10"/>
                         </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="signup_company"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="company"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Company"/>
                     </userDefinedRuntimeAttributes>
                 </textField>
@@ -158,9 +158,9 @@
     </objects>
     <resources>
         <image name="Email" width="32" height="20.5"/>
+        <image name="company" width="19" height="24"/>
         <image name="password" width="34" height="33"/>
         <image name="phone" width="34" height="27"/>
-        <image name="signup_company" width="27" height="24"/>
         <image name="user" width="26" height="24.5"/>
     </resources>
 </document>
