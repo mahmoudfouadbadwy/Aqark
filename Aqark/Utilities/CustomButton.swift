@@ -21,7 +21,18 @@ import UIKit
         }
     }
 
-    func updateCornerRadius(){
+    private func updateCornerRadius(){
         layer.cornerRadius = rounded ? 10 : 0
+    }
+    
+    @IBInspectable var backColor:Bool = false{
+        didSet{
+            setButtonBackground()
+        }
+    }
+    
+    private func setButtonBackground()
+    {
+        self.backgroundColor = UIColor(rgb: 0x1d3557)
     }
 }

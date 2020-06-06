@@ -34,7 +34,12 @@ class AdminReportsData{
                     self.getUserName(userId: reportData?["AgentId"] ?? "", completion: {
                         (agent) in
                         self.agents.append(agent)
-                        completion(self.reportsStore.reports,self.users,self.agents)
+                        
+                        if (self.agents.count == reports.count)
+                        {
+                            completion(self.reportsStore.reports,self.users,self.agents)
+                        }
+                        
                     })
                 }
             }
@@ -44,7 +49,7 @@ class AdminReportsData{
             }
         }
     }
-   private func getUserName(userId:String,completion:@escaping(String)->Void){
+    private func getUserName(userId:String,completion:@escaping(String)->Void){
         let ref = Database.database().reference()
         ref.child("Users").child(userId).observeSingleEvent(of: .value) { (snapshoot) in
             if snapshoot.exists(){

@@ -17,6 +17,7 @@ struct Profile{
     var phone:String
     var experience:String
     var rate:[String:Double]
+    var ban:Bool
 }
 
 struct AdvertismentsStore {

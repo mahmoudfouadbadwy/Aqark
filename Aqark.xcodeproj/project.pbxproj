@@ -146,6 +146,7 @@
 		BFA42D99247BF93E00A986E8 /* AmenitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA42D97247BF93E00A986E8 /* AmenitiesCell.swift */; };
 		BFA42D9A247BF93E00A986E8 /* AmenitiesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA42D98247BF93E00A986E8 /* AmenitiesCell.xib */; };
 		BFA42D9C247BFCE000A986E8 /* AmenitiesCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA42D9B247BFCE000A986E8 /* AmenitiesCollection.swift */; };
+		BFBF4857248C3263007B373B /* PropertyDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFBF4856248C3262007B373B /* PropertyDetailView.xib */; };
 		BFC578B5247431E800C77873 /* SignUpUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC578B4247431E800C77873 /* SignUpUI.swift */; };
 		BFC578B7247432E700C77873 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC578B6247432E700C77873 /* CreateAccount.swift */; };
 		BFC578B92474345500C77873 /* SignUpAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC578B82474345500C77873 /* SignUpAlertView.swift */; };
@@ -231,7 +232,7 @@
 		3E804B45248926E50097C855 /* AdminUsersDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUsersDelegate.swift; sourceTree = "<group>"; };
 		3E943FC5246A053300A1FF83 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstScreenViewController.swift; path = "Aqark/login/view /FirstScreenViewController.swift"; sourceTree = SOURCE_ROOT; };
 		3E943FC6246A053300A1FF83 /* FirstScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FirstScreenViewController.xib; path = "Aqark/login/view /FirstScreenViewController.xib"; sourceTree = SOURCE_ROOT; };
-		3E943FC9246A262400A1FF83 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = "Aqark/login/view /CustomButton.swift"; sourceTree = SOURCE_ROOT; };
+		3E943FC9246A262400A1FF83 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = Aqark/Utilities/CustomButton.swift; sourceTree = SOURCE_ROOT; };
 		3EA8369A246CE13A009AD024 /* ValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ValidationProtocol.swift; path = "Aqark/login/view model/ValidationProtocol.swift"; sourceTree = SOURCE_ROOT; };
 		3EA8369C246CE15C009AD024 /* LoginBrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginBrokenRule.swift; path = "Aqark/login/view model/LoginBrokenRule.swift"; sourceTree = SOURCE_ROOT; };
 		3EA8369F246CEFE2009AD024 /* LoginDataAccessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataAccessLayer.swift; sourceTree = "<group>"; };
@@ -347,6 +348,7 @@
 		BFA42D97247BF93E00A986E8 /* AmenitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenitiesCell.swift; sourceTree = "<group>"; };
 		BFA42D98247BF93E00A986E8 /* AmenitiesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmenitiesCell.xib; sourceTree = "<group>"; };
 		BFA42D9B247BFCE000A986E8 /* AmenitiesCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenitiesCollection.swift; sourceTree = "<group>"; };
+		BFBF4856248C3262007B373B /* PropertyDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropertyDetailView.xib; sourceTree = "<group>"; };
 		BFC578B4247431E800C77873 /* SignUpUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUI.swift; sourceTree = "<group>"; };
 		BFC578B6247432E700C77873 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
 		BFC578B82474345500C77873 /* SignUpAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAlertView.swift; sourceTree = "<group>"; };
@@ -637,6 +639,7 @@
 				82ACADFF248C5842002EF804 /* PropertyDetailView.xib */,
 				BF8CD7AE247AFB0E00DA60BA /* ImageSlider.xib */,
 				BF6DC68A247352270030AE52 /* PropertyDetailView.swift */,
+
 				BF8111B6247A36410059D571 /* BindDetails.swift */,
 				BF8CD7A4247AE0E300DA60BA /* ImageSlider.swift */,
 				BF8CD7A8247AE9CB00DA60BA /* DownloadSliderImages.swift */,
@@ -688,12 +691,10 @@
 		BF06B41224679EE2005D7151 /* view  */ = {
 			isa = PBXGroup;
 			children = (
-				BF634C9F24733A8F00B65B90 /* CustomTextField.swift */,
 				BF634CA024733A8F00B65B90 /* LoginViewController.swift */,
 				BF634CA124733A8F00B65B90 /* LoginViewController.xib */,
 				3E943FC5246A053300A1FF83 /* FirstScreenViewController.swift */,
 				3E943FC6246A053300A1FF83 /* FirstScreenViewController.xib */,
-				3E943FC9246A262400A1FF83 /* CustomButton.swift */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -831,8 +832,13 @@
 			children = (
 				BF2F5ECA2485495E007AD263 /* Indicator.swift */,
 				BF0F8F2D24890BF40055EAD8 /* Color.swift */,
+
 				82ACADE3248BCD09002EF804 /* Localizable.strings */,
 				82ACADE5248BCFBF002EF804 /* Localization.swift */,
+
+				3E943FC9246A262400A1FF83 /* CustomButton.swift */,
+				BF634C9F24733A8F00B65B90 /* CustomTextField.swift */,
+
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1303,6 +1309,7 @@
 				3E69A8D1247EF5E000193605 /* AdminUserTableViewCell.xib in Resources */,
 				3E943FC8246A053300A1FF83 /* FirstScreenViewController.xib in Resources */,
 				3E69A8D3247EF5E000193605 /* AdminTabBarController.xib in Resources */,
+				BFBF4857248C3263007B373B /* PropertyDetailView.xib in Resources */,
 				3E69A8D9247EF5E000193605 /* AdminUsersViewController.xib in Resources */,
 				BFCF0BCD24677F8100A43D8B /* Assets.xcassets in Resources */,
 				BF4423342469D1B80050BD8A /* SignUpView.xib in Resources */,
