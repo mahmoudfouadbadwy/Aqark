@@ -136,7 +136,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     
     @IBAction func showInteriorDesigners(_ sender: Any) {
         let servicesView = ServicesViewController()
-        servicesView.serviceRole = "Interior Desigenrs".localize
+        servicesView.serviceRole = "Interior Desigenrs"
         servicesView.advertisementCountry = advertisementDetails.country
         self.navigationController?.pushViewController(servicesView, animated: true)
     }

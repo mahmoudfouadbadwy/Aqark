@@ -98,8 +98,26 @@
 "Beheira" = "البحيره";
 "Menofia" = "المنوفيه";
 
+"Furnished" = "مفروشة";
+"Shared Spa" = "سبا مشترك";
+"Central A/C" = "تكييف مركزي";
+"Maids Room" = "غرفة للخادمة";
+"Security" = "الأمان";
+"Kitchen Appliances" = "أدوات المطبخ";
+"Networked" = "متصل بالشبكة";
+"Covered Parking" = "موقف للسيارات";
+"Pets Allowed" = "مسموح بالحيوانات الأليفة";
+"Barbecue Area" = "منطقة الشواء";
+"Balcony" = "شرفة";
+"Walk-in Closet" = "خزانة ملابس";
+"Study" = "دراسة";
+"Private garden" = "حديقة خاصة";
+"Children's Play Area" = "منطقة لعب الاطفال";
 
 
+//alert
+"Call" = "مكالمة";
+"Are You Sure You Want To Call Property Agent ?" = "هل تريد اجراء اتصال بالمالك";
 /********************************** agent Properties ********************************/
 // alert
 "Thank You" = "شكرا";

@@ -102,6 +102,28 @@
 "Beheira" = "Beheira";
 "Menofia" = "Menofia";
 
+
+
+"Furnished" = "Furnished";
+"Shared Spa" = "Shared Spa";
+"Central A/C" = "Central A/C";
+"Maids Room" = "Maids Room";
+"Security" = "Security";
+"Kitchen Appliances" = "Kitchen Appliances";
+"Networked" = "Networked";
+"Covered Parking" = "Covered Parking";
+"Pets Allowed" = "Pets Allowed";
+"Barbecue Area" = "Barbecue Area";
+"Balcony" = "شرفة";
+"Walk-in Closet" = "Walk-in Closet";
+"Study" = "Study";
+"Private garden" = "Private garden";
+"Children's Play Area" = "Children's Play Area";
+
+//alert
+"Call" = "Call";
+"Are You Sure You Want To Call Property Agent ?" = "Are You Sure You Want To Call Property Agent ?";
+
 /********************************** agent Properties ********************************/
 
 // alert

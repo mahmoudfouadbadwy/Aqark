@@ -10,18 +10,23 @@ import Foundation
 import UIKit
 extension PropertyDetailView{
     func bindAdvertisementData(){
-        var date:String = ""
-        let x = self.advertisementDetails.date.split(separator: " ")
-        let y = x.first?.split(separator: "-")
-        let z = x.last?.split(separator: ":")
-        date.append(self.convertNumbers(lang: "lang".localize, stringNumber: String(y![0])).1 + "-")
-        date.append(self.convertNumbers(lang: "lang".localize, stringNumber: String(y![1])).1 + "-")
-        date.append(self.convertNumbers(lang: "lang".localize, stringNumber: String(y![2])).1 + "  " )
-        date.append(self.convertNumbers(lang: "lang".localize, stringNumber: String(z![0])).1 + ":")
-        date.append(self.convertNumbers(lang: "lang".localize, stringNumber: String(z![1])).1 )
+        if "lang".localize.elementsEqual("en"){
+            self.dateOfAdvertisement.text = self.advertisementDetails.date
+        }else{
+            var date:String = ""
+            let x = self.advertisementDetails.date.split(separator: " ")
+            let y = x.first?.split(separator: "-")
+            let z = x.last?.split(separator: ":")
+            date.append(self.convertNumbers(lang: "lang".localize, stringNumber: String(z![0])).1 + ":")
+            date.append(self.convertNumbers(lang: "lang".localize, stringNumber: String(z![1])).1 + "  ")
+            date.append(self.convertNumbers(lang: "lang".localize, stringNumber: String(y![2])).1 + "-")
+            date.append(self.convertNumbers(lang: "lang".localize, stringNumber: String(y![1])).1 + "-")
+            date.append(self.convertNumbers(lang: "lang".localize, stringNumber: String(y![0])).1 + " ")
+            self.dateOfAdvertisement.text = date
+        }
         
         self.getImages(images: self.advertisementDetails.images, completion:self.setSliderImages)
-        self.dateOfAdvertisement.text = date
+        
         self.setPrice()
         self.setSpecification()
         self.address.text = self.advertisementDetails.location
