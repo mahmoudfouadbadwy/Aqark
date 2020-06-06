@@ -11,6 +11,7 @@ import UIKit
 extension ProfileViewController{
     func setupView()
     {
+        self.username.textColor = UIColor(rgb: 0x457b9d)
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         self.rate.backgroundColor = UIColor(rgb: 0xf1faee)
         self.advertisementsCollection.backgroundColor = UIColor(rgb: 0xf1faee)
