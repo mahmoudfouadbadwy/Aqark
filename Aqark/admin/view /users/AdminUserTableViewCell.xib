@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -18,25 +18,25 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCi-77-ugd" userLabel="Background View">
-                        <rect key="frame" x="8" y="8" width="309" height="87"/>
+                        <rect key="frame" x="15" y="15" width="295" height="73"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Lu-EQ-gtq" customClass="CircularImage" customModule="Aqark" customModuleProvider="target">
-                                <rect key="frame" x="45" y="5" width="80" height="80"/>
+                                <rect key="frame" x="20" y="7" width="62" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5Lu-EQ-gtq" secondAttribute="height" multiplier="1:1" id="8Pf-Zg-4UB"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="aEE-J7-Je3">
-                                <rect key="frame" x="142.5" y="14" width="151.5" height="59"/>
+                                <rect key="frame" x="97" y="14" width="115" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93T-zV-UFc">
-                                        <rect key="frame" x="0.0" y="0.0" width="151.5" height="31.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="115" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ziT-4N-5rg" customClass="CosmosView" customModule="Cosmos">
-                                        <rect key="frame" x="0.0" y="31.5" width="151.5" height="27.5"/>
+                                        <rect key="frame" x="0.0" y="24" width="115" height="21"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
@@ -64,29 +64,45 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87Q-hV-9K0" customClass="CustomButton" customModule="Aqark" customModuleProvider="target">
+                                <rect key="frame" x="220" y="20" width="60" height="33"/>
+                                <color key="backgroundColor" red="1" green="0.16991958069999999" blue="0.089936677019999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Ban"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="banUser:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3ZT-Zh-K3M"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="aEE-J7-Je3" firstAttribute="height" secondItem="5Lu-EQ-gtq" secondAttribute="height" multiplier="0.766234" constant="-2.2987012987013031" id="5Vq-kA-WhI"/>
-                            <constraint firstItem="aEE-J7-Je3" firstAttribute="leading" secondItem="5Lu-EQ-gtq" secondAttribute="trailing" constant="17.5" id="ORW-51-k39"/>
+                            <constraint firstItem="aEE-J7-Je3" firstAttribute="leading" secondItem="5Lu-EQ-gtq" secondAttribute="trailing" constant="15" id="ORW-51-k39"/>
+                            <constraint firstItem="aEE-J7-Je3" firstAttribute="width" secondItem="bCi-77-ugd" secondAttribute="width" multiplier="0.39" id="QuS-5Q-te1"/>
+                            <constraint firstItem="87Q-hV-9K0" firstAttribute="leading" secondItem="aEE-J7-Je3" secondAttribute="trailing" constant="8" id="UeC-pF-QsH"/>
                             <constraint firstItem="5Lu-EQ-gtq" firstAttribute="centerY" secondItem="bCi-77-ugd" secondAttribute="centerY" constant="1.5" id="aQV-Xc-bs3"/>
-                            <constraint firstItem="5Lu-EQ-gtq" firstAttribute="width" secondItem="bCi-77-ugd" secondAttribute="width" multiplier="0.25" constant="2.75" id="f1e-tU-WcW"/>
+                            <constraint firstItem="5Lu-EQ-gtq" firstAttribute="width" secondItem="bCi-77-ugd" secondAttribute="width" multiplier="0.2" constant="2.75" id="f1e-tU-WcW"/>
                             <constraint firstItem="aEE-J7-Je3" firstAttribute="centerY" secondItem="bCi-77-ugd" secondAttribute="centerY" id="f33-sZ-xRr"/>
-                            <constraint firstItem="5Lu-EQ-gtq" firstAttribute="leading" secondItem="bCi-77-ugd" secondAttribute="leading" constant="45" id="irr-1W-zql"/>
-                            <constraint firstAttribute="trailing" secondItem="aEE-J7-Je3" secondAttribute="trailing" constant="15" id="vUu-u0-amc"/>
+                            <constraint firstItem="87Q-hV-9K0" firstAttribute="centerY" secondItem="bCi-77-ugd" secondAttribute="centerY" id="gTe-JO-qxT"/>
+                            <constraint firstItem="5Lu-EQ-gtq" firstAttribute="leading" secondItem="bCi-77-ugd" secondAttribute="leading" constant="20" id="irr-1W-zql"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="bCi-77-ugd" secondAttribute="bottom" constant="8" id="B3O-Qz-Hdf"/>
-                    <constraint firstItem="bCi-77-ugd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="OsA-7p-Ogp"/>
-                    <constraint firstItem="bCi-77-ugd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ha2-fJ-JtN"/>
-                    <constraint firstAttribute="trailing" secondItem="bCi-77-ugd" secondAttribute="trailing" constant="8" id="xsT-rk-Wo9"/>
+                    <constraint firstAttribute="bottom" secondItem="bCi-77-ugd" secondAttribute="bottom" constant="15" id="B3O-Qz-Hdf"/>
+                    <constraint firstItem="bCi-77-ugd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="OsA-7p-Ogp"/>
+                    <constraint firstItem="bCi-77-ugd" firstAttribute="trailing" secondItem="87Q-hV-9K0" secondAttribute="trailing" constant="15" id="ZBt-Lu-HeT"/>
+                    <constraint firstItem="bCi-77-ugd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="ha2-fJ-JtN"/>
+                    <constraint firstAttribute="trailing" secondItem="bCi-77-ugd" secondAttribute="trailing" constant="15" id="xsT-rk-Wo9"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
             <connections>
+                <outlet property="banUserButton" destination="87Q-hV-9K0" id="QJY-oC-JQP"/>
                 <outlet property="cardBackgroundView" destination="bCi-77-ugd" id="ZCA-mV-blw"/>
                 <outlet property="userImage" destination="5Lu-EQ-gtq" id="CHh-1Y-9Ia"/>
                 <outlet property="userName" destination="93T-zV-UFc" id="oiK-9G-YGm"/>

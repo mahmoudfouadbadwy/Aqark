@@ -35,15 +35,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         let tabBarController = UITabBarController()
+        tabBarController.tabBar.barTintColor = UIColor(rgb: 0xf1faee)
+        tabBarController.tabBar.tintColor = UIColor(rgb: 0x1d3557)
         let searchTab = SearchViewController()
         let searchNavigationController = UINavigationController(rootViewController: searchTab)
+        searchNavigationController.navigationBar.barTintColor = UIColor(rgb: 0xf1faee)
+        searchNavigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(rgb: 0x1d3557)]
+        
         let accountTab = ProfileViewController()
         let accountNavigationController = UINavigationController(rootViewController: accountTab)
+        accountNavigationController.navigationBar.barTintColor = UIColor(rgb: 0xf1faee)
+        accountNavigationController.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.foregroundColor :  UIColor(rgb: 0x1d3557)]
+        
         let favouriteTab = FavouriteViewController()
         let favouriteNavigationController = UINavigationController(rootViewController: favouriteTab)
-        searchTab.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search_search"), tag: 1)
-        accountTab.tabBarItem = UITabBarItem(title: "Account", image: UIImage(named: "signup_username"), tag: 2)
-        favouriteTab.tabBarItem = UITabBarItem(title: "Favourite", image: UIImage(named: "tab-heart"), tag: 3)
+        favouriteNavigationController.navigationBar.barTintColor = UIColor(rgb: 0xf1faee)
+        favouriteNavigationController.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.foregroundColor :  UIColor(rgb: 0x1d3557)]
+        
+        searchTab.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search"), tag: 1)
+        accountTab.tabBarItem = UITabBarItem(title: "Account", image: UIImage(named: "profile"), tag: 2)
+        favouriteTab.tabBarItem = UITabBarItem(title: "Favourite", image: UIImage(named: "favoriteTab"), tag: 3)
         let controllers = [searchNavigationController,favouriteNavigationController,accountNavigationController]
         tabBarController.viewControllers = controllers
         window?.rootViewController = tabBarController

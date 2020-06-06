@@ -20,37 +20,37 @@ extension PropertyDetailView{
         var image:UIImage
         switch amenities {
         case "Balcony":
-            image = UIImage(named: "PropertyDetail_Balacony")!
+            image = UIImage(named: "Balacony")!
         case "Covered Parking":
-            image = UIImage(named: "PropertyDetail_Covered Parking")!
+            image = UIImage(named: "Covered Parking")!
         case "Barbecue Area":
-            image = UIImage(named: "PropertyDetail_Barbecue")!
+            image = UIImage(named: "Barbecue")!
         case "Central A/C":
-            image = UIImage(named: "PropertyDetail_Central")!
+            image = UIImage(named: "Central")!
         case "Children's Play Area":
-            image = UIImage(named: "PropertyDetail_children")!
+            image = UIImage(named: "children")!
         case "Furnished":
-            image = UIImage(named: "PropertyDetail_Furnished")!
+            image = UIImage(named: "Furnished")!
         case "Private garden":
-            image = UIImage(named: "PropertyDetail_garden")!
+            image = UIImage(named: "garden")!
         case "Kitchen Appliances":
-            image = UIImage(named: "PropertyDetail_kitchen")!
+            image = UIImage(named: "kitchen")!
         case "Maids Room":
-            image = UIImage(named: "PropertyDetail_Maids room")!
+            image = UIImage(named: "Maids room")!
         case "Networked":
-            image = UIImage(named: "PropertyDetail_networked")!
+            image = UIImage(named: "networked")!
         case "Pets Allowed":
-            image = UIImage(named: "PropertyDetail_Pets")!
+            image = UIImage(named: "Pets")!
         case "Security":
-            image = UIImage(named: "PropertyDetail_Security")!
+            image = UIImage(named: "Security")!
         case "Shared Spa":
-            image = UIImage(named: "PropertyDetail_shared spa")!
+            image = UIImage(named: "shared spa")!
         case "Study":
-            image = UIImage(named: "PropertyDetail_study")!
+            image = UIImage(named: "study")!
         case "Walk-in Closet":
-            image = UIImage(named: "PropertyDetail_Walk")!
+            image = UIImage(named: "Walk")!
         default:
-            image = UIImage(named: "PropertyDetail_Furnished")!
+            image = UIImage(named: "Furnished")!
         }
         return image
     }
@@ -109,7 +109,7 @@ extension PropertyDetailView:UICollectionViewDataSource{
 extension PropertyDetailView:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == amenitiesCollection{
-            return CGSize(width: collectionView.frame.width/2, height: collectionView.frame.height/3)
+            return CGSize(width: collectionView.frame.width/2, height: collectionView.frame.height/5)
         }else{
             return CGSize(width: collectionView.frame.width - 50, height: collectionView.frame.height - 10)
             

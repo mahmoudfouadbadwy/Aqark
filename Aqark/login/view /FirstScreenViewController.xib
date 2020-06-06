@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,38 +21,32 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsg-S3-jnN" customClass="CustomButton" customModule="Aqark" customModuleProvider="target">
-                    <rect key="frame" x="103.5" y="802" width="207" height="30"/>
+                    <rect key="frame" x="103.5" y="800" width="207" height="32"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                     <state key="normal" title="Submit">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="backColor" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="submit:" destination="-1" eventType="touchUpInside" id="OaN-ww-0qT"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Continue As:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZ8-Mt-PQf">
-                    <rect key="frame" x="36" y="119" width="207" height="24"/>
-                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XDr-Kt-xvd">
-                    <rect key="frame" x="0.0" y="224" width="414" height="448"/>
+                    <rect key="frame" x="0.0" y="222" width="414" height="448"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </pickerView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="vsg-S3-jnN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7K2-ww-ZyD"/>
-                <constraint firstItem="eZ8-Mt-PQf" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="Cpa-dW-flW"/>
                 <constraint firstItem="vsg-S3-jnN" firstAttribute="top" secondItem="XDr-Kt-xvd" secondAttribute="bottom" constant="130" id="Yjv-eX-dOb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="vsg-S3-jnN" secondAttribute="bottom" constant="30" id="dS5-O4-BIL"/>
-                <constraint firstItem="eZ8-Mt-PQf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="36" id="eHi-P2-vcd"/>
                 <constraint firstItem="XDr-Kt-xvd" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="eTg-rq-MDu"/>
                 <constraint firstItem="vsg-S3-jnN" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="iKN-Wk-fhC"/>
-                <constraint firstItem="XDr-Kt-xvd" firstAttribute="top" secondItem="eZ8-Mt-PQf" secondAttribute="bottom" constant="81" id="llv-w1-jvf"/>
                 <constraint firstItem="XDr-Kt-xvd" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.5" id="u1n-Cd-6LN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XDr-Kt-xvd" secondAttribute="trailing" id="uZK-qU-th1"/>
             </constraints>

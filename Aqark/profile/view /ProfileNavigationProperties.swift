@@ -18,14 +18,22 @@ extension ProfileViewController{
         self.navigationItem.leftBarButtonItem = logout
     }
     @objc func logout(sender: UIBarButtonItem){
-       let profileViewModel:ProfileStore = ProfileStore(by: profileDataAccess)
+        let profileViewModel:ProfileStore = ProfileStore(by: profileDataAccess)
         profileViewModel.logout()
         
         self.navigationController?.pushViewController(FirstScreenViewController(), animated: true)
     }
     @objc func goToAddAdvertisement()
     {
-        self.navigationController?.pushViewController(AddAdvertisementViewController(), animated: true)
+        if self.ban
+        {
+             showAlert(title:"Bolcking",message:"You Are Blocked From Adding Advertisements")
+        }
+        else
+        {
+            self.navigationController?.pushViewController(AddAdvertisementViewController(), animated: true)
+        }
+        
     }
     
     @IBAction func editProfileBtn(_ sender: Any) {
@@ -33,11 +41,17 @@ extension ProfileViewController{
             let editViewController = EditProfileViewController()
             navigationController?.pushViewController(editViewController, animated: true)
         }else{
-            let alertController = UIAlertController(title: "no Internet", message: "please check the internet connection", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "ok", style: .default, handler: nil)
-            alertController.addAction(alertAction)
-            self.present(alertController, animated: true, completion: nil)
+            showAlert(title:"Internet Connection",message:"Internrt Connection Not Available")
         }
+    }
+    
+    
+    private func showAlert(title:String,message:String)
+    {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 

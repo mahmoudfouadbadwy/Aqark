@@ -16,14 +16,12 @@ class AdminAdvertisementCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var advertisementPropertyBedNumbers: UILabel!
     @IBOutlet weak var advertisementPropertyBathRoomNumbers: UILabel!
     @IBOutlet weak var advertisementPropertySize: UILabel!
-    var adminAdvertisementsCollectionDelegate : AdminAdvertisementsCollectionDelegate?
-    var adminAdvertisementsCellIndex : IndexPath?
+    var adminAdvertisementsDelegate : AdminAdvertisementsCollectionDelegate!
+    var adminAdvertisementsCellIndex : IndexPath!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        advertisementPropertyImage.layer.cornerRadius = 10
-            advertisementPropertyImage.clipsToBounds = true
+        advertisementPropertyImage.setRaduisForImage()
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longGesturePressed(gesture:)))
             addGestureRecognizer(longPressGesture)
     }
@@ -43,7 +41,7 @@ class AdminAdvertisementCollectionViewCell: UICollectionViewCell {
         if gesture.state != .ended {
             return
         }else{
-            adminAdvertisementsCollectionDelegate?.removeAdvertisementDelegate(at: adminAdvertisementsCellIndex!)
+            adminAdvertisementsDelegate?.removeAdvertisementDelegate(at: adminAdvertisementsCellIndex!)
         }
     }
 }

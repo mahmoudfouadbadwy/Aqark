@@ -22,7 +22,7 @@ class AdminTabBarController: UITabBarController {
         let logout = UIBarButtonItem(image: UIImage(named: "logout"),style: .done, target: self, action: #selector(self.logout(sender:)))
         self.navigationItem.leftBarButtonItem = logout
     }
-    
+        
     func setupTabBarController(){
         let adminUserViewController = AdminUsersViewController()
         let adminAdvertisementViewController = AdminAdvertisementsViewController()

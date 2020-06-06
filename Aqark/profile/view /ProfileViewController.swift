@@ -25,6 +25,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var countryName: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
+    var ban:Bool!
     let profileDataAccess:ProfileDataAccess = ProfileDataAccess()
     var listOfAdvertisements:[ProfileAdvertisementViewModel] = []{
         didSet{
@@ -42,17 +43,14 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         if(ProfileNetworking.checkNetworkConnection())
         {
-           
-                setupView()
-                setNavigationProperties()
-                setupCollection()
-                noAdvertisementsLabel.isHidden = true
-        
+            setupView()
+            setNavigationProperties()
+            setupCollection()
+            noAdvertisementsLabel.isHidden = true
         }
         else
         {
             setUpNoConnectionView()
-            
         }
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -63,11 +61,25 @@ class ProfileViewController: UIViewController {
             }
             else
             {
-                showActivityIndicator()
-                bindProfileData()
-                bindCollectionData()
-                noAdvertisementsLabel.isHidden = true
+                if ProfileNetworking.isAdmin(){
+                    let adminView:AdminTabBarController = AdminTabBarController()
+                    self.tabBarController?.tabBar.isHidden = true
+                    self.navigationController?.pushViewController(adminView, animated: true)
+                }
+                else
+                {
+                    showActivityIndicator()
+                    bindProfileData()
+                    bindCollectionData()
+                    noAdvertisementsLabel.isHidden = true
+                }
+                
             }
+        }
+        else
+        {
+            setUpNoConnectionView()
+            
         }
     }
 }

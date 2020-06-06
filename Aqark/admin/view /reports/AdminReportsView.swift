@@ -30,22 +30,27 @@ class AdminReportsView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if !ReportNetwork.checkNetworkConnection(){
-            statusLabel.isHidden = false
-            statusLabel.text = "Internet Connetion Not Available"
+           setupNoConnectionView()
         }
         setupReportsCollection()
         setupCollectionGeusture()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
+        self.tabBarController?.navigationItem.title = "Reports"
         if ReportNetwork.checkNetworkConnection(){
             bindCollectionData()
         }
         else
         {
-            statusLabel.isHidden = false
-            statusLabel.text = "Internet Connetion Not Available"
+           setupNoConnectionView()
         }
+    }
+    
+    private func setupNoConnectionView()
+    {
+        statusLabel.isHidden = false
+        statusLabel.text = "Internet Connetion Not Available"
     }
     
 }

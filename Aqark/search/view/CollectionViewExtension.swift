@@ -36,11 +36,11 @@ extension SearchViewController : UICollectionViewDataSource{
         }
         cell.favButton.setTitle(adViewModel.advertisementId, for: .normal)
         if (coreDataViewModel!.isAdvertismentExist(id: adViewModel.advertisementId)){
-            cell.favButton.tintColor = UIColor.red
+            cell.favButton.image("red-heart")
         }
         else
         {
-             cell.favButton.tintColor = UIColor.gray
+             cell.favButton.image("heart")
         }
         cell.delegat = self
         return cell
@@ -82,16 +82,17 @@ extension SearchViewController{
     }
     
     func getCollectionViewData(){
+        showActivityIndicator()
         self.data = AdvertisementData()
         self.advertismentsListViewModel = AdvertisementListViewModel(dataAccess: self.data)
         advertismentsListViewModel.populateAds {
             (dataResults) in
             if dataResults.isEmpty{
-                self.stopIndicator()
-                self.labelPlaceHolder.text = "No Advertisements Found"
-                self.view.alpha = 1
+                self.stopActivityIndicator()
+                self.labelPlaceHolder.text = "No Advertisements Available"
                 self.manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
             }else{
+                self.stopActivityIndicator()
                 self.arrOfAdViewModel = dataResults
                 self.arrOfAdViewModel.forEach { self.counts[$0.address, default: 0] += 1 }
                 self.putLocationOnMap()
@@ -103,6 +104,7 @@ extension SearchViewController{
 
     func getCellData(indexPath : IndexPath){
         if isFiltering {
+         
             adViewModel = filteredAdsList[indexPath.row]
             notificationBtn.isHidden = false
         }else if isSorting == "High Price"{
@@ -120,7 +122,6 @@ extension SearchViewController{
         }else {
             if let arrOfAdViewModel = arrOfAdViewModel{
                 adViewModel = arrOfAdViewModel[indexPath.row]
-                manageAppearence(sortBtn: false, labelPlaceHolder: true, notificationBtn: true)
             }else{
                 adViewModel = self.advertismentsListViewModel.advertismentsViewModel[indexPath.row]
             }

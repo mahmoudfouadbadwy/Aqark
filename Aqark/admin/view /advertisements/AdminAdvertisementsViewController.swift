@@ -17,13 +17,13 @@ class AdminAdvertisementsViewController: UIViewController {
     
     private var adminAdvertisementViewModel : AdminAdvertisementsListViewModel!
     private var dataAccess : AdminDataAccess!
+    static var reportedAdvertisementId:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dataAccess = AdminDataAccess()
         adminAdvertisementViewModel = AdminAdvertisementsListViewModel(dataAccess:dataAccess)
-        self.navigationItem.title = "Advertisements"
         if(adminAdvertisementViewModel.checkNetworkConnection()){
             activityIndicator.startAnimating()
             self.view.alpha = 0
@@ -37,7 +37,7 @@ class AdminAdvertisementsViewController: UIViewController {
                     self.view.alpha = 1
                 }
                 if(self.adminAdvertisementViewModel.adminAdvertisementsViewList.isEmpty){
-                    self.setLabelForZeroCount()
+                    self.setLabelForZeroCount(text: "No available advertisements")
                 }
                 self.advertisementsCollectionView.reloadData()
             }
@@ -48,12 +48,26 @@ class AdminAdvertisementsViewController: UIViewController {
         
     }
     
-    private func setLabelForZeroCount(){
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+          self.tabBarController?.navigationItem.title = "Advertisements"
+        if let reportedAdvertisementId = AdminAdvertisementsViewController.reportedAdvertisementId{
+            adminAdvertisementViewModel.getFilteredAdvertisements(searchText: reportedAdvertisementId)
+            advertisementsCollectionView.reloadData()
+            setLabelForZeroCount(text: "Advertisement is deleted.")
+            AdminAdvertisementsViewController.reportedAdvertisementId = nil
+        }else{
+            adminAdvertisementViewModel.getFilteredAdvertisements(searchText: "")
+            advertisementsCollectionView.reloadData()
+        }
+    }
+    
+    private func setLabelForZeroCount(text:String){
         noLabel.isHidden = false
-        noLabel.text = "No Available Advertisements"
+        noLabel.text = text
+        
     }
 }
-
 extension AdminAdvertisementsViewController : UICollectionViewDelegate,UICollectionViewDataSource,AdminAdvertisementsCollectionDelegate{
     
     func removeAdvertisementDelegate(at indexPath: IndexPath) {
@@ -77,7 +91,7 @@ extension AdminAdvertisementsViewController : UICollectionViewDelegate,UICollect
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let advertisementCell = advertisementsCollectionView.dequeueReusableCell(withReuseIdentifier: "Advertisement Cell", for: indexPath) as! AdminAdvertisementCollectionViewCell
-        advertisementCell.adminAdvertisementsCollectionDelegate = self
+        advertisementCell.adminAdvertisementsDelegate = self
         advertisementCell.adminAdvertisementsCellIndex = indexPath
         advertisementCell.advertisementPropertyType.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyType
         advertisementCell.advertisementPropertyPrice.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyPrice
@@ -86,7 +100,7 @@ extension AdminAdvertisementsViewController : UICollectionViewDelegate,UICollect
         advertisementCell.advertisementPropertyBedNumbers.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyBedsNumber
         advertisementCell.advertisementPropertyBathRoomNumbers.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyBathRoomsNumber
         let advertisementPropertyImageURL = URL(string:self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyImages[0])
-        advertisementCell.advertisementPropertyImage.sd_setImage(with:advertisementPropertyImageURL , placeholderImage: UIImage(named: "signup_company"))
+        advertisementCell.advertisementPropertyImage.sd_setImage(with:advertisementPropertyImageURL , placeholderImage: UIImage(named: "NoImage"))
         return advertisementCell
     }
     
@@ -108,7 +122,7 @@ extension AdminAdvertisementsViewController : UICollectionViewDelegate,UICollect
 
 extension AdminAdvertisementsViewController : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width - 30 , height: collectionView.frame.height/3);
+         return CGSize(width: collectionView.frame.width - 40, height: 150)
     }
 }
 
@@ -117,6 +131,11 @@ extension AdminAdvertisementsViewController:UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         adminAdvertisementViewModel.getFilteredAdvertisements(searchText: searchText)
         advertisementsCollectionView.reloadData()
+       if(self.adminAdvertisementViewModel.adminAdvertisementsViewList.isEmpty){
+            self.setLabelForZeroCount(text: "No available advertisements")
+       }else{
+        noLabel.isHidden = true
+        }
     }
 }
 

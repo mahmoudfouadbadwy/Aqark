@@ -12,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageSlider" customModule="Aqark" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="i5M-Pr-FkT" id="JCh-Yg-GN8"/>
-                <outlet property="favouriteButton" destination="S8B-jZ-4UE" id="2eG-EA-ZpD"/>
                 <outlet property="pageController" destination="cYF-Kz-h5J" id="89b-8s-lxd"/>
                 <outlet property="scrollView" destination="uMS-dW-vim" id="Igv-zc-q3G"/>
             </connections>
@@ -36,18 +35,6 @@
                         <action selector="pageControlTap:" destination="-1" eventType="valueChanged" id="5yU-Fw-4Qi"/>
                     </connections>
                 </pageControl>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8B-jZ-4UE">
-                    <rect key="frame" x="333" y="28" width="27" height="25"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="27" id="peV-h0-911"/>
-                        <constraint firstAttribute="height" constant="25" id="rS2-F2-T4a"/>
-                    </constraints>
-                    <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                    <state key="normal" title="Button" image="search-hear2t"/>
-                    <connections>
-                        <action selector="favouriteButtonAction:" destination="-1" eventType="touchUpInside" id="4sU-zy-ouo"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -55,16 +42,11 @@
                 <constraint firstItem="uMS-dW-vim" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8mL-jx-F1q"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cYF-Kz-h5J" secondAttribute="bottom" constant="10" id="BhD-uf-SoA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uMS-dW-vim" secondAttribute="trailing" id="DVc-6f-dHJ"/>
-                <constraint firstItem="S8B-jZ-4UE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="Quj-9G-hAU"/>
                 <constraint firstItem="uMS-dW-vim" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="i7Q-Zl-Tqy"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="S8B-jZ-4UE" secondAttribute="trailing" constant="15" id="kKC-So-fHC"/>
                 <constraint firstItem="uMS-dW-vim" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="swM-24-cJZ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="152.80000000000001" y="196.55172413793105"/>
         </view>
     </objects>
-    <resources>
-        <image name="search-hear2t" width="409.60000610351562" height="409.60000610351562"/>
-    </resources>
 </document>
