@@ -1,0 +1,121 @@
+/*
+  Localizable.strings
+  Aqark
+
+  Created by AhmedSaeed on 6/6/20.
+  Copyright © 2020 ITI. All rights reserved.
+*/
+
+
+/********************************** Particpate in all views ********************************/
+
+"lang" = "en";
+
+"Search" = "Search";
+"Favourite" = "Favourite";
+"Account" = "Account" ;
+
+
+"No Advertisements Available" = "No Advertisements Available";
+"Internet Connection Not Available" = "Internet Connection Not Available";
+
+/********************************** search View ********************************/
+
+"Advertisements" = "Advertisements";
+
+"Price(High)" = "Price(High)";
+"Price(Low)" = "Price(Low)";
+"Newest" = "Newest";
+"Oldest" = "Oldest";
+"Default" = "Default";
+"Cancel" = "Cancel";
+
+"sqm" = "sqm";
+"EGP/month" = "EGP/month";
+"EGP" = "EGP";
+
+"Apartment" = "Apartment";    
+"Villa" = "Villa";
+"Room" = "Room";
+
+
+//alert
+"Add To Favourite" = "Add To Favourite";
+"Can't add to favourite maximum 20 Ads can be added " = "Can't add to favourite maximum 20 Ads can be added ";
+"Cancel" = "Cancel";
+
+
+/********************************** favourite View ********************************/
+
+"There is no advertisements in favourite list." = "There is no advertisements in favourite list.";
+
+//alert
+"Deleted Advertisment" = "Deleted Advertisment";
+"There are" = "There are";
+"Advertisment deleted from your Favourite List" = "Advertisment deleted from your Favourite List";
+
+//alert
+"Delete" = "Delete";
+"Are you sure you want to delete this advertisement from favourite list ? " = "Are you sure you want to delete this advertisement from favourite list ? ";
+
+
+/********************************** property Details ********************************/
+
+"Property Details" = "Property Details";
+
+"in" = "in";
+"for" = "for";
+
+"Rent" = "Rent";
+"Buy" = "Buy";
+
+"Lawyers" = "Lawyers";
+"Interior Desigenrs" = "Interior Desigenrs";
+
+"Cairo" = "Cairo";
+"Alexandria" = "Alexandria";
+"Giza" = "Giza";
+"Qalyubiya" = "Qalyubiya";
+"Port Said" = "Port Said";
+"Suez" = "Suez";
+"Luxor" = "Luxor";
+"al-Mansura" = "al-Mansura";
+"El-Mahalla El-Kubra" = "El-Mahalla El-Kubra";
+"Tanta" = "Tanta";
+"Asyut" = "Asyut";
+"Ismailia" = "Ismailia";
+"Faiyum" = "Faiyum";
+"Zagazig" = "Zagazig";
+"Aswan" = "Aswan";
+"Damietta" = "Damietta";
+"Damanhur" = "Damanhur" ;
+"al-Minya" = "al-Minya" ;
+"Beni Suef" = "Beni Suef";
+"Qena" = "Qena";
+"Sohag" = "Sohag";
+"Hurghada" = "Hurghada";
+"Banha" = "Banha";
+"Kafr el-Sheikh" = "Kafr el-Sheikh";
+"Arish" = "Arish";
+"Minya" = "Minya";
+"Sharqia" = "Sharqia";
+"Beheira" = "Beheira";
+"Menofia" = "Menofia";
+
+/********************************** agent Properties ********************************/
+
+// alert
+"Thank You" = "Thank You";
+"Information" = "Information";
+//alert
+"Error occured Please try again later" = "Error occured please try again later";
+"Error" = "Error";
+
+//actionbutton
+"Ok" = "Ok";
+
+"Please rate" = "Please rate";
+"'s properties" = "'s properties";
+
+"free" = "free";
+"premium" = "premium";

@@ -1,0 +1,118 @@
+/* 
+  Localizable.strings
+  Aqark
+
+  Created by AhmedSaeed on 6/6/20.
+  Copyright © 2020 ITI. All rights reserved.
+*/
+
+/********************************** Particpate in all views ********************************/
+"lang" = "ar";
+
+"Search" = "بحث";
+"Favourite" = "المفضله";
+"Account" = "البريد الاليكتروني" ;
+
+/********************************** search View ********************************/
+
+"Advertisements" = "الاعلانات";
+
+"Price(High)" = "اعلي سعر";
+"Price(Low)" = "اقل سعر";
+"Newest" = "الاجدد";
+"Oldest" = "الاقدم";
+"Default" = "بدون ترتيب";
+"Cancel" = "اغلاق";
+
+"sqm" = "متر مربع";
+"EGP/month" = "جنيه/شهر";
+"EGP" = "جنيه";
+
+"Apartment" = "شقه";
+"Villa" = "فيلا";
+"Room" = "غرفه";
+
+
+"No Advertisements Available" = "لا توجد اعلانات";
+"Internet Connection Not Available" = "لا يوجد اتصال بالانترنت";
+
+//alert
+"Add To Favourite" = "اضافه الي المفضله";
+"Can't add to favourite maximum 20 Ads can be added " = "لا تستطيع اضافه اكثر من ٢٠ اعلان الي المفضله";
+"Cancel" = "الغاء";
+
+
+/********************************** favourite View ********************************/
+
+"There is no advertisements in favourite list." = "لا يوجد اعلانات مفضله";
+
+//alert
+"Deleted Advertisment" = "الاعلانات المحذوفه";
+"There are" = "يوجد";
+"Advertisment deleted from your Favourite List" = "اعلانات محذوفه من المفضله";
+
+//alert
+"Delete" = "حذف";
+"Are you sure you want to delete this advertisement from favourite list ? " = "هل تريد حذف هذا لاعلان من المضله؟ ";
+
+/********************************** property Details ********************************/
+
+"Property Details" = "تفاصيل الاعلان";
+
+"in" = "في";
+"for" = "لل";
+
+"Rent" = "ايجار";
+"Buy" = "بيع";
+
+"Lawyers" = "المحامين";
+"Interior Desigenrs" = "مصممي الديكور";
+
+"Cairo" = "القاهره";
+"Alexandria" = "الاسكندريه";
+"Giza" = "الجيزه";
+"Qalyubiya" = "القليوبيه";
+"Port Said" = "بورسعيد";
+"Suez" = "السويس";
+"Luxor" = "الاقصر";
+"al-Mansura" = "المنصوره";
+"El-Mahalla El-Kubra" = "المحله الكبري";
+"Tanta" = "طنطا";
+"Asyut" = "اسيوط";
+"Ismailia" = "الاسماعيليه";
+"Faiyum" = "الفيوم";
+"Zagazig" = "الزقازيق";
+"Aswan" = "اسوان";
+"Damietta" = "دمياط";
+"Damanhur" = "دمنهور" ;
+"al-Minya" = "المنيا" ;
+"Beni Suef" = "بني سويف";
+"Qena" = "قنا";
+"Sohag" = "سوهاج";
+"Hurghada" = "الغردقه";
+"Banha" = "بنها";
+"Kafr el-Sheikh" = "كفر الشيخ";
+"Arish" = "العريش";
+"Minya" = "المنيا";
+"Sharqia" = "الشرقيه";
+"Beheira" = "البحيره";
+"Menofia" = "المنوفيه";
+
+
+
+/********************************** agent Properties ********************************/
+// alert
+"Thank You" = "شكرا";
+"Information" = "معلومات";
+//alert
+"Error occured Please try again later" = "حدثت مشكله الرجاء المحاوله مره اخري";
+"Error" = "خطا";
+
+//actionbutton
+"Ok" = "Ok";
+
+"Please rate" = "من فضلك قيم";
+"'s properties" = "اعلانات";
+
+"free" = "مجاني";
+"premium" = "مدفوع";

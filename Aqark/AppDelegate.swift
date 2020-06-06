@@ -54,9 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         favouriteNavigationController.navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor :  UIColor(rgb: 0x1d3557)]
         
-        searchTab.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search"), tag: 1)
-        accountTab.tabBarItem = UITabBarItem(title: "Account", image: UIImage(named: "profile"), tag: 2)
-        favouriteTab.tabBarItem = UITabBarItem(title: "Favourite", image: UIImage(named: "favoriteTab"), tag: 3)
+        searchTab.tabBarItem = UITabBarItem(title: "Search".localize, image: UIImage(named: "search"), tag: 1)
+        accountTab.tabBarItem = UITabBarItem(title: "Account".localize, image: UIImage(named: "profile"), tag: 2)
+        favouriteTab.tabBarItem = UITabBarItem(title: "Favourite".localize, image: UIImage(named: "favoriteTab"), tag: 3)
         let controllers = [searchNavigationController,favouriteNavigationController,accountNavigationController]
         tabBarController.viewControllers = controllers
         window?.rootViewController = tabBarController

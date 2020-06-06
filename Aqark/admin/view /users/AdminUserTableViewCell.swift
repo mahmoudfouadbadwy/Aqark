@@ -44,11 +44,5 @@ class AdminUserTableViewCell: UITableViewCell {
         adminUserDelegate.banUserDelegate(isBanned: !isBanned, at: adminUserCellIndex)
     }
     
-    private func circularImage(){
-                DispatchQueue.main.asyncAfter(deadline : .now() + 0.05) {
-                    self.userImage.layer.cornerRadius = self.userImage.frame.size.width / 2
-                self.userImage.layer.masksToBounds = true
-                self.userImage.layer.borderColor = UIColor.black.cgColor
-                self.userImage.layer.borderWidth = 1 }
-    }
+
 }

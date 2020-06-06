@@ -21,7 +21,7 @@ extension FavouriteViewController : UICollectionViewDataSource{
         cell.advertisementImage?.sd_setImage(with: URL(string: adViewModel.image), placeholderImage: UIImage(named: "NoImage"))
         cell.propertyTypeLabel?.text = adViewModel.propertyType.localize
         cell.proprtyAddressLabel?.text = adViewModel.address
-        cell.numberOfBedsLabel?.text =  self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.bedRoomsNumber).1
+        cell.numberOfBedsLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.bedRoomsNumber).1
         cell.numberOfBathRoomsLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.bathRoomsNumber).1
         cell.propertySizeLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.size).1+"sqm".localize
         if adViewModel.advertisementType == "Rent"{
@@ -34,6 +34,7 @@ extension FavouriteViewController : UICollectionViewDataSource{
         
         return cell
     }
+    
 }
 
 extension FavouriteViewController: UICollectionViewDelegate{
@@ -46,7 +47,7 @@ extension FavouriteViewController: UICollectionViewDelegate{
 
 extension FavouriteViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width - 20, height: collectionView.frame.height/3.5)
+        return CGSize(width: collectionView.frame.width - 20, height: collectionView.frame.height/3)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
@@ -72,17 +73,33 @@ extension FavouriteViewController{
     
     func getCollectionViewData(){
         if coreDataViewModel?.getAllFavouriteAdvertisment().count ?? 0 > 0{
-            showActivityIndicator()
+            showIndicator()
             self.favouriteListViewModel.populateAds { (allFavAds, numOfFavAds) in
                 self.arrOfAdViewModel.removeAll()
                 self.adsCount = numOfFavAds
-                self.stopActivityIndicator()
+                self.stopIndicator()
                 self.arrOfAdViewModel = allFavAds
                 self.showDeletedAdsAlert()
             }
         }else{
             arrOfAdViewModel=[]
         }
+    }
+
+}
+
+extension FavouriteViewController{
+
+    func convertNumbers(lang: String , stringNumber : String)->(NSNumber, String){
+        let formatter: NumberFormatter = NumberFormatter()
+        if lang.elementsEqual("en"){
+            formatter.locale = NSLocale(localeIdentifier: "EN") as Locale?
+        }else{
+            formatter.locale = NSLocale(localeIdentifier: "AR") as Locale?
+        }
+        guard let number = formatter.number(from: stringNumber)else{return(0 , "")}
+        guard let translatedNumber = formatter.string(from: number)else{return(0,"")}
+        return(number , translatedNumber)
     }
 
 }
