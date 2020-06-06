@@ -100,7 +100,6 @@
 		BF4423332469D1B80050BD8A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4423312469D1B80050BD8A /* SignUpView.swift */; };
 		BF4423342469D1B80050BD8A /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF4423322469D1B80050BD8A /* SignUpView.xib */; };
 		BF4E2F4F24866F34001137AA /* FavouriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E2F4E24866F34001137AA /* FavouriteButton.swift */; };
-		BF506565248C280100047CB7 /* PropertyDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF506567248C280100047CB7 /* PropertyDetailView.xib */; };
 		BF634C9E2473373200B65B90 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634C9D2473373200B65B90 /* LoginViewModel.swift */; };
 		BF634CA224733A9000B65B90 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634C9F24733A8F00B65B90 /* CustomTextField.swift */; };
 		BF634CA324733A9000B65B90 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634CA024733A8F00B65B90 /* LoginViewController.swift */; };
@@ -144,6 +143,7 @@
 		BFA42D99247BF93E00A986E8 /* AmenitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA42D97247BF93E00A986E8 /* AmenitiesCell.swift */; };
 		BFA42D9A247BF93E00A986E8 /* AmenitiesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA42D98247BF93E00A986E8 /* AmenitiesCell.xib */; };
 		BFA42D9C247BFCE000A986E8 /* AmenitiesCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA42D9B247BFCE000A986E8 /* AmenitiesCollection.swift */; };
+		BFBF4857248C3263007B373B /* PropertyDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFBF4856248C3262007B373B /* PropertyDetailView.xib */; };
 		BFC578B5247431E800C77873 /* SignUpUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC578B4247431E800C77873 /* SignUpUI.swift */; };
 		BFC578B7247432E700C77873 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC578B6247432E700C77873 /* CreateAccount.swift */; };
 		BFC578B92474345500C77873 /* SignUpAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC578B82474345500C77873 /* SignUpAlertView.swift */; };
@@ -297,7 +297,6 @@
 		BF4423312469D1B80050BD8A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		BF4423322469D1B80050BD8A /* SignUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
 		BF4E2F4E24866F34001137AA /* FavouriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteButton.swift; sourceTree = "<group>"; };
-		BF506566248C280100047CB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PropertyDetailView.xib; sourceTree = "<group>"; };
 		BF634C9D2473373200B65B90 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		BF634C9F24733A8F00B65B90 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		BF634CA024733A8F00B65B90 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -341,6 +340,7 @@
 		BFA42D97247BF93E00A986E8 /* AmenitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenitiesCell.swift; sourceTree = "<group>"; };
 		BFA42D98247BF93E00A986E8 /* AmenitiesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmenitiesCell.xib; sourceTree = "<group>"; };
 		BFA42D9B247BFCE000A986E8 /* AmenitiesCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenitiesCollection.swift; sourceTree = "<group>"; };
+		BFBF4856248C3262007B373B /* PropertyDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropertyDetailView.xib; sourceTree = "<group>"; };
 		BFC578B4247431E800C77873 /* SignUpUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUI.swift; sourceTree = "<group>"; };
 		BFC578B6247432E700C77873 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
 		BFC578B82474345500C77873 /* SignUpAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAlertView.swift; sourceTree = "<group>"; };
@@ -630,7 +630,7 @@
 			children = (
 				BF8CD7AE247AFB0E00DA60BA /* ImageSlider.xib */,
 				BF6DC68A247352270030AE52 /* PropertyDetailView.swift */,
-				BF506567248C280100047CB7 /* PropertyDetailView.xib */,
+				BFBF4856248C3262007B373B /* PropertyDetailView.xib */,
 				BF8111B6247A36410059D571 /* BindDetails.swift */,
 				BF8CD7A4247AE0E300DA60BA /* ImageSlider.swift */,
 				BF8CD7A8247AE9CB00DA60BA /* DownloadSliderImages.swift */,
@@ -1291,8 +1291,8 @@
 				3E736C6C2480C897004D8B81 /* ServicesViewController.xib in Resources */,
 				3E69A8D1247EF5E000193605 /* AdminUserTableViewCell.xib in Resources */,
 				3E943FC8246A053300A1FF83 /* FirstScreenViewController.xib in Resources */,
-				BF506565248C280100047CB7 /* PropertyDetailView.xib in Resources */,
 				3E69A8D3247EF5E000193605 /* AdminTabBarController.xib in Resources */,
+				BFBF4857248C3263007B373B /* PropertyDetailView.xib in Resources */,
 				3E69A8D9247EF5E000193605 /* AdminUsersViewController.xib in Resources */,
 				BFCF0BCD24677F8100A43D8B /* Assets.xcassets in Resources */,
 				BF4423342469D1B80050BD8A /* SignUpView.xib in Resources */,
@@ -1570,14 +1570,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BF506567248C280100047CB7 /* PropertyDetailView.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BF506566248C280100047CB7 /* Base */,
-			);
-			name = PropertyDetailView.xib;
-			sourceTree = "<group>";
-		};
 		BFCF0BC624677F8000A43D8B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
