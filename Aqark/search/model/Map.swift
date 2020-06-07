@@ -23,7 +23,7 @@ class Map: NSObject, MKAnnotation {
     self.title = title
     self.coordinate = coordinate
     self.subtitle = subtitle
-//    super.init()
+
   }
     
 }

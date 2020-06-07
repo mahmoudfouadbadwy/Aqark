@@ -790,6 +790,7 @@
 		BF06B41D24679F35005D7151 /* view model */ = {
 			isa = PBXGroup;
 			children = (
+				C6575845248BA5E600CB7CF6 /* PurchaseManager.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -954,7 +955,6 @@
 		BFBAED7D2468A56700996DE8 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				C6575845248BA5E600CB7CF6 /* PurchaseManager.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";

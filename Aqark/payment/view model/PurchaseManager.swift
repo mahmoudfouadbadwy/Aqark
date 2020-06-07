@@ -13,7 +13,7 @@ import StoreKit
 
 
 class PurchaseManager : NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver {
-    static let instance = PurchaseManager()
+
     let premiumAdvertisementIAP = "com.ITI.Aqark.premiumadvertisement"
     var productsRequest : SKProductsRequest!
     var products = [SKProduct]()
@@ -46,7 +46,6 @@ class PurchaseManager : NSObject, SKProductsRequestDelegate, SKPaymentTransactio
             case .purchased:
                 SKPaymentQueue.default().finishTransaction(transaction)
                 if transaction.payment.productIdentifier == premiumAdvertisementIAP{
-                    print("success transaction")
                     transactionComplete?(true)
                 }
              break
