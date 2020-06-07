@@ -17,8 +17,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="412" height="210"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mTx-SR-1XX" customClass="CircularImage" customModule="Aqark" customModuleProvider="target">
-                        <rect key="frame" x="20" y="20" width="123.5" height="123.5"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mTx-SR-1XX">
+                        <rect key="frame" x="20" y="20" width="124" height="124"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="mTx-SR-1XX" secondAttribute="height" multiplier="1:1" id="7Ga-t4-Y39"/>
                         </constraints>
