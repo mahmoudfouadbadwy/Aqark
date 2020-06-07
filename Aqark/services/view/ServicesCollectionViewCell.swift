@@ -28,7 +28,6 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var serviceUserCompanyHeight: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
-        serviceUserImage.circularImage()
         serviceUserRating.settings.fillMode = .precise
         rateMeView.settings.fillMode = .precise
         rateMeView.didFinishTouchingCosmos = {rating in
@@ -46,6 +45,7 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     }
     
     override func layoutSubviews() {
+        serviceUserImage.circularImage()
         layer.cornerRadius = 10
         layer.masksToBounds = true
         layer.shadowColor = UIColor.black.cgColor
