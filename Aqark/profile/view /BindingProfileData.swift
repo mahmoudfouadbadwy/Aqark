@@ -22,6 +22,7 @@ extension ProfileViewController{
             if profileData.role.lowercased().elementsEqual("user")
             {
                  self?.setupOptionalViews(hide: true)
+                 self?.containerStack.spacing = 0
                  self?.containerHeight.constant = 0
             }
             else
@@ -73,7 +74,15 @@ extension ProfileViewController{
         }
         else
         {
-            self.experienceValue.text =  "\(exp) year"
+            if exp.elementsEqual("1")
+            {
+                self.experienceValue.text =  "\(exp) year"
+            }
+            else
+            {
+                self.experienceValue.text =  "\(exp) years"
+            }
+            
         }
     }
     

@@ -25,9 +25,9 @@ extension FavouriteViewController : UICollectionViewDataSource{
         cell.numberOfBathRoomsLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.bathRoomsNumber).1
         cell.propertySizeLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.size).1+"sqm".localize
         if adViewModel.advertisementType == "Rent"{
-            cell.propertyPriceLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(adViewModel.price))).1 + "EGP/month".localize
+            cell.propertyPriceLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(adViewModel.price))).1 + " EGP/month".localize
         }else{
-            cell.propertyPriceLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(adViewModel.price))).1 + "EGP".localize
+            cell.propertyPriceLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(adViewModel.price))).1 + " EGP".localize
         }
         
         self.setFavouriteButton(cell: cell, index: indexPath.row)

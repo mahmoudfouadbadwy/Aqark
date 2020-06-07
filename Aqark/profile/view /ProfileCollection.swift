@@ -26,7 +26,6 @@ extension ProfileViewController{
             (advertisements) in
             self?.stopActivityIndicator()
             self?.listOfAdvertisements = advertisements
-         
         })
     }
     private func setCellConfiguration(cell:UICollectionViewCell)

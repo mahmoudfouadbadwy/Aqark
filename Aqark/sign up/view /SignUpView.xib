@@ -27,85 +27,79 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Igo-Md-67b" customClass="CustomTextField" customModule="Aqark" customModuleProvider="target">
-                    <rect key="frame" x="37.5" y="50" width="300" height="30"/>
+                    <rect key="frame" x="37.5" y="50" width="300" height="33.5"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="Email"/>
                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                            <real key="value" value="10"/>
+                            <real key="value" value="0.0"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Email"/>
                     </userDefinedRuntimeAttributes>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="204-s3-vwn" customClass="CustomTextField" customModule="Aqark" customModuleProvider="target">
-                    <rect key="frame" x="37.5" y="170" width="300" height="30"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z7z-rW-bUJ" customClass="CustomTextField" customModule="Aqark" customModuleProvider="target">
+                    <rect key="frame" x="37.5" y="103.5" width="300" height="33"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES" textContentType="password"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                            <real key="value" value="10"/>
+                            <real key="value" value="0.0"/>
                         </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="password"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Password"/>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="204-s3-vwn" customClass="CustomTextField" customModule="Aqark" customModuleProvider="target">
+                    <rect key="frame" x="37.5" y="156.5" width="300" height="33.5"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES" textContentType="password"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Confirm Password"/>
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TAb-2H-Rax" customClass="CustomTextField" customModule="Aqark" customModuleProvider="target">
-                    <rect key="frame" x="37.5" y="230" width="300" height="30"/>
+                    <rect key="frame" x="37.5" y="210" width="300" height="33.5"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" textContentType="username"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                            <real key="value" value="10"/>
+                            <real key="value" value="0.0"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Username"/>
-                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="user"/>
-                    </userDefinedRuntimeAttributes>
-                </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z7z-rW-bUJ" customClass="CustomTextField" customModule="Aqark" customModuleProvider="target">
-                    <rect key="frame" x="37.5" y="110" width="300" height="30"/>
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES" textContentType="password"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                            <real key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="password"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Password"/>
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mobile Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IfW-CJ-w3R" customClass="CustomTextField" customModule="Aqark" customModuleProvider="target">
-                    <rect key="frame" x="37.5" y="290" width="300" height="30"/>
+                    <rect key="frame" x="37.5" y="263.5" width="300" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                            <real key="value" value="10"/>
+                            <real key="value" value="0.0"/>
                         </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="phone"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Mobile Number"/>
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wRP-7P-knr" customClass="CustomTextField" customModule="Aqark" customModuleProvider="target">
-                    <rect key="frame" x="37.5" y="350" width="300" height="30"/>
+                    <rect key="frame" x="37.5" y="313.5" width="300" height="33.5"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                            <real key="value" value="10"/>
+                            <real key="value" value="0.0"/>
                         </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="image" keyPath="leftTextImage" value="company"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Company"/>
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8i-jX-oIR">
-                    <rect key="frame" x="20" y="380" width="335" height="133.5"/>
+                    <rect key="frame" x="20" y="347" width="335" height="133"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </pickerView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXW-RH-nVa" customClass="CustomButton" customModule="Aqark" customModuleProvider="target">
@@ -130,37 +124,36 @@
                 <constraint firstItem="IfW-CJ-w3R" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="2Eo-3X-3vD"/>
                 <constraint firstItem="Igo-Md-67b" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="2ID-mW-Phv"/>
                 <constraint firstItem="z7z-rW-bUJ" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="5OK-VL-xwP"/>
+                <constraint firstItem="z7z-rW-bUJ" firstAttribute="height" secondItem="Igo-Md-67b" secondAttribute="height" id="AtC-Ae-EDN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dXW-RH-nVa" secondAttribute="bottom" constant="20" id="Gsy-mr-idJ"/>
+                <constraint firstItem="wRP-7P-knr" firstAttribute="height" secondItem="Igo-Md-67b" secondAttribute="height" id="K9l-cN-vcm"/>
                 <constraint firstItem="TAb-2H-Rax" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NU2-yc-In8"/>
                 <constraint firstItem="IfW-CJ-w3R" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RCF-tU-Urt"/>
-                <constraint firstItem="204-s3-vwn" firstAttribute="top" secondItem="z7z-rW-bUJ" secondAttribute="bottom" constant="30" id="SVz-by-aYh"/>
+                <constraint firstItem="204-s3-vwn" firstAttribute="top" secondItem="z7z-rW-bUJ" secondAttribute="bottom" constant="20" id="SVz-by-aYh"/>
+                <constraint firstItem="TAb-2H-Rax" firstAttribute="height" secondItem="Igo-Md-67b" secondAttribute="height" id="SoI-Ck-xdI"/>
                 <constraint firstItem="204-s3-vwn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TIf-7O-Yga"/>
                 <constraint firstItem="dXW-RH-nVa" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="TaP-UF-Zix"/>
                 <constraint firstItem="wRP-7P-knr" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="TvV-38-kBS"/>
                 <constraint firstItem="dXW-RH-nVa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="U0S-S8-2OD"/>
                 <constraint firstItem="i8i-jX-oIR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Ulr-sx-8B4"/>
                 <constraint firstItem="Igo-Md-67b" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VFf-Xw-A4v"/>
-                <constraint firstItem="TAb-2H-Rax" firstAttribute="top" secondItem="204-s3-vwn" secondAttribute="bottom" constant="30" id="W5c-2i-3c9"/>
+                <constraint firstItem="TAb-2H-Rax" firstAttribute="top" secondItem="204-s3-vwn" secondAttribute="bottom" constant="20" id="W5c-2i-3c9"/>
+                <constraint firstItem="IfW-CJ-w3R" firstAttribute="width" secondItem="Igo-Md-67b" secondAttribute="width" id="aCK-XZ-gyt"/>
                 <constraint firstItem="wRP-7P-knr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aUa-yg-8Ft"/>
-                <constraint firstItem="z7z-rW-bUJ" firstAttribute="top" secondItem="Igo-Md-67b" secondAttribute="bottom" constant="30" id="dQH-OO-4iV"/>
+                <constraint firstItem="204-s3-vwn" firstAttribute="height" secondItem="Igo-Md-67b" secondAttribute="height" id="cv9-61-Plq"/>
+                <constraint firstItem="z7z-rW-bUJ" firstAttribute="top" secondItem="Igo-Md-67b" secondAttribute="bottom" constant="20" id="dQH-OO-4iV"/>
                 <constraint firstItem="z7z-rW-bUJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fAe-L9-odH"/>
                 <constraint firstItem="TAb-2H-Rax" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="mAH-Qh-gqy"/>
                 <constraint firstItem="i8i-jX-oIR" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.2" id="nPu-xH-lzP"/>
+                <constraint firstItem="Igo-Md-67b" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.05" id="nTY-dd-QUA"/>
                 <constraint firstItem="204-s3-vwn" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="pbU-qB-QVc"/>
                 <constraint firstItem="i8i-jX-oIR" firstAttribute="top" secondItem="wRP-7P-knr" secondAttribute="bottom" id="pvv-7r-ezn"/>
                 <constraint firstItem="Igo-Md-67b" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="r0o-IP-Ys3"/>
-                <constraint firstItem="wRP-7P-knr" firstAttribute="top" secondItem="IfW-CJ-w3R" secondAttribute="bottom" constant="30" id="tQK-jM-8U9"/>
+                <constraint firstItem="wRP-7P-knr" firstAttribute="top" secondItem="IfW-CJ-w3R" secondAttribute="bottom" constant="20" id="tQK-jM-8U9"/>
                 <constraint firstAttribute="trailing" secondItem="i8i-jX-oIR" secondAttribute="trailing" constant="20" id="y9V-DP-7tk"/>
-                <constraint firstItem="IfW-CJ-w3R" firstAttribute="top" secondItem="TAb-2H-Rax" secondAttribute="bottom" constant="30" id="ynJ-LF-hKQ"/>
+                <constraint firstItem="IfW-CJ-w3R" firstAttribute="top" secondItem="TAb-2H-Rax" secondAttribute="bottom" constant="20" id="ynJ-LF-hKQ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
-    <resources>
-        <image name="Email" width="32" height="20.5"/>
-        <image name="company" width="19" height="24"/>
-        <image name="password" width="34" height="33"/>
-        <image name="phone" width="34" height="27"/>
-        <image name="user" width="26" height="24.5"/>
-    </resources>
 </document>

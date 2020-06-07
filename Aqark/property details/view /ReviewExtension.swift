@@ -49,7 +49,6 @@ extension PropertyDetailView {
         inputStack.isHidden = false
         submitReviewBtn.isHidden = false
         submitReviewBtn.layer.cornerRadius = 10
-        submitReviewBtn.setTitleColor(UIColor(rgb: 0x457b9d), for: .normal)
         addReviewContentTextView.layer.cornerRadius = 20
         addReviewContentTextView.layer.borderColor = UIColor(rgb: 0x1d3557).cgColor
         addReviewContentTextView.layer.borderWidth = 1.0
