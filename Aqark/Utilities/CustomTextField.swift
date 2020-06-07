@@ -29,7 +29,7 @@ import UIKit
         if let leftImage = leftTextImage{
             leftViewMode = UITextField.ViewMode.always
             let imageView = UIImageView(frame:CGRect(x:0,y:0,width:20,height:20))
-            imageView.contentMode = .scaleAspectFit
+            imageView.contentMode = .center
             imageView.image = leftImage
             leftView = imageView
         }else{
@@ -51,7 +51,7 @@ import UIKit
 //        }
     
     var floatingLabel = UILabel(frame: CGRect.zero)
-    var floatingLabelHeight : CGFloat = 14
+    var floatingLabelHeight : CGFloat = 5
     
     @IBInspectable var _placeholder : String?{
         didSet{
@@ -91,7 +91,7 @@ import UIKit
             self.floatingLabel.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.floatingLabelHeight)
             self.layer.borderColor = self.activeBorderColor.cgColor
             self.addSubview(self.floatingLabel)
-            self.floatingLabel.bottomAnchor.constraint(equalTo: self.topAnchor, constant: -10).isActive = true
+            self.floatingLabel.bottomAnchor.constraint(equalTo: self.topAnchor, constant: -5).isActive = true
             self.placeholder = ""
             self.setNeedsDisplay()
         }

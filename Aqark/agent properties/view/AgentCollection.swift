@@ -45,11 +45,11 @@ extension AgentPropertiesView{
         cell.propertyType.text = advertisement.propertyType.localize
         if advertisement.advertisementType.lowercased().elementsEqual("rent")
         {
-            cell.propertyPrice.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + "EGP".localize
+            cell.propertyPrice.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + " EGP".localize
         }else
         {
 
-            cell.propertyPrice.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + "EGP/month".localize
+            cell.propertyPrice.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + " EGP/month".localize
         }
         
         cell.propertySize.text = self.convertNumbers(lang: "lang".localize, stringNumber: advertisement.size).1 + "sqm".localize

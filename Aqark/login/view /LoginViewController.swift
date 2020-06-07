@@ -24,6 +24,8 @@ class LoginViewController: UIViewController{
         userEmailTextField.delegate = self
         userPasswordTextField.delegate = self
         self.navigationItem.title = "Login".localize
+        self.userEmailTextField.setIcon(UIImage(named: "Email")!)
+        self.userPasswordTextField.setIcon(UIImage(named: "password")!)
     }
     
     override func viewWillAppear(_ animated: Bool) {

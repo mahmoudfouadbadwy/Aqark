@@ -76,7 +76,7 @@
 		826A9A392473EAC40046E562 /* AddAdvertisementsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A352473EAC40046E562 /* AddAdvertisementsCollectionViewCell.swift */; };
 		826A9A3B2474C8570046E562 /* extentionConfigrationCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A3A2474C8570046E562 /* extentionConfigrationCollectionView.swift */; };
 		826A9A3E2474CA8A0046E562 /* extensionAutocompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A3D2474CA8A0046E562 /* extensionAutocompleteView.swift */; };
-		826A9A402474CB2E0046E562 /* extensionTextFieldImageAndUnderline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A3F2474CB2E0046E562 /* extensionTextFieldImageAndUnderline.swift */; };
+		826A9A402474CB2E0046E562 /* extensionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A3F2474CB2E0046E562 /* extensionTextField.swift */; };
 		826A9A422474CBA50046E562 /* extensionForYPimagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A412474CBA50046E562 /* extensionForYPimagePicker.swift */; };
 		826A9A442474CC730046E562 /* extensionviewPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A432474CC730046E562 /* extensionviewPicker.swift */; };
 		82ACADD7248BCB61002EF804 /* AdvertisementCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82ACADD9248BCB61002EF804 /* AdvertisementCellCollectionViewCell.xib */; };
@@ -277,7 +277,7 @@
 		826A9A352473EAC40046E562 /* AddAdvertisementsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAdvertisementsCollectionViewCell.swift; sourceTree = "<group>"; };
 		826A9A3A2474C8570046E562 /* extentionConfigrationCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extentionConfigrationCollectionView.swift; sourceTree = "<group>"; };
 		826A9A3D2474CA8A0046E562 /* extensionAutocompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionAutocompleteView.swift; sourceTree = "<group>"; };
-		826A9A3F2474CB2E0046E562 /* extensionTextFieldImageAndUnderline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionTextFieldImageAndUnderline.swift; sourceTree = "<group>"; };
+		826A9A3F2474CB2E0046E562 /* extensionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionTextField.swift; sourceTree = "<group>"; };
 		826A9A412474CBA50046E562 /* extensionForYPimagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionForYPimagePicker.swift; sourceTree = "<group>"; };
 		826A9A432474CC730046E562 /* extensionviewPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionviewPicker.swift; sourceTree = "<group>"; };
 		82ACADD8248BCB61002EF804 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AdvertisementCellCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -767,7 +767,6 @@
 				826A9A322473EAC40046E562 /* AddAdvertisementViewController.xib */,
 				826A9A3A2474C8570046E562 /* extentionConfigrationCollectionView.swift */,
 				826A9A3D2474CA8A0046E562 /* extensionAutocompleteView.swift */,
-				826A9A3F2474CB2E0046E562 /* extensionTextFieldImageAndUnderline.swift */,
 				826A9A412474CBA50046E562 /* extensionForYPimagePicker.swift */,
 				826A9A432474CC730046E562 /* extensionviewPicker.swift */,
 				823D6EA1247DDA7200F0B0FF /* extensionEditAdvertisement.swift */,
@@ -830,6 +829,7 @@
 		BF2F5EC92485492D007AD263 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				826A9A3F2474CB2E0046E562 /* extensionTextField.swift */,
 				BF2F5ECA2485495E007AD263 /* Indicator.swift */,
 				BF0F8F2D24890BF40055EAD8 /* Color.swift */,
 				82ACADE3248BCD09002EF804 /* Localizable.strings */,
@@ -1470,7 +1470,7 @@
 				3ED938E12480B04B005BF1EF /* ServicesListViewModel.swift in Sources */,
 				BFF39A36246FF92E0041AD24 /* ProfileViewController.swift in Sources */,
 				3E69A8D4247EF5E000193605 /* AdminAdvertisementsCollectionDelegate.swift in Sources */,
-				826A9A402474CB2E0046E562 /* extensionTextFieldImageAndUnderline.swift in Sources */,
+				826A9A402474CB2E0046E562 /* extensionTextField.swift in Sources */,
 				BFF016242481306800C3B7C0 /* RatingExtenesion.swift in Sources */,
 				3E69A8D8247EF5E000193605 /* AdminAdvertisementCollectionViewCell.swift in Sources */,
 				3E736C6B2480C897004D8B81 /* ServicesViewController.swift in Sources */,

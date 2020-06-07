@@ -26,6 +26,7 @@ class SignUpView: UIViewController  {
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         self.countries.backgroundColor = UIColor(rgb: 0xf1faee)
         setupViews(as: role)
+        setIcons()
         setTextFieldsDelegate()
         setPickerDelegates()
         setTappedGesture()

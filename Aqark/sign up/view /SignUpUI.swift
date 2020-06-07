@@ -18,7 +18,16 @@ extension SignUpView{
         }
     }
     
+   func setIcons()
+    {
+         self.username.setIcon(UIImage(named: "user")!)
+         self.email.setIcon(UIImage(named: "Email")!)
+         self.password.setIcon(UIImage(named: "password")!)
+         self.confirmPassword.setIcon(UIImage(named: "password")!)
+         self.phoneNumber.setIcon(UIImage(named: "phone")!)
+         self.company.setIcon(UIImage(named: "company")!)
     
+    }
     func showUserView()
     {
         self.phoneNumber.isHidden = true

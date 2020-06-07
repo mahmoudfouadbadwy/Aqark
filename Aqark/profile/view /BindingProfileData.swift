@@ -22,6 +22,7 @@ extension ProfileViewController{
             if profileData.role.lowercased().elementsEqual("user")
             {
                  self?.setupOptionalViews(hide: true)
+                 self?.containerStack.spacing = 0
                  self?.containerHeight.constant = 0
             }
             else

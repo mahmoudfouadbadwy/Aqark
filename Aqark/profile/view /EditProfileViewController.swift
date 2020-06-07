@@ -25,9 +25,7 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var countryView: UIView!
     @IBOutlet weak var indicatorView: UIView!
     @IBOutlet weak var viewForImage: UIView!
-    
     @IBOutlet weak var cameraChangeProfilePic: UIImageView!
-    var networkIndicator = UIActivityIndicatorView()
     var imageViewPicker = UIImagePickerController()
     var autocompletecontroller = GMSAutocompleteViewController()
     var filter = GMSAutocompleteFilter()
@@ -46,9 +44,9 @@ class EditProfileViewController: UIViewController {
     }
     @objc func chnageIndicatorStatus(){
         indicatorView.isHidden = true
-        stopIndicator()
-        let alertController = UIAlertController(title: "Edit Profile", message: "suceess edit profile", preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "ok", style: .default) {[weak self] (_) in
+        showActivityIndicator()
+        let alertController = UIAlertController(title: "Edit Profile", message: "Profile Edited Successfully", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default) {[weak self] (_) in
             self!.navigationController?.popViewController(animated: true)
         }
         alertController.addAction(alertAction)
@@ -57,6 +55,8 @@ class EditProfileViewController: UIViewController {
     }
     func setupView()
     {
+        self.view.backgroundColor = UIColor(rgb: 0xf1faee)
+        self.navigationItem.title = "Edit Profile"
         imageView.layer.cornerRadius = imageView.bounds.height / 2
         viewForImage.layer.cornerRadius = viewForImage.bounds.height / 2
         indicatorView.isHidden = true
@@ -70,7 +70,6 @@ class EditProfileViewController: UIViewController {
        
     }
     deinit {
-        print("deinit")
         NotificationCenter.default.removeObserver(self)
     }
 }
@@ -98,31 +97,6 @@ extension EditProfileViewController: GMSAutocompleteViewControllerDelegate
         // Dismiss when the user canceled the action
         dismiss(animated: true, completion: nil)
     }
-}
-
-
-
-extension EditProfileViewController{
-    
-   func showIndicator()
-   {
-       networkIndicator.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-       networkIndicator.center = view.center
-       networkIndicator.startAnimating()
-       view.addSubview(networkIndicator)
-   }
-   
-    func stopIndicator() {
-        networkIndicator.stopAnimating()
-    }
-    
-    func checkNetworkConnection()->Bool
-    {
-       let connection = Reachability()
-       guard let status = connection?.isReachable else{return false}
-       return status
-    }
-    
 }
 
 
@@ -154,12 +128,12 @@ extension EditProfileViewController{
     
     func setupImageTextField()
      {
-         userNameTxtField.setIcon(UIImage(named: "profile_user")!)
-         phoneNumberTxtField.setIcon(UIImage(named: "signup_phone")!)
-         countryTxtField.setIcon(UIImage(named: "profile_country")!)
-         addressTxtField.setIcon(UIImage(named: "Advertisement_flag")!)
-         companyTxtField.setIcon(UIImage(named: "PropertyDetail_Barbecue")!)
-         experianceTxtField.setIcon(UIImage(named: "profile_experience")!)
+         userNameTxtField.setIcon(UIImage(named: "user")!)
+         phoneNumberTxtField.setIcon(UIImage(named: "phone")!)
+         countryTxtField.setIcon(UIImage(named: "country")!)
+         addressTxtField.setIcon(UIImage(named: "profile_map")!)
+         companyTxtField.setIcon(UIImage(named: "company")!)
+         experianceTxtField.setIcon(UIImage(named: "experience")!)
      }
      
      @IBAction func countrySelected(_ sender: Any)
@@ -203,13 +177,13 @@ extension EditProfileViewController{
             self.showAlert(title: editProfileViewModel.borkenRule[0].brokenType, message: editProfileViewModel.borkenRule[0].message)
          }else{
             
-            if checkNetworkConnection()
+            if ProfileNetworking.checkNetworkConnection()
             {
                 indicatorView.isHidden = false
-                showIndicator()
+                showActivityIndicator()
                 editProfileViewModel.updateProfileData()
             }else{
-               showAlert(title: "no Internet", message: "please check connection")
+               showAlert(title: "Internet Connection", message: "Internet Connection Not Available")
             }
         }
     }
