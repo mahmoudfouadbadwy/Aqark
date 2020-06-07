@@ -167,3 +167,14 @@
 /********************************** sing up ********************************/
 
 "Sign Up" = "Sign Up";
+
+"Confirm Password" = "Confirm Password";
+"Username" = "Username";
+"Mobile Number" = "Mobile Number";
+"Company" = "company";
+
+"Those passwords did not match." = "Those passwords did not match.";
+"Username must be provided." = "Username must be provided.";
+"Username must start of letter and be between 6 and 20 characters." = "Username must start of letter and be between 6 and 20 characters.";
+"Phone number must be provided." = "Phone number must be provided.";
+"Phone number is badly formatted." = "Phone number is badly formatted.";

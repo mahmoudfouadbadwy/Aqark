@@ -127,7 +127,7 @@
 "Error" = "خطا";
 
 //actionbutton
-"Ok" = "Ok";
+"Ok" = "موافق";
 
 "Please rate" = "من فضلك قيم";
 "'s properties" = "اعلانات";
@@ -161,3 +161,14 @@
 /********************************** sing up ********************************/
 
 "Sign Up" = "تسجيل";
+
+"Confirm Password" = "تاكيد الرقم السري";
+"Username" = "اسم المستخدم";
+"Mobile Number" = "رقم الهاتف"; 
+"Company" = "الشركة";
+
+"Those passwords did not match." = "لا يوجد تتطابق لكلمة المرور";
+"Username must be provided." = "يجب توفير اسم المستخدم.";
+"Username must start of letter and be between 6 and 20 characters." = "يجب أن يبدأ اسم المستخدم بالحرف وأن يكون بين ٦ و ٢٠ حرفًا.";
+"Phone number must be provided." = "يجب توفير رقم الهاتف";
+"Phone number is badly formatted." = "يجب ادخال رقم الهاتف بالشكل الصحيح";
