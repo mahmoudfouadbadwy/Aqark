@@ -33,7 +33,7 @@
                     <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                            <real key="value" value="10"/>
+                            <real key="value" value="0.0"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Email"/>
                     </userDefinedRuntimeAttributes>
@@ -45,7 +45,7 @@
                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES" textContentType="password"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                            <real key="value" value="10"/>
+                            <real key="value" value="0.0"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Password"/>
                     </userDefinedRuntimeAttributes>
@@ -57,7 +57,7 @@
                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES" textContentType="password"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                            <real key="value" value="10"/>
+                            <real key="value" value="0.0"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Confirm Password"/>
                     </userDefinedRuntimeAttributes>
@@ -69,7 +69,7 @@
                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" textContentType="username"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                            <real key="value" value="10"/>
+                            <real key="value" value="0.0"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Username"/>
                     </userDefinedRuntimeAttributes>
@@ -81,7 +81,7 @@
                     <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                            <real key="value" value="10"/>
+                            <real key="value" value="0.0"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Mobile Number"/>
                     </userDefinedRuntimeAttributes>
@@ -93,7 +93,7 @@
                     <textInputTraits key="textInputTraits"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
-                            <real key="value" value="10"/>
+                            <real key="value" value="0.0"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="string" keyPath="_placeholder" value="Company"/>
                     </userDefinedRuntimeAttributes>

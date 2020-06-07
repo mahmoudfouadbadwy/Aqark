@@ -9,12 +9,12 @@
 import UIKit
 //MARK:- Life cycle and Properties
 class SignUpView: UIViewController  {
-    @IBOutlet  weak var phoneNumber: UITextField!
-    @IBOutlet  weak var username: UITextField!
-    @IBOutlet  weak var email: UITextField!
-    @IBOutlet  weak var password: UITextField!
-    @IBOutlet  weak var confirmPassword: UITextField!
-    @IBOutlet  weak var company: UITextField!
+    @IBOutlet  weak var phoneNumber: CustomTextField!
+    @IBOutlet  weak var username: CustomTextField!
+    @IBOutlet  weak var email: CustomTextField!
+    @IBOutlet  weak var password: CustomTextField!
+    @IBOutlet  weak var confirmPassword: CustomTextField!
+    @IBOutlet  weak var company: CustomTextField!
     @IBOutlet  weak var countries: UIPickerView!
     var role:String = "user"
     var accountViewModel:AccountViewModel!
@@ -30,6 +30,53 @@ class SignUpView: UIViewController  {
         setTextFieldsDelegate()
         setPickerDelegates()
         setTappedGesture()
+        phoneNumber.delegate = self
+        username.delegate = self
+        email.delegate = self
+        password.delegate = self
+        confirmPassword.delegate = self
+        company.delegate = self
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        if(!email.text!.isEmpty){
+            email.text = ""
+            email.removeFloatingLabel()
+            email._placeholder = "Email".localize
+        }
+        
+        if(!password.text!.isEmpty){
+            password.text = ""
+            password.removeFloatingLabel()
+            password._placeholder = "Password".localize
+        }
+        
+        if(!confirmPassword.text!.isEmpty){
+            password.text = ""
+            password.removeFloatingLabel()
+            password._placeholder = "Confirm Password".localize
+        }
+        
+        if(!confirmPassword.text!.isEmpty){
+            password.text = ""
+            password.removeFloatingLabel()
+            password._placeholder = "Confirm Password".localize
+        }
+        
+        if(!username.text!.isEmpty){
+            username.text = ""
+            username.removeFloatingLabel()
+            username._placeholder = "Username".localize
+        }
+        
+        if(!phoneNumber.text!.isEmpty){
+            username.text = ""
+            username.removeFloatingLabel()
+            username._placeholder = "Mobile Number".localize
+        }
+        
+        
     }
 
     @IBAction func createAccount(_ sender: Any) {
