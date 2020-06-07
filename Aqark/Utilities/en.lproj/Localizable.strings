@@ -156,9 +156,14 @@
 "User Password" = "User Password";
 "The email or password you entered is invalid" = "The email or password you entered is invalid";
 "The password must be 6 characters long or more." = "The password must be 6 characters long or more.";
+
 /********************************** first screen ********************************/
 
 "Role" = "Role";
 "User" = "User";
 "Lawyer" = "Lawyer";
 "Interior Designer" = "Interior Designer";
+
+/********************************** sing up ********************************/
+
+"Sign Up" = "Sign Up";

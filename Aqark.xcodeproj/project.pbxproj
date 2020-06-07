@@ -79,6 +79,7 @@
 		826A9A402474CB2E0046E562 /* extensionTextFieldImageAndUnderline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A3F2474CB2E0046E562 /* extensionTextFieldImageAndUnderline.swift */; };
 		826A9A422474CBA50046E562 /* extensionForYPimagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A412474CBA50046E562 /* extensionForYPimagePicker.swift */; };
 		826A9A442474CC730046E562 /* extensionviewPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A432474CC730046E562 /* extensionviewPicker.swift */; };
+		82871689248D291A0038A53D /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82871688248D291A0038A53D /* SignUpView.xib */; };
 		82ACADD7248BCB61002EF804 /* AdvertisementCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82ACADD9248BCB61002EF804 /* AdvertisementCellCollectionViewCell.xib */; };
 		82ACADDA248BCB84002EF804 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82ACADDC248BCB84002EF804 /* SearchViewController.xib */; };
 		82ACADE1248BCD09002EF804 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 82ACADE3248BCD09002EF804 /* Localizable.strings */; };
@@ -102,7 +103,6 @@
 		BF4355882474E1DE001DA5D8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4355812474E1DD001DA5D8 /* SearchViewController.swift */; };
 		BF43558A2474E1DE001DA5D8 /* CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4355832474E1DE001DA5D8 /* CollectionViewExtension.swift */; };
 		BF4423332469D1B80050BD8A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4423312469D1B80050BD8A /* SignUpView.swift */; };
-		BF4423342469D1B80050BD8A /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF4423322469D1B80050BD8A /* SignUpView.xib */; };
 		BF4E2F4F24866F34001137AA /* FavouriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E2F4E24866F34001137AA /* FavouriteButton.swift */; };
 		BF634C9E2473373200B65B90 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634C9D2473373200B65B90 /* LoginViewModel.swift */; };
 		BF634CA224733A9000B65B90 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634C9F24733A8F00B65B90 /* CustomTextField.swift */; };
@@ -280,6 +280,7 @@
 		826A9A3F2474CB2E0046E562 /* extensionTextFieldImageAndUnderline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionTextFieldImageAndUnderline.swift; sourceTree = "<group>"; };
 		826A9A412474CBA50046E562 /* extensionForYPimagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionForYPimagePicker.swift; sourceTree = "<group>"; };
 		826A9A432474CC730046E562 /* extensionviewPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionviewPicker.swift; sourceTree = "<group>"; };
+		82871688248D291A0038A53D /* SignUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
 		82ACADD8248BCB61002EF804 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AdvertisementCellCollectionViewCell.xib; sourceTree = "<group>"; };
 		82ACADDB248BCB84002EF804 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchViewController.xib; sourceTree = "<group>"; };
 		82ACADDE248BCBC4002EF804 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/SearchViewController.strings; sourceTree = "<group>"; };
@@ -306,7 +307,6 @@
 		BF4355812474E1DD001DA5D8 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BF4355832474E1DE001DA5D8 /* CollectionViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewExtension.swift; sourceTree = "<group>"; };
 		BF4423312469D1B80050BD8A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		BF4423322469D1B80050BD8A /* SignUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
 		BF4E2F4E24866F34001137AA /* FavouriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteButton.swift; sourceTree = "<group>"; };
 		BF634C9D2473373200B65B90 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		BF634C9F24733A8F00B65B90 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -713,7 +713,7 @@
 			isa = PBXGroup;
 			children = (
 				BF4423312469D1B80050BD8A /* SignUpView.swift */,
-				BF4423322469D1B80050BD8A /* SignUpView.xib */,
+				82871688248D291A0038A53D /* SignUpView.xib */,
 				BFC578B4247431E800C77873 /* SignUpUI.swift */,
 				BFC578B6247432E700C77873 /* CreateAccount.swift */,
 				BFC578B82474345500C77873 /* SignUpAlertView.swift */,
@@ -1300,6 +1300,7 @@
 				BFF39A37246FF92E0041AD24 /* ProfileViewController.xib in Resources */,
 				BF82E6EF2481981500786141 /* FavouriteCollectionViewCell.xib in Resources */,
 				BF6D507924804B4000FFDD30 /* AgentPropertiesView.xib in Resources */,
+				82871689248D291A0038A53D /* SignUpView.xib in Resources */,
 				BFF0162224811AD800C3B7C0 /* AgentAdvertisementCell.xib in Resources */,
 				82ACADDA248BCB84002EF804 /* SearchViewController.xib in Resources */,
 				3E736C6C2480C897004D8B81 /* ServicesViewController.xib in Resources */,
@@ -1308,7 +1309,6 @@
 				3E69A8D3247EF5E000193605 /* AdminTabBarController.xib in Resources */,
 				3E69A8D9247EF5E000193605 /* AdminUsersViewController.xib in Resources */,
 				BFCF0BCD24677F8100A43D8B /* Assets.xcassets in Resources */,
-				BF4423342469D1B80050BD8A /* SignUpView.xib in Resources */,
 				3E69A8CE247EF5E000193605 /* AdminAdvertisementCollectionViewCell.xib in Resources */,
 				BFCF0BC824677F8000A43D8B /* Main.storyboard in Resources */,
 			);
