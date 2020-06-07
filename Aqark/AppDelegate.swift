@@ -31,8 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /* start shrouk*/
         FirebaseApp.configure()
         GMSPlacesClient.provideAPIKey("AIzaSyAcITFeVhQQ970eJjH0fZ8lY8jwxksplso")
-         let product = PurchaseManager()
-        product.fetchProducts()
+//         let product = PurchaseManager()
+        PurchaseManager.instance.fetchProducts()
         /* end shrouk*/
         /* start fouad*/
         window = UIWindow()

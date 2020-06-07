@@ -21,8 +21,8 @@ class PaymentViewController: UIViewController {
     }
 
     @IBAction func makePremiumAdvertisement(_ sender: Any) {
-        let p = PurchaseManager()
-       p.purchasePremiumAdvertisement{ success in
+//        let p = PurchaseManager()
+        PurchaseManager.instance.purchasePremiumAdvertisement{ success in
             if success {
                 self.premiumAdvertisementButton.backgroundColor = .red
             }else{
