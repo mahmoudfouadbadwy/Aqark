@@ -73,7 +73,15 @@ extension ProfileViewController{
         }
         else
         {
-            self.experienceValue.text =  "\(exp) year"
+            if exp.elementsEqual("1")
+            {
+                self.experienceValue.text =  "\(exp) year"
+            }
+            else
+            {
+                self.experienceValue.text =  "\(exp) years"
+            }
+            
         }
     }
     

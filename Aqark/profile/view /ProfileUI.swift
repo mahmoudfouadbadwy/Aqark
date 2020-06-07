@@ -11,9 +11,14 @@ import UIKit
 extension ProfileViewController{
     func setupView()
     {
-        self.username.textColor = UIColor(rgb: 0x457b9d)
+        self.username.textColor = UIColor(rgb: 0x1d3557)
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         self.rate.backgroundColor = UIColor(rgb: 0xf1faee)
+        self.phoneValue.textColor = UIColor(rgb: 0x1d3557)
+        self.countryName.textColor = UIColor(rgb: 0x1d3557)
+        self.companyName.textColor = UIColor(rgb: 0x1d3557)
+        self.addressText.textColor = UIColor(rgb: 0x1d3557)
+        self.experienceValue.textColor = UIColor(rgb: 0x1d3557)
         self.advertisementsCollection.backgroundColor = UIColor(rgb: 0xf1faee)
         hideAllElements(status: true)
         rate.settings.updateOnTouch = false
