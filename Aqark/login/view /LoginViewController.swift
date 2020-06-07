@@ -23,7 +23,7 @@ class LoginViewController: UIViewController{
         loginViewModel = LoginViewModel()
         userEmailTextField.delegate = self
         userPasswordTextField.delegate = self
-        self.navigationItem.title = "Login"
+        self.navigationItem.title = "Login".localize
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,11 +50,11 @@ class LoginViewController: UIViewController{
                     }
                 }
             }else{
-                showAlert(title: "Connection", message: "Check yout internet connection")
+                showAlert(title: "Connection".localize, message: "Internet Connection Not Available".localize)
             }
         }else{
             self.stopActivityIndicator()
-            showAlert(title: "Login", message: loginViewModel.brokenRules.first!.message)
+            showAlert(title: "Login".localize, message: loginViewModel.brokenRules.first!.message)
         }
     }
     
@@ -67,7 +67,7 @@ class LoginViewController: UIViewController{
     
     func showAlert(title:String,message:String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel){(okAction) in
+        let okAction = UIAlertAction(title: "OK".localize, style: UIAlertAction.Style.cancel){(okAction) in
             alert.dismiss(animated: true, completion: nil)}
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
@@ -90,13 +90,13 @@ class LoginViewController: UIViewController{
         if(!userEmailTextField.text!.isEmpty){
             userEmailTextField.text = ""
             userEmailTextField.removeFloatingLabel()
-            userEmailTextField._placeholder = "Email"
+            userEmailTextField._placeholder = "Email".localize
         }
         
         if(!userPasswordTextField.text!.isEmpty){
             userPasswordTextField.text = ""
             userPasswordTextField.removeFloatingLabel()
-            userPasswordTextField._placeholder = "Password"
+            userPasswordTextField._placeholder = "Password".localize
         }
     }
 }

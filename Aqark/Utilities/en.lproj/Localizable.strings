@@ -141,3 +141,24 @@
 
 "free" = "free";
 "premium" = "premium";
+
+/********************************** login ********************************/
+"Email" = "Email";
+"Password" = "Password";
+
+"Login" = "Login";
+
+//alert
+"Connection" = "Connection";
+"User Email" = "User Email";
+"The email or password you entered is invalid" = "The email or password you entered is invalid";
+"An email address must be provided." = "An email address must be provided.";
+"User Password" = "User Password";
+"The email or password you entered is invalid" = "The email or password you entered is invalid";
+"The password must be 6 characters long or more." = "The password must be 6 characters long or more.";
+/********************************** first screen ********************************/
+
+"Role" = "Role";
+"User" = "User";
+"Lawyer" = "Lawyer";
+"Interior Designer" = "Interior Designer";

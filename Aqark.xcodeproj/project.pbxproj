@@ -34,7 +34,6 @@
 		3E736C702480CAF2004D8B81 /* ServicesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E736C6E2480CAF2004D8B81 /* ServicesCollectionViewCell.xib */; };
 		3E804B46248926E50097C855 /* AdminUsersDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E804B45248926E50097C855 /* AdminUsersDelegate.swift */; };
 		3E943FC7246A053300A1FF83 /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E943FC5246A053300A1FF83 /* FirstScreenViewController.swift */; };
-		3E943FC8246A053300A1FF83 /* FirstScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E943FC6246A053300A1FF83 /* FirstScreenViewController.xib */; };
 		3E943FCA246A262400A1FF83 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E943FC9246A262400A1FF83 /* CustomButton.swift */; };
 		3EA8369B246CE13A009AD024 /* ValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8369A246CE13A009AD024 /* ValidationProtocol.swift */; };
 		3EA8369D246CE15C009AD024 /* LoginBrokenRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8369C246CE15C009AD024 /* LoginBrokenRule.swift */; };
@@ -49,6 +48,8 @@
 		3ED938E32480B0A1005BF1EF /* ServiceUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED938E22480B0A1005BF1EF /* ServiceUserViewModel.swift */; };
 		3ED938E52480C023005BF1EF /* ServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED938E42480C023005BF1EF /* ServiceHelper.swift */; };
 		7056A0D613EFCF7CC97F41EB /* Pods_Aqark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */; };
+		8214EA37248C60350037B11D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8214EA39248C60350037B11D /* LoginViewController.xib */; };
+		8214EA3D248C661B0037B11D /* FirstScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8214EA3F248C661B0037B11D /* FirstScreenViewController.xib */; };
 		823D6EA2247DDA7200F0B0FF /* extensionEditAdvertisement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D6EA1247DDA7200F0B0FF /* extensionEditAdvertisement.swift */; };
 		823D6EA4247DDB9D00F0B0FF /* extensionSelectAmenities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D6EA3247DDB9D00F0B0FF /* extensionSelectAmenities.swift */; };
 		823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D6EA5247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift */; };
@@ -82,7 +83,7 @@
 		82ACADDA248BCB84002EF804 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82ACADDC248BCB84002EF804 /* SearchViewController.xib */; };
 		82ACADE1248BCD09002EF804 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 82ACADE3248BCD09002EF804 /* Localizable.strings */; };
 		82ACADE6248BCFBF002EF804 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ACADE5248BCFBF002EF804 /* Localization.swift */; };
-		82ACAE00248C5843002EF804 /* PropertyDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82ACADFF248C5842002EF804 /* PropertyDetailView.xib */; };
+		82ACAE02248C5E30002EF804 /* PropertyDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82ACAE04248C5E30002EF804 /* PropertyDetailView.xib */; };
 		AB359ED5E1D6FD408208700F /* Pods_AqarkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */; };
 		BF0F8F2E24890BF40055EAD8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0F8F2D24890BF40055EAD8 /* Color.swift */; };
 		BF2F5ECB2485495E007AD263 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2F5ECA2485495E007AD263 /* Indicator.swift */; };
@@ -106,7 +107,6 @@
 		BF634C9E2473373200B65B90 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634C9D2473373200B65B90 /* LoginViewModel.swift */; };
 		BF634CA224733A9000B65B90 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634C9F24733A8F00B65B90 /* CustomTextField.swift */; };
 		BF634CA324733A9000B65B90 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF634CA024733A8F00B65B90 /* LoginViewController.swift */; };
-		BF634CA424733A9000B65B90 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF634CA124733A8F00B65B90 /* LoginViewController.xib */; };
 		BF66602C2477C75B00EDF89F /* CoreDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF66602B2477C75B00EDF89F /* CoreDataExtension.swift */; };
 		BF66CC1E246C678B00C9FD01 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF66CC1D246C678B00C9FD01 /* Countries.swift */; };
 		BF6D507824804B4000FFDD30 /* AgentPropertiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D507624804B4000FFDD30 /* AgentPropertiesView.swift */; };
@@ -230,7 +230,6 @@
 		3E736C6E2480CAF2004D8B81 /* ServicesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServicesCollectionViewCell.xib; sourceTree = "<group>"; };
 		3E804B45248926E50097C855 /* AdminUsersDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUsersDelegate.swift; sourceTree = "<group>"; };
 		3E943FC5246A053300A1FF83 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstScreenViewController.swift; path = "Aqark/login/view /FirstScreenViewController.swift"; sourceTree = SOURCE_ROOT; };
-		3E943FC6246A053300A1FF83 /* FirstScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FirstScreenViewController.xib; path = "Aqark/login/view /FirstScreenViewController.xib"; sourceTree = SOURCE_ROOT; };
 		3E943FC9246A262400A1FF83 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = Aqark/Utilities/CustomButton.swift; sourceTree = SOURCE_ROOT; };
 		3EA8369A246CE13A009AD024 /* ValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ValidationProtocol.swift; path = "Aqark/login/view model/ValidationProtocol.swift"; sourceTree = SOURCE_ROOT; };
 		3EA8369C246CE15C009AD024 /* LoginBrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginBrokenRule.swift; path = "Aqark/login/view model/LoginBrokenRule.swift"; sourceTree = SOURCE_ROOT; };
@@ -247,6 +246,11 @@
 		58560B4C74A5E0F6183A61D7 /* Pods-AqarkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AqarkTests.debug.xcconfig"; path = "Target Support Files/Pods-AqarkTests/Pods-AqarkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aqark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B20C334276836267C28034 /* Pods-Aqark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqark.debug.xcconfig"; path = "Target Support Files/Pods-Aqark/Pods-Aqark.debug.xcconfig"; sourceTree = "<group>"; };
+		8214EA36248C5E4E0037B11D /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/PropertyDetailView.strings; sourceTree = "<group>"; };
+		8214EA38248C60350037B11D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginViewController.xib; sourceTree = "<group>"; };
+		8214EA3C248C64650037B11D /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LoginViewController.strings; sourceTree = "<group>"; };
+		8214EA3E248C661B0037B11D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FirstScreenViewController.xib; sourceTree = "<group>"; };
+		8214EA41248C661F0037B11D /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/FirstScreenViewController.strings; sourceTree = "<group>"; };
 		823D6EA1247DDA7200F0B0FF /* extensionEditAdvertisement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionEditAdvertisement.swift; sourceTree = "<group>"; };
 		823D6EA3247DDB9D00F0B0FF /* extensionSelectAmenities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionSelectAmenities.swift; sourceTree = "<group>"; };
 		823D6EA5247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionSegmentAndTxtPlaceholder.swift; sourceTree = "<group>"; };
@@ -282,7 +286,7 @@
 		82ACADE2248BCD09002EF804 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		82ACADE4248BCD0C002EF804 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		82ACADE5248BCFBF002EF804 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
-		82ACADFF248C5842002EF804 /* PropertyDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropertyDetailView.xib; sourceTree = "<group>"; };
+		82ACAE03248C5E30002EF804 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PropertyDetailView.xib; sourceTree = "<group>"; };
 		88E560A844B318E2835E7F97 /* Pods-Aqark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqark.release.xcconfig"; path = "Target Support Files/Pods-Aqark/Pods-Aqark.release.xcconfig"; sourceTree = "<group>"; };
 		B77402FFEAE979F1B4E1F970 /* Pods-AqarkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AqarkTests.release.xcconfig"; path = "Target Support Files/Pods-AqarkTests/Pods-AqarkTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF0F8F2D24890BF40055EAD8 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -307,7 +311,6 @@
 		BF634C9D2473373200B65B90 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		BF634C9F24733A8F00B65B90 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		BF634CA024733A8F00B65B90 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		BF634CA124733A8F00B65B90 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		BF66602B2477C75B00EDF89F /* CoreDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtension.swift; sourceTree = "<group>"; };
 		BF66CC1D246C678B00C9FD01 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		BF6D507624804B4000FFDD30 /* AgentPropertiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentPropertiesView.swift; sourceTree = "<group>"; };
@@ -347,7 +350,6 @@
 		BFA42D97247BF93E00A986E8 /* AmenitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenitiesCell.swift; sourceTree = "<group>"; };
 		BFA42D98247BF93E00A986E8 /* AmenitiesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmenitiesCell.xib; sourceTree = "<group>"; };
 		BFA42D9B247BFCE000A986E8 /* AmenitiesCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenitiesCollection.swift; sourceTree = "<group>"; };
-		BFBF4856248C3262007B373B /* PropertyDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropertyDetailView.xib; sourceTree = "<group>"; };
 		BFC578B4247431E800C77873 /* SignUpUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUI.swift; sourceTree = "<group>"; };
 		BFC578B6247432E700C77873 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
 		BFC578B82474345500C77873 /* SignUpAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAlertView.swift; sourceTree = "<group>"; };
@@ -495,14 +497,6 @@
 			path = model;
 			sourceTree = "<group>";
 		};
-		82ACAE01248C59CB002EF804 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				BFBF4856248C3262007B373B /* PropertyDetailView.xib */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		AD923418C8264B7A9F4E1EDA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -643,7 +637,7 @@
 		BF06B40E24679EBB005D7151 /* view  */ = {
 			isa = PBXGroup;
 			children = (
-				82ACADFF248C5842002EF804 /* PropertyDetailView.xib */,
+				82ACAE04248C5E30002EF804 /* PropertyDetailView.xib */,
 				BF8CD7AE247AFB0E00DA60BA /* ImageSlider.xib */,
 				BF6DC68A247352270030AE52 /* PropertyDetailView.swift */,
 				BF8111B6247A36410059D571 /* BindDetails.swift */,
@@ -698,9 +692,9 @@
 			isa = PBXGroup;
 			children = (
 				BF634CA024733A8F00B65B90 /* LoginViewController.swift */,
-				BF634CA124733A8F00B65B90 /* LoginViewController.xib */,
+				8214EA39248C60350037B11D /* LoginViewController.xib */,
 				3E943FC5246A053300A1FF83 /* FirstScreenViewController.swift */,
-				3E943FC6246A053300A1FF83 /* FirstScreenViewController.xib */,
+				8214EA3F248C661B0037B11D /* FirstScreenViewController.xib */,
 			);
 			path = "view ";
 			sourceTree = "<group>";
@@ -1142,7 +1136,6 @@
 				BFCF0BC024677F8000A43D8B /* Products */,
 				AD923418C8264B7A9F4E1EDA /* Pods */,
 				26F5D2F0E1BA59990B8F348E /* Frameworks */,
-				82ACAE01248C59CB002EF804 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1293,11 +1286,11 @@
 				BF36E8692475A3F200FD9192 /* AdvertisementCell.xib in Resources */,
 				BF8475D92483E35600D01A9D /* AdminReportsView.xib in Resources */,
 				BF8475E92483EDF600D01A9D /* AdminReportsCell.xib in Resources */,
-				BF634CA424733A9000B65B90 /* LoginViewController.xib in Resources */,
+				8214EA37248C60350037B11D /* LoginViewController.xib in Resources */,
 				82ACADD7248BCB61002EF804 /* AdvertisementCellCollectionViewCell.xib in Resources */,
 				826A9A372473EAC40046E562 /* AddAdvertisementsCollectionViewCell.xib in Resources */,
 				BFCF0BD024677F8100A43D8B /* LaunchScreen.storyboard in Resources */,
-				82ACAE00248C5843002EF804 /* PropertyDetailView.xib in Resources */,
+				82ACAE02248C5E30002EF804 /* PropertyDetailView.xib in Resources */,
 				BF8CD7AF247AFB0E00DA60BA /* ImageSlider.xib in Resources */,
 				82ACADE1248BCD09002EF804 /* Localizable.strings in Resources */,
 				BFA42D9A247BF93E00A986E8 /* AmenitiesCell.xib in Resources */,
@@ -1311,7 +1304,7 @@
 				82ACADDA248BCB84002EF804 /* SearchViewController.xib in Resources */,
 				3E736C6C2480C897004D8B81 /* ServicesViewController.xib in Resources */,
 				3E69A8D1247EF5E000193605 /* AdminUserTableViewCell.xib in Resources */,
-				3E943FC8246A053300A1FF83 /* FirstScreenViewController.xib in Resources */,
+				8214EA3D248C661B0037B11D /* FirstScreenViewController.xib in Resources */,
 				3E69A8D3247EF5E000193605 /* AdminTabBarController.xib in Resources */,
 				3E69A8D9247EF5E000193605 /* AdminUsersViewController.xib in Resources */,
 				BFCF0BCD24677F8100A43D8B /* Assets.xcassets in Resources */,
@@ -1591,6 +1584,25 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		8214EA39248C60350037B11D /* LoginViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8214EA38248C60350037B11D /* Base */,
+				8214EA3C248C64650037B11D /* ar */,
+			);
+			name = LoginViewController.xib;
+			sourceTree = "<group>";
+		};
+		8214EA3F248C661B0037B11D /* FirstScreenViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8214EA3E248C661B0037B11D /* Base */,
+				8214EA41248C661F0037B11D /* ar */,
+			);
+			name = FirstScreenViewController.xib;
+			path = "Aqark/login/view ";
+			sourceTree = SOURCE_ROOT;
+		};
 		82ACADD9248BCB61002EF804 /* AdvertisementCellCollectionViewCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1615,6 +1627,15 @@
 				82ACADE4248BCD0C002EF804 /* ar */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		82ACAE04248C5E30002EF804 /* PropertyDetailView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				82ACAE03248C5E30002EF804 /* Base */,
+				8214EA36248C5E4E0037B11D /* ar */,
+			);
+			name = PropertyDetailView.xib;
 			sourceTree = "<group>";
 		};
 		BFCF0BC624677F8000A43D8B /* Main.storyboard */ = {

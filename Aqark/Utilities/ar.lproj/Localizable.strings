@@ -134,3 +134,26 @@
 
 "free" = "مجاني";
 "premium" = "مدفوع";
+
+
+/********************************** login ********************************/
+"Email" = "البريد الاكتروني";
+"Password" = "الرقم السري";
+
+"Login" = "تسجيل الدخول";
+
+//alert
+"Connection" = "الاتصال";
+
+"The email or password you entered is invalid" = "البريد الإلكتروني أو كلمة المرور التي أدخلتها غير صالحة";
+"An email address must be provided." = "يجب توفير عنوان بريد إلكتروني";
+
+"The email or password you entered is invalid" = "البريد الإلكتروني أو كلمة المرور التي أدخلتها غير صالحة";
+"The password must be 6 characters long or more." = "يجب أن تكون كلمة المرور مكونة من 6 أحرف أو أكثر";
+
+/********************************** first screen ********************************/
+
+"Role" = "الوظيفه";
+"User" = "مستخدم";
+"Lawyer" = "محامي";
+"Interior Designer" = "مصمم ديكور";

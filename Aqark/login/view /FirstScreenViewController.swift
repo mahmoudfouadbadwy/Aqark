@@ -12,21 +12,21 @@ class FirstScreenViewController: UIViewController {
     
     @IBOutlet weak var rolesPicker: UIPickerView!
     var roles : [String] = [String]()
-    var userRole : String = "User"
+    var userRole : String = "User".localize
     override func viewDidLoad(){
         super.viewDidLoad()
-        self.navigationItem.title = "Role"
+        self.navigationItem.title = "Role".localize
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         self.rolesPicker.backgroundColor = UIColor(rgb: 0xf1faee)
         self.navigationItem.hidesBackButton = true
         rolesPicker.delegate = self
         rolesPicker.dataSource = self
-        roles = ["User","Lawyer","Interior Designer"]
+        roles = ["User".localize,"Lawyer".localize,"Interior Designer".localize]
     }
 
     @IBAction func submit(_ sender: Any) {
             let loginView = LoginViewController()
-            loginView.userRole = userRole
+        loginView.userRole = userRole
             self.navigationController?.pushViewController(loginView, animated: true)
     }
 }
