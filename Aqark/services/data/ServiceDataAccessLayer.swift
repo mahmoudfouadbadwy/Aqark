@@ -29,11 +29,11 @@ class ServiceDataAccess{
         let serviceUserDictionary = child.value as! [String : Any]
         let serviceUserName = serviceUserDictionary[ServiceUserKey.userName] as! String
         let serviceUserEmail = serviceUserDictionary[ServiceUserKey.userEmail] as! String
-        let serviceUserPhone = serviceUserDictionary[ServiceUserKey.userPhone] as? String ?? "No Phone"
-        let serviceUserCountry = serviceUserDictionary[ServiceUserKey.userCountry] as? String ?? "No Country"
-        let serviceUserCompany = serviceUserDictionary[ServiceUserKey.userCompany] as? String ?? "No Company"
+        let serviceUserPhone = serviceUserDictionary[ServiceUserKey.userPhone] as? String ?? ""
+        let serviceUserCountry = serviceUserDictionary[ServiceUserKey.userCountry] as? String ?? ""
+        let serviceUserCompany = serviceUserDictionary[ServiceUserKey.userCompany] as? String ?? ""
         let serviceUserRole = serviceUserDictionary[ServiceUserKey.userRole] as! String
-        let serviceUserExperience = serviceUserDictionary[ServiceUserKey.userExperience] as? String ?? "Not Provided"
+        let serviceUserExperience = serviceUserDictionary[ServiceUserKey.userExperience] as? String ?? ""
         let serviceUserRatingDic = serviceUserDictionary[ServiceUserKey.userServiceRating] as? [String:Any] ?? [:]
         let serviceUserServiceRating = getUserServiceRating(userRatingDic: serviceUserRatingDic)
         let serviceUserImage = serviceUserDictionary[ServiceUserKey.userPicture] as? String ?? ""

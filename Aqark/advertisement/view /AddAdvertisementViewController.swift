@@ -246,7 +246,6 @@ class AddAdvertisementViewController: UIViewController  {
         }else{
             self.payment = "premium"
         }
-        
     }
     
     //MARK: - deinit

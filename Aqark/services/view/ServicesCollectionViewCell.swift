@@ -25,7 +25,7 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     
     var serviceUserCellIndex : IndexPath!
     var serviceUserDelegate : ServiceUsersCollectionDelegate!
-    
+    @IBOutlet weak var serviceUserCompanyHeight: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         serviceUserRating.settings.fillMode = .precise
@@ -63,14 +63,24 @@ class ServicesCollectionViewCell: UICollectionViewCell {
                   dialerButtonTrailingConstraint.isActive = false
                   dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
               }
-        if(serviceUserCompany.text == " company"){
-            detailsStackView.removeArrangedSubview(serviceUserCompany)
-            serviceUserCompany.removeFromSuperview()
+        if(serviceUserCompany.text == ""){
+        detailsStackView.removeArrangedSubview(serviceUserCompany)
+            serviceUserCompany.isHidden = true
+//            serviceUserCompanyHeight.constant = 0
         }
-        if(serviceUserExperience.text == "Not Provided years exp"){
-            detailsStackView.removeArrangedSubview(serviceUserExperience)
-            serviceUserExperience.removeFromSuperview()
+       
+        if(serviceUserCompany.text != "" && !detailsStackView.arrangedSubviews.contains(serviceUserCompany)){
+            detailsStackView.insertArrangedSubview(serviceUserCompany, at: 2)
+            serviceUserCompany.isHidden = false
         }
+         print(detailsStackView.arrangedSubviews.contains(serviceUserCompany))
+        if(serviceUserExperience.text == " years exp"){
+//            detailsStackView.removeArrangedSubview(serviceUserExperience)
+//            serviceUserExperience.isHidden = true
+        }
+//        if(!serviceUserExperience.isDescendant(of: detailsStackView) && serviceUserExperience.text != " years exp"){
+//            detailsStackView.addArrangedSubview(serviceUserExperience)
+//        }
     }
     
     @IBAction func rateServiceUser(_ sender: Any) {

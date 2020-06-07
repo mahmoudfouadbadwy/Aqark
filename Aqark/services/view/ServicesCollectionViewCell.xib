@@ -23,11 +23,11 @@
                             <constraint firstAttribute="width" secondItem="mTx-SR-1XX" secondAttribute="height" multiplier="1:1" id="7Ga-t4-Y39"/>
                         </constraints>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="jbJ-9A-eIV">
-                        <rect key="frame" x="178.5" y="20" width="226.5" height="123.5"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="jbJ-9A-eIV">
+                        <rect key="frame" x="178.5" y="20" width="218.5" height="123.5"/>
                         <subviews>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Txb-e1-1Yb" customClass="CosmosView" customModule="Cosmos">
-                                <rect key="frame" x="0.0" y="0.0" width="226.5" height="17"/>
+                                <rect key="frame" x="0.0" y="0.0" width="218.5" height="24.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="starSize">
@@ -36,30 +36,37 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oS7-bj-eN4">
-                                <rect key="frame" x="0.0" y="23" width="226.5" height="20.5"/>
+                                <rect key="frame" x="0.0" y="24.5" width="218.5" height="25"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVR-GH-Gc5">
-                                <rect key="frame" x="0.0" y="50" width="226.5" height="20.5"/>
+                                <rect key="frame" x="0.0" y="49.5" width="218.5" height="24.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ba-7U-5D8">
-                                <rect key="frame" x="0.0" y="76.5" width="226.5" height="20.5"/>
+                                <rect key="frame" x="0.0" y="74" width="218.5" height="25"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="3 years exp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aj-Cx-Mkf">
-                                <rect key="frame" x="0.0" y="103" width="226.5" height="20.5"/>
+                                <rect key="frame" x="0.0" y="99" width="218.5" height="24.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="WVR-GH-Gc5" firstAttribute="height" secondItem="jbJ-9A-eIV" secondAttribute="height" multiplier="0.2" id="CM1-Dz-ieU"/>
+                            <constraint firstItem="0ba-7U-5D8" firstAttribute="height" secondItem="jbJ-9A-eIV" secondAttribute="height" multiplier="0.2" id="L0J-DF-YQg"/>
+                            <constraint firstItem="oS7-bj-eN4" firstAttribute="height" secondItem="jbJ-9A-eIV" secondAttribute="height" multiplier="0.2" id="PSV-Td-8n5"/>
+                            <constraint firstItem="3aj-Cx-Mkf" firstAttribute="height" secondItem="jbJ-9A-eIV" secondAttribute="height" multiplier="0.2" id="g5H-zp-ZuU"/>
+                            <constraint firstItem="Txb-e1-1Yb" firstAttribute="height" secondItem="jbJ-9A-eIV" secondAttribute="height" multiplier="0.2" id="vw0-KQ-RXM"/>
+                        </constraints>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="he6-fm-Abp" customClass="CustomButton" customModule="Aqark" customModuleProvider="target">
                         <rect key="frame" x="20" y="163.5" width="123.5" height="31.5"/>
@@ -95,7 +102,7 @@
                 <constraint firstItem="he6-fm-Abp" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.3" id="0fr-cU-1E0"/>
                 <constraint firstItem="jbJ-9A-eIV" firstAttribute="leading" secondItem="mTx-SR-1XX" secondAttribute="trailing" constant="35" id="5Kh-v4-ZaZ"/>
                 <constraint firstItem="he6-fm-Abp" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.15" id="5r2-TV-Luu"/>
-                <constraint firstItem="jbJ-9A-eIV" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.55" id="7AA-40-qQ3"/>
+                <constraint firstItem="jbJ-9A-eIV" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.53" id="7AA-40-qQ3"/>
                 <constraint firstItem="jbJ-9A-eIV" firstAttribute="height" secondItem="mTx-SR-1XX" secondAttribute="height" id="8a4-5D-Ktv"/>
                 <constraint firstItem="mTx-SR-1XX" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.3" id="Bdd-NS-5fx"/>
                 <constraint firstItem="FcU-QD-kJE" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.1" id="Qbi-Kr-T2M"/>
@@ -120,6 +127,7 @@
                 <outlet property="rateMeButton" destination="he6-fm-Abp" id="xfF-Gf-D9P"/>
                 <outlet property="rateMeView" destination="FcU-QD-kJE" id="7Ib-Cw-QA6"/>
                 <outlet property="serviceUserCompany" destination="WVR-GH-Gc5" id="oOO-UJ-G7f"/>
+                <outlet property="serviceUserCompanyHeight" destination="CM1-Dz-ieU" id="YGS-mX-o5W"/>
                 <outlet property="serviceUserExperience" destination="3aj-Cx-Mkf" id="KmL-Ce-I7h"/>
                 <outlet property="serviceUserImage" destination="mTx-SR-1XX" id="X1M-tj-21N"/>
                 <outlet property="serviceUserLocation" destination="0ba-7U-5D8" id="gb3-Kd-2CH"/>

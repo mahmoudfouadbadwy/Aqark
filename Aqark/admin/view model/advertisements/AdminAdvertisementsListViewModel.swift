@@ -45,8 +45,10 @@ class AdminAdvertisementsListViewModel{
         }
     }
     
-    func deleteAdvertisement(adminAdvertisement:AdminAdvertisementViewModel){
-        dataAccess.deleteAdvertisment(adminAdvertisement: adminAdvertisement)
+    func deleteAdvertisement(adminAdvertisement:AdminAdvertisementViewModel,completionForDeleteAdvertisement:@escaping(_ deleted:Bool)->Void){
+        dataAccess.deleteAdvertisment(adminAdvertisement: adminAdvertisement){(deleted) in
+            completionForDeleteAdvertisement(deleted)
+        }
     }
     
     func checkNetworkConnection()->Bool{

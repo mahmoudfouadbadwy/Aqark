@@ -100,7 +100,7 @@ import UIKit
     @objc func removeFloatingLabel(){
         if self.text == "" {
             UIView.animate(withDuration: 0.13){
-                self.subviews[3].removeFromSuperview()
+                self.floatingLabel.removeFromSuperview()
                 self.setNeedsDisplay()
             }
             self.placeholder = self._placeholder
