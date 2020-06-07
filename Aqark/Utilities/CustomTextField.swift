@@ -75,7 +75,7 @@ import UIKit
     
     func updatePlaceHolder(){
 //        self._placeholder = (self._placeholder != nil) ? self._placeholder : placeholder
-        placeholder = self._placeholder
+        placeholder = self._placeholder?.localize
         self.addTarget(self, action: #selector(addFloatingLabel), for: .editingDidBegin)
         self.addTarget(self, action:#selector(removeFloatingLabel), for: .editingDidEnd)
     }
@@ -84,7 +84,7 @@ import UIKit
         if self.text == ""{
             self.floatingLabel.textColor = UIColor(rgb: 0x457b9d)
             self.floatingLabel.font = floatingLabelFont
-            self.floatingLabel.text = _placeholder
+            self.floatingLabel.text = _placeholder?.localize
             self.floatingLabel.layer.backgroundColor = UIColor(rgb: 0xf1faee).cgColor
             self.floatingLabel.translatesAutoresizingMaskIntoConstraints = false
             self.floatingLabel.clipsToBounds = true
@@ -103,7 +103,7 @@ import UIKit
                 self.subviews[3].removeFromSuperview()
                 self.setNeedsDisplay()
             }
-            self.placeholder = self._placeholder
+            self.placeholder = self._placeholder?.localize
         }
         self.layer.borderColor = UIColor.black.cgColor
     }
