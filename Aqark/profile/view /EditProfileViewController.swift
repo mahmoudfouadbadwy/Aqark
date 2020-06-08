@@ -56,6 +56,12 @@ class EditProfileViewController: UIViewController {
     }
     func setupView()
     {
+        userNameTxtField.delegate = self
+        phoneNumberTxtField.delegate = self
+        countryTxtField.delegate = self
+        addressTxtField.delegate = self
+        companyTxtField.delegate = self
+        experianceTxtField.delegate = self
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         self.navigationItem.title = "Edit Profile".localize
         imageView.layer.cornerRadius = imageView.bounds.height / 2
@@ -250,4 +256,11 @@ extension EditProfileViewController{
          
      }
     
+}
+
+extension EditProfileViewController : UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
