@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         let launchScreen = ViewController()
         window?.rootViewController = launchScreen
-        let date = Date().addingTimeInterval(8)
+        let date = Date().addingTimeInterval(5)
         let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(startApp), userInfo: nil, repeats: false)
         RunLoop.main.add(timer, forMode: .common)
       

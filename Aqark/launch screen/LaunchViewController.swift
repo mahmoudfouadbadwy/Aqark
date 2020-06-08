@@ -27,16 +27,11 @@ class LaunchViewController: UIView {
     
     private func commonInit() {
         print("  print  ")
-        backgroundColor = UIColor(white: 246.0 / 255.0, alpha: 1)
+        self.backgroundColor = UIColor.white
+      //  backgroundColor = UIColor(white: 246.0 / 255.0, alpha: 1)
         addSubview(logoGifImageView)
         logoGifImageView.frame = CGRect(x: frame.size.height / 2, y: frame.size.width  / 2, width: 150, height: 280.0)
-    //    logoGifImageView.center = CGPoint(x: self.frame.size.width  / 2,
-                                //     y: self.frame.size.height / 2)
-//        logoGifImageView.translatesAutoresizingMaskIntoConstraints = false
-//        logoGifImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-//        logoGifImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-//        logoGifImageView.widthAnchor.constraint(equalToConstant: 280).isActive = true
-//        logoGifImageView.heightAnchor.constraint(equalToConstant: 108).isActive = true
+   
     }
 }
 
