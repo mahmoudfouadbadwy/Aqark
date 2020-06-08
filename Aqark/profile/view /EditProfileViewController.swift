@@ -40,6 +40,7 @@ class EditProfileViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupImageTextField()
+        setTappedGesture()
        NotificationCenter.default.addObserver(self, selector: #selector(self.chnageIndicatorStatus), name: .indicator, object: nil)
     }
     @objc func chnageIndicatorStatus(){

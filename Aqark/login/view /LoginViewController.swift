@@ -23,6 +23,7 @@ class LoginViewController: UIViewController{
         loginViewModel = LoginViewModel()
         userEmailTextField.delegate = self
         userPasswordTextField.delegate = self
+        self.setTappedGesture()
         self.navigationItem.title = "Login".localize
         self.userEmailTextField.setIcon(UIImage(named: "Email")!)
         self.userPasswordTextField.setIcon(UIImage(named: "password")!)

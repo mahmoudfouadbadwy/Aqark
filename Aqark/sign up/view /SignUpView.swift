@@ -30,12 +30,12 @@ class SignUpView: UIViewController  {
         setTextFieldsDelegate()
         setPickerDelegates()
         setTappedGesture()
-        phoneNumber.delegate = self
-        username.delegate = self
-        email.delegate = self
-        password.delegate = self
-        confirmPassword.delegate = self
-        company.delegate = self
+//        phoneNumber.delegate = self
+//        username.delegate = self
+//        email.delegate = self
+//        password.delegate = self
+//        confirmPassword.delegate = self
+//        company.delegate = self
     }
     
     override func viewDidDisappear(_ animated: Bool) {

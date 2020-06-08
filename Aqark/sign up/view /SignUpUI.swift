@@ -75,14 +75,4 @@ extension SignUpView:UITextFieldDelegate{
         textField.resignFirstResponder()
         return true
     }
-    
-    func setTappedGesture()
-    {
-        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dissmissKeyboard))
-        view.isUserInteractionEnabled = true
-        view.addGestureRecognizer(tap)
-    }
-    @objc func dissmissKeyboard(){
-        view.endEditing(true)
-    }
 }
