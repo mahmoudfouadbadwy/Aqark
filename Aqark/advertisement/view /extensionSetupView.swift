@@ -18,7 +18,16 @@ extension AddAdvertisementViewController{
          collectionView.dataSource = self
          registerCellOfCollectionView()
          collectionView.register(UINib(nibName: "AddAdvertisementsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "idAddAdvertisementsCollectionViewCell")
-         
+        
+        priceTxtField.delegate = self
+        sizeTxtField.delegate = self
+        addressTxtField.delegate = self
+        phoneTxtField.delegate = self
+        BedroomsTxtField.delegate = self
+        BathroomTxtField.delegate = self
+        countyTxtField.delegate = self
+        //describtionTxtView.delegate = self
+        self.makeTappedGesture()
          
          //autocomplete delegation
          autocompletecontroller.delegate = self
@@ -42,9 +51,6 @@ extension AddAdvertisementViewController{
          // configtation of YPOmagePicker
          configtationYPOmagePicker()
          
-         // setup textFeild under line
-         setupTextFeildUnderLine()
-         
          // setup image in letf textfield
          setupImageInLeftTextField()
          
@@ -60,3 +66,17 @@ extension AddAdvertisementViewController{
      
     
 }
+
+extension AddAdvertisementViewController{
+    func makeTappedGesture()
+    {
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.makeDissmissKeyboard))
+        self.myView.isUserInteractionEnabled = true
+        self.myView.addGestureRecognizer(tap)
+    }
+    @objc func makeDissmissKeyboard(){
+        myView.endEditing(true)
+    }
+
+}
+

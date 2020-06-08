@@ -140,7 +140,7 @@ extension AccountViewModel{
             self.brokenRules.append(SignUpBrokenRule(name:"phone".localize,message: "Phone number must be provided.".localize))
         }
         else {
-            let phoneRegex = "^\\d{11}$"
+            let phoneRegex = "^[0][1]\\d{9}$".localize
             let phonePred = NSPredicate(format:"SELF MATCHES %@",phoneRegex)
             if (!phonePred.evaluate(with: phone))
             {

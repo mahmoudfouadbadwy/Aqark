@@ -53,12 +53,14 @@ class AddAdvertisementViewController: UIViewController  {
     var autocompletecontroller = GMSAutocompleteViewController()
     var filter = GMSAutocompleteFilter()
     @IBOutlet weak var blackIndicatorView: UIView!
+    @IBOutlet weak var myView: UIView!
     
     //MARK:- viewdidLoad
     override func viewDidLoad()
     {
         super.viewDidLoad()
         blackIndicatorView.isHidden = true
+        setTappedGesture()
         setupView()
        
         if(advertisementId.isEmpty == false)
@@ -193,30 +195,6 @@ class AddAdvertisementViewController: UIViewController  {
     }
     
     
-    
-    //MARK:- func setup textFeild under line
-    
-    func setupTextFeildUnderLine(){
-        //        priceTxtField.delegate = self
-        //        sizeTxtField.delegate = self
-        //        addressTxtField.delegate = self
-        //        phoneTxtField.delegate = self
-        //        BedroomsTxtField.delegate = self
-        //        BathroomTxtField.delegate = self
-        //        countyTxtField.delegate = self
-        
-//        priceTxtField.setUnderLine()
-//        phoneTxtField.setUnderLine()
-//        sizeTxtField.setUnderLine()
-//        addressTxtField.setUnderLine()
-//        phoneTxtField.setUnderLine()
-//        BedroomsTxtField.setUnderLine()
-//        BathroomTxtField.setUnderLine()
-//        countyTxtField.setUnderLine()
-        
-    }
-    
-    
     //MARK:- func setup image in letf textfield
     
     func setupImageInLeftTextField(){
@@ -261,3 +239,17 @@ extension Notification.Name{
     static let indicator = Notification.Name("indicator")
     static let alert = Notification.Name("alert")
 }
+
+extension AddAdvertisementViewController : UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+//
+//extension AddAdvertisementViewController : UITextViewDelegate{
+//    func textFieldShouldReturn(_ textView: UITextView) -> Bool {
+//        textView.resignFirstResponder()
+//        return true
+//    }
+//}
