@@ -26,6 +26,8 @@
 	<string>we want to access microphone </string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>we want to access photo library</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchView</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

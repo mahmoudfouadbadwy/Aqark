@@ -52,8 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     @objc func startApp(){
-        window = UIWindow()
-        window?.makeKeyAndVisible()
         let tabBarController = UITabBarController()
         tabBarController.tabBar.barTintColor = UIColor(rgb: 0xf1faee)
         tabBarController.tabBar.tintColor = UIColor(rgb: 0x1d3557)

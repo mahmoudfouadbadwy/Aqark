@@ -37,7 +37,6 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     var collectionViewFlowLayout:UICollectionViewFlowLayout!
     var advertismentsListViewModel : AdvertisementListViewModel!
     let searchController = UISearchController(searchResultsController: nil)
-    let launchScrean = LaunchViewController()
     var data : AdvertisementData!
     var sortedList = [AdvertisementViewModel]()
     var adsSortedList = [AdvertisementViewModel]()
@@ -68,7 +67,6 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    //    setupLaunchScreen ()
         setupViews()
         if SearchNetworking.checkNetworkConnection(){
             manageSearchBar()
@@ -79,12 +77,6 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         }
     }
     
-//    func setupLaunchScreen (){
-//        view.addSubview(launchScrean)
-//       // launchScrean.pinEdgesToSuperView()
-//        launchScrean.logoGifImageView.delegate = self
-//        launchScrean.logoGifImageView.startAnimatingGif()
-//    }
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -121,10 +113,5 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     
 }
 
-//extension SearchViewController: SwiftyGifDelegate {
-//    func gifDidStop(sender: UIImageView) {
-//        launchScrean.isHidden = true
-//    }
-//}
 
 

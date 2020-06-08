@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor(rgb: 0xf1faee)
         logoAnimationView.logoGifImageView.center = CGPoint(x: view.frame.size.width  / 2,
                                           y: view.frame.size.height / 2)
         view.addSubview(logoAnimationView)
