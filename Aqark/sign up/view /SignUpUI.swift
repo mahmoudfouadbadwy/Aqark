@@ -56,7 +56,7 @@ extension SignUpView:UIPickerViewDataSource,UIPickerViewDelegate{
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return NSAttributedString(string: countriesPicker[row], attributes: [NSAttributedString.Key.foregroundColor:UIColor(rgb: 0x457b9d)])
+        return NSAttributedString(string: countriesPicker[row].localize, attributes: [NSAttributedString.Key.foregroundColor:UIColor(rgb: 0x457b9d)])
     }
 }
 

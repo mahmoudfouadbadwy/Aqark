@@ -12,7 +12,7 @@ class FirstScreenViewController: UIViewController {
     
     @IBOutlet weak var rolesPicker: UIPickerView!
     var roles : [String] = [String]()
-    var userRole : String = "User".localize
+    var userRole : String = "User"
     override func viewDidLoad(){
         super.viewDidLoad()
         self.navigationItem.title = "Role".localize
@@ -21,7 +21,7 @@ class FirstScreenViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
         rolesPicker.delegate = self
         rolesPicker.dataSource = self
-        roles = ["User".localize,"Lawyer".localize,"Interior Designer".localize]
+        roles = ["User","Lawyer","Interior Designer"]
     }
 
     @IBAction func submit(_ sender: Any) {
@@ -50,6 +50,6 @@ extension FirstScreenViewController : UIPickerViewDelegate,UIPickerViewDataSourc
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return NSAttributedString(string: roles[row], attributes: [NSAttributedString.Key.foregroundColor:UIColor(rgb: 0x457b9d)])
+        return NSAttributedString(string: roles[row].localize, attributes: [NSAttributedString.Key.foregroundColor:UIColor(rgb: 0x457b9d)])
     }
 }

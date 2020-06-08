@@ -22,7 +22,7 @@ class SignUpView: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Sign Up"
+        self.navigationItem.title = "Sign Up".localize
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         self.countries.backgroundColor = UIColor(rgb: 0xf1faee)
         setupViews(as: role)
@@ -53,15 +53,15 @@ class SignUpView: UIViewController  {
         }
         
         if(!confirmPassword.text!.isEmpty){
-            password.text = ""
-            password.removeFloatingLabel()
-            password._placeholder = "Confirm Password".localize
+            confirmPassword.text = ""
+            confirmPassword.removeFloatingLabel()
+            confirmPassword._placeholder = "Confirm Password".localize
         }
         
-        if(!confirmPassword.text!.isEmpty){
-            password.text = ""
-            password.removeFloatingLabel()
-            password._placeholder = "Confirm Password".localize
+        if(!company.text!.isEmpty){
+            company.text = ""
+            company.removeFloatingLabel()
+            company._placeholder = "company".localize
         }
         
         if(!username.text!.isEmpty){

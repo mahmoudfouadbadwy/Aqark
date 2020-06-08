@@ -81,14 +81,14 @@ extension AccountViewModel{
     private func validateEmail(){
         if(email.isEmpty)
         {
-            self.brokenRules.append(SignUpBrokenRule(name:"Email",message:"An email address must be provided."))
+            self.brokenRules.append(SignUpBrokenRule(name:"Email".localize,message:"An email address must be provided.".localize))
         }
         else {
              let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
              let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
              if (!emailPred.evaluate(with: email))
              {
-                self.brokenRules.append(SignUpBrokenRule(name:"Email",message:"The email address is badly formatted."))
+                self.brokenRules.append(SignUpBrokenRule(name:"Email".localize,message:"The email address is badly formatted.".localize))
              }
         }
     }
@@ -98,7 +98,7 @@ extension AccountViewModel{
     private func validatePassword(){
         if(password.isEmpty || password.count<6)
         {
-            self.brokenRules.append(SignUpBrokenRule(name:"Password",message:"The password must be 6 characters long or more."))
+            self.brokenRules.append(SignUpBrokenRule(name:"Password".localize,message:"The password must be 6 characters long or more.".localize))
         }
     }
 }
@@ -107,7 +107,7 @@ extension AccountViewModel{
 extension AccountViewModel{
     func validateConfirmPassword(){
         if(self.confirmPassword.isEmpty || !self.confirmPassword.elementsEqual(self.password)){
-            self.brokenRules.append(SignUpBrokenRule(name:"Confirm Password",message:"Those passwords did not match."))
+            self.brokenRules.append(SignUpBrokenRule(name:"Confirm Password".localize,message:"Those passwords did not match.".localize))
         }
     }
 }
@@ -116,7 +116,7 @@ extension AccountViewModel{
 extension AccountViewModel{
     func validateUsername(){
         if (self.username.isEmpty){
-             self.brokenRules.append(SignUpBrokenRule(name:"Username",message:"Username must be provided."))
+            self.brokenRules.append(SignUpBrokenRule(name:"Username".localize,message:"Username must be provided.".localize))
         }
         else
         {
@@ -124,8 +124,8 @@ extension AccountViewModel{
             let usernamePred = NSPredicate(format:"SELF MATCHES %@",usernameRegEX )
             if (!usernamePred.evaluate(with: username))
             {
-                 self.brokenRules.append(SignUpBrokenRule(name:"Username",
-                 message:"Username must start of letter and be between 6 and 20 characters."))
+                self.brokenRules.append(SignUpBrokenRule(name:"Username".localize,
+                                                         message:"Username must start of letter and be between 6 and 20 characters.".localize))
             }
         }
     }
@@ -137,14 +137,14 @@ extension AccountViewModel{
     {
         if(self.phone.isEmpty)
         {
-            self.brokenRules.append(SignUpBrokenRule(name:"phone",message: "Phone number must be provided."))
+            self.brokenRules.append(SignUpBrokenRule(name:"phone".localize,message: "Phone number must be provided.".localize))
         }
         else {
             let phoneRegex = "^\\d{11}$"
             let phonePred = NSPredicate(format:"SELF MATCHES %@",phoneRegex)
             if (!phonePred.evaluate(with: phone))
             {
-                 self.brokenRules.append(SignUpBrokenRule(name:"phone",message: "Phone number is badly formatted."))
+                self.brokenRules.append(SignUpBrokenRule(name:"phone".localize,message: "Phone number is badly formatted.".localize))
             }
         }
     }

@@ -46,21 +46,21 @@ class EditProfileViewModel : EditProfileProtocol
         {
             if userName.isEmpty == true
             {
-                borkenRule.append(EditProfileBrokenRule(brokenType: "userName", message: "enter userName"))
+                borkenRule.append(EditProfileBrokenRule(brokenType: "Username".localize, message: "Username must be provided.".localize))
             }
         }else{
             
             if userName.isEmpty == true
             {
-                borkenRule.append(EditProfileBrokenRule(brokenType: "userName", message: "enter userName"))
+                borkenRule.append(EditProfileBrokenRule(brokenType: "Username".localize, message: "Username must be provided.".localize))
             }
             if country.isEmpty == true
             {
-                borkenRule.append(EditProfileBrokenRule(brokenType: "country", message: "enter country"))
+                borkenRule.append(EditProfileBrokenRule(brokenType: "country".localize, message: "Country must be provided.".localize))
             }
             if company.isEmpty == true
             {
-                borkenRule.append(EditProfileBrokenRule(brokenType: "company", message: "enter company"))
+                borkenRule.append(EditProfileBrokenRule(brokenType: "Company".localize, message: "Company must be provided.".localize))
             }
             if((phoneNumber.isEmpty) || (phoneNumber.isEmpty == false)){
                 phoneValidate(value: phoneNumber)
@@ -73,16 +73,16 @@ class EditProfileViewModel : EditProfileProtocol
     
     func phoneValidate(value: String){
            
-        let PHONE_REGEX = "^[0][1]\\d{9}$"
+        let PHONE_REGEX = "^[0][1]\\d{9}$".localize
         
         let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
         
         if (value.isEmpty){
-            self.borkenRule.append(EditProfileBrokenRule(brokenType: "phoneNumber", message: "enter phoneNumber"))
+            self.borkenRule.append(EditProfileBrokenRule(brokenType: "Mobile Number".localize, message: "enter phoneNumber".localize))
         }else{
             if phoneTest.evaluate(with: value) {
             }else{
-                self.borkenRule.append(EditProfileBrokenRule(brokenType: "phoneNumber", message: "phoneNumber not valild"))
+                self.borkenRule.append(EditProfileBrokenRule(brokenType: "Mobile Number".localize, message: "phoneNumber not valild".localize))
             }
         }
     }

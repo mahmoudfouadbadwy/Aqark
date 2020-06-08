@@ -11,8 +11,8 @@ import UIKit
 //MARK: - ALertView
 extension SignUpView{
     func showAlert(with message:String){
-        let alert:UIAlertController = UIAlertController(title: "Sign Up", message:message , preferredStyle: .alert)
-        let ok:UIAlertAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+        let alert:UIAlertController = UIAlertController(title: "Sign Up".localize, message:message , preferredStyle: .alert)
+        let ok:UIAlertAction = UIAlertAction(title: "Ok".localize, style: .default) { (UIAlertAction) in
             alert.dismiss(animated: true)
         }
         alert.addAction(ok)
