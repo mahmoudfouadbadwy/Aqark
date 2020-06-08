@@ -29,12 +29,13 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     var isMapHidden = true
     let reuseIdentifier = "MyIdentifier"
     var counts: [String: Int] = [:]
+  
+      var addressArr = [String]()
     var numberOfPropertiesInLocation : Int!
     var addressForMap : String!
     var adViewModel : AdvertisementViewModel!
     var mapViewModel : MapViewModel!
     var maps : [MapViewModel] = []
-//    var maps: [Map] = []
     var arrayOfLongitude = [Double]()
     var latitude : Double = 0
     var longitude : Double = 0

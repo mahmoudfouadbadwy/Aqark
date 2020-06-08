@@ -38,13 +38,24 @@ extension SearchViewController : MKMapViewDelegate{
         actionButton.imageView.image("search_map")
     }
     
+   
+    
     func putLocationOnMap(){
+        addressArr.removeAll()
+        print(counts)
      
         for item in self.arrOfAdViewModel{
                maps.removeAll()
+            
             self.longitude = item.longtiude
             self.latitude = item.latitude
             self.addressForMap = String(item.address)
+           
+            
+//            addressArr.append(addressForMap)
+//            print(addressArr)
+//            addressArr.forEach{counts[$0, default: 0] += 1 }
+//                        print(counts)
             self.numberOfPropertiesInLocation = self.counts[self.addressForMap]
             let map = MapViewModel(model: Map(title: addressForMap, coordinate: CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude), subtitle: String(self.numberOfPropertiesInLocation)))
             maps.append(map)
