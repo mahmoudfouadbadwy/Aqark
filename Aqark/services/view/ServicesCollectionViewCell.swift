@@ -66,27 +66,16 @@ class ServicesCollectionViewCell: UICollectionViewCell {
         }
         
         if(serviceUserCompany.text == ""){
-            //detailsStackView.removeArrangedSubview(serviceUserCompany)
             serviceUserCompany.isHidden = true
-            //serviceUserCompanyHeight.constant = 0
-        }else if (serviceUserCompany.text != "" && serviceUserCompany.isHidden == true){
+        }else if(serviceUserCompany.text != "" && serviceUserCompany.isHidden == true){
             serviceUserCompany.isHidden = false
         }
-        
-//        if(serviceUserCompany.text != "" && !detailsStackView.arrangedSubviews.contains(serviceUserCompany)){
-//            detailsStackView.insertArrangedSubview(serviceUserCompany, at: 2)
-//            serviceUserCompany.isHidden = false
-//        }
- //       print(detailsStackView.arrangedSubviews.contains(serviceUserCompany))
+
         if(serviceUserExperience.text == " years exp"){
-            //detailsStackView.removeArrangedSubview(serviceUserExperience)
             serviceUserExperience.isHidden = true
-        }else if (serviceUserExperience.text != "" && serviceUserExperience.isHidden == true){
+        }else if(serviceUserExperience.isHidden == true && serviceUserExperience.text != " years exp"){
             serviceUserExperience.isHidden = false
         }
-        //        if(!serviceUserExperience.isDescendant(of: detailsStackView) && serviceUserExperience.text != " years exp"){
-        //            detailsStackView.addArrangedSubview(serviceUserExperience)
-        //        }
     }
     
     @IBAction func rateServiceUser(_ sender: Any) {

@@ -23,7 +23,7 @@
                             <constraint firstAttribute="width" secondItem="mTx-SR-1XX" secondAttribute="height" multiplier="1:1" id="7Ga-t4-Y39"/>
                         </constraints>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="jbJ-9A-eIV">
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="jbJ-9A-eIV">
                         <rect key="frame" x="183.5" y="20" width="218.5" height="123.5"/>
                         <subviews>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Txb-e1-1Yb" customClass="CosmosView" customModule="Cosmos">
@@ -60,13 +60,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="WVR-GH-Gc5" firstAttribute="height" secondItem="jbJ-9A-eIV" secondAttribute="height" multiplier="0.2" id="CM1-Dz-ieU"/>
-                            <constraint firstItem="0ba-7U-5D8" firstAttribute="height" secondItem="jbJ-9A-eIV" secondAttribute="height" multiplier="0.2" id="L0J-DF-YQg"/>
-                            <constraint firstItem="oS7-bj-eN4" firstAttribute="height" secondItem="jbJ-9A-eIV" secondAttribute="height" multiplier="0.2" id="PSV-Td-8n5"/>
-                            <constraint firstItem="3aj-Cx-Mkf" firstAttribute="height" secondItem="jbJ-9A-eIV" secondAttribute="height" multiplier="0.2" id="g5H-zp-ZuU"/>
-                            <constraint firstItem="Txb-e1-1Yb" firstAttribute="height" secondItem="jbJ-9A-eIV" secondAttribute="height" multiplier="0.2" id="vw0-KQ-RXM"/>
-                        </constraints>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="he6-fm-Abp" customClass="CustomButton" customModule="Aqark" customModuleProvider="target">
                         <rect key="frame" x="25" y="163.5" width="123.5" height="31.5"/>
@@ -127,7 +120,6 @@
                 <outlet property="rateMeButton" destination="he6-fm-Abp" id="xfF-Gf-D9P"/>
                 <outlet property="rateMeView" destination="FcU-QD-kJE" id="7Ib-Cw-QA6"/>
                 <outlet property="serviceUserCompany" destination="WVR-GH-Gc5" id="oOO-UJ-G7f"/>
-                <outlet property="serviceUserCompanyHeight" destination="CM1-Dz-ieU" id="YGS-mX-o5W"/>
                 <outlet property="serviceUserExperience" destination="3aj-Cx-Mkf" id="KmL-Ce-I7h"/>
                 <outlet property="serviceUserImage" destination="mTx-SR-1XX" id="X1M-tj-21N"/>
                 <outlet property="serviceUserLocation" destination="0ba-7U-5D8" id="gb3-Kd-2CH"/>
