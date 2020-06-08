@@ -12,7 +12,7 @@ extension PropertyDetailView{
     
     func configureCallingButton()
     {
-        callButton.addItem(title: "call", image: UIImage(named: "PropertyDetail_phone")?.withRenderingMode(.alwaysTemplate)) { item in
+        callButton.addItem(title: "call", image: UIImage(named: "phone")?.withRenderingMode(.alwaysTemplate)) { item in
                self.makePhoneCall()
         }
         view.addSubview(callButton)
