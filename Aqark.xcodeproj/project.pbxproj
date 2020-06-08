@@ -96,6 +96,7 @@
 		82ACAE02248C5E30002EF804 /* PropertyDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82ACAE04248C5E30002EF804 /* PropertyDetailView.xib */; };
 		AB359ED5E1D6FD408208700F /* Pods_AqarkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */; };
 		BF0F8F2E24890BF40055EAD8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0F8F2D24890BF40055EAD8 /* Color.swift */; };
+		BF220884248DA72800809430 /* Launchview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF220883248DA72800809430 /* Launchview.swift */; };
 		BF2F5ECB2485495E007AD263 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2F5ECA2485495E007AD263 /* Indicator.swift */; };
 		BF2F5ECD24859A47007AD263 /* ReviewUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2F5ECC24859A47007AD263 /* ReviewUserModel.swift */; };
 		BF36E8692475A3F200FD9192 /* AdvertisementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF36E8682475A3F100FD9192 /* AdvertisementCell.xib */; };
@@ -151,7 +152,11 @@
 		BF8CD7A9247AE9CB00DA60BA /* DownloadSliderImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CD7A8247AE9CB00DA60BA /* DownloadSliderImages.swift */; };
 		BF8CD7AF247AFB0E00DA60BA /* ImageSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8CD7AE247AFB0E00DA60BA /* ImageSlider.xib */; };
 		BF96078A246B26C1002B63D5 /* SignupBrokenRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF960789246B26C1002B63D5 /* SignupBrokenRule.swift */; };
+
 		BF99CD7B248DB8BB00510D92 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CD7A248DB8BB00510D92 /* Keyboard.swift */; };
+
+		BFA11E2C248E8CE8002895EA /* logoGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = BFA11E2B248E8CE7002895EA /* logoGif.gif */; };
+
 		BFA42D96247BED1900A986E8 /* CallingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA42D95247BED1900A986E8 /* CallingButton.swift */; };
 		BFA42D99247BF93E00A986E8 /* AmenitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA42D97247BF93E00A986E8 /* AmenitiesCell.swift */; };
 		BFA42D9A247BF93E00A986E8 /* AmenitiesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA42D98247BF93E00A986E8 /* AmenitiesCell.xib */; };
@@ -173,6 +178,7 @@
 		BFCF0BDB24677F8100A43D8B /* AqarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF0BDA24677F8100A43D8B /* AqarkTests.swift */; };
 		BFE9F4472469930200E44777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFE9F4462469930200E44777 /* GoogleService-Info.plist */; };
 		BFE9F4482469930200E44777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFE9F4462469930200E44777 /* GoogleService-Info.plist */; };
+		BFEE6803248B989200DA5F53 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE6801248B989200DA5F53 /* LaunchViewController.swift */; };
 		BFF016172481067800C3B7C0 /* AgentAdvertisementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF016152481067800C3B7C0 /* AgentAdvertisementCell.swift */; };
 		BFF0161A24810CB800C3B7C0 /* AgentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0161924810CB800C3B7C0 /* AgentViewModel.swift */; };
 		BFF0161C24810D1F00C3B7C0 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0161B24810D1F00C3B7C0 /* Agent.swift */; };
@@ -312,6 +318,7 @@
 		88E560A844B318E2835E7F97 /* Pods-Aqark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqark.release.xcconfig"; path = "Target Support Files/Pods-Aqark/Pods-Aqark.release.xcconfig"; sourceTree = "<group>"; };
 		B77402FFEAE979F1B4E1F970 /* Pods-AqarkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AqarkTests.release.xcconfig"; path = "Target Support Files/Pods-AqarkTests/Pods-AqarkTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF0F8F2D24890BF40055EAD8 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		BF220883248DA72800809430 /* Launchview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launchview.swift; sourceTree = "<group>"; };
 		BF2F5ECA2485495E007AD263 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
 		BF2F5ECC24859A47007AD263 /* ReviewUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewUserModel.swift; sourceTree = "<group>"; };
 		BF36E8682475A3F100FD9192 /* AdvertisementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvertisementCell.xib; sourceTree = "<group>"; };
@@ -367,7 +374,11 @@
 		BF8CD7A8247AE9CB00DA60BA /* DownloadSliderImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSliderImages.swift; sourceTree = "<group>"; };
 		BF8CD7AE247AFB0E00DA60BA /* ImageSlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageSlider.xib; sourceTree = "<group>"; };
 		BF960789246B26C1002B63D5 /* SignupBrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupBrokenRule.swift; sourceTree = "<group>"; };
+
 		BF99CD7A248DB8BB00510D92 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+
+		BFA11E2B248E8CE7002895EA /* logoGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logoGif.gif; sourceTree = "<group>"; };
+
 		BFA42D95247BED1900A986E8 /* CallingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallingButton.swift; sourceTree = "<group>"; };
 		BFA42D97247BF93E00A986E8 /* AmenitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenitiesCell.swift; sourceTree = "<group>"; };
 		BFA42D98247BF93E00A986E8 /* AmenitiesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmenitiesCell.xib; sourceTree = "<group>"; };
@@ -392,6 +403,7 @@
 		BFCF0BDA24677F8100A43D8B /* AqarkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AqarkTests.swift; sourceTree = "<group>"; };
 		BFCF0BDC24677F8100A43D8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFE9F4462469930200E44777 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BFEE6801248B989200DA5F53 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		BFF016152481067800C3B7C0 /* AgentAdvertisementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentAdvertisementCell.swift; sourceTree = "<group>"; };
 		BFF0161924810CB800C3B7C0 /* AgentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentViewModel.swift; sourceTree = "<group>"; };
 		BFF0161B24810D1F00C3B7C0 /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
@@ -1221,6 +1233,7 @@
 			isa = PBXGroup;
 			children = (
 				BFE9F4462469930200E44777 /* GoogleService-Info.plist */,
+				BFEE67FE248B96F200DA5F53 /* launch screen */,
 				BF2F5EC92485492D007AD263 /* Utilities */,
 				3ED938D72480A825005BF1EF /* services */,
 				BF06B40724679D83005D7151 /* payment */,
@@ -1234,9 +1247,9 @@
 				BF06B3FF24679CEA005D7151 /* search */,
 				BF82E6E3248195D800786141 /* favourite */,
 				BFCF0BC624677F8000A43D8B /* Main.storyboard */,
+				BFCF0BCE24677F8100A43D8B /* LaunchScreen.storyboard */,
 				BFCF0BC224677F8000A43D8B /* AppDelegate.swift */,
 				BFCF0BCC24677F8100A43D8B /* Assets.xcassets */,
-				BFCF0BCE24677F8100A43D8B /* LaunchScreen.storyboard */,
 				BFCF0BD124677F8100A43D8B /* Info.plist */,
 				BFCF0BC924677F8000A43D8B /* Aqark.xcdatamodeld */,
 			);
@@ -1251,6 +1264,16 @@
 				BFCF0BDC24677F8100A43D8B /* Info.plist */,
 			);
 			path = AqarkTests;
+			sourceTree = "<group>";
+		};
+		BFEE67FE248B96F200DA5F53 /* launch screen */ = {
+			isa = PBXGroup;
+			children = (
+				BFEE6801248B989200DA5F53 /* LaunchViewController.swift */,
+				BF220883248DA72800809430 /* Launchview.swift */,
+				BFA11E2B248E8CE7002895EA /* logoGif.gif */,
+			);
+			path = "launch screen";
 			sourceTree = "<group>";
 		};
 		C63F74DC246BC4CA00142EE0 /* data */ = {
@@ -1348,6 +1371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFA11E2C248E8CE8002895EA /* logoGif.gif in Resources */,
 				BF82E6ED2481972E00786141 /* FavouriteViewController.xib in Resources */,
 				3E69A8D7247EF5E000193605 /* AdminAdvertisementsViewController.xib in Resources */,
 				826A9A362473EAC40046E562 /* AddAdvertisementViewController.xib in Resources */,
@@ -1506,6 +1530,7 @@
 				BF6DC68E2473522B0030AE52 /* PropertyDetailView.swift in Sources */,
 				BF7C9765247D917A00E8F516 /* FavouriteProtocol.swift in Sources */,
 				C65AD6562483AEC500A402FB /* ReviewCell.swift in Sources */,
+				BF220884248DA72800809430 /* Launchview.swift in Sources */,
 				BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */,
 				3E0E988F2482C1CE0001F5DA /* CircularImage.swift in Sources */,
 				BFA42D9C247BFCE000A986E8 /* AmenitiesCollection.swift in Sources */,
@@ -1558,6 +1583,9 @@
 				BFC578BD24744F0600C77873 /* ProfileNavigationProperties.swift in Sources */,
 				BFF016172481067800C3B7C0 /* AgentAdvertisementCell.swift in Sources */,
 				3E7F060A248AB440009118B8 /* AdminUsersTableView.swift in Sources */,
+				BF4355862474E1DE001DA5D8 /* AdvertisementCellCollectionViewCell.swift in Sources */,
+				BFEE6803248B989200DA5F53 /* LaunchViewController.swift in Sources */,
+				BFF016172481067800C3B7C0 /* AgentAdvertisementCell.swift in Sources */,
 				BF4355862474E1DE001DA5D8 /* AdvertisementCellCollectionViewCell.swift in Sources */,
 				BF0F8F2E24890BF40055EAD8 /* Color.swift in Sources */,
 				BF8111B7247A36410059D571 /* BindDetails.swift in Sources */,
