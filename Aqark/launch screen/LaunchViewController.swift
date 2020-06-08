@@ -25,7 +25,7 @@ class LaunchViewController: UIView {
     }
     
     private func commonInit() {
-        self.backgroundColor = UIColor.white
+      //  self.backgroundColor = UIColor.white
         addSubview(logoGifImageView)
         logoGifImageView.frame = CGRect(x: frame.size.height / 2, y: frame.size.width  / 2, width: 150, height: 280.0)
    
