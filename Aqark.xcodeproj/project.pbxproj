@@ -80,6 +80,7 @@
 		826A9A442474CC730046E562 /* extensionviewPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826A9A432474CC730046E562 /* extensionviewPicker.swift */; };
 		AB359ED5E1D6FD408208700F /* Pods_AqarkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */; };
 		BF0F8F2E24890BF40055EAD8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0F8F2D24890BF40055EAD8 /* Color.swift */; };
+		BF220884248DA72800809430 /* Launchview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF220883248DA72800809430 /* Launchview.swift */; };
 		BF2F5ECB2485495E007AD263 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2F5ECA2485495E007AD263 /* Indicator.swift */; };
 		BF2F5ECD24859A47007AD263 /* ReviewUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2F5ECC24859A47007AD263 /* ReviewUserModel.swift */; };
 		BF36E8692475A3F200FD9192 /* AdvertisementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF36E8682475A3F100FD9192 /* AdvertisementCell.xib */; };
@@ -115,6 +116,7 @@
 		BF6DC6902473522B0030AE52 /* PropertyDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF6DC68C2473522A0030AE52 /* PropertyDetailView.xib */; };
 		BF719561247919C500703D10 /* CoreDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF719560247919C500703D10 /* CoreDataAccess.swift */; };
 		BF77D47B2471698E00455A25 /* ProfileAdvertisementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77D4792471698E00455A25 /* ProfileAdvertisementCell.swift */; };
+		BF7958F3248D464C005EF124 /* logoGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = BF7958F2248D464B005EF124 /* logoGif.gif */; };
 		BF7C9765247D917A00E8F516 /* FavouriteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C9764247D917A00E8F516 /* FavouriteProtocol.swift */; };
 		BF8111B7247A36410059D571 /* BindDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8111B6247A36410059D571 /* BindDetails.swift */; };
 		BF8189552481D833005256E3 /* AgentRateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8189542481D832005256E3 /* AgentRateViewModel.swift */; };
@@ -279,6 +281,7 @@
 		88E560A844B318E2835E7F97 /* Pods-Aqark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqark.release.xcconfig"; path = "Target Support Files/Pods-Aqark/Pods-Aqark.release.xcconfig"; sourceTree = "<group>"; };
 		B77402FFEAE979F1B4E1F970 /* Pods-AqarkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AqarkTests.release.xcconfig"; path = "Target Support Files/Pods-AqarkTests/Pods-AqarkTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF0F8F2D24890BF40055EAD8 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		BF220883248DA72800809430 /* Launchview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launchview.swift; sourceTree = "<group>"; };
 		BF2F5ECA2485495E007AD263 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
 		BF2F5ECC24859A47007AD263 /* ReviewUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewUserModel.swift; sourceTree = "<group>"; };
 		BF36E8682475A3F100FD9192 /* AdvertisementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvertisementCell.xib; sourceTree = "<group>"; };
@@ -314,6 +317,7 @@
 		BF6DC68C2473522A0030AE52 /* PropertyDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropertyDetailView.xib; sourceTree = "<group>"; };
 		BF719560247919C500703D10 /* CoreDataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAccess.swift; sourceTree = "<group>"; };
 		BF77D4792471698E00455A25 /* ProfileAdvertisementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAdvertisementCell.swift; sourceTree = "<group>"; };
+		BF7958F2248D464B005EF124 /* logoGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logoGif.gif; sourceTree = "<group>"; };
 		BF7C9764247D917A00E8F516 /* FavouriteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteProtocol.swift; sourceTree = "<group>"; };
 		BF8111B6247A36410059D571 /* BindDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindDetails.swift; sourceTree = "<group>"; };
 		BF8189542481D832005256E3 /* AgentRateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentRateViewModel.swift; sourceTree = "<group>"; };
@@ -643,8 +647,6 @@
 				BFA42D98247BF93E00A986E8 /* AmenitiesCell.xib */,
 				BFA42D9B247BFCE000A986E8 /* AmenitiesCollection.swift */,
 				BF4E2F4E24866F34001137AA /* FavouriteButton.swift */,
-				BF4E2F4C24866EB9001137AA /* FavouriteButtonProtocol.swift */,
-
 				C66E3B7D247FD8E900E1BAF2 /* ReportExtension.swift */,
 				C65805CD2482A7C1003F3DA1 /* ReviewExtension.swift */,
 				C65AD6542483AEC500A402FB /* ReviewCell.swift */,
@@ -1183,7 +1185,9 @@
 			isa = PBXGroup;
 			children = (
 				BFEE6801248B989200DA5F53 /* LaunchViewController.swift */,
+				BF7958F2248D464B005EF124 /* logoGif.gif */,
 				BFEE6802248B989200DA5F53 /* LaunchViewController.xib */,
+				BF220883248DA72800809430 /* Launchview.swift */,
 			);
 			path = "launch screen";
 			sourceTree = "<group>";
@@ -1282,6 +1286,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF7958F3248D464C005EF124 /* logoGif.gif in Resources */,
 				BF82E6ED2481972E00786141 /* FavouriteViewController.xib in Resources */,
 				3E69A8D7247EF5E000193605 /* AdminAdvertisementsViewController.xib in Resources */,
 				826A9A362473EAC40046E562 /* AddAdvertisementViewController.xib in Resources */,
@@ -1439,6 +1444,7 @@
 				BF6DC68E2473522B0030AE52 /* PropertyDetailView.swift in Sources */,
 				BF7C9765247D917A00E8F516 /* FavouriteProtocol.swift in Sources */,
 				C65AD6562483AEC500A402FB /* ReviewCell.swift in Sources */,
+				BF220884248DA72800809430 /* Launchview.swift in Sources */,
 				BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */,
 				3E0E988F2482C1CE0001F5DA /* CircularImage.swift in Sources */,
 				BFA42D9C247BFCE000A986E8 /* AmenitiesCollection.swift in Sources */,
@@ -1487,16 +1493,12 @@
 				3E69A8B4247EF59600193605 /* AdminUserData.swift in Sources */,
 				3E736C6F2480CAF2004D8B81 /* ServicesCollectionViewCell.swift in Sources */,
 				BFC578BD24744F0600C77873 /* ProfileNavigationProperties.swift in Sources */,
-
-				BF4E2F4D24866EB9001137AA /* FavouriteButtonProtocol.swift in Sources */,
 				BFF016172481067800C3B7C0 /* AgentAdvertisementCell.swift in Sources */,
 				BF4355862474E1DE001DA5D8 /* AdvertisementCellCollectionViewCell.swift in Sources */,
 				BFEE6803248B989200DA5F53 /* LaunchViewController.swift in Sources */,
-
 				BFF016172481067800C3B7C0 /* AgentAdvertisementCell.swift in Sources */,
 				BF4355862474E1DE001DA5D8 /* AdvertisementCellCollectionViewCell.swift in Sources */,
 				BF0F8F2E24890BF40055EAD8 /* Color.swift in Sources */,
-
 				BF8111B7247A36410059D571 /* BindDetails.swift in Sources */,
 				3EA8369B246CE13A009AD024 /* ValidationProtocol.swift in Sources */,
 				C66E3B7C247FCDED00E1BAF2 /* ReportViewModel.swift in Sources */,

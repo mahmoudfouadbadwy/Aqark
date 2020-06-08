@@ -27,7 +27,7 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>we want to access photo library</string>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchViewController</string>
+	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

@@ -9,9 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LaunchViewController" customModule="Aqark" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner">
             <connections>
-                <outlet property="imageView" destination="ZYn-5a-Tb3" id="Frh-q6-Pco"/>
+                <outlet property="imageView" destination="ZYn-5a-Tb3" id="fm9-ji-dnM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,8 +20,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ZYn-5a-Tb3">
-                    <rect key="frame" x="45" y="151" width="285" height="128"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-action" translatesAutoresizingMaskIntoConstraints="NO" id="ZYn-5a-Tb3">
+                    <rect key="frame" x="45" y="269.5" width="285" height="128"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="285" id="iBV-EI-KUO"/>
                         <constraint firstAttribute="height" constant="128" id="nHo-GV-7k8"/>
@@ -31,13 +31,13 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ZYn-5a-Tb3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Y25-Q2-f4c"/>
-                <constraint firstItem="ZYn-5a-Tb3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="131" id="qom-II-qTX"/>
+                <constraint firstItem="ZYn-5a-Tb3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="uBM-IV-EcT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="82.400000000000006" y="54.422788605697157"/>
         </view>
     </objects>
     <resources>
-        <image name="logo" width="750" height="750"/>
+        <image name="map-action" width="89" height="44"/>
     </resources>
 </document>
