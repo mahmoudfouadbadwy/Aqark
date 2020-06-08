@@ -44,7 +44,7 @@ class ProfileViewController: UIViewController {
         if(ProfileNetworking.checkNetworkConnection())
         {
             setupView()
-            setNavigationProperties()
+           // setNavigationProperties()
             setupCollection()
             noAdvertisementsLabel.isHidden = true
         }
@@ -69,6 +69,7 @@ class ProfileViewController: UIViewController {
                 else
                 {
                     showActivityIndicator()
+                    setNavigationProperties()
                     bindProfileData()
                     bindCollectionData()
                     noAdvertisementsLabel.isHidden = true
