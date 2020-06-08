@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -30,29 +30,29 @@
                                 <rect key="frame" x="96" y="24.5" width="119" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93T-zV-UFc">
-                                        <rect key="frame" x="0.0" y="0.0" width="119" height="14"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="119" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ziT-4N-5rg" customClass="CosmosView" customModule="Cosmos">
-                                        <rect key="frame" x="0.0" y="14" width="119" height="30"/>
+                                        <rect key="frame" x="0.0" y="21.5" width="119" height="22.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
                                                 <integer key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
-                                                <color key="value" red="1" green="0.16991958069999999" blue="0.089936677019999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
-                                                <color key="value" red="1" green="0.16991958069999999" blue="0.089936677019999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
-                                                <color key="value" red="1" green="0.16991958069999999" blue="0.089936677019999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="starSize">
                                                 <real key="value" value="20"/>
@@ -65,10 +65,12 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87Q-hV-9K0" customClass="CustomButton" customModule="Aqark" customModuleProvider="target">
-                                <rect key="frame" x="223" y="30" width="67" height="33"/>
+                                <rect key="frame" x="223" y="30.5" width="67" height="32"/>
                                 <color key="backgroundColor" red="1" green="0.16991958069999999" blue="0.089936677019999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Ban"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Ban">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
                                 </userDefinedRuntimeAttributes>

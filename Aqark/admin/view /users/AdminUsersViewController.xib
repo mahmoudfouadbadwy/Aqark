@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -10,7 +10,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdminUsersViewController" customModule="Aqark" customModuleProvider="target">
             <connections>
-                <outlet property="activityIndicator" destination="j9f-2L-1vb" id="R1q-kk-bQ2"/>
                 <outlet property="noLabel" destination="2HT-uP-qvn" id="g3E-dC-BBm"/>
                 <outlet property="usersSearchBar" destination="gIB-CO-7UO" id="TQA-BJ-cOq"/>
                 <outlet property="usersSegment" destination="dKb-bi-xkV" id="opT-Bl-9FB"/>
@@ -38,10 +37,6 @@
                         <action selector="changeUserType:" destination="-1" eventType="valueChanged" id="hYo-uo-8Ol"/>
                     </connections>
                 </view>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="j9f-2L-1vb">
-                    <rect key="frame" x="188.5" y="498.5" width="37" height="37"/>
-                    <color key="color" red="1" green="0.16991958069999999" blue="0.089936677019999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </activityIndicatorView>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HT-uP-qvn">
                     <rect key="frame" x="20.5" y="496.5" width="373" height="41"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -61,12 +56,10 @@
                 <constraint firstItem="gIB-CO-7UO" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="gAO-a8-nRD"/>
                 <constraint firstItem="dKb-bi-xkV" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.0513393" id="j4Y-9Z-Yyr"/>
                 <constraint firstItem="cJi-QR-Tii" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="lp0-lR-dG2"/>
-                <constraint firstItem="j9f-2L-1vb" firstAttribute="centerX" secondItem="cJi-QR-Tii" secondAttribute="centerX" id="ns9-Jj-KC6"/>
                 <constraint firstItem="2HT-uP-qvn" firstAttribute="centerX" secondItem="cJi-QR-Tii" secondAttribute="centerX" id="pFX-4i-xmp"/>
                 <constraint firstItem="cJi-QR-Tii" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="ru5-ur-b0s"/>
                 <constraint firstItem="gIB-CO-7UO" firstAttribute="top" secondItem="dKb-bi-xkV" secondAttribute="bottom" constant="8" id="seB-nx-wS8"/>
                 <constraint firstItem="2HT-uP-qvn" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.05" id="vIc-KQ-GLh"/>
-                <constraint firstItem="j9f-2L-1vb" firstAttribute="centerY" secondItem="cJi-QR-Tii" secondAttribute="centerY" id="wuJ-CY-nVR"/>
                 <constraint firstItem="2HT-uP-qvn" firstAttribute="centerY" secondItem="cJi-QR-Tii" secondAttribute="centerY" id="zf6-qt-Wht"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

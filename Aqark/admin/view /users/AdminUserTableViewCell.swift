@@ -29,12 +29,14 @@ class AdminUserTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
+        userName.textColor = UIColor(rgb: 0x457b9d)
+        banUserButton.backgroundColor = UIColor(rgb: 0xe63946)
         userImage.circularImage()
         contentView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 1.0)
         cardBackgroundView.backgroundColor = .white
         cardBackgroundView.layer.cornerRadius = 10.0
         cardBackgroundView.layer.masksToBounds = false
-        cardBackgroundView.layer.shadowColor = UIColor.black.cgColor
+//        cardBackgroundView.layer.shadowColor = UIColor.black.cgColor
         cardBackgroundView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         cardBackgroundView.layer.shadowOpacity = 0.8
     }

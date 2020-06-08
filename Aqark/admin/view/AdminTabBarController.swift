@@ -27,6 +27,8 @@ class AdminTabBarController: UITabBarController {
         let adminUserViewController = AdminUsersViewController()
         let adminAdvertisementViewController = AdminAdvertisementsViewController()
         let adminReportsView = AdminReportsView()
+        tabBar.tintColor = UIColor(rgb: 0xe63946)
+        tabBar.barTintColor = UIColor(rgb: 0xf1faee)
         adminUserViewController.tabBarItem = UITabBarItem(title: "Users", image: UIImage(named: "signup_company"), selectedImage: UIImage(named: "signup_company"))
         adminAdvertisementViewController.tabBarItem = UITabBarItem(title: "Advertisements", image: UIImage(named: "signup_company"), selectedImage: UIImage(named: "signup_company"))
         adminReportsView.tabBarItem = UITabBarItem(title: "Reports", image: UIImage(named: "PropertyDetail_feedback"), tag: 3)

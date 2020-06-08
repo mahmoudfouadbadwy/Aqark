@@ -41,6 +41,7 @@ import UIKit
 //        layer.borderWidth = 2
         
         backgroundColor = UIColor.clear
+        
         setupLabels()
         insertSubview(thumbView, at: 0)
     }
@@ -55,7 +56,7 @@ import UIKit
             let label = UILabel(frame: CGRect.zero)
             label.text = items[index - 1]
             label.textAlignment = .center
-            label.textColor = UIColor.black
+            label.textColor = UIColor(rgb: 0x1d3557)
             self.addSubview(label)
             labels.append(label)
         }
@@ -67,7 +68,7 @@ import UIKit
         let newWidth = selectedFrame.width / CGFloat(items.count)
         selectedFrame.size.width = newWidth
         thumbView.frame = selectedFrame
-        thumbView.backgroundColor = .lightGray
+        thumbView.backgroundColor = UIColor(rgb: 0xa8dadc)
         thumbView.layer.cornerRadius = thumbView.frame.height / 2
         let labelHeight = self.bounds.height
         let labelWidth = self.bounds.width / CGFloat(items.count)

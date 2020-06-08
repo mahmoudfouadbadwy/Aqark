@@ -22,6 +22,7 @@ class AdminAdvertisementCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         advertisementPropertyImage.setRaduisForImage()
+        advertisementPropertyType.textColor = UIColor(rgb: 0x457b9d)
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longGesturePressed(gesture:)))
             addGestureRecognizer(longPressGesture)
     }

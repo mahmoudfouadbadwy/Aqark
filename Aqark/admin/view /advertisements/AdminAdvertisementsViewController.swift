@@ -10,7 +10,7 @@ import UIKit
 
 class AdminAdvertisementsViewController: UIViewController {
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+  
     @IBOutlet weak var noLabel: UILabel!
     @IBOutlet weak var advertisementsCollectionView: UICollectionView!
     @IBOutlet weak var advertisementsSearchBar: UISearchBar!
@@ -25,14 +25,14 @@ class AdminAdvertisementsViewController: UIViewController {
         dataAccess = AdminDataAccess()
         adminAdvertisementViewModel = AdminAdvertisementsListViewModel(dataAccess:dataAccess)
         if(adminAdvertisementViewModel.checkNetworkConnection()){
-            activityIndicator.startAnimating()
+            showActivityIndicator()
             self.view.alpha = 0
             advertisementsCollectionView.register(UINib(nibName: "AdminAdvertisementCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Advertisement Cell")
             advertisementsCollectionView.delegate = self
             advertisementsCollectionView.dataSource = self
             advertisementsSearchBar.delegate = self
             adminAdvertisementViewModel.populateAdvertisements {
-                self.activityIndicator.stopAnimating()
+                self.stopActivityIndicator()
                 UIView.animate(withDuration:2) {
                     self.view.alpha = 1
                 }
@@ -57,6 +57,8 @@ class AdminAdvertisementsViewController: UIViewController {
             setLabelForZeroCount(text: "Advertisement is deleted.")
             AdminAdvertisementsViewController.reportedAdvertisementId = nil
         }else{
+            advertisementsCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
+              
             noLabel.isHidden = true
             adminAdvertisementViewModel.getFilteredAdvertisements(searchText: "")
             advertisementsCollectionView.reloadData()
