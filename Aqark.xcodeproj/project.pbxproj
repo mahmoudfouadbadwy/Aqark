@@ -164,7 +164,6 @@
 		BFE9F4472469930200E44777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFE9F4462469930200E44777 /* GoogleService-Info.plist */; };
 		BFE9F4482469930200E44777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFE9F4462469930200E44777 /* GoogleService-Info.plist */; };
 		BFEE6803248B989200DA5F53 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE6801248B989200DA5F53 /* LaunchViewController.swift */; };
-		BFEE6804248B989200DA5F53 /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFEE6802248B989200DA5F53 /* LaunchViewController.xib */; };
 		BFF016172481067800C3B7C0 /* AgentAdvertisementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF016152481067800C3B7C0 /* AgentAdvertisementCell.swift */; };
 		BFF0161A24810CB800C3B7C0 /* AgentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0161924810CB800C3B7C0 /* AgentViewModel.swift */; };
 		BFF0161C24810D1F00C3B7C0 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0161B24810D1F00C3B7C0 /* Agent.swift */; };
@@ -368,7 +367,6 @@
 		BFCF0BDC24677F8100A43D8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFE9F4462469930200E44777 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BFEE6801248B989200DA5F53 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
-		BFEE6802248B989200DA5F53 /* LaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchViewController.xib; sourceTree = "<group>"; };
 		BFF016152481067800C3B7C0 /* AgentAdvertisementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentAdvertisementCell.swift; sourceTree = "<group>"; };
 		BFF0161924810CB800C3B7C0 /* AgentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentViewModel.swift; sourceTree = "<group>"; };
 		BFF0161B24810D1F00C3B7C0 /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
@@ -1185,7 +1183,6 @@
 			isa = PBXGroup;
 			children = (
 				BFEE6801248B989200DA5F53 /* LaunchViewController.swift */,
-				BFEE6802248B989200DA5F53 /* LaunchViewController.xib */,
 				BF220883248DA72800809430 /* Launchview.swift */,
 				BFA11E2B248E8CE7002895EA /* logoGif.gif */,
 			);
@@ -1305,7 +1302,6 @@
 				C61CFE3324765999000EC0EF /* PaymentViewController.xib in Resources */,
 				BFE9F4472469930200E44777 /* GoogleService-Info.plist in Resources */,
 				BFF39A37246FF92E0041AD24 /* ProfileViewController.xib in Resources */,
-				BFEE6804248B989200DA5F53 /* LaunchViewController.xib in Resources */,
 				BF82E6EF2481981500786141 /* FavouriteCollectionViewCell.xib in Resources */,
 				BF6D507924804B4000FFDD30 /* AgentPropertiesView.xib in Resources */,
 				BFF0162224811AD800C3B7C0 /* AgentAdvertisementCell.xib in Resources */,
