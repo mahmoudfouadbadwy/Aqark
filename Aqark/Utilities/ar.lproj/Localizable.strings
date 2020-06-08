@@ -13,6 +13,10 @@
 "Favourite" = "المفضله";
 "Account" = "البريد الاليكتروني" ;
 
+
+"^[1-9][0-9]*$" = "^[١-٩][٠-٩]*$";
+"^[0][1]\\d{9}$" = "^[٠][١]\\d{9}$";
+
 /********************************** search View ********************************/
 
 "Advertisements" = "الاعلانات";
@@ -24,36 +28,19 @@
 "Default" = "بدون ترتيب";
 "Cancel" = "اغلاق";
 
-"sqm" = "متر مربع";
-"EGP/month" = "جنيه/شهر";
-"EGP" = "جنيه";
+"sqm" = " متر مربع";
+"EGP/month" = " جنيه/شهر";
+"EGP" = " جنيه";
 
 "Apartment" = "شقه";
 "Villa" = "فيلا";
 "Room" = "غرفه";
 
 
-"No Advertisements Available" = "لا توجد اعلانات";
-"Internet Connection Not Available" = "لا يوجد اتصال بالانترنت";
-
-//alert
-"Add To Favourite" = "اضافه الي المفضله";
-"Can't add to favourite maximum 20 Ads can be added " = "لا تستطيع اضافه اكثر من ٢٠ اعلان الي المفضله";
-"Cancel" = "الغاء";
-
-
 /********************************** favourite View ********************************/
 
 "There is no advertisements in favourite list." = "لا يوجد اعلانات مفضله";
 
-//alert
-"Deleted Advertisment" = "الاعلانات المحذوفه";
-"There are" = "يوجد";
-"Advertisment deleted from your Favourite List" = "اعلانات محذوفه من المفضله";
-
-//alert
-"Delete" = "حذف";
-"Are you sure you want to delete this advertisement from favourite list ? " = "هل تريد حذف هذا لاعلان من المضله؟ ";
 
 /********************************** property Details ********************************/
 
@@ -115,19 +102,8 @@
 "Children's Play Area" = "منطقة لعب الاطفال";
 
 
-//alert
-"Call" = "مكالمة";
-"Are You Sure You Want To Call Property Agent ?" = "هل تريد اجراء اتصال بالمالك";
 /********************************** agent Properties ********************************/
-// alert
-"Thank You" = "شكرا";
-"Information" = "معلومات";
-//alert
-"Error occured Please try again later" = "حدثت مشكله الرجاء المحاوله مره اخري";
-"Error" = "خطا";
 
-//actionbutton
-"Ok" = "موافق";
 
 "Please rate" = "من فضلك قيم";
 "'s properties" = "اعلانات";
@@ -141,15 +117,6 @@
 "Password" = "الرقم السري";
 
 "Login" = "تسجيل الدخول";
-
-//alert
-"Connection" = "الاتصال";
-
-"The email or password you entered is invalid" = "البريد الإلكتروني أو كلمة المرور التي أدخلتها غير صالحة";
-"An email address must be provided." = "يجب توفير عنوان بريد إلكتروني";
-
-"The email or password you entered is invalid" = "البريد الإلكتروني أو كلمة المرور التي أدخلتها غير صالحة";
-"The password must be 6 characters long or more." = "يجب أن تكون كلمة المرور مكونة من 6 أحرف أو أكثر";
 
 /********************************** first screen ********************************/
 
@@ -167,8 +134,71 @@
 "Mobile Number" = "رقم الهاتف"; 
 "Company" = "الشركة";
 
+/********************************** profile ********************************/
+"Profile" = "الصفحه الشخصية";
+"year" = "عام ";
+"years" = "اعوام ";
+
+"logout" = "تسجيل خروج "  ;
+
+/********************************** "Edit Profile" ********************************/
+"Edit Profile" = "تعديل الملف الشخصي";
+"country" = "المحافظة";
+
+
+
+/********************************** Alerts ********************************/
+// Message :
+
+
+"Country must be provided." = "يجب توفير المحافظة";
+"Company must be provided." = "يجب توفير الشركه";
+
+"Profile Edited Successfully" = "تم تعديل الملف الشخصي بنجاح";
+
+"Add To Favourite" = "اضافه الي المفضله";
+"Can't add to favourite maximum 20 Ads can be added " = "لا تستطيع اضافه اكثر من ٢٠ اعلان الي المفضله";
+
+"Deleted Advertisment" = "الاعلانات المحذوفه";
+"There are" = "يوجد";
+"Advertisment deleted from your Favourite List" = "اعلانات محذوفه من المفضله";
+
+"Are you sure you want to delete this advertisement from favourite list ? " = "هل تريد حذف هذا لاعلان من المضله؟ ";
+
+"The email or password you entered is invalid" = "البريد الإلكتروني أو كلمة المرور التي أدخلتها غير صالحة";
+"An email address must be provided." = "يجب توفير عنوان بريد إلكتروني";
+
+"The email or password you entered is invalid" = "البريد الإلكتروني أو كلمة المرور التي أدخلتها غير صالحة";
+"The password must be 6 characters long or more." = "يجب أن تكون كلمة المرور مكونة من 6 أحرف أو أكثر";
+
+"Are You Sure You Want To Call Property Agent ?" = "هل تريد اجراء اتصال بالمالك";
+
+"Thank You" = "شكرا";
+"Error occured Please try again later" = "حدثت مشكله الرجاء المحاوله مره اخري";
+
 "Those passwords did not match." = "لا يوجد تتطابق لكلمة المرور";
 "Username must be provided." = "يجب توفير اسم المستخدم.";
 "Username must start of letter and be between 6 and 20 characters." = "يجب أن يبدأ اسم المستخدم بالحرف وأن يكون بين ٦ و ٢٠ حرفًا.";
 "Phone number must be provided." = "يجب توفير رقم الهاتف";
 "Phone number is badly formatted." = "يجب ادخال رقم الهاتف بالشكل الصحيح";
+"You Are Blocked From Adding Advertisements" = "أنت ممنوع من إضافة الإعلانات";
+"Are You Sure You Want To Delete This Advertisement ?" = "هل انت متاكد من حذف الاعلان ؟ ";
+
+// Title :
+"Error" = "خطا";
+"Information" = "معلومات";
+"Call" = "مكالمة";
+"Connection" = "الاتصال";
+"Internet Connection" = "الاتصال بالانترنت ";
+"Bolcking" = "مرفوض";
+"Delete Adverisement" = "حذف الاعلان";
+
+
+//Action Button
+"Cancel" = "الغاء";
+"Ok" = "موافق";
+"Delete" = "حذف";
+
+//wall papers word:
+"No Advertisements Available" = "لا توجد اعلانات";
+"Internet Connection Not Available" = "لا يوجد اتصال بالانترنت";

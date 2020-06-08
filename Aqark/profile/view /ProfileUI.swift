@@ -45,7 +45,7 @@ extension ProfileViewController{
     {
         hideAllElements(status: true)
         noAdvertisementsLabel.isHidden = false
-        noAdvertisementsLabel.text = "Internet Connection Not Available"
+        noAdvertisementsLabel.text = "Internet Connection Not Available".localize
         
     }
     

@@ -45,8 +45,8 @@ class EditProfileViewController: UIViewController {
     @objc func chnageIndicatorStatus(){
         indicatorView.isHidden = true
         showActivityIndicator()
-        let alertController = UIAlertController(title: "Edit Profile", message: "Profile Edited Successfully", preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "Ok", style: .default) {[weak self] (_) in
+        let alertController = UIAlertController(title: "Edit Profile".localize, message: "Profile Edited Successfully".localize, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok".localize, style: .default) {[weak self] (_) in
             self!.navigationController?.popViewController(animated: true)
         }
         alertController.addAction(alertAction)
@@ -56,7 +56,7 @@ class EditProfileViewController: UIViewController {
     func setupView()
     {
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
-        self.navigationItem.title = "Edit Profile"
+        self.navigationItem.title = "Edit Profile".localize
         imageView.layer.cornerRadius = imageView.bounds.height / 2
         viewForImage.layer.cornerRadius = viewForImage.bounds.height / 2
         indicatorView.isHidden = true
@@ -159,7 +159,7 @@ extension EditProfileViewController{
      
      @IBAction func expericanceStepper(_ sender: UIStepper)
      {
-         self.experianceTxtField.text = "\(Int(sender.value))"
+        self.experianceTxtField.text = self.convertNumbers(lang: "lang".localize, stringNumber: String(Int(sender.value))).1
      }
      
      @IBAction func editProfile(_ sender: Any)
@@ -183,14 +183,14 @@ extension EditProfileViewController{
                 showActivityIndicator()
                 editProfileViewModel.updateProfileData()
             }else{
-               showAlert(title: "Internet Connection", message: "Internet Connection Not Available")
+                showAlert(title: "Internet Connection".localize, message: "Internet Connection Not Available".localize)
             }
         }
     }
     
     func showAlert(title: String , message : String){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "ok", style: .default, handler: nil)
+        let alertAction = UIAlertAction(title: "Ok".localize, style: .default, handler: nil)
         alertController.addAction(alertAction)
         self.present(alertController, animated: true, completion: nil)
     }
@@ -221,11 +221,11 @@ extension EditProfileViewController{
              }
              if(profile.phone.isEmpty == false)
              {
-                 self.phoneNumberTxtField.text = profile.phone
+                self.phoneNumberTxtField.text = self.convertNumbers(lang: "lang".localize, stringNumber:"0").1 + self.convertNumbers(lang: "lang".localize, stringNumber: profile.phone).1
              }
              if(profile.country.isEmpty == false)
              {
-                 self.countryTxtField.text = profile.country
+                self.countryTxtField.text = profile.country.localize
              }
              if(profile.address.isEmpty == false)
              {
@@ -237,8 +237,8 @@ extension EditProfileViewController{
              }
              if(profile.experience.isEmpty == false)
              {
-                 self.experianceTxtField.text = profile.experience
-                 self.stepperExperiance.value = Double(profile.experience)!
+                self.experianceTxtField.text = self.convertNumbers(lang: "lang".localize, stringNumber: profile.experience).1
+                self.stepperExperiance.value = self.convertNumbers(lang: "lang".localize, stringNumber: profile.experience).0.doubleValue
              }
              self.role = profile.role
 

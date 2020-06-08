@@ -27,10 +27,10 @@ extension ProfileViewController{
             }
             else
             {
-                self?.countryName.text = profileData.country
+                self?.countryName.text = profileData.country.localize
                 self?.setCompanyName(with: profileData.company)
                 self?.setAddress(with: profileData.address)
-                self?.phoneValue.text = profileData.phone
+                self?.phoneValue.text = (self?.convertNumbers(lang: "lang".localize, stringNumber:"0").1)! + (self?.convertNumbers(lang: "lang".localize, stringNumber: profileData.phone).1)!
                 self?.setExperience(exp: profileData.experience)
                 self?.setupOptionalViews(hide: false)
             }
@@ -76,11 +76,16 @@ extension ProfileViewController{
         {
             if exp.elementsEqual("1")
             {
-                self.experienceValue.text =  "\(exp) year"
+                if "lang".localize.elementsEqual("en"){
+                     self.experienceValue.text =  self.convertNumbers(lang: "lang".localize, stringNumber: exp).1 + "year"
+                }else{
+                    self.experienceValue.text =  "year".localize
+                }
+               
             }
             else
             {
-                self.experienceValue.text =  "\(exp) years"
+                self.experienceValue.text =  self.convertNumbers(lang: "lang".localize, stringNumber: exp).1 + "years".localize
             }
             
         }
