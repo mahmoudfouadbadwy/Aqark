@@ -22,8 +22,8 @@ class ServiceUserViewModel{
         self.serviceUserName = serviceUser.userName
         self.serviceUserCountry  = serviceUser.userCountry
         self.serviceUserServiceRating = serviceUser.userServiceRating
-        self.serviceUserExperience = serviceUser.userExperience + " years exp"
-        self.serviceUserCompany = serviceUser.userCompany + " company"
+        self.serviceUserExperience = serviceUser.userExperience 
+        self.serviceUserCompany = serviceUser.userCompany
         self.ServiceUserImage = serviceUser.userImage
     }
 }

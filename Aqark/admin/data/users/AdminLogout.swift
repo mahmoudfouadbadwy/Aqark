@@ -11,13 +11,14 @@ import Firebase
 
 extension AdminDataAccess{
     
-    func logout()
-      {
+    func logout(completionForLogout:@escaping(_ error:String?)->Void){
           let firebaseAuth = Auth.auth()
           do {
               try firebaseAuth.signOut()
+              completionForLogout(nil)
           } catch let signOutError as NSError {
-              print ("Error signing out: %@", signOutError)
+            completionForLogout(signOutError.localizedDescription)
+            print ("Error signing out: %@", signOutError)
           }
       }
 }

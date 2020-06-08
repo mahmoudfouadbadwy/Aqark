@@ -72,7 +72,7 @@ extension ServicesViewController : UICollectionViewDataSource,UICollectionViewDe
                   serviceCell.serviceUserCompany.text = servicesViewModel.serviceUsersViewList[indexPath.row].serviceUserCompany
                   serviceCell.serviceUserLocation.text = servicesViewModel.serviceUsersViewList[indexPath.row].serviceUserCountry
                   serviceCell.serviceUserExperience.text =
-                      servicesViewModel.serviceUsersViewList[indexPath.row].serviceUserExperience
+                      servicesViewModel.serviceUsersViewList[indexPath.row].serviceUserExperience + " years exp"
                   serviceCell.serviceUserRating.rating =
                       servicesViewModel.serviceUsersViewList[indexPath.row].serviceUserServiceRating
                   let serviceUserImageURL = URL(string: servicesViewModel.serviceUsersViewList[indexPath.row].ServiceUserImage)
@@ -83,7 +83,7 @@ extension ServicesViewController : UICollectionViewDataSource,UICollectionViewDe
 
 extension ServicesViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-         return CGSize(width: collectionView.frame.width - 40, height: 190)
+        return CGSize(width: collectionView.frame.width - 30, height: 190)
     }
 }
 

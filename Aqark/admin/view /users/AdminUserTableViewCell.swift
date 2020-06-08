@@ -29,6 +29,7 @@ class AdminUserTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
+        userImage.circularImage()
         contentView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 1.0)
         cardBackgroundView.backgroundColor = .white
         cardBackgroundView.layer.cornerRadius = 10.0

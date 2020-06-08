@@ -60,6 +60,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let controllers = [searchNavigationController,favouriteNavigationController,accountNavigationController]
         tabBarController.viewControllers = controllers
         window?.rootViewController = tabBarController
+
+
         
         /* end fouad*/
         /* start saied*/

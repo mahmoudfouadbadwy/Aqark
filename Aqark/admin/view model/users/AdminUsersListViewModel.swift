@@ -34,7 +34,7 @@ class AdminUsersListViewModel{
         }
     }
     
-    private func filter(allUsersData : [AdminUser]){
+     func filter(allUsersData : [AdminUser]){
         for user in allUsersData{
             switch user.userRole.lowercased() {
             case AdminUserRole.user:
@@ -97,8 +97,10 @@ class AdminUsersListViewModel{
     }
     
     
-    func logout(){
-        dataAccess.logout()
+    func logout(completionForLogout:@escaping(_ error:String?)->Void){
+        dataAccess.logout(){(signOutError) in
+            completionForLogout(signOutError)
+        }
     }
     
     func banUser(isBanned : Bool, userId : String){

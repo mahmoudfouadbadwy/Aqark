@@ -46,7 +46,7 @@ class AdminDataAccess{
         return user
     }
     
-    private func getUserRating(userRatingDic : [String:Any])->Double{
+     func getUserRating(userRatingDic : [String:Any])->Double{
         var userRating = 0.0
         if(userRatingDic.count == 0){
             return userRating
