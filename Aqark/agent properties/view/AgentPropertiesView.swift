@@ -27,7 +27,7 @@ class AgentPropertiesView: UIViewController {
             }
             else
             {
-                statusLabel.text = "No Advertisements Available"
+                statusLabel.text = "No Advertisements Available".localize
                 statusLabel.isHidden = false
             }
             advertisementsCollection.reloadData()
@@ -35,15 +35,12 @@ class AgentPropertiesView: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(rgb: 0xf1faee)
-        rateLabel.textColor = UIColor(rgb: 0x457b9d)
-        advertisementsCollection.backgroundColor = UIColor(rgb: 0xf1faee)
         if(!AgentPropertiesNetworking.checkNetworkConnection())
         {
-            statusLabel.isHidden = false
-            statusLabel.text = "Internet Connection Not Available"
+            setNoConnectionView()
         }
-        self.navigationItem.title = "\(agentName ?? "Agent")'s Properties"
+       
+        setupViews()
         setupCollection()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -56,8 +53,22 @@ class AgentPropertiesView: UIViewController {
         }
         else
         {
-            statusLabel.isHidden = false
-            statusLabel.text = "Internet Connection Not Available"
+            setNoConnectionView()
         }
+    }
+    
+    
+    private func setupViews()
+    {
+        self.view.backgroundColor = UIColor(rgb: 0xf1faee)
+        rateLabel.textColor = UIColor(rgb: 0x457b9d)
+        advertisementsCollection.backgroundColor = UIColor(rgb: 0xf1faee)
+        self.navigationItem.title = agentName + "'s Properties".localize
+    }
+    
+    private func setNoConnectionView()
+    {
+        statusLabel.isHidden = false
+        statusLabel.text = "Internet Connection Not Available".localize
     }
 }

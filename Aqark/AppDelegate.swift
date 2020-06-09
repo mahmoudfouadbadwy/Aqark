@@ -34,6 +34,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /* start fouad*/
         window = UIWindow()
         window?.makeKeyAndVisible()
+        let launchScreen = ViewController()
+        window?.rootViewController = launchScreen
+        let date = Date().addingTimeInterval(5)
+        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(startApp), userInfo: nil, repeats: false)
+        RunLoop.main.add(timer, forMode: .common)
+      
+        /* end fouad*/
+        /* start saied*/
+        /* end saied*/
+        /* start zeinab*/
+        
+        /* end zeinab*/
+        /* start zeyad*/
+        /* end zeyad*/
+        return true
+    }
+
+    @objc func startApp(){
         let tabBarController = UITabBarController()
         tabBarController.tabBar.barTintColor = UIColor(rgb: 0xf1faee)
         tabBarController.tabBar.tintColor = UIColor(rgb: 0x1d3557)
@@ -54,25 +72,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         favouriteNavigationController.navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor :  UIColor(rgb: 0x1d3557)]
         
-        searchTab.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search"), tag: 1)
-        accountTab.tabBarItem = UITabBarItem(title: "Account", image: UIImage(named: "profile"), tag: 2)
-        favouriteTab.tabBarItem = UITabBarItem(title: "Favourite", image: UIImage(named: "favoriteTab"), tag: 3)
+        searchTab.tabBarItem = UITabBarItem(title: "Search".localize, image: UIImage(named: "search"), tag: 1)
+        accountTab.tabBarItem = UITabBarItem(title: "Account".localize, image: UIImage(named: "profile"), tag: 2)
+        favouriteTab.tabBarItem = UITabBarItem(title: "Favourite".localize, image: UIImage(named: "favoriteTab"), tag: 3)
         let controllers = [searchNavigationController,favouriteNavigationController,accountNavigationController]
         tabBarController.viewControllers = controllers
         window?.rootViewController = tabBarController
-
-
-        
-        /* end fouad*/
-        /* start saied*/
-        /* end saied*/
-        /* start zeinab*/
-        /* end zeinab*/
-        /* start zeyad*/
-        /* end zeyad*/
-        return true
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

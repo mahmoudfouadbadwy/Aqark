@@ -17,12 +17,12 @@ extension AddAdvertisementViewController{
     
     @IBAction func selectAmenities(_ sender: UIButton) {
         
-        if let myButtonImage = sender.currentImage, let buttonAppuyerImage = UIImage(named: "advertisement_uncheck.png"), myButtonImage.pngData() == buttonAppuyerImage.pngData()
+        if let myButtonImage = sender.currentImage, let buttonAppuyerImage = UIImage(named: "empty-check-box"), myButtonImage.pngData() == buttonAppuyerImage.pngData()
         {
-            sender.setImage(UIImage(named: "advertisement_check"), for: .normal)
+            sender.setImage(UIImage(named: "checkmark"), for: .normal)
             selectAmenitiesDic[sender.tag] = selectAmenitiesValue(tagNumber: sender.tag)
         }else{
-            sender.setImage(UIImage(named: "advertisement_uncheck"), for: .normal)
+            sender.setImage(UIImage(named: "empty-check-box"), for: .normal)
             selectAmenitiesDic.removeValue(forKey: sender.tag)
         }
     }

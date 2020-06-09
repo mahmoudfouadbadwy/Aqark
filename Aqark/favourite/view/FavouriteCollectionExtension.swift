@@ -19,15 +19,15 @@ extension FavouriteViewController : UICollectionViewDataSource{
         updateCellLayout(cell: cell)
         adViewModel = arrOfAdViewModel[indexPath.row]
         cell.advertisementImage?.sd_setImage(with: URL(string: adViewModel.image), placeholderImage: UIImage(named: "NoImage"))
-        cell.propertyTypeLabel?.text = adViewModel.propertyType
+        cell.propertyTypeLabel?.text = adViewModel.propertyType.localize
         cell.proprtyAddressLabel?.text = adViewModel.address
-        cell.numberOfBedsLabel?.text = adViewModel.bedRoomsNumber
-        cell.numberOfBathRoomsLabel?.text = adViewModel.bathRoomsNumber
-        cell.propertySizeLabel?.text = "\(adViewModel.size ?? "") sqm"
+        cell.numberOfBedsLabel?.text =  self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.bedRoomsNumber).1
+        cell.numberOfBathRoomsLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.bathRoomsNumber).1
+        cell.propertySizeLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.size).1+"sqm".localize
         if adViewModel.advertisementType == "Rent"{
-            cell.propertyPriceLabel?.text = "\(adViewModel.price ?? 0) EGP/month"
+            cell.propertyPriceLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(adViewModel.price))).1 + "EGP/month".localize
         }else{
-            cell.propertyPriceLabel?.text = "\(adViewModel.price ?? 0) EGP"
+            cell.propertyPriceLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(adViewModel.price))).1 + "EGP".localize
         }
         
         self.setFavouriteButton(cell: cell, index: indexPath.row)
@@ -72,11 +72,11 @@ extension FavouriteViewController{
     
     func getCollectionViewData(){
         if coreDataViewModel?.getAllFavouriteAdvertisment().count ?? 0 > 0{
-            showIndicator()
+            showActivityIndicator()
             self.favouriteListViewModel.populateAds { (allFavAds, numOfFavAds) in
                 self.arrOfAdViewModel.removeAll()
                 self.adsCount = numOfFavAds
-                self.stopIndicator()
+                self.stopActivityIndicator()
                 self.arrOfAdViewModel = allFavAds
                 self.showDeletedAdsAlert()
             }

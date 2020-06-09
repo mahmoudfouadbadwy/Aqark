@@ -19,35 +19,35 @@ extension PropertyDetailView{
     {
         var image:UIImage
         switch amenities {
-        case "Balcony":
+        case "Balcony".localize:
             image = UIImage(named: "Balacony")!
-        case "Covered Parking":
+        case "Covered Parking".localize:
             image = UIImage(named: "Covered Parking")!
-        case "Barbecue Area":
+        case "Barbecue Area".localize:
             image = UIImage(named: "Barbecue")!
-        case "Central A/C":
+        case "Central A/C".localize:
             image = UIImage(named: "Central")!
-        case "Children's Play Area":
+        case "Children's Play Area".localize:
             image = UIImage(named: "children")!
-        case "Furnished":
+        case "Furnished".localize:
             image = UIImage(named: "Furnished")!
-        case "Private garden":
+        case "Private garden".localize:
             image = UIImage(named: "garden")!
-        case "Kitchen Appliances":
+        case "Kitchen Appliances".localize:
             image = UIImage(named: "kitchen")!
-        case "Maids Room":
+        case "Maids Room".localize:
             image = UIImage(named: "Maids room")!
-        case "Networked":
+        case "Networked".localize:
             image = UIImage(named: "networked")!
-        case "Pets Allowed":
+        case "Pets Allowed".localize:
             image = UIImage(named: "Pets")!
-        case "Security":
+        case "Security".localize:
             image = UIImage(named: "Security")!
-        case "Shared Spa":
+        case "Shared Spa".localize:
             image = UIImage(named: "shared spa")!
-        case "Study":
+        case "Study".localize:
             image = UIImage(named: "study")!
-        case "Walk-in Closet":
+        case "Walk-in Closet".localize:
             image = UIImage(named: "Walk")!
         default:
             image = UIImage(named: "Furnished")!
@@ -92,7 +92,7 @@ extension PropertyDetailView:UICollectionViewDataSource{
         
         if collectionView == amenitiesCollection{
             let cell:AmenitiesCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "amenitiesCell", for: indexPath) as! AmenitiesCell)
-            cell.amenitiesText.text = self.advertisementDetails.amenities[indexPath.row]
+            cell.amenitiesText.text = self.advertisementDetails.amenities[indexPath.row].localize
             cell.amenitiesIcon.image = getAmenitiesIcon(amenities: self.advertisementDetails.amenities[indexPath.row])
             return cell
         }else{

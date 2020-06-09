@@ -27,8 +27,8 @@ extension SearchViewController:FavouriteProtocol{
                favButton.image("red-heart")
                 self.coreDataViewModel!.addAdvertismentToFavourite(id: (favButton.titleLabel?.text)!)
             }else{
-                let alert = UIAlertController(title: "Add To Favourite", message: "Can't add to favourite maximum 20 Ads can be added ", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                let alert = UIAlertController(title: "Add To Favourite".localize, message: "Can't add to favourite maximum 20 Ads can be added ".localize, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Cancel".localize, style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
         }

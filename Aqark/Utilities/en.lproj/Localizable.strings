@@ -1,0 +1,199 @@
+/*
+  Localizable.strings
+  Aqark
+
+  Created by AhmedSaeed on 6/6/20.
+  Copyright © 2020 ITI. All rights reserved.
+*/
+
+
+/********************************** Particpate in all views ********************************/
+
+"lang" = "en";
+
+"Search" = "Search";
+"Favourite" = "Favourite";
+"Account" = "Account" ;
+
+
+"^[1-9][0-9]*$" = "^[1-9][0-9]*$";
+"^[0][1]\\d{9}$" = "^[0][1]\\d{9}$";
+
+/********************************** search View ********************************/
+
+"Advertisements" = "Advertisements";
+
+"Price(High)" = "Price(High)";
+"Price(Low)" = "Price(Low)";
+"Newest" = "Newest";
+"Oldest" = "Oldest";
+"Default" = "Default";
+"Cancel" = "Cancel";
+
+"sqm" = " sqm";
+"EGP/month" = " EGP/month";
+"EGP" = " EGP";
+
+"Apartment" = "Apartment";    
+"Villa" = "Villa";
+"Room" = "Room";
+
+/********************************** favourite View ********************************/
+
+"There is no advertisements in favourite list." = "There is no advertisements in favourite list.";
+
+/********************************** property Details ********************************/
+
+"Property Details" = "Property Details";
+
+"in" = "in";
+"for" = "for";
+
+"Rent" = "Rent";
+"Buy" = "Buy";
+
+"Lawyers" = "Lawyers";
+"Interior Desigenrs" = "Interior Desigenrs";
+
+"Cairo" = "Cairo";
+"Alexandria" = "Alexandria";
+"Giza" = "Giza";
+"Qalyubiya" = "Qalyubiya";
+"Port Said" = "Port Said";
+"Suez" = "Suez";
+"Luxor" = "Luxor";
+"al-Mansura" = "al-Mansura";
+"El-Mahalla El-Kubra" = "El-Mahalla El-Kubra";
+"Tanta" = "Tanta";
+"Asyut" = "Asyut";
+"Ismailia" = "Ismailia";
+"Faiyum" = "Faiyum";
+"Zagazig" = "Zagazig";
+"Aswan" = "Aswan";
+"Damietta" = "Damietta";
+"Damanhur" = "Damanhur" ;
+"al-Minya" = "al-Minya" ;
+"Beni Suef" = "Beni Suef";
+"Qena" = "Qena";
+"Sohag" = "Sohag";
+"Hurghada" = "Hurghada";
+"Banha" = "Banha";
+"Kafr el-Sheikh" = "Kafr el-Sheikh";
+"Arish" = "Arish";
+"Minya" = "Minya";
+"Sharqia" = "Sharqia";
+"Beheira" = "Beheira";
+"Menofia" = "Menofia";
+
+
+
+"Furnished" = "Furnished";
+"Shared Spa" = "Shared Spa";
+"Central A/C" = "Central A/C";
+"Maids Room" = "Maids Room";
+"Security" = "Security";
+"Kitchen Appliances" = "Kitchen Appliances";
+"Networked" = "Networked";
+"Covered Parking" = "Covered Parking";
+"Pets Allowed" = "Pets Allowed";
+"Barbecue Area" = "Barbecue Area";
+"Balcony" = "شرفة";
+"Walk-in Closet" = "Walk-in Closet";
+"Study" = "Study";
+"Private garden" = "Private garden";
+"Children's Play Area" = "Children's Play Area";
+
+
+/********************************** agent Properties ********************************/
+
+"Please rate" = "Please rate";
+"'s properties" = "'s properties";
+
+"free" = "free";
+"premium" = "premium";
+
+/********************************** login ********************************/
+
+"Login" = "Login";
+
+/********************************** first screen ********************************/
+
+"Role" = "Role";
+
+"User" = "User";
+"Lawyer" = "Lawyer";
+"Interior Designer" = "Interior Designer";
+
+/********************************** sing up ********************************/
+
+"Sign Up" = "Sign Up";
+
+"Email" = "Email";
+"Password" = "Password";
+"Confirm Password" = "Confirm Password";
+"Username" = "Username";
+"Mobile Number" = "Mobile Number";
+"Company" = "company";
+
+/********************************** profile ********************************/
+"Profile" = "Profile";
+"year" = " year";
+"years" = " years";
+"logout" = "Logout";
+
+/********************************** "Edit Profile" ********************************/
+"Edit Profile" = "Edit Profile";
+"country" = "country";
+
+
+
+/********************************** Alerts ********************************/
+// Message :
+
+"Country must be provided." = "Country must be provided.";
+"Company must be provided." = "Company must be provided.";
+
+
+"Profile Edited Successfully" = "Profile Edited Successfully";
+"Add To Favourite" = "Add To Favourite";
+"Can't add to favourite maximum 20 Ads can be added " = "Can't add to favourite maximum 20 Ads can be added ";
+
+"Deleted Advertisment" = "Deleted Advertisment";
+"There are" = "There are";
+"Advertisment deleted from your Favourite List" = "Advertisment deleted from your Favourite List";
+
+"Are you sure you want to delete this advertisement from favourite list ? " = "Are you sure you want to delete this advertisement from favourite list ? ";
+"Error occured Please try again later" = "Error occured please try again later";
+"Thank You" = "Thank You";
+"Are You Sure You Want To Call Property Agent ?" = "Are You Sure You Want To Call Property Agent ?";
+"User Email" = "User Email";
+"User Password" = "User Password";
+"The email or password you entered is invalid" = "The email or password you entered is invalid";
+"An email address must be provided." = "An email address must be provided.";
+"The email or password you entered is invalid" = "The email or password you entered is invalid";
+"The password must be 6 characters long or more." = "The password must be 6 characters long or more.";
+"Those passwords did not match." = "Those passwords did not match.";
+"Username must be provided." = "Username must be provided.";
+"Username must start of letter and be between 6 and 20 characters." = "Username must start of letter and be between 6 and 20 characters.";
+"Phone number must be provided." = "Phone number must be provided.";
+"Phone number is badly formatted." = "Phone number is badly formatted.";
+"You Are Blocked From Adding Advertisements" = "You Are Blocked From Adding Advertisements";
+"Are You Sure You Want To Delete This Advertisement ?" = "Are You Sure You Want To Delete This Advertisement ?";
+// Title :
+"Connection" = "Connection";
+"Call" = "Call";
+"Error" = "Error";
+"Information" = "Information";
+"Internet Connection" = "Internet Connection";
+"Bolcking" = "Bolcking";
+"Delete Adverisement" = "Delete Adverisement";
+
+
+//Action Button
+"Ok" = "Ok";
+"Cancel" = "Cancel";
+"Delete" = "Delete";
+
+//wall papers word:
+"No Advertisements Available" = "No Advertisements Available";
+"Internet Connection Not Available" = "Internet Connection Not Available";

@@ -32,12 +32,12 @@ extension FavouriteViewController:FavouriteProtocol{
         let advertisment = arrOfAdViewModel[favButton.tag] 
         
         if (coreDataViewModel!.isAdvertismentExist(id:advertisment.advertisementId)){
-            let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this advertisement from favourite list ? ", preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { (action) in
+            let alert = UIAlertController(title: "Delete".localize, message: "Are you sure you want to delete this advertisement from favourite list ? ".localize, preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Delete".localize, style: .default, handler: { (action) in
                 self.coreDataViewModel!.deleteAdvertismentFromFavourite(id: (advertisment.advertisementId))
                 self.arrOfAdViewModel.remove(at: favButton.tag)
             }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Cancel".localize, style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         
         }

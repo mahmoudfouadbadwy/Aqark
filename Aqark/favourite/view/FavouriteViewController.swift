@@ -7,13 +7,12 @@
 //
 
 import UIKit
-import ReachabilitySwift
+
 
 class FavouriteViewController: UIViewController {
     
     @IBOutlet weak var favouriteCollectionView: UICollectionView!
     @IBOutlet weak var labelPlaceHolder: UILabel!
-    let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     var coreDataViewModel: CoreDataViewModel?
     var adViewModel: FavouriteViewModel!
     var adsCount:Int=0
@@ -31,7 +30,7 @@ class FavouriteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Favourite"
+        self.navigationItem.title = "Favourite".localize
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         favouriteCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
         self.setupCoredata()
@@ -40,9 +39,9 @@ class FavouriteViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
 
-        if !checkNetworkConnection(){
+        if !FavoriteNetworking.checkNetworkConnection(){
             favouriteCollectionView.isHidden = true
-            labelPlaceHolder.text = "Internet connection not available"
+            labelPlaceHolder.text = "Internet Connection Not Available".localize
         }else{
             labelPlaceHolder.isHidden = true
             getCollectionViewData()
@@ -51,8 +50,8 @@ class FavouriteViewController: UIViewController {
     
     func showDeletedAdsAlert(){
         if (adsCount != 0){
-            let alert = UIAlertController(title: "Deleted Advertisment", message: " There are \(adsCount) Advertisment deleted from your Favourite List ", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            let alert = UIAlertController(title: "Deleted Advertisment".localize, message: "There are".localize + self.convertNumbers(lang: "lang".localize, stringNumber: String(adsCount)).1 + "Advertisment deleted from your Favourite List".localize, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel".localize, style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
             adsCount=0
         }
@@ -60,30 +59,9 @@ class FavouriteViewController: UIViewController {
     
     func setEmptyAdvertisments(flag: Bool){
         self.labelPlaceHolder.isHidden = flag
-        self.labelPlaceHolder.text = "There is no advertisements in favourite list."
+        self.labelPlaceHolder.text = "There is no advertisements in favourite list.".localize
     }
 
-    func checkNetworkConnection()->Bool
-    {
-        let connection = Reachability()
-        guard let status = connection?.isReachable else{return false}
-        return status
-    }
+    
     
 }
-
-//MARK: - UIViewIndicator
-extension FavouriteViewController{
-    func showIndicator()
-    {
-        networkIndicator.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        networkIndicator.center = view.center
-        networkIndicator.startAnimating()
-        view.addSubview(networkIndicator)
-    }
-    
-    func stopIndicator() {
-        networkIndicator.stopAnimating()
-    }
-}
-

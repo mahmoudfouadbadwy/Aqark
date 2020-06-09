@@ -99,13 +99,13 @@ extension AddAdvertisementViewModel{
                  if advertisementType == "Rent"{
                      switch propertyType {
                          case "Apartment" where  myPrice! < 500:
-                             myMessage = "minimum price is 500$ "
+                             myMessage = "minimum price is 500 EGP "
                              self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: myMessage ))
                          case "Villa" where  myPrice! < 5000:
-                             myMessage = "minimum price is 5000$ "
+                             myMessage = "minimum price is 5000 EGP "
                              self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: myMessage ))
                          case "Room" where  myPrice! < 200:
-                             myMessage = "minimum price is 200$ "
+                             myMessage = "minimum price is 200 EGP"
                              self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: myMessage ))
                          default:
                              print("NoError")
@@ -114,13 +114,13 @@ extension AddAdvertisementViewModel{
                     
                     switch propertyType {
                         case "Apartment" where  myPrice! < 50000:
-                            myMessage = "minimum price is 50,000$ "
+                            myMessage = "minimum price is 50,000 EGP "
                             self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: myMessage ))
                         case "Villa" where  myPrice! < 500000:
-                            myMessage = "minimum price is 500,000$ "
+                            myMessage = "minimum price is 500,000 EGP"
                             self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: myMessage ))
                         case "Room" where  myPrice! < 10000:
-                             myMessage = "minimum price is 10,000$ "
+                             myMessage = "minimum price is 10,000 EGP"
                              self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price", message: myMessage ))
                         default:
                             print("NoError")

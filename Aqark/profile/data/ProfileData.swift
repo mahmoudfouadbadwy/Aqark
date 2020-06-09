@@ -26,8 +26,8 @@ class ProfileDataAccess{
                 let phone = value?["phone"] as? String ?? ""
                 let exp = value?["experience"] as? String ?? ""
                 let rate = value?["rate"] as? [String:Double] ?? ["":0.0]
-               
-                let profile:Profile = Profile(role: userRole, picture: picture, username: username, country: country, address: address, company: company, phone: phone, experience: exp, rate: rate)
+                let ban = value?["banned"] as? Bool ?? false
+                let profile:Profile = Profile(role: userRole, picture: picture, username: username, country: country, address: address, company: company, phone: phone, experience: exp, rate: rate, ban: ban)
                 onSuccess(profile)
                 
             }
@@ -45,5 +45,7 @@ class ProfileDataAccess{
             print ("Error signing out: %@", signOutError)
         }
     }
+    
+    
 }
 

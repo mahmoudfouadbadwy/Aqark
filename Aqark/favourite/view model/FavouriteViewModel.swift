@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import ReachabilitySwift
 
 class FavouriteListViewModel{
     
@@ -59,6 +60,15 @@ class FavouriteViewModel{
         self.advertisementId = model.advertisementId
         self.advertisementType = model.advertisementType
         self.advertisementDate = model.date
+    }
+}
+
+struct FavoriteNetworking{
+  static func checkNetworkConnection()->Bool
+    {
+        let connection = Reachability()
+        guard let status = connection?.isReachable else{return false}
+        return status
     }
 }
 

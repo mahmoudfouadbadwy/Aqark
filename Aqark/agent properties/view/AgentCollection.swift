@@ -42,21 +42,26 @@ extension AgentPropertiesView{
     private func setCellData(cell:AgentAdvertisementCell,indexPath:IndexPath)
     {
         let advertisement:AgentAdvertisementViewModel = listOfAdvertisements[indexPath.row]
-        cell.propertyType.text = advertisement.propertyType
+        cell.propertyType.text = advertisement.propertyType.localize
         if advertisement.advertisementType.lowercased().elementsEqual("rent")
         {
-            cell.propertyPrice.text = "\(advertisement.price ?? 0.0) EGP/month"
+            cell.propertyPrice.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + " EGP".localize
         }else
         {
-            cell.propertyPrice.text = "\(advertisement.price ?? 0.0) EGP"
+
+            cell.propertyPrice.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + " EGP/month".localize
         }
         
-        cell.propertySize.text = "\(advertisement.size ?? "") sqm"
+        cell.propertySize.text = self.convertNumbers(lang: "lang".localize, stringNumber: advertisement.size).1 + "sqm".localize
         cell.propertyAddress.text = advertisement.address
-        cell.bedNumber.text = advertisement.bedroom
-        cell.bathRoomNumber.text = advertisement.bathroom
+        cell.bedNumber.text =  self.convertNumbers(lang: "lang".localize, stringNumber: advertisement.bedroom).1
+        cell.bathRoomNumber.text = self.convertNumbers(lang: "lang".localize, stringNumber: advertisement.bathroom).1 
         cell.propertyImage.sd_setImage(with: URL(string: advertisement.image), placeholderImage: UIImage(named: "NoImage"))
-        cell.paymentType.text = advertisement.payment.capitalized
+        if "lang".localize.elementsEqual("en"){
+            cell.paymentType.text = advertisement.payment.localize.capitalized
+        }else{
+            cell.paymentType.text = advertisement.payment.localize
+        }
     }
 }
 

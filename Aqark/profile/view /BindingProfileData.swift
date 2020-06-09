@@ -18,17 +18,19 @@ extension ProfileViewController{
             self?.username.text = profileData.username
             self?.setProfilePicture(url:profileData.picture)
             self?.setUserRate(rate:profileData.rate)
+            self?.ban = profileData.ban
             if profileData.role.lowercased().elementsEqual("user")
             {
                  self?.setupOptionalViews(hide: true)
+                 self?.containerStack.spacing = 0
                  self?.containerHeight.constant = 0
             }
             else
             {
-                self?.countryName.text = profileData.country
+                self?.countryName.text = profileData.country.localize
                 self?.setCompanyName(with: profileData.company)
                 self?.setAddress(with: profileData.address)
-                self?.phoneValue.text = profileData.phone
+                self?.phoneValue.text = (self?.convertNumbers(lang: "lang".localize, stringNumber:"0").1)! + (self?.convertNumbers(lang: "lang".localize, stringNumber: profileData.phone).1)!
                 self?.setExperience(exp: profileData.experience)
                 self?.setupOptionalViews(hide: false)
             }
@@ -72,7 +74,20 @@ extension ProfileViewController{
         }
         else
         {
-            self.experienceValue.text =  "\(exp) year"
+            if exp.elementsEqual("1")
+            {
+                if "lang".localize.elementsEqual("en"){
+                     self.experienceValue.text =  self.convertNumbers(lang: "lang".localize, stringNumber: exp).1 + "year"
+                }else{
+                    self.experienceValue.text =  "year".localize
+                }
+               
+            }
+            else
+            {
+                self.experienceValue.text =  self.convertNumbers(lang: "lang".localize, stringNumber: exp).1 + "years".localize
+            }
+            
         }
     }
     

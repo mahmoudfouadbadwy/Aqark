@@ -24,6 +24,9 @@ extension AddAdvertisementViewController: UIPickerViewDelegate, UIPickerViewData
         propertyType = pickerViewPropertyType[row]
         updatePlaceholderForPriceTextFeild()
     }
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        return NSAttributedString(string: pickerViewPropertyType[row].localize, attributes: [NSAttributedString.Key.foregroundColor:UIColor(rgb: 0x457b9d)])
+    }
     
     
 }

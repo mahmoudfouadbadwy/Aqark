@@ -15,7 +15,8 @@ target 'Aqark' do
   pod 'SDWebImage'
   pod 'YPImagePicker','~> 3.5.2'
   pod 'Cosmos', '~> 18.0'
-  pod 'JJFloatingActionButton'
+  pod 'JJFloatingActionButton' 
+  pod 'SwiftyGif', '~> 4.2.0'  
 
 
   target 'AqarkTests' do

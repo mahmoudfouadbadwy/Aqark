@@ -26,7 +26,6 @@ extension ProfileViewController{
             (advertisements) in
             self?.stopActivityIndicator()
             self?.listOfAdvertisements = advertisements
-         
         })
     }
     private func setCellConfiguration(cell:UICollectionViewCell)
@@ -43,21 +42,25 @@ extension ProfileViewController{
     private func setCellData(cell:ProfileAdvertisementCell,indexPath:IndexPath)
     {
         let advertisement:ProfileAdvertisementViewModel = listOfAdvertisements[indexPath.row]
-        cell.propertyType.text = advertisement.propertyType
+        cell.propertyType.text = advertisement.propertyType.localize
         if advertisement.advertisementType.lowercased().elementsEqual("rent")
         {
-            cell.propertyPrice.text = "\(advertisement.price ?? 0.0) EGP/month"
+            cell.propertyPrice?.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + "EGP/month".localize
         }else
         {
-            cell.propertyPrice.text = "\(advertisement.price ?? 0.0) EGP"
+            cell.propertyPrice?.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + "EGP".localize
         }
         
-        cell.propertySize.text = "\(advertisement.size ?? "") sqm"
+        cell.propertySize.text = self.convertNumbers(lang:"lang".localize , stringNumber: advertisement.size ).1+"sqm".localize
         cell.propertyAddress.text = advertisement.address
-        cell.bedNumber.text = advertisement.bedroom
-        cell.bathRoomNumber.text = advertisement.bathroom
+        cell.bedNumber.text = self.convertNumbers(lang:"lang".localize , stringNumber: advertisement.bedroom).1
+        cell.bathRoomNumber.text = self.convertNumbers(lang:"lang".localize , stringNumber: advertisement.bathroom).1
         cell.propertyImage.sd_setImage(with: URL(string: advertisement.image), placeholderImage: UIImage(named: "NoImage"))
-        cell.paymentType.text = advertisement.payment.capitalized
+        if "lang".localize.elementsEqual("en"){
+            cell.paymentType.text = advertisement.payment.localize.capitalized
+        }else{
+            cell.paymentType.text = advertisement.payment.localize
+        }
     }
 }
 
@@ -138,11 +141,11 @@ extension ProfileViewController:UIGestureRecognizerDelegate{
     
    private func showAlert(completion:@escaping(Bool)->Void)
     {
-        let alert:UIAlertController = UIAlertController(title: "Delete Adverisement", message: "Are You Sure You Want To Delete This Advertisement ?", preferredStyle: .actionSheet)
-        let delete:UIAlertAction = UIAlertAction(title: "Delete", style: .default) { (action) in
+        let alert:UIAlertController = UIAlertController(title: "Delete Adverisement".localize, message: "Are You Sure You Want To Delete This Advertisement ?".localize, preferredStyle: .actionSheet)
+        let delete:UIAlertAction = UIAlertAction(title: "Delete".localize, style: .default) { (action) in
             completion(true)
         }
-        let cancel:UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+        let cancel:UIAlertAction = UIAlertAction(title: "Cancel".localize, style: .cancel) { (action) in
             alert.dismiss(animated: true)
             completion(false)
         }

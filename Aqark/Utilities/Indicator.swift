@@ -15,7 +15,7 @@ extension UIViewController{
         indicatorView?.backgroundColor = UIColor(white: 0, alpha: 0.5)
         let indicator = UIActivityIndicatorView(style: .whiteLarge)
         indicator.center = (indicatorView?.center)!
-        indicator.color = UIColor(rgb: 0xe63946)
+        indicator.color = UIColor(rgb: 0x1d3557)            //UIColor(rgb: 0xe63946)
         indicator.startAnimating()
         indicatorView?.addSubview(indicator)
         self.view.addSubview(indicatorView!)
@@ -29,4 +29,15 @@ extension UIViewController{
         indicatorView = nil
     }
     
+    func convertNumbers(lang: String , stringNumber : String)->(NSNumber, String){
+        let formatter: NumberFormatter = NumberFormatter()
+        if lang.elementsEqual("en"){
+            formatter.locale = NSLocale(localeIdentifier: "EN") as Locale?
+        }else{
+            formatter.locale = NSLocale(localeIdentifier: "AR") as Locale?
+        }
+        guard let number = formatter.number(from: stringNumber)else{return(0 , "")}
+        guard let translatedNumber = formatter.string(from: number)else{return(0,"")}
+        return(number , translatedNumber)
+    }    
 }

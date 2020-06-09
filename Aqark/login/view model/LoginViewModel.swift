@@ -27,18 +27,18 @@ class LoginViewModel : ValidationProtocol{
     func validate(){
         if(!(userEmail.isEmpty)){
             if(!(isValidEmail(email: userEmail))){
-                self.brokenRules.append(LoginBrokenRule(propertyName: "User Email", message: "The email or password you entered is invalid"))
+                self.brokenRules.append(LoginBrokenRule(propertyName: "User Email".localize, message: "The email or password you entered is invalid".localize))
             }
         }else{
-            self.brokenRules.append(LoginBrokenRule(propertyName: "User Email", message: "An email address must be provided."))
+            self.brokenRules.append(LoginBrokenRule(propertyName: "User Email".localize, message: "An email address must be provided.".localize))
         }
         
         if(!(userPassword.isEmpty)){
             if(userPassword.count < 6){
-                self.brokenRules.append(LoginBrokenRule(propertyName: "User Password", message: "The email or password you entered is invalid"))
+                self.brokenRules.append(LoginBrokenRule(propertyName: "User Password".localize, message: "The email or password you entered is invalid".localize))
             }
         }else{
-            self.brokenRules.append(LoginBrokenRule(propertyName: "User password", message: "The password must be 6 characters long or more."))
+            self.brokenRules.append(LoginBrokenRule(propertyName: "User password".localize, message: "The password must be 6 characters long or more.".localize))
         }
     }
     

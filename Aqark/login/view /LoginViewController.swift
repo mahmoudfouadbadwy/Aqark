@@ -10,18 +10,23 @@ import UIKit
 import Firebase
 class LoginViewController: UIViewController{
     
+    @IBOutlet weak var dontHaveAccount: UILabel!
     @IBOutlet weak var userEmailTextField: CustomTextField!
     @IBOutlet weak var userPasswordTextField: CustomTextField!
     private var loginViewModel : LoginViewModel!
-    @IBOutlet weak var loginActivityIndicator: UIActivityIndicatorView!
     var userRole : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(rgb: 0xf1faee)
+        dontHaveAccount.textColor = UIColor(rgb: 0x457b9d) 
         loginViewModel = LoginViewModel()
         userEmailTextField.delegate = self
         userPasswordTextField.delegate = self
-        self.navigationItem.title = "Login"
+        self.setTappedGesture()
+        self.navigationItem.title = "Login".localize
+        self.userEmailTextField.setIcon(UIImage(named: "Email")!)
+        self.userPasswordTextField.setIcon(UIImage(named: "password")!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,15 +35,15 @@ class LoginViewController: UIViewController{
       
     @IBAction func login(_ sender: Any) {
         view.endEditing(true)
-        loginActivityIndicator.startAnimating()
+        self.showActivityIndicator()
         loginViewModel.userEmail = userEmailTextField.text
         loginViewModel.userPassword = userPasswordTextField.text
         if(loginViewModel.isValid){
             if(loginViewModel.checkNetworkConnection()){
                 loginViewModel.authenticateLogin { (result,error) in
-                    self.loginActivityIndicator.stopAnimating()
+                    self.stopActivityIndicator()
                     if let error = error {
-                        self.showAlert(title: "Login Validation", message: error)
+                        self.showAlert(title: "Login", message: error)
                     }else{
                         if(self.loginViewModel.isAdminLogged()){
                             self.gotoAdminView()
@@ -48,11 +53,11 @@ class LoginViewController: UIViewController{
                     }
                 }
             }else{
-                showAlert(title: "Connection", message: "Check yout internet connection")
+                showAlert(title: "Connection".localize, message: "Internet Connection Not Available".localize)
             }
         }else{
-            loginActivityIndicator.stopAnimating()
-            showAlert(title: "Login Validation", message: loginViewModel.brokenRules.first!.message)
+            self.stopActivityIndicator()
+            showAlert(title: "Login".localize, message: loginViewModel.brokenRules.first!.message)
         }
     }
     
@@ -65,7 +70,7 @@ class LoginViewController: UIViewController{
     
     func showAlert(title:String,message:String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel){(okAction) in
+        let okAction = UIAlertAction(title: "OK".localize, style: UIAlertAction.Style.cancel){(okAction) in
             alert.dismiss(animated: true, completion: nil)}
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
@@ -88,13 +93,13 @@ class LoginViewController: UIViewController{
         if(!userEmailTextField.text!.isEmpty){
             userEmailTextField.text = ""
             userEmailTextField.removeFloatingLabel()
-            userEmailTextField._placeholder = "Email"
+            userEmailTextField._placeholder = "Email".localize
         }
         
         if(!userPasswordTextField.text!.isEmpty){
             userPasswordTextField.text = ""
             userPasswordTextField.removeFloatingLabel()
-            userPasswordTextField._placeholder = "Password"
+            userPasswordTextField._placeholder = "Password".localize
         }
     }
 }
