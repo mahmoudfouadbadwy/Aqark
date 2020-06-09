@@ -44,15 +44,15 @@ class EditProfileViewModel : EditProfileProtocol
         
         if role == "user"
         {
-            if userName.isEmpty == true
+            if (userName.isEmpty) || ( userName.isEmpty == false)
             {
-                borkenRule.append(EditProfileBrokenRule(brokenType: "Username".localize, message: "Username must be provided.".localize))
+                userNameValidate(value: userName)
             }
         }else{
             
-            if userName.isEmpty == true
+            if (userName.isEmpty) || ( userName.isEmpty == false)
             {
-                borkenRule.append(EditProfileBrokenRule(brokenType: "Username".localize, message: "Username must be provided.".localize))
+                userNameValidate(value: userName)
             }
             if country.isEmpty == true
             {
@@ -69,6 +69,21 @@ class EditProfileViewModel : EditProfileProtocol
             
         }
         
+    }
+    
+    func userNameValidate(value : String) {
+        
+        let USERNAME_REGEX = "^(?=.{8,30}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._\\u0621-\\u064A ]+(?<![_.])$";
+        
+        let userNameTest = NSPredicate(format: "SELF MATCHES %@", USERNAME_REGEX)
+        
+        if (value.isEmpty){
+            self.borkenRule.append(EditProfileBrokenRule(brokenType: "Username".localize, message: "Username must be provided.".localize))
+        }else{
+            if !(userNameTest.evaluate(with: value)) {
+                self.borkenRule.append(EditProfileBrokenRule(brokenType: "Username".localize, message: "Username must start of letter and be between 6 and 20 characters.".localize))
+            }
+        }
     }
     
     func phoneValidate(value: String){

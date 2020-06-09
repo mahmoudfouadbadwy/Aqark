@@ -86,6 +86,37 @@
 "Menofia" = "Menofia";
 
 
+"المنصوره"="al-Mansura";
+"القاهره"="Cairo";
+"الاسكندريه"="Alexandria";
+"الجيزه"="Giza";
+"بورسعيد"="Port Said";
+"السويس"="Suez";
+"الاقصر"="Luxor";
+"المحله الكبري"="El-Mahalla El-Kubra";
+"طنطا"="Tanta";
+"اسيوط"="Asyut";
+"الاسماعيليه"="Ismailia";
+"الفيوم"="Faiyum";
+"الزقازيق"="Zagazig";
+"اسوان"="Aswan";
+"دمياط"="Damietta";
+"دمنهور"="Damanhur";
+"المنيا"="al-Minya";
+"بني سويف"="Beni Suef";
+"قنا"="Qena";
+"سوهاج"="Sohag";
+"الغردقه"="Hurghada";
+"بنها"="Banha";
+"كفر الشيخ"="Kafr el-Sheikh";
+"العريش"="Arish";
+"المنيا"="Minya";
+"الشرقيه"="Sharqia";
+"البحيره"="Beheira";
+"المنوفيه"="Menofia";
+
+
+
 
 "Furnished" = "Furnished";
 "Shared Spa" = "Shared Spa";

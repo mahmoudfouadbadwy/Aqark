@@ -120,7 +120,7 @@ extension AccountViewModel{
         }
         else
         {
-            let usernameRegEX = "^\\w{6,20}"
+            let usernameRegEX = "^(?=.{8,30}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._\\u0621-\\u064A ]+(?<![_.])$";
             let usernamePred = NSPredicate(format:"SELF MATCHES %@",usernameRegEX )
             if (!usernamePred.evaluate(with: username))
             {

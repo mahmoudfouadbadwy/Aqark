@@ -232,7 +232,7 @@ extension EditProfileViewController{
              }
              if(profile.country.isEmpty == false)
              {
-                self.countryTxtField.text = profile.country.localize
+               self.countryTxtField.text = profile.country.localize
              }
              if(profile.address.isEmpty == false)
              {
