@@ -43,13 +43,16 @@ extension ProfileViewController{
     {
         let advertisement:ProfileAdvertisementViewModel = listOfAdvertisements[indexPath.row]
         cell.propertyType.text = advertisement.propertyType.localize
-        if advertisement.advertisementType.lowercased().elementsEqual("rent")
+        
+        if advertisement.advertisementType.elementsEqual("Rent".localize) || advertisement.advertisementType.lowercased().elementsEqual("ايجار".localize )
         {
             cell.propertyPrice?.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + "EGP/month".localize
         }else
         {
             cell.propertyPrice?.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + "EGP".localize
         }
+        
+        
         
         cell.propertySize.text = self.convertNumbers(lang:"lang".localize , stringNumber: advertisement.size ).1+"sqm".localize
         cell.propertyAddress.text = advertisement.address

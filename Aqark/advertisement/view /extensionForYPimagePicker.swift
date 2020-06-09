@@ -57,17 +57,13 @@ extension AddAdvertisementViewController{
                     
                     if self.selectedImages.count > 0
                     {
-                        self.selectedImages.append(myImage!)
                         if self.selectedImages.count >= 5{
-                            
-                            
                             break
                         }
                         if self.selectedImages.contains(myImage!){
-                            
                             continue
                         }
-                        
+                        self.selectedImages.append(myImage!)
                         
                     }else{
                         self.selectedImages.append(myImage!)

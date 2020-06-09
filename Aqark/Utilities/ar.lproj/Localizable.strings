@@ -127,7 +127,7 @@
 "Kitchen Appliances" = "أدوات المطبخ";
 "Networked" = "متصل بالشبكة";
 "Covered Parking" = "موقف للسيارات";
-"Pets Allowed" = "مسموح بالحيوانات الأليفة";
+"Pets Allowed" = "حيوانات أليفة";
 "Barbecue Area" = "منطقة الشواء";
 "Balcony" = "شرفة";
 "Walk-in Closet" = "خزانة ملابس";
@@ -181,9 +181,74 @@
 
 
 
+/********************************** "Advertisement ********************************/
+
+"Edit" = "تعديل";
+
+"Add Advertisement" = "اضافة اعلان";
+
+"Furnished" = "مفروشة";
+"Shared Spa" = "سبا مشترك";
+"Central A/C" = "تكييف مركزي";
+"Maids Room" = "غرفة للخادمة";
+"Security" = "الأمان";
+"Kitchen Appliances" = "أدوات المطبخ";
+"Networked" = "متصل بالشبكة";
+"Covered Parking" = "موقف للسيارات";
+"Pets Allowed" = "حيوانات أليفة";
+"Barbecue Area" = "منطقة الشواء";
+"Balcony" = "شرفة";
+"Walk-in Closet" = "خزانة ملابس";
+"Study" = "دراسة";
+"Private garden" = "حديقة خاصة";
+"Children's Play Area" = "منطقة لعب الاطفال";
+
+"minimum price is" = "اقل سعر هو ";
+
+
+"بيع" = "بيع" ;
+"ايجار" = "ايجار";
+
+"propertyType" = "نوع الاعلان";
+"advertisementType" = "نوع العقار";
+"bedrooms" = "الغرف";
+"bathroom" = "الحمامات";
+"location" = "الموقع";
+"description" = "الوصف";
+"images" = "الصور";
+"Size" = "المساحة";
+"price" = "السعر";
+
+
+
 /********************************** Alerts ********************************/
 // Message :
 
+
+"price is empty" = "يجب توفير السعر";
+"select advertisement Type" = "يجب اختيار نوع الاعلان";
+"select Property Type" = "يحب اختيار نوع الاعلان";
+"add number of bedrooms" = " يجب توفير الحمامات";
+"select number of bathroom" = "يجب توفير الحمامات";
+"add your location" = "يجب توفير الموقع";
+"add your county" = "يجب توفير المحافظة";
+"add your description" = "يجب توفير الوصف";
+"select images" = "يجب اختيار الصور";
+"add your phone" = "يجب توفير رقم الهاتف";
+"add your size" = "يجب توفير المساحه";
+"inValid size" = "المساحه غير صالحه";
+"inValid price" = "السعر غير صالح";
+"phone not valid" = "رقم الهاتف غير صالح";
+
+
+
+"Delete Image" = "حذف الصورة";
+"Are you sure you want to delete ?" = "هل تريد حذف هذه الصورة";
+
+
+
+"Sorry, you used all of your free ads" = "ناسف لقد استخدمت جميع الاعلانات المجانية";
+"Advertrisement saved successfully" = "تم اضافه الاعلان بنجاح";
 
 "Country must be provided." = "يجب توفير المحافظة";
 "Company must be provided." = "يجب توفير الشركه";

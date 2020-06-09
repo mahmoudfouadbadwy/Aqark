@@ -55,7 +55,7 @@ class AdvertisementData{
         self.advertisementDate = dict?["date"] as? String ?? "Not Applied"
         self.advertisementBedRoomsNum = dict?["bedRooms"] as? String ?? "Not Applied"
         self.advertisementBathRoomsNum = dict?["bathRooms"] as? String ?? "Not Applied"
-        self.advertisementPropertyPrice = dict?["price"] as? String ?? "0"
+        self.advertisementPropertyPrice = Localization.convertNumbers(lang: "lang".localize, stringNumber: (dict?["price"] as? String) ?? "0").0.stringValue
         if var unwrappedAddressDict = dict?["Address"] {
             unwrappedAddressDict = dict?["Address"] as! [String : String]
             self.addressDictionary = unwrappedAddressDict as! [String : String]

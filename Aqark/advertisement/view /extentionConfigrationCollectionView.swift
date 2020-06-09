@@ -66,9 +66,9 @@ extension AddAdvertisementViewController: UICollectionViewDataSource , UICollect
     
     func alertDesitionMaking(title: String , message : String , index : IndexPath){
         
-        let alertController = UIAlertController(title: "Delete Image", message: "Are you sure you want to delete ?" , preferredStyle: .alert)
-        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel ,handler: nil)
-        let okButton = UIAlertAction(title: "Ok", style: .default) { (_) in
+        let alertController = UIAlertController(title: "Delete Image".localize, message: "Are you sure you want to delete ?".localize , preferredStyle: .alert)
+        let cancelButton = UIAlertAction(title: "Cancel".localize, style: .cancel ,handler: nil)
+        let okButton = UIAlertAction(title: "Ok".localize, style: .default) { (_) in
             if index.section == 0{
                 self.selectedImages.remove(at: index.row)
                 self.collectionView.deleteItems(at: [index])

@@ -11,15 +11,19 @@ import  UIKit
 
 extension AddAdvertisementViewController{
      func setupView(){
+        
          self.view.backgroundColor = UIColor(rgb: 0xf1faee)
          self.myView.backgroundColor = UIColor(rgb: 0xf1faee)
-         self.navigationItem.title = "Advertisements"
+        self.navigationItem.title = "Add Advertisement".localize
          self.segment.tintColor = UIColor(rgb: 0x1d3557)
          self.bedRoomStepper.tintColor = UIColor(rgb: 0x1d3557)
          self.bathRoomStepper.tintColor = UIColor(rgb: 0x1d3557)
          self.descriptionTitle.textColor = UIColor(rgb: 0x457b9d)
          self.amenitiesTitle.textColor = UIColor(rgb: 0x457b9d)
          self.collectionView.backgroundColor = UIColor(rgb: 0xf1faee)
+        blackIndicatorView.isHidden = true
+        setTappedGesture()
+        
          //collectionView
          collectionView.delegate = self
          collectionView.dataSource = self

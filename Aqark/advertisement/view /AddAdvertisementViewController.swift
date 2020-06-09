@@ -40,7 +40,7 @@ class AddAdvertisementViewController: UIViewController  {
     var activityIndicator:UIActivityIndicatorView!
     var selectAmenitiesDic:[Int: String] = [Int:String]()
     var pickerViewPropertyType:[String] = [String]()
-    var advertisementType:String = "Rent"
+    var advertisementType:String = "Rent".localize
     var propertyType:String = "Apartment"
     var numberOfAdvertisementPerMonth:Int!
     var payment = "free"
@@ -61,24 +61,20 @@ class AddAdvertisementViewController: UIViewController  {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        blackIndicatorView.isHidden = true
-        setTappedGesture()
         setupView()
-       
         if(advertisementId.isEmpty == false)
         {
             reloadViewData()
         }
         NotificationCenter.default.addObserver(self, selector: #selector(self.chnageIndicatorStatus), name: .indicator, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.viewAlert), name: .alert, object: nil)
-        
     }
     @objc func chnageIndicatorStatus()
     {
         self.stopActivityIndicator()
         blackIndicatorView.isHidden = true
         
-        let alertController = UIAlertController(title: "Advertisements", message: "Advertrisement saved successfully" , preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Advertisements".localize, message: "Advertrisement saved successfully".localize , preferredStyle: .alert)
         let actionButton = UIAlertAction(title: "ok", style: .default) { (_) in
             self.navigationController?.popViewController(animated: true)
         }
@@ -88,7 +84,7 @@ class AddAdvertisementViewController: UIViewController  {
     
     @objc func viewAlert()
     {
-        alertControllerMessage(title: "Advertisements", message: "Sorry, you used all of your free ads")
+        alertControllerMessage(title: "Advertisements".localize, message: "Sorry, you used all of your free ads".localize)
         self.stopActivityIndicator()
         blackIndicatorView.isHidden = true
         
@@ -123,10 +119,10 @@ class AddAdvertisementViewController: UIViewController  {
         present(autocompletecontroller, animated: true, completion: nil)
     }
     @IBAction func increaseBedRoomNumber(_ sender: UIStepper) {
-        self.BedroomsTxtField.text = String(Int(sender.value))
+        self.BedroomsTxtField.text = convertNumbers(lang: "lang".localize, stringNumber: String(Int(sender.value))).1
     }
     @IBAction func increaseBathRoomNumber(_ sender: UIStepper) {
-        self.BathroomTxtField.text = String(Int(sender.value))
+        self.BathroomTxtField.text = convertNumbers(lang: "lang".localize, stringNumber: String(Int(sender.value))).1
     }
     //MARK: - func SaveButton
     @IBAction func saveAdvertisement(_ sender: Any) {
@@ -171,7 +167,7 @@ class AddAdvertisementViewController: UIViewController  {
                 }
             }
             else{
-                alertControllerMessage(title: "Internet Connection", message: "Internet Connection Not Available")
+                alertControllerMessage(title: "Internet Connection".localize, message: "Internet Connection Not Available".localize)
             }
         }
     }
@@ -199,7 +195,7 @@ class AddAdvertisementViewController: UIViewController  {
     //MARK:- alertMessage
     func alertControllerMessage(title: String , message : String ){
         let alertController = UIAlertController(title: title, message: message , preferredStyle: .alert)
-        let actionButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        let actionButton = UIAlertAction(title: "Ok".localize, style: .default, handler: nil)
         alertController.addAction(actionButton)
         self.present(alertController, animated: true, completion: nil)
     }
