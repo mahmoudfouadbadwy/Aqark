@@ -44,10 +44,16 @@ extension SearchViewController : UICollectionViewDataSource{
 extension SearchViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         let propertyDetailVC = PropertyDetailView()
+        if isSorted == true {
+              propertyDetailVC.advertisementId = (sortedList[indexPath.row].advertisementId)!
+        }else if isFiltering == true {
+             propertyDetailVC.advertisementId =
+                (filteredAdsList[indexPath.row].advertisementId)!
+        }else{
         propertyDetailVC.advertisementId = (arrOfAdViewModel![indexPath.row].advertisementId)!
-        self.navigationController?.pushViewController(propertyDetailVC, animated: true)
-//        let p = PaymentViewController()
-//        self.navigationController?.pushViewController(p, animated:  true)
+        }
+          self.navigationController?.pushViewController(propertyDetailVC, animated: true)
+
         
     }
 }
