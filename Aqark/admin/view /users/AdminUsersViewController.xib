@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" placeholder="Search Name" translatesAutoresizingMaskIntoConstraints="NO" id="gIB-CO-7UO">
+                <searchBar contentMode="redraw" placeholder="Search By Name" translatesAutoresizingMaskIntoConstraints="NO" id="gIB-CO-7UO">
                     <rect key="frame" x="0.0" y="108" width="414" height="56"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>

@@ -24,6 +24,9 @@ class AdminUsersViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         usersSegment.backgroundColor = UIColor(rgb: 0xf1faee)
+        usersSearchBar.backgroundColor = UIColor(rgb: 0xf1faee)
+        usersSearchBar.barTintColor = UIColor(rgb: 0xf1faee)
+        view.backgroundColor = UIColor(rgb: 0xf1faee)
         dataAccess = AdminDataAccess()
         adminUsersViewModel = AdminUsersListViewModel(dataAccess: dataAccess)
         if(adminUsersViewModel.checkNetworkConnection()){
