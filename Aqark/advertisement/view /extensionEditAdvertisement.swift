@@ -92,7 +92,7 @@ extension AddAdvertisementViewController {
                     for i in myValue
                     {
                         let tag = self.selectEditAmenitiesValue(value: i)
-                        self.amentiesButton[tag].setImage(UIImage(named: "advertisement_check"), for: .normal)
+                        self.amentiesButton[tag].setImage(UIImage(named: "checkmark"), for: .normal)
                         self.selectAmenitiesDic[tag] = i
                     }
                 }
