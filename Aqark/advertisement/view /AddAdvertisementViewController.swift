@@ -13,6 +13,9 @@ import ReachabilitySwift
 import SDWebImage
 
 class AddAdvertisementViewController: UIViewController  {
+    @IBOutlet weak var amenitiesTitle: UILabel!
+    
+    @IBOutlet weak var descriptionTitle: UILabel!
     @IBOutlet weak var priceTxtField: UITextField!
     @IBOutlet weak var sizeTxtField: UITextField!
     @IBOutlet weak var addressTxtField: UITextField!
@@ -32,7 +35,6 @@ class AddAdvertisementViewController: UIViewController  {
     @IBOutlet weak var bedRoomStepper: UIStepper!
     @IBOutlet weak var bathRoomStepper: UIStepper!
     @IBOutlet var amentiesButton: [UIButton]!
-    let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     var config = YPImagePickerConfiguration()
     var addAdvertisementVM: AddAdvertisementViewModel!
     var activityIndicator:UIActivityIndicatorView!
@@ -73,10 +75,10 @@ class AddAdvertisementViewController: UIViewController  {
     }
     @objc func chnageIndicatorStatus()
     {
-        stopIndicator()
+        self.stopActivityIndicator()
         blackIndicatorView.isHidden = true
         
-        let alertController = UIAlertController(title: "succes", message: "your advertrisement uploaded succesfuly" , preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Advertisements", message: "Advertrisement saved successfully" , preferredStyle: .alert)
         let actionButton = UIAlertAction(title: "ok", style: .default) { (_) in
             self.navigationController?.popViewController(animated: true)
         }
@@ -86,8 +88,8 @@ class AddAdvertisementViewController: UIViewController  {
     
     @objc func viewAlert()
     {
-        alertControllerMessage(title: "can't upload", message: "you have only 2 free advertisement if you want to add new add you should fo to payment")
-        stopIndicator()
+        alertControllerMessage(title: "Advertisements", message: "Sorry, you used all of your free ads")
+        self.stopActivityIndicator()
         blackIndicatorView.isHidden = true
         
         // go to payment page
@@ -155,7 +157,7 @@ class AddAdvertisementViewController: UIViewController  {
             {
                 if switchButton.isOn
                 {
-                    showIndicator()
+                    self.showActivityIndicator()
                     blackIndicatorView.isHidden = false
                     if(advertisementId.isEmpty == false)
                     {
@@ -169,22 +171,9 @@ class AddAdvertisementViewController: UIViewController  {
                 }
             }
             else{
-                alertControllerMessage(title: "Internet Connection Error", message: "Internet Connection Not Available")
+                alertControllerMessage(title: "Internet Connection", message: "Internet Connection Not Available")
             }
         }
-    }
-    
-    //MARK: - func indicator show and hide
-    func stopIndicator() {
-        networkIndicator.stopAnimating()
-    }
-    
-    func showIndicator()
-    {
-        networkIndicator.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        networkIndicator.center = view.center
-        networkIndicator.startAnimating()
-        view.addSubview(networkIndicator)
     }
     //MARK: - func to chekc internet connection rechablity
     func checkNetworkConnection()->Bool
@@ -198,19 +187,19 @@ class AddAdvertisementViewController: UIViewController  {
     //MARK:- func setup image in letf textfield
     
     func setupImageInLeftTextField(){
-        priceTxtField.setIcon(UIImage(named: "Advertisement_ic_monetization_on_24px.pdf")!)
-        phoneTxtField.setIcon(UIImage(named: "Advertisement_flag.pdf")!)
-        sizeTxtField.setIcon(UIImage(named:"Advertisement_house-size_2.pdf")!)
-        addressTxtField.setIcon(UIImage(named: "Advertisement_Mask Group 22.pdf")!)
-        BedroomsTxtField.setIcon(UIImage(named: "Advertisement_bed.pdf")!)
-        BathroomTxtField.setIcon(UIImage(named: "Advertisement_Bathtub-bathroom-hotel-cleaning.pdf")!)
-        countyTxtField.setIcon(UIImage(named: "Advertisement_flag.pdf")!)
+        priceTxtField.setIcon(UIImage(named: "money")!)
+        phoneTxtField.setIcon(UIImage(named: "phone")!)
+        sizeTxtField.setIcon(UIImage(named:"ad_size")!)
+        addressTxtField.setIcon(UIImage(named: "profile_map")!)
+        BedroomsTxtField.setIcon(UIImage(named: "ad_bed")!)
+        BathroomTxtField.setIcon(UIImage(named: "ad_bath")!)
+        countyTxtField.setIcon(UIImage(named: "country")!)
     }
     
     //MARK:- alertMessage
     func alertControllerMessage(title: String , message : String ){
         let alertController = UIAlertController(title: title, message: message , preferredStyle: .alert)
-        let actionButton = UIAlertAction(title: "ok", style: .default, handler: nil)
+        let actionButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alertController.addAction(actionButton)
         self.present(alertController, animated: true, completion: nil)
     }
@@ -224,7 +213,6 @@ class AddAdvertisementViewController: UIViewController  {
         }else{
             self.payment = "premium"
         }
-        
     }
     
     //MARK: - deinit
@@ -247,10 +235,4 @@ extension AddAdvertisementViewController : UITextFieldDelegate{
         return true
     }
 }
-//
-//extension AddAdvertisementViewController : UITextViewDelegate{
-//    func textFieldShouldReturn(_ textView: UITextView) -> Bool {
-//        textView.resignFirstResponder()
-//        return true
-//    }
-//}
+

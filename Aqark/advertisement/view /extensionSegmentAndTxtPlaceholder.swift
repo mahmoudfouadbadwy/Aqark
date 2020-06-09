@@ -33,11 +33,11 @@ extension AddAdvertisementViewController{
        {
            switch propertyType {
            case "Apartment":
-               priceTxtField.placeholder = "minimum price is 500$"
+               priceTxtField.placeholder = "minimum price is 500 EGP"
            case "Villa":
-               priceTxtField.placeholder = "minimum price is 5000$"
+               priceTxtField.placeholder = "minimum price is 5000 EGP"
            case "Room":
-               priceTxtField.placeholder = "minimum price is 200$ "
+               priceTxtField.placeholder = "minimum price is 200 EGP "
            default:
                print("noselection")
            }
@@ -45,11 +45,11 @@ extension AddAdvertisementViewController{
        }else{
            switch propertyType {
            case "Apartment":
-               priceTxtField.placeholder = "minimum price is 50,000$ "
+               priceTxtField.placeholder = "minimum price is 50,000 EGP "
            case "Villa":
-               priceTxtField.placeholder = "minimum price is 500,000$ "
+               priceTxtField.placeholder = "minimum price is 500,000 EGP"
            case "Room":
-               priceTxtField.placeholder = "minimum price is 10,000$ "
+               priceTxtField.placeholder = "minimum price is 10,000 EGP "
                
            default:
                print("noselection")

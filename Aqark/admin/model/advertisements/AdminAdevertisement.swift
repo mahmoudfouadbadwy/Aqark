@@ -9,7 +9,7 @@
 import Foundation
 struct AdminAdvertisement{
     var advertisementId : String
-    var advertisementPropertyatitude : String
+    var advertisementPropertyLatitude : String
     var advertisementPropertyLongitude : String
     var advertisementPropertyLocation : String
     var advertisementType : String

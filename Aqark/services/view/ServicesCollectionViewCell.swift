@@ -10,7 +10,7 @@ import UIKit
 import Cosmos
 
 class ServicesCollectionViewCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var detailsStackView: UIStackView!
     @IBOutlet weak var serviceUserImage: UIImageView!
     @IBOutlet weak var serviceUserName: UILabel!
@@ -25,7 +25,7 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     
     var serviceUserCellIndex : IndexPath!
     var serviceUserDelegate : ServiceUsersCollectionDelegate!
-    
+    @IBOutlet weak var serviceUserCompanyHeight: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         serviceUserRating.settings.fillMode = .precise
@@ -39,12 +39,13 @@ class ServicesCollectionViewCell: UICollectionViewCell {
                 self.rateMeButton.alpha = 1
             }) { (finished) in
                 self.rateMeView.isHidden = finished
-                 self.serviceUserDelegate.rateServiceUserDelegate(at: self.serviceUserCellIndex,rate:rating)
+                self.serviceUserDelegate.rateServiceUserDelegate(at: self.serviceUserCellIndex,rate:rating)
             }
         }
     }
     
     override func layoutSubviews() {
+        serviceUserImage.circularImage()
         layer.cornerRadius = 10
         layer.masksToBounds = true
         layer.shadowColor = UIColor.black.cgColor
@@ -55,21 +56,25 @@ class ServicesCollectionViewCell: UICollectionViewCell {
         layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
         
         if(serviceUserDelegate.checkLoggedUserDelegate()){
-                  rateMeButton.isHidden = false
-                  dialerButtonTrailingConstraint.isActive = true
-                  dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = false
-              }else{
-                  rateMeButton.isHidden = true
-                  dialerButtonTrailingConstraint.isActive = false
-                  dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
-              }
-        if(serviceUserCompany.text == " company"){
-            detailsStackView.removeArrangedSubview(serviceUserCompany)
-            serviceUserCompany.removeFromSuperview()
+            rateMeButton.isHidden = false
+            dialerButtonTrailingConstraint.isActive = true
+            dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = false
+        }else{
+            rateMeButton.isHidden = true
+            dialerButtonTrailingConstraint.isActive = false
+            dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
         }
-        if(serviceUserExperience.text == "Not Provided years exp"){
-            detailsStackView.removeArrangedSubview(serviceUserExperience)
-            serviceUserExperience.removeFromSuperview()
+        
+        if(serviceUserCompany.text == ""){
+            serviceUserCompany.isHidden = true
+        }else if(serviceUserCompany.text != "" && serviceUserCompany.isHidden == true){
+            serviceUserCompany.isHidden = false
+        }
+
+        if(serviceUserExperience.text == " years exp"){
+            serviceUserExperience.isHidden = true
+        }else if(serviceUserExperience.isHidden == true && serviceUserExperience.text != " years exp"){
+            serviceUserExperience.isHidden = false
         }
     }
     

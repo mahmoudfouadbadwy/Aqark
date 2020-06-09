@@ -10,17 +10,29 @@ import Foundation
 import Firebase
 
 extension AdminDataAccess{
-    func deleteAdvertisment(adminAdvertisement:AdminAdvertisementViewModel){
-        deleteFromUsersAds(by: adminAdvertisement.advertisementUserId, and: adminAdvertisement.advertisementId)
-        deleteFromAdvertisements(by: adminAdvertisement.advertisementId)
+    
+    func deleteAdvertisment(adminAdvertisement:AdminAdvertisementViewModel,completionForDeleteAdvertisement:@escaping(_ deleted:Bool)->Void){
+        deleteFromUsersAds(by: adminAdvertisement.advertisementUserId, and: adminAdvertisement.advertisementId){(deleted)in
+            if(deleted){
+                self.deleteFromAdvertisements(by: adminAdvertisement.advertisementId)
+                completionForDeleteAdvertisement(true)
+            }else{
+                completionForDeleteAdvertisement(false)
+            }
+        }
     }
     
-    private func deleteFromUsersAds(by userID : String,and advertisementID : String)
+    private func deleteFromUsersAds(by userID : String,and advertisementID : String,completion:@escaping(_ deleted:Bool)->Void)
     {
         ref.child("Users_Ads").child(userID).child("advertisements").observeSingleEvent(of: .value) { (data) in
-            var advertisements = data.value as! [String]
-            advertisements.removeAll{$0 == advertisementID}
-            self.ref.child("Users_Ads").child(userID).child("advertisements").setValue(advertisements)
+            if (data.value is NSNull){
+                completion(false)
+            }else{
+                var advertisements = data.value as! [String]
+                advertisements.removeAll{$0 == advertisementID}
+                self.ref.child("Users_Ads").child(userID).child("advertisements").setValue(advertisements)
+                completion(true)
+            }
         }
     }
     

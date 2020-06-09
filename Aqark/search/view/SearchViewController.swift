@@ -11,6 +11,7 @@ import SDWebImage
 import JJFloatingActionButton
 import MapKit
 import Foundation
+import SwiftyGif
 
 class SearchViewController: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var mapView: MKMapView!
@@ -76,6 +77,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         }
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         
         if SearchNetworking.checkNetworkConnection(){
@@ -110,7 +112,6 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     }
     
 }
-
 
 
 

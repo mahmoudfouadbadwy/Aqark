@@ -36,14 +36,14 @@ extension AddAdvertisementViewController: UICollectionViewDataSource , UICollect
         if indexPath.section == 0{
             cell.imageForCell.image = UIImage(data: selectedImages[indexPath.row])
         }else{
-            cell.imageForCell.sd_setImage(with: URL(string: urlImages[indexPath.row]), placeholderImage: UIImage(named: "search_villa"))
+            cell.imageForCell.sd_setImage(with: URL(string: urlImages[indexPath.row]), placeholderImage: UIImage(named: "NoImage"))
         }
         
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-         alertDesitionMaking(title: "Delete ", message: "Are you sure delete image " , index : indexPath)
+        alertDesitionMaking(title: "Delete ", message: "Are you sure you want to delete ?" , index : indexPath)
     }
     func registerCellOfCollectionView()
     {
@@ -63,12 +63,12 @@ extension AddAdvertisementViewController: UICollectionViewDataSource , UICollect
             collectionView.setCollectionViewLayout(collectionViewFlowLayout , animated: true)
         }
     }
-
+    
     func alertDesitionMaking(title: String , message : String , index : IndexPath){
-           
-        let alertController = UIAlertController(title: "Delete Image", message: "Are you sure delete image" , preferredStyle: .alert)
-        let cancelButton = UIAlertAction(title: "cancel", style: .cancel ,handler: nil)
-        let okButton = UIAlertAction(title: "ok", style: .default) { (_) in
+        
+        let alertController = UIAlertController(title: "Delete Image", message: "Are you sure you want to delete ?" , preferredStyle: .alert)
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel ,handler: nil)
+        let okButton = UIAlertAction(title: "Ok", style: .default) { (_) in
             if index.section == 0{
                 self.selectedImages.remove(at: index.row)
                 self.collectionView.deleteItems(at: [index])
@@ -86,5 +86,5 @@ extension AddAdvertisementViewController: UICollectionViewDataSource , UICollect
         
         present(alertController, animated: true, completion: nil)
     }
-
+    
 }
