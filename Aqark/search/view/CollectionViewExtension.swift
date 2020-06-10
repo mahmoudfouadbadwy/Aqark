@@ -102,17 +102,7 @@ extension SearchViewController{
             }
         }
     }
-//    func getAddress()->String{
-//         self.arrOfAdViewModel.forEach { self.counts[$0.address, default: 0] += 1 }
-//        print(longArr)
-//        for item in arrOfAdViewModel{
-//          self.addressForMap = String(item.address)
-//          addressArr.append(addressForMap)
-//                    print(addressArr)
-//        }
-//        return addressArr[0]
-//    }
-  
+
 
     func getCellData(indexPath : IndexPath){
         if isFiltering {
