@@ -29,7 +29,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     var isMapHidden = true
     let reuseIdentifier = "MyIdentifier"
     var counts: [String: Int] = [:]
-  
+     var longArr = [String]()
       var addressArr = [String]()
     var numberOfPropertiesInLocation : Int!
     var addressForMap : String!
