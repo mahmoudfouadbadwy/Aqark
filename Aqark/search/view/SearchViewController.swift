@@ -111,7 +111,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         guard let status = connection?.isReachable else{return false}
         return status
     }
-   
+//   
 }
 
 //MARK: - UIViewIndicator
