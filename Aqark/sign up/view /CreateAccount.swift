@@ -24,11 +24,19 @@ extension SignUpView{
     {
         if (accountViewModel.isValid)
         {
-            showIndicator()
-            accountViewModel.performCreation(dataAccess: SignUpDataAccess(),completion: {
-                (result) in
-                self.stopIndicator()
-                self.gotoProfileView()
+            showActivityIndicator()
+            accountViewModel.performCreation(dataAccess: SignUpDataAccess(),completion: {[weak self]
+                (result,flag) in
+                
+                if flag
+                {
+                    self?.stopActivityIndicator()
+                    self?.gotoProfileView()
+                }
+                else
+                {
+                    self?.showAlert(with: result)
+                }
             })
         }
         else
@@ -39,6 +47,7 @@ extension SignUpView{
     
     func gotoProfileView()
     {
+        self.navigationController?.popViewController(animated: true)
         let profileView:ProfileViewController = ProfileViewController()
         self.navigationController?.pushViewController(profileView, animated: true)
     }

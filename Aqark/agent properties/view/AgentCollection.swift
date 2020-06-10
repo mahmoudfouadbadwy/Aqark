@@ -20,11 +20,11 @@ extension AgentPropertiesView{
     func bindCollectionData()
     {
         
-        let advertisementViewModel:AgentAdvertisementListViewModel =
+         advertisementViewModel =
             AgentAdvertisementListViewModel(data: agentDataAccess)
-        advertisementViewModel.getAllAdvertisements(agentId:agentId,completion: {[weak self]
+         advertisementViewModel.getAllAdvertisements(agentId:agentId,completion: {[weak self]
             (advertisements) in
-            self?.stopIndicator()
+            self?.stopActivityIndicator()
             self?.listOfAdvertisements = advertisements
         })
     }
@@ -36,27 +36,34 @@ extension AgentPropertiesView{
         cell.layer.shadowOffset = CGSize(width: 2.0, height: 3.0)
         cell.layer.shadowRadius = 4.0
         cell.layer.shadowOpacity = 0.5
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor(rgb: 0x1d3557).cgColor
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
     }
     private func setCellData(cell:AgentAdvertisementCell,indexPath:IndexPath)
     {
         let advertisement:AgentAdvertisementViewModel = listOfAdvertisements[indexPath.row]
-        cell.propertyType.text = advertisement.propertyType
+        cell.propertyType.text = advertisement.propertyType.localize
         if advertisement.advertisementType.lowercased().elementsEqual("rent")
         {
-            cell.propertyPrice.text = "\(advertisement.price ?? 0.0) EGP/month"
+            cell.propertyPrice.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + " EGP".localize
         }else
         {
-            cell.propertyPrice.text = "\(advertisement.price ?? 0.0) EGP"
+
+            cell.propertyPrice.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + " EGP/month".localize
         }
         
-        cell.propertySize.text = "\(advertisement.size ?? "") sqm"
+        cell.propertySize.text = self.convertNumbers(lang: "lang".localize, stringNumber: advertisement.size).1 + "sqm".localize
         cell.propertyAddress.text = advertisement.address
-        cell.bedNumber.text = advertisement.bedroom
-        cell.bathRoomNumber.text = advertisement.bathroom
+        cell.bedNumber.text =  self.convertNumbers(lang: "lang".localize, stringNumber: advertisement.bedroom).1
+        cell.bathRoomNumber.text = self.convertNumbers(lang: "lang".localize, stringNumber: advertisement.bathroom).1 
         cell.propertyImage.sd_setImage(with: URL(string: advertisement.image), placeholderImage: UIImage(named: "NoImage"))
-        cell.paymentType.text = advertisement.payment.capitalized
+        if "lang".localize.elementsEqual("en"){
+            cell.paymentType.text = advertisement.payment.localize.capitalized
+        }else{
+            cell.paymentType.text = advertisement.payment.localize
+        }
     }
 }
 

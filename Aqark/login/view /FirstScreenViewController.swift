@@ -7,44 +7,33 @@
 //
 
 import UIKit
-
+import Foundation
 class FirstScreenViewController: UIViewController {
     
     @IBOutlet weak var rolesPicker: UIPickerView!
     var roles : [String] = [String]()
     var userRole : String = "User"
-    private var loginViewModel : LoginViewModel!
     override func viewDidLoad(){
         super.viewDidLoad()
-        self.navigationItem.title = "Role"
+        self.navigationItem.title = "Role".localize
+        self.view.backgroundColor = UIColor(rgb: 0xf1faee)
+        self.rolesPicker.backgroundColor = UIColor(rgb: 0xf1faee)
         self.navigationItem.hidesBackButton = true
-        loginViewModel = LoginViewModel()
-        if(loginViewModel.checkNetworkConnection()){
-            rolesPicker.delegate = self
-            rolesPicker.dataSource = self
-            roles = ["User","Lawyer","Interior Designer"]
-        }else{
-            //PlaceHolder image for no internet connection.
-        }
-        }
-    
-    @IBAction func submit(_ sender: Any) {
-        if(loginViewModel.checkNetworkConnection()){
-            let loginView = LoginViewController()
-                  loginView.userRole = userRole
-            self.navigationController?.pushViewController(loginView, animated: true)
-        }else{
-            showAlert(title: "Connection", message: "Check your internet connection")
+        rolesPicker.delegate = self
+        rolesPicker.dataSource = self
+        roles = ["User","Lawyer","Interior Designer"]
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        if ProfileNetworking.checkAuthuntication(){
+            self.navigationController?.pushViewController(ProfileViewController(), animated: true)
         }
     }
-    
-    func showAlert(title:String,message:String){
-          let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-          let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel){(okAction) in
-              alert.dismiss(animated: true, completion: nil)}
-          alert.addAction(okAction)
-          self.present(alert, animated: true, completion: nil)
-      }
+
+    @IBAction func submit(_ sender: Any) {
+            let loginView = LoginViewController()
+        loginView.userRole = userRole
+            self.navigationController?.pushViewController(loginView, animated: true)
+    }
 }
 
 extension FirstScreenViewController : UIPickerViewDelegate,UIPickerViewDataSource{
@@ -63,5 +52,9 @@ extension FirstScreenViewController : UIPickerViewDelegate,UIPickerViewDataSourc
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         userRole = roles[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        return NSAttributedString(string: roles[row].localize, attributes: [NSAttributedString.Key.foregroundColor:UIColor(rgb: 0x457b9d)])
     }
 }

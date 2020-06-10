@@ -30,6 +30,11 @@ class ProfileStore{
     {
         profileDataAccess.profileLogout()
     }
+    func removeProfileObservers()
+    {
+        profileDataAccess.reomveProfileDataObserver()
+        profileDataAccess.removeProfileAdvertisementsObservers()
+    }
     
     
 }
@@ -43,6 +48,7 @@ class ProfileViewModel{
     var phone:String
     var experience:String
     var rate:[String:Double]
+    var ban:Bool
     init(profile:Profile) {
         self.role = profile.role
         self.picture = profile.picture
@@ -53,6 +59,7 @@ class ProfileViewModel{
         self.phone = profile.phone
         self.country = profile.country
         self.experience = profile.experience
+        self.ban = profile.ban
     }
 }
 
@@ -73,4 +80,21 @@ struct ProfileNetworking{
         guard let status = connection?.isReachable else{return false}
         return status
     }
+    
+    static func isAdmin()->Bool
+    {
+        if checkNetworkConnection(){
+            guard let user =  Auth.auth().currentUser else {return false}
+            if user.email!.elementsEqual("aqark@admin.com")
+            {
+                return true
+            }
+            return false
+        }else
+        {
+            return false
+        }
+    }
+    
+    
 }

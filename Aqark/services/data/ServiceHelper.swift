@@ -15,6 +15,9 @@ struct  ServiceUserKey {
     static let userCompany = "company"
     static let userCountry = "country"
     static let userRole = "role"
+    static let userExperience = "experience"
+    static let userServiceRating = "service rate"
+    static let userPicture = "picture"
 }
 
 struct ServiceUserRole {

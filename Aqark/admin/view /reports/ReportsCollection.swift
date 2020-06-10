@@ -14,18 +14,19 @@ extension AdminReportsView{
         self.reportsCollection.register(UINib(nibName: "AdminReportsCell", bundle: nil), forCellWithReuseIdentifier: "reportsCell")
         self.reportsCollection.delegate = self
         self.reportsCollection.dataSource = self
-       
+        reportsCollection.backgroundColor = UIColor(rgb: 0xf1faee)
+        view.backgroundColor = UIColor(rgb: 0xf1faee)
     }
     func bindCollectionData()
     {
-        showIndicator()
+        showActivityIndicator()
          self.adminReportViewModel = AdminReportsList(reportData:  AdminReportsData())
         self.adminReportViewModel.getAllReports(completion: {[weak self]
             (reports,users,agents) in
             self?.reports = reports
             self?.usersname  = users
             self?.agentsname = agents
-            self?.stopIndicator()
+            self?.stopActivityIndicator()
         })
     }
     
@@ -53,8 +54,6 @@ extension AdminReportsView:UICollectionViewDataSource{
         let cell:AdminReportsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "reportsCell", for: indexPath) as! AdminReportsCell
         cell.reportContent.text =
             "\(usersname[indexPath.row]) report \(agentsname[indexPath.row])'s advertisement for \(reports[indexPath.row].reportContent)"
-            
-        
         setCellConfiguration(cell:cell)
         return cell
     }
@@ -62,7 +61,8 @@ extension AdminReportsView:UICollectionViewDataSource{
 
 extension AdminReportsView:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        /////
+        AdminAdvertisementsViewController.reportedAdvertisementId = reports[indexPath.row].advertisementId
+        self.tabBarController?.selectedIndex = 1
     }
 }
 

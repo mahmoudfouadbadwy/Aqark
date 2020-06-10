@@ -16,12 +16,13 @@ class AdminAdvertisementCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var advertisementPropertyBedNumbers: UILabel!
     @IBOutlet weak var advertisementPropertyBathRoomNumbers: UILabel!
     @IBOutlet weak var advertisementPropertySize: UILabel!
-    var adminAdvertisementsCollectionDelegate : AdminAdvertisementsCollectionDelegate?
-    var adminAdvertisementsCellIndex : IndexPath?
+    var adminAdvertisementsDelegate : AdminAdvertisementsCollectionDelegate!
+    var adminAdvertisementsCellIndex : IndexPath!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        advertisementPropertyImage.setRaduisForImage()
+        advertisementPropertyType.textColor = UIColor(rgb: 0x457b9d)
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longGesturePressed(gesture:)))
             addGestureRecognizer(longPressGesture)
     }
@@ -33,6 +34,8 @@ class AdminAdvertisementCollectionViewCell: UICollectionViewCell {
         layer.shadowOffset = CGSize(width: 2.0, height: 3.0)
         layer.shadowRadius = 4.0
         layer.shadowOpacity = 0.5
+        layer.borderWidth = 1
+        layer.borderColor = UIColor(rgb: 0x1d3557).cgColor
         layer.masksToBounds = false
         layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
     }
@@ -41,7 +44,7 @@ class AdminAdvertisementCollectionViewCell: UICollectionViewCell {
         if gesture.state != .ended {
             return
         }else{
-            adminAdvertisementsCollectionDelegate?.adminAdvertisementsCollectionDelegate(indexPath: adminAdvertisementsCellIndex!)
+            adminAdvertisementsDelegate?.removeAdvertisementDelegate(at: adminAdvertisementsCellIndex!)
         }
     }
 }

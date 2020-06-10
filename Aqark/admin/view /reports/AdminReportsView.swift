@@ -11,7 +11,6 @@ import UIKit
 class AdminReportsView: UIViewController {
     @IBOutlet weak var reportsCollection: UICollectionView!
     @IBOutlet weak var statusLabel: UILabel!
-    let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     var adminReportViewModel:AdminReportsList!
     var reports:[AdminReportViewModel]=[]{
         didSet{
@@ -31,38 +30,28 @@ class AdminReportsView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if !ReportNetwork.checkNetworkConnection(){
-            statusLabel.isHidden = false
-            statusLabel.text = "Internet Connetion Not Available"
+           setupNoConnectionView()
         }
         setupReportsCollection()
         setupCollectionGeusture()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
+        self.tabBarController?.navigationItem.title = "Reports"
         if ReportNetwork.checkNetworkConnection(){
             bindCollectionData()
         }
         else
         {
-            statusLabel.isHidden = false
-            statusLabel.text = "Internet Connetion Not Available"
+           setupNoConnectionView()
         }
     }
     
-}
-
-//MARK: - UIViewIndicator
-extension AdminReportsView{
-    func showIndicator()
+    private func setupNoConnectionView()
     {
-        networkIndicator.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        networkIndicator.center = view.center
-        networkIndicator.startAnimating()
-        view.addSubview(networkIndicator)
+        statusLabel.isHidden = false
+        statusLabel.text = "Internet Connetion Not Available"
     }
     
-    func stopIndicator() {
-        networkIndicator.stopAnimating()
-    }
 }
 

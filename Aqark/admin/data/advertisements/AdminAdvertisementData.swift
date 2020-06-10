@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 extension AdminDataAccess{
+    
     func getAdvertisements(completionForGetAdvertisements:@escaping(_ advertisementsData : [AdminAdvertisement]) -> Void){
         var advertisements = [AdminAdvertisement]()
         let advertisementsRef = ref.child("Advertisements")
@@ -37,13 +38,13 @@ extension AdminDataAccess{
         let advertisementPropertyCountry = advertisementDictionary[AdminAdvertisementKey.country] as! String
         let advertisementPropertyDate = advertisementDictionary[AdminAdvertisementKey.date] as! String
         let advetisementPropertyDescription = advertisementDictionary[AdminAdvertisementKey.description] as! String
-        let advertisementPropertyImages = advertisementDictionary[AdminAdvertisementKey.images] as? [String] ?? []
+        let advertisementPropertyImages = advertisementDictionary[AdminAdvertisementKey.images] as? [String] ?? [""]
         let advertisementPayment = advertisementDictionary[AdminAdvertisementKey.payment] as! String
         let advertisementPhone = advertisementDictionary[AdminAdvertisementKey.phone] as! String
         let advertisementPropertyPrice = advertisementDictionary[AdminAdvertisementKey.price] as! String
         let advertisementPropertyType = advertisementDictionary[AdminAdvertisementKey.propertyType] as! String
         let advertisementPropertySize = advertisementDictionary[AdminAdvertisementKey.size] as! String
-        let advertisement = AdminAdvertisement(advertisementId: advertisementId, advertisementPropertyatitude: advertisementPropertyLatitude, advertisementPropertyLongitude: advertisementPropertyLongitude, advertisementPropertyLocation: advertisementPropertyLocation, advertisementType: advertisementType, advertisemetentUserId: advertisementUserId, advertisementPropertyAmenities: advertisementPropertyAmenities, advertisementPropertyBathRooms: advertisementPropertyBathRooms, advertisementPropertyBeds: advertisementPropertyBeds, advertisementCountry: advertisementPropertyCountry, advertisementDate: advertisementPropertyDate, advertisementPropertyDescription: advetisementPropertyDescription, advertismentsPropertyImages: advertisementPropertyImages, advertisementPayment: advertisementPayment, adevertisementPhone: advertisementPhone, advertisementPropertyPrice: advertisementPropertyPrice, advertisementPropertyType: advertisementPropertyType, advertisementPropertySize: advertisementPropertySize)
+        let advertisement = AdminAdvertisement(advertisementId: advertisementId, advertisementPropertyLatitude: advertisementPropertyLatitude, advertisementPropertyLongitude: advertisementPropertyLongitude, advertisementPropertyLocation: advertisementPropertyLocation, advertisementType: advertisementType, advertisemetentUserId: advertisementUserId, advertisementPropertyAmenities: advertisementPropertyAmenities, advertisementPropertyBathRooms: advertisementPropertyBathRooms, advertisementPropertyBeds: advertisementPropertyBeds, advertisementCountry: advertisementPropertyCountry, advertisementDate: advertisementPropertyDate, advertisementPropertyDescription: advetisementPropertyDescription, advertismentsPropertyImages: advertisementPropertyImages, advertisementPayment: advertisementPayment, adevertisementPhone: advertisementPhone, advertisementPropertyPrice: advertisementPropertyPrice, advertisementPropertyType: advertisementPropertyType, advertisementPropertySize: advertisementPropertySize)
         return advertisement
     }
 }

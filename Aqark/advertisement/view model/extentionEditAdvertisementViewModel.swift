@@ -12,7 +12,11 @@ import Foundation
 
 extension AddAdvertisementViewModel{
     
-   
+    func fetchAdvertisement(completion : @escaping (EditAdvertisementModel)->()){
+        editAdvertisementDataSource.fetchAdvertisement { (advertisement) in
+           completion(advertisement)
+        }
+    }
     
     func editAdvertisement(id :String , date:String)
     {

@@ -22,6 +22,8 @@ class AgentAdvertisementCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         propertyImage.setRaduisForImage()
+        propertyType.textColor = UIColor(rgb: 0x457b9d)
+        paymentType.textColor = UIColor(rgb: 0x1d3557)
     }
 
 }

@@ -7,18 +7,33 @@
 //
 
 import Foundation
-
+import UIKit
 extension PropertyDetailView{
     func bindAdvertisementData(){
+        if "lang".localize.elementsEqual("en"){
+            self.dateOfAdvertisement.text = self.advertisementDetails.date
+        }else{
+            var date:String = ""
+            let x = self.advertisementDetails.date.split(separator: " ")
+            let y = x.first?.split(separator: "-")
+            let z = x.last?.split(separator: ":")
+            date.append(self.convertNumbers(lang: "lang".localize, stringNumber: String(z![0])).1 + ":")
+            date.append(self.convertNumbers(lang: "lang".localize, stringNumber: String(z![1])).1 + "  ")
+            date.append(self.convertNumbers(lang: "lang".localize, stringNumber: String(y![2])).1 + "-")
+            date.append(self.convertNumbers(lang: "lang".localize, stringNumber: String(y![1])).1 + "-")
+            date.append(self.convertNumbers(lang: "lang".localize, stringNumber: String(y![0])).1 + " ")
+            self.dateOfAdvertisement.text = date
+        }
+        
         self.getImages(images: self.advertisementDetails.images, completion:self.setSliderImages)
-        self.dateOfAdvertisement.text = self.advertisementDetails.date
+        
         self.setPrice()
         self.setSpecification()
         self.address.text = self.advertisementDetails.location
-        self.propertyType.text = self.advertisementDetails.propertyType
-        self.propertySize.text = self.advertisementDetails.propertysize
-        self.bedrooms.text = self.advertisementDetails.bedroom
-        self.bathrooms.text = self.advertisementDetails.bathroom
+        self.propertyType.text = self.advertisementDetails.propertyType.localize
+        self.propertySize.text = self.convertNumbers(lang: "lang".localize, stringNumber: self.advertisementDetails.propertysize).1
+        self.bedrooms.text = self.convertNumbers(lang: "lang".localize, stringNumber: self.advertisementDetails.bedroom).1
+        self.bathrooms.text = self.convertNumbers(lang: "lang".localize, stringNumber: self.advertisementDetails.bathroom).1
         self.configureCallingButton()
         self.setUpAmenitiesCollection()
         self.username.text = self.agent.username
@@ -32,17 +47,21 @@ extension PropertyDetailView{
     {
         if self.advertisementDetails.advertismentType.elementsEqual("Rent")
         {
-            self.price.text = "\(self.advertisementDetails.price ?? 0.0) EGP/month"
+            self.price.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(self.advertisementDetails.price))).1 + "EGP/month".localize
         }
         else
         {
-            self.price.text = "\(self.advertisementDetails.price ?? 0.0) EGP"
+            self.price.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(self.advertisementDetails.price))).1 + "EGP".localize
         }
     }
     
     private func setSpecification()
     {
-        self.specification.text = "\(self.advertisementDetails.propertyType ?? "") for \(self.advertisementDetails.advertismentType ?? "") in \(self.advertisementDetails.country ?? "")"
+        if "lang".localize == "en"{
+            self.specification.text = "\(self.advertisementDetails.propertyType.localize ) \("for".localize) \(self.advertisementDetails.advertismentType.localize ) \("in".localize) \(self.advertisementDetails.country.localize )"
+        }else{
+            self.specification.text = "\(self.advertisementDetails.propertyType.localize ) \("for".localize)\(self.advertisementDetails.advertismentType.localize ) \("in".localize) \(self.advertisementDetails.country.localize )"
+        }
     }
     
     private func setAgentRate()
@@ -58,7 +77,7 @@ extension PropertyDetailView{
         }
         self.userRate.settings.fillMode =  .precise
         self.userRate.rating = agentRate
-
+        
     }
     
 }

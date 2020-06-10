@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import ReachabilitySwift
+
 class AdminAdvertisementsListViewModel{
     
     var adminAdvertisementsViewList : [AdminAdvertisementViewModel] = [AdminAdvertisementViewModel]()
@@ -43,7 +45,16 @@ class AdminAdvertisementsListViewModel{
         }
     }
     
-    func deleteAdvertisement(adminAdvertisement:AdminAdvertisementViewModel){
-        dataAccess.deleteAdvertisment(adminAdvertisement: adminAdvertisement)
+    func deleteAdvertisement(adminAdvertisement:AdminAdvertisementViewModel,completionForDeleteAdvertisement:@escaping(_ deleted:Bool)->Void){
+        dataAccess.deleteAdvertisment(adminAdvertisement: adminAdvertisement){(deleted) in
+            completionForDeleteAdvertisement(deleted)
+        }
     }
+    
+    func checkNetworkConnection()->Bool{
+        let connection = Reachability()
+        guard let status = connection?.isReachable else{return false}
+        return status
+    }
+    
 }

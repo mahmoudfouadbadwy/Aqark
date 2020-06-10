@@ -19,24 +19,32 @@ extension SearchViewController : UICollectionViewDataSource{
         }
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AdvertisementCellCollectionViewCell
         updateCellLayout(cell: cell)
         getCellData(indexPath: indexPath)
         cell.advertisementImage?.sd_setImage(with: URL(string: adViewModel.image), placeholderImage: UIImage(named: "NoImage"))
-        cell.propertyTypeLabel?.text = adViewModel.propertyType
+        cell.propertyTypeLabel?.text = adViewModel.propertyType.localize
         cell.proprtyAddressLabel?.text = adViewModel.address
-        cell.numberOfBedsLabel?.text = adViewModel.bedRoomsNumber
-        cell.numberOfBathRoomsLabel?.text = adViewModel.bathRoomsNumber
-        cell.propertySizeLabel?.text = "\(adViewModel.size ?? "") sqm"
+        cell.numberOfBedsLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.bedRoomsNumber).1
+        cell.numberOfBathRoomsLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.bathRoomsNumber).1
+        cell.propertySizeLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.size).1+"sqm".localize
         if adViewModel.advertisementType == "Rent"{
-            cell.propertyPriceLabel?.text = "\(adViewModel.price ?? 0) EGP/month"
+            
+            cell.propertyPriceLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(adViewModel.price))).1 + "EGP/month".localize
         }else{
-            cell.propertyPriceLabel?.text = "\(adViewModel.price ?? 0) EGP"
+            cell.propertyPriceLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(adViewModel.price))).1 + "EGP".localize
         }
-        
-        self.setFavouriteButton(cell: cell, index: indexPath.row)
-
+        cell.favButton.setTitle(adViewModel.advertisementId, for: .normal)
+        if (coreDataViewModel!.isAdvertismentExist(id: adViewModel.advertisementId)){
+            cell.favButton.image("red-heart")
+        }
+        else
+        {
+             cell.favButton.image("heart")
+        }
+        cell.delegat = self
         return cell
     }
 }
@@ -45,16 +53,16 @@ extension SearchViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         let propertyDetailVC = PropertyDetailView()
         if isSorted == true {
-              propertyDetailVC.advertisementId = (sortedList[indexPath.row].advertisementId)!
-        }else if isFiltering == true {
-             propertyDetailVC.advertisementId =
-                (filteredAdsList[indexPath.row].advertisementId)!
-        }else{
-        propertyDetailVC.advertisementId = (arrOfAdViewModel![indexPath.row].advertisementId)!
-        }
-          self.navigationController?.pushViewController(propertyDetailVC, animated: true)
 
-        
+                     propertyDetailVC.advertisementId = (sortedList[indexPath.row].advertisementId)!
+               }else if isFiltering == true {
+                    propertyDetailVC.advertisementId =
+                       (filteredAdsList[indexPath.row].advertisementId)!
+               }else{
+               propertyDetailVC.advertisementId = (arrOfAdViewModel![indexPath.row].advertisementId)!
+               }
+        self.navigationController?.pushViewController(propertyDetailVC, animated: true)
+
     }
 }
 
@@ -75,6 +83,8 @@ extension SearchViewController{
         cell.layer.shadowOffset = CGSize(width: 2.0, height: 3.0)
         cell.layer.shadowRadius = 4.0
         cell.layer.shadowOpacity = 0.5
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor(rgb: 0x1d3557).cgColor
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
     }
@@ -85,16 +95,17 @@ extension SearchViewController{
     }
     
     func getCollectionViewData(){
+        showActivityIndicator()
         self.data = AdvertisementData()
         self.advertismentsListViewModel = AdvertisementListViewModel(dataAccess: self.data)
         advertismentsListViewModel.populateAds {
             (dataResults) in
             if dataResults.isEmpty{
-                self.stopIndicator()
-                self.labelPlaceHolder.text = "No Advertisements Found"
-                self.view.alpha = 1
+                self.stopActivityIndicator()
+                self.labelPlaceHolder.text = "No Advertisements Available".localize
                 self.manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
             }else{
+                self.stopActivityIndicator()
                 self.arrOfAdViewModel = dataResults
                  self.arrOfAdViewModel.forEach { self.counts[$0.address, default: 0] += 1 }
                 self.putLocationOnMap()
@@ -106,6 +117,7 @@ extension SearchViewController{
 
     func getCellData(indexPath : IndexPath){
         if isFiltering {
+         
             adViewModel = filteredAdsList[indexPath.row]
             notificationBtn.isHidden = false
         }else if isSorting == "High Price"{
@@ -123,7 +135,6 @@ extension SearchViewController{
         }else {
             if let arrOfAdViewModel = arrOfAdViewModel{
                 adViewModel = arrOfAdViewModel[indexPath.row]
-                manageAppearence(sortBtn: false, labelPlaceHolder: true, notificationBtn: true)
             }else{
                 adViewModel = self.advertismentsListViewModel.advertismentsViewModel[indexPath.row]
             }

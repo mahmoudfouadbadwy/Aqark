@@ -10,51 +10,111 @@ import UIKit
 
 class AdminAdvertisementsViewController: UIViewController {
     
+  
+    @IBOutlet weak var noLabel: UILabel!
     @IBOutlet weak var advertisementsCollectionView: UICollectionView!
     @IBOutlet weak var advertisementsSearchBar: UISearchBar!
     
     private var adminAdvertisementViewModel : AdminAdvertisementsListViewModel!
     private var dataAccess : AdminDataAccess!
+    static var reportedAdvertisementId:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        advertisementsCollectionView.register(UINib(nibName: "AdminAdvertisementCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Advertisement Cell")
-        advertisementsCollectionView.delegate = self
-        advertisementsCollectionView.dataSource = self
-        advertisementsSearchBar.delegate = self
-        self.navigationItem.title = "Advertisements"
+        
         dataAccess = AdminDataAccess()
         adminAdvertisementViewModel = AdminAdvertisementsListViewModel(dataAccess:dataAccess)
-        adminAdvertisementViewModel.populateAdvertisements {
-            self.advertisementsCollectionView.reloadData()
+        advertisementsSearchBar.backgroundColor = UIColor(rgb: 0xf1faee)
+        advertisementsSearchBar.barTintColor = UIColor(rgb: 0xf1faee)
+            view.backgroundColor = UIColor(rgb: 0xf1faee)
+        if(adminAdvertisementViewModel.checkNetworkConnection()){
+            showActivityIndicator()
+            self.view.alpha = 0
+            advertisementsCollectionView.register(UINib(nibName: "AdminAdvertisementCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Advertisement Cell")
+            advertisementsCollectionView.delegate = self
+            advertisementsCollectionView.dataSource = self
+            advertisementsSearchBar.delegate = self
+            adminAdvertisementViewModel.populateAdvertisements {
+                self.stopActivityIndicator()
+                UIView.animate(withDuration:2) {
+                    self.view.alpha = 1
+                }
+                if(self.adminAdvertisementViewModel.adminAdvertisementsViewList.isEmpty){
+                    self.setLabelForZeroCount(text: "No advertisements available")
+                }
+                self.advertisementsCollectionView.reloadData()
+            }
+        }else{
+            noLabel.isHidden = false
+            noLabel.text = "Internet Connection Not Available"
+        }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.navigationItem.title = "Advertisements"
+        advertisementsSearchBar.isHidden = true
+        if let reportedAdvertisementId = AdminAdvertisementsViewController.reportedAdvertisementId{
+            adminAdvertisementViewModel.getFilteredAdvertisements(searchText: reportedAdvertisementId)
+            advertisementsCollectionView.reloadData()
+            setLabelForZeroCount(text: "Advertisement is deleted.")
+            AdminAdvertisementsViewController.reportedAdvertisementId = nil
+              setLabelForZeroCount(text: "No advertisements available")
+        }else{
+            advertisementsCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
+            noLabel.isHidden = true
+            advertisementsSearchBar.isHidden = false
+            adminAdvertisementViewModel.getFilteredAdvertisements(searchText: "")
+            advertisementsCollectionView.reloadData()
         }
     }
+    
+    private func setLabelForZeroCount(text:String){
+        noLabel.isHidden = false
+        noLabel.text = text
+    }
+    
+    func showAlert(title:String,message:String){
+         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+         let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel){(okAction) in
+             alert.dismiss(animated: true, completion: nil)}
+         alert.addAction(okAction)
+         self.present(alert, animated: true, completion: nil)
+     }
+    
 }
-
 extension AdminAdvertisementsViewController : UICollectionViewDelegate,UICollectionViewDataSource,AdminAdvertisementsCollectionDelegate{
     
-    func adminAdvertisementsCollectionDelegate(indexPath: IndexPath) {
+    func removeAdvertisementDelegate(at indexPath: IndexPath) {
         showAlert { (result) in
             if(result){
                 self.advertisementsCollectionView.performBatchUpdates({
-                    self.adminAdvertisementViewModel.deleteAdvertisement(adminAdvertisement: self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row])
-                    self.adminAdvertisementViewModel.adminAdvertisementsViewList.remove(at: indexPath
-                        .row)
-                    self.advertisementsCollectionView.deleteItems(at: [indexPath])
+                    self.adminAdvertisementViewModel.deleteAdvertisement(adminAdvertisement: self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row]){(deleted) in
+                        if(deleted){
+                            self.adminAdvertisementViewModel.adminAdvertisementsViewList.remove(at: indexPath
+                                .row)
+                            self.advertisementsCollectionView.deleteItems(at: [indexPath])
+                            self.showAlert(title: "Advertisement",message: "Advertisement deleted successfully")
+                        }else{
+                            self.showAlert(title: "Advertisement", message: "There is problem with deleting advertisement")
+                        }
+                    }
+                    
                 }) { (finished) in
                     self.advertisementsCollectionView.reloadData()
                 }
             }
         }
     }
-     
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.adminAdvertisementViewModel.adminAdvertisementsViewList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let advertisementCell = advertisementsCollectionView.dequeueReusableCell(withReuseIdentifier: "Advertisement Cell", for: indexPath) as! AdminAdvertisementCollectionViewCell
-        advertisementCell.adminAdvertisementsCollectionDelegate = self
+        advertisementCell.adminAdvertisementsDelegate = self
         advertisementCell.adminAdvertisementsCellIndex = indexPath
         advertisementCell.advertisementPropertyType.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyType
         advertisementCell.advertisementPropertyPrice.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyPrice
@@ -62,13 +122,8 @@ extension AdminAdvertisementsViewController : UICollectionViewDelegate,UICollect
         advertisementCell.advertisementPropertySize.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertySize
         advertisementCell.advertisementPropertyBedNumbers.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyBedsNumber
         advertisementCell.advertisementPropertyBathRoomNumbers.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyBathRoomsNumber
-        if(self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyImages.isEmpty){
-            let advertisementPropertyImageURL = URL(string: "https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg")
-            advertisementCell.advertisementPropertyImage.sd_setImage(with:advertisementPropertyImageURL , placeholderImage: UIImage(named: "signup_company"))
-        }else{
-            let advertisementPropertyImageURL = URL(string:self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyImages[0])
-            advertisementCell.advertisementPropertyImage.sd_setImage(with:advertisementPropertyImageURL , placeholderImage: UIImage(named: "signup_company"))
-        }
+        let advertisementPropertyImageURL = URL(string:self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyImages[0])
+        advertisementCell.advertisementPropertyImage.sd_setImage(with:advertisementPropertyImageURL , placeholderImage: UIImage(named: "NoImage"))
         return advertisementCell
     }
     
@@ -90,15 +145,25 @@ extension AdminAdvertisementsViewController : UICollectionViewDelegate,UICollect
 
 extension AdminAdvertisementsViewController : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width - 30 , height: collectionView.frame.height/3);
+        return CGSize(width: collectionView.frame.width - 40, height: 150)
     }
 }
 
 
 extension AdminAdvertisementsViewController:UISearchBarDelegate{
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         adminAdvertisementViewModel.getFilteredAdvertisements(searchText: searchText)
         advertisementsCollectionView.reloadData()
+        if(self.adminAdvertisementViewModel.adminAdvertisementsViewList.isEmpty){
+            self.setLabelForZeroCount(text: "No available advertisements")
+        }else{
+            noLabel.isHidden = true
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
 

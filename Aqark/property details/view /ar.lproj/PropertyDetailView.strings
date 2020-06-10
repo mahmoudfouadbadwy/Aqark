@@ -1,0 +1,81 @@
+
+/* Class = "UILabel"; text = "label"; ObjectID = "2in-OK-wjE"; */
+"2in-OK-wjE.text" = "label";
+
+/* Class = "UIButton"; normalTitle = "Report"; ObjectID = "5ar-f2-ybP"; */
+"5ar-f2-ybP.normalTitle" = "Report";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "8MZ-Df-I4i"; */
+"8MZ-Df-I4i.normalTitle" = "موافق";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "BgU-dS-FIE"; */
+"BgU-dS-FIE.text" = "الموقع";
+
+/* Class = "UIButton"; normalTitle = "Interior Designers"; ObjectID = "GEa-z2-slx"; */
+"GEa-z2-slx.normalTitle" = "مصممي الديكور";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Gwl-hR-2t6"; */
+"Gwl-hR-2t6.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "IDc-kr-XV1"; */
+"IDc-kr-XV1.text" = "Label";
+
+/* Class = "UILabel"; text = "Internet Connection Not Available"; ObjectID = "JT8-hx-fwa"; */
+"JT8-hx-fwa.text" = "Internet Connection Not Available";
+
+/* Class = "UILabel"; text = "Property Type"; ObjectID = "KB6-h4-UxA"; */
+"KB6-h4-UxA.text" = "النوع";
+
+/* Class = "UILabel"; text = "Property Size"; ObjectID = "QO7-eo-st3"; */
+"QO7-eo-st3.text" = "المساحه";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "QlJ-gw-YDb"; */
+"QlJ-gw-YDb.text" = "Label";
+
+/* Class = "UILabel"; text = "Agent"; ObjectID = "Wzr-uH-Jdz"; */
+"Wzr-uH-Jdz.text" = "الوكيل";
+
+/* Class = "UIButton"; normalTitle = "Lawyers"; ObjectID = "Zhn-Cw-Jlz"; */
+"Zhn-Cw-Jlz.normalTitle" = "المحامين";
+
+/* Class = "UILabel"; text = "Bedrooms"; ObjectID = "a4p-94-gx5"; */
+"a4p-94-gx5.text" = "الغرف";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "be1-vr-TZf"; */
+"be1-vr-TZf.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Properties"; ObjectID = "dCQ-qh-VCp"; */
+"dCQ-qh-VCp.normalTitle" = "الخصائص";
+
+/* Class = "UILabel"; text = "Bathrooms"; ObjectID = "fak-oN-Gly"; */
+"fak-oN-Gly.text" = "الحمامات";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "gxX-yV-t2Q"; */
+"gxX-yV-t2Q.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "hiy-LE-Nq4"; */
+"hiy-LE-Nq4.text" = "Label";
+
+/* Class = "UILabel"; text = "100"; ObjectID = "iUB-3B-8gh"; */
+"iUB-3B-8gh.text" = "100";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "kMa-uR-7ht"; */
+"kMa-uR-7ht.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "sVp-Rd-dmB"; */
+"sVp-Rd-dmB.normalTitle" = "الغاء";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "t4l-Ey-AxN"; */
+"t4l-Ey-AxN.text" = "Label";
+
+/* Class = "UILabel"; text = "Amenities"; ObjectID = "vUX-Uu-Zgv"; */
+"vUX-Uu-Zgv.text" = "وسائل مساعده";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "wbM-Y5-ctn"; */
+"wbM-Y5-ctn.text" = "Label";
+
+/* Class = "UILabel"; text = "Reviews"; ObjectID = "wpU-Qh-viP"; */
+"wpU-Qh-viP.text" = "التعليقات";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "xla-Dd-Gey"; */
+"xla-Dd-Gey.text" = "الوصف";

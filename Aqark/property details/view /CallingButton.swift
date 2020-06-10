@@ -12,7 +12,7 @@ extension PropertyDetailView{
     
     func configureCallingButton()
     {
-        callButton.addItem(title: "call", image: UIImage(named: "PropertyDetail_phone")?.withRenderingMode(.alwaysTemplate)) { item in
+        callButton.addItem(title: "call", image: UIImage(named: "phone")?.withRenderingMode(.alwaysTemplate)) { item in
                self.makePhoneCall()
         }
         view.addSubview(callButton)
@@ -30,11 +30,11 @@ extension PropertyDetailView{
     
     func showCallAlert(phone:URL)
     {
-        let alert = UIAlertController(title: ("Call"), message: "Are You Sure You Want To Call Property Agent ?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Call", style: .default, handler: { (action) in
+        let alert = UIAlertController(title: "Call".localize, message: "Are You Sure You Want To Call Property Agent ?".localize, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Call".localize, style: .default, handler: { (action) in
             UIApplication.shared.open(phone,options:[:],completionHandler: nil)
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel".localize, style: .cancel, handler: nil))
         self.present(alert, animated: true)
     }
     

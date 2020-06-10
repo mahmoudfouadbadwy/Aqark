@@ -19,8 +19,8 @@ class AgentPropertiesView: UIViewController {
     var agentId:String!
     var agentName:String!
     var agentRateViewModel:AgentRateViewModel!
-    let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     let agentDataAccess:AgentDataAccess = AgentDataAccess()
+    var advertisementViewModel:AgentAdvertisementListViewModel!
     var listOfAdvertisements:[AgentAdvertisementViewModel] = []{
         didSet{
             if listOfAdvertisements.count>0{
@@ -28,7 +28,7 @@ class AgentPropertiesView: UIViewController {
             }
             else
             {
-                statusLabel.text = "No Advertisements Available"
+                statusLabel.text = "No Advertisements Available".localize
                 statusLabel.isHidden = false
             }
             advertisementsCollection.reloadData()
@@ -38,40 +38,45 @@ class AgentPropertiesView: UIViewController {
         super.viewDidLoad()
         if(!AgentPropertiesNetworking.checkNetworkConnection())
         {
-            statusLabel.isHidden = false
-            statusLabel.text = "Internet Connection Not Available"
+            setNoConnectionView()
         }
-        self.navigationItem.title = "\(agentName ?? "Agent")'s Properties"
+       
+        setupViews()
         setupCollection()
     }
     override func viewWillAppear(_ animated: Bool) {
         if(AgentPropertiesNetworking.checkNetworkConnection())
         {
-            showIndicator()
+            showActivityIndicator()
             bindCollectionData()
             setupAgentRate()
             statusLabel.isHidden = true
         }
         else
         {
-            statusLabel.isHidden = false
-            statusLabel.text = "Internet Connection Not Available"
+            setNoConnectionView()
         }
     }
-}
-
-
-//MARK: - UIViewIndicator
-extension AgentPropertiesView{
-    func showIndicator()
+    
+    
+    private func setupViews()
     {
-        networkIndicator.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        networkIndicator.center = view.center
-        networkIndicator.startAnimating()
-        view.addSubview(networkIndicator)
+        self.view.backgroundColor = UIColor(rgb: 0xf1faee)
+        rateLabel.textColor = UIColor(rgb: 0x457b9d)
+        advertisementsCollection.backgroundColor = UIColor(rgb: 0xf1faee)
+        self.navigationItem.title = agentName + "'s Properties".localize
     }
     
-    func stopIndicator() {
-        networkIndicator.stopAnimating()
+    private func setNoConnectionView()
+    {
+        statusLabel.isHidden = false
+        statusLabel.text = "Internet Connection Not Available".localize
+    }
+    
+    deinit {
+        advertisementViewModel.removeObservers()
+        agentRateViewModel = nil
+        advertisementViewModel = nil
+        print("agent properties deinit")
     }
 }

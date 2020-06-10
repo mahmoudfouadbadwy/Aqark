@@ -10,35 +10,49 @@ import UIKit
 
 extension PropertyDetailView {
     func addReview(){
-         
+        
         advertisementReviewViewModel = ReviewsViewModel(dataAccess: reviewData)
         if !addReviewContentTextView.text.isEmpty{
-        self.advertisementReviewViewModel.setReviewData(reviewContent: addReviewContentTextView.text, advertisementId : advertisementId)
+            self.advertisementReviewViewModel.setReviewData(reviewContent: addReviewContentTextView.text, advertisementId : advertisementId)
             addReviewContentTextView.text = ""
-            ReviewHeight.constant = 0
+            inputStack.isHidden = true
             submitReviewBtn.isHidden = true
         }
     }
-
+    
     func setUpReviewsCollectionView()
-      {
-           reviewsCollectionView.register(UINib(nibName: "ReviewCell", bundle: nil), forCellWithReuseIdentifier: "ReviewCell")
+    {
+        reviewsCollectionView.register(UINib(nibName: "ReviewCell", bundle: nil), forCellWithReuseIdentifier: "ReviewCell")
+        reviewsCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
         
-      }
+    }
+    
+    func bindReviewData(){
+        self.reviewData = ReviewData()
+        self.advertisementReviewViewModel = ReviewsViewModel(dataAccess: self.reviewData)
+        self.manageReviewAppearence()
+        self.advertisementReviewViewModel.populateAdvertisementReviews(id: self.advertisementId, completionForPopulateReviews: {[weak self] reviewsResults in
+            self?.arrOfReviewsViewModel = reviewsResults
+            self?.reviewsCollectionView.reloadData()
+        })
+    }
     func manageReviewAppearence(){
-          ReviewHeight.constant = 0
+        inputStack.isHidden = true
         submitReviewBtn.isHidden = true
         if propertyViewModel.checkAdvertisementOwner(agentId: advertisementDetails.userID) || !advertisementReviewViewModel.checkUserAuth(){
-        addReviewBtn.isHidden = true
+            addReviewBtn.isHidden = true
         }else{
             addReviewBtn.isHidden = false
         }
     }
     func manageAddReviewOutlets(){
-          ReviewHeight.constant = 136
+        inputStack.isHidden = false
         submitReviewBtn.isHidden = false
-        
-        
+        submitReviewBtn.layer.cornerRadius = 10
+        addReviewContentTextView.layer.cornerRadius = 20
+        addReviewContentTextView.layer.borderColor = UIColor(rgb: 0x1d3557).cgColor
+        addReviewContentTextView.layer.borderWidth = 1.0
+        cancelReview.layer.cornerRadius = 10
     }
-
+    
 }

@@ -19,22 +19,38 @@ class AdminTabBarController: UITabBarController {
         adminUsersViewModel = AdminUsersListViewModel(dataAccess: dataAccess)
         setupTabBarController()
         self.navigationItem.hidesBackButton = true
-        let logout = UIBarButtonItem(image: UIImage(named: "logout"),style: .done, target: self, action: #selector(self.logout(sender:)))
+        let logout = UIBarButtonItem(title : "Logout",style: .done, target: self, action: #selector(self.logout(sender:)))
+        logout.tintColor = UIColor(rgb: 0x1d3557)
         self.navigationItem.leftBarButtonItem = logout
     }
-    
+        
     func setupTabBarController(){
         let adminUserViewController = AdminUsersViewController()
         let adminAdvertisementViewController = AdminAdvertisementsViewController()
         let adminReportsView = AdminReportsView()
-        adminUserViewController.tabBarItem = UITabBarItem(title: "Users", image: UIImage(named: "signup_company"), selectedImage: UIImage(named: "signup_company"))
-        adminAdvertisementViewController.tabBarItem = UITabBarItem(title: "Advertisements", image: UIImage(named: "signup_company"), selectedImage: UIImage(named: "signup_company"))
-        adminReportsView.tabBarItem = UITabBarItem(title: "Reports", image: UIImage(named: "PropertyDetail_feedback"), tag: 3)
+        tabBar.tintColor = UIColor(rgb: 0xe63946)
+        tabBar.barTintColor = UIColor(rgb: 0xf1faee)
+        adminUserViewController.tabBarItem = UITabBarItem(title: "Users", image: UIImage(named: "profile"), selectedImage: UIImage(named: "profile"))
+        adminAdvertisementViewController.tabBarItem = UITabBarItem(title: "Advertisements", image: UIImage(named: "propertyType"), selectedImage: UIImage(named: "propertyType"))
+        adminReportsView.tabBarItem = UITabBarItem(title: "Reports", image: UIImage(named: "report"), tag: 3)
         self.viewControllers = [adminUserViewController,adminAdvertisementViewController,adminReportsView]
     }
     
     @objc func logout(sender:UIBarButtonItem){
-        adminUsersViewModel.logout()
-        self.navigationController?.popViewController(animated: true)
+        adminUsersViewModel.logout(){(signOutError) in
+            if let signOutError = signOutError{
+                self.showAlert(title: "Signout", message: signOutError)
+            }else{
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
+    
+    func showAlert(title:String,message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel){(okAction) in
+            alert.dismiss(animated: true, completion: nil)}
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
 }

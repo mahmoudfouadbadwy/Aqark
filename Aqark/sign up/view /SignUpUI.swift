@@ -14,39 +14,25 @@ extension SignUpView{
         switch (self.role.lowercased())
         {
         case "user": showUserView()
-        default: print("service")
+        default: print("")
         }
     }
     
-    func setIcons()
+   func setIcons()
     {
-        self.email.setSignUPIcons(UIImage(named: "signup_email")!)
-        self.password.setSignUPIcons(UIImage(named: "signup_password")!)
-        self.confirmPassword.setSignUPIcons(UIImage(named: "signup_password")!)
-        self.username.setSignUPIcons(UIImage(named: "signup_username")!)
-        self.phoneNumber.setSignUPIcons(UIImage(named: "signup_phone")!)
-        self.company.setSignUPIcons(UIImage(named: "signup_company")!)
+         self.username.setIcon(UIImage(named: "user")!)
+         self.email.setIcon(UIImage(named: "Email")!)
+         self.password.setIcon(UIImage(named: "password")!)
+         self.confirmPassword.setIcon(UIImage(named: "password")!)
+         self.phoneNumber.setIcon(UIImage(named: "phone")!)
+         self.company.setIcon(UIImage(named: "company")!)
+    
     }
     func showUserView()
     {
         self.phoneNumber.isHidden = true
         self.countries.isHidden = true
         self.company.isHidden = true
-    }
-}
-
-//MARK: - UIViewIndicator
-extension SignUpView{
-    func showIndicator()
-    {
-        networkIndicator.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        networkIndicator.center = view.center
-        networkIndicator.startAnimating()
-        view.addSubview(networkIndicator)
-    }
-    
-    func stopIndicator() {
-        networkIndicator.stopAnimating()
     }
 }
 
@@ -69,6 +55,9 @@ extension SignUpView:UIPickerViewDataSource,UIPickerViewDelegate{
         return countriesPicker[row]
     }
     
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        return NSAttributedString(string: countriesPicker[row].localize, attributes: [NSAttributedString.Key.foregroundColor:UIColor(rgb: 0x457b9d)])
+    }
 }
 
 //MARK: - TextFiled Delegate
@@ -85,29 +74,5 @@ extension SignUpView:UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-    
-    func setTappedGesture()
-    {
-        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dissmissKeyboard))
-        view.isUserInteractionEnabled = true
-        view.addGestureRecognizer(tap)
-    }
-    @objc func dissmissKeyboard(){
-        view.endEditing(true)
-    }
-}
-
-//MARK: - UITextField
-extension UITextField {
-    func setSignUPIcons(_ image: UIImage) {
-        let iconView = UIImageView(frame:
-            CGRect(x: 10, y: 5, width: 20, height: 20))
-        iconView.image = image
-        let iconContainerView: UIView = UIView(frame:
-            CGRect(x: 20, y: 0, width: 30, height: 30))
-        iconContainerView.addSubview(iconView)
-        leftView = iconContainerView
-        leftViewMode = .always
     }
 }

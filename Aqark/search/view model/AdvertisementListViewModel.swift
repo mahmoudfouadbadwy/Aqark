@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MapKit
+import ReachabilitySwift
 
 class AdvertisementListViewModel{
     
@@ -68,6 +69,16 @@ class MapViewModel: NSObject, MKAnnotation{
     self.title = model.title
     self.coordinate = model.coordinate
     self.subtitle = model.subtitle
+    }
+}
+
+
+struct SearchNetworking{
+    static func checkNetworkConnection()->Bool
+    {
+        let connection = Reachability()
+        guard let status = connection?.isReachable else{return false}
+        return status
     }
 }
 

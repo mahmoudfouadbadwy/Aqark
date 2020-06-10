@@ -12,65 +12,83 @@ import Cosmos
 
 class AdminUsersViewController: UIViewController{
     
+ 
+    @IBOutlet weak var noLabel: UILabel!
     @IBOutlet weak var usersSearchBar: UISearchBar!
-
+    
     @IBOutlet weak var usersSegment: CustomSegment!
     @IBOutlet weak var usersTableView: UITableView!
-    private var adminUsersViewModel : AdminUsersListViewModel!
+    var adminUsersViewModel : AdminUsersListViewModel!
     private var dataAccess : AdminDataAccess!
-    private var selectedUserIndex : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        usersTableView.register(UINib(nibName: "AdminUserTableViewCell", bundle: nil), forCellReuseIdentifier: "User Cell")
-        usersTableView.delegate = self
-        usersTableView.dataSource = self
-        usersSearchBar.delegate = self
-        self.navigationItem.title = "Users"
+        usersSegment.backgroundColor = UIColor(rgb: 0xf1faee)
+        usersSearchBar.backgroundColor = UIColor(rgb: 0xf1faee)
+        usersSearchBar.barTintColor = UIColor(rgb: 0xf1faee)
+        view.backgroundColor = UIColor(rgb: 0xf1faee)
         dataAccess = AdminDataAccess()
         adminUsersViewModel = AdminUsersListViewModel(dataAccess: dataAccess)
-        adminUsersViewModel.populateUsers {
-            self.usersTableView.reloadData()
+        if(adminUsersViewModel.checkNetworkConnection()){
+            showActivityIndicator()
+            self.view.alpha = 0
+            
+            usersTableView.register(UINib(nibName: "AdminUserTableViewCell", bundle: nil), forCellReuseIdentifier: "User Cell")
+            usersTableView.delegate = self
+            usersTableView.dataSource = self
+            usersSearchBar.delegate = self
+            adminUsersViewModel.populateUsers {
+                self.stopActivityIndicator()
+                UIView.animate(withDuration:2) {
+                    self.view.alpha = 1
+                }
+                self.usersSegment.isHidden = false
+                if(self.adminUsersViewModel.adminUsersViewList.isEmpty){
+                    self.setLabelForZeroCount(search: false)
+                }else{
+                    self.usersSearchBar.isHidden = false
+                    self.usersTableView.reloadData()
+                }
+            }
+        }else{
+            noLabel.isHidden = false
+            noLabel.text = "Internet Connection Not Available."
         }
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.navigationItem.title = "Users"
+        
+    }
+    
+    func setupViews(){
+        usersSearchBar.isHidden = true
+        usersSegment.isHidden = true
+    }
+    
+    func setLabelForZeroCount(search:Bool){
+        usersSearchBar.isHidden = !search
+        noLabel.isHidden = false
+        switch usersSegment.selectedIndex {
+        case 0:
+            noLabel.text = "No Users Available."
+        case 1:
+            noLabel.text = "No Lawyers Available."
+        default:
+            noLabel.text = "No Interior Designers Available."
+        }
+    }
+    
     @IBAction func changeUserType(_ sender: Any) {
         adminUsersViewModel.getUsersByType(type: usersSegment.selectedIndex)
-           self.usersTableView.reloadData()
+        if(self.adminUsersViewModel.adminUsersViewList.isEmpty){
+            self.setLabelForZeroCount(search: false)
+        }else{
+            usersSearchBar.isHidden = false
+            noLabel.isHidden = true
+        }
+        self.usersTableView.reloadData()
     }
 }
 
-extension AdminUsersViewController : UITableViewDelegate,UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return adminUsersViewModel.adminUsersViewList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let userCell = usersTableView.dequeueReusableCell(withIdentifier: "User Cell", for: indexPath) as? AdminUserTableViewCell
-        userCell?.userName.text = adminUsersViewModel.adminUsersViewList[indexPath.row].userName
-        userCell?.userRating.rating = adminUsersViewModel.adminUsersViewList[indexPath.row].userRating.toDouble() ?? 0.0
-        let userImageURL = URL(string: adminUsersViewModel.adminUsersViewList[indexPath.row].userImage)
-        userCell?.userImage.sd_setImage(with: userImageURL, placeholderImage: UIImage(named: "signup_company"))
-        return userCell!
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return usersTableView.frame.height / 7.0
-    }
-}
-
-extension String {
-    func toDouble() -> Double? {
-        return NumberFormatter().number(from: self)?.doubleValue
-    }
-}
-
-
-extension AdminUsersViewController : UISearchBarDelegate{
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        adminUsersViewModel.getFilteredUsers(type: usersSegment.selectedIndex, searchText: searchText)
-        usersTableView.reloadData()
-    }
-}
 

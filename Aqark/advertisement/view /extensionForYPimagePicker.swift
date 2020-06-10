@@ -13,25 +13,25 @@ extension AddAdvertisementViewController{
     
     
     //MARK:-func configtation of YPOmagePicker
-       
-       func configtationYPOmagePicker(){
-           config.isScrollToChangeModesEnabled = true
-           config.onlySquareImagesFromCamera = true
-           config.usesFrontCamera = false
-           config.shouldSaveNewPicturesToAlbum = true
-           config.albumName = "DefaultYPImagePickerAlbumName"
-           config.startOnScreen = YPPickerScreen.library
-           config.screens = [.library, .photo]
-           config.showsCrop = .none
-           config.targetImageSize = YPImageSize.original
-           config.overlayView = UIView()
-           config.hidesStatusBar = true
-           config.hidesBottomBar = false
-           config.preferredStatusBarStyle = UIStatusBarStyle.default
-           config.library.maxNumberOfItems = 5
-           config.library.minNumberOfItems = 1
-           
-       }
+    
+    func configtationYPOmagePicker(){
+        config.isScrollToChangeModesEnabled = true
+        config.onlySquareImagesFromCamera = true
+        config.usesFrontCamera = false
+        config.shouldSaveNewPicturesToAlbum = true
+        config.albumName = "DefaultYPImagePickerAlbumName"
+        config.startOnScreen = YPPickerScreen.library
+        config.screens = [.library, .photo]
+        config.showsCrop = .none
+        config.targetImageSize = YPImageSize.original
+        config.overlayView = UIView()
+        config.hidesStatusBar = true
+        config.hidesBottomBar = false
+        config.preferredStatusBarStyle = UIStatusBarStyle.default
+        config.library.maxNumberOfItems = 5
+        config.library.minNumberOfItems = 1
+        
+    }
     
     
     @objc func choosePhotos(){
@@ -44,15 +44,23 @@ extension AddAdvertisementViewController{
                     
                     let myImage = photo.image.jpegData(compressionQuality: 0.75)
                     
+                    
+                    let DataImageInString = "\(myImage ?? Data.init())"
+                    let splitDataImage = DataImageInString.split(separator: " ")
+                    let imageBytes = Int(splitDataImage[0])
+                    if let imageBytes = imageBytes{
+                        if imageBytes > 15728641{
+                            
+                            continue
+                        }
+                    }
+                    
                     if self.selectedImages.count > 0
                     {
                         if self.selectedImages.count >= 5{
-                            
-                            print("error you shokd have only five imae")
                             break
                         }
                         if self.selectedImages.contains(myImage!){
-                            print("i found it her !")
                             continue
                         }
                         self.selectedImages.append(myImage!)
@@ -67,10 +75,9 @@ extension AddAdvertisementViewController{
                     print(video)
                 }
             }
-            print(self.selectedImages)
             picker.dismiss(animated: true, completion: nil)
         }
         present(picker, animated: true, completion: nil)
     }
-  
+    
 }

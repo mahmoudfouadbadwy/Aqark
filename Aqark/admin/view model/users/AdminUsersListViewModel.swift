@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ReachabilitySwift
 
 class AdminUsersListViewModel{
     
@@ -33,7 +34,7 @@ class AdminUsersListViewModel{
         }
     }
     
-    private func filter(allUsersData : [AdminUser]){
+     func filter(allUsersData : [AdminUser]){
         for user in allUsersData{
             switch user.userRole.lowercased() {
             case AdminUserRole.user:
@@ -89,8 +90,21 @@ class AdminUsersListViewModel{
         }
     }
     
-    func logout(){
-        dataAccess.logout()
+    func checkNetworkConnection()->Bool{
+        let connection = Reachability()
+        guard let status = connection?.isReachable else{return false}
+        return status
+    }
+    
+    
+    func logout(completionForLogout:@escaping(_ error:String?)->Void){
+        dataAccess.logout(){(signOutError) in
+            completionForLogout(signOutError)
+        }
+    }
+    
+    func banUser(isBanned : Bool, userId : String){
+        dataAccess.banUser(isBanned: isBanned, userId: userId)
     }
 }
 
