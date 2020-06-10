@@ -19,20 +19,22 @@ extension SearchViewController : UICollectionViewDataSource{
         }
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AdvertisementCellCollectionViewCell
         updateCellLayout(cell: cell)
         getCellData(indexPath: indexPath)
         cell.advertisementImage?.sd_setImage(with: URL(string: adViewModel.image), placeholderImage: UIImage(named: "NoImage"))
-        cell.propertyTypeLabel?.text = adViewModel.propertyType
+        cell.propertyTypeLabel?.text = adViewModel.propertyType.localize
         cell.proprtyAddressLabel?.text = adViewModel.address
-        cell.numberOfBedsLabel?.text = adViewModel.bedRoomsNumber
-        cell.numberOfBathRoomsLabel?.text = adViewModel.bathRoomsNumber
-        cell.propertySizeLabel?.text = "\(adViewModel.size ?? "") sqm"
+        cell.numberOfBedsLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.bedRoomsNumber).1
+        cell.numberOfBathRoomsLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.bathRoomsNumber).1
+        cell.propertySizeLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: adViewModel.size).1+"sqm".localize
         if adViewModel.advertisementType == "Rent"{
-            cell.propertyPriceLabel?.text = "\(adViewModel.price ?? 0) EGP/month"
+            
+            cell.propertyPriceLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(adViewModel.price))).1 + "EGP/month".localize
         }else{
-            cell.propertyPriceLabel?.text = "\(adViewModel.price ?? 0) EGP"
+            cell.propertyPriceLabel?.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(adViewModel.price))).1 + "EGP".localize
         }
         cell.favButton.setTitle(adViewModel.advertisementId, for: .normal)
         if (coreDataViewModel!.isAdvertismentExist(id: adViewModel.advertisementId)){
@@ -89,7 +91,7 @@ extension SearchViewController{
             (dataResults) in
             if dataResults.isEmpty{
                 self.stopActivityIndicator()
-                self.labelPlaceHolder.text = "No Advertisements Available"
+                self.labelPlaceHolder.text = "No Advertisements Available".localize
                 self.manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
             }else{
                 self.stopActivityIndicator()

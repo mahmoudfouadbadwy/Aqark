@@ -12,7 +12,7 @@ import ImageIO
 
 class LaunchViewController: UIView {
     
-    let logoGifImageView = UIImageView(gifImage: UIImage(gifName: "logoGif"), loopCount: 2)
+    let logoGifImageView = UIImageView(gifImage: UIImage(gifName: "logoGif2"), loopCount: 1)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,7 +26,7 @@ class LaunchViewController: UIView {
     
     private func commonInit() {
         addSubview(logoGifImageView)
-        logoGifImageView.frame = CGRect(x: frame.size.height / 2, y: frame.size.width  / 2, width: 150, height: 280.0)
+        logoGifImageView.frame = CGRect(x: frame.size.height / 2, y: frame.size.width  / 2, width: 280.0, height: 280.0)
    
     }
 }

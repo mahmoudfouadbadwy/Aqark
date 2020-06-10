@@ -1,0 +1,21 @@
+
+/* Class = "UITextField"; placeholder = "Confirm Password"; ObjectID = "204-s3-vwn"; */
+"204-s3-vwn.placeholder" = "Confirm Password";
+
+/* Class = "UITextField"; placeholder = "Mobile Number"; ObjectID = "IfW-CJ-w3R"; */
+"IfW-CJ-w3R.placeholder" = "Mobile Number";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "Igo-Md-67b"; */
+"Igo-Md-67b.placeholder" = "Email";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "TAb-2H-Rax"; */
+"TAb-2H-Rax.placeholder" = "Username";
+
+/* Class = "UIButton"; normalTitle = "Create Account"; ObjectID = "dXW-RH-nVa"; */
+"dXW-RH-nVa.normalTitle" = "انشاء بريد الكتروني";
+
+/* Class = "UITextField"; placeholder = "Company"; ObjectID = "wRP-7P-knr"; */
+"wRP-7P-knr.placeholder" = "Company";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "z7z-rW-bUJ"; */
+"z7z-rW-bUJ.placeholder" = "Password";

@@ -44,23 +44,23 @@ class EditProfileViewModel : EditProfileProtocol
         
         if role == "user"
         {
-            if userName.isEmpty == true
+            if (userName.isEmpty) || ( userName.isEmpty == false)
             {
-                borkenRule.append(EditProfileBrokenRule(brokenType: "userName", message: "enter userName"))
+                userNameValidate(value: userName)
             }
         }else{
             
-            if userName.isEmpty == true
+            if (userName.isEmpty) || ( userName.isEmpty == false)
             {
-                borkenRule.append(EditProfileBrokenRule(brokenType: "userName", message: "enter userName"))
+                userNameValidate(value: userName)
             }
             if country.isEmpty == true
             {
-                borkenRule.append(EditProfileBrokenRule(brokenType: "country", message: "enter country"))
+                borkenRule.append(EditProfileBrokenRule(brokenType: "country".localize, message: "Country must be provided.".localize))
             }
             if company.isEmpty == true
             {
-                borkenRule.append(EditProfileBrokenRule(brokenType: "company", message: "enter company"))
+                borkenRule.append(EditProfileBrokenRule(brokenType: "Company".localize, message: "Company must be provided.".localize))
             }
             if((phoneNumber.isEmpty) || (phoneNumber.isEmpty == false)){
                 phoneValidate(value: phoneNumber)
@@ -71,18 +71,33 @@ class EditProfileViewModel : EditProfileProtocol
         
     }
     
+    func userNameValidate(value : String) {
+        
+        let USERNAME_REGEX = "^(?=.{6,20}$)(?![0-9._])(?!.*[_.]{2})[a-zA-Z0-9._\\u0621-\\u064A ]+(?<![_.])$";
+        
+        let userNameTest = NSPredicate(format: "SELF MATCHES %@", USERNAME_REGEX)
+        
+        if (value.isEmpty){
+            self.borkenRule.append(EditProfileBrokenRule(brokenType: "Username".localize, message: "Username must be provided.".localize))
+        }else{
+            if !(userNameTest.evaluate(with: value)) {
+                self.borkenRule.append(EditProfileBrokenRule(brokenType: "Username".localize, message: "Username must start of letter and be between 6 and 20 characters.".localize))
+            }
+        }
+    }
+    
     func phoneValidate(value: String){
            
-        let PHONE_REGEX = "^[0][1]\\d{9}$"
+        let PHONE_REGEX = "^[0][1]\\d{9}$".localize
         
         let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
         
         if (value.isEmpty){
-            self.borkenRule.append(EditProfileBrokenRule(brokenType: "phoneNumber", message: "enter phoneNumber"))
+            self.borkenRule.append(EditProfileBrokenRule(brokenType: "Mobile Number".localize, message: "enter phoneNumber".localize))
         }else{
             if phoneTest.evaluate(with: value) {
             }else{
-                self.borkenRule.append(EditProfileBrokenRule(brokenType: "phoneNumber", message: "phoneNumber not valild"))
+                self.borkenRule.append(EditProfileBrokenRule(brokenType: "Mobile Number".localize, message: "phoneNumber not valild".localize))
             }
         }
     }

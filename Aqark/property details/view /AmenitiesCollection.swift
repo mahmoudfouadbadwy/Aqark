@@ -92,7 +92,7 @@ extension PropertyDetailView:UICollectionViewDataSource{
         
         if collectionView == amenitiesCollection{
             let cell:AmenitiesCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "amenitiesCell", for: indexPath) as! AmenitiesCell)
-            cell.amenitiesText.text = self.advertisementDetails.amenities[indexPath.row]
+            cell.amenitiesText.text = self.advertisementDetails.amenities[indexPath.row].localize
             cell.amenitiesIcon.image = getAmenitiesIcon(amenities: self.advertisementDetails.amenities[indexPath.row])
             return cell
         }else{

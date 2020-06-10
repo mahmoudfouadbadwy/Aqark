@@ -20,7 +20,7 @@ class PropertyDetailDataAccess {
             if snapshot.exists()
             {
                 let value = snapshot.value as? NSDictionary
-                let price = value?["price"] as? String ?? ""
+                let price = Localization.convertNumbers(lang: "lang".localize, stringNumber: (value?["price"] as? String) ?? "0").0.stringValue 
                 let bed = value?["bedRooms"] as? String ?? ""
                 let bath = value?["bathRooms"] as? String ?? ""
                 let propertysize = value?["size"] as? String ?? ""

@@ -20,13 +20,10 @@ extension ProfileViewController{
     
     func bindCollectionData()
     {
-        let advertisementViewModel:ProfileAdvertisementListViewModel =
-            ProfileAdvertisementListViewModel(data: profileDataAccess)
         advertisementViewModel.getAllAdvertisements(completion: {[weak self]
             (advertisements) in
             self?.stopActivityIndicator()
             self?.listOfAdvertisements = advertisements
-         
         })
     }
     private func setCellConfiguration(cell:UICollectionViewCell)
@@ -43,21 +40,28 @@ extension ProfileViewController{
     private func setCellData(cell:ProfileAdvertisementCell,indexPath:IndexPath)
     {
         let advertisement:ProfileAdvertisementViewModel = listOfAdvertisements[indexPath.row]
-        cell.propertyType.text = advertisement.propertyType
-        if advertisement.advertisementType.lowercased().elementsEqual("rent")
+        cell.propertyType.text = advertisement.propertyType.localize
+        
+        if advertisement.advertisementType.elementsEqual("Rent".localize) || advertisement.advertisementType.lowercased().elementsEqual("ايجار".localize )
         {
-            cell.propertyPrice.text = "\(advertisement.price ?? 0.0) EGP/month"
+            cell.propertyPrice?.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + "EGP/month".localize
         }else
         {
-            cell.propertyPrice.text = "\(advertisement.price ?? 0.0) EGP"
+            cell.propertyPrice?.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + "EGP".localize
         }
         
-        cell.propertySize.text = "\(advertisement.size ?? "") sqm"
+        
+        
+        cell.propertySize.text = self.convertNumbers(lang:"lang".localize , stringNumber: advertisement.size ).1+"sqm".localize
         cell.propertyAddress.text = advertisement.address
-        cell.bedNumber.text = advertisement.bedroom
-        cell.bathRoomNumber.text = advertisement.bathroom
+        cell.bedNumber.text = self.convertNumbers(lang:"lang".localize , stringNumber: advertisement.bedroom).1
+        cell.bathRoomNumber.text = self.convertNumbers(lang:"lang".localize , stringNumber: advertisement.bathroom).1
         cell.propertyImage.sd_setImage(with: URL(string: advertisement.image), placeholderImage: UIImage(named: "NoImage"))
-        cell.paymentType.text = advertisement.payment.capitalized
+        if "lang".localize.elementsEqual("en"){
+            cell.paymentType.text = advertisement.payment.localize.capitalized
+        }else{
+            cell.paymentType.text = advertisement.payment.localize
+        }
     }
 }
 
@@ -117,18 +121,18 @@ extension ProfileViewController:UIGestureRecognizerDelegate{
             let  point = gesture.location(in: self.advertisementsCollection)
             if let indexPath =  self.advertisementsCollection.indexPathForItem(at: point)
             {
-                showAlert(completion: { (res) in
+                showAlert(completion: {[weak self] (res) in
                     if (res)
                     {
-                        self.advertisementsCollection.performBatchUpdates({
-                             // delete from firebase.
-                            let deleteViewModel:AdvertisementDelete = AdvertisementDelete(dataAcees: self.profileDataAccess)
-                            deleteViewModel.deleteAdvertisement(id:self.listOfAdvertisements[indexPath.row].advertisementId )
+                        self?.advertisementsCollection.performBatchUpdates({
+                            // delete from firebase.
+                            self?.deleteViewModel.deleteAdvertisement(id:self?.listOfAdvertisements[indexPath.row].advertisementId ?? "")
+                            
                             // delete from view .
-                            self.listOfAdvertisements.remove(at: indexPath.row)
-                            self.advertisementsCollection.deleteItems(at: [indexPath])
+                            self?.listOfAdvertisements.remove(at: indexPath.row)
+                            self?.advertisementsCollection.deleteItems(at: [indexPath])
                         }) { (finished) in
-                            self.advertisementsCollection.reloadData()
+                            self?.advertisementsCollection.reloadData()
                         }
                     }
                 })
@@ -136,13 +140,13 @@ extension ProfileViewController:UIGestureRecognizerDelegate{
         }
     }
     
-   private func showAlert(completion:@escaping(Bool)->Void)
+    private func showAlert(completion:@escaping(Bool)->Void)
     {
-        let alert:UIAlertController = UIAlertController(title: "Delete Adverisement", message: "Are You Sure You Want To Delete This Advertisement ?", preferredStyle: .actionSheet)
-        let delete:UIAlertAction = UIAlertAction(title: "Delete", style: .default) { (action) in
+        let alert:UIAlertController = UIAlertController(title: "Delete Adverisement".localize, message: "Are You Sure You Want To Delete This Advertisement ?".localize, preferredStyle: .actionSheet)
+        let delete:UIAlertAction = UIAlertAction(title: "Delete".localize, style: .default) { (action) in
             completion(true)
         }
-        let cancel:UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+        let cancel:UIAlertAction = UIAlertAction(title: "Cancel".localize, style: .cancel) { (action) in
             alert.dismiss(animated: true)
             completion(false)
         }

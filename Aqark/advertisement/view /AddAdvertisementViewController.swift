@@ -13,6 +13,9 @@ import ReachabilitySwift
 import SDWebImage
 
 class AddAdvertisementViewController: UIViewController  {
+    @IBOutlet weak var amenitiesTitle: UILabel!
+    
+    @IBOutlet weak var descriptionTitle: UILabel!
     @IBOutlet weak var priceTxtField: UITextField!
     @IBOutlet weak var sizeTxtField: UITextField!
     @IBOutlet weak var addressTxtField: UITextField!
@@ -32,13 +35,12 @@ class AddAdvertisementViewController: UIViewController  {
     @IBOutlet weak var bedRoomStepper: UIStepper!
     @IBOutlet weak var bathRoomStepper: UIStepper!
     @IBOutlet var amentiesButton: [UIButton]!
-    let networkIndicator = UIActivityIndicatorView(style: .whiteLarge)
     var config = YPImagePickerConfiguration()
     var addAdvertisementVM: AddAdvertisementViewModel!
     var activityIndicator:UIActivityIndicatorView!
     var selectAmenitiesDic:[Int: String] = [Int:String]()
     var pickerViewPropertyType:[String] = [String]()
-    var advertisementType:String = "Rent"
+    var advertisementType:String = "Rent".localize
     var propertyType:String = "Apartment"
     var numberOfAdvertisementPerMonth:Int!
     var payment = "free"
@@ -53,28 +55,26 @@ class AddAdvertisementViewController: UIViewController  {
     var autocompletecontroller = GMSAutocompleteViewController()
     var filter = GMSAutocompleteFilter()
     @IBOutlet weak var blackIndicatorView: UIView!
+    @IBOutlet weak var myView: UIView!
     
     //MARK:- viewdidLoad
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        blackIndicatorView.isHidden = true
         setupView()
-       
         if(advertisementId.isEmpty == false)
         {
             reloadViewData()
         }
         NotificationCenter.default.addObserver(self, selector: #selector(self.chnageIndicatorStatus), name: .indicator, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.viewAlert), name: .alert, object: nil)
-        
     }
     @objc func chnageIndicatorStatus()
     {
-        stopIndicator()
+        self.stopActivityIndicator()
         blackIndicatorView.isHidden = true
         
-        let alertController = UIAlertController(title: "succes", message: "your advertrisement uploaded succesfuly" , preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Advertisements".localize, message: "Advertrisement saved successfully".localize , preferredStyle: .alert)
         let actionButton = UIAlertAction(title: "ok", style: .default) { (_) in
             self.navigationController?.popViewController(animated: true)
         }
@@ -84,8 +84,8 @@ class AddAdvertisementViewController: UIViewController  {
     
     @objc func viewAlert()
     {
-        alertControllerMessage(title: "can't upload", message: "you have only 2 free advertisement if you want to add new add you should fo to payment")
-        stopIndicator()
+        alertControllerMessage(title: "Advertisements".localize, message: "Sorry, you used all of your free ads".localize)
+        self.stopActivityIndicator()
         blackIndicatorView.isHidden = true
         
         // go to payment page
@@ -119,10 +119,10 @@ class AddAdvertisementViewController: UIViewController  {
         present(autocompletecontroller, animated: true, completion: nil)
     }
     @IBAction func increaseBedRoomNumber(_ sender: UIStepper) {
-        self.BedroomsTxtField.text = String(Int(sender.value))
+        self.BedroomsTxtField.text = convertNumbers(lang: "lang".localize, stringNumber: String(Int(sender.value))).1
     }
     @IBAction func increaseBathRoomNumber(_ sender: UIStepper) {
-        self.BathroomTxtField.text = String(Int(sender.value))
+        self.BathroomTxtField.text = convertNumbers(lang: "lang".localize, stringNumber: String(Int(sender.value))).1
     }
     //MARK: - func SaveButton
     @IBAction func saveAdvertisement(_ sender: Any) {
@@ -153,7 +153,7 @@ class AddAdvertisementViewController: UIViewController  {
             {
                 if switchButton.isOn
                 {
-                    showIndicator()
+                    self.showActivityIndicator()
                     blackIndicatorView.isHidden = false
                     if(advertisementId.isEmpty == false)
                     {
@@ -167,22 +167,9 @@ class AddAdvertisementViewController: UIViewController  {
                 }
             }
             else{
-                alertControllerMessage(title: "Internet Connection Error", message: "Internet Connection Not Available")
+                alertControllerMessage(title: "Internet Connection".localize, message: "Internet Connection Not Available".localize)
             }
         }
-    }
-    
-    //MARK: - func indicator show and hide
-    func stopIndicator() {
-        networkIndicator.stopAnimating()
-    }
-    
-    func showIndicator()
-    {
-        networkIndicator.color = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        networkIndicator.center = view.center
-        networkIndicator.startAnimating()
-        view.addSubview(networkIndicator)
     }
     //MARK: - func to chekc internet connection rechablity
     func checkNetworkConnection()->Bool
@@ -193,46 +180,22 @@ class AddAdvertisementViewController: UIViewController  {
     }
     
     
-    
-    //MARK:- func setup textFeild under line
-    
-    func setupTextFeildUnderLine(){
-        //        priceTxtField.delegate = self
-        //        sizeTxtField.delegate = self
-        //        addressTxtField.delegate = self
-        //        phoneTxtField.delegate = self
-        //        BedroomsTxtField.delegate = self
-        //        BathroomTxtField.delegate = self
-        //        countyTxtField.delegate = self
-        
-//        priceTxtField.setUnderLine()
-//        phoneTxtField.setUnderLine()
-//        sizeTxtField.setUnderLine()
-//        addressTxtField.setUnderLine()
-//        phoneTxtField.setUnderLine()
-//        BedroomsTxtField.setUnderLine()
-//        BathroomTxtField.setUnderLine()
-//        countyTxtField.setUnderLine()
-        
-    }
-    
-    
     //MARK:- func setup image in letf textfield
     
     func setupImageInLeftTextField(){
-        priceTxtField.setIcon(UIImage(named: "Advertisement_ic_monetization_on_24px.pdf")!)
-        phoneTxtField.setIcon(UIImage(named: "Advertisement_flag.pdf")!)
-        sizeTxtField.setIcon(UIImage(named:"Advertisement_house-size_2.pdf")!)
-        addressTxtField.setIcon(UIImage(named: "Advertisement_Mask Group 22.pdf")!)
-        BedroomsTxtField.setIcon(UIImage(named: "Advertisement_bed.pdf")!)
-        BathroomTxtField.setIcon(UIImage(named: "Advertisement_Bathtub-bathroom-hotel-cleaning.pdf")!)
-        countyTxtField.setIcon(UIImage(named: "Advertisement_flag.pdf")!)
+        priceTxtField.setIcon(UIImage(named: "money")!)
+        phoneTxtField.setIcon(UIImage(named: "phone")!)
+        sizeTxtField.setIcon(UIImage(named:"ad_size")!)
+        addressTxtField.setIcon(UIImage(named: "profile_map")!)
+        BedroomsTxtField.setIcon(UIImage(named: "ad_bed")!)
+        BathroomTxtField.setIcon(UIImage(named: "ad_bath")!)
+        countyTxtField.setIcon(UIImage(named: "country")!)
     }
     
     //MARK:- alertMessage
     func alertControllerMessage(title: String , message : String ){
         let alertController = UIAlertController(title: title, message: message , preferredStyle: .alert)
-        let actionButton = UIAlertAction(title: "ok", style: .default, handler: nil)
+        let actionButton = UIAlertAction(title: "Ok".localize, style: .default, handler: nil)
         alertController.addAction(actionButton)
         self.present(alertController, animated: true, completion: nil)
     }
@@ -246,7 +209,6 @@ class AddAdvertisementViewController: UIViewController  {
         }else{
             self.payment = "premium"
         }
-        
     }
     
     //MARK: - deinit
@@ -262,3 +224,11 @@ extension Notification.Name{
     static let indicator = Notification.Name("indicator")
     static let alert = Notification.Name("alert")
 }
+
+extension AddAdvertisementViewController : UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+

@@ -22,6 +22,8 @@ class ProfileAdvertisementCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         propertyImage.setRaduisForImage()
+        paymentType.textColor = UIColor(rgb: 0x1d3557)
+        propertyType.textColor = UIColor(rgb: 0x457b9d)
     }
 
 }
@@ -29,7 +31,7 @@ class ProfileAdvertisementCell: UICollectionViewCell {
 extension UIImageView{
     func setRaduisForImage()
     {
-        self.layer.cornerRadius = 20
+        self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
     }
 }

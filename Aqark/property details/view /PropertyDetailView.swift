@@ -129,14 +129,14 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     
     @IBAction func showLawyers(_ sender: Any) {
         let servicesView = ServicesViewController()
-        servicesView.serviceRole = "Lawyers"
+        servicesView.serviceRole = "Lawyers".localize
         servicesView.advertisementCountry = advertisementDetails.country
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
     
     @IBAction func showInteriorDesigners(_ sender: Any) {
         let servicesView = ServicesViewController()
-        servicesView.serviceRole = "Interior Desigenrs"
+        servicesView.serviceRole = "Interior Designers"
         servicesView.advertisementCountry = advertisementDetails.country
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
@@ -151,7 +151,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     
    private func setupViews()
     {
-        self.navigationItem.title = "Property Details"
+        self.navigationItem.title = "Property Details".localize
         lawyers.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
         interiorDesigner.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
         porperties.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
@@ -185,7 +185,9 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         
     }
     
-    
+    deinit{
+        print ("details deinit")
+    }
 }
 
 

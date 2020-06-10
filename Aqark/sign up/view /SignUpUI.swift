@@ -18,7 +18,16 @@ extension SignUpView{
         }
     }
     
+   func setIcons()
+    {
+         self.username.setIcon(UIImage(named: "user")!)
+         self.email.setIcon(UIImage(named: "Email")!)
+         self.password.setIcon(UIImage(named: "password")!)
+         self.confirmPassword.setIcon(UIImage(named: "password")!)
+         self.phoneNumber.setIcon(UIImage(named: "phone")!)
+         self.company.setIcon(UIImage(named: "company")!)
     
+    }
     func showUserView()
     {
         self.phoneNumber.isHidden = true
@@ -47,7 +56,7 @@ extension SignUpView:UIPickerViewDataSource,UIPickerViewDelegate{
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return NSAttributedString(string: countriesPicker[row], attributes: [NSAttributedString.Key.foregroundColor:UIColor(rgb: 0x457b9d)])
+        return NSAttributedString(string: countriesPicker[row].localize, attributes: [NSAttributedString.Key.foregroundColor:UIColor(rgb: 0x457b9d)])
     }
 }
 
@@ -65,15 +74,5 @@ extension SignUpView:UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-    
-    func setTappedGesture()
-    {
-        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dissmissKeyboard))
-        view.isUserInteractionEnabled = true
-        view.addGestureRecognizer(tap)
-    }
-    @objc func dissmissKeyboard(){
-        view.endEditing(true)
     }
 }

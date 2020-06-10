@@ -30,7 +30,7 @@ class FavouriteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Favourite"
+        self.navigationItem.title = "Favourite".localize
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         favouriteCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
         self.setupCoredata()
@@ -41,7 +41,7 @@ class FavouriteViewController: UIViewController {
 
         if !FavoriteNetworking.checkNetworkConnection(){
             favouriteCollectionView.isHidden = true
-            labelPlaceHolder.text = "Internet connection not available"
+            labelPlaceHolder.text = "Internet Connection Not Available".localize
         }else{
             labelPlaceHolder.isHidden = true
             getCollectionViewData()
@@ -50,8 +50,8 @@ class FavouriteViewController: UIViewController {
     
     func showDeletedAdsAlert(){
         if (adsCount != 0){
-            let alert = UIAlertController(title: "Deleted Advertisment", message: " There are \(adsCount) Advertisment deleted from your Favourite List ", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            let alert = UIAlertController(title: "Deleted Advertisment".localize, message: "There are".localize + self.convertNumbers(lang: "lang".localize, stringNumber: String(adsCount)).1 + "Advertisment deleted from your Favourite List".localize, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel".localize, style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
             adsCount=0
         }
@@ -59,7 +59,7 @@ class FavouriteViewController: UIViewController {
     
     func setEmptyAdvertisments(flag: Bool){
         self.labelPlaceHolder.isHidden = flag
-        self.labelPlaceHolder.text = "There is no advertisements in favourite list."
+        self.labelPlaceHolder.text = "There is no advertisements in favourite list.".localize
     }
 
     

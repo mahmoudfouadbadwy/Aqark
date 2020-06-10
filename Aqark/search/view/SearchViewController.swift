@@ -52,7 +52,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             }
             else
             {
-                labelPlaceHolder.text = "No Advertisements Available"
+                labelPlaceHolder.text = "No Advertisements Available".localize
                 self.manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
             }
             self.searchCollectionView.reloadData()
@@ -87,7 +87,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             }
         }else{
             manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
-            labelPlaceHolder.text = "Internet Connection Not Available"
+            labelPlaceHolder.text = "Internet Connection Not Available".localize
         }
     }
     
@@ -103,7 +103,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     
     private func setupViews()
     {
-        self.navigationItem.title = "Advertisements"
+        self.navigationItem.title = "Advertisements".localize
         sortBtn.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
         notificationBtn.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
         searchBar.barTintColor = UIColor(rgb: 0x1d3557)

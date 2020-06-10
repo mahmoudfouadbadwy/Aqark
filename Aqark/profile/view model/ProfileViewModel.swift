@@ -30,6 +30,11 @@ class ProfileStore{
     {
         profileDataAccess.profileLogout()
     }
+    func removeProfileObservers()
+    {
+        profileDataAccess.reomveProfileDataObserver()
+        profileDataAccess.removeProfileAdvertisementsObservers()
+    }
     
     
 }
@@ -78,11 +83,18 @@ struct ProfileNetworking{
     
     static func isAdmin()->Bool
     {
-        guard let user =  Auth.auth().currentUser else {return false}
-        if user.email!.elementsEqual("aqark@admin.com")
+        if checkNetworkConnection(){
+            guard let user =  Auth.auth().currentUser else {return false}
+            if user.email!.elementsEqual("aqark@admin.com")
+            {
+                return true
+            }
+            return false
+        }else
         {
-            return true
+            return false
         }
-        return false
     }
+    
+    
 }

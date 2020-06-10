@@ -14,7 +14,8 @@ extension AdminReportsView{
         self.reportsCollection.register(UINib(nibName: "AdminReportsCell", bundle: nil), forCellWithReuseIdentifier: "reportsCell")
         self.reportsCollection.delegate = self
         self.reportsCollection.dataSource = self
-       
+        reportsCollection.backgroundColor = UIColor(rgb: 0xf1faee)
+        view.backgroundColor = UIColor(rgb: 0xf1faee)
     }
     func bindCollectionData()
     {

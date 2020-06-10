@@ -18,7 +18,7 @@ extension AddAdvertisementViewController {
     
     func reloadViewData(){
         
-        saveAndEditButton.setTitle("Edit", for: .normal)
+        saveAndEditButton.setTitle("Edit".localize, for: .normal)
         editAdvertisementDataSource = EditAdvertisementDataSource(advertisementId: advertisementId)
         addAdvertisementVM = AddAdvertisementViewModel(editDataSource : editAdvertisementDataSource)
         addAdvertisementVM.fetchAdvertisement { (myValue) in
@@ -35,12 +35,12 @@ extension AddAdvertisementViewController {
             if (currentDate <= lastTimeForEdit)
             {
                 
-                self.priceTxtField.text = myValue.price
-                self.sizeTxtField.text = myValue.size
-                self.phoneTxtField.text = myValue.phone
-                self.BedroomsTxtField.text = myValue.bedRooms
-                self.BathroomTxtField.text = myValue.bathRooms
-                self.countyTxtField.text = myValue.country
+                self.priceTxtField.text =  self.convertNumbers(lang: "lang".localize, stringNumber: myValue.price ?? "0").1
+                self.sizeTxtField.text =  self.convertNumbers(lang: "lang".localize, stringNumber: myValue.size ?? "0").1
+                self.phoneTxtField.text =  self.convertNumbers(lang: "lang".localize, stringNumber: "0").1 + self.convertNumbers(lang: "lang".localize, stringNumber: myValue.phone ?? "0").1
+                self.BedroomsTxtField.text =  self.convertNumbers(lang: "lang".localize, stringNumber: myValue.bedRooms ?? "0").1
+                self.BathroomTxtField.text = self.convertNumbers(lang: "lang".localize, stringNumber: myValue.bathRooms ?? "0").1
+                self.countyTxtField.text = myValue.country?.localize
                 self.describtionTxtView.text = myValue.description
                 if let address = myValue.Address{
                     self.addressTxtField.text = address["location"]
@@ -48,9 +48,9 @@ extension AddAdvertisementViewController {
                     self.longitude = address["longitude"] ?? ""
                 }
                 
-                if let advertisementType = myValue.AdvertisementType{
+                if let advertisementType = myValue.AdvertisementType?.localize{
                     self.advertisementType = advertisementType
-                    if(self.advertisementType == "Rent"){
+                    if(self.advertisementType == "Rent".localize){
                         self.segment.selectedSegmentIndex = 0
                     }else{
                         self.segment.selectedSegmentIndex = 1
@@ -61,10 +61,10 @@ extension AddAdvertisementViewController {
                 if let propertyType = myValue.propertyType{
                     self.propertyType = propertyType
                     if(self.propertyType == "Apartment"){
-                        self.pickerView.selectRow(2, inComponent: 0, animated: true)
+                        self.pickerView.selectRow(0, inComponent: 0, animated: true)
                     }
                     else if(self.propertyType == "Villa"){
-                        self.pickerView.selectRow(2, inComponent: 0, animated: true)
+                        self.pickerView.selectRow(1, inComponent: 0, animated: true)
                     }
                     else{
                         self.pickerView.selectRow(2, inComponent: 0, animated: true)
@@ -80,11 +80,11 @@ extension AddAdvertisementViewController {
                 }
                 
                 if let bedroom = myValue.bedRooms{
-                    self.bedRoomStepper.value = Double(bedroom)!
+                    self.bedRoomStepper.value = self.convertNumbers(lang: "lang".localize, stringNumber: bedroom).0.doubleValue
                 }
                 
                 if let bathroom = myValue.bathRooms{
-                      self.bathRoomStepper.value = Double(bathroom)!
+                      self.bathRoomStepper.value = self.convertNumbers(lang: "lang".localize, stringNumber: bathroom).0.doubleValue
                 }
                 
                 if let myValue = myValue.amenities
@@ -92,7 +92,7 @@ extension AddAdvertisementViewController {
                     for i in myValue
                     {
                         let tag = self.selectEditAmenitiesValue(value: i)
-                        self.amentiesButton[tag].setImage(UIImage(named: "advertisement_check"), for: .normal)
+                        self.amentiesButton[tag].setImage(UIImage(named: "checkmark"), for: .normal)
                         self.selectAmenitiesDic[tag] = i
                     }
                 }

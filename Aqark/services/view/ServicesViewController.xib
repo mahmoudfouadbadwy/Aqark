@@ -10,7 +10,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServicesViewController" customModule="Aqark" customModuleProvider="target">
             <connections>
-                <outlet property="activityIndicator" destination="PnQ-m5-Soe" id="HNE-Nk-eIj"/>
                 <outlet property="noLabel" destination="tRR-Kn-qNz" id="z1o-ha-62a"/>
                 <outlet property="servicesCollectionView" destination="uQm-33-v0B" id="9eR-JH-OcD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -31,10 +30,6 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="PnQ-m5-Soe">
-                    <rect key="frame" x="188.5" y="445.5" width="37" height="37"/>
-                    <color key="color" red="1" green="0.16991958069999999" blue="0.089936677019999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </activityIndicatorView>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRR-Kn-qNz">
                     <rect key="frame" x="20.5" y="443.5" width="373" height="41"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -48,8 +43,6 @@
                 <constraint firstItem="uQm-33-v0B" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="22" id="6Q1-9D-Hlq"/>
                 <constraint firstItem="tRR-Kn-qNz" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.05" id="AtC-ZE-bTC"/>
                 <constraint firstItem="tRR-Kn-qNz" firstAttribute="centerY" secondItem="uQm-33-v0B" secondAttribute="centerY" id="DeK-Uc-5V1"/>
-                <constraint firstItem="PnQ-m5-Soe" firstAttribute="centerY" secondItem="uQm-33-v0B" secondAttribute="centerY" id="YBP-1z-x6M"/>
-                <constraint firstItem="PnQ-m5-Soe" firstAttribute="centerX" secondItem="uQm-33-v0B" secondAttribute="centerX" id="bhE-DC-WhP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="uQm-33-v0B" secondAttribute="bottom" id="eQG-sO-BHp"/>
                 <constraint firstItem="tRR-Kn-qNz" firstAttribute="centerX" secondItem="uQm-33-v0B" secondAttribute="centerX" id="fbz-8T-OM9"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uQm-33-v0B" secondAttribute="trailing" id="prL-2t-5bm"/>
