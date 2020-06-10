@@ -71,14 +71,7 @@ extension AddAdvertisementViewController {
                     }
                 }
                 
-                if case self.payment = myValue.payment{
-                    if (self.payment == "free"){
-                        self.switchButton.isOn = true
-                    }else{
-                        self.switchButton.isOn = false
-                    }
-                }
-                
+               
                 if let bedroom = myValue.bedRooms{
                     self.bedRoomStepper.value = self.convertNumbers(lang: "lang".localize, stringNumber: bedroom).0.doubleValue
                 }

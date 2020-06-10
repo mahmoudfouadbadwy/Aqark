@@ -105,7 +105,7 @@ extension AddAdvertisementViewModel{
                              myMessage = "minimum price is".localize + Localization.convertNumbers(lang: "lang".localize, stringNumber: "200").1  + "EGP".localize
                              self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price".localize, message: myMessage ))
                          default:
-                             print("NoError")
+                             print("")
                         }
                 }else{
                     
@@ -120,7 +120,7 @@ extension AddAdvertisementViewModel{
                              myMessage = "minimum price is".localize + Localization.convertNumbers(lang: "lang".localize, stringNumber: "10000").1  + "EGP".localize
                              self.borkenRule.append(AddAdvertisementBrokenRule(brokenType: "price".localize, message: myMessage ))
                         default:
-                            print("NoError")
+                            print("")
                     }
                 }
                 

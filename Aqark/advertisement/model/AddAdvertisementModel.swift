@@ -10,8 +10,6 @@ import Foundation
 
 
 struct AddAdvertisementModel{
-    
-    
     var propertyType: String
     var advertisementType:String
     var price: String
@@ -28,5 +26,4 @@ struct AddAdvertisementModel{
     var date : String
     var images :[Data]
     var payment : String
-    
 }
