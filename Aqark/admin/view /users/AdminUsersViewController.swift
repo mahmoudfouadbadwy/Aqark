@@ -12,7 +12,7 @@ import Cosmos
 
 class AdminUsersViewController: UIViewController{
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+ 
     @IBOutlet weak var noLabel: UILabel!
     @IBOutlet weak var usersSearchBar: UISearchBar!
     
@@ -23,10 +23,14 @@ class AdminUsersViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        usersSegment.backgroundColor = UIColor(rgb: 0xf1faee)
+        usersSearchBar.backgroundColor = UIColor(rgb: 0xf1faee)
+        usersSearchBar.barTintColor = UIColor(rgb: 0xf1faee)
+        view.backgroundColor = UIColor(rgb: 0xf1faee)
         dataAccess = AdminDataAccess()
         adminUsersViewModel = AdminUsersListViewModel(dataAccess: dataAccess)
         if(adminUsersViewModel.checkNetworkConnection()){
-            activityIndicator.startAnimating()
+            showActivityIndicator()
             self.view.alpha = 0
             
             usersTableView.register(UINib(nibName: "AdminUserTableViewCell", bundle: nil), forCellReuseIdentifier: "User Cell")
@@ -34,7 +38,7 @@ class AdminUsersViewController: UIViewController{
             usersTableView.dataSource = self
             usersSearchBar.delegate = self
             adminUsersViewModel.populateUsers {
-                self.activityIndicator.stopAnimating()
+                self.stopActivityIndicator()
                 UIView.animate(withDuration:2) {
                     self.view.alpha = 1
                 }
