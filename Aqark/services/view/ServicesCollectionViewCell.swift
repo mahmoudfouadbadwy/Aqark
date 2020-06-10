@@ -28,12 +28,12 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var serviceUserCompanyHeight: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
+        rateMeButton.backgroundColor = UIColor(rgb: 0xe63946)
         serviceUserRating.settings.fillMode = .precise
         rateMeView.settings.fillMode = .precise
         rateMeView.didFinishTouchingCosmos = {rating in
             self.rateMeButton.alpha = 0
             self.rateMeButton.isHidden = false
-            print(rating)
             UIView.animate(withDuration: 0.6, animations: {
                 self.rateMeView.alpha = 0
                 self.rateMeButton.alpha = 1
