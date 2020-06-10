@@ -153,7 +153,6 @@
 		BF8CD7AF247AFB0E00DA60BA /* ImageSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8CD7AE247AFB0E00DA60BA /* ImageSlider.xib */; };
 		BF96078A246B26C1002B63D5 /* SignupBrokenRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF960789246B26C1002B63D5 /* SignupBrokenRule.swift */; };
 		BF99CD7B248DB8BB00510D92 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99CD7A248DB8BB00510D92 /* Keyboard.swift */; };
-		BFA11E2C248E8CE8002895EA /* logoGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = BFA11E2B248E8CE7002895EA /* logoGif.gif */; };
 		BFA42D96247BED1900A986E8 /* CallingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA42D95247BED1900A986E8 /* CallingButton.swift */; };
 		BFA42D99247BF93E00A986E8 /* AmenitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA42D97247BF93E00A986E8 /* AmenitiesCell.swift */; };
 		BFA42D9A247BF93E00A986E8 /* AmenitiesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA42D98247BF93E00A986E8 /* AmenitiesCell.xib */; };
@@ -374,7 +373,6 @@
 		BF8CD7AE247AFB0E00DA60BA /* ImageSlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageSlider.xib; sourceTree = "<group>"; };
 		BF960789246B26C1002B63D5 /* SignupBrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupBrokenRule.swift; sourceTree = "<group>"; };
 		BF99CD7A248DB8BB00510D92 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
-		BFA11E2B248E8CE7002895EA /* logoGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logoGif.gif; sourceTree = "<group>"; };
 		BFA42D95247BED1900A986E8 /* CallingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallingButton.swift; sourceTree = "<group>"; };
 		BFA42D97247BF93E00A986E8 /* AmenitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenitiesCell.swift; sourceTree = "<group>"; };
 		BFA42D98247BF93E00A986E8 /* AmenitiesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmenitiesCell.xib; sourceTree = "<group>"; };
@@ -1269,7 +1267,6 @@
 				BFB85536248EE58A00E7DDD5 /* logoGif2.gif */,
 				BFEE6801248B989200DA5F53 /* LaunchViewController.swift */,
 				BF220883248DA72800809430 /* Launchview.swift */,
-				BFA11E2B248E8CE7002895EA /* logoGif.gif */,
 			);
 			path = "launch screen";
 			sourceTree = "<group>";
@@ -1370,7 +1367,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFB85537248EE58A00E7DDD5 /* logoGif2.gif in Resources */,
-				BFA11E2C248E8CE8002895EA /* logoGif.gif in Resources */,
 				BF82E6ED2481972E00786141 /* FavouriteViewController.xib in Resources */,
 				3E69A8D7247EF5E000193605 /* AdminAdvertisementsViewController.xib in Resources */,
 				8281CC9B248F452F0094FE2F /* AddAdvertisementViewController.xib in Resources */,

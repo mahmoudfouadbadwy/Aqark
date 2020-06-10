@@ -47,16 +47,16 @@ class ServicesViewController: UIViewController {
             }
         }else{
             noLabel.isHidden = false
-            noLabel.text = "No Internet Connection."
+            noLabel.text = "Internet Connection Not Available."
         }
     }
     
     private func setLabelForZeroCount(){
         noLabel.isHidden = false
         if(serviceRole == "Lawyers"){
-            noLabel.text = "No Available Lawyers."
+            noLabel.text = "No Lawyers Available."
         }else{
-            noLabel.text = "No Available Interior Designers."
+            noLabel.text = "No Interior Designers Available."
         }
     }
 }

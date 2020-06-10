@@ -52,7 +52,7 @@ class AdminUsersViewController: UIViewController{
             }
         }else{
             noLabel.isHidden = false
-            noLabel.text = "No Internet Connection."
+            noLabel.text = "Internet Connection Not Available."
         }
     }
     
@@ -71,11 +71,11 @@ class AdminUsersViewController: UIViewController{
         noLabel.isHidden = false
         switch usersSegment.selectedIndex {
         case 0:
-            noLabel.text = "No Available Users."
+            noLabel.text = "No Users Available."
         case 1:
-            noLabel.text = "No Available Lawyers."
+            noLabel.text = "No Lawyers Available."
         default:
-            noLabel.text = "No Available Interior Designers."
+            noLabel.text = "No Interior Designers Available."
         }
     }
     

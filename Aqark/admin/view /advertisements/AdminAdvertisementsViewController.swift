@@ -40,13 +40,13 @@ class AdminAdvertisementsViewController: UIViewController {
                     self.view.alpha = 1
                 }
                 if(self.adminAdvertisementViewModel.adminAdvertisementsViewList.isEmpty){
-                    self.setLabelForZeroCount(text: "No available advertisements")
+                    self.setLabelForZeroCount(text: "No advertisements available")
                 }
                 self.advertisementsCollectionView.reloadData()
             }
         }else{
             noLabel.isHidden = false
-            noLabel.text = "No Internet Connection."
+            noLabel.text = "Internet Connection Not Available"
         }
         
     }
@@ -60,7 +60,7 @@ class AdminAdvertisementsViewController: UIViewController {
             advertisementsCollectionView.reloadData()
             setLabelForZeroCount(text: "Advertisement is deleted.")
             AdminAdvertisementsViewController.reportedAdvertisementId = nil
-              setLabelForZeroCount(text: "No available advertisements")
+              setLabelForZeroCount(text: "No advertisements available")
         }else{
             advertisementsCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
             noLabel.isHidden = true
