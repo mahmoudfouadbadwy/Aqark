@@ -49,6 +49,7 @@ extension SearchViewController : MKMapViewDelegate{
             maps.append(map)
             mapView.addAnnotations(maps)
         }
+        counts.removeAll()
     }
     
     func centerToLocation(
