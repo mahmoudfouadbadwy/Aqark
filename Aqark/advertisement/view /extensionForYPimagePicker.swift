@@ -75,7 +75,6 @@ extension AddAdvertisementViewController{
                     print(video)
                 }
             }
-            print(self.selectedImages)
             picker.dismiss(animated: true, completion: nil)
         }
         present(picker, animated: true, completion: nil)

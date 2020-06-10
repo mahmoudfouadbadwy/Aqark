@@ -52,7 +52,14 @@ extension SearchViewController : UICollectionViewDataSource{
 extension SearchViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         let propertyDetailVC = PropertyDetailView()
-        propertyDetailVC.advertisementId = (arrOfAdViewModel![indexPath.row].advertisementId)!
+        if isSorted == true {
+                     propertyDetailVC.advertisementId = (sortedList[indexPath.row].advertisementId)!
+               }else if isFiltering == true {
+                    propertyDetailVC.advertisementId =
+                       (filteredAdsList[indexPath.row].advertisementId)!
+               }else{
+               propertyDetailVC.advertisementId = (arrOfAdViewModel![indexPath.row].advertisementId)!
+               }
         self.navigationController?.pushViewController(propertyDetailVC, animated: true)
     }
 }
@@ -74,6 +81,8 @@ extension SearchViewController{
         cell.layer.shadowOffset = CGSize(width: 2.0, height: 3.0)
         cell.layer.shadowRadius = 4.0
         cell.layer.shadowOpacity = 0.5
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor(rgb: 0x1d3557).cgColor
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
     }

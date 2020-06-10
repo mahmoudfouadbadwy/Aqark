@@ -11,6 +11,7 @@ import UIKit
 extension SearchViewController{
     
     func sortData(str : String)->[AdvertisementViewModel]{
+        isSorted = true
         switch str {
         case "High Price":
             self.adsSortedList = self.arrOfAdViewModel.sorted{

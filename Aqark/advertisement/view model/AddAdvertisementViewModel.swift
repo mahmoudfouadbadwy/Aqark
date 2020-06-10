@@ -7,10 +7,8 @@
 //
 
 import Foundation
-
+import ReachabilitySwift
 class AddAdvertisementViewModel : AddAdvertisementViewModelProtocol{
-    
-    
     var propertyType: String!
     var advertisementType:String!
     var price: String!
@@ -68,12 +66,6 @@ class AddAdvertisementViewModel : AddAdvertisementViewModelProtocol{
     }
     
     func save(){
-        let now = Date()
-        let formatter = DateFormatter()
-        formatter.timeZone = TimeZone.current
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        let dateString = formatter.string(from: now)
-        let amins = Array(aminities.values)
         let addAdvertisementModel = AddAdvertisementModel(propertyType: propertyType,
                                                           advertisementType: advertisementType,
                                                           price: price,
@@ -86,11 +78,32 @@ class AddAdvertisementViewModel : AddAdvertisementViewModelProtocol{
                                                           longitude: longitude,
                                                           country: country,
                                                           description: description,
-                                                          aminities: amins ,
-                                                          date: dateString,
+                                                          aminities: Array(aminities.values) ,
+                                                          date: getCurrentDate(),
                                                           images: dataImages!,
                                                           payment: payment)
         addAdvertisementDataSource = AddAdvertisementDataSource()
         addAdvertisementDataSource.initializeAddAdvertisementDataSource(advertisement: addAdvertisementModel)
+    }
+    
+    private func getCurrentDate()->String
+    {
+        let now = Date()
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        return formatter.string(from: now)
+    }
+}
+
+
+struct AdvertisementNetworking
+{
+    
+    static func checkNetworkConnection()->Bool
+    {
+        let connection = Reachability()
+        guard let status = connection?.isReachable else{return false}
+        return status
     }
 }

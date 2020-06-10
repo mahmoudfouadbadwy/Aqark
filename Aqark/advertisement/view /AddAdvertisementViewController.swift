@@ -9,12 +9,10 @@
 import UIKit
 import YPImagePicker
 import GooglePlaces
-import ReachabilitySwift
 import SDWebImage
 
 class AddAdvertisementViewController: UIViewController  {
     @IBOutlet weak var amenitiesTitle: UILabel!
-    
     @IBOutlet weak var descriptionTitle: UILabel!
     @IBOutlet weak var priceTxtField: UITextField!
     @IBOutlet weak var sizeTxtField: UITextField!
@@ -29,7 +27,6 @@ class AddAdvertisementViewController: UIViewController  {
     @IBOutlet var pickerView: UIPickerView!
     @IBOutlet weak var countryView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var switchButton: UISwitch!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segment: UISegmentedControl!
     @IBOutlet weak var bedRoomStepper: UIStepper!
@@ -62,36 +59,13 @@ class AddAdvertisementViewController: UIViewController  {
     {
         super.viewDidLoad()
         setupView()
+        // for edit view
         if(advertisementId.isEmpty == false)
         {
             reloadViewData()
         }
-        NotificationCenter.default.addObserver(self, selector: #selector(self.chnageIndicatorStatus), name: .indicator, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.viewAlert), name: .alert, object: nil)
+        setupNotificationCenter()
     }
-    @objc func chnageIndicatorStatus()
-    {
-        self.stopActivityIndicator()
-        blackIndicatorView.isHidden = true
-        
-        let alertController = UIAlertController(title: "Advertisements".localize, message: "Advertrisement saved successfully".localize , preferredStyle: .alert)
-        let actionButton = UIAlertAction(title: "ok", style: .default) { (_) in
-            self.navigationController?.popViewController(animated: true)
-        }
-        alertController.addAction(actionButton)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    @objc func viewAlert()
-    {
-        alertControllerMessage(title: "Advertisements".localize, message: "Sorry, you used all of your free ads".localize)
-        self.stopActivityIndicator()
-        blackIndicatorView.isHidden = true
-        
-        // go to payment page
-        
-    }
-    
     //MARK:- view will Apper
     override func viewWillAppear(_ animated: Bool)
     {
@@ -149,86 +123,27 @@ class AddAdvertisementViewController: UIViewController  {
             alertControllerMessage(title: alertValues.brokenType, message: alertValues.message)
         }else{
             //check rechability
-            if checkNetworkConnection()
+            if AdvertisementNetworking.checkNetworkConnection()
             {
-                if switchButton.isOn
-                {
                     self.showActivityIndicator()
                     blackIndicatorView.isHidden = false
+                    // check add or edit
                     if(advertisementId.isEmpty == false)
                     {
                         addAdvertisementVM.editAdvertisement(id : advertisementId , date : dateOfAdvertisement)
                     }else{
                         addAdvertisementVM.save()
                     }
-                    
-                }else{
-                    print("navegaion")
-                }
             }
             else{
                 alertControllerMessage(title: "Internet Connection".localize, message: "Internet Connection Not Available".localize)
             }
         }
     }
-    //MARK: - func to chekc internet connection rechablity
-    func checkNetworkConnection()->Bool
-    {
-        let connection = Reachability()
-        guard let status = connection?.isReachable else{return false}
-        return status
-    }
-    
-    
-    //MARK:- func setup image in letf textfield
-    
-    func setupImageInLeftTextField(){
-        priceTxtField.setIcon(UIImage(named: "money")!)
-        phoneTxtField.setIcon(UIImage(named: "phone")!)
-        sizeTxtField.setIcon(UIImage(named:"ad_size")!)
-        addressTxtField.setIcon(UIImage(named: "profile_map")!)
-        BedroomsTxtField.setIcon(UIImage(named: "ad_bed")!)
-        BathroomTxtField.setIcon(UIImage(named: "ad_bath")!)
-        countyTxtField.setIcon(UIImage(named: "country")!)
-    }
-    
-    //MARK:- alertMessage
-    func alertControllerMessage(title: String , message : String ){
-        let alertController = UIAlertController(title: title, message: message , preferredStyle: .alert)
-        let actionButton = UIAlertAction(title: "Ok".localize, style: .default, handler: nil)
-        alertController.addAction(actionButton)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    
-    //MARK:- switch toggle function
-    @IBAction func switchToggle(_ sender: UISwitch) {
-        
-        if sender.isOn {
-            self.payment = "free"
-        }else{
-            self.payment = "premium"
-        }
-    }
-    
     //MARK: - deinit
-    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
 }
 
-//MARK: - notification center
-
-extension Notification.Name{
-    static let indicator = Notification.Name("indicator")
-    static let alert = Notification.Name("alert")
-}
-
-extension AddAdvertisementViewController : UITextFieldDelegate{
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-}
 
