@@ -30,6 +30,11 @@ class ProfileStore{
     {
         profileDataAccess.profileLogout()
     }
+    func removeProfileObservers()
+    {
+        profileDataAccess.reomveProfileDataObserver()
+        profileDataAccess.removeProfileAdvertisementsObservers()
+    }
     
     
 }
@@ -85,4 +90,6 @@ struct ProfileNetworking{
         }
         return false
     }
+    
+   
 }

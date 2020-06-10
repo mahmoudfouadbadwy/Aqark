@@ -20,6 +20,7 @@ class AgentPropertiesView: UIViewController {
     var agentName:String!
     var agentRateViewModel:AgentRateViewModel!
     let agentDataAccess:AgentDataAccess = AgentDataAccess()
+    var advertisementViewModel:AgentAdvertisementListViewModel!
     var listOfAdvertisements:[AgentAdvertisementViewModel] = []{
         didSet{
             if listOfAdvertisements.count>0{
@@ -70,5 +71,12 @@ class AgentPropertiesView: UIViewController {
     {
         statusLabel.isHidden = false
         statusLabel.text = "Internet Connection Not Available".localize
+    }
+    
+    deinit {
+        advertisementViewModel.removeObservers()
+        agentRateViewModel = nil
+        advertisementViewModel = nil
+        print("agent properties deinit")
     }
 }

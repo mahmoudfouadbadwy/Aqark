@@ -136,7 +136,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     
     @IBAction func showInteriorDesigners(_ sender: Any) {
         let servicesView = ServicesViewController()
-        servicesView.serviceRole = "Interior Desigenrs"
+        servicesView.serviceRole = "Interior Designers"
         servicesView.advertisementCountry = advertisementDetails.country
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
@@ -185,7 +185,9 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         
     }
     
-    
+    deinit{
+        print ("details deinit")
+    }
 }
 
 

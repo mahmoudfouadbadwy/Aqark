@@ -49,11 +49,11 @@ class AccountViewModel:Validation{
 }
 //MARK: -  Perform Creation
 extension AccountViewModel{
-    func performCreation(dataAccess:SignUpDataAccess,completion:@escaping (String)->Void)
+    func performCreation(dataAccess:SignUpDataAccess,completion:@escaping (String,Bool)->Void)
     {
        let user =  User(email:email, password: password, username: username, phone: phone, country: country, company: company, role: role)
-        dataAccess.createAccount(user:user, completion: {(result)in
-            completion(result)
+        dataAccess.createAccount(user:user, completion: {(result,flag)in
+            completion(result,flag)
         })
     }
 }
@@ -120,7 +120,7 @@ extension AccountViewModel{
         }
         else
         {
-            let usernameRegEX = "^(?=.{8,30}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._\\u0621-\\u064A ]+(?<![_.])$";
+            let usernameRegEX = "^(?=.{6,20}$)(?![0-9._])(?!.*[_.]{2})[a-zA-Z0-9._\\u0621-\\u064A ]+(?<![_.])$";
             let usernamePred = NSPredicate(format:"SELF MATCHES %@",usernameRegEX )
             if (!usernamePred.evaluate(with: username))
             {

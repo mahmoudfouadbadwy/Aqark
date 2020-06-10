@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 import ReachabilitySwift
 class SignUpDataAccess{
-    func createAccount(user:User,completion:@escaping(String)->Void) {
+    func createAccount(user:User,completion:@escaping(String,Bool)->Void) {
         if checkNetworkConnection()
         {
             Auth.auth().createUser(withEmail: user.email, password: user.password)
@@ -18,17 +18,17 @@ class SignUpDataAccess{
                 if let _ = res?.user, error == nil
                  {
                     self.createAccountDetails(by: user)
-                    completion("Account Created Successfully.")
+                    completion("Account Created Successfully.",true)
                  }
                 else
                   {
-                    completion(error!.localizedDescription)
+                    completion(error!.localizedDescription,false)
                   }
             }
         }
         else
         {
-            completion("Network connection not Available.")
+            completion("Network connection not Available.",false)
         }
  }
     func createAccountDetails(by user:User){

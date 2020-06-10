@@ -11,7 +11,6 @@ import UIKit
 extension ProfileViewController{
     func bindProfileData()
     {
-        let profileViewModel:ProfileStore = ProfileStore(by: profileDataAccess)
         profileViewModel.getProfileData(onSuccess: {[weak self]
             (profileData) in
             self?.hideAllElements(status: false)

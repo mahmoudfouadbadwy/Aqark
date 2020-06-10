@@ -20,8 +20,6 @@ extension ProfileViewController{
     
     func bindCollectionData()
     {
-        let advertisementViewModel:ProfileAdvertisementListViewModel =
-            ProfileAdvertisementListViewModel(data: profileDataAccess)
         advertisementViewModel.getAllAdvertisements(completion: {[weak self]
             (advertisements) in
             self?.stopActivityIndicator()
@@ -123,18 +121,18 @@ extension ProfileViewController:UIGestureRecognizerDelegate{
             let  point = gesture.location(in: self.advertisementsCollection)
             if let indexPath =  self.advertisementsCollection.indexPathForItem(at: point)
             {
-                showAlert(completion: { (res) in
+                showAlert(completion: {[weak self] (res) in
                     if (res)
                     {
-                        self.advertisementsCollection.performBatchUpdates({
-                             // delete from firebase.
-                            let deleteViewModel:AdvertisementDelete = AdvertisementDelete(dataAcees: self.profileDataAccess)
-                            deleteViewModel.deleteAdvertisement(id:self.listOfAdvertisements[indexPath.row].advertisementId )
+                        self?.advertisementsCollection.performBatchUpdates({
+                            // delete from firebase.
+                            self?.deleteViewModel.deleteAdvertisement(id:self?.listOfAdvertisements[indexPath.row].advertisementId ?? "")
+                            
                             // delete from view .
-                            self.listOfAdvertisements.remove(at: indexPath.row)
-                            self.advertisementsCollection.deleteItems(at: [indexPath])
+                            self?.listOfAdvertisements.remove(at: indexPath.row)
+                            self?.advertisementsCollection.deleteItems(at: [indexPath])
                         }) { (finished) in
-                            self.advertisementsCollection.reloadData()
+                            self?.advertisementsCollection.reloadData()
                         }
                     }
                 })
@@ -142,7 +140,7 @@ extension ProfileViewController:UIGestureRecognizerDelegate{
         }
     }
     
-   private func showAlert(completion:@escaping(Bool)->Void)
+    private func showAlert(completion:@escaping(Bool)->Void)
     {
         let alert:UIAlertController = UIAlertController(title: "Delete Adverisement".localize, message: "Are You Sure You Want To Delete This Advertisement ?".localize, preferredStyle: .actionSheet)
         let delete:UIAlertAction = UIAlertAction(title: "Delete".localize, style: .default) { (action) in

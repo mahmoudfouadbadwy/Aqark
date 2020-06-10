@@ -73,7 +73,7 @@ class EditProfileViewModel : EditProfileProtocol
     
     func userNameValidate(value : String) {
         
-        let USERNAME_REGEX = "^(?=.{8,30}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._\\u0621-\\u064A ]+(?<![_.])$";
+        let USERNAME_REGEX = "^(?=.{6,20}$)(?![0-9._])(?!.*[_.]{2})[a-zA-Z0-9._\\u0621-\\u064A ]+(?<![_.])$";
         
         let userNameTest = NSPredicate(format: "SELF MATCHES %@", USERNAME_REGEX)
         

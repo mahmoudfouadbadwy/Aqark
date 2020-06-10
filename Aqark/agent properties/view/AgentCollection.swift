@@ -20,9 +20,9 @@ extension AgentPropertiesView{
     func bindCollectionData()
     {
         
-        let advertisementViewModel:AgentAdvertisementListViewModel =
+         advertisementViewModel =
             AgentAdvertisementListViewModel(data: agentDataAccess)
-        advertisementViewModel.getAllAdvertisements(agentId:agentId,completion: {[weak self]
+         advertisementViewModel.getAllAdvertisements(agentId:agentId,completion: {[weak self]
             (advertisements) in
             self?.stopActivityIndicator()
             self?.listOfAdvertisements = advertisements

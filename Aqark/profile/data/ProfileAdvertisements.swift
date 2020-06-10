@@ -12,11 +12,11 @@ extension ProfileDataAccess{
     
     func getProfileAdvertisementsIDs(completion:@escaping(AdvertismentsStore)->Void)
     {
-        let ref = Database.database().reference()
         guard let userID = Auth.auth().currentUser?.uid else {return}
-        ref.child("Users_Ads").child(userID).child("advertisements").observe(.value) { (snapshot) in
+        profileAdvertisementsIDsRef.child("Users_Ads").child(userID).child("advertisements").observe(.value) { (snapshot) in
             if (snapshot.exists())
             {
+             
                 let advertisementsIds:[String] = snapshot.value as! [String]
                 self.getAllAdvertisements(by: advertisementsIds,completion: {
                     (store) in
@@ -25,7 +25,7 @@ extension ProfileDataAccess{
             }
             else
             {
-            
+                
                 completion(AdvertismentsStore())
             }
         }
@@ -36,8 +36,7 @@ extension ProfileDataAccess{
         var advertisementsStore:AdvertismentsStore = AdvertismentsStore()
         for id in arrOfIDs
         {
-            let ref = Database.database().reference()
-            ref.child("Advertisements").child(id).observeSingleEvent(of: .value) { (snapshot) in
+            allAdvertisementsRef.child("Advertisements").child(id).observeSingleEvent(of: .value) { (snapshot) in
                 if (snapshot.exists())
                 {
                     let value  = snapshot.value as? NSDictionary
@@ -70,19 +69,38 @@ extension ProfileDataAccess{
     }
     private func deleteFromUsersAds(by id:String)
     {
-        let ref = Database.database().reference()
+       
         guard let userID = Auth.auth().currentUser?.uid else {return}
-        ref.child("Users_Ads").child(userID).child("advertisements").observeSingleEvent(of: .value) { (data) in
+        deleteRef.child("Users_Ads").child(userID).child("advertisements").observeSingleEvent(of: .value) {[weak self] (data) in
             var advertisements = data.value as! [String]
             advertisements.removeAll{$0 == id}
-            ref.child("Users_Ads").child(userID).child("advertisements").setValue(advertisements)
+            
+            self?.deleteRef.child("Users_Ads").child(userID).child("advertisements").setValue(advertisements)
         }
         
     }
     private func deleteFromAdvertisements(by id:String)
     {
-        let ref = Database.database().reference()
-        ref.child("Advertisements").child(id).removeValue()
+        deletAdsRef.child("Advertisements").child(id).removeValue()
     }
     
+    
+    
+    
+    func removeProfileAdvertisementsObservers()
+    {
+        guard let userID = Auth.auth().currentUser?.uid else {return}
+    profileAdvertisementsIDsRef.child("Users_Ads").child(userID).child("advertisements").removeAllObservers()
+        profileAdvertisementsIDsRef = nil
+        
+        allAdvertisementsRef.child("Advertisements").removeAllObservers()
+        allAdvertisementsRef = nil
+    deleteRef.child("Users_Ads").child(userID).child("advertisements").removeAllObservers()
+        deleteRef = nil
+        
+        deletAdsRef.child("Advertisements").removeAllObservers()
+        deletAdsRef =  nil
+        
+        
+    }
 }

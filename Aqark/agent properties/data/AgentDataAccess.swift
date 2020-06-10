@@ -10,11 +10,11 @@
 import Foundation
 import Firebase
 class AgentDataAccess{
-    
+    var agentAdvertisementsIDsRef:DatabaseReference! = Database.database().reference()
+    var advertisementRef:DatabaseReference! = Database.database().reference()
     func getAgentAdvertisementsIDs(agentId:String,completion:@escaping(AgentAdvertismentsStore)->Void)
     {
-        let ref = Database.database().reference()
-        ref.child("Users_Ads").child(agentId).child("advertisements").observe(.value) { (snapshot) in
+    agentAdvertisementsIDsRef.child("Users_Ads").child(agentId).child("advertisements").observe(.value) { (snapshot) in
             if (snapshot.exists())
             {
                 let advertisementsIds:[String] = snapshot.value as! [String]
@@ -36,8 +36,7 @@ class AgentDataAccess{
         var advertisementsStore:AgentAdvertismentsStore = AgentAdvertismentsStore()
         for id in arrOfIDs
         {
-            let ref = Database.database().reference()
-            ref.child("Advertisements").child(id).observeSingleEvent(of: .value) { (snapshot) in
+        advertisementRef.child("Advertisements").child(id).observeSingleEvent(of: .value) { (snapshot) in
                 if (snapshot.exists())
                 {
                     let value  = snapshot.value as? NSDictionary
@@ -60,6 +59,16 @@ class AgentDataAccess{
                 }
             }
         }
-        
 }
+    
+    
+    
+    func removeObservers()
+    {
+        agentAdvertisementsIDsRef.child("Users_Ads").removeAllObservers()
+        agentAdvertisementsIDsRef = nil
+        advertisementRef.child("Advertisements").removeAllObservers()
+        advertisementRef = nil
+        print("observers removed")
+    }
 }

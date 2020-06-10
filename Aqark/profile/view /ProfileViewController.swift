@@ -26,7 +26,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var countryName: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
     var ban:Bool!
-    let profileDataAccess:ProfileDataAccess = ProfileDataAccess()
+    var profileViewModel:ProfileStore!
+    var advertisementViewModel:ProfileAdvertisementListViewModel!
+    var deleteViewModel:AdvertisementDelete!
     var listOfAdvertisements:[ProfileAdvertisementViewModel] = []{
         didSet{
             if listOfAdvertisements.count>0{
@@ -44,7 +46,6 @@ class ProfileViewController: UIViewController {
         if(ProfileNetworking.checkNetworkConnection())
         {
             setupView()
-           // setNavigationProperties()
             setupCollection()
             noAdvertisementsLabel.isHidden = true
         }
@@ -56,31 +57,30 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         if (ProfileNetworking.checkNetworkConnection())
         {
-            if !ProfileNetworking.checkAuthuntication(){
-                self.navigationController?.pushViewController(FirstScreenViewController(), animated: true)
-            }
-            else
-            {
-                if ProfileNetworking.isAdmin(){
-                    let adminView:AdminTabBarController = AdminTabBarController()
-                    self.tabBarController?.tabBar.isHidden = true
-                    self.navigationController?.pushViewController(adminView, animated: true)
-                }
-                else
-                {
-                    showActivityIndicator()
-                    setNavigationProperties()
-                    bindProfileData()
-                    bindCollectionData()
-                    noAdvertisementsLabel.isHidden = true
-                }
-                
-            }
+                setUpViewMoelsObjects()
+                showActivityIndicator()
+                setNavigationProperties()
+                bindProfileData()
+                bindCollectionData()
+                noAdvertisementsLabel.isHidden = true
         }
         else
         {
             setUpNoConnectionView()
-            
         }
+    }
+    private func setUpViewMoelsObjects()
+    {
+        profileViewModel = ProfileStore(by: ProfileDataAccess())
+        advertisementViewModel =
+            ProfileAdvertisementListViewModel(data: ProfileDataAccess())
+        deleteViewModel = AdvertisementDelete(dataAcees: ProfileDataAccess())
+    }
+    deinit{
+        profileViewModel.removeProfileObservers()
+        profileViewModel = nil
+        advertisementViewModel = nil
+        deleteViewModel = nil
+        print("deinit profile")
     }
 }

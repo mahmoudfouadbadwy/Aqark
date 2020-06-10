@@ -64,6 +64,11 @@ class AgentAdvertisementListViewModel{
         })
         
     }
+    
+    func removeObservers()
+    {
+        advertisementsData.removeObservers()
+    }
 }
 
 

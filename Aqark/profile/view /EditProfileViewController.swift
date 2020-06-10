@@ -78,6 +78,7 @@ class EditProfileViewController: UIViewController {
     }
     deinit {
         NotificationCenter.default.removeObserver(self)
+        print("deinit edit profile")
     }
 }
 
