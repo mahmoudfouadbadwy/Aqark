@@ -37,6 +37,7 @@ class AdminUsersListViewModelTests: XCTestCase {
         let adminUsers = [adminUser1!,adminUser2!,adminUser3!]
         adminUsersViewModel.filter(allUsersData: adminUsers)
         XCTAssertEqual(adminUsersViewModel.adminUsersList.count, 2)
+        XCTAssertNotEqual(adminUsersViewModel.adminUsersList.count, 0)
         XCTAssertEqual(adminUsersViewModel.adminLawyersList.count, 1)
         XCTAssertEqual(adminUsersViewModel.adminInteriorDesignersList.count, 0)
     }
@@ -51,9 +52,11 @@ class AdminUsersListViewModelTests: XCTestCase {
         
         adminUsersViewModel.getUsersByType(type: 0)
         XCTAssertTrue(adminUsersViewModel.adminUsersViewList[0].userId == adminUsersViewModel.adminUsersList[0].userId)
+        XCTAssertEqual(adminUsersViewModel.adminUsersViewList.count, adminUsersViewModel.adminUsersList.count)
         
         adminUsersViewModel.getUsersByType(type: 1)
         XCTAssertTrue(adminUsersViewModel.adminUsersViewList[0].userId == adminUsersViewModel.adminLawyersList[0].userId)
+        XCTAssertEqual(adminUsersViewModel.adminUsersViewList.count, adminUsersViewModel.adminLawyersList.count)
         
         adminUsersViewModel.getUsersByType(type: 2)
         XCTAssertTrue(adminUsersViewModel.adminUsersViewList.count == 0)
@@ -73,6 +76,9 @@ class AdminUsersListViewModelTests: XCTestCase {
         XCTAssertTrue(adminUsersViewModel.adminUsersViewList.contains(where: { (user) -> Bool in
             user.userName == "Zeyad"
         }))
+        XCTAssertFalse(adminUsersViewModel.adminUsersViewList.contains(where: { (user) -> Bool in
+            user.userName == "Saeed"
+        }))
         
         searchText = "F"
         adminUsersViewModel.getFilteredUsers(type: 0, searchText: searchText)
@@ -84,6 +90,7 @@ class AdminUsersListViewModelTests: XCTestCase {
         XCTAssertTrue(adminUsersViewModel.adminUsersViewList.contains(where: { (user) -> Bool in
             user.userName == "Fouad"
         }))
+     
         
         searchText = "S"
         adminUsersViewModel.getFilteredUsers(type: 1, searchText: searchText)

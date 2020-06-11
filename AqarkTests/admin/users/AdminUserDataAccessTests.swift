@@ -23,7 +23,7 @@ class AdminDataAccessTests : XCTestCase {
     
     func testGetUsers(){
         let expectationObj = expectation(description: "Waiting For response...")
-        adminDataAccess.getUsers { (usersData) in
+        adminUserDataAccess.getUsers { (usersData) in
             expectationObj.fulfill()
             XCTAssertNotNil(usersData)
             for user in usersData{
@@ -58,8 +58,8 @@ class AdminDataAccessTests : XCTestCase {
         let rating = biggestRating/Double(userRatingsDictionary.count)
         
         let emptyUserRatingDictionart : [String:Any] = [:]
-        let userRating = adminDataAccess.getUserRating(userRatingDic:userRatingsDictionary)
-        let zeroUserRating = adminDataAccess.getUserRating(userRatingDic: emptyUserRatingDictionart)
+        let userRating = adminUserDataAccess.getUserRating(userRatingDic:userRatingsDictionary)
+        let zeroUserRating = adminUserDataAccess.getUserRating(userRatingDic: emptyUserRatingDictionart)
         XCTAssertEqual(userRating,rating)
         XCTAssertTrue(userRating < biggestRating)
         XCTAssertFalse(userRating < lowestRating)
@@ -68,7 +68,7 @@ class AdminDataAccessTests : XCTestCase {
     
     func testLogout(){
         let expectationObj = expectation(description: "Waiting to logout...")
-        adminDataAccess.logout(){ (signOutError) in
+        adminUserDataAccess.logout(){ (signOutError) in
             expectationObj.fulfill()
             if signOutError != nil{
                 XCTFail("There is error with logout")

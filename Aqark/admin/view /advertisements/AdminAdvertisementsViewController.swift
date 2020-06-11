@@ -54,7 +54,9 @@ class AdminAdvertisementsViewController: UIViewController {
         if let reportedAdvertisementId = AdminAdvertisementsViewController.reportedAdvertisementId{
             adminAdvertisementViewModel.getFilteredAdvertisements(searchText: reportedAdvertisementId)
             advertisementsCollectionView.reloadData()
-            setLabelForZeroCount(text: "Advertisement is deleted.")
+            if(adminAdvertisementViewModel.adminAdvertisementsViewList.isEmpty){
+                setLabelForZeroCount(text: "Advertisement is deleted.")
+            }
             AdminAdvertisementsViewController.reportedAdvertisementId = nil
         }else{
             advertisementsCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
