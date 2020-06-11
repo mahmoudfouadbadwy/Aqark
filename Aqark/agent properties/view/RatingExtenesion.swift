@@ -15,7 +15,8 @@ extension AgentPropertiesView{
             rateLabel.text = "Please rate".localize + agentName + "'s properties".localize
             rate.didFinishTouchingCosmos = {[weak self]
                 rating in
-                self?.agentRateViewModel = AgentRateViewModel()
+                self?.agentRate = AgentRate()
+                self?.agentRateViewModel = AgentRateViewModel(agentRate: self!.agentRate)
                 if(self?.agentRateViewModel.setRate(rate: rating,agentId:(self?.agentId)!) ?? false)
                 {
                     self?.showAlert(text:"Thank You".localize, title: "Information".localize)

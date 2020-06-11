@@ -19,9 +19,11 @@ class AgentPropertiesView: UIViewController {
     var agentId:String!
     var agentName:String!
     var agentRateViewModel:AgentRateViewModel!
-    let agentDataAccess:AgentDataAccess = AgentDataAccess()
+    var agentDataAccess:AgentDataAccess!
+    var agentRate:AgentRate!
     var advertisementViewModel:AgentAdvertisementListViewModel!
-    var listOfAdvertisements:[AgentAdvertisementViewModel] = []{
+    var advertisement:AgentAdvertisementViewModel!
+    var listOfAdvertisements:[AgentAdvertisementViewModel]! = []{
         didSet{
             if listOfAdvertisements.count>0{
                 statusLabel.isHidden = true
@@ -75,8 +77,13 @@ class AgentPropertiesView: UIViewController {
     
     deinit {
         advertisementViewModel.removeObservers()
-        agentRateViewModel = nil
         advertisementViewModel = nil
+        agentDataAccess = nil
+        advertisement = nil
+        listOfAdvertisements = nil
+        agentRateViewModel.removeRateObject()
+        agentRateViewModel = nil
+        agentRate = nil
         print("agent properties deinit")
     }
 }

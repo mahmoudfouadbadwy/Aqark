@@ -9,8 +9,13 @@
 import Foundation
 import Firebase
 class AgentRateViewModel {
+    var agentRate:AgentRate!
+    init(agentRate:AgentRate)
+    {
+        self.agentRate = agentRate
+    }
     func setRate(rate:Double,agentId:String)->Bool{
-        return AgentRate().setUserRating(rate: rate,agentId:agentId)
+        return agentRate.setUserRating(rate: rate,agentId:agentId)
     }
     
     static func checkUser(userId:String)->Bool
@@ -23,6 +28,11 @@ class AgentRateViewModel {
             return false
         }
         return true
+    }
+    
+    func removeRateObject()
+    {
+        agentRate = nil
     }
     
 }
