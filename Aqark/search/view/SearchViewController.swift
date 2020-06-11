@@ -65,6 +65,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             filterContentForSearchBarText(searchBar.text!)
         }
     }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +76,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             setUpCollectionView()
             floationgBtn()
             limitRegion()
+           
         }
     }
     
