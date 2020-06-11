@@ -20,8 +20,6 @@ extension ProfileViewController{
     
     func bindCollectionData()
     {
-        let advertisementViewModel:ProfileAdvertisementListViewModel =
-            ProfileAdvertisementListViewModel(data: profileDataAccess)
         advertisementViewModel.getAllAdvertisements(completion: {[weak self]
             (advertisements) in
             self?.stopActivityIndicator()
@@ -36,6 +34,8 @@ extension ProfileViewController{
         cell.layer.shadowOffset = CGSize(width: 2.0, height: 3.0)
         cell.layer.shadowRadius = 4.0
         cell.layer.shadowOpacity = 0.5
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor(rgb: 0x1d3557).cgColor
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
     }
@@ -43,13 +43,16 @@ extension ProfileViewController{
     {
         let advertisement:ProfileAdvertisementViewModel = listOfAdvertisements[indexPath.row]
         cell.propertyType.text = advertisement.propertyType.localize
-        if advertisement.advertisementType.lowercased().elementsEqual("rent")
+        
+        if advertisement.advertisementType.elementsEqual("Rent".localize) || advertisement.advertisementType.lowercased().elementsEqual("ايجار".localize )
         {
             cell.propertyPrice?.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + "EGP/month".localize
         }else
         {
             cell.propertyPrice?.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + "EGP".localize
         }
+        
+        
         
         cell.propertySize.text = self.convertNumbers(lang:"lang".localize , stringNumber: advertisement.size ).1+"sqm".localize
         cell.propertyAddress.text = advertisement.address
@@ -120,18 +123,18 @@ extension ProfileViewController:UIGestureRecognizerDelegate{
             let  point = gesture.location(in: self.advertisementsCollection)
             if let indexPath =  self.advertisementsCollection.indexPathForItem(at: point)
             {
-                showAlert(completion: { (res) in
+                showAlert(completion: {[weak self] (res) in
                     if (res)
                     {
-                        self.advertisementsCollection.performBatchUpdates({
-                             // delete from firebase.
-                            let deleteViewModel:AdvertisementDelete = AdvertisementDelete(dataAcees: self.profileDataAccess)
-                            deleteViewModel.deleteAdvertisement(id:self.listOfAdvertisements[indexPath.row].advertisementId )
+                        self?.advertisementsCollection.performBatchUpdates({
+                            // delete from firebase.
+                            self?.deleteViewModel.deleteAdvertisement(id:self?.listOfAdvertisements[indexPath.row].advertisementId ?? "")
+                            
                             // delete from view .
-                            self.listOfAdvertisements.remove(at: indexPath.row)
-                            self.advertisementsCollection.deleteItems(at: [indexPath])
+                            self?.listOfAdvertisements.remove(at: indexPath.row)
+                            self?.advertisementsCollection.deleteItems(at: [indexPath])
                         }) { (finished) in
-                            self.advertisementsCollection.reloadData()
+                            self?.advertisementsCollection.reloadData()
                         }
                     }
                 })
@@ -139,7 +142,7 @@ extension ProfileViewController:UIGestureRecognizerDelegate{
         }
     }
     
-   private func showAlert(completion:@escaping(Bool)->Void)
+    private func showAlert(completion:@escaping(Bool)->Void)
     {
         let alert:UIAlertController = UIAlertController(title: "Delete Adverisement".localize, message: "Are You Sure You Want To Delete This Advertisement ?".localize, preferredStyle: .actionSheet)
         let delete:UIAlertAction = UIAlertAction(title: "Delete".localize, style: .default) { (action) in

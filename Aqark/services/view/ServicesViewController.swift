@@ -11,7 +11,7 @@ import SDWebImage
 
 class ServicesViewController: UIViewController {
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var servicesCollectionView: UICollectionView!
     @IBOutlet weak var noLabel: UILabel!
     var servicesViewModel : ServicesListViewModel!
@@ -23,8 +23,10 @@ class ServicesViewController: UIViewController {
         super.viewDidLoad()
         dataAccess = ServiceDataAccess()
         servicesViewModel = ServicesListViewModel(dataAccess: dataAccess)
+        view.backgroundColor = UIColor(rgb: 0xf1faee)
+        servicesCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
         if(servicesViewModel.checkNetworkConnection()){
-            activityIndicator.startAnimating()
+            showActivityIndicator()
             self.view.alpha = 0
             navigationItem.title = serviceRole
             let servicesNib = UINib(nibName: "ServicesCollectionViewCell", bundle: nil)
@@ -33,7 +35,7 @@ class ServicesViewController: UIViewController {
             servicesCollectionView.dataSource = self
             servicesViewModel.getServiceUsers {
                 self.servicesViewModel.getServiceUsersList(serviceUserRole: self.serviceRole, country: self.advertisementCountry)
-                self.activityIndicator.stopAnimating()
+                self.stopActivityIndicator()
                 UIView.animate(withDuration:2) {
                     self.view.alpha = 1
                 }
@@ -45,16 +47,16 @@ class ServicesViewController: UIViewController {
             }
         }else{
             noLabel.isHidden = false
-            noLabel.text = "No Internet Connection."
+            noLabel.text = "Internet Connection Not Available."
         }
     }
     
     private func setLabelForZeroCount(){
         noLabel.isHidden = false
         if(serviceRole == "Lawyers"){
-            noLabel.text = "No Available Lawyers."
+            noLabel.text = "No Lawyers Available."
         }else{
-            noLabel.text = "No Available Interior Designers."
+            noLabel.text = "No Interior Designers Available."
         }
     }
 }

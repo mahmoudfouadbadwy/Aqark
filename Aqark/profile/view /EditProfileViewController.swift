@@ -78,6 +78,7 @@ class EditProfileViewController: UIViewController {
     }
     deinit {
         NotificationCenter.default.removeObserver(self)
+        print("deinit edit profile")
     }
 }
 
@@ -232,7 +233,7 @@ extension EditProfileViewController{
              }
              if(profile.country.isEmpty == false)
              {
-                self.countryTxtField.text = profile.country.localize
+               self.countryTxtField.text = profile.country.localize
              }
              if(profile.address.isEmpty == false)
              {

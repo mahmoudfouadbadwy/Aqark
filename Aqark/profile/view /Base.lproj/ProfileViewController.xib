@@ -244,7 +244,7 @@
                 <constraint firstItem="eX2-Id-rT3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EOU-VF-cFs"/>
                 <constraint firstItem="NFP-wP-Jpy" firstAttribute="firstBaseline" secondItem="eX2-Id-rT3" secondAttribute="baseline" constant="11" symbolType="layoutAnchor" id="FtB-rb-A57"/>
                 <constraint firstItem="WG8-JY-T2i" firstAttribute="top" secondItem="TtF-MJ-y68" secondAttribute="bottom" constant="5" id="GZu-LK-6iX"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eX2-Id-rT3" secondAttribute="trailing" id="Htc-av-Q48"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eX2-Id-rT3" secondAttribute="trailing" id="Htc-av-Q48"/>
                 <constraint firstItem="WG8-JY-T2i" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JK9-Vm-SCN"/>
                 <constraint firstItem="Soq-SR-o1A" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="JTs-V5-Oup"/>
                 <constraint firstItem="ELf-Ul-GCq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QMJ-RZ-uBj"/>

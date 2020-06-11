@@ -102,6 +102,10 @@ class LoginViewController: UIViewController{
             userPasswordTextField._placeholder = "Password".localize
         }
     }
+    
+    deinit {
+        print ("deinit login")
+    }
 }
 
 extension LoginViewController : UITextFieldDelegate{

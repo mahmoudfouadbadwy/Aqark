@@ -87,6 +87,10 @@ class SignUpView: UIViewController  {
         default:createServiceAccount(email: email, password: password, confirm: confirm, username: username, phone: phone, country: countriesPicker[countries.selectedRow(inComponent: 0)], company: company)
         }
     }
+    
+    deinit {
+        print("deinit sign up")
+    }
 }
 
 

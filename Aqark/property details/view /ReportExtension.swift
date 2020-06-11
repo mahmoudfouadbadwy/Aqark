@@ -36,9 +36,9 @@ extension PropertyDetailView {
         })
     }
     func reportAdvertisement(report : String){
-        self.advertisementReportViewModel.setReportData(reportContent : report,advertisementId: self.advertisementId,agentId: advertisementDetails.userID, completionForSetReportData: { result in
+        self.advertisementReportViewModel.setReportData(reportContent : report,advertisementId: self.advertisementId,agentId: advertisementDetails.userID, completionForSetReportData: {[weak self] result in
             if (result!){
-                self.showAlert(title: "Report have been sent")
+                self?.showAlert(title: "Report have been sent")
                 
             }
         })

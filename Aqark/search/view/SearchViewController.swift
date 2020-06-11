@@ -34,6 +34,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     var latitude : Double = 0
     var longitude : Double = 0
     var isSorting: String = "default"
+    var isSorted = false
     var collectionViewFlowLayout:UICollectionViewFlowLayout!
     var advertismentsListViewModel : AdvertisementListViewModel!
     let searchController = UISearchController(searchResultsController: nil)

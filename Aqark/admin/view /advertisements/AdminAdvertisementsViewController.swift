@@ -24,6 +24,9 @@ class AdminAdvertisementsViewController: UIViewController {
         
         dataAccess = AdminDataAccess()
         adminAdvertisementViewModel = AdminAdvertisementsListViewModel(dataAccess:dataAccess)
+        advertisementsSearchBar.backgroundColor = UIColor(rgb: 0xf1faee)
+        advertisementsSearchBar.barTintColor = UIColor(rgb: 0xf1faee)
+            view.backgroundColor = UIColor(rgb: 0xf1faee)
         if(adminAdvertisementViewModel.checkNetworkConnection()){
             showActivityIndicator()
             self.view.alpha = 0
@@ -37,13 +40,13 @@ class AdminAdvertisementsViewController: UIViewController {
                     self.view.alpha = 1
                 }
                 if(self.adminAdvertisementViewModel.adminAdvertisementsViewList.isEmpty){
-                    self.setLabelForZeroCount(text: "No available advertisements")
+                    self.setLabelForZeroCount(text: "No advertisements available")
                 }
                 self.advertisementsCollectionView.reloadData()
             }
         }else{
             noLabel.isHidden = false
-            noLabel.text = "No Internet Connection."
+            noLabel.text = "Internet Connection Not Available"
         }
         
     }
@@ -51,6 +54,7 @@ class AdminAdvertisementsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.navigationItem.title = "Advertisements"
+        advertisementsSearchBar.isHidden = true
         if let reportedAdvertisementId = AdminAdvertisementsViewController.reportedAdvertisementId{
             adminAdvertisementViewModel.getFilteredAdvertisements(searchText: reportedAdvertisementId)
             advertisementsCollectionView.reloadData()
@@ -58,10 +62,11 @@ class AdminAdvertisementsViewController: UIViewController {
                 setLabelForZeroCount(text: "Advertisement is deleted.")
             }
             AdminAdvertisementsViewController.reportedAdvertisementId = nil
+              setLabelForZeroCount(text: "No advertisements available")
         }else{
             advertisementsCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
-              
             noLabel.isHidden = true
+            advertisementsSearchBar.isHidden = false
             adminAdvertisementViewModel.getFilteredAdvertisements(searchText: "")
             advertisementsCollectionView.reloadData()
         }

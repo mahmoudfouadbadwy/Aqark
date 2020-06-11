@@ -24,6 +24,9 @@ class AdminUsersViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         usersSegment.backgroundColor = UIColor(rgb: 0xf1faee)
+        usersSearchBar.backgroundColor = UIColor(rgb: 0xf1faee)
+        usersSearchBar.barTintColor = UIColor(rgb: 0xf1faee)
+        view.backgroundColor = UIColor(rgb: 0xf1faee)
         dataAccess = AdminDataAccess()
         adminUsersViewModel = AdminUsersListViewModel(dataAccess: dataAccess)
         if(adminUsersViewModel.checkNetworkConnection()){
@@ -49,7 +52,7 @@ class AdminUsersViewController: UIViewController{
             }
         }else{
             noLabel.isHidden = false
-            noLabel.text = "No Internet Connection."
+            noLabel.text = "Internet Connection Not Available."
         }
     }
     
@@ -68,11 +71,11 @@ class AdminUsersViewController: UIViewController{
         noLabel.isHidden = false
         switch usersSegment.selectedIndex {
         case 0:
-            noLabel.text = "No Available Users."
+            noLabel.text = "No Users Available."
         case 1:
-            noLabel.text = "No Available Lawyers."
+            noLabel.text = "No Lawyers Available."
         default:
-            noLabel.text = "No Available Interior Designers."
+            noLabel.text = "No Interior Designers Available."
         }
     }
     

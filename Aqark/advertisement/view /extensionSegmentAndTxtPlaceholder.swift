@@ -16,9 +16,9 @@ extension AddAdvertisementViewController{
    @IBAction func selectAdvertisementType(_ sender: UISegmentedControl) {
        switch sender.selectedSegmentIndex {
        case 0:
-           advertisementType = "Rent"
+        advertisementType = "Rent".localize
        case 1:
-           advertisementType = "Buy"
+        advertisementType = "Buy".localize
        default:
            print("error")
        }
@@ -29,15 +29,15 @@ extension AddAdvertisementViewController{
     
    func updatePlaceholderForPriceTextFeild(){
        
-       if advertisementType == "Rent"
+    if advertisementType == "Rent".localize
        {
            switch propertyType {
            case "Apartment":
-               priceTxtField.placeholder = "minimum price is 500 EGP"
+               priceTxtField.placeholder = "minimum price is".localize + Localization.convertNumbers(lang: "lang".localize, stringNumber: "500").1  + "EGP".localize
            case "Villa":
-               priceTxtField.placeholder = "minimum price is 5000 EGP"
+               priceTxtField.placeholder = "minimum price is".localize + Localization.convertNumbers(lang: "lang".localize, stringNumber: "5000").1  + "EGP".localize
            case "Room":
-               priceTxtField.placeholder = "minimum price is 200 EGP "
+               priceTxtField.placeholder = "minimum price is".localize + Localization.convertNumbers(lang: "lang".localize, stringNumber: "200").1  + "EGP".localize
            default:
                print("noselection")
            }
@@ -45,12 +45,11 @@ extension AddAdvertisementViewController{
        }else{
            switch propertyType {
            case "Apartment":
-               priceTxtField.placeholder = "minimum price is 50,000 EGP "
+               priceTxtField.placeholder = "minimum price is".localize + Localization.convertNumbers(lang: "lang".localize, stringNumber: "50000").1  + "EGP".localize
            case "Villa":
-               priceTxtField.placeholder = "minimum price is 500,000 EGP"
+               priceTxtField.placeholder = "minimum price is".localize + Localization.convertNumbers(lang: "lang".localize, stringNumber: "500000").1  + "EGP".localize
            case "Room":
-               priceTxtField.placeholder = "minimum price is 10,000 EGP "
-               
+               priceTxtField.placeholder = "minimum price is".localize + Localization.convertNumbers(lang: "lang".localize, stringNumber: "10000").1  + "EGP".localize
            default:
                print("noselection")
            }

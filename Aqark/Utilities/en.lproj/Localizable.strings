@@ -86,6 +86,37 @@
 "Menofia" = "Menofia";
 
 
+"المنصوره"="al-Mansura";
+"القاهره"="Cairo";
+"الاسكندريه"="Alexandria";
+"الجيزه"="Giza";
+"بورسعيد"="Port Said";
+"السويس"="Suez";
+"الاقصر"="Luxor";
+"المحله الكبري"="El-Mahalla El-Kubra";
+"طنطا"="Tanta";
+"اسيوط"="Asyut";
+"الاسماعيليه"="Ismailia";
+"الفيوم"="Faiyum";
+"الزقازيق"="Zagazig";
+"اسوان"="Aswan";
+"دمياط"="Damietta";
+"دمنهور"="Damanhur";
+"المنيا"="al-Minya";
+"بني سويف"="Beni Suef";
+"قنا"="Qena";
+"سوهاج"="Sohag";
+"الغردقه"="Hurghada";
+"بنها"="Banha";
+"كفر الشيخ"="Kafr el-Sheikh";
+"العريش"="Arish";
+"المنيا"="Minya";
+"الشرقيه"="Sharqia";
+"البحيره"="Beheira";
+"المنوفيه"="Menofia";
+
+
+
 
 "Furnished" = "Furnished";
 "Shared Spa" = "Shared Spa";
@@ -97,7 +128,7 @@
 "Covered Parking" = "Covered Parking";
 "Pets Allowed" = "Pets Allowed";
 "Barbecue Area" = "Barbecue Area";
-"Balcony" = "شرفة";
+"Balcony" = "Balcony";
 "Walk-in Closet" = "Walk-in Closet";
 "Study" = "Study";
 "Private garden" = "Private garden";
@@ -146,9 +177,70 @@
 "country" = "country";
 
 
+/********************************** "Advertisement ********************************/
+
+"Edit" = "Edit";
+
+"Add Advertisement" = "Add Advertisement";
+
+"Furnished" = "Furnished";
+"Shared Spa" = "Shared Spa";
+"Central A/C" = "Central A/C";
+"Maids Room" = "Maids Room";
+"Security" = "Security";
+"Kitchen Appliances" = "Kitchen Appliances";
+"Networked" = "Networked";
+"Covered Parking" = "Covered Parking";
+"Pets Allowed" = "Pets Allowed";
+"Barbecue Area" = "Barbecue Area";
+"Balcony" = "شرفة";
+"Walk-in Closet" = "Walk-in Closet";
+"Study" = "Study";
+"Private garden" = "Private garden";
+"Children's Play Area" = "Children's Play Area";
+
+"minimum price is" = "minimum price is";
+
+"بيع" = "Buy" ;
+"ايجار" = "Rent";
+
+
+"propertyType" = "propertyType";
+"advertisementType" = "advertisementType";
+"bedrooms" = "bedrooms";
+"bathroom" = "bathroom";
+"location" = "location";
+"description" = "description";
+"images" = "images";
+"Size" = "Size";
+"price" = "price";
+
+
 
 /********************************** Alerts ********************************/
 // Message :
+
+"price is empty" = "price is empty";
+"select advertisement Type" = "advertisement number must be selected.";
+"select Property Type" = "Property number must be selected.";
+"add number of bedrooms" = " bedrooms must be provided.";
+"select number of bathroom" = "bathroom must be provided.";
+"add your location" = "location must be provided.";
+"add your county" = "county must be provided.";
+"add your description" = "description must be provided.";
+"select images" = "image must be selected.";
+"add your phone" = "Phone number must be provided.";
+"add your size" = "size must be provided.";
+"inValid size" = "The size you entered is invalid";
+"inValid price" = "The price you entered is invalid";
+"phone not valid" = "The phone number you entered is invalid";
+
+"Delete Image" = "Delete Image";
+"Are you sure you want to delete ?" = "Are you sure you want to delete ?";
+
+
+"Sorry, you used all of your free ads" = "Sorry, you used all of your free ads";
+"Advertrisement saved successfully" = "Advertrisement saved successfully";
 
 "Country must be provided." = "Country must be provided.";
 "Company must be provided." = "Company must be provided.";

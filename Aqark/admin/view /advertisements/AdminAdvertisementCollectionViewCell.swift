@@ -34,6 +34,8 @@ class AdminAdvertisementCollectionViewCell: UICollectionViewCell {
         layer.shadowOffset = CGSize(width: 2.0, height: 3.0)
         layer.shadowRadius = 4.0
         layer.shadowOpacity = 0.5
+        layer.borderWidth = 1
+        layer.borderColor = UIColor(rgb: 0x1d3557).cgColor
         layer.masksToBounds = false
         layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
     }

@@ -129,7 +129,7 @@
                             <rect key="frame" x="20" y="10" width="335" height="647"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="BhA-of-AQl">
-                                    <rect key="frame" x="5" y="10" width="325" height="495"/>
+                                    <rect key="frame" x="5" y="10" width="325" height="464"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cmT-JZ-buz">
                                             <rect key="frame" x="0.0" y="0.0" width="325" height="30"/>
@@ -420,11 +420,11 @@
                                                         <action selector="changeCountry:" destination="-1" eventType="touchUpInside" id="3BF-UW-7sN"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r3Z-RV-pY5" userLabel="Minya">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ni-tz-5QF" userLabel="Menofia">
                                                     <rect key="frame" x="172.5" y="0.0" width="152.5" height="30"/>
-                                                    <state key="normal" title="Minya"/>
+                                                    <state key="normal" title="Menofia"/>
                                                     <connections>
-                                                        <action selector="changeCountry:" destination="-1" eventType="touchUpInside" id="cxy-32-SMm"/>
+                                                        <action selector="changeCountry:" destination="-1" eventType="touchUpInside" id="gDK-LV-543"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -444,25 +444,6 @@
                                                     <state key="normal" title="Beheira"/>
                                                     <connections>
                                                         <action selector="changeCountry:" destination="-1" eventType="touchUpInside" id="gUx-JG-KWP"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tj6-vU-1BC">
-                                            <rect key="frame" x="0.0" y="465" width="325" height="30"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYN-5J-EHk" userLabel="Menofia">
-                                                    <rect key="frame" x="0.0" y="0.0" width="152.5" height="30"/>
-                                                    <state key="normal" title="Menofia"/>
-                                                    <connections>
-                                                        <action selector="changeCountry:" destination="-1" eventType="touchUpInside" id="Lq0-ur-l4j"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7w-uD-3bT" userLabel="Menofia">
-                                                    <rect key="frame" x="172.5" y="0.0" width="152.5" height="30"/>
-                                                    <state key="normal" title="Menofia"/>
-                                                    <connections>
-                                                        <action selector="changeCountry:" destination="-1" eventType="touchUpInside" id="zlD-OH-xRl"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

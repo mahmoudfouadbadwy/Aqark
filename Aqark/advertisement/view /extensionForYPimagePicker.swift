@@ -57,17 +57,13 @@ extension AddAdvertisementViewController{
                     
                     if self.selectedImages.count > 0
                     {
-                        self.selectedImages.append(myImage!)
                         if self.selectedImages.count >= 5{
-                            
-                            
                             break
                         }
                         if self.selectedImages.contains(myImage!){
-                            
                             continue
                         }
-                        
+                        self.selectedImages.append(myImage!)
                         
                     }else{
                         self.selectedImages.append(myImage!)
@@ -79,7 +75,6 @@ extension AddAdvertisementViewController{
                     print(video)
                 }
             }
-            print(self.selectedImages)
             picker.dismiss(animated: true, completion: nil)
         }
         present(picker, animated: true, completion: nil)

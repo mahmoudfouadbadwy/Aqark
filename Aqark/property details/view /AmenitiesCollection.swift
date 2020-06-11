@@ -19,35 +19,35 @@ extension PropertyDetailView{
     {
         var image:UIImage
         switch amenities {
-        case "Balcony".localize:
+        case "Balcony":
             image = UIImage(named: "Balacony")!
-        case "Covered Parking".localize:
+        case "Covered Parking":
             image = UIImage(named: "Covered Parking")!
-        case "Barbecue Area".localize:
+        case "Barbecue Area":
             image = UIImage(named: "Barbecue")!
-        case "Central A/C".localize:
+        case "Central A/C":
             image = UIImage(named: "Central")!
-        case "Children's Play Area".localize:
+        case "Children's Play Area":
             image = UIImage(named: "children")!
-        case "Furnished".localize:
+        case "Furnished":
             image = UIImage(named: "Furnished")!
-        case "Private garden".localize:
+        case "Private garden":
             image = UIImage(named: "garden")!
-        case "Kitchen Appliances".localize:
+        case "Kitchen Appliances":
             image = UIImage(named: "kitchen")!
-        case "Maids Room".localize:
+        case "Maids Room":
             image = UIImage(named: "Maids room")!
-        case "Networked".localize:
+        case "Networked":
             image = UIImage(named: "networked")!
-        case "Pets Allowed".localize:
+        case "Pets Allowed":
             image = UIImage(named: "Pets")!
-        case "Security".localize:
+        case "Security":
             image = UIImage(named: "Security")!
-        case "Shared Spa".localize:
+        case "Shared Spa":
             image = UIImage(named: "shared spa")!
-        case "Study".localize:
+        case "Study":
             image = UIImage(named: "study")!
-        case "Walk-in Closet".localize:
+        case "Walk-in Closet":
             image = UIImage(named: "Walk")!
         default:
             image = UIImage(named: "Furnished")!

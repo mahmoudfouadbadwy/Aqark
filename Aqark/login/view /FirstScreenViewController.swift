@@ -23,6 +23,11 @@ class FirstScreenViewController: UIViewController {
         rolesPicker.dataSource = self
         roles = ["User","Lawyer","Interior Designer"]
     }
+    override func viewWillAppear(_ animated: Bool) {
+        if ProfileNetworking.checkAuthuntication(){
+            self.navigationController?.pushViewController(ProfileViewController(), animated: true)
+        }
+    }
 
     @IBAction func submit(_ sender: Any) {
             let loginView = LoginViewController()

@@ -20,9 +20,9 @@ extension AgentPropertiesView{
     func bindCollectionData()
     {
         
-        let advertisementViewModel:AgentAdvertisementListViewModel =
+         advertisementViewModel =
             AgentAdvertisementListViewModel(data: agentDataAccess)
-        advertisementViewModel.getAllAdvertisements(agentId:agentId,completion: {[weak self]
+         advertisementViewModel.getAllAdvertisements(agentId:agentId,completion: {[weak self]
             (advertisements) in
             self?.stopActivityIndicator()
             self?.listOfAdvertisements = advertisements
@@ -36,6 +36,8 @@ extension AgentPropertiesView{
         cell.layer.shadowOffset = CGSize(width: 2.0, height: 3.0)
         cell.layer.shadowRadius = 4.0
         cell.layer.shadowOpacity = 0.5
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor(rgb: 0x1d3557).cgColor
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
     }
