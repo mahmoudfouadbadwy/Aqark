@@ -220,10 +220,15 @@
 "price" = "السعر";
 
 
+/********************************** serviceRole ********************************/
+
+
+" years exp" = "سنين خبره ";
 
 /********************************** Alerts ********************************/
 // Message :
 
+"You can't rate yourself" = "لا تستطيع ان تقيم نفسك";
 
 "price is empty" = "يجب توفير السعر";
 "select advertisement Type" = "يجب اختيار نوع الاعلان";
@@ -301,3 +306,6 @@
 //wall papers word:
 "No Advertisements Available" = "لا توجد اعلانات";
 "Internet Connection Not Available" = "لا يوجد اتصال بالانترنت";
+
+"No Lawyers Available." = "  لا يتوجد محامين في هذه المحافظه ";
+"No Interior Designers Available." = "  لا يتوجد مصميي ديكور في هذه المحافظه ";
