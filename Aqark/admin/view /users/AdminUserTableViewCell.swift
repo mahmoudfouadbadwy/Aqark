@@ -17,6 +17,7 @@ class AdminUserTableViewCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userRating: CosmosView!
     @IBOutlet weak var banUserButton: CustomButton!
+    
     var adminUserCellIndex : IndexPath!
     var adminUserDelegate : AdminUsersDelegate!
     
@@ -29,7 +30,6 @@ class AdminUserTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        userImage.circularImage()
         userName.textColor = UIColor(rgb: 0x457b9d)
 //        banUserButton.backgroundColor = UIColor(rgb: 0xe63946)
 //        contentView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 1.0)
@@ -44,9 +44,6 @@ class AdminUserTableViewCell: UITableViewCell {
     
     @IBAction func banUser(_ sender: Any) {
         let isBanned =  adminUserDelegate.checkBannedUser(at : adminUserCellIndex)
-//        banUserButton.titleLabel?.text = !isBanned ? "Unban" : "Ban"
         adminUserDelegate.banUserDelegate(isBanned: !isBanned, at: adminUserCellIndex)
     }
-    
-
 }

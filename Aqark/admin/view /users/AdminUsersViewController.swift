@@ -15,55 +15,65 @@ class AdminUsersViewController: UIViewController{
  
     @IBOutlet weak var noLabel: UILabel!
     @IBOutlet weak var usersSearchBar: UISearchBar!
-    
     @IBOutlet weak var usersSegment: CustomSegment!
     @IBOutlet weak var usersTableView: UITableView!
+    
     var adminUsersViewModel : AdminUsersListViewModel!
     private var dataAccess : AdminDataAccess!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        usersSegment.backgroundColor = UIColor(rgb: 0xf1faee)
-        usersSearchBar.backgroundColor = UIColor(rgb: 0xf1faee)
-        usersSearchBar.barTintColor = UIColor(rgb: 0xf1faee)
-        view.backgroundColor = UIColor(rgb: 0xf1faee)
+        setupView()
         dataAccess = AdminDataAccess()
         adminUsersViewModel = AdminUsersListViewModel(dataAccess: dataAccess)
         if(adminUsersViewModel.checkNetworkConnection()){
-            showActivityIndicator()
-            self.view.alpha = 0
-            
-            usersTableView.register(UINib(nibName: "AdminUserTableViewCell", bundle: nil), forCellReuseIdentifier: "User Cell")
-            usersTableView.delegate = self
-            usersTableView.dataSource = self
+            setupUsersTable()
             usersSearchBar.delegate = self
-            adminUsersViewModel.populateUsers {
-                self.stopActivityIndicator()
-                UIView.animate(withDuration:2) {
-                    self.view.alpha = 1
-                }
-                self.usersSegment.isHidden = false
-                if(self.adminUsersViewModel.adminUsersViewList.isEmpty){
-                    self.setLabelForZeroCount(search: false)
-                }else{
-                    self.usersSearchBar.isHidden = false
-                    self.usersTableView.reloadData()
-                }
-            }
+            bindUsersTable()
         }else{
-            noLabel.isHidden = false
-            noLabel.text = "Internet Connection Not Available."
+            setupNoConnection()
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.navigationItem.title = "Users"
-        
     }
     
-    func setupViews(){
-        usersSearchBar.isHidden = true
-        usersSegment.isHidden = true
+    private func setupView() {
+        usersSegment.backgroundColor = UIColor(rgb: 0xf1faee)
+        usersSearchBar.backgroundColor = UIColor(rgb: 0xf1faee)
+        usersSearchBar.barTintColor = UIColor(rgb: 0xf1faee)
+        usersTableView.backgroundColor = UIColor(rgb: 0xf1faee)
+        view.backgroundColor = UIColor(rgb: 0xf1faee)
+        view.alpha = 0.5
+    }
+    
+    private func setupUsersTable() {
+        usersTableView.register(UINib(nibName: "AdminUserTableViewCell", bundle: nil), forCellReuseIdentifier: "User Cell")
+        usersTableView.delegate = self
+        usersTableView.dataSource = self
+    }
+    
+    private func setupNoConnection() {
+        view.alpha = 0
+        noLabel.isHidden = false
+        noLabel.text = "Internet Connection Not Available."
+    }
+    
+    private func bindUsersTable() {
+        showActivityIndicator()
+        adminUsersViewModel.populateUsers {
+            UIView.animate(withDuration:2) {
+                self.view.alpha = 1
+            }
+            self.stopActivityIndicator()
+            if(self.adminUsersViewModel.adminUsersViewList.isEmpty){
+                self.setLabelForZeroCount(search: false)
+            }else{
+                self.usersSearchBar.isHidden = false
+                self.usersTableView.reloadData()
+            }
+        }
     }
     
     func setLabelForZeroCount(search:Bool){
