@@ -12,7 +12,7 @@ import Firebase
 class ServiceDataAccess{
     
     let serviceUsersRef = Database.database().reference().child("Users")
-    
+
     func getServiceUsers(completionForGetServiceUsers:@escaping(_ serviceUsers:[ServiceUser])->Void){
         var serviceUsers = [ServiceUser]()
         serviceUsersRef.observe(.value) { (dataSnapShot) in

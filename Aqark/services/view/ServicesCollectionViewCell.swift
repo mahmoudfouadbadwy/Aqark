@@ -24,7 +24,7 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     @IBOutlet var dialerButtonTrailingConstraint: NSLayoutConstraint!
     
     var serviceUserCellIndex : IndexPath!
-    var serviceUserDelegate : ServiceUsersCollectionDelegate!
+    weak var serviceUserDelegate : ServiceUsersCollectionDelegate!
     @IBOutlet weak var serviceUserCompanyHeight: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,7 +45,6 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     }
     
     override func layoutSubviews() {
-        serviceUserImage.circularImage()
         layer.cornerRadius = 10
         layer.masksToBounds = true
         layer.shadowColor = UIColor.black.cgColor
@@ -90,5 +89,9 @@ class ServicesCollectionViewCell: UICollectionViewCell {
                 self.rateMeButton.isHidden = finished
             }
         }
+    }
+    
+    @IBAction func callServiceUser(_ sender: Any) {
+        serviceUserDelegate.callServiceUser(at: serviceUserCellIndex)
     }
 }

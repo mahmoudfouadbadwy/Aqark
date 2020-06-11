@@ -28,12 +28,13 @@ class AdminTabBarController: UITabBarController {
         let adminUserViewController = AdminUsersViewController()
         let adminAdvertisementViewController = AdminAdvertisementsViewController()
         let adminReportsView = AdminReportsView()
+        adminReportsView.adminAdvertisementReportDelegate = adminAdvertisementViewController
         tabBar.tintColor = UIColor(rgb: 0xe63946)
         tabBar.barTintColor = UIColor(rgb: 0xf1faee)
         adminUserViewController.tabBarItem = UITabBarItem(title: "Users", image: UIImage(named: "profile"), selectedImage: UIImage(named: "profile"))
         adminAdvertisementViewController.tabBarItem = UITabBarItem(title: "Advertisements", image: UIImage(named: "propertyType"), selectedImage: UIImage(named: "propertyType"))
         adminReportsView.tabBarItem = UITabBarItem(title: "Reports", image: UIImage(named: "report"), tag: 3)
-        self.viewControllers = [adminUserViewController,adminAdvertisementViewController,adminReportsView]
+        self.viewControllers = [adminAdvertisementViewController,adminUserViewController,adminReportsView]
     }
     
     @objc func logout(sender:UIBarButtonItem){

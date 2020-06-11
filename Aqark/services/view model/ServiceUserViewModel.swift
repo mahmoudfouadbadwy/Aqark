@@ -16,6 +16,7 @@ class ServiceUserViewModel{
     var serviceUserExperience : String = ""
     var serviceUserCompany : String = ""
     var ServiceUserImage : String = ""
+    var serviceUserPhone : String = ""
     
     init(serviceUser : ServiceUser) {
         self.serviceUserId = serviceUser.userId
@@ -25,5 +26,6 @@ class ServiceUserViewModel{
         self.serviceUserExperience = serviceUser.userExperience 
         self.serviceUserCompany = serviceUser.userCompany
         self.ServiceUserImage = serviceUser.userImage
+        self.serviceUserPhone = serviceUser.userPhone
     }
 }

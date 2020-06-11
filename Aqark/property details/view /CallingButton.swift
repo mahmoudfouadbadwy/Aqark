@@ -37,5 +37,4 @@ extension PropertyDetailView{
         alert.addAction(UIAlertAction(title: "Cancel".localize, style: .cancel, handler: nil))
         self.present(alert, animated: true)
     }
-    
 }
