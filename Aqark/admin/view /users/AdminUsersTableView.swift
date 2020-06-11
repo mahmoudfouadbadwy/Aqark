@@ -9,14 +9,19 @@
 import Foundation
 import UIKit
 
-extension AdminUsersViewController : UITableViewDelegate,UITableViewDataSource{
+extension AdminUsersViewController : UITableViewDelegate{
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+}
+
+extension AdminUsersViewController :UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return adminUsersViewModel.adminUsersViewList.count
-    }
+          return adminUsersViewModel.adminUsersViewList.count
+      }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        usersTableView.backgroundColor = UIColor(rgb: 0xf1faee)
         let userCell = usersTableView.dequeueReusableCell(withIdentifier: "User Cell", for: indexPath) as? AdminUserTableViewCell
         userCell?.adminUserCellIndex = indexPath
         userCell?.adminUserDelegate = self
@@ -26,10 +31,6 @@ extension AdminUsersViewController : UITableViewDelegate,UITableViewDataSource{
         userCell?.userImage.sd_setImage(with: userImageURL, placeholderImage: UIImage(named: "profile_user"))
         userCell?.banUserButton.setTitle(adminUsersViewModel.adminUsersViewList[indexPath.row].isBanned ? "Unban" : "Ban", for: .normal)
         return userCell!
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
     }
 }
 

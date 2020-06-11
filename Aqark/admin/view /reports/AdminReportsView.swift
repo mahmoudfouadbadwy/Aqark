@@ -11,6 +11,7 @@ import UIKit
 class AdminReportsView: UIViewController {
     @IBOutlet weak var reportsCollection: UICollectionView!
     @IBOutlet weak var statusLabel: UILabel!
+    weak var adminAdvertisementReportDelegate:AdminAdvertisementsReportDelegate!
     var adminReportViewModel:AdminReportsList!
     var reports:[AdminReportViewModel]=[]{
         didSet{
