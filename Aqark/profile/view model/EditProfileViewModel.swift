@@ -117,5 +117,9 @@ class EditProfileViewModel : EditProfileProtocol
         }
     }
     
+    func removeAllEditProfileRef(){
+        editProfileDataSource.removeAllEditProfileRef()
+    }
+    
     
 }
