@@ -31,11 +31,13 @@ extension SearchViewController:  UISearchBarDelegate{
     
     func filterContentForSearchBarText(_ searchText: String){
         let searchText = searchBar.text ?? ""
+      
+        
         filteredAdsList = arrOfAdViewModel.filter { advertisement -> Bool in
             return advertisement.address.lowercased().contains(searchText.lowercased())
                      self.manageAppearence(sortBtn: true, labelPlaceHolder: true, notificationBtn: true)
         }
-        if filteredAdsList.count == 0{
+            if self.filteredAdsList.count == 0{
             self.labelPlaceHolder.text = "No Advertisements Available".localize
             self.labelPlaceHolder.textColor = .red
             self.manageAppearence(sortBtn: false, labelPlaceHolder: false, notificationBtn: false)
@@ -43,8 +45,8 @@ extension SearchViewController:  UISearchBarDelegate{
                         }
     
         self.searchCollectionView.reloadData()
-                    }
-    
+                    
+    }
         
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
       if  searchText.count == 0 {
