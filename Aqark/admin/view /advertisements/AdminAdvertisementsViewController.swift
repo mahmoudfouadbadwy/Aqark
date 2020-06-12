@@ -90,6 +90,8 @@ class AdminAdvertisementsViewController: UIViewController,AdminAdvertisementsRep
         if(adminAdvertisementViewModel.adminAdvertisementsViewList.isEmpty){
             showAlert(title: "Advertisement", message: "Advertisement is deleted")
             adminAdvertisementViewModel.getFilteredAdvertisements(searchText: "")
+        }else{
+            advertisementsSearchBar.text = reportedAdvertisementId
         }
         self.reportedAdvertisementId = nil
     }
