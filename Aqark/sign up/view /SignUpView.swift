@@ -89,6 +89,7 @@ class SignUpView: UIViewController  {
     }
     
     deinit {
+        accountViewModel = nil
         print("deinit sign up")
     }
 }

@@ -41,7 +41,7 @@ extension ProfileViewController{
     }
     private func setCellData(cell:ProfileAdvertisementCell,indexPath:IndexPath)
     {
-        let advertisement:ProfileAdvertisementViewModel = listOfAdvertisements[indexPath.row]
+        advertisement = listOfAdvertisements[indexPath.row]
         cell.propertyType.text = advertisement.propertyType.localize
         
         if advertisement.advertisementType.elementsEqual("Rent".localize) || advertisement.advertisementType.lowercased().elementsEqual("ايجار".localize )
@@ -51,8 +51,6 @@ extension ProfileViewController{
         {
             cell.propertyPrice?.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + "EGP".localize
         }
-        
-        
         
         cell.propertySize.text = self.convertNumbers(lang:"lang".localize , stringNumber: advertisement.size ).1+"sqm".localize
         cell.propertyAddress.text = advertisement.address

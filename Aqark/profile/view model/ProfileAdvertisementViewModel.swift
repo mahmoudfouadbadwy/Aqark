@@ -34,8 +34,8 @@ class ProfileAdvertisementViewModel{
 
 
 class ProfileAdvertisementListViewModel{
-    var advertisements:[ProfileAdvertisementViewModel] = []
-    var advertisementsData:ProfileDataAccess
+    var advertisements:[ProfileAdvertisementViewModel]! = []
+    var advertisementsData:ProfileDataAccess!
     init(data:ProfileDataAccess) {
         self.advertisementsData = data
     }
@@ -64,16 +64,29 @@ class ProfileAdvertisementListViewModel{
         })
        
     }
+    
+    func removeProfileAdvertisementsObservers()
+    {
+         advertisementsData.removeProfileAdvertisementsObservers()
+         advertisementsData = nil
+         advertisements = nil
+    }
 }
 
 class AdvertisementDelete
 {
-    var data:ProfileDataAccess
+    var data:ProfileDataAccess!
     init(dataAcees:ProfileDataAccess) {
         self.data = dataAcees
     }
     func deleteAdvertisement(id:String)
     {
         data.deleteAdvertisment(id: id)
+    }
+    
+    func removeDeleteObserver()
+    {
+        data.removeDeleteObservers()
+        data = nil
     }
 }

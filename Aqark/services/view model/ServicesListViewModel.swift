@@ -32,13 +32,13 @@ class ServicesListViewModel{
     }
     
     func getServiceUsersList(serviceUserRole : String,country : String){
-        if(serviceUserRole.elementsEqual("Lawyers")){
+        if(serviceUserRole.elementsEqual("Lawyers".localize)){
             serviceUsersViewList = serviceLawyersList.filter({ (lawyer) -> Bool in
-                lawyer.serviceUserCountry == country
+                lawyer.serviceUserCountry.localize == country
             })
         }else{
             serviceUsersViewList = serviceInteriorDesignersList.filter({ (interiorDesigner) -> Bool in
-                interiorDesigner.serviceUserCountry == country
+                interiorDesigner.serviceUserCountry.localize == country
             })
         }
     }
@@ -74,6 +74,7 @@ class ServicesListViewModel{
     
     private func filterUsers(serviceUsers : [ServiceUser]){
         for serviceUser in serviceUsers{
+            print("service user : " , serviceUser.userRole.localize)
             switch serviceUser.userRole.lowercased() {
             case ServiceUserRole.lawyer:
                 let lawyer = ServiceUserViewModel(serviceUser: serviceUser)
