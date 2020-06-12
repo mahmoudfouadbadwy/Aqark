@@ -26,7 +26,7 @@ struct AdminReportViewModel{
 
 
 class AdminReportsList{
-    var adminReportData:AdminReportsData
+    var adminReportData:AdminReportsData!
     var reportsList:[AdminReportViewModel]!
     init(reportData:AdminReportsData) {
         self.adminReportData = reportData
@@ -50,6 +50,12 @@ class AdminReportsList{
         }
     }
     
+    func removeObservers()
+    {
+         adminReportData.removeReportObservers()
+         adminReportData = nil
+         reportsList = nil
+    }
     
 }
 
