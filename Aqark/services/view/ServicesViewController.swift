@@ -90,6 +90,14 @@ extension ServicesViewController:UICollectionViewDelegateFlowLayout{
 }
 
 extension ServicesViewController:ServiceUsersCollectionDelegate{
+    
+    func callServiceUser(at indexPath: IndexPath) {
+        if let phone = URL(string: ("tel://" + self.servicesViewModel.serviceUsersViewList[indexPath.row].serviceUserPhone)){
+            let name = self.servicesViewModel.serviceUsersViewList[indexPath.row].serviceUserName
+            showCallAlert(phone:phone,name:name)
+        }
+    }
+    
     func checkLoggedUserDelegate() -> Bool {
        return  servicesViewModel.checkLoggedUser()
     }
@@ -116,6 +124,16 @@ extension ServicesViewController:ServiceUsersCollectionDelegate{
             alert.dismiss(animated: true, completion: nil)}
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showCallAlert(phone:URL,name:String)
+    {
+        let alert = UIAlertController(title: "Call".localize, message: "Are You Sure You Want To \(name)?".localize, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Call".localize, style: .default, handler: { (action) in
+            UIApplication.shared.open(phone,options:[:],completionHandler: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel".localize, style: .cancel, handler: nil))
+        self.present(alert, animated: true)
     }
     
 }

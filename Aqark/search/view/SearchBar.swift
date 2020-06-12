@@ -27,26 +27,39 @@ extension SearchViewController:  UISearchBarDelegate{
         searchBar.becomeFirstResponder()
         appearAutoCompleteData()
     }
+  
     
     func filterContentForSearchBarText(_ searchText: String){
         let searchText = searchBar.text ?? ""
         filteredAdsList = arrOfAdViewModel.filter { advertisement -> Bool in
             return advertisement.address.lowercased().contains(searchText.lowercased())
+                     self.manageAppearence(sortBtn: true, labelPlaceHolder: true, notificationBtn: true)
         }
         if filteredAdsList.count == 0{
-            labelPlaceHolder.text = "No Advertisements Available".localize
-            self.manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: false)
-        }
-        else
-        {
-            self.manageAppearence(sortBtn: false, labelPlaceHolder: true, notificationBtn: false)
-        }
+            self.labelPlaceHolder.text = "No Advertisements Available".localize
+            self.labelPlaceHolder.textColor = .red
+            self.manageAppearence(sortBtn: false, labelPlaceHolder: false, notificationBtn: false)
+        
+                        }
+    
         self.searchCollectionView.reloadData()
 
+                    }
+    
+        
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+      if  searchText.count == 0 {
+         self.searchCollectionView.reloadData()
+         self.manageAppearence(sortBtn: false, labelPlaceHolder: true, notificationBtn: true)
+      }
     }
+ 
+
     var isFiltering: Bool {
         return (searchBar.text?.isEmpty)! && !searchController.isActive ? false : true
     }
     
     
 }
+
+

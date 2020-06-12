@@ -72,7 +72,6 @@ class MapViewModel: NSObject, MKAnnotation{
     }
 }
 
-
 struct SearchNetworking{
     static func checkNetworkConnection()->Bool
     {

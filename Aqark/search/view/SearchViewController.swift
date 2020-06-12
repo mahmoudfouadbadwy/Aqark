@@ -69,6 +69,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         }
 
     }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +80,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             setUpCollectionView()
             floationgBtn()
             limitRegion()
+           
         }
     }
     

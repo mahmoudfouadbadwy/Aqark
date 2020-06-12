@@ -8,9 +8,10 @@
 
 import Foundation
 
-protocol ServiceUsersCollectionDelegate {
+protocol ServiceUsersCollectionDelegate : class{
     func rateServiceUserDelegate(at indexPath : IndexPath,rate:Double)
     func checkServiceUserDelegate(at indexPath : IndexPath) -> Bool
     func checkLoggedUserDelegate() -> Bool
+    func callServiceUser(at indexPath: IndexPath)
 }
 

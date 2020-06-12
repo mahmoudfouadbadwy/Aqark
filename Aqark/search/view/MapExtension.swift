@@ -38,8 +38,7 @@ extension SearchViewController : MKMapViewDelegate{
         actionButton.imageView.image("map")
     }
     
-   
-    
+
     func putLocationOnMap(){
         for item in self.arrOfAdViewModel{
             self.longitude = item.longtiude
@@ -52,6 +51,7 @@ extension SearchViewController : MKMapViewDelegate{
         }
         counts.removeAll()
     }
+
     
     func centerToLocation(
         _ location: CLLocation,
