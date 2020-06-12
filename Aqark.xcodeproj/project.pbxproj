@@ -465,9 +465,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3E493AE42492FAE20055067C /* data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		3E493AE52492FAF90055067C /* view model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "view model";
+			sourceTree = "<group>";
+		};
 		3E535ABB248D422800A921A1 /* users */ = {
 			isa = PBXGroup;
 			children = (
+				3E493AE52492FAF90055067C /* view model */,
+				3E493AE42492FAE20055067C /* data */,
 				3E535ABC248D422800A921A1 /* mocks */,
 				3E535ABE248D422800A921A1 /* AdminUserDataAccessTests.swift */,
 				3E535ABF248D422800A921A1 /* AdminUsersListViewModelTests.swift */,
