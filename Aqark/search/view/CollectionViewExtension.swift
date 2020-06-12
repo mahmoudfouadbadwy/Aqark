@@ -105,6 +105,7 @@ extension SearchViewController{
             }else{
                 self.stopActivityIndicator()
                 self.arrOfAdViewModel = dataResults
+                self.filteredAdsList = dataResults
                 self.arrOfAdViewModel.forEach { self.counts[$0.address, default: 0] += 1 }
                 self.putLocationOnMap()
                 self.labelPlaceHolder.isHidden = true
@@ -115,7 +116,6 @@ extension SearchViewController{
 
     func getCellData(indexPath : IndexPath){
         if isFiltering {
-         
             adViewModel = filteredAdsList[indexPath.row]
             notificationBtn.isHidden = false
         }else if isSorting == "High Price"{

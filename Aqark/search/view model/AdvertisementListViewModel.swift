@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import ReachabilitySwift
+import MapKit
+
 class AdvertisementListViewModel{
     
     var advertismentsViewModel : [AdvertisementViewModel] = [AdvertisementViewModel]()
@@ -59,7 +61,16 @@ class AdvertisementViewModel{
         self.longtiude = Double(model.longtiude)
             }
 }
-
+class MapViewModel: NSObject, MKAnnotation{
+    var title: String?
+    var coordinate: CLLocationCoordinate2D
+    var subtitle: String?
+ init(model : Map) {
+    self.title = model.title
+    self.coordinate = model.coordinate
+    self.subtitle = model.subtitle
+    }
+}
 
 struct SearchNetworking{
     static func checkNetworkConnection()->Bool

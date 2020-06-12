@@ -717,7 +717,6 @@
 				BF7C9764247D917A00E8F516 /* FavouriteProtocol.swift */,
 				C67FDA372479469C00028E96 /* SortingExtenision.swift */,
 				C67FDA392479495500028E96 /* MapExtension.swift */,
-				C64DD273247C170900D65012 /* Map.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1228,6 +1227,7 @@
 			isa = PBXGroup;
 			children = (
 				C67921BB2474BF2100A24192 /* AdvertisementSearchModel.swift */,
+				C64DD273247C170900D65012 /* Map.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";

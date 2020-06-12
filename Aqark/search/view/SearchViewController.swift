@@ -29,7 +29,8 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     var numberOfPropertiesInLocation : Int!
     var addressForMap : String!
     var adViewModel : AdvertisementViewModel!
-    var maps: [Map] = []
+    var mapViewModel : MapViewModel!
+    var maps : [MapViewModel] = []
     var arrayOfLongitude = [Double]()
     var latitude : Double = 0
     var longitude : Double = 0
@@ -65,6 +66,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             filterContentForSearchBarText(searchBar.text!)
         }
     }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +77,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             setUpCollectionView()
             floationgBtn()
             limitRegion()
+           
         }
     }
     
