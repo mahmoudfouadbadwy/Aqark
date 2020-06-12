@@ -29,7 +29,8 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     var numberOfPropertiesInLocation : Int!
     var addressForMap : String!
     var adViewModel : AdvertisementViewModel!
-    var maps: [Map] = []
+    var mapViewModel : MapViewModel!
+    var maps : [MapViewModel] = []
     var arrayOfLongitude = [Double]()
     var latitude : Double = 0
     var longitude : Double = 0
