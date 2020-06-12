@@ -11,8 +11,8 @@ import Firebase
 class EditAdvertisementDataSource{
     
     
-    var dataBaseRef: DatabaseReference!
-    var storageRef: StorageReference!
+    var dataBaseRef: DatabaseReference?
+    var storageRef: StorageReference?
     var advertisementId :String!
     var editAdvertisementModel : EditAdvertisementModel!
     var images:[String] = [String]()
@@ -26,7 +26,7 @@ class EditAdvertisementDataSource{
     }
     //MARK:- fetch advertisemnt
     func fetchAdvertisement(complition:@escaping(EditAdvertisementModel)->()){
-        dataBaseRef.child("Advertisements").child(advertisementId).observe(DataEventType.value, with: { (snapshot) in
+        dataBaseRef?.child("Advertisements").child(advertisementId).observe(DataEventType.value, with: { (snapshot) in
             if snapshot.exists(){
                 let editAdvertisement = snapshot.value as? [String : AnyObject] ?? [:]
                 self.editAdvertisementModel = EditAdvertisementModel(phone: editAdvertisement["phone"] as? String ,
@@ -54,7 +54,7 @@ class EditAdvertisementDataSource{
     func deleteStorgeImage(urlImages : [String]){
         for i in urlImages{
             storageRef = Storage.storage().reference(withPath: "images/\(i)")
-            storageRef.delete { error in
+            storageRef?.delete { error in
                 if let error = error
                 {
                     print(error.localizedDescription)
@@ -86,7 +86,7 @@ class EditAdvertisementDataSource{
                                      "payment" : advertisement.payment ?? "",
                                      "images" : images + urlImages]
         
-        dataBaseRef.child("Advertisements").child(advertisementId).updateChildValues(add)
+        dataBaseRef?.child("Advertisements").child(advertisementId).updateChildValues(add)
         NotificationCenter.default.post(name: .indicator, object: nil)
     }
     
@@ -96,7 +96,7 @@ class EditAdvertisementDataSource{
         let randomUUID = UUID.init().uuidString
         storageRef = Storage.storage().reference(withPath: "images/\(randomUUID).jpg")
         
-        self.storageRef.putData(dataImages[index], metadata: meta) {[weak self] (metadata, error) in
+        self.storageRef?.putData(dataImages[index], metadata: meta) {[weak self] (metadata, error) in
             self!.getImageUrl {[weak self] (value, myError) in
                 if myError == nil{
                     self!.images.append(value!)
@@ -112,9 +112,15 @@ class EditAdvertisementDataSource{
         }
     }
     func getImageUrl(comoletionValue : @escaping (String? , Error?)->Void){
-        self.storageRef.downloadURL {(url, error) in
+        self.storageRef?.downloadURL {(url, error) in
             guard let url = url else {return}
             comoletionValue("\(url)", error)
         }
     }
+    
+    func removeAllEditDataRefrance(){
+        dataBaseRef = nil
+        storageRef = nil
+    }
+    
 }

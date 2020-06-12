@@ -10,6 +10,7 @@ import UIKit
 import YPImagePicker
 import GooglePlaces
 import SDWebImage
+import SearchTextField
 
 class AddAdvertisementViewController: UIViewController  {
     @IBOutlet weak var amenitiesTitle: UILabel!
@@ -20,20 +21,21 @@ class AddAdvertisementViewController: UIViewController  {
     @IBOutlet weak var phoneTxtField: UITextField!
     @IBOutlet weak var BedroomsTxtField: UITextField!
     @IBOutlet weak var BathroomTxtField: UITextField!
-    @IBOutlet weak var countyTxtField: UITextField!
     @IBOutlet weak var describtionTxtView: UITextView!
     @IBOutlet weak var saveAndEditButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet var pickerView: UIPickerView!
-    @IBOutlet weak var countryView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segment: UISegmentedControl!
     @IBOutlet weak var bedRoomStepper: UIStepper!
     @IBOutlet weak var bathRoomStepper: UIStepper!
+    @IBOutlet weak var blackIndicatorView: UIView!
+    @IBOutlet weak var myView: UIView!
+    @IBOutlet weak var countryTxtFieldSearch: SearchTextField!
     @IBOutlet var amentiesButton: [UIButton]!
-    var config = YPImagePickerConfiguration()
-    var addAdvertisementVM: AddAdvertisementViewModel!
+    @IBOutlet var pickerView: UIPickerView!
+    var config : YPImagePickerConfiguration?
+    var addAdvertisementVM: AddAdvertisementViewModel?
     var activityIndicator:UIActivityIndicatorView!
     var selectAmenitiesDic:[Int: String] = [Int:String]()
     var pickerViewPropertyType:[String] = [String]()
@@ -47,17 +49,19 @@ class AddAdvertisementViewController: UIViewController  {
     var selectedImages : [Data] = [Data]()
     var urlImages : [String] = [String]()
     var urlImageDeleted:[String]=[String]()
-    var editAdvertisementDataSource :EditAdvertisementDataSource!
+    var editAdvertisementDataSource :EditAdvertisementDataSource?
     var dateOfAdvertisement:String!
-    var autocompletecontroller = GMSAutocompleteViewController()
-    var filter = GMSAutocompleteFilter()
-    @IBOutlet weak var blackIndicatorView: UIView!
-    @IBOutlet weak var myView: UIView!
-    
+    var autocompletecontroller : GMSAutocompleteViewController?
+    var filter : GMSAutocompleteFilter?
+    var countries : Countries!
+    //GMSAutocompleteViewController()
+    //GMSAutocompleteFilter()
     //MARK:- viewdidLoad
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        autocompletecontroller = GMSAutocompleteViewController()
+        filter = GMSAutocompleteFilter()
         setupView()
         // for edit view
         if(advertisementId.isEmpty == false)
@@ -72,25 +76,13 @@ class AddAdvertisementViewController: UIViewController  {
         updatePlaceholderForPriceTextFeild()
     }
     
-    // show view to select countries
-    @IBAction func showCounties(_ sender: Any)
-    {
-        countryView.isHidden = false
-        scrollView.isScrollEnabled = false
-    }
-    @IBAction func selectCountryAndHideStack(_ sender: UIButton) {
-        countryView.isHidden = true
-        countyTxtField.text = sender.titleLabel?.text
-        priceTxtField.becomeFirstResponder() // used to jump to next text feild
-        scrollView.isScrollEnabled = true
-    }
     // select address to open google autocomplete
     @IBAction func addAutoCompleteAddress(_ sender: Any) {
-        filter.type = .address  //suitable filter type
-        filter.country = "eg"  //appropriate country code
-        autocompletecontroller.autocompleteFilter = filter
+        filter?.type = .address  //suitable filter type
+        filter?.country = "eg"  //appropriate country code
+        autocompletecontroller?.autocompleteFilter = filter
         addressTxtField.resignFirstResponder()
-        present(autocompletecontroller, animated: true, completion: nil)
+        present(autocompletecontroller!, animated: true, completion: nil)
     }
     @IBAction func increaseBedRoomNumber(_ sender: UIStepper) {
         self.BedroomsTxtField.text = convertNumbers(lang: "lang".localize, stringNumber: String(Int(sender.value))).1
@@ -98,6 +90,10 @@ class AddAdvertisementViewController: UIViewController  {
     @IBAction func increaseBathRoomNumber(_ sender: UIStepper) {
         self.BathroomTxtField.text = convertNumbers(lang: "lang".localize, stringNumber: String(Int(sender.value))).1
     }
+    
+   
+    
+    
     //MARK: - func SaveButton
     @IBAction func saveAdvertisement(_ sender: Any) {
         addAdvertisementVM = AddAdvertisementViewModel(payment:self.payment,
@@ -111,15 +107,15 @@ class AddAdvertisementViewController: UIViewController  {
                                                        location: self.addressTxtField.text!,
                                                        latitude: self.latitude,
                                                        longitude: self.longitude,
-                                                       country: self.countyTxtField.text!,
+                                                       country: self.countryTxtFieldSearch.text!,
                                                        description: self.describtionTxtView.text!,
                                                        aminities: self.selectAmenitiesDic,
                                                        dataImages: self.selectedImages,
                                                        urlImages:self.urlImages,
                                                        deletedImage : self.urlImageDeleted)
         
-        if addAdvertisementVM.isValid == false{
-            let alertValues = addAdvertisementVM.borkenRule[0]
+        if addAdvertisementVM?.isValid == false{
+            let alertValues = addAdvertisementVM!.borkenRule[0]
             alertControllerMessage(title: alertValues.brokenType, message: alertValues.message)
         }else{
             //check rechability
@@ -130,9 +126,9 @@ class AddAdvertisementViewController: UIViewController  {
                     // check add or edit
                     if(advertisementId.isEmpty == false)
                     {
-                        addAdvertisementVM.editAdvertisement(id : advertisementId , date : dateOfAdvertisement)
+                        addAdvertisementVM?.editAdvertisement(id : advertisementId , date : dateOfAdvertisement)
                     }else{
-                        addAdvertisementVM.save()
+                        addAdvertisementVM?.save()
                     }
             }
             else{
@@ -143,6 +139,21 @@ class AddAdvertisementViewController: UIViewController  {
     //MARK: - deinit
     deinit {
         NotificationCenter.default.removeObserver(self)
+        if(!(advertisementId.isEmpty))
+        {
+            //edit
+            addAdvertisementVM?.removeAllEditDataRefrance()
+        }else{
+            //add
+            addAdvertisementVM?.removeAllAddDataRefrance()
+        }
+        addAdvertisementVM = nil
+        editAdvertisementDataSource = nil
+        activityIndicator = nil
+        config = nil
+        autocompletecontroller = nil
+        filter = nil
+        print("deinit  AddAdvertisementViewController")
     }
 }
 

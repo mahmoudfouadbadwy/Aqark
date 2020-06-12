@@ -10,33 +10,41 @@ import UIKit
 import GooglePlaces
 import SDWebImage
 import ReachabilitySwift
-
+import SearchTextField
 
 class EditProfileViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var userNameTxtField: UITextField!
     @IBOutlet weak var phoneNumberTxtField: UITextField!
-    @IBOutlet weak var countryTxtField: UITextField!
     @IBOutlet weak var addressTxtField: UITextField!
     @IBOutlet weak var companyTxtField: UITextField!
     @IBOutlet weak var experianceTxtField: UITextField!
     @IBOutlet weak var stepperExperiance: UIStepper!
-    @IBOutlet weak var countryView: UIView!
     @IBOutlet weak var indicatorView: UIView!
     @IBOutlet weak var viewForImage: UIView!
     @IBOutlet weak var cameraChangeProfilePic: UIImageView!
-    var imageViewPicker = UIImagePickerController()
-    var autocompletecontroller = GMSAutocompleteViewController()
-    var filter = GMSAutocompleteFilter()
-    var profileData : ProfileDataAccess!
-    var profileStore : ProfileStore!
-    var editProfileViewModel :EditProfileViewModel!
+    
+    var imageViewPicker : UIImagePickerController?
+    var autocompletecontroller : GMSAutocompleteViewController?
+    var filter : GMSAutocompleteFilter?
+    
+    var profileData : ProfileDataAccess?
+    var profileStore : ProfileStore?
+    var editProfileViewModel :EditProfileViewModel?
     var role = ""
     var profilePic :Any!
+  
+   
+    @IBOutlet weak var countrySearch: SearchTextField!
+    var countries : Countries!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        imageViewPicker = UIImagePickerController()
+        autocompletecontroller = GMSAutocompleteViewController()
+        filter = GMSAutocompleteFilter()
+        
         setupView()
         setupImageTextField()
         setTappedGesture()
@@ -57,7 +65,7 @@ class EditProfileViewController: UIViewController {
     {
         userNameTxtField.delegate = self
         phoneNumberTxtField.delegate = self
-        countryTxtField.delegate = self
+        countrySearch.delegate = self
         addressTxtField.delegate = self
         companyTxtField.delegate = self
         experianceTxtField.delegate = self
@@ -66,17 +74,41 @@ class EditProfileViewController: UIViewController {
         imageView.layer.cornerRadius = imageView.bounds.height / 2
         viewForImage.layer.cornerRadius = viewForImage.bounds.height / 2
         indicatorView.isHidden = true
-        countryView.isHidden = true
-        autocompletecontroller.delegate = self
+        autocompletecontroller?.delegate = self
         cameraChangeProfilePic.isUserInteractionEnabled = true
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openLibrary)))
         cameraChangeProfilePic.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openLibrary)))
         fetchProfileDataFromFirebase()
-       
+        
+        self.countries = Countries()
+        self.countrySearch.startVisibleWithoutInteraction = false
+        self.countrySearch.filterStrings(self.countries.countries)
+        self.countrySearch.maxNumberOfResults = 10
+        self.countrySearch.maxResultsListHeight = 200
+        self.countrySearch.theme.font = UIFont.systemFont(ofSize: 12)
+        self.countrySearch.theme.bgColor = UIColor (red: 12, green: 4, blue: 4, alpha: 0.7)
+        self.countrySearch.theme.borderColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
+        self.countrySearch.theme.separatorColor = UIColor (red: 4, green: 4, blue: 4, alpha: 0.7)
     }
+
+    @IBAction func countryTextFeildClick(_ sender: Any) {
+        self.countrySearch.startVisibleWithoutInteraction = true
+    }
+    
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
+        
+        editProfileViewModel?.removeAllEditProfileRef()
+        
+        imageViewPicker = nil
+        autocompletecontroller = nil
+        filter = nil
+        profileData = nil
+        profileStore = nil
+        editProfileViewModel = nil
+        
         print("deinit edit profile")
     }
 }
@@ -123,10 +155,10 @@ extension EditProfileViewController: UIImagePickerControllerDelegate , UINavigat
     }
     @objc func openLibrary()
     {
-        imageViewPicker.delegate = self
-        imageViewPicker.allowsEditing = true
-        imageViewPicker.sourceType = .photoLibrary
-        self.present(imageViewPicker, animated: true, completion: nil)
+        imageViewPicker?.delegate = self
+        imageViewPicker?.allowsEditing = true
+        imageViewPicker?.sourceType = .photoLibrary
+        self.present(imageViewPicker!, animated: true, completion: nil)
     }
     
 }
@@ -136,31 +168,20 @@ extension EditProfileViewController{
      {
          userNameTxtField.setIcon(UIImage(named: "user")!)
          phoneNumberTxtField.setIcon(UIImage(named: "phone")!)
-         countryTxtField.setIcon(UIImage(named: "country")!)
+         countrySearch.setIcon(UIImage(named: "country")!)
          addressTxtField.setIcon(UIImage(named: "profile_map")!)
          companyTxtField.setIcon(UIImage(named: "company")!)
          experianceTxtField.setIcon(UIImage(named: "experience")!)
      }
      
-     @IBAction func countrySelected(_ sender: Any)
-     {
-         countryView.isHidden = false
-     }
-     
-     @IBAction func changeCountry(_ sender: UIButton)
-     {
-         countryTxtField.text = sender.currentTitle
-         countryView.isHidden = true
-         companyTxtField.becomeFirstResponder()
-     }
      
      @IBAction func addAutoCompleteAddress(_ sender: Any)
      {
-         filter.type = .address  //suitable filter type
-         filter.country = "eg"  //appropriate country code
-         autocompletecontroller.autocompleteFilter = filter
-         addressTxtField.resignFirstResponder()
-         present(autocompletecontroller, animated: true, completion: nil)
+        filter?.type = .address  //suitable filter type
+        filter?.country = "eg"  //appropriate country code
+        autocompletecontroller?.autocompleteFilter = filter
+        addressTxtField.resignFirstResponder()
+        present(autocompletecontroller!, animated: true, completion: nil)
      }
      
      @IBAction func expericanceStepper(_ sender: UIStepper)
@@ -173,21 +194,21 @@ extension EditProfileViewController{
          editProfileViewModel = EditProfileViewModel(imageView:profilePic ,
                                                      userName: self.userNameTxtField.text!,
                                                      phoneNumber: self.phoneNumberTxtField.text!,
-                                                     country: self.countryTxtField.text!,
+                                                     country: self.countrySearch.text!,
                                                      address: self.addressTxtField.text!,
                                                      company: self.companyTxtField.text!,
                                                      experiance: self.experianceTxtField.text!,
                                                      role: self.role)
-         if editProfileViewModel.isValid == false
+        if editProfileViewModel?.isValid == false
          {
-            self.showAlert(title: editProfileViewModel.borkenRule[0].brokenType, message: editProfileViewModel.borkenRule[0].message)
+            self.showAlert(title: editProfileViewModel?.borkenRule[0].brokenType ?? "", message: editProfileViewModel?.borkenRule[0].message ?? "")
          }else{
             
             if ProfileNetworking.checkNetworkConnection()
             {
                 indicatorView.isHidden = false
                 showActivityIndicator()
-                editProfileViewModel.updateProfileData()
+                editProfileViewModel?.updateProfileData()
             }else{
                 showAlert(title: "Internet Connection".localize, message: "Internet Connection Not Available".localize)
             }
@@ -202,52 +223,51 @@ extension EditProfileViewController{
     }
      
     
-     func fetchProfileDataFromFirebase()
+    func fetchProfileDataFromFirebase()
      {
         profileData = ProfileDataAccess()
-        profileStore = ProfileStore(by: profileData)
-        profileStore.getProfileData(onSuccess: { (profile) in
+        profileStore = ProfileStore(by: profileData!)
+        profileStore?.getProfileData( onSuccess:{[weak self] (profile) in
             if (profile.role == "user")
              {
-                 self.phoneNumberTxtField.isHidden = true
-                 self.countryTxtField.isHidden = true
-                 self.addressTxtField.isHidden = true
-                 self.companyTxtField.isHidden = true
-                 self.experianceTxtField.isHidden = true
-                 self.stepperExperiance.isHidden = true
-             }
+                self?.phoneNumberTxtField.isHidden = true
+                self?.countrySearch.isHidden = true
+                self?.addressTxtField.isHidden = true
+                self?.companyTxtField.isHidden = true
+                self?.experianceTxtField.isHidden = true
+                self?.stepperExperiance.isHidden = true
+            }
              if(profile.picture.isEmpty == false)
              {
-                 self.imageView.sd_setImage(with: URL(string: profile.picture), placeholderImage: UIImage(named: "profile_user"))
-                 self.profilePic = profile.picture
+                self?.imageView.sd_setImage(with: URL(string: profile.picture), placeholderImage: UIImage(named: "profile_user"))
+                self?.profilePic = profile.picture
              }
              if(profile.username.isEmpty == false)
              {
-                 self.userNameTxtField.text = profile.username
+                self?.userNameTxtField.text = profile.username
              }
              if(profile.phone.isEmpty == false)
              {
-                self.phoneNumberTxtField.text = self.convertNumbers(lang: "lang".localize, stringNumber:"0").1 + self.convertNumbers(lang: "lang".localize, stringNumber: profile.phone).1
+                self?.phoneNumberTxtField.text = (self?.convertNumbers(lang: "lang".localize, stringNumber:"0").1 ?? "0") + (self?.convertNumbers(lang: "lang".localize, stringNumber: profile.phone).1 ?? "0")
              }
              if(profile.country.isEmpty == false)
              {
-               self.countryTxtField.text = profile.country.localize
+                self?.countrySearch.text = profile.country.localize
              }
              if(profile.address.isEmpty == false)
              {
-                 self.addressTxtField.text = profile.address
+                self?.addressTxtField.text = profile.address
              }
              if(profile.company.isEmpty == false)
              {
-                 self.companyTxtField.text = profile.company
+                self?.companyTxtField.text = profile.company
              }
              if(profile.experience.isEmpty == false)
              {
-                self.experianceTxtField.text = self.convertNumbers(lang: "lang".localize, stringNumber: profile.experience).1
-                self.stepperExperiance.value = self.convertNumbers(lang: "lang".localize, stringNumber: profile.experience).0.doubleValue
+                self?.experianceTxtField.text = self?.convertNumbers(lang: "lang".localize, stringNumber: profile.experience).1
+                self?.stepperExperiance.value = self?.convertNumbers(lang: "lang".localize, stringNumber: profile.experience).0.doubleValue ?? 0
              }
-             self.role = profile.role
-
+            self?.role = profile.role
          }) { (error) in
              print(error.localizedDescription)
          }

@@ -20,10 +20,10 @@ extension AddAdvertisementViewController {
         
         saveAndEditButton.setTitle("Edit".localize, for: .normal)
         editAdvertisementDataSource = EditAdvertisementDataSource(advertisementId: advertisementId)
-        addAdvertisementVM = AddAdvertisementViewModel(editDataSource : editAdvertisementDataSource)
-        addAdvertisementVM.fetchAdvertisement { (myValue) in
+        addAdvertisementVM = AddAdvertisementViewModel(editDataSource : editAdvertisementDataSource!)
+        addAdvertisementVM?.fetchAdvertisement {[weak self] (myValue) in
      
-            self.dateOfAdvertisement = myValue.date
+            self?.dateOfAdvertisement = myValue.date
             let formatter = DateFormatter()
             formatter.timeZone = TimeZone.current
             formatter.dateFormat = "yyyy-MM-dd HH:mm"
@@ -35,64 +35,66 @@ extension AddAdvertisementViewController {
             if (currentDate <= lastTimeForEdit)
             {
                 
-                self.priceTxtField.text =  self.convertNumbers(lang: "lang".localize, stringNumber: myValue.price ?? "0").1
-                self.sizeTxtField.text =  self.convertNumbers(lang: "lang".localize, stringNumber: myValue.size ?? "0").1
-                self.phoneTxtField.text =  self.convertNumbers(lang: "lang".localize, stringNumber: "0").1 + self.convertNumbers(lang: "lang".localize, stringNumber: myValue.phone ?? "0").1
-                self.BedroomsTxtField.text =  self.convertNumbers(lang: "lang".localize, stringNumber: myValue.bedRooms ?? "0").1
-                self.BathroomTxtField.text = self.convertNumbers(lang: "lang".localize, stringNumber: myValue.bathRooms ?? "0").1
-                self.countyTxtField.text = myValue.country?.localize
-                self.describtionTxtView.text = myValue.description
+                self?.priceTxtField.text =  self?.convertNumbers(lang: "lang".localize, stringNumber: myValue.price ?? "0").1
+                self?.sizeTxtField.text =  self?.convertNumbers(lang: "lang".localize, stringNumber: myValue.size ?? "0").1
+                self?.phoneTxtField.text =  (self?.convertNumbers(lang: "lang".localize, stringNumber: "0").1 ?? "0") + (self?.convertNumbers(lang: "lang".localize, stringNumber: myValue.phone ?? "1" ).1 ?? "1")
+                self?.BedroomsTxtField.text =  self?.convertNumbers(lang: "lang".localize, stringNumber: myValue.bedRooms ?? "0").1
+                self?.BathroomTxtField.text = self?.convertNumbers(lang: "lang".localize, stringNumber: myValue.bathRooms ?? "0").1
+                self?.countryTxtFieldSearch.text = myValue.country?.localize
+                self?.describtionTxtView.text = myValue.description
                 if let address = myValue.Address{
-                    self.addressTxtField.text = address["location"]
-                    self.latitude = address["latitude"] ?? ""
-                    self.longitude = address["longitude"] ?? ""
+                    self?.addressTxtField.text = address["location"]
+                    self?.latitude = address["latitude"] ?? ""
+                    self?.longitude = address["longitude"] ?? ""
                 }
                 
                 if let advertisementType = myValue.AdvertisementType?.localize{
-                    self.advertisementType = advertisementType
-                    if(self.advertisementType == "Rent".localize){
-                        self.segment.selectedSegmentIndex = 0
+                    self?.advertisementType = advertisementType
+                    if(self?.advertisementType == "Rent".localize){
+                        self?.segment.selectedSegmentIndex = 0
                     }else{
-                        self.segment.selectedSegmentIndex = 1
+                        self?.segment.selectedSegmentIndex = 1
                     }
                 }
                 
                 
                 if let propertyType = myValue.propertyType{
-                    self.propertyType = propertyType
-                    if(self.propertyType == "Apartment"){
-                        self.pickerView.selectRow(0, inComponent: 0, animated: true)
+                    self?.propertyType = propertyType
+                    if(self?.propertyType == "Apartment"){
+                        self?.pickerView.selectRow(0, inComponent: 0, animated: true)
                     }
-                    else if(self.propertyType == "Villa"){
-                        self.pickerView.selectRow(1, inComponent: 0, animated: true)
+                    else if(self?.propertyType == "Villa"){
+                        self?.pickerView.selectRow(1, inComponent: 0, animated: true)
                     }
                     else{
-                        self.pickerView.selectRow(2, inComponent: 0, animated: true)
+                        self?.pickerView.selectRow(2, inComponent: 0, animated: true)
                     }
                 }
                 
                
                 if let bedroom = myValue.bedRooms{
-                    self.bedRoomStepper.value = self.convertNumbers(lang: "lang".localize, stringNumber: bedroom).0.doubleValue
+                    self?.bedRoomStepper.value = self?.convertNumbers(lang: "lang".localize, stringNumber: bedroom).0.doubleValue ?? 0
                 }
                 
                 if let bathroom = myValue.bathRooms{
-                      self.bathRoomStepper.value = self.convertNumbers(lang: "lang".localize, stringNumber: bathroom).0.doubleValue
+                      self?.bathRoomStepper.value = self?.convertNumbers(lang: "lang".localize, stringNumber: bathroom).0.doubleValue ?? 0
                 }
                 
                 if let myValue = myValue.amenities
                 {
                     for i in myValue
                     {
-                        let tag = self.selectEditAmenitiesValue(value: i)
-                        self.amentiesButton[tag].setImage(UIImage(named: "checkmark"), for: .normal)
-                        self.selectAmenitiesDic[tag] = i
+                        if let tag = self?.selectEditAmenitiesValue(value: i){
+                            self?.amentiesButton[tag].setImage(UIImage(named: "checkmark"), for: .normal)
+                            self?.selectAmenitiesDic[tag] = i
+                        }
+                        
                     }
                 }
                 
                 if let urlImages = myValue.images{
-                    self.urlImages = urlImages
-                    self.collectionView.reloadData()
+                    self?.urlImages = urlImages
+                    self?.collectionView.reloadData()
                 }
 
             }else{
