@@ -19,7 +19,7 @@ extension AgentPropertiesView{
     
     func bindCollectionData()
     {
-        
+         agentDataAccess = AgentDataAccess()
          advertisementViewModel =
             AgentAdvertisementListViewModel(data: agentDataAccess)
          advertisementViewModel.getAllAdvertisements(agentId:agentId,completion: {[weak self]
@@ -43,7 +43,7 @@ extension AgentPropertiesView{
     }
     private func setCellData(cell:AgentAdvertisementCell,indexPath:IndexPath)
     {
-        let advertisement:AgentAdvertisementViewModel = listOfAdvertisements[indexPath.row]
+        advertisement = listOfAdvertisements[indexPath.row]
         cell.propertyType.text = advertisement.propertyType.localize
         if advertisement.advertisementType.lowercased().elementsEqual("rent")
         {

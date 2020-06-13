@@ -35,8 +35,8 @@ class AgentAdvertisementViewModel{
 
 
 class AgentAdvertisementListViewModel{
-    var advertisements:[AgentAdvertisementViewModel] = []
-    var advertisementsData:AgentDataAccess
+    var advertisements:[AgentAdvertisementViewModel]! = []
+    var advertisementsData:AgentDataAccess!
     init(data:AgentDataAccess) {
         self.advertisementsData = data
     }
@@ -68,6 +68,8 @@ class AgentAdvertisementListViewModel{
     func removeObservers()
     {
         advertisementsData.removeObservers()
+        advertisements = nil
+        advertisementsData = nil
     }
 }
 

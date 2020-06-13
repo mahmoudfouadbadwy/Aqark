@@ -43,7 +43,7 @@ extension AddAdvertisementViewController: UICollectionViewDataSource , UICollect
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        alertDesitionMaking(title: "Delete ", message: "Are you sure you want to delete ?" , index : indexPath)
+        alertDesitionMaking(title: "Delete".localize, message: "Are you sure you want to delete ?".localize , index : indexPath)
     }
     func registerCellOfCollectionView()
     {

@@ -11,8 +11,12 @@ import UIKit
 class AdminReportsView: UIViewController {
     @IBOutlet weak var reportsCollection: UICollectionView!
     @IBOutlet weak var statusLabel: UILabel!
+    var usersname:[String]!
+    var agentsname:[String]!
+    weak var adminAdvertisementReportDelegate:AdminAdvertisementsReportDelegate!
     var adminReportViewModel:AdminReportsList!
-    var reports:[AdminReportViewModel]=[]{
+    var reportData:AdminReportsData!
+    var reports:[AdminReportViewModel]!=[]{
         didSet{
             if reports.count == 0{
                 statusLabel.isHidden = false
@@ -25,8 +29,7 @@ class AdminReportsView: UIViewController {
             reportsCollection.reloadData()
         }
     }
-    var usersname:[String]!
-    var agentsname:[String]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if !ReportNetwork.checkNetworkConnection(){
@@ -34,9 +37,11 @@ class AdminReportsView: UIViewController {
         }
         setupReportsCollection()
         setupCollectionGeusture()
+        
+        view.backgroundColor = UIColor(rgb: 0xf1faee)
     }
     override func viewWillAppear(_ animated: Bool) {
-        super.viewDidLoad()
+        super.viewWillAppear(true)
         self.tabBarController?.navigationItem.title = "Reports"
         if ReportNetwork.checkNetworkConnection(){
             bindCollectionData()
@@ -51,6 +56,16 @@ class AdminReportsView: UIViewController {
     {
         statusLabel.isHidden = false
         statusLabel.text = "Internet Connetion Not Available"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+         adminReportViewModel.removeObservers()
+         adminReportViewModel = nil
+         reportData = nil
+    }
+    
+    deinit {
+        reports = nil
     }
     
 }

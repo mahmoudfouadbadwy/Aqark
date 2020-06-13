@@ -64,6 +64,7 @@
 "Luxor" = "Luxor";
 "al-Mansura" = "al-Mansura";
 "El-Mahalla El-Kubra" = "El-Mahalla El-Kubra";
+
 "Tanta" = "Tanta";
 "Asyut" = "Asyut";
 "Ismailia" = "Ismailia";
@@ -80,7 +81,6 @@
 "Banha" = "Banha";
 "Kafr el-Sheikh" = "Kafr el-Sheikh";
 "Arish" = "Arish";
-"Minya" = "Minya";
 "Sharqia" = "Sharqia";
 "Beheira" = "Beheira";
 "Menofia" = "Menofia";
@@ -110,7 +110,6 @@
 "بنها"="Banha";
 "كفر الشيخ"="Kafr el-Sheikh";
 "العريش"="Arish";
-"المنيا"="Minya";
 "الشرقيه"="Sharqia";
 "البحيره"="Beheira";
 "المنوفيه"="Menofia";
@@ -216,9 +215,14 @@
 "price" = "price";
 
 
+/********************************** serviceRole ********************************/
+
+" years exp" = " years exp";
 
 /********************************** Alerts ********************************/
 // Message :
+
+"You can't rate yourself" = "You can't rate yourself";
 
 "price is empty" = "price is empty";
 "select advertisement Type" = "advertisement number must be selected.";
@@ -289,3 +293,6 @@
 //wall papers word:
 "No Advertisements Available" = "No Advertisements Available";
 "Internet Connection Not Available" = "Internet Connection Not Available";
+
+"No Lawyers Available." = "No Lawyers Available.";
+"No Interior Designers Available." = "No Interior Designers Available.";

@@ -25,14 +25,17 @@ class FirstScreenViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         if ProfileNetworking.checkAuthuntication(){
-            self.navigationController?.pushViewController(ProfileViewController(), animated: true)
+            if !ProfileNetworking.isAdmin()
+            {
+                self.navigationController?.pushViewController(ProfileViewController(), animated: true)
+            }
         }
     }
-
+    
     @IBAction func submit(_ sender: Any) {
-            let loginView = LoginViewController()
+        let loginView = LoginViewController()
         loginView.userRole = userRole
-            self.navigationController?.pushViewController(loginView, animated: true)
+        self.navigationController?.pushViewController(loginView, animated: true)
     }
 }
 

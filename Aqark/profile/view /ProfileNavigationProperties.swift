@@ -20,7 +20,6 @@ extension ProfileViewController{
         
     }
     @objc func logout(sender: UIBarButtonItem){
-        profileViewModel.removeProfileObservers()
         profileViewModel.logout()
         self.navigationController?.popViewController(animated: true)
     }

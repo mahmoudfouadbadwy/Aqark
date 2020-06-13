@@ -95,12 +95,13 @@ PODS:
     - nanopb/encode (= 1.30905.0)
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
-  - PromisesObjC (1.2.8)
+  - PromisesObjC (1.2.9)
   - PryntTrimmerView (3.0.0)
   - ReachabilitySwift (3)
   - SDWebImage (5.8.0):
     - SDWebImage/Core (= 5.8.0)
   - SDWebImage/Core (5.8.0)
+  - SearchTextField (1.2.4)
   - SteviaLayout (4.4.4)
   - SwiftyGif (4.2.0)
   - YPImagePicker (3.5.3):
@@ -117,6 +118,7 @@ DEPENDENCIES:
   - JJFloatingActionButton
   - ReachabilitySwift (~> 3.0)
   - SDWebImage
+  - SearchTextField (~> 1.2)
   - SwiftyGif (~> 4.2.0)
   - YPImagePicker (~> 3.5.2)
 
@@ -147,6 +149,7 @@ SPEC REPOS:
     - PryntTrimmerView
     - ReachabilitySwift
     - SDWebImage
+    - SearchTextField
     - SteviaLayout
     - SwiftyGif
     - YPImagePicker
@@ -173,14 +176,15 @@ SPEC CHECKSUMS:
   JJFloatingActionButton: fdc3aefb0f28f04d0f988fa25d5fac97028a9ea7
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
-  PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   PryntTrimmerView: 53ac64053c7ce63cb3e27f54090f52da0734891d
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
+  SearchTextField: 40dc3cc57def5a211f263cac263622c163bbc25a
   SteviaLayout: 523469269059f2c6da02820bb2ff28a5fe0780aa
   SwiftyGif: a149bf84df23370592f3f075561ae02c8632a314
   YPImagePicker: 5dd3814b47b1208e9c8cc8f6ef77fe90db3723b6
 
-PODFILE CHECKSUM: 0ff92acd246d6ca444eea447623d531a473509e1
+PODFILE CHECKSUM: 9448c81d79128d746d188a63fb56da4395639d7c
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.8.4

@@ -11,7 +11,6 @@ import Cosmos
 import SDWebImage
 //MARK: - Live Cycle and Properties
 class ProfileViewController: UIViewController {
-    
     @IBOutlet weak var noAdvertisementsLabel: UILabel!
     @IBOutlet weak var rate: CosmosView!
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
@@ -26,10 +25,11 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var countryName: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
     var ban:Bool!
+    var advertisement:ProfileAdvertisementViewModel!
     var profileViewModel:ProfileStore!
     var advertisementViewModel:ProfileAdvertisementListViewModel!
     var deleteViewModel:AdvertisementDelete!
-    var listOfAdvertisements:[ProfileAdvertisementViewModel] = []{
+    var listOfAdvertisements:[ProfileAdvertisementViewModel]! = []{
         didSet{
             if listOfAdvertisements.count>0{
                 noAdvertisementsLabel.isHidden = true
@@ -77,10 +77,14 @@ class ProfileViewController: UIViewController {
         deleteViewModel = AdvertisementDelete(dataAcees: ProfileDataAccess())
     }
     deinit{
-        profileViewModel.removeProfileObservers()
+        profileViewModel.removeProfileDataObservers()
         profileViewModel = nil
+        advertisementViewModel.removeProfileAdvertisementsObservers()
         advertisementViewModel = nil
+        deleteViewModel.removeDeleteObserver()
         deleteViewModel = nil
+        listOfAdvertisements = nil
+        advertisement = nil
         print("deinit profile")
     }
 }

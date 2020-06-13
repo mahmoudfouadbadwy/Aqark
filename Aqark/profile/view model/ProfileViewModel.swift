@@ -30,10 +30,10 @@ class ProfileStore{
     {
         profileDataAccess.profileLogout()
     }
-    func removeProfileObservers()
+    func removeProfileDataObservers()
     {
         profileDataAccess.reomveProfileDataObserver()
-        profileDataAccess.removeProfileAdvertisementsObservers()
+        profileDataAccess = nil
     }
     
     

@@ -55,7 +55,6 @@ class ProfileDataAccess{
         guard let userID = Auth.auth().currentUser?.uid else {return}
         profileDataRef.child("Users").child(userID).removeAllObservers()
         profileDataRef = nil
-       
     }
 }
 
