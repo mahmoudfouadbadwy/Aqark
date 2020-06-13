@@ -78,11 +78,13 @@ class AgentPropertiesView: UIViewController {
     deinit {
         advertisementViewModel.removeObservers()
         advertisementViewModel = nil
+        if agentRateViewModel != nil{
+             agentRateViewModel.removeRateObject()
+        }
+        agentRateViewModel = nil
         agentDataAccess = nil
         advertisement = nil
         listOfAdvertisements = nil
-        agentRateViewModel.removeRateObject()
-        agentRateViewModel = nil
         agentRate = nil
         print("agent properties deinit")
     }

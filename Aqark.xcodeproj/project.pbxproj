@@ -98,6 +98,7 @@
 		82ACADE6248BCFBF002EF804 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ACADE5248BCFBF002EF804 /* Localization.swift */; };
 		82ACAE02248C5E30002EF804 /* PropertyDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82ACAE04248C5E30002EF804 /* PropertyDetailView.xib */; };
 		AB359ED5E1D6FD408208700F /* Pods_AqarkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */; };
+		BF0BB655249517C000D9ED3C /* AgentAdvertisementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF0BB654249517C000D9ED3C /* AgentAdvertisementCell.xib */; };
 		BF0F8F2E24890BF40055EAD8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0F8F2D24890BF40055EAD8 /* Color.swift */; };
 		BF220884248DA72800809430 /* Launchview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF220883248DA72800809430 /* Launchview.swift */; };
 		BF2F5ECB2485495E007AD263 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2F5ECA2485495E007AD263 /* Indicator.swift */; };
@@ -185,7 +186,6 @@
 		BFF0161C24810D1F00C3B7C0 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0161B24810D1F00C3B7C0 /* Agent.swift */; };
 		BFF0161E24810D8F00C3B7C0 /* AgentDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0161D24810D8F00C3B7C0 /* AgentDataAccess.swift */; };
 		BFF01620248113A400C3B7C0 /* AgentCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0161F248113A400C3B7C0 /* AgentCollection.swift */; };
-		BFF0162224811AD800C3B7C0 /* AgentAdvertisementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF0162124811AD800C3B7C0 /* AgentAdvertisementCell.xib */; };
 		BFF016242481306800C3B7C0 /* RatingExtenesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF016232481306800C3B7C0 /* RatingExtenesion.swift */; };
 		BFF39A36246FF92E0041AD24 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF39A34246FF92E0041AD24 /* ProfileViewController.swift */; };
 		C61CFE3224765998000EC0EF /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61CFE3024765998000EC0EF /* PaymentViewController.swift */; };
@@ -323,6 +323,7 @@
 		82ACAE03248C5E30002EF804 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PropertyDetailView.xib; sourceTree = "<group>"; };
 		88E560A844B318E2835E7F97 /* Pods-Aqark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqark.release.xcconfig"; path = "Target Support Files/Pods-Aqark/Pods-Aqark.release.xcconfig"; sourceTree = "<group>"; };
 		B77402FFEAE979F1B4E1F970 /* Pods-AqarkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AqarkTests.release.xcconfig"; path = "Target Support Files/Pods-AqarkTests/Pods-AqarkTests.release.xcconfig"; sourceTree = "<group>"; };
+		BF0BB654249517C000D9ED3C /* AgentAdvertisementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgentAdvertisementCell.xib; sourceTree = "<group>"; };
 		BF0F8F2D24890BF40055EAD8 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		BF220883248DA72800809430 /* Launchview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launchview.swift; sourceTree = "<group>"; };
 		BF2F5ECA2485495E007AD263 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
@@ -413,7 +414,6 @@
 		BFF0161B24810D1F00C3B7C0 /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
 		BFF0161D24810D8F00C3B7C0 /* AgentDataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDataAccess.swift; sourceTree = "<group>"; };
 		BFF0161F248113A400C3B7C0 /* AgentCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCollection.swift; sourceTree = "<group>"; };
-		BFF0162124811AD800C3B7C0 /* AgentAdvertisementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgentAdvertisementCell.xib; sourceTree = "<group>"; };
 		BFF016232481306800C3B7C0 /* RatingExtenesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingExtenesion.swift; sourceTree = "<group>"; };
 		BFF39A34246FF92E0041AD24 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C61CFE3024765998000EC0EF /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaymentViewController.swift; path = Aqark/payment/view/PaymentViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -751,7 +751,7 @@
 		BF06B41024679ED1005D7151 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				BFF0162124811AD800C3B7C0 /* AgentAdvertisementCell.xib */,
+				BF0BB654249517C000D9ED3C /* AgentAdvertisementCell.xib */,
 				BFF016152481067800C3B7C0 /* AgentAdvertisementCell.swift */,
 				BF6D507624804B4000FFDD30 /* AgentPropertiesView.swift */,
 				BF6D507724804B4000FFDD30 /* AgentPropertiesView.xib */,
@@ -1403,12 +1403,12 @@
 				BF82E6EF2481981500786141 /* FavouriteCollectionViewCell.xib in Resources */,
 				BF6D507924804B4000FFDD30 /* AgentPropertiesView.xib in Resources */,
 				8287168F248D6EC60038A53D /* SignUpView.xib in Resources */,
-				BFF0162224811AD800C3B7C0 /* AgentAdvertisementCell.xib in Resources */,
 				82ACADDA248BCB84002EF804 /* SearchViewController.xib in Resources */,
 				3E736C6C2480C897004D8B81 /* ServicesViewController.xib in Resources */,
 				3E69A8D1247EF5E000193605 /* AdminUserTableViewCell.xib in Resources */,
 				8214EA3D248C661B0037B11D /* FirstScreenViewController.xib in Resources */,
 				3E69A8D3247EF5E000193605 /* AdminTabBarController.xib in Resources */,
+				BF0BB655249517C000D9ED3C /* AgentAdvertisementCell.xib in Resources */,
 				3E69A8D9247EF5E000193605 /* AdminUsersViewController.xib in Resources */,
 				BFCF0BCD24677F8100A43D8B /* Assets.xcassets in Resources */,
 				3E69A8CE247EF5E000193605 /* AdminAdvertisementCollectionViewCell.xib in Resources */,
