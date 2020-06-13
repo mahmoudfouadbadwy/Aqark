@@ -75,13 +75,12 @@ extension FavouriteViewController{
     func getCollectionViewData(){
         if coreDataViewModel?.getAllFavouriteAdvertisment().count ?? 0 > 0{
             showActivityIndicator()
-            self.favouriteListViewModel.populateAds { (allFavAds, numOfFavAds) in
-                self.arrOfAdViewModel.removeAll()
-                self.adsCount = numOfFavAds
-                self.stopActivityIndicator()
-                self.arrOfAdViewModel = allFavAds
-                self.showDeletedAdsAlert()
-            }
+            self.favouriteListViewModel.populateAds(completionForGetAllAdvertisements: {[weak self] (allFavAds, numOfFavAds) in
+                self?.arrOfAdViewModel.removeAll()
+                self?.adsCount = numOfFavAds
+                self?.stopActivityIndicator()
+                self?.arrOfAdViewModel = allFavAds
+                self?.showDeletedAdsAlert()})
         }else{
             arrOfAdViewModel=[]
         }

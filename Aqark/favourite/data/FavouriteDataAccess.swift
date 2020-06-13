@@ -28,34 +28,23 @@ class FavouriteDataAccess {
     var advertisementPropertyLatitude : String!
     var advertisementDate : String!
     var addressDictionary: [String: String] = [:]
- 
-    func getFavouriteAdsFromCoredata () -> [String] {
-        let coreDataAccess: CoreDataAccess = CoreDataAccess()
-        let idsArray = CoreDataAccess.getAllAdvertisment(coreDataAccess)
-        return idsArray()
-    }
-    
-    func deleteFavouriteAdsFromCoredata (id: String){
-        let coreDataAccess: CoreDataAccess = CoreDataAccess()
-        CoreDataAccess.deleteFromFavourite(coreDataAccess)(id: id)
-    }
+    var coreDataAccess: CoreDataAccess! = CoreDataAccess()
+    var advertisementRef:DatabaseReference! = Database.database().reference()
     
     func getAllFavouriteAdvertisements(completionForGetAllAdvertisements : @escaping (_ searchResults:[FavouriteModel],Int) -> Void){
         var advertismentCount = 0
         var advertisementsData = [FavouriteModel]()
-        let ref = Database.database().reference()
-        let idsArray = self.getFavouriteAdsFromCoredata()
+        let idsArray = coreDataAccess.getAllAdvertisment()
         if (idsArray.count != 0){
             for index in 0..<idsArray.count{
-                ref.child("Advertisements").child(idsArray[index]).observeSingleEvent(of: .value, with: { (snapshot) in
+                advertisementRef.child("Advertisements").child(idsArray[index]).observeSingleEvent(of: .value, with: { (snapshot) in
                     if snapshot.exists(){
                         let dict = snapshot.value as? [String : Any]
                         let key = snapshot.key as String
                         advertisementsData.append(self.createAdvertisementSearchModel(dict: dict , key: key))
                     }else{
-                        
                         advertismentCount += 1
-                        self.deleteFavouriteAdsFromCoredata (id: idsArray[index])
+                        self.coreDataAccess.deleteFromFavourite(id: idsArray[index])
                     }
                     if (advertismentCount + advertisementsData.count == idsArray.count){
                         completionForGetAllAdvertisements(advertisementsData,advertismentCount)
@@ -100,4 +89,15 @@ class FavouriteDataAccess {
             date : self.advertisementDate
         )
     }
+    
+    func removeFavouriteObserver()
+    {
+        let idsArray = coreDataAccess.getAllAdvertisment()
+        for ad in idsArray{
+            advertisementRef.child("Advertisements").child(ad).removeAllObservers()
+        }
+        advertisementRef = nil
+        coreDataAccess = nil
+    }
+    
 }

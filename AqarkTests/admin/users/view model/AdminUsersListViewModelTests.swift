@@ -17,6 +17,7 @@ class AdminUsersListViewModelTests: XCTestCase {
     var adminUser2 : AdminUser!
     var adminUser3 : AdminUser!
     
+
     override func setUp() {
         adminDataAccess = AdminDataAccess()
         adminUsersViewModel = AdminUsersListViewModel(dataAccess: adminDataAccess)
@@ -109,3 +110,4 @@ class AdminUsersListViewModelTests: XCTestCase {
         XCTAssertEqual(adminUsersViewModel.adminUsersViewList.count, 0)
     }
 }
+

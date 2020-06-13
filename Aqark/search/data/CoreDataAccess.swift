@@ -29,17 +29,28 @@ class CoreDataAccess: NSObject{
         self.saveChangesToCoredata()
     }
     
-    func deleteFromFavourite(id : String)
+    func deleteFromFavourite(id : String)-> Bool
     {
+        var flag = false
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PropertyEntity")
         let predicate = NSPredicate(format: "advertismentId == %@", id)
         request.predicate = predicate
-        if let result = try? managedContext.fetch(request) {
-            for object in result {
-                managedContext.delete(object as! NSManagedObject)
-            }
+        do {
+            let result = try managedContext.fetch(request)
+                for object in result {
+                    managedContext.delete(object as! NSManagedObject)
+                    flag = true
+                }
+            self.saveChangesToCoredata()
+        }catch let error as NSError{
+            print(" error in deleting : \(error)")
         }
-        self.saveChangesToCoredata()
+//        if let result = try? managedContext.fetch(request) {
+//            for object in result {
+//                managedContext.delete(object as! NSManagedObject)
+//            }
+//        }
+        return flag
     }
     
     func getAllAdvertisment()-> [String]{
