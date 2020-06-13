@@ -80,6 +80,8 @@ class AdminDataAccessTests : XCTestCase {
     
     override func tearDown(){
         adminDataAccess = nil
+        adminUserDataAccess = nil
+        adminAdvertisementDataAcess = nil
     }
  
 }

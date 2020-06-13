@@ -18,8 +18,8 @@ extension AdminUsersViewController : UITableViewDelegate{
 extension AdminUsersViewController :UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-          return adminUsersViewModel.adminUsersViewList.count
-      }
+        return adminUsersViewModel.adminUsersViewList.count
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let userCell = usersTableView.dequeueReusableCell(withIdentifier: "User Cell", for: indexPath) as? AdminUserTableViewCell
@@ -34,14 +34,4 @@ extension AdminUsersViewController :UITableViewDataSource{
     }
 }
 
-extension AdminUsersViewController:AdminUsersDelegate{
-    
-    func checkBannedUser(at indexPath: IndexPath) -> Bool {
-        return adminUsersViewModel.adminUsersViewList[indexPath.row].isBanned
-    }
-    
-    func banUserDelegate(isBanned : Bool ,at indexPath: IndexPath) {
-        let userId = adminUsersViewModel.adminUsersViewList[indexPath.row].userId
-        adminUsersViewModel.banUser(isBanned: isBanned, userId: userId)
-    }
-}
+

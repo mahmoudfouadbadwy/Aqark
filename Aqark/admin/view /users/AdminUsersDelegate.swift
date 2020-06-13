@@ -7,7 +7,8 @@
 //
 
 import Foundation
-protocol AdminUsersDelegate {
+
+protocol AdminUsersDelegate:class {
     func banUserDelegate(isBanned : Bool, at indexPath : IndexPath)
     func checkBannedUser(at indexPath : IndexPath) -> Bool
 }

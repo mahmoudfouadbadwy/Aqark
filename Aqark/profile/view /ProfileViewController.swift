@@ -57,12 +57,12 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         if (ProfileNetworking.checkNetworkConnection())
         {
-                setUpViewMoelsObjects()
-                showActivityIndicator()
-                setNavigationProperties()
-                bindProfileData()
-                bindCollectionData()
-                noAdvertisementsLabel.isHidden = true
+            setUpViewMoelsObjects()
+            showActivityIndicator()
+            setNavigationProperties()
+            bindProfileData()
+            bindCollectionData()
+            noAdvertisementsLabel.isHidden = true
         }
         else
         {
@@ -77,11 +77,14 @@ class ProfileViewController: UIViewController {
         deleteViewModel = AdvertisementDelete(dataAcees: ProfileDataAccess())
     }
     deinit{
-        profileViewModel.removeProfileDataObservers()
+        if (ProfileNetworking.checkNetworkConnection())
+        {
+            profileViewModel.removeProfileDataObservers()
+            advertisementViewModel.removeProfileAdvertisementsObservers()
+            deleteViewModel.removeDeleteObserver()
+        }
         profileViewModel = nil
-        advertisementViewModel.removeProfileAdvertisementsObservers()
         advertisementViewModel = nil
-        deleteViewModel.removeDeleteObserver()
         deleteViewModel = nil
         listOfAdvertisements = nil
         advertisement = nil

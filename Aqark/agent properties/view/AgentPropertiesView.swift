@@ -42,7 +42,7 @@ class AgentPropertiesView: UIViewController {
         {
             setNoConnectionView()
         }
-       
+        
         setupViews()
         setupCollection()
     }
@@ -53,6 +53,7 @@ class AgentPropertiesView: UIViewController {
             bindCollectionData()
             setupAgentRate()
             statusLabel.isHidden = true
+            rate.isHidden = false
         }
         else
         {
@@ -71,18 +72,24 @@ class AgentPropertiesView: UIViewController {
     
     private func setNoConnectionView()
     {
+        rate.isHidden = true
         statusLabel.isHidden = false
         statusLabel.text = "Internet Connection Not Available".localize
     }
     
     deinit {
-        advertisementViewModel.removeObservers()
+        if AgentPropertiesNetworking.checkNetworkConnection()
+        {
+            advertisementViewModel.removeObservers()
+            if agentRateViewModel != nil{
+                agentRateViewModel.removeRateObject()
+            }
+        }
         advertisementViewModel = nil
+        agentRateViewModel = nil
         agentDataAccess = nil
         advertisement = nil
         listOfAdvertisements = nil
-        agentRateViewModel.removeRateObject()
-        agentRateViewModel = nil
         agentRate = nil
         print("agent properties deinit")
     }

@@ -57,4 +57,8 @@ class AdminAdvertisementsListViewModel{
         return status
     }
     
+    func removeAdvertisementsObservers(){
+        dataAccess.removeAdvertisementsObservers()
+    }
+    
 }

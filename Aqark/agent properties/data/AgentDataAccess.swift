@@ -14,7 +14,7 @@ class AgentDataAccess{
     var advertisementRef:DatabaseReference! = Database.database().reference()
     func getAgentAdvertisementsIDs(agentId:String,completion:@escaping(AgentAdvertismentsStore)->Void)
     {
-    agentAdvertisementsIDsRef.child("Users_Ads").child(agentId).child("advertisements").observe(.value) { (snapshot) in
+        agentAdvertisementsIDsRef.child("Users_Ads").child(agentId).child("advertisements").observe(.value) { (snapshot) in
             if (snapshot.exists())
             {
                 let advertisementsIds:[String] = snapshot.value as! [String]
@@ -36,7 +36,7 @@ class AgentDataAccess{
         var advertisementsStore:AgentAdvertismentsStore = AgentAdvertismentsStore()
         for id in arrOfIDs
         {
-        advertisementRef.child("Advertisements").child(id).observeSingleEvent(of: .value) { (snapshot) in
+            advertisementRef.child("Advertisements").child(id).observeSingleEvent(of: .value) { (snapshot) in
                 if (snapshot.exists())
                 {
                     let value  = snapshot.value as? NSDictionary
@@ -59,8 +59,7 @@ class AgentDataAccess{
                 }
             }
         }
-}
-    
+    }
     
     
     func removeObservers()

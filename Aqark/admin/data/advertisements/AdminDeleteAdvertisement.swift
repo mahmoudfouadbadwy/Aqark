@@ -24,13 +24,13 @@ extension AdminDataAccess{
     
     private func deleteFromUsersAds(by userID : String,and advertisementID : String,completion:@escaping(_ deleted:Bool)->Void)
     {
-        ref.child("Users_Ads").child(userID).child("advertisements").observeSingleEvent(of: .value) { (data) in
+        deleteUserAdvertisementRef.child("Users_Ads").child(userID).child("advertisements").observeSingleEvent(of: .value) { (data) in
             if (data.value is NSNull){
                 completion(false)
             }else{
                 var advertisements = data.value as! [String]
                 advertisements.removeAll{$0 == advertisementID}
-                self.ref.child("Users_Ads").child(userID).child("advertisements").setValue(advertisements)
+                self.deleteUserAdvertisementRef.child("Users_Ads").child(userID).child("advertisements").setValue(advertisements)
                 completion(true)
             }
         }
@@ -38,6 +38,6 @@ extension AdminDataAccess{
     
     private func deleteFromAdvertisements(by advertisementID:String)
     {
-        ref.child("Advertisements").child(advertisementID).removeValue()
+        delelteAdvertisementRef.child("Advertisements").child(advertisementID).removeValue()
     }
 }

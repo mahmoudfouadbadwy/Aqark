@@ -16,7 +16,7 @@ class AdminAdvertisementCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var advertisementPropertyBedNumbers: UILabel!
     @IBOutlet weak var advertisementPropertyBathRoomNumbers: UILabel!
     @IBOutlet weak var advertisementPropertySize: UILabel!
-    var adminAdvertisementsDelegate : AdminAdvertisementsCollectionDelegate!
+    weak var adminAdvertisementsDelegate : AdminAdvertisementsCollectionDelegate!
     var adminAdvertisementsCellIndex : IndexPath!
     
     override func awakeFromNib() {

@@ -12,9 +12,11 @@ import ReachabilitySwift
 
 
 class LoginViewModel : ValidationProtocol{
+    
     var userEmail : String!
     var userPassword : String!
     var brokenRules: [LoginBrokenRule] = [LoginBrokenRule]()
+    var dao : LoginDataAccessLayer!
     var isValid: Bool {
         get{
             self.brokenRules.removeAll()
@@ -22,7 +24,10 @@ class LoginViewModel : ValidationProtocol{
             return brokenRules.count == 0
         }
     }
-    var dao = LoginDataAccessLayer()
+    
+    init(dataAccess:LoginDataAccessLayer) {
+        dao = dataAccess
+    }
     
     func validate(){
         if(!(userEmail.isEmpty)){

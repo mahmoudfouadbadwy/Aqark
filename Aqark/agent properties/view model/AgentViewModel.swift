@@ -42,32 +42,34 @@ class AgentAdvertisementListViewModel{
     }
     func getAllAdvertisements(agentId:String,completion:@escaping([AgentAdvertisementViewModel])->Void)
     {
-        
-        advertisementsData.getAgentAdvertisementsIDs(agentId:agentId,completion: {
-            (store) in
-            if (store.allAdvertisements.count>0)
-            {
-                for advertisement in store.allAdvertisements
+        if AgentPropertiesNetworking.checkNetworkConnection(){
+            advertisementsData.getAgentAdvertisementsIDs(agentId:agentId,completion: {
+                (store) in
+                if (store.allAdvertisements.count>0)
                 {
-                    self.advertisements.append(AgentAdvertisementViewModel(advertisement: advertisement))
-                    if self.advertisements.count == store.allAdvertisements.count
+                    for advertisement in store.allAdvertisements
                     {
-                        completion((self.advertisements))
+                        self.advertisements.append(AgentAdvertisementViewModel(advertisement: advertisement))
+                        if self.advertisements.count == store.allAdvertisements.count
+                        {
+                            completion((self.advertisements))
+                        }
                     }
                 }
-            }
-            else
-            {
-                completion([])
-            }
-            
-        })
-        
+                else
+                {
+                    completion([])
+                }
+                
+            })
+        }
     }
     
     func removeObservers()
     {
-        advertisementsData.removeObservers()
+        if AgentPropertiesNetworking.checkNetworkConnection(){
+             advertisementsData.removeObservers()
+        }
         advertisements = nil
         advertisementsData = nil
     }
@@ -76,7 +78,7 @@ class AgentAdvertisementListViewModel{
 
 struct AgentPropertiesNetworking
 {
-   static  func checkNetworkConnection()->Bool
+    static  func checkNetworkConnection()->Bool
     {
         let connection = Reachability()
         guard let status = connection?.isReachable else{return false}

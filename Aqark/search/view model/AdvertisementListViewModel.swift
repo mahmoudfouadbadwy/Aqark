@@ -9,23 +9,31 @@
 import Foundation
 import UIKit
 import ReachabilitySwift
+import MapKit
+
 class AdvertisementListViewModel{
     
-    var advertismentsViewModel : [AdvertisementViewModel] = [AdvertisementViewModel]()
-    private var dataAccess : AdvertisementData
+    var advertismentsViewModel : [AdvertisementViewModel]! = [AdvertisementViewModel]()
+    private var dataAccess : AdvertisementData!
     init(dataAccess : AdvertisementData ) {
         self.dataAccess = dataAccess
     }
     
     func populateAds(completionForPopulateAds : @escaping (_ adsResults:[AdvertisementViewModel]) -> Void){
-        AdvertisementData().getAllAdvertisements(){(searchResults) in
-            self.advertismentsViewModel.removeAll()
-        self.advertismentsViewModel = searchResults.map{ ad in
+        AdvertisementData().getAllAdvertisements(){[weak self](searchResults) in
+            self?.advertismentsViewModel.removeAll()
+            self?.advertismentsViewModel = searchResults.map{ ad in
             AdvertisementViewModel(model: ad)
         }
-        completionForPopulateAds(self.advertismentsViewModel)
+            completionForPopulateAds(self?.advertismentsViewModel ?? [])
     }
     }
+    func removeSearchObserver(){
+        dataAccess.removeSearchObserver()
+        advertismentsViewModel = nil
+        dataAccess = nil
+        
+      }
 }
 
 class AdvertisementViewModel{
@@ -59,7 +67,16 @@ class AdvertisementViewModel{
         self.longtiude = Double(model.longtiude)
             }
 }
-
+class MapViewModel: NSObject, MKAnnotation{
+    var title: String?
+    var coordinate: CLLocationCoordinate2D
+    var subtitle: String?
+ init(model : Map) {
+    self.title = model.title
+    self.coordinate = model.coordinate
+    self.subtitle = model.subtitle
+    }
+}
 
 struct SearchNetworking{
     static func checkNetworkConnection()->Bool

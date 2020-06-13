@@ -14,24 +14,36 @@ class LoginViewController: UIViewController{
     @IBOutlet weak var userEmailTextField: CustomTextField!
     @IBOutlet weak var userPasswordTextField: CustomTextField!
     private var loginViewModel : LoginViewModel!
+    var dataAccess : LoginDataAccessLayer!
     var userRole : String!
+    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(rgb: 0xf1faee)
-        dontHaveAccount.textColor = UIColor(rgb: 0x457b9d) 
-        loginViewModel = LoginViewModel()
-        userEmailTextField.delegate = self
-        userPasswordTextField.delegate = self
-        self.setTappedGesture()
-        self.navigationItem.title = "Login".localize
-        self.userEmailTextField.setIcon(UIImage(named: "Email")!)
-        self.userPasswordTextField.setIcon(UIImage(named: "password")!)
+        setupView()
+        dataAccess = LoginDataAccessLayer()
+        loginViewModel = LoginViewModel(dataAccess:dataAccess)
+        setupTextFields()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
     }
+    
+    private func setupView() {
+           self.view.backgroundColor = UIColor(rgb: 0xf1faee)
+           dontHaveAccount.textColor = UIColor(rgb: 0x457b9d)
+           self.setTappedGesture()
+           self.navigationItem.title = "Login".localize
+       }
+       
+       private func setupTextFields() {
+           userEmailTextField.delegate = self
+           userPasswordTextField.delegate = self
+           self.userEmailTextField.setIcon(UIImage(named: "Email")!)
+           self.userPasswordTextField.setIcon(UIImage(named: "password")!)
+       }
       
     @IBAction func login(_ sender: Any) {
         view.endEditing(true)
@@ -40,15 +52,15 @@ class LoginViewController: UIViewController{
         loginViewModel.userPassword = userPasswordTextField.text
         if(loginViewModel.isValid){
             if(loginViewModel.checkNetworkConnection()){
-                loginViewModel.authenticateLogin { (result,error) in
-                    self.stopActivityIndicator()
+                loginViewModel.authenticateLogin { [weak self] (result,error) in
+                    self?.stopActivityIndicator()
                     if let error = error {
-                        self.showAlert(title: "Login", message: error)
+                        self?.showAlert(title: "Login", message: error)
                     }else{
-                        if(self.loginViewModel.isAdminLogged()){
-                            self.gotoAdminView()
+                        if(self!.loginViewModel.isAdminLogged()){
+                            self?.gotoAdminView()
                         }else{
-                            self.gotoProfileView()
+                            self?.gotoProfileView()
                         }
                     }
                 }
@@ -105,6 +117,8 @@ class LoginViewController: UIViewController{
     
     deinit {
         print ("deinit login")
+        loginViewModel = nil
+        dataAccess = nil
     }
 }
 
