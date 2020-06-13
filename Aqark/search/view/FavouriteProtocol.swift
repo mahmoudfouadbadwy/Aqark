@@ -9,6 +9,6 @@
 
 import UIKit
 
-protocol FavouriteProtocol{
+protocol FavouriteProtocol : class{
     func addToFav(favButton: UIButton)
 }
