@@ -107,7 +107,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     
     private func setupViews()
     {
-        self.navigationItem.title = "Advertisements".localize
+        self.navigationItem.title = "AQARK".localize
         sortBtn.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
         notificationBtn.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
         searchBar.barTintColor = UIColor(rgb: 0x1d3557)

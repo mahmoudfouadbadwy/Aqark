@@ -11,19 +11,23 @@ import ReachabilitySwift
 import Firebase
 class ProfileStore{
     var profileDataAccess:ProfileDataAccess!
+    var profileViewModel:ProfileViewModel!
     init(by profileDataAccess:ProfileDataAccess) {
         self.profileDataAccess = profileDataAccess
     }
     
     func  getProfileData(onSuccess:@escaping(ProfileViewModel)->Void,onFailure:@escaping(Error)->Void)
     {
-        profileDataAccess.getProfileData(onSuccess: {
-            (profileData) in
-            onSuccess(ProfileViewModel(profile: profileData))
-        }, onFailure: {
-            (error) in
-            onFailure(error)
-        })
+        if ProfileNetworking.checkNetworkConnection(){
+            profileDataAccess.getProfileData(onSuccess: {[weak self]
+                (profileData) in
+                self?.profileViewModel = ProfileViewModel(profile: profileData)
+                onSuccess(self!.profileViewModel)
+                }, onFailure: {
+                    (error) in
+                    onFailure(error)
+            })
+        }
     }
     
     func logout()
@@ -34,6 +38,7 @@ class ProfileStore{
     {
         profileDataAccess.reomveProfileDataObserver()
         profileDataAccess = nil
+        profileViewModel = nil
     }
     
     
@@ -68,8 +73,10 @@ struct ProfileNetworking{
     
     static func checkAuthuntication()->Bool{
         var status:Bool = false
-        if Auth.auth().currentUser != nil{
-            status = true
+        if checkNetworkConnection(){
+            if Auth.auth().currentUser != nil{
+                status = true
+            }
         }
         return status
     }

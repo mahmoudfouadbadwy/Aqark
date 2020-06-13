@@ -41,19 +41,24 @@ class ProfileDataAccess{
     
     func profileLogout()
     {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
+        if ProfileNetworking.checkNetworkConnection(){
+            let firebaseAuth = Auth.auth()
+            do {
+                try firebaseAuth.signOut()
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
         }
     }
     
     
     func reomveProfileDataObserver()
     {
-        guard let userID = Auth.auth().currentUser?.uid else {return}
-        profileDataRef.child("Users").child(userID).removeAllObservers()
+        if ProfileNetworking.checkNetworkConnection(){
+            guard let userID = Auth.auth().currentUser?.uid else {return}
+            profileDataRef.child("Users").child(userID).removeAllObservers()
+            
+        }
         profileDataRef = nil
     }
 }
