@@ -22,13 +22,13 @@ class LoginViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        dataAccess = LoginDataAccessLayer()
-        loginViewModel = LoginViewModel(dataAccess:dataAccess)
         setupTextFields()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+        dataAccess = LoginDataAccessLayer()
+        loginViewModel = LoginViewModel(dataAccess:dataAccess)
     }
     
     private func setupView() {
@@ -115,8 +115,12 @@ class LoginViewController: UIViewController{
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        loginViewModel = nil
+        dataAccess = nil
+    }
+    
     deinit {
-        print ("deinit login")
         loginViewModel = nil
         dataAccess = nil
     }
