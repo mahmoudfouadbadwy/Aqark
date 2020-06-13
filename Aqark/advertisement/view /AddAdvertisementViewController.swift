@@ -122,11 +122,6 @@ class AddAdvertisementViewController: UIViewController  {
         if addAdvertisementVM.isValid == false{
             let alertValues = addAdvertisementVM.borkenRule[0]
             alertControllerMessage(title: alertValues.brokenType, message: alertValues.message)
-//                 PurchaseManager.instance.purchasePremiumAdvertisement{ success in
-//                        if success {
-//                            self.addAdvertisementVM.save()
-//                        }
-//            }
         }else{
             //check rechability
             if AdvertisementNetworking.checkNetworkConnection()

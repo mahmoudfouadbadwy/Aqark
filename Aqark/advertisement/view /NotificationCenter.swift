@@ -30,10 +30,22 @@ extension AddAdvertisementViewController
     
     @objc func viewAlert()
     {
-        alertControllerMessage(title: "Advertisements".localize, message: "Sorry, you used all of your free ads".localize)
-        self.stopActivityIndicator()
-        blackIndicatorView.isHidden = true
+//        alertControllerMessage(title: "Advertisements".localize, message: "Sorry, you used all of your free ads".localize)
+//        self.stopActivityIndicator()
+//        blackIndicatorView.isHidden = true
         // go to payment page
+        self.stopActivityIndicator()
+        
+        blackIndicatorView.isHidden = true
+        var alert = UIAlertController(title: "pay", message: "you used all ads", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "ok".localize, style: .default , handler:{ (UIAlertAction)in
+            self.addAdvertisementVM.save()
+        }))
+//        PurchaseManager.instance.purchasePremiumAdvertisement{ [weak self] success in
+//            if success {
+//                self?.addAdvertisementVM.save()
+//                      }
+//        }
     }
 
 }
