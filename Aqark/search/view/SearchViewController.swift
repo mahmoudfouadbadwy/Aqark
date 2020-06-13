@@ -20,34 +20,31 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var labelPlaceHolder: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchCollectionView: UICollectionView!
-    var coreDataViewModel: CoreDataViewModel?
-    var optionalValue : AdvertisementViewModel!
-    let actionButton = JJFloatingActionButton()
+    var actionButton : JJFloatingActionButton!
     var isMapHidden = true
     let reuseIdentifier = "MyIdentifier"
     var counts: [String: Int] = [:]
     var numberOfPropertiesInLocation : Int!
     var addressForMap : String!
     var adViewModel : AdvertisementViewModel!
-    var maps: [Map] = []
-    var arrayOfLongitude = [Double]()
+    var mapViewModel : MapViewModel!
+    var maps : [MapViewModel]!
     var latitude : Double = 0
     var longitude : Double = 0
     var isSorting: String = "default"
     var isSorted = false
-    var collectionViewFlowLayout:UICollectionViewFlowLayout!
+    var coreDataViewModel : CoreDataViewModel?
+    var collectionViewFlowLayout: UICollectionViewFlowLayout!
     var advertismentsListViewModel : AdvertisementListViewModel!
     let searchController = UISearchController(searchResultsController: nil)
     var data : AdvertisementData!
-    var sortedList = [AdvertisementViewModel]()
-    var adsSortedList = [AdvertisementViewModel]()
+    var sortedList : [AdvertisementViewModel]!
+    var adsSortedList : [AdvertisementViewModel]!
     var filteredAdsList:[AdvertisementViewModel]!
-    var unFilteredAdsList = [AdvertisementViewModel]()
     var arrOfAdViewModel : [AdvertisementViewModel]!{
         didSet{
-            if (arrOfAdViewModel.count>0 )
+            if (arrOfAdViewModel.count > 0 )
             {
-                
                 searchBar.isHidden = false
                 self.manageAppearence(sortBtn: false, labelPlaceHolder: true, notificationBtn: true)
             }
@@ -55,6 +52,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             {
                 labelPlaceHolder.text = "No Advertisements Available".localize
                 self.manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
+                
             }
             self.searchCollectionView.reloadData()
         }
@@ -66,29 +64,34 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         }
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        setUpCollectionView()
         if SearchNetworking.checkNetworkConnection(){
-            manageSearchBar()
-            setupCoredata()
-            setUpCollectionView()
-            floationgBtn()
-            limitRegion()
+            
+            
         }
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
-        
         if SearchNetworking.checkNetworkConnection(){
-            if  !isFiltering  {
-                
-                getCollectionViewData()
-            }
+               searchCollectionView.isHidden = false
+            setObjects()
+            floationgBtn()
+            manageSearchBar()
+            limitRegion()
+            setupCoredata()
+            stopActivityIndicator()
+            getCollectionViewData()
+            
         }else{
             manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
             labelPlaceHolder.text = "Internet Connection Not Available".localize
+            searchCollectionView.isHidden = true
+            
         }
     }
     
@@ -111,7 +114,32 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         searchCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
     }
+    private func setObjects(){
+        maps = []
+        sortedList = []
+        adsSortedList = []
+        actionButton  = JJFloatingActionButton()
+    }
     
+    override func viewWillDisappear(_ animated: Bool){
+         if SearchNetworking.checkNetworkConnection(){
+        advertismentsListViewModel.removeSearchObserver()
+        }
+        advertismentsListViewModel = nil
+        adViewModel = nil
+        data = nil
+        actionButton = nil
+        mapViewModel = nil
+        maps = nil
+        collectionViewFlowLayout = nil
+        sortedList = nil
+        filteredAdsList = nil
+        adsSortedList = nil
+        coreDataViewModel?.removeCoreDataObject()
+        coreDataViewModel = nil
+    }
+  
+   
 }
 
 

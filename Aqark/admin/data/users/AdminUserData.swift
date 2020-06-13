@@ -10,12 +10,15 @@ import Foundation
 import Firebase
 class AdminDataAccess{
     
-    let ref = Database.database().reference()
+    let usersRef = Database.database().reference()
+    let advertisementsRef = Database.database().reference()
+    let deleteUserAdvertisementRef = Database.database().reference()
+    let delelteAdvertisementRef = Database.database().reference()
     
     func getUsers(completionForGetUsers : @escaping(_ usersData : [AdminUser]) -> Void){
         var users = [AdminUser]()
-        let usersRef = ref.child("Users")
-        usersRef.observe(.value) { (snapShot) in
+        
+        usersRef.child("Users").observe(.value) { (snapShot) in
             users.removeAll()
             for child in snapShot.children.allObjects as! [DataSnapshot]{
                 users.append(self.createUser(child: child))
@@ -25,7 +28,7 @@ class AdminDataAccess{
     }
     
     func banUser(isBanned : Bool,userId : String){
-        ref.child("Users").child(userId).child("banned").setValue(isBanned)
+        usersRef.child("Users").child(userId).child("banned").setValue(isBanned)
     }
     
     private func createUser(child:DataSnapshot) -> AdminUser{
@@ -58,4 +61,7 @@ class AdminDataAccess{
         }
     }
     
+    func removeUsersObservers(){
+        usersRef.child("Users").removeAllObservers()
+    }
 }

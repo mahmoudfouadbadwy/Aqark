@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E48A7522493A52100DFE82E /* ServicesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E48A7512493A52100DFE82E /* ServicesCollectionView.swift */; };
+		3E48A7542493A7C600DFE82E /* ServicesRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E48A7532493A7C500DFE82E /* ServicesRating.swift */; };
+		3E48A7562493A85E00DFE82E /* AdminAdvertisementDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E48A7552493A85E00DFE82E /* AdminAdvertisementDelete.swift */; };
+		3E48A7582493A8F400DFE82E /* AdminUserBan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E48A7572493A8F400DFE82E /* AdminUserBan.swift */; };
 		3E535AC0248D422800A921A1 /* MockAdminUserDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E535ABD248D422800A921A1 /* MockAdminUserDataAccess.swift */; };
 		3E535AC1248D422800A921A1 /* AdminUserDataAccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E535ABE248D422800A921A1 /* AdminUserDataAccessTests.swift */; };
 		3E535AC2248D422800A921A1 /* AdminUsersListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E535ABF248D422800A921A1 /* AdminUsersListViewModelTests.swift */; };
@@ -219,12 +223,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E48A7512493A52100DFE82E /* ServicesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesCollectionView.swift; sourceTree = "<group>"; };
+		3E48A7532493A7C500DFE82E /* ServicesRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesRating.swift; sourceTree = "<group>"; };
+		3E48A7552493A85E00DFE82E /* AdminAdvertisementDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAdvertisementDelete.swift; sourceTree = "<group>"; };
+		3E48A7572493A8F400DFE82E /* AdminUserBan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUserBan.swift; sourceTree = "<group>"; };
 		3E535ABD248D422800A921A1 /* MockAdminUserDataAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAdminUserDataAccess.swift; sourceTree = "<group>"; };
 		3E535ABE248D422800A921A1 /* AdminUserDataAccessTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUserDataAccessTests.swift; sourceTree = "<group>"; };
 		3E535ABF248D422800A921A1 /* AdminUsersListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUsersListViewModelTests.swift; sourceTree = "<group>"; };
 		3E535AC5248D423D00A921A1 /* MockAdminAdvertisementDataAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAdminAdvertisementDataAccess.swift; sourceTree = "<group>"; };
 		3E535AC6248D423D00A921A1 /* AdminAdvertisementDataAccessTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminAdvertisementDataAccessTests.swift; sourceTree = "<group>"; };
-		3E535ACB248D42D400A921A1 /* AdminAdvertisementsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdminAdvertisementsListViewModelTests.swift; path = AqarkTests/admin/advertisements/AdminAdvertisementsListViewModelTests.swift; sourceTree = SOURCE_ROOT; };
+		3E535ACB248D42D400A921A1 /* AdminAdvertisementsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdminAdvertisementsListViewModelTests.swift; path = "AqarkTests/admin/advertisements/view model/AdminAdvertisementsListViewModelTests.swift"; sourceTree = SOURCE_ROOT; };
 		3E69A8B2247EF59600193605 /* AdminUserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUserData.swift; sourceTree = "<group>"; };
 		3E69A8B3247EF59600193605 /* AdminHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminHelper.swift; sourceTree = "<group>"; };
 		3E69A8B6247EF5A800193605 /* AdminUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUser.swift; sourceTree = "<group>"; };
@@ -466,12 +474,44 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3E48A7592493AA0900DFE82E /* view model */ = {
+			isa = PBXGroup;
+			children = (
+				3E535ACB248D42D400A921A1 /* AdminAdvertisementsListViewModelTests.swift */,
+			);
+			path = "view model";
+			sourceTree = "<group>";
+		};
+		3E48A75A2493AA1500DFE82E /* data */ = {
+			isa = PBXGroup;
+			children = (
+				3E535AC6248D423D00A921A1 /* AdminAdvertisementDataAccessTests.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		3E493AE42492FAE20055067C /* data */ = {
+			isa = PBXGroup;
+			children = (
+				3E535ABE248D422800A921A1 /* AdminUserDataAccessTests.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		3E493AE52492FAF90055067C /* view model */ = {
+			isa = PBXGroup;
+			children = (
+				3E535ABF248D422800A921A1 /* AdminUsersListViewModelTests.swift */,
+			);
+			path = "view model";
+			sourceTree = "<group>";
+		};
 		3E535ABB248D422800A921A1 /* users */ = {
 			isa = PBXGroup;
 			children = (
+				3E493AE52492FAF90055067C /* view model */,
+				3E493AE42492FAE20055067C /* data */,
 				3E535ABC248D422800A921A1 /* mocks */,
-				3E535ABE248D422800A921A1 /* AdminUserDataAccessTests.swift */,
-				3E535ABF248D422800A921A1 /* AdminUsersListViewModelTests.swift */,
 			);
 			path = users;
 			sourceTree = "<group>";
@@ -487,9 +527,9 @@
 		3E535AC3248D423D00A921A1 /* advertisements */ = {
 			isa = PBXGroup;
 			children = (
+				3E48A75A2493AA1500DFE82E /* data */,
+				3E48A7592493AA0900DFE82E /* view model */,
 				3E535AC4248D423D00A921A1 /* mocks */,
-				3E535AC6248D423D00A921A1 /* AdminAdvertisementDataAccessTests.swift */,
-				3E535ACB248D42D400A921A1 /* AdminAdvertisementsListViewModelTests.swift */,
 			);
 			path = advertisements;
 			sourceTree = "<group>";
@@ -554,6 +594,8 @@
 			isa = PBXGroup;
 			children = (
 				3E736C692480C897004D8B81 /* ServicesViewController.swift */,
+				3E48A7532493A7C500DFE82E /* ServicesRating.swift */,
+				3E48A7512493A52100DFE82E /* ServicesCollectionView.swift */,
 				3E736C6D2480CAF2004D8B81 /* ServicesCollectionViewCell.swift */,
 				3ECEEF85248527D800690266 /* ServiceUsersCollectionDelegate.swift */,
 				3E736C6A2480C897004D8B81 /* ServicesViewController.xib */,
@@ -702,7 +744,6 @@
 				BF7C9764247D917A00E8F516 /* FavouriteProtocol.swift */,
 				C67FDA372479469C00028E96 /* SortingExtenision.swift */,
 				C67FDA392479495500028E96 /* MapExtension.swift */,
-				C64DD273247C170900D65012 /* Map.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1013,6 +1054,7 @@
 				3E69A8C5247EF5DE00193605 /* AdminUserTableViewCell.xib */,
 				3E69A8C9247EF5DF00193605 /* CustomSegment.swift */,
 				3E804B45248926E50097C855 /* AdminUsersDelegate.swift */,
+				3E48A7572493A8F400DFE82E /* AdminUserBan.swift */,
 			);
 			path = users;
 			sourceTree = "<group>";
@@ -1028,6 +1070,7 @@
 				3E69A8C8247EF5DE00193605 /* AdminAdvertisementsCollectionDelegate.swift */,
 				3EE1E64724925E7100C29719 /* AdminAdvertisementsReportDelegate.swift */,
 				3EE1E64D2492D37900C29719 /* AdminAdvertisementsSearch.swift */,
+				3E48A7552493A85E00DFE82E /* AdminAdvertisementDelete.swift */,
 			);
 			path = advertisements;
 			sourceTree = "<group>";
@@ -1213,6 +1256,7 @@
 			isa = PBXGroup;
 			children = (
 				C67921BB2474BF2100A24192 /* AdvertisementSearchModel.swift */,
+				C64DD273247C170900D65012 /* Map.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1245,8 +1289,8 @@
 				BF2F5EC92485492D007AD263 /* Utilities */,
 				3ED938D72480A825005BF1EF /* services */,
 				BF06B40724679D83005D7151 /* payment */,
-				BF06B40624679D78005D7151 /* admin */,
 				BF06B40524679D4C005D7151 /* advertisement */,
+				BF06B40624679D78005D7151 /* admin */,
 				BF06B40424679D3C005D7151 /* profile */,
 				BF06B40324679D33005D7151 /* sign up */,
 				BF06B40224679D2B005D7151 /* login */,
@@ -1542,6 +1586,7 @@
 				BFB93C6924912449000EB13E /* NotificationCenter.swift in Sources */,
 				BF3AD38B246A3B120013FF4B /* AccountViewModel.swift in Sources */,
 				BFA42D9C247BFCE000A986E8 /* AmenitiesCollection.swift in Sources */,
+				3E48A7522493A52100DFE82E /* ServicesCollectionView.swift in Sources */,
 				BF82E6F924827F1A00786141 /* FavouriteCoreDataExtention.swift in Sources */,
 				823D6EA2247DDA7200F0B0FF /* extensionEditAdvertisement.swift in Sources */,
 				825F58742481425300DF60FB /* EditProfileViewModel.swift in Sources */,
@@ -1583,6 +1628,7 @@
 				3E736C6B2480C897004D8B81 /* ServicesViewController.swift in Sources */,
 				82608A2F2476CA1D005946C1 /* EditAdvertisementDataSource.swift in Sources */,
 				C6BAED5624824C8600D964C5 /* ReviewData.swift in Sources */,
+				3E48A7582493A8F400DFE82E /* AdminUserBan.swift in Sources */,
 				3E69A8C1247EF5BC00193605 /* AdminUserViewModel.swift in Sources */,
 				BF66CC1E246C678B00C9FD01 /* Countries.swift in Sources */,
 				3ECEEF86248527D800690266 /* ServiceUsersCollectionDelegate.swift in Sources */,
@@ -1600,6 +1646,7 @@
 				BF0F8F2E24890BF40055EAD8 /* Color.swift in Sources */,
 				BF8111B7247A36410059D571 /* BindDetails.swift in Sources */,
 				3EA8369B246CE13A009AD024 /* ValidationProtocol.swift in Sources */,
+				3E48A7542493A7C600DFE82E /* ServicesRating.swift in Sources */,
 				C66E3B7C247FCDED00E1BAF2 /* ReportViewModel.swift in Sources */,
 				C67FDA3A2479495500028E96 /* MapExtension.swift in Sources */,
 				C65805CA24828DAE003F3DA1 /* ReviewModel.swift in Sources */,
@@ -1618,6 +1665,7 @@
 				BFA42D99247BF93E00A986E8 /* AmenitiesCell.swift in Sources */,
 				BF8475D82483E35600D01A9D /* AdminReportsView.swift in Sources */,
 				BF6D507824804B4000FFDD30 /* AgentPropertiesView.swift in Sources */,
+				3E48A7562493A85E00DFE82E /* AdminAdvertisementDelete.swift in Sources */,
 				823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */,
 				BFF0161A24810CB800C3B7C0 /* AgentViewModel.swift in Sources */,
 				3EE1E64E2492D37900C29719 /* AdminAdvertisementsSearch.swift in Sources */,

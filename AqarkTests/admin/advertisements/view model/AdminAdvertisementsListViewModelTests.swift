@@ -11,14 +11,16 @@ import XCTest
 
 class AdminAdvertisementsListViewModelTests: XCTestCase {
     
+    var dataAccess : AdminDataAccess!
     var adminAdvertisementsViewModel : AdminAdvertisementsListViewModel!
     
-    override func setUpWithError() throws {
-        let dataAccess = AdminDataAccess()
+    override func setUp(){
+        dataAccess = AdminDataAccess()
         adminAdvertisementsViewModel = AdminAdvertisementsListViewModel(dataAccess: dataAccess)
     }
     
-    override func tearDownWithError() throws {
+    override func tearDown() {
+        dataAccess = nil
         adminAdvertisementsViewModel = nil
     }
     

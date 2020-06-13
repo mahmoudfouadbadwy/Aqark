@@ -96,26 +96,35 @@ extension SearchViewController{
         showActivityIndicator()
         self.data = AdvertisementData()
         self.advertismentsListViewModel = AdvertisementListViewModel(dataAccess: self.data)
-        advertismentsListViewModel.populateAds {
+        advertismentsListViewModel.populateAds {[weak self]
             (dataResults) in
             if dataResults.isEmpty{
-                self.stopActivityIndicator()
-                self.labelPlaceHolder.text = "No Advertisements Available".localize
-                self.manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
+                self?.stopActivityIndicator()
+                self?.labelPlaceHolder.text = "No Advertisements Available".localize
+                self?.manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
+                self?.searchBar.isHidden = true
+               
             }else{
-                self.stopActivityIndicator()
-                self.arrOfAdViewModel = dataResults
-                self.arrOfAdViewModel.forEach { self.counts[$0.address, default: 0] += 1 }
-                self.putLocationOnMap()
-                self.labelPlaceHolder.isHidden = true
+                self?.stopActivityIndicator()
+                self?.arrOfAdViewModel = dataResults
+                self?.arrOfAdViewModel.forEach { self?.counts[$0.address, default: 0] += 1 }
+                self?.putLocationOnMap()
+                self?.labelPlaceHolder.isHidden = true
+                if self?.isFiltering == true {
+                    self?.filteredAdsList = dataResults.filter {[weak self] advertisement -> Bool in
+                        return advertisement.address.lowercased().contains(self!.searchBar.text!.lowercased())
+                                         }
+                    
             }
+                self?.searchCollectionView.reloadData()
         }
+    }
     }
   
 
     func getCellData(indexPath : IndexPath){
+          
         if isFiltering {
-         
             adViewModel = filteredAdsList[indexPath.row]
             notificationBtn.isHidden = false
         }else if isSorting == "High Price"{
