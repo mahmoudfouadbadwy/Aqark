@@ -15,7 +15,7 @@ class AdminDataAccessTests : XCTestCase {
     var adminUserDataAccess : MockAdminUserDataAccess!
     var adminAdvertisementDataAcess : MockAdminAdvertisementDataAccess!
     
-    override func setUpWithError() throws {
+    override func setUp(){
         adminDataAccess = AdminDataAccess()
         adminUserDataAccess  = MockAdminUserDataAccess(shouldReturnError: false)
         adminAdvertisementDataAcess = MockAdminAdvertisementDataAccess()
@@ -78,8 +78,9 @@ class AdminDataAccessTests : XCTestCase {
     }
     
     
-    override func tearDownWithError() throws {
+    override func tearDown(){
         adminDataAccess = nil
     }
-    
+ 
 }
+

@@ -25,8 +25,8 @@ class CoreDataViewModel{
         
         return dataAccess.isIdExist(id: id)
     }
-    func deleteAdvertismentFromFavourite (id : String){
-        dataAccess.deleteFromFavourite(id: id)
+    func deleteAdvertismentFromFavourite (id : String)->Bool{
+        return dataAccess.deleteFromFavourite(id: id)
         
     }
     

@@ -17,7 +17,7 @@ class AdminUsersListViewModelTests: XCTestCase {
     var adminUser2 : AdminUser!
     var adminUser3 : AdminUser!
     
-    override func setUpWithError() throws {
+    override func setUp(){
         adminDataAccess = AdminDataAccess()
         adminUsersViewModel = AdminUsersListViewModel(dataAccess: adminDataAccess)
         adminUser1 = AdminUser(userId: "1", userName: "Zeyad", userEmail: "Zeyad@gmail.com", userPhone: "", userCountry: "Mansoura", userCompany: "", userRole: "user", userRating: 5.0, userExperience: "3", userImage: "", isBanned: false)
@@ -25,7 +25,7 @@ class AdminUsersListViewModelTests: XCTestCase {
         adminUser3 = AdminUser(userId: "3", userName: "Saeed", userEmail: "Saeed@gmail.com", userPhone: "", userCountry: "Arish", userCompany: "ITI", userRole: "user", userRating: 5.0, userExperience: "", userImage: "", isBanned: false)
     }
     
-    override func tearDownWithError() throws {
+    override func tearDown(){
         adminDataAccess = nil
         adminUsersViewModel = nil
         adminUser1 = nil
@@ -102,3 +102,4 @@ class AdminUsersListViewModelTests: XCTestCase {
         XCTAssertEqual(adminUsersViewModel.adminUsersViewList.count, 0)
     }
 }
+

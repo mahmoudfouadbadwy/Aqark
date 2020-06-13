@@ -13,12 +13,12 @@ class AdminAdvertisementsListViewModelTests: XCTestCase {
     
     var adminAdvertisementsViewModel : AdminAdvertisementsListViewModel!
     
-    override func setUpWithError() throws {
+    override func setUp(){
         let dataAccess = AdminDataAccess()
         adminAdvertisementsViewModel = AdminAdvertisementsListViewModel(dataAccess: dataAccess)
     }
     
-    override func tearDownWithError() throws {
+    override func tearDown(){
         adminAdvertisementsViewModel = nil
     }
     
@@ -48,3 +48,4 @@ class AdminAdvertisementsListViewModelTests: XCTestCase {
         adminAdvertisementsViewModel.adminAdvertisementsList.append(advertisementModel2)
     }
 }
+

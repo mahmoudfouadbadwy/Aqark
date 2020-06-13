@@ -12,7 +12,7 @@ import ReachabilitySwift
 
 class FavouriteListViewModel{
     
-    var favouritesViewModel : [FavouriteViewModel] = [FavouriteViewModel]()
+    var favouritesViewModel : [FavouriteViewModel] = []
     var deletedAdsCount = 0
     private var dataAccess : FavouriteDataAccess
     init(dataAccess : FavouriteDataAccess ) {
@@ -32,6 +32,10 @@ class FavouriteListViewModel{
     func getAllAdvertisment()-> [String]{
 
         return dataAccess.getFavouriteAdsFromCoredata()
+    }
+    
+    func removeFavObserver(){
+        self.dataAccess.removeFavouriteObserver()
     }
 }
 

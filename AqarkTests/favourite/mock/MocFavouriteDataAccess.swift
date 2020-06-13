@@ -11,8 +11,9 @@ import Foundation
 @testable import Aqark
 
 class MocFavouriteDataAccess{
-    var advertisementsArray : [[String : Any]]
     
+    var advertisementsArray : [[String : Any]]
+    var storedAdvertisementsArray : [String]!
     let advertisement1 : [String : Any] = ["112233":
         ["Address":["latitude":"31.76","longitude":"33.11","location":"Mansoura"],
          "Advertisement Type":"Rent",
@@ -30,7 +31,7 @@ class MocFavouriteDataAccess{
          "propertyType":"Room",
          "size":"100"]]
     
-    let advertisement2 : [String : Any] = ["445566":
+    let advertisment2 : [String : Any] = ["445566":
         ["Address":["latitude":"40.40","longitude":"35.35","location":"Cairo"],
          "Advertisement Type":"Buy",
          "UserId":"456",
@@ -47,47 +48,83 @@ class MocFavouriteDataAccess{
          "propertyType":"Apartment",
          "size":"20000"]]
     
-    let userAdvertisements : [[String:Any]] = [["123":["445566","112233"]]]
-    
     init() {
-        advertisementsArray = [advertisement1,advertisement2]
+        advertisementsArray = [advertisement1,advertisment2]
+        storedAdvertisementsArray = ["112233","445566","445577"]
     }
-
-    func getAllFavouriteAdvertisements(completionForGetAllAdvertisements : @escaping (_ searchResults:[FavouriteModel],Int) -> Void){
-        let advertismentCount = 0
-        var advertisementsData = [FavouriteModel]()
-       
-        for advertisement in advertisementsArray{
-           // advertisementsData.append(self.createAdvertisement(advertisements: advertisement))
+    
+    func deleteFavouriteAdsFromCoredata (id: String)->Bool{
+        var flag = false
+        if(storedAdvertisementsArray.contains(where: { (ad) -> Bool in
+            ad == id
+        })){
+            print("delete successed")
+            flag = true
+        }else{
+            print("delete failed")
         }
-        completionForGetAllAdvertisements(advertisementsData, advertismentCount)
+        return flag
+    }
+    
+    func getAllFavouriteAdvertisements(completionForGetAllAdvertisements : @escaping (_ searchResults:[FavouriteModel],Int) -> Void){
+        var advertismentCount = 0
+        var advertisementsData = [FavouriteModel]()
+        
+        if (storedAdvertisementsArray.count != 0){
+            for advertisement in storedAdvertisementsArray {
+                var advertis:[String : Any]!
+                if(advertisementsArray.contains(where: { (ad) -> Bool in
+                    advertis=ad
+                    return ad.keys.first == advertisement
+                })){
+                advertisementsData.append(self.createAdvertisementSearchModel(dict: advertis, key: advertisement))
+                }else{
+                
+                advertismentCount += 1
+                print("this ad deleted \(advertisement)")
+            }
+            if (advertismentCount + advertisementsData.count == storedAdvertisementsArray.count){
+                completionForGetAllAdvertisements(advertisementsData,advertismentCount)
+            }
+            }
+        }
         
     }
     
-    
-    private func createAdvertisement(advertisements:[String:Any]) -> AdminAdvertisement{
-        let advertisementId = advertisements.keys.first
-        let advertisementDictionary = advertisements[advertisementId!] as! [String:Any]
-        let advertisementPropertyAddress = advertisementDictionary[AdminAdvertisementKey.address] as! [String:Any]
-        let advertisementPropertyLongitude = advertisementPropertyAddress[AdminAdvertisementKey.longitude] as! String
-        let advertisementPropertyLatitude = advertisementPropertyAddress[AdminAdvertisementKey.latitude] as! String
-        let advertisementPropertyLocation = advertisementPropertyAddress[AdminAdvertisementKey.location] as! String
-        let advertisementType = advertisementDictionary[AdminAdvertisementKey.advertisementType] as! String
-        let advertisementUserId = advertisementDictionary[AdminAdvertisementKey.userId] as! String
-        let advertisementPropertyAmenities = advertisementDictionary[AdminAdvertisementKey.amenities] as? [String] ?? []
-        let advertisementPropertyBathRooms = advertisementDictionary[AdminAdvertisementKey.bathRooms] as! String
-        let advertisementPropertyBeds = advertisementDictionary[AdminAdvertisementKey.bedRooms] as! String
-        let advertisementPropertyCountry = advertisementDictionary[AdminAdvertisementKey.country] as! String
-        let advertisementPropertyDate = advertisementDictionary[AdminAdvertisementKey.date] as! String
-        let advetisementPropertyDescription = advertisementDictionary[AdminAdvertisementKey.description] as! String
-        let advertisementPropertyImages = advertisementDictionary[AdminAdvertisementKey.images] as? [String] ?? [""]
-        let advertisementPayment = advertisementDictionary[AdminAdvertisementKey.payment] as! String
-        let advertisementPhone = advertisementDictionary[AdminAdvertisementKey.phone] as! String
-        let advertisementPropertyPrice = advertisementDictionary[AdminAdvertisementKey.price] as! String
-        let advertisementPropertyType = advertisementDictionary[AdminAdvertisementKey.propertyType] as! String
-        let advertisementPropertySize = advertisementDictionary[AdminAdvertisementKey.size] as! String
-        let advertisement = AdminAdvertisement(advertisementId: advertisementId!, advertisementPropertyLatitude: advertisementPropertyLatitude, advertisementPropertyLongitude: advertisementPropertyLongitude, advertisementPropertyLocation: advertisementPropertyLocation, advertisementType: advertisementType, advertisemetentUserId: advertisementUserId, advertisementPropertyAmenities: advertisementPropertyAmenities, advertisementPropertyBathRooms: advertisementPropertyBathRooms, advertisementPropertyBeds: advertisementPropertyBeds, advertisementCountry: advertisementPropertyCountry, advertisementDate: advertisementPropertyDate, advertisementPropertyDescription: advetisementPropertyDescription, advertismentsPropertyImages: advertisementPropertyImages, advertisementPayment: advertisementPayment, adevertisementPhone: advertisementPhone, advertisementPropertyPrice: advertisementPropertyPrice, advertisementPropertyType: advertisementPropertyType, advertisementPropertySize: advertisementPropertySize)
-        return advertisement
+    func createAdvertisementSearchModel(dict : [String : Any]?, key : String)-> FavouriteModel{
+        let images = dict!["images"] as? [Any]
+        let advertisementImage = images?[0] as? String ?? "NoImage"
+        let advertisementPropertyType = dict?["propertyType"] as? String ?? "Not Applied"
+        let advertisementType = dict?["Advertisement Type"] as? String ?? "Not Applied"
+        let advertisementCountry = dict?["country"] as? String ?? "Not Applied"
+        let advertisementId = key
+        let advertisementPropertySize = dict?["size"] as? String ?? "Not Applied"
+        let advertisementDate = dict?["date"] as? String ?? "Not Applied"
+        let advertisementBedRoomsNum = dict?["bedRooms"] as? String ?? "Not Applied"
+        let advertisementBathRoomsNum = dict?["bathRooms"] as? String ?? "Not Applied"
+        let advertisementPropertyPrice = Localization.convertNumbers(lang: "lang".localize, stringNumber: (dict?["price"] as? String) ?? "0").0.stringValue
+        let advertisementPropertyLocation:String!
+        if var unwrappedAddressDict = dict?["Address"] {
+            unwrappedAddressDict = dict?["Address"] as! [String : String]
+            let addressDictionary = unwrappedAddressDict as! [String : String]
+            advertisementPropertyLocation = addressDictionary["location"] ?? "Not Applied"
+            _ = addressDictionary["latitude"] ?? "0.0"
+            _ = addressDictionary["longitude"] ?? "0.0"
+        }else{
+            advertisementPropertyLocation = "Not Applied"
+        }
+        return FavouriteModel(
+            image: advertisementImage, propertyType  : advertisementPropertyType,
+            advertisementType: advertisementType,
+            advertisementId: advertisementId,
+            price: Double(advertisementPropertyPrice),
+            address: advertisementPropertyLocation,
+            country: advertisementCountry,
+            size: advertisementPropertySize,
+            bedRoomsNumber: advertisementBedRoomsNum,
+            bathRoomsNumber:  advertisementBathRoomsNum,
+            date : advertisementDate
+        )
     }
     
 }

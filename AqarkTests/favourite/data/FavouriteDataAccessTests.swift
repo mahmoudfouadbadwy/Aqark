@@ -10,25 +10,55 @@ import XCTest
 @testable import Aqark
 
 class FavouriteDataAccessTests: XCTestCase {
-
+    
+    var favouriteDataAccess: FavouriteDataAccess!
+    var mocfavouriteDataAccess:MocFavouriteDataAccess!
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        favouriteDataAccess = FavouriteDataAccess()
+        mocfavouriteDataAccess=MocFavouriteDataAccess()
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+   
+    func testDeleteFavouriteAdsFromCoredata (){
+        
+        XCTAssertFalse(favouriteDataAccess.deleteFavouriteAdsFromCoredata(id: "123548562255"), "deleting succesfully")
+        
     }
+    
+    func testGetFavouriteAdsFromCoredata(){
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        let idsArray = CoreDataAccess.getAllAdvertisment(CoreDataAccess())
+        XCTAssertNotNil(idsArray)
+    }
+    
+    func testGetAllFavouriteAdvertisements(){
+        let expectationObj = expectation(description: "Waiting For response...")
+        favouriteDataAccess.getAllFavouriteAdvertisements { (adsData,deletedCount) in
+            expectationObj.fulfill()
+            XCTAssertTrue(deletedCount<adsData.count)
+            XCTAssertNotNil(adsData)
+            for advertisment in adsData{
+                XCTAssertNotNil(advertisment.advertisementId)
+                XCTAssertNotNil(advertisment.advertisementType)
+                XCTAssertNotNil(advertisment.bathRoomsNumber)
+                XCTAssertNotNil(advertisment.bedRoomsNumber)
+                XCTAssertNotNil(advertisment.country)
+                XCTAssertNotNil(advertisment.date)
+                XCTAssertNotNil(advertisment.image)
+                XCTAssertNotNil(advertisment.price)
+                XCTAssertNotNil(advertisment.address)
+                XCTAssertNotNil(advertisment.size)
+                XCTAssertNotNil(advertisment.propertyType)
+            }
         }
+        waitForExpectations(timeout: 40)
     }
+    
+    override func tearDown() {
+        favouriteDataAccess = nil
+        mocfavouriteDataAccess = nil
+    }
+
 
 }
