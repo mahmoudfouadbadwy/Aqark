@@ -81,7 +81,7 @@ class MocFavouriteDataAccess{
                 }else{
                 
                 advertismentCount += 1
-                print("this ad deleted \(advertisement)")
+                self.deleteFavouriteAdsFromCoredata(id: advertisement)
             }
             if (advertismentCount + advertisementsData.count == storedAdvertisementsArray.count){
                 completionForGetAllAdvertisements(advertisementsData,advertismentCount)

@@ -19,18 +19,6 @@ class FavouriteDataAccessTests: XCTestCase {
         favouriteDataAccess = FavouriteDataAccess()
         mocfavouriteDataAccess=MocFavouriteDataAccess()
     }
-   
-    func testDeleteFavouriteAdsFromCoredata (){
-        
-        XCTAssertFalse(favouriteDataAccess.deleteFavouriteAdsFromCoredata(id: "123548562255"), "deleting succesfully")
-        
-    }
-    
-    func testGetFavouriteAdsFromCoredata(){
-
-        let idsArray = CoreDataAccess.getAllAdvertisment(CoreDataAccess())
-        XCTAssertNotNil(idsArray)
-    }
     
     func testGetAllFavouriteAdvertisements(){
         let expectationObj = expectation(description: "Waiting For response...")

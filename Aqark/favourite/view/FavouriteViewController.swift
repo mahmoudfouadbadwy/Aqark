@@ -16,8 +16,8 @@ class FavouriteViewController: UIViewController {
     var coreDataViewModel: CoreDataViewModel?
     var adViewModel: FavouriteViewModel!
     var adsCount:Int=0
-    var favouriteListViewModel : FavouriteListViewModel=FavouriteListViewModel(dataAccess: FavouriteDataAccess())
-    var arrOfAdViewModel : [FavouriteViewModel]=[FavouriteViewModel](){
+    var favouriteListViewModel:FavouriteListViewModel!
+    var arrOfAdViewModel:[FavouriteViewModel]! = []{
         didSet{
             if arrOfAdViewModel.count == 0{
                 setEmptyAdvertisments(flag: false)
@@ -27,7 +27,10 @@ class FavouriteViewController: UIViewController {
             self.favouriteCollectionView.reloadData()
         }
     }
-
+    func setupObjects(){
+        favouriteListViewModel=FavouriteListViewModel(dataAccess: FavouriteDataAccess())
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Favourite".localize
@@ -44,6 +47,7 @@ class FavouriteViewController: UIViewController {
             labelPlaceHolder.text = "Internet Connection Not Available".localize
         }else{
             labelPlaceHolder.isHidden = true
+            setupObjects()
             getCollectionViewData()
         }
     }
@@ -61,7 +65,13 @@ class FavouriteViewController: UIViewController {
         self.labelPlaceHolder.isHidden = flag
         self.labelPlaceHolder.text = "There is no advertisements in favourite list.".localize
     }
-
+ 
+    deinit {
+        favouriteListViewModel.removeFavObserver()
+        coreDataViewModel=nil
+        favouriteListViewModel = nil
+        print("favourite dinit")
+    }
     
     
 }

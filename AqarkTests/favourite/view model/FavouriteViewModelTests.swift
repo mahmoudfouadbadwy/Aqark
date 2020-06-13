@@ -12,9 +12,11 @@ import XCTest
 class FavouriteViewModelTests: XCTestCase {
     
     var favouriteViewModel:FavouriteListViewModel!
+    var coredataAds:CoreDataAccess!
     
     override func setUp() {
         favouriteViewModel = FavouriteListViewModel(dataAccess: FavouriteDataAccess())
+        coredataAds=CoreDataAccess()
     }
     
     func testPopulateAds(){
@@ -23,18 +25,14 @@ class FavouriteViewModelTests: XCTestCase {
             expectationObj.fulfill()
             XCTAssertNotNil(favResults)
             XCTAssertNotNil(deletedCount)
-            XCTAssertTrue(favResults.count <= self.favouriteViewModel.getAllAdvertisment().count)
+            XCTAssertTrue(favResults.count <= self.coredataAds.getAllAdvertisment().count)
         }
         waitForExpectations(timeout: 40)
-    }
-    
-    func testGetAllAdvertisment(){
-        
-        XCTAssertNotNil(favouriteViewModel.getAllAdvertisment())
     }
 
     override func tearDown() {
         favouriteViewModel=nil
+        coredataAds=nil
     }
 
 }

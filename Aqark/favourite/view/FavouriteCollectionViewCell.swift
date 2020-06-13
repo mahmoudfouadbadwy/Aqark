@@ -18,7 +18,7 @@ class FavouriteCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var numberOfBathRoomsLabel: UILabel!
     @IBOutlet weak var propertySizeLabel: UILabel!
     @IBOutlet weak var favButton: UIButton!
-    var delegat:FavouriteProtocol?
+    weak var delegat:FavouriteProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()

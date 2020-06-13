@@ -28,23 +28,13 @@ class FavouriteDataAccess {
     var advertisementPropertyLatitude : String!
     var advertisementDate : String!
     var addressDictionary: [String: String] = [:]
-    let coreDataAccess: CoreDataAccess = CoreDataAccess()
+    var coreDataAccess: CoreDataAccess! = CoreDataAccess()
     var advertisementRef:DatabaseReference! = Database.database().reference()
-    
-    func getFavouriteAdsFromCoredata () -> [String] {
-
-        return coreDataAccess.getAllAdvertisment()
-    }
-    
-    func deleteFavouriteAdsFromCoredata (id: String)->Bool{
-        
-        return coreDataAccess.deleteFromFavourite(id: id)
-    }
     
     func getAllFavouriteAdvertisements(completionForGetAllAdvertisements : @escaping (_ searchResults:[FavouriteModel],Int) -> Void){
         var advertismentCount = 0
         var advertisementsData = [FavouriteModel]()
-        let idsArray = self.getFavouriteAdsFromCoredata()
+        let idsArray = coreDataAccess.getAllAdvertisment()
         if (idsArray.count != 0){
             for index in 0..<idsArray.count{
                 advertisementRef.child("Advertisements").child(idsArray[index]).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -55,7 +45,7 @@ class FavouriteDataAccess {
                     }else{
                         
                         advertismentCount += 1
-                        self.deleteFavouriteAdsFromCoredata (id: idsArray[index])
+                        self.coreDataAccess.deleteFromFavourite(id: idsArray[index])
                     }
                     if (advertismentCount + advertisementsData.count == idsArray.count){
                         completionForGetAllAdvertisements(advertisementsData,advertismentCount)
@@ -103,7 +93,12 @@ class FavouriteDataAccess {
     
     func removeFavouriteObserver()
     {
+        let idsArray = coreDataAccess.getAllAdvertisment()
+        for ad in idsArray{
+            advertisementRef.child("Advertisements").child(ad).removeAllObservers()
+        }
         advertisementRef = nil
+        coreDataAccess = nil
     }
     
 }

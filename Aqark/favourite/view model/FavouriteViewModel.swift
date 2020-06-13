@@ -14,7 +14,7 @@ class FavouriteListViewModel{
     
     var favouritesViewModel : [FavouriteViewModel] = []
     var deletedAdsCount = 0
-    private var dataAccess : FavouriteDataAccess
+    private var dataAccess : FavouriteDataAccess!
     init(dataAccess : FavouriteDataAccess ) {
         self.dataAccess = dataAccess
     }
@@ -29,17 +29,13 @@ class FavouriteListViewModel{
         }
     }
     
-    func getAllAdvertisment()-> [String]{
-
-        return dataAccess.getFavouriteAdsFromCoredata()
-    }
-    
     func removeFavObserver(){
         self.dataAccess.removeFavouriteObserver()
+        self.dataAccess=nil
     }
 }
 
-class FavouriteViewModel{
+struct FavouriteViewModel{
     var image: String!
     var propertyType: String!
     var price: Double!

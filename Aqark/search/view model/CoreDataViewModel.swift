@@ -25,6 +25,7 @@ class CoreDataViewModel{
         
         return dataAccess.isIdExist(id: id)
     }
+    @discardableResult
     func deleteAdvertismentFromFavourite (id : String)->Bool{
         return dataAccess.deleteFromFavourite(id: id)
         
