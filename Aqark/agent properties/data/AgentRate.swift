@@ -27,8 +27,12 @@ class AgentRate{
 
     private func getUserId()->String
     {
+       if checkNetworkConnection()
+       {
         guard let user = Auth.auth().currentUser else {return ""}
         return user.uid
+       }
+       return ""
     }
     private func checkNetworkConnection()->Bool
     {

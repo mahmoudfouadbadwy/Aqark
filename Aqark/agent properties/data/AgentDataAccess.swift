@@ -62,7 +62,6 @@ class AgentDataAccess{
 }
     
     
-    
     func removeObservers()
     {
         agentAdvertisementsIDsRef.child("Users_Ads").removeAllObservers()
