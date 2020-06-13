@@ -232,7 +232,7 @@
 		3E535ABF248D422800A921A1 /* AdminUsersListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUsersListViewModelTests.swift; sourceTree = "<group>"; };
 		3E535AC5248D423D00A921A1 /* MockAdminAdvertisementDataAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAdminAdvertisementDataAccess.swift; sourceTree = "<group>"; };
 		3E535AC6248D423D00A921A1 /* AdminAdvertisementDataAccessTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminAdvertisementDataAccessTests.swift; sourceTree = "<group>"; };
-		3E535ACB248D42D400A921A1 /* AdminAdvertisementsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdminAdvertisementsListViewModelTests.swift; path = AqarkTests/admin/advertisements/AdminAdvertisementsListViewModelTests.swift; sourceTree = SOURCE_ROOT; };
+		3E535ACB248D42D400A921A1 /* AdminAdvertisementsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdminAdvertisementsListViewModelTests.swift; path = "AqarkTests/admin/advertisements/view model/AdminAdvertisementsListViewModelTests.swift"; sourceTree = SOURCE_ROOT; };
 		3E69A8B2247EF59600193605 /* AdminUserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUserData.swift; sourceTree = "<group>"; };
 		3E69A8B3247EF59600193605 /* AdminHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminHelper.swift; sourceTree = "<group>"; };
 		3E69A8B6247EF5A800193605 /* AdminUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUser.swift; sourceTree = "<group>"; };
@@ -474,9 +474,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3E48A7592493AA0900DFE82E /* view model */ = {
+			isa = PBXGroup;
+			children = (
+				3E535ACB248D42D400A921A1 /* AdminAdvertisementsListViewModelTests.swift */,
+			);
+			path = "view model";
+			sourceTree = "<group>";
+		};
+		3E48A75A2493AA1500DFE82E /* data */ = {
+			isa = PBXGroup;
+			children = (
+				3E535AC6248D423D00A921A1 /* AdminAdvertisementDataAccessTests.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
 		3E493AE42492FAE20055067C /* data */ = {
 			isa = PBXGroup;
 			children = (
+				3E535ABE248D422800A921A1 /* AdminUserDataAccessTests.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -484,6 +501,7 @@
 		3E493AE52492FAF90055067C /* view model */ = {
 			isa = PBXGroup;
 			children = (
+				3E535ABF248D422800A921A1 /* AdminUsersListViewModelTests.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -494,8 +512,6 @@
 				3E493AE52492FAF90055067C /* view model */,
 				3E493AE42492FAE20055067C /* data */,
 				3E535ABC248D422800A921A1 /* mocks */,
-				3E535ABE248D422800A921A1 /* AdminUserDataAccessTests.swift */,
-				3E535ABF248D422800A921A1 /* AdminUsersListViewModelTests.swift */,
 			);
 			path = users;
 			sourceTree = "<group>";
@@ -511,9 +527,9 @@
 		3E535AC3248D423D00A921A1 /* advertisements */ = {
 			isa = PBXGroup;
 			children = (
+				3E48A75A2493AA1500DFE82E /* data */,
+				3E48A7592493AA0900DFE82E /* view model */,
 				3E535AC4248D423D00A921A1 /* mocks */,
-				3E535AC6248D423D00A921A1 /* AdminAdvertisementDataAccessTests.swift */,
-				3E535ACB248D42D400A921A1 /* AdminAdvertisementsListViewModelTests.swift */,
 			);
 			path = advertisements;
 			sourceTree = "<group>";

@@ -18,14 +18,15 @@ import UIKit
     extension AdminAdvertisementsViewController : UICollectionViewDataSource,UICollectionViewDelegate{
         
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return self.adminAdvertisementViewModel.adminAdvertisementsViewList.count
+            
+            return isDisappearing ? 0 : self.adminAdvertisementViewModel.adminAdvertisementsViewList.count
         }
         
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let advertisementCell = advertisementsCollectionView.dequeueReusableCell(withReuseIdentifier: "Advertisement Cell", for: indexPath) as! AdminAdvertisementCollectionViewCell
             advertisementCell.adminAdvertisementsDelegate = self
             advertisementCell.adminAdvertisementsCellIndex = indexPath
-            advertisementCell.advertisementPropertyType.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyType
+            advertisementCell.advertisementPropertyType.text = adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyType
             advertisementCell.advertisementPropertyPrice.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyPrice
             advertisementCell.advertisementPropertyAddress.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyAddress
             advertisementCell.advertisementPropertySize.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertySize

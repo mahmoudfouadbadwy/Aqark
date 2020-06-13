@@ -14,8 +14,8 @@ extension AdminUsersViewController : UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         adminUsersViewModel.getFilteredUsers(type: usersSegment.selectedIndex, searchText: searchText)
         usersTableView.reloadData()
-        if(self.adminUsersViewModel.adminUsersViewList.isEmpty){
-            self.setLabelForZeroCount(search: true)
+        if(adminUsersViewModel.adminUsersViewList.isEmpty){
+            setLabelForZeroCount(search: true)
         }else{
             noLabel.isHidden = true
         }

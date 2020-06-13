@@ -13,8 +13,7 @@ extension AdminDataAccess{
     
     func getAdvertisements(completionForGetAdvertisements:@escaping(_ advertisementsData : [AdminAdvertisement]) -> Void){
         var advertisements = [AdminAdvertisement]()
-        let advertisementsRef = ref.child("Advertisements")
-        advertisementsRef.observe(.value) { (snapShot) in
+        advertisementsRef.child("Advertisements").observe(.value) { (snapShot) in
             advertisements.removeAll()
             for child in snapShot.children.allObjects as! [DataSnapshot]{
                 advertisements.append(self.createAdvertisement(child: child))
@@ -46,5 +45,11 @@ extension AdminDataAccess{
         let advertisementPropertySize = advertisementDictionary[AdminAdvertisementKey.size] as! String
         let advertisement = AdminAdvertisement(advertisementId: advertisementId, advertisementPropertyLatitude: advertisementPropertyLatitude, advertisementPropertyLongitude: advertisementPropertyLongitude, advertisementPropertyLocation: advertisementPropertyLocation, advertisementType: advertisementType, advertisemetentUserId: advertisementUserId, advertisementPropertyAmenities: advertisementPropertyAmenities, advertisementPropertyBathRooms: advertisementPropertyBathRooms, advertisementPropertyBeds: advertisementPropertyBeds, advertisementCountry: advertisementPropertyCountry, advertisementDate: advertisementPropertyDate, advertisementPropertyDescription: advetisementPropertyDescription, advertismentsPropertyImages: advertisementPropertyImages, advertisementPayment: advertisementPayment, adevertisementPhone: advertisementPhone, advertisementPropertyPrice: advertisementPropertyPrice, advertisementPropertyType: advertisementPropertyType, advertisementPropertySize: advertisementPropertySize)
         return advertisement
+    }
+    
+    func removeAdvertisementsObservers(){
+        advertisementsRef.child("Advertisements").removeAllObservers()
+        delelteAdvertisementRef.child("Advertisements").removeAllObservers()
+        deleteUserAdvertisementRef.child("Users_Ads").removeAllObservers()
     }
 }

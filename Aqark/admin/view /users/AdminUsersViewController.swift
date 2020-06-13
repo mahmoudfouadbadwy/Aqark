@@ -12,7 +12,7 @@ import Cosmos
 
 class AdminUsersViewController: UIViewController{
     
- 
+    
     @IBOutlet weak var noLabel: UILabel!
     @IBOutlet weak var usersSearchBar: UISearchBar!
     @IBOutlet weak var usersSegment: CustomSegment!
@@ -23,20 +23,21 @@ class AdminUsersViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        usersSearchBar.delegate = self
         setupView()
+        setupUsersTable()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        noLabel.isHidden = true
+        self.tabBarController?.navigationItem.title = "Users"
         dataAccess = AdminDataAccess()
         adminUsersViewModel = AdminUsersListViewModel(dataAccess: dataAccess)
         if(adminUsersViewModel.checkNetworkConnection()){
-            setupUsersTable()
-            usersSearchBar.delegate = self
             bindUsersTable()
         }else{
             setupNoConnection()
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.navigationItem.title = "Users"
     }
     
     private func setupView() {
@@ -62,16 +63,26 @@ class AdminUsersViewController: UIViewController{
     
     private func bindUsersTable() {
         showActivityIndicator()
-        adminUsersViewModel.populateUsers {
+        adminUsersViewModel.populateUsers { [weak self] in
             UIView.animate(withDuration:2) {
-                self.view.alpha = 1
+                self?.view.alpha = 1
             }
-            self.stopActivityIndicator()
-            if(self.adminUsersViewModel.adminUsersViewList.isEmpty){
-                self.setLabelForZeroCount(search: false)
+            self?.stopActivityIndicator()
+            self?.adminUsersViewModel.getUsersByType(type: self!.usersSegment.selectedIndex)
+            if(self!.adminUsersViewModel.adminUsersViewList.isEmpty){
+                self?.setLabelForZeroCount(search: false)
+                self?.usersSearchBar.text = ""
             }else{
-                self.usersSearchBar.isHidden = false
-                self.usersTableView.reloadData()
+                self?.usersSearchBar.isHidden = false
+                if(!self!.usersSearchBar.text!.isEmpty){
+                    self?.adminUsersViewModel.getFilteredUsers(type: self!.usersSegment.selectedIndex, searchText: self!.usersSearchBar.text!)
+                    if(self!.adminUsersViewModel.adminUsersViewList.isEmpty){
+                        self?.setLabelForZeroCount(search: true)
+                    }else{
+                        self?.noLabel.isHidden = true
+                    }
+                }
+                self?.usersTableView.reloadData()
             }
         }
     }
@@ -90,22 +101,34 @@ class AdminUsersViewController: UIViewController{
     }
     
     func showAlert(title:String,message:String){
-           let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-           let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel){(okAction) in
-               alert.dismiss(animated: true, completion: nil)}
-           alert.addAction(okAction)
-           self.present(alert, animated: true, completion: nil)
-       }
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel){(okAction) in
+            alert.dismiss(animated: true, completion: nil)}
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func changeUserType(_ sender: Any) {
         adminUsersViewModel.getUsersByType(type: usersSegment.selectedIndex)
-        if(self.adminUsersViewModel.adminUsersViewList.isEmpty){
-            self.setLabelForZeroCount(search: false)
+        if(adminUsersViewModel.adminUsersViewList.isEmpty){
+            setLabelForZeroCount(search: false)
         }else{
             usersSearchBar.isHidden = false
             noLabel.isHidden = true
         }
         self.usersTableView.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        adminUsersViewModel.removeUserObservers()
+        adminUsersViewModel.adminUsersViewList.removeAll()
+        usersTableView.reloadData()
+        dataAccess = nil
+        adminUsersViewModel = nil
+    }
+    
+    deinit {
+        print("Admin Users deinit")
     }
 }
 

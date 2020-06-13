@@ -13,6 +13,7 @@ class FirstScreenViewController: UIViewController {
     @IBOutlet weak var rolesPicker: UIPickerView!
     var roles : [String] = [String]()
     var userRole : String = "User"
+    
     override func viewDidLoad(){
         super.viewDidLoad()
         self.navigationItem.title = "Role".localize
@@ -23,6 +24,7 @@ class FirstScreenViewController: UIViewController {
         rolesPicker.dataSource = self
         roles = ["User","Lawyer","Interior Designer"]
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         if ProfileNetworking.checkAuthuntication(){
             if !ProfileNetworking.isAdmin()
