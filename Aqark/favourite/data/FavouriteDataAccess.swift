@@ -43,7 +43,6 @@ class FavouriteDataAccess {
                         let key = snapshot.key as String
                         advertisementsData.append(self.createAdvertisementSearchModel(dict: dict , key: key))
                     }else{
-                        
                         advertismentCount += 1
                         self.coreDataAccess.deleteFromFavourite(id: idsArray[index])
                     }
