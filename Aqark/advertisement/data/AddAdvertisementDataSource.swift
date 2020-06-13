@@ -42,9 +42,15 @@ class AddAdvertisementDataSource{
                     {
                        self?.uploadeImageToStorage()
                     }else{
+                        if self?.advertisement.payment == "free"{
                         self?.addPremiumAdvertisement()
-                        self?.advertisement.payment = "premium"
+                        }else{
+                            //upload advertisement
+                            self?.uploadeImageToStorage()
+                        }
+                        
                     }
+                    
                 }
             }
         }
