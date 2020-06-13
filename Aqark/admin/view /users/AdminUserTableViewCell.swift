@@ -19,7 +19,7 @@ class AdminUserTableViewCell: UITableViewCell {
     @IBOutlet weak var banUserButton: CustomButton!
     
     var adminUserCellIndex : IndexPath!
-    var adminUserDelegate : AdminUsersDelegate!
+    weak var adminUserDelegate : AdminUsersDelegate!
     
     override func awakeFromNib() {
         super.awakeFromNib()

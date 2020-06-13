@@ -8,7 +8,7 @@
 
 import Foundation
 
- class AdminUserViewModel{
+ struct AdminUserViewModel{
     var userId : String = ""
     var userName : String = ""
     var userRating : Double = 0.0
