@@ -43,16 +43,8 @@ class ProfileViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        if(ProfileNetworking.checkNetworkConnection())
-        {
-            setupView()
-            setupCollection()
-            noAdvertisementsLabel.isHidden = true
-        }
-        else
-        {
-            setUpNoConnectionView()
-        }
+        setupView()
+        setupCollection()
     }
     override func viewWillAppear(_ animated: Bool) {
         if (ProfileNetworking.checkNetworkConnection())
@@ -76,18 +68,24 @@ class ProfileViewController: UIViewController {
             ProfileAdvertisementListViewModel(data: ProfileDataAccess())
         deleteViewModel = AdvertisementDelete(dataAcees: ProfileDataAccess())
     }
-    deinit{
-        if (ProfileNetworking.checkNetworkConnection())
-        {
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if profileViewModel != nil {
             profileViewModel.removeProfileDataObservers()
+        }
+        if advertisementViewModel != nil {
             advertisementViewModel.removeProfileAdvertisementsObservers()
+        }
+        if deleteViewModel != nil {
             deleteViewModel.removeDeleteObserver()
         }
         profileViewModel = nil
         advertisementViewModel = nil
         deleteViewModel = nil
-        listOfAdvertisements = nil
         advertisement = nil
-        print("deinit profile")
+        print("view will disapear profile")
+    }
+    deinit {
+        listOfAdvertisements = nil
     }
 }

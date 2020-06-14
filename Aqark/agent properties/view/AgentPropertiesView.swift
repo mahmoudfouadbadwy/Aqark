@@ -78,12 +78,11 @@ class AgentPropertiesView: UIViewController {
     }
     
     deinit {
-        if AgentPropertiesNetworking.checkNetworkConnection()
-        {
+        if advertisementViewModel != nil {
             advertisementViewModel.removeObservers()
-            if agentRateViewModel != nil{
-                agentRateViewModel.removeRateObject()
-            }
+        }
+        if agentRateViewModel != nil{
+            agentRateViewModel.removeRateObject()
         }
         advertisementViewModel = nil
         agentRateViewModel = nil
@@ -91,6 +90,5 @@ class AgentPropertiesView: UIViewController {
         advertisement = nil
         listOfAdvertisements = nil
         agentRate = nil
-        print("agent properties deinit")
     }
 }

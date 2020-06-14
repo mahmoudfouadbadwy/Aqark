@@ -13,31 +13,25 @@ class FirstScreenViewController: UIViewController {
     @IBOutlet weak var rolesPicker: UIPickerView!
     var roles : [String] = [String]()
     var userRole : String = "User"
-    
+    var signUp: SignUpView!
     override func viewDidLoad(){
         super.viewDidLoad()
         self.navigationItem.title = "Role".localize
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         self.rolesPicker.backgroundColor = UIColor(rgb: 0xf1faee)
-        self.navigationItem.hidesBackButton = true
         rolesPicker.delegate = self
         rolesPicker.dataSource = self
         roles = ["User","Lawyer","Interior Designer"]
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        if ProfileNetworking.checkAuthuntication(){
-            if !ProfileNetworking.isAdmin()
-            {
-                self.navigationController?.pushViewController(ProfileViewController(), animated: true)
-            }
-        }
+    override func viewWillDisappear(_ animated: Bool) {
+        signUp = nil
     }
     
     @IBAction func submit(_ sender: Any) {
-        let loginView = LoginViewController()
-        loginView.userRole = userRole
-        self.navigationController?.pushViewController(loginView, animated: true)
+          signUp = SignUpView()
+          signUp.role = userRole
+         self.navigationController?.pushViewController(signUp, animated: true)
     }
 }
 

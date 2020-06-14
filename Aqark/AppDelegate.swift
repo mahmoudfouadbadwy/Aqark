@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         searchNavigationController.navigationBar.barTintColor = UIColor(rgb: 0xf1faee)
         searchNavigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(rgb: 0x1d3557)]
         
-        let accountTab = FirstScreenViewController()
+        let accountTab = LoginViewController()
         let accountNavigationController = UINavigationController(rootViewController: accountTab)
         accountNavigationController.navigationBar.barTintColor = UIColor(rgb: 0xf1faee)
         accountNavigationController.navigationBar.titleTextAttributes =

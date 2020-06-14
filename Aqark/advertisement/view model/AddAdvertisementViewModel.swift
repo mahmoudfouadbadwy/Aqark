@@ -97,10 +97,12 @@ class AddAdvertisementViewModel : AddAdvertisementViewModelProtocol{
     
     func removeAllAddDataRefrance(){
         addAdvertisementDataSource.removeAllAddDataRefrance()
+        addAdvertisementDataSource = nil
     }
     
     func removeAllEditDataRefrance(){
         editAdvertisementDataSource.removeAllEditDataRefrance()
+        editAdvertisementDataSource = nil
     }
     
     

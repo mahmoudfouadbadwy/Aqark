@@ -67,7 +67,7 @@ class AgentAdvertisementListViewModel{
     
     func removeObservers()
     {
-        if AgentPropertiesNetworking.checkNetworkConnection(){
+        if advertisementsData != nil{
              advertisementsData.removeObservers()
         }
         advertisements = nil

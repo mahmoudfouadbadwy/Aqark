@@ -16,8 +16,10 @@ class SignUpView: UIViewController  {
     @IBOutlet  weak var confirmPassword: CustomTextField!
     @IBOutlet  weak var company: CustomTextField!
     @IBOutlet  weak var countries: UIPickerView!
+    var signUpDataAccess: SignUpDataAccess!
     var role:String = "user"
-    var accountViewModel:AccountViewModel!
+    var userViewModel:AccountViewModel!
+    var serviceViewModel:AccountViewModel!
     let countriesPicker:[String] = Countries().countries
     
     override func viewDidLoad() {
@@ -31,6 +33,7 @@ class SignUpView: UIViewController  {
         setPickerDelegates()
         setTappedGesture()
     }
+ 
     
     override func viewDidDisappear(_ animated: Bool) {
         
@@ -69,8 +72,15 @@ class SignUpView: UIViewController  {
             username.removeFloatingLabel()
             username._placeholder = "Mobile Number".localize
         }
-        
-        
+        if userViewModel != nil {
+              userViewModel = nil
+        }
+        if serviceViewModel != nil{
+            serviceViewModel = nil
+        }
+        if signUpDataAccess != nil {
+              signUpDataAccess = nil
+        }
     }
 
     @IBAction func createAccount(_ sender: Any) {
@@ -88,9 +98,11 @@ class SignUpView: UIViewController  {
         }
     }
     
+
     deinit {
-        accountViewModel = nil
-        print("deinit sign up")
+        userViewModel = nil
+        serviceViewModel = nil
+        signUpDataAccess = nil
     }
 }
 

@@ -34,6 +34,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     var isSorting: String = "default"
     var isSorted = false
     var coreDataViewModel : CoreDataViewModel?
+    var coreDataAccess : CoreDataAccess!
     var collectionViewFlowLayout: UICollectionViewFlowLayout!
     var advertismentsListViewModel : AdvertisementListViewModel!
     let searchController = UISearchController(searchResultsController: nil)
@@ -69,10 +70,6 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         super.viewDidLoad()
         setupViews()
         setUpCollectionView()
-        if SearchNetworking.checkNetworkConnection(){
-            
-            
-        }
     }
     
     
@@ -84,9 +81,8 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             manageSearchBar()
             limitRegion()
             setupCoredata()
-            stopActivityIndicator()
             getCollectionViewData()
-            
+            stopActivityIndicator()
         }else{
             manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
             labelPlaceHolder.text = "Internet Connection Not Available".localize
@@ -122,21 +118,27 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     }
     
     override func viewWillDisappear(_ animated: Bool){
-         if SearchNetworking.checkNetworkConnection(){
-        advertismentsListViewModel.removeSearchObserver()
+         if  advertismentsListViewModel != nil {
+            advertismentsListViewModel.removeSearchObserver()
         }
+        if coreDataViewModel != nil{
+            coreDataViewModel?.removeCoreDataObject()
+        }
+        if actionButton != nil{
+            actionButton.removeFromSuperview()
+        }
+        actionButton = nil
         advertismentsListViewModel = nil
         adViewModel = nil
         data = nil
-        actionButton = nil
         mapViewModel = nil
         maps = nil
         collectionViewFlowLayout = nil
         sortedList = nil
         filteredAdsList = nil
         adsSortedList = nil
-        coreDataViewModel?.removeCoreDataObject()
         coreDataViewModel = nil
+        coreDataAccess = nil
     }
   
    

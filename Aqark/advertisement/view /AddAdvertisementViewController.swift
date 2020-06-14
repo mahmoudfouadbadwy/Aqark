@@ -150,10 +150,8 @@ class AddAdvertisementViewController: UIViewController  {
         addAdvertisementVM = nil
         editAdvertisementDataSource = nil
         activityIndicator = nil
-        config = nil
         autocompletecontroller = nil
         filter = nil
-        print("deinit  AddAdvertisementViewController")
     }
 }
 
