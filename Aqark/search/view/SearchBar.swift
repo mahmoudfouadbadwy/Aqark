@@ -53,13 +53,12 @@ extension SearchViewController:  UISearchBarDelegate{
             if filteredAdsList.count == 0{
             self.labelPlaceHolder.text = "No Advertisements Available".localize
             self.labelPlaceHolder.textColor = .red
-            
-        sort = nil
-        labelPlaceHolder.isHidden = false
-               
+            sort = nil
+            labelPlaceHolder.isHidden = false
+        }
         self.searchCollectionView.reloadData()
     }
-    }
+    
         
  
             
