@@ -66,12 +66,14 @@ class FavouriteViewController: UIViewController {
         self.labelPlaceHolder.text = "There is no advertisements in favourite list.".localize
     }
  
-    deinit {
-        favouriteListViewModel.removeFavObserver()
+    override func viewWillDisappear(_ animated: Bool) {
+        if favouriteListViewModel != nil{
+            favouriteListViewModel.removeFavObserver()
+        }
         coreDataViewModel=nil
-        favouriteListViewModel = nil
-        print("favourite dinit")
+        favouriteListViewModel=nil
+        
+        print("favourite Disappear")
     }
-    
-    
+  
 }
