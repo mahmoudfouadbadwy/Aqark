@@ -32,18 +32,21 @@ extension FavouriteViewController:FavouriteProtocol{
         let advertisment = arrOfAdViewModel[favButton.tag] 
         
         if (coreDataViewModel!.isAdvertismentExist(id:advertisment.advertisementId)){
-            let alert = UIAlertController(title: "Delete".localize, message: "Are you sure you want to delete this advertisement from favourite list ? ".localize, preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Delete".localize, style: .default, handler: { (action) in
+            self.alert = UIAlertController(title: "Delete".localize, message: "Are you sure you want to delete this advertisement from favourite list ? ".localize, preferredStyle: .actionSheet)
+            self.alert.addAction(UIAlertAction(title: "Delete".localize, style: .default, handler: { (action) in
                 if (self.coreDataViewModel!.deleteAdvertismentFromFavourite(id: (advertisment.advertisementId))){
+                    
                     self.arrOfAdViewModel.remove(at: favButton.tag)
+                
                 }else{
-                    let alert = UIAlertController(title: "Delete".localize, message: "Can't delete thie advertisment. ", preferredStyle: .actionSheet)
-                    alert.addAction(UIAlertAction(title: "Ok".localize, style: .cancel, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    
+                    self.alert = UIAlertController(title: "Delete".localize, message: "Can't delete thie advertisment. ", preferredStyle: .actionSheet)
+                    self.alert.addAction(UIAlertAction(title: "Ok".localize, style: .cancel, handler: nil))
+                    self.present(self.alert, animated: true, completion: nil)
                 }
                 
             }))
-            alert.addAction(UIAlertAction(title: "Cancel".localize, style: .cancel, handler: nil))
+            self.alert.addAction(UIAlertAction(title: "Cancel".localize, style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         
         }

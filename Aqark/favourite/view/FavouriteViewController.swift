@@ -17,6 +17,7 @@ class FavouriteViewController: UIViewController {
     var adViewModel: FavouriteViewModel!
     var adsCount:Int=0
     var favouriteListViewModel:FavouriteListViewModel!
+    var alert: UIAlertController!
     var arrOfAdViewModel:[FavouriteViewModel]! = []{
         didSet{
             if arrOfAdViewModel.count == 0{
@@ -54,7 +55,7 @@ class FavouriteViewController: UIViewController {
     
     func showDeletedAdsAlert(){
         if (adsCount != 0){
-            let alert = UIAlertController(title: "Deleted Advertisment".localize, message: "There are".localize + self.convertNumbers(lang: "lang".localize, stringNumber: String(adsCount)).1 + "Advertisment deleted from your Favourite List".localize, preferredStyle: .alert)
+            self.alert = UIAlertController(title: "Deleted Advertisment".localize, message: "There are".localize + self.convertNumbers(lang: "lang".localize, stringNumber: String(adsCount)).1 + "Advertisment deleted from your Favourite List".localize, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel".localize, style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
             adsCount=0
@@ -72,7 +73,7 @@ class FavouriteViewController: UIViewController {
         }
         coreDataViewModel=nil
         favouriteListViewModel=nil
-        
+        alert = nil
         print("favourite Disappear")
     }
   
