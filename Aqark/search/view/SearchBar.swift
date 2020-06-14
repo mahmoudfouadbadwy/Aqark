@@ -40,6 +40,7 @@ extension SearchViewController:  UISearchBarDelegate{
     
     func filterContentForSearchBarText(_ searchText: String){
         let searchText = searchBar.text ?? ""
+        sort = nil
         filteredAdsList = arrOfAdViewModel.filter { advertisement -> Bool in
             return advertisement.address.lowercased().contains(searchText.lowercased())
         }
@@ -49,7 +50,6 @@ extension SearchViewController:  UISearchBarDelegate{
         }
             if filteredAdsList.count == 0{
             self.labelPlaceHolder.text = "No Advertisements Available".localize
-            self.labelPlaceHolder.textColor = .red
             sort = nil
             labelPlaceHolder.isHidden = false
         }
