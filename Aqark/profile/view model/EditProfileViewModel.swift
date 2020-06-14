@@ -18,7 +18,7 @@ class EditProfileViewModel : EditProfileProtocol
     var company : String
     var experiance : String
     var role : String
-    var editProfileDataSource : EditProfileDataSource = EditProfileDataSource()
+    var editProfileDataSource : EditProfileDataSource! = EditProfileDataSource()
     var borkenRule: [EditProfileBrokenRule] = [EditProfileBrokenRule]()
     
     var isValid: Bool{
@@ -115,6 +115,11 @@ class EditProfileViewModel : EditProfileProtocol
             editProfileDataSource.uploadProfileAfterEdit()
 
         }
+    }
+    
+    func removeAllEditProfileRef(){
+        editProfileDataSource.removeAllEditProfileRef()
+        editProfileDataSource = nil
     }
     
     

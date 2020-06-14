@@ -11,7 +11,7 @@ import SDWebImage
 import JJFloatingActionButton
 import MapKit
 import Foundation
-import SwiftyGif
+
 
 class SearchViewController: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var mapView: MKMapView!
@@ -32,6 +32,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     var isSorting: String = "default"
     var isSorted = false
     var coreDataViewModel : CoreDataViewModel?
+    var coreDataAccess : CoreDataAccess!
     var collectionViewFlowLayout: UICollectionViewFlowLayout!
     var advertismentsListViewModel : AdvertisementListViewModel!
     let searchController = UISearchController(searchResultsController: nil)
@@ -84,9 +85,8 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             manageSearchBar()
             limitRegion()
             setupCoredata()
-            stopActivityIndicator()
             getCollectionViewData()
-            
+            stopActivityIndicator()
         }else{
             sort = nil
             labelPlaceHolder.isHidden = false
@@ -100,7 +100,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     
     private func setupViews()
     {
-        self.navigationItem.title = "Advertisements".localize
+        self.navigationItem.title = "AQARK".localize
         searchBar.barTintColor = UIColor(rgb: 0x1d3557)
         searchBar.backgroundColor = .white
         searchBar.tintColor = .red
@@ -126,25 +126,28 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     
     
     override func viewWillDisappear(_ animated: Bool){
-        if advertismentsListViewModel != nil{
+        if  advertismentsListViewModel != nil {
             advertismentsListViewModel.removeSearchObserver()
+        }
+        if coreDataViewModel != nil{
+            coreDataViewModel?.removeCoreDataObject()
         }
         if actionButton != nil{
             actionButton.removeFromSuperview()
         }
+        actionButton = nil
         advertismentsListViewModel = nil
         adViewModel = nil
         data = nil
-        actionButton = nil
         mapViewModel = nil
         maps = nil
         collectionViewFlowLayout = nil
         sortedList = nil
         filteredAdsList = nil
         adsSortedList = nil
-        coreDataViewModel?.removeCoreDataObject()
         coreDataViewModel = nil
         sort = nil
+        coreDataAccess = nil
     }
 }
 

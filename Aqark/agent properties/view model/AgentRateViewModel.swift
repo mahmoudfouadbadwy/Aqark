@@ -32,6 +32,7 @@ class AgentRateViewModel {
     
     func removeRateObject()
     {
+        agentRate.removeObject()
         agentRate = nil
     }
     

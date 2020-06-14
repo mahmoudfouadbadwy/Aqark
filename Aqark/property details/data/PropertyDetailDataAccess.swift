@@ -11,12 +11,15 @@ import Firebase
 import FirebaseDatabase
 
 class PropertyDetailDataAccess {
-    var ref: DatabaseReference!
-  
+
+    var advertismentsRef: DatabaseReference! = Database.database().reference()
+    var userRef: DatabaseReference! = Database.database().reference()
+    var advertismentId:String=""
+    var userId:String=""
    
     func gatAdvertisementDetialby(id :String ,completion: @escaping (_ propertyResult:Advertisment,Agent)-> Void){
-        ref = Database.database().reference()
-        ref.child("Advertisements").child(id).observeSingleEvent(of: .value, with: { (snapshot) in
+        advertismentId=id
+        advertismentsRef.child("Advertisements").child(id).observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.exists()
             {
                 let value = snapshot.value as? NSDictionary
@@ -30,6 +33,7 @@ class PropertyDetailDataAccess {
                 let dscription = value?["description"] as? String ?? ""
                 let AdvertisementType = value?["Advertisement Type"] as? String ?? ""
                 let userId=value?["UserId"] as? String ?? ""
+                self.userId=userId
                 let date = value?["date"] as? String ?? ""
                 let address = value?["Address"] as? NSDictionary
                 let lang = address?["longitude"]  as? String ?? ""
@@ -48,8 +52,7 @@ class PropertyDetailDataAccess {
 
     func getUserDetails(id:String,completion:@escaping(Agent)->Void)
     {
-         ref = Database.database().reference()
-        ref.child("Users").child(id).observeSingleEvent(of: .value) { (snapshot) in
+        userRef.child("Users").child(id).observeSingleEvent(of: .value) { (snapshot) in
             if (snapshot.exists())
             {
                 let user = snapshot.value as! NSDictionary
@@ -60,7 +63,13 @@ class PropertyDetailDataAccess {
             }
         }
     }
-    
+    func reomvepropertyDetailObserver()
+    {
+        userRef.child("Users").child(userId).removeAllObservers()
+        userRef = nil
+        advertismentsRef.child("Advertisements").child(advertismentId).removeAllObservers()
+        advertismentsRef = nil
+    }
 }
 
 

@@ -10,11 +10,11 @@
 import Firebase
 import ReachabilitySwift
 class AgentRate{
-    
+    var ref:DatabaseReference! = Database.database().reference()
     func setUserRating(rate:Double,agentId:String)->Bool
     {
         if checkNetworkConnection(){
-            let ref = Database.database().reference()
+           
             let userId = getUserId()
             if userId != ""{
                 ref.child("Users").child(agentId).child("rate").child(userId).setValue(rate)
@@ -27,14 +27,23 @@ class AgentRate{
 
     private func getUserId()->String
     {
+       if checkNetworkConnection()
+       {
         guard let user = Auth.auth().currentUser else {return ""}
         return user.uid
+       }
+       return ""
     }
     private func checkNetworkConnection()->Bool
     {
         let connection = Reachability()
         guard let status = connection?.isReachable else{return false}
         return status
+    }
+    
+    func removeObject()
+    {
+      ref = nil
     }
     
 }
