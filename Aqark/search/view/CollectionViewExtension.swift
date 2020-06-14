@@ -131,7 +131,6 @@ extension SearchViewController{
           
         if isFiltering {
             adViewModel = filteredAdsList[indexPath.row]
-//            notificationBtn.isHidden = false
         }else if isSorting == "High Price"{
             sortedList = self.sortData(str: isSorting)
             adViewModel = sortedList[indexPath.row]

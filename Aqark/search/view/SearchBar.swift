@@ -44,7 +44,6 @@ extension SearchViewController:  UISearchBarDelegate{
             return advertisement.address.lowercased().contains(searchText.lowercased())
         }
              if filteredAdsList.count > 0{
-                 
                 self.navigationItem.rightBarButtonItem = sort
                            labelPlaceHolder.isHidden = true
         }
@@ -53,9 +52,11 @@ extension SearchViewController:  UISearchBarDelegate{
             self.labelPlaceHolder.textColor = .red
             sort = nil
             labelPlaceHolder.isHidden = false
-            self.searchCollectionView.reloadData()
+
+        }
+        self.searchCollectionView.reloadData()
     }
-    }
+    
         
  
 
