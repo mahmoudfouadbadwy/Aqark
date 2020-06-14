@@ -19,7 +19,6 @@ extension AddAdvertisementViewController
     {
         self.stopActivityIndicator()
         blackIndicatorView.isHidden = true
-        
         let alertController = UIAlertController(title: "Advertisements".localize, message: "Advertrisement saved successfully".localize , preferredStyle: .alert)
         let actionButton = UIAlertAction(title: "ok", style: .default) { (_) in
             self.navigationController?.popViewController(animated: true)
@@ -30,31 +29,27 @@ extension AddAdvertisementViewController
     
     @objc func viewAlert()
     {
-        
         self.stopActivityIndicator()
-
-        var alert = UIAlertController(title: "pay", message: "you are used all your free advertisements", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Premium Advertisement", message: "Sorry, you have used all of your free ads, continue to add premium ad for 99 EGP", preferredStyle: .alert)
                alert.addAction(UIAlertAction(title: "ok".localize, style: .default , handler:{ (UIAlertAction)in
                 PurchaseManager.instance.purchasePremiumAdvertisement{ [weak self] success in
                          if success {
                              self?.showActivityIndicator()
                              self?.addAdvertisementVM.payment = "premium"
                              self?.addAdvertisementVM.save()
-                                   }
+                            }
                      }
-               
                }))
+         alert.addAction(UIAlertAction(title: "Cancel".localize, style: .default, handler:{ (UIAlertAction)in
+           alert.dismiss(animated: true)
+            self.blackIndicatorView.isHidden = true
+        }))
         self.present(alert, animated: true, completion: nil)
     }
-        
-        
-//        blackIndicatorView.isHidden = false
-     
-    
+
 }
 
 //MARK: - notification center
-
 extension Notification.Name{
     static let indicator = Notification.Name("indicator")
     static let alert = Notification.Name("alert")
