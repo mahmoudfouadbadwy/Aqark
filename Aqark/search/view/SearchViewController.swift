@@ -11,7 +11,7 @@ import SDWebImage
 import JJFloatingActionButton
 import MapKit
 import Foundation
-import SwiftyGif
+
 
 class SearchViewController: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var mapView: MKMapView!
