@@ -17,15 +17,11 @@ class FavouriteCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var numberOfBedsLabel: UILabel!
     @IBOutlet weak var numberOfBathRoomsLabel: UILabel!
     @IBOutlet weak var propertySizeLabel: UILabel!
-    
     @IBOutlet weak var favButton: UIButton!
-    var delegat:FavouriteProtocol?
-    
-    
+    weak var delegat:FavouriteProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         advertisementImage.layer.cornerRadius = 10
         advertisementImage.clipsToBounds = true
         propertyTypeLabel.textColor = UIColor(rgb: 0x457b9d)

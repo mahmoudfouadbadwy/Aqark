@@ -182,6 +182,9 @@
 		BFCF0BCD24677F8100A43D8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFCF0BCC24677F8100A43D8B /* Assets.xcassets */; };
 		BFCF0BD024677F8100A43D8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFCF0BCE24677F8100A43D8B /* LaunchScreen.storyboard */; };
 		BFCF0BDB24677F8100A43D8B /* AqarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF0BDA24677F8100A43D8B /* AqarkTests.swift */; };
+		BFDC8C362491340B00E27B53 /* MocFavouriteDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC8C352491340B00E27B53 /* MocFavouriteDataAccess.swift */; };
+		BFDC8C3A249134C300E27B53 /* FavouriteDataAccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC8C39249134C300E27B53 /* FavouriteDataAccessTests.swift */; };
+		BFDC8C3C2491351B00E27B53 /* FavouriteViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC8C3B2491351B00E27B53 /* FavouriteViewModelTests.swift */; };
 		BFE9F4472469930200E44777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFE9F4462469930200E44777 /* GoogleService-Info.plist */; };
 		BFE9F4482469930200E44777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFE9F4462469930200E44777 /* GoogleService-Info.plist */; };
 		BFEE6803248B989200DA5F53 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE6801248B989200DA5F53 /* LaunchViewController.swift */; };
@@ -415,6 +418,9 @@
 		BFCF0BD624677F8100A43D8B /* AqarkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AqarkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFCF0BDA24677F8100A43D8B /* AqarkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AqarkTests.swift; sourceTree = "<group>"; };
 		BFCF0BDC24677F8100A43D8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFDC8C352491340B00E27B53 /* MocFavouriteDataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocFavouriteDataAccess.swift; sourceTree = "<group>"; };
+		BFDC8C39249134C300E27B53 /* FavouriteDataAccessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteDataAccessTests.swift; sourceTree = "<group>"; };
+		BFDC8C3B2491351B00E27B53 /* FavouriteViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewModelTests.swift; sourceTree = "<group>"; };
 		BFE9F4462469930200E44777 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BFEE6801248B989200DA5F53 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		BFF016152481067800C3B7C0 /* AgentAdvertisementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentAdvertisementCell.swift; sourceTree = "<group>"; };
@@ -1311,11 +1317,46 @@
 		BFCF0BD924677F8100A43D8B /* AqarkTests */ = {
 			isa = PBXGroup;
 			children = (
+				BFDC8C332491331100E27B53 /* favourite */,
 				3E7F060D248B525A009118B8 /* admin */,
 				BFCF0BDA24677F8100A43D8B /* AqarkTests.swift */,
 				BFCF0BDC24677F8100A43D8B /* Info.plist */,
 			);
 			path = AqarkTests;
+			sourceTree = "<group>";
+		};
+		BFDC8C332491331100E27B53 /* favourite */ = {
+			isa = PBXGroup;
+			children = (
+				BFDC8C342491336600E27B53 /* mock */,
+				BFDC8C372491344400E27B53 /* data */,
+				BFDC8C382491345F00E27B53 /* view model */,
+			);
+			path = favourite;
+			sourceTree = "<group>";
+		};
+		BFDC8C342491336600E27B53 /* mock */ = {
+			isa = PBXGroup;
+			children = (
+				BFDC8C352491340B00E27B53 /* MocFavouriteDataAccess.swift */,
+			);
+			path = mock;
+			sourceTree = "<group>";
+		};
+		BFDC8C372491344400E27B53 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				BFDC8C39249134C300E27B53 /* FavouriteDataAccessTests.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		BFDC8C382491345F00E27B53 /* view model */ = {
+			isa = PBXGroup;
+			children = (
+				BFDC8C3B2491351B00E27B53 /* FavouriteViewModelTests.swift */,
+			);
+			path = "view model";
 			sourceTree = "<group>";
 		};
 		BFEE67FE248B96F200DA5F53 /* launch screen */ = {
@@ -1730,13 +1771,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFDC8C3C2491351B00E27B53 /* FavouriteViewModelTests.swift in Sources */,
 				BFCF0BDB24677F8100A43D8B /* AqarkTests.swift in Sources */,
 				3E535AC8248D423D00A921A1 /* MockAdminAdvertisementDataAccess.swift in Sources */,
 				3E535AC1248D422800A921A1 /* AdminUserDataAccessTests.swift in Sources */,
+				BFDC8C3A249134C300E27B53 /* FavouriteDataAccessTests.swift in Sources */,
 				3E535AC9248D423D00A921A1 /* AdminAdvertisementDataAccessTests.swift in Sources */,
 				3E535AC2248D422800A921A1 /* AdminUsersListViewModelTests.swift in Sources */,
 				3E535AC0248D422800A921A1 /* MockAdminUserDataAccess.swift in Sources */,
 				3E535ACC248D42D400A921A1 /* AdminAdvertisementsListViewModelTests.swift in Sources */,
+				BFDC8C362491340B00E27B53 /* MocFavouriteDataAccess.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

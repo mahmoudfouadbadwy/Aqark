@@ -50,3 +50,4 @@ class AdminAdvertisementsListViewModelTests: XCTestCase {
         adminAdvertisementsViewModel.adminAdvertisementsList.append(advertisementModel2)
     }
 }
+
