@@ -29,6 +29,7 @@ class CoreDataAccess: NSObject{
         self.saveChangesToCoredata()
     }
     
+    @discardableResult
     func deleteFromFavourite(id : String)-> Bool
     {
         var flag = false
@@ -45,11 +46,7 @@ class CoreDataAccess: NSObject{
         }catch let error as NSError{
             print(" error in deleting : \(error)")
         }
-//        if let result = try? managedContext.fetch(request) {
-//            for object in result {
-//                managedContext.delete(object as! NSManagedObject)
-//            }
-//        }
+
         return flag
     }
     

@@ -37,7 +37,7 @@ extension FavouriteViewController:FavouriteProtocol{
                 if (self.coreDataViewModel!.deleteAdvertismentFromFavourite(id: (advertisment.advertisementId))){
                     self.arrOfAdViewModel.remove(at: favButton.tag)
                 }else{
-                    let alert = UIAlertController(title: "Delete".localize, message: "Can't delete thie advertisment. ", preferredStyle: .actionSheet)
+                    let alert = UIAlertController(title: "Delete".localize, message: "Can't delete thie advertisment. ".localize, preferredStyle: .actionSheet)
                     alert.addAction(UIAlertAction(title: "Ok".localize, style: .cancel, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
