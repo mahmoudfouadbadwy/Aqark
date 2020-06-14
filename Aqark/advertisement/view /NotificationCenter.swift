@@ -30,15 +30,27 @@ extension AddAdvertisementViewController
     
     @objc func viewAlert()
     {
-        blackIndicatorView.isHidden = false
-        PurchaseManager.instance.purchasePremiumAdvertisement{ [weak self] success in
-            if success {
-                self?.showActivityIndicator()
-                self?.addAdvertisementVM.payment = "premium"
-                self?.addAdvertisementVM.save()
-                      }
-        }
+        
+        self.stopActivityIndicator()
+
+        var alert = UIAlertController(title: "pay", message: "you are used all your free advertisements", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "ok".localize, style: .default , handler:{ (UIAlertAction)in
+                PurchaseManager.instance.purchasePremiumAdvertisement{ [weak self] success in
+                         if success {
+                             self?.showActivityIndicator()
+                             self?.addAdvertisementVM.payment = "premium"
+                             self?.addAdvertisementVM.save()
+                                   }
+                     }
+               
+               }))
+        self.present(alert, animated: true, completion: nil)
     }
+        
+        
+//        blackIndicatorView.isHidden = false
+     
+    
 }
 
 //MARK: - notification center
@@ -47,3 +59,5 @@ extension Notification.Name{
     static let indicator = Notification.Name("indicator")
     static let alert = Notification.Name("alert")
 }
+
+ 
