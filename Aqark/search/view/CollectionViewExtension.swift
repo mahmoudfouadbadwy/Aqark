@@ -101,7 +101,9 @@ extension SearchViewController{
             if dataResults.isEmpty{
                 self?.stopActivityIndicator()
                 self?.labelPlaceHolder.text = "No Advertisements Available".localize
-                self?.manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
+                self?.sort = nil
+                self?.labelPlaceHolder.isHidden = false
+                       
                 self?.searchBar.isHidden = true
                
             }else{
@@ -126,7 +128,7 @@ extension SearchViewController{
           
         if isFiltering {
             adViewModel = filteredAdsList[indexPath.row]
-            notificationBtn.isHidden = false
+//            notificationBtn.isHidden = false
         }else if isSorting == "High Price"{
             sortedList = self.sortData(str: isSorting)
             adViewModel = sortedList[indexPath.row]
