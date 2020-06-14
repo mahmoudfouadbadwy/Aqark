@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "location"; ObjectID = "0ba-7U-5D8"; */
+"0ba-7U-5D8.text" = "location";
+
+/* Class = "UILabel"; text = "3 years exp"; ObjectID = "3aj-Cx-Mkf"; */
+"3aj-Cx-Mkf.text" = "3 years exp";
+
+/* Class = "UILabel"; text = "company"; ObjectID = "WVR-GH-Gc5"; */
+"WVR-GH-Gc5.text" = "company";
+
+/* Class = "UIButton"; normalTitle = "Rate me"; ObjectID = "he6-fm-Abp"; */
+"he6-fm-Abp.normalTitle" = "التقيم";
+
+/* Class = "UILabel"; text = "name"; ObjectID = "oS7-bj-eN4"; */
+"oS7-bj-eN4.text" = "name";

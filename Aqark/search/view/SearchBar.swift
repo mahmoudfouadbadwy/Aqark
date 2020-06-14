@@ -22,42 +22,47 @@ extension SearchViewController:  UISearchBarDelegate{
             textField.layer.masksToBounds = true
         }
     }
+   
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.becomeFirstResponder()
         appearAutoCompleteData()
+        if  searchBar.text?.count == 0 {
+           self.searchCollectionView.reloadData()
+          
+             self.navigationItem.rightBarButtonItem = sort
+            labelPlaceHolder.isHidden = true
+        
+        }
     }
+    
   
     
     func filterContentForSearchBarText(_ searchText: String){
         let searchText = searchBar.text ?? ""
         filteredAdsList = arrOfAdViewModel.filter { advertisement -> Bool in
             return advertisement.address.lowercased().contains(searchText.lowercased())
-                     self.manageAppearence(sortBtn: true, labelPlaceHolder: true, notificationBtn: true)
         }
-        if filteredAdsList.count == 0{
+             if filteredAdsList.count > 0{
+                 
+                self.navigationItem.rightBarButtonItem = sort
+                           labelPlaceHolder.isHidden = true
+        }
+            if filteredAdsList.count == 0{
             self.labelPlaceHolder.text = "No Advertisements Available".localize
             self.labelPlaceHolder.textColor = .red
-            self.manageAppearence(sortBtn: false, labelPlaceHolder: false, notificationBtn: false)
-        
-                        }
-    
-        self.searchCollectionView.reloadData()
-
-                    }
-    
-        
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-      if  searchText.count == 0 {
-         self.searchCollectionView.reloadData()
-         self.manageAppearence(sortBtn: false, labelPlaceHolder: true, notificationBtn: true)
-      }
+            sort = nil
+            labelPlaceHolder.isHidden = false
+            self.searchCollectionView.reloadData()
     }
+    }
+        
  
 
     var isFiltering: Bool {
         return (searchBar.text?.isEmpty)! && !searchController.isActive ? false : true
     }
+    
     
     
 }

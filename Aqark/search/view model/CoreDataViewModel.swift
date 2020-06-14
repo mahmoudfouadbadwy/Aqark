@@ -10,7 +10,7 @@ import Foundation
 
 class CoreDataViewModel{
     
-    private var dataAccess : CoreDataAccess
+    private var dataAccess : CoreDataAccess!
     
     init(dataAccess : CoreDataAccess ) {
         self.dataAccess = dataAccess
@@ -37,7 +37,9 @@ class CoreDataViewModel{
     func getAllFavouriteAdvertisment () -> [String]{
         return dataAccess.getAllAdvertisment()
     }
- 
+    func removeCoreDataObject(){
+        dataAccess = nil
+    }
     
 }
 

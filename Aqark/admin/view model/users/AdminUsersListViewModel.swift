@@ -106,5 +106,9 @@ class AdminUsersListViewModel{
     func banUser(isBanned : Bool, userId : String){
         dataAccess.banUser(isBanned: isBanned, userId: userId)
     }
+    
+    func removeUserObservers(){
+        dataAccess.removeUsersObservers()
+    }
 }
 

@@ -13,21 +13,27 @@ import ReachabilitySwift
 
 class AdvertisementListViewModel{
     
-    var advertismentsViewModel : [AdvertisementViewModel] = [AdvertisementViewModel]()
-    private var dataAccess : AdvertisementData
+    var advertismentsViewModel : [AdvertisementViewModel]! = [AdvertisementViewModel]()
+    private var dataAccess : AdvertisementData!
     init(dataAccess : AdvertisementData ) {
         self.dataAccess = dataAccess
     }
     
     func populateAds(completionForPopulateAds : @escaping (_ adsResults:[AdvertisementViewModel]) -> Void){
-        AdvertisementData().getAllAdvertisements(){(searchResults) in
-            self.advertismentsViewModel.removeAll()
-        self.advertismentsViewModel = searchResults.map{ ad in
+        AdvertisementData().getAllAdvertisements(){[weak self](searchResults) in
+            self?.advertismentsViewModel.removeAll()
+            self?.advertismentsViewModel = searchResults.map{ ad in
             AdvertisementViewModel(model: ad)
         }
-        completionForPopulateAds(self.advertismentsViewModel)
+            completionForPopulateAds(self?.advertismentsViewModel ?? [])
     }
     }
+    func removeSearchObserver(){
+        dataAccess.removeSearchObserver()
+        advertismentsViewModel = nil
+        dataAccess = nil
+        
+      }
 }
 
 class AdvertisementViewModel{

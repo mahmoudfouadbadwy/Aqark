@@ -7,6 +7,6 @@
 //
 
 import Foundation
-protocol AdminAdvertisementsCollectionDelegate {
+protocol AdminAdvertisementsCollectionDelegate:class {
     func removeAdvertisementDelegate(at indexPath:IndexPath)
 }

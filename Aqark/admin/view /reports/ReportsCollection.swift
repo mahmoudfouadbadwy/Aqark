@@ -15,12 +15,12 @@ extension AdminReportsView{
         self.reportsCollection.delegate = self
         self.reportsCollection.dataSource = self
         reportsCollection.backgroundColor = UIColor(rgb: 0xf1faee)
-        view.backgroundColor = UIColor(rgb: 0xf1faee)
     }
     func bindCollectionData()
     {
         showActivityIndicator()
-        self.adminReportViewModel = AdminReportsList(reportData:  AdminReportsData())
+        self.reportData = AdminReportsData()
+        self.adminReportViewModel = AdminReportsList(reportData: reportData)
         self.adminReportViewModel.getAllReports(completion: {[weak self]
             (reports,users,agents) in
             self?.reports = reports
@@ -53,7 +53,7 @@ extension AdminReportsView:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:AdminReportsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "reportsCell", for: indexPath) as! AdminReportsCell
         cell.reportContent.text =
-        "\(usersname[indexPath.row]) report \(agentsname[indexPath.row])'s advertisement for \(reports[indexPath.row].reportContent)"
+        "\(usersname[indexPath.row]) report \(agentsname[indexPath.row])'s advertisement for \(reports[indexPath.row].reportContent) \n \n Advertisement ID \(reports[indexPath.row].advertisementId)"
         setCellConfiguration(cell:cell)
         return cell
     }

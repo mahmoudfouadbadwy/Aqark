@@ -42,13 +42,16 @@ class AddAdvertisementDataSource{
                     {
                        self?.uploadeImageToStorage()
                     }else{
-                      if self?.advertisement.payment == "free"{
-                      self?.addPremiumAdvertisement()
-                      }else{
-                          //upload advertisement
-                          self?.uploadeImageToStorage()
-                      }
+                        if self?.advertisement.payment == "free"{
+                        self?.addPremiumAdvertisement()
+                        }else{
+                            //upload advertisement
+                            self?.uploadeImageToStorage()
+                        }
+                        
+
                     }
+                    
                 }
             }
         }

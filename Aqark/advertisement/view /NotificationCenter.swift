@@ -30,10 +30,7 @@ extension AddAdvertisementViewController
     
     @objc func viewAlert()
     {
-
-        
         blackIndicatorView.isHidden = false
-       
         PurchaseManager.instance.purchasePremiumAdvertisement{ [weak self] success in
             if success {
                 self?.showActivityIndicator()
@@ -42,7 +39,6 @@ extension AddAdvertisementViewController
                       }
         }
     }
-
 }
 
 //MARK: - notification center

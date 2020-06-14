@@ -30,8 +30,8 @@ class AdvertisementData{
     var advertisementDate : String!
     var addressDictionary: [String: String] = [:]
     
+    var ref:DatabaseReference! = Database.database().reference()
     func getAllAdvertisements(completionForGetAllAdvertisements : @escaping (_ searchResults:[AdvertisementSearchModel]) -> Void){
-        let ref = Database.database().reference()
         ref.child("Advertisements").observe(.value, with: {snapshot in
             self.advertisementsData.removeAll()
             for child in snapshot.children.allObjects as! [DataSnapshot] {
@@ -79,6 +79,10 @@ class AdvertisementData{
              longtiude: Double(self.advertisementPropertyLongtiude),
             latitude: Double(self.advertisementPropertyLatitude)
         )
+    }
+    func removeSearchObserver(){
+        ref.child("Advertisements").removeAllObservers()
+        ref = nil
     }
 }
 

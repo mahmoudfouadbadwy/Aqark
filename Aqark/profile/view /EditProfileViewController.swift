@@ -13,7 +13,6 @@ import ReachabilitySwift
 
 
 class EditProfileViewController: UIViewController {
-    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var userNameTxtField: UITextField!
     @IBOutlet weak var phoneNumberTxtField: UITextField!
@@ -78,6 +77,9 @@ class EditProfileViewController: UIViewController {
     }
     deinit {
         NotificationCenter.default.removeObserver(self)
+        profileData  = nil
+        profileStore = nil
+        editProfileViewModel = nil
         print("deinit edit profile")
     }
 }
@@ -133,7 +135,6 @@ extension EditProfileViewController: UIImagePickerControllerDelegate , UINavigat
 }
 
 extension EditProfileViewController{
-    
     func setupImageTextField()
      {
          userNameTxtField.setIcon(UIImage(named: "user")!)
@@ -253,10 +254,7 @@ extension EditProfileViewController{
          }) { (error) in
              print(error.localizedDescription)
          }
-         
-         
      }
-    
 }
 
 extension EditProfileViewController : UITextFieldDelegate{
