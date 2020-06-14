@@ -44,11 +44,8 @@ extension SearchViewController:  UISearchBarDelegate{
             return advertisement.address.lowercased().contains(searchText.lowercased())
         }
              if filteredAdsList.count > 0{
-                 
                 self.navigationItem.rightBarButtonItem = sort
                            labelPlaceHolder.isHidden = true
-                       
-                
         }
             if filteredAdsList.count == 0{
             self.labelPlaceHolder.text = "No Advertisements Available".localize
