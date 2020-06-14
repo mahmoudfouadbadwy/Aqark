@@ -51,5 +51,8 @@ extension AdminDataAccess{
         advertisementsRef.child("Advertisements").removeAllObservers()
         delelteAdvertisementRef.child("Advertisements").removeAllObservers()
         deleteUserAdvertisementRef.child("Users_Ads").removeAllObservers()
+        advertisementsRef = nil
+        delelteAdvertisementRef = nil
+        deleteUserAdvertisementRef = nil
     }
 }

@@ -95,7 +95,7 @@ class LoginViewController: UIViewController{
     }
   
     func gotoAdminView(){
-        let adminView:AdminTabBarController = AdminTabBarController()
+        let adminView = AdminTabBarController()
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.pushViewController(adminView, animated: true)
     }

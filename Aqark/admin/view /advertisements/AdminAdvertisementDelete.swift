@@ -14,7 +14,7 @@ extension AdminAdvertisementsViewController : AdminAdvertisementsCollectionDeleg
 func removeAdvertisementDelegate(at indexPath: IndexPath) {
     showAlert { [weak self] (result) in
         if(result){
-            if(self!.adminAdvertisementViewModel.checkNetworkConnection()){
+            if(AdminNetworking.checkNetworkConnection()){
                 self?.advertisementsCollectionView.performBatchUpdates({
                     self?.adminAdvertisementViewModel.deleteAdvertisement(adminAdvertisement: self!.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row]){(deleted) in
                         if(deleted){

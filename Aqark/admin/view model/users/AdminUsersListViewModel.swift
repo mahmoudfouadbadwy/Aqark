@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import ReachabilitySwift
 
 class AdminUsersListViewModel{
     
@@ -15,7 +14,7 @@ class AdminUsersListViewModel{
     var adminUsersList : [AdminUserViewModel] = [AdminUserViewModel]()
     var adminLawyersList : [AdminUserViewModel] = [AdminUserViewModel]()
     var adminInteriorDesignersList : [AdminUserViewModel] = [AdminUserViewModel]()
-    let dataAccess : AdminDataAccess
+    var dataAccess : AdminDataAccess!
     
     init(dataAccess:AdminDataAccess) {
         self.dataAccess = dataAccess
@@ -90,13 +89,6 @@ class AdminUsersListViewModel{
         }
     }
     
-    func checkNetworkConnection()->Bool{
-        let connection = Reachability()
-        guard let status = connection?.isReachable else{return false}
-        return status
-    }
-    
-    
     func logout(completionForLogout:@escaping(_ error:String?)->Void){
         dataAccess.logout(){(signOutError) in
             completionForLogout(signOutError)
@@ -109,6 +101,7 @@ class AdminUsersListViewModel{
     
     func removeUserObservers(){
         dataAccess.removeUsersObservers()
+        dataAccess = nil
     }
 }
 

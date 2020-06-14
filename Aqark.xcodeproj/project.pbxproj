@@ -11,6 +11,8 @@
 		3E48A7542493A7C600DFE82E /* ServicesRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E48A7532493A7C500DFE82E /* ServicesRating.swift */; };
 		3E48A7562493A85E00DFE82E /* AdminAdvertisementDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E48A7552493A85E00DFE82E /* AdminAdvertisementDelete.swift */; };
 		3E48A7582493A8F400DFE82E /* AdminUserBan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E48A7572493A8F400DFE82E /* AdminUserBan.swift */; };
+		3E4DB3A424956F8100BBB817 /* ServicesNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4DB3A324956F8100BBB817 /* ServicesNetworking.swift */; };
+		3E4DB3A6249572E400BBB817 /* AdminNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4DB3A5249572E400BBB817 /* AdminNetworking.swift */; };
 		3E535AC0248D422800A921A1 /* MockAdminUserDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E535ABD248D422800A921A1 /* MockAdminUserDataAccess.swift */; };
 		3E535AC1248D422800A921A1 /* AdminUserDataAccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E535ABE248D422800A921A1 /* AdminUserDataAccessTests.swift */; };
 		3E535AC2248D422800A921A1 /* AdminUsersListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E535ABF248D422800A921A1 /* AdminUsersListViewModelTests.swift */; };
@@ -227,6 +229,8 @@
 		3E48A7532493A7C500DFE82E /* ServicesRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesRating.swift; sourceTree = "<group>"; };
 		3E48A7552493A85E00DFE82E /* AdminAdvertisementDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAdvertisementDelete.swift; sourceTree = "<group>"; };
 		3E48A7572493A8F400DFE82E /* AdminUserBan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUserBan.swift; sourceTree = "<group>"; };
+		3E4DB3A324956F8100BBB817 /* ServicesNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesNetworking.swift; sourceTree = "<group>"; };
+		3E4DB3A5249572E400BBB817 /* AdminNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminNetworking.swift; sourceTree = "<group>"; };
 		3E535ABD248D422800A921A1 /* MockAdminUserDataAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAdminUserDataAccess.swift; sourceTree = "<group>"; };
 		3E535ABE248D422800A921A1 /* AdminUserDataAccessTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUserDataAccessTests.swift; sourceTree = "<group>"; };
 		3E535ABF248D422800A921A1 /* AdminUsersListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUsersListViewModelTests.swift; sourceTree = "<group>"; };
@@ -609,6 +613,7 @@
 			children = (
 				3ED938E02480B04B005BF1EF /* ServicesListViewModel.swift */,
 				3ED938E22480B0A1005BF1EF /* ServiceUserViewModel.swift */,
+				3E4DB3A324956F8100BBB817 /* ServicesNetworking.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -716,6 +721,7 @@
 				BFBAED7E2468A58900996DE8 /* model */,
 				BF06B41B24679F26005D7151 /* view model */,
 				BF06B41A24679F1E005D7151 /* view  */,
+				3E4DB3A5249572E400BBB817 /* AdminNetworking.swift */,
 			);
 			path = admin;
 			sourceTree = "<group>";
@@ -1592,6 +1598,7 @@
 				825F58742481425300DF60FB /* EditProfileViewModel.swift in Sources */,
 				3E69A8D5247EF5E000193605 /* CustomSegment.swift in Sources */,
 				823D6EA2247DDA7200F0B0FF /* extensionEditAdvertisement.swift in Sources */,
+				3E4DB3A6249572E400BBB817 /* AdminNetworking.swift in Sources */,
 				BF2F5ECB2485495E007AD263 /* Indicator.swift in Sources */,
 				826A9A3B2474C8570046E562 /* extentionConfigrationCollectionView.swift in Sources */,
 				3E69A8D2247EF5E000193605 /* AdminTabBarController.swift in Sources */,
@@ -1707,6 +1714,7 @@
 				BFC578C724749A1F00C77873 /* ProfileAdvertisementViewModel.swift in Sources */,
 				BF6DC688247352030030AE52 /* PropertyDetailViewModel.swift in Sources */,
 				BFC578BB24744D8F00C77873 /* ProfileCollection.swift in Sources */,
+				3E4DB3A424956F8100BBB817 /* ServicesNetworking.swift in Sources */,
 				3E69A8D0247EF5E000193605 /* AdminUserTableViewCell.swift in Sources */,
 				3ED938D424805187005BF1EF /* AdminDeleteAdvertisement.swift in Sources */,
 				BFC578BF247462B100C77873 /* ProfileUI.swift in Sources */,

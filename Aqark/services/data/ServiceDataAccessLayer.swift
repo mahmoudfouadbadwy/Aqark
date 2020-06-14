@@ -11,7 +11,7 @@ import Firebase
 
 class ServiceDataAccess{
     
-    let serviceUsersRef = Database.database().reference().child("Users")
+    var serviceUsersRef : DatabaseReference! = Database.database().reference().child("Users")
 
     func getServiceUsers(completionForGetServiceUsers:@escaping(_ serviceUsers:[ServiceUser])->Void){
         var serviceUsers = [ServiceUser]()
@@ -56,5 +56,10 @@ class ServiceDataAccess{
             }
             return userRating / Double(userRatingDic.count)
         }
+    }
+    
+    func removeServicesObservers(){
+        serviceUsersRef.removeAllObservers()
+        serviceUsersRef = nil
     }
 }

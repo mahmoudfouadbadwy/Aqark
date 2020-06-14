@@ -22,6 +22,15 @@ extension AdminUsersViewController : UISearchBarDelegate{
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if(!usersSearchBar.text!.isEmpty){
+            adminUsersViewModel.getFilteredUsers(type: usersSegment.selectedIndex, searchText: usersSearchBar.text!)
+            usersTableView.reloadData()
+            if(adminUsersViewModel.adminUsersViewList.isEmpty){
+                setLabelForZeroCount(search: true)
+            }else{
+                noLabel.isHidden = true
+            }
+        }
         searchBar.resignFirstResponder()
     }
 }
