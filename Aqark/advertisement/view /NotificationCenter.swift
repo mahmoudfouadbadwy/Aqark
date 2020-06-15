@@ -34,11 +34,11 @@ extension AddAdvertisementViewController
 //        alertControllerMessage(title: "Advertisements".localize, message: "Sorry, you used all of your free ads".localize)
        self.stopActivityIndicator()
         // go to payment page
-        var alert = UIAlertController(title: "pay", message: "you used all ads", preferredStyle: .alert)
-               alert.addAction(UIAlertAction(title: "ok".localize, style: .default , handler:{ (UIAlertAction)in
-                self.showActivityIndicator()
-                self.addAdvertisementVM?.payment = "premium"
-                self.addAdvertisementVM?.save()
+        let alert = UIAlertController(title: "pay", message: "you used all ads", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "ok".localize, style: .default , handler:{[weak self](UIAlertAction)in
+                self?.showActivityIndicator()
+                self?.addAdvertisementVM?.payment = "premium"
+                self?.addAdvertisementVM?.save()
                }))
         self.present(alert, animated: true, completion: nil)
     }
