@@ -103,9 +103,7 @@ extension SearchViewController{
                 self?.labelPlaceHolder.text = "No Advertisements Available".localize
                 self?.sort = nil
                 self?.labelPlaceHolder.isHidden = false
-                       
                 self?.searchBar.isHidden = true
-               
             }else{
                 self?.stopActivityIndicator()
                 self?.arrOfAdViewModel = dataResults
