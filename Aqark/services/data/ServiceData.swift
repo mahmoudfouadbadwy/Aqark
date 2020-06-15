@@ -46,7 +46,7 @@ class ServiceDataAccess{
         serviceUsersRef.child(serviceUserId).child("service rate").setValue(serviceRate)
     }
     
-    private func getUserServiceRating(userRatingDic : [String:Any])->Double{
+     func getUserServiceRating(userRatingDic : [String:Any])->Double{
         var userRating = 0.0
         if(userRatingDic.count == 0){
             return userRating
