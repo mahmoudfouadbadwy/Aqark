@@ -13,7 +13,6 @@ class EditProfileViewModel : EditProfileProtocol
     var imageView : Any
     var userName : String
     var phoneNumber:  String
-    var country : String
     var address : String
     var company : String
     var experiance : String
@@ -28,12 +27,11 @@ class EditProfileViewModel : EditProfileProtocol
         }
     }
     
-    init(imageView : Any , userName : String , phoneNumber : String , country : String , address : String , company : String , experiance : String , role : String)
+    init(imageView : Any , userName : String , phoneNumber : String ,address : String , company : String , experiance : String , role : String)
     {
         self.imageView = imageView
         self.userName = userName
         self.phoneNumber = phoneNumber
-        self.country = country
         self.address = address
         self.company = company
         self.experiance = experiance
@@ -42,7 +40,7 @@ class EditProfileViewModel : EditProfileProtocol
     
     func MakeValidation(){
         
-        if role == "user"
+        if role.lowercased().elementsEqual("user") 
         {
             if (userName.isEmpty) || ( userName.isEmpty == false)
             {
@@ -54,9 +52,9 @@ class EditProfileViewModel : EditProfileProtocol
             {
                 userNameValidate(value: userName)
             }
-            if country.isEmpty == true
+            if address.isEmpty == true
             {
-                borkenRule.append(EditProfileBrokenRule(brokenType: "country".localize, message: "Country must be provided.".localize))
+                borkenRule.append(EditProfileBrokenRule(brokenType: "address".localize, message: "Address must be provided.".localize))
             }
             if company.isEmpty == true
             {
@@ -104,7 +102,7 @@ class EditProfileViewModel : EditProfileProtocol
     
     func updateProfileData()
     {
-        editProfileDataSource.prepareData(editProfile: EditProfileModel(username: userName,country: country,address: address,company: company,phone: phoneNumber,experience: experiance))
+        editProfileDataSource.prepareData(editProfile: EditProfileModel(username: userName,address: address,company: company,phone: phoneNumber,experience: experiance))
         
         if imageView is Data{
             editProfileDataSource.imageData = (imageView as! Data)

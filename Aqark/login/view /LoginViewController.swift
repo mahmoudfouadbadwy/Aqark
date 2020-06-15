@@ -25,19 +25,19 @@ class LoginViewController: UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false
         if ProfileNetworking.checkAuthuntication(){
             if !ProfileNetworking.isAdmin()
             {
-                self.profile = ProfileViewController()
-                self.navigationController?.pushViewController(profile, animated: true)
+                gotoProfileView()
             }
-        }else
-        {
-            dataAccess = LoginDataAccessLayer()
-            loginViewModel = LoginViewModel(dataAccess:dataAccess)
+            else
+            {
+                gotoAdminView()
+            }
         }
     }
+    
+
     
     private func setupView() {
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
@@ -55,6 +55,8 @@ class LoginViewController: UIViewController{
     
     @IBAction func login(_ sender: Any) {
         view.endEditing(true)
+        dataAccess = LoginDataAccessLayer()
+        loginViewModel = LoginViewModel(dataAccess:dataAccess)
         self.showActivityIndicator()
         loginViewModel.userEmail = userEmailTextField.text
         loginViewModel.userPassword = userPasswordTextField.text

@@ -10,7 +10,7 @@ import UIKit
 import YPImagePicker
 import GooglePlaces
 import SDWebImage
-import SearchTextField
+
 
 class AddAdvertisementViewController: UIViewController  {
     @IBOutlet weak var amenitiesTitle: UILabel!
@@ -31,7 +31,6 @@ class AddAdvertisementViewController: UIViewController  {
     @IBOutlet weak var bathRoomStepper: UIStepper!
     @IBOutlet weak var blackIndicatorView: UIView!
     @IBOutlet weak var myView: UIView!
-    @IBOutlet weak var countryTxtFieldSearch: SearchTextField!
     @IBOutlet var amentiesButton: [UIButton]!
     @IBOutlet var pickerView: UIPickerView!
     var config : YPImagePickerConfiguration?
@@ -53,9 +52,7 @@ class AddAdvertisementViewController: UIViewController  {
     var dateOfAdvertisement:String!
     var autocompletecontroller : GMSAutocompleteViewController?
     var filter : GMSAutocompleteFilter?
-    var countries : Countries!
-    //GMSAutocompleteViewController()
-    //GMSAutocompleteFilter()
+    var country:String!
     //MARK:- viewdidLoad
     override func viewDidLoad()
     {
@@ -107,7 +104,7 @@ class AddAdvertisementViewController: UIViewController  {
                                                        location: self.addressTxtField.text!,
                                                        latitude: self.latitude,
                                                        longitude: self.longitude,
-                                                       country: self.countryTxtFieldSearch.text!,
+                                                       country: self.country,
                                                        description: self.describtionTxtView.text!,
                                                        aminities: self.selectAmenitiesDic,
                                                        dataImages: self.selectedImages,

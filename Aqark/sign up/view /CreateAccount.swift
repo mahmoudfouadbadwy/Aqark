@@ -49,7 +49,7 @@ extension SignUpView{
     func gotoProfileView()
     {
         self.navigationController?.popViewController(animated: true)
-        let profileView:ProfileViewController = ProfileViewController()
+        profileView = ProfileViewController()
         self.navigationController?.pushViewController(profileView, animated: true)
     }
 }

@@ -24,11 +24,11 @@ class EditProfileDataSource
     }
     func prepareData(editProfile : EditProfileModel){
         post = ["company": editProfile.company,
-                "country": editProfile.country,
+                "country": editProfile.address,
                 "phone": editProfile.phone,
                 "username": editProfile.username,
                 "experience" : editProfile.experience ?? "",
-                "address":editProfile.address ?? ""]
+               ]
     }
     func uploadProfileAfterEdit(){
         post.updateValue(urlImage, forKey: "picture")

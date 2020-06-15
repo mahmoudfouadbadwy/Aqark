@@ -13,18 +13,14 @@ import SDWebImage
 class ProfileViewController: UIViewController {
     @IBOutlet weak var noAdvertisementsLabel: UILabel!
     @IBOutlet weak var rate: CosmosView!
-    @IBOutlet weak var containerHeight: NSLayoutConstraint!
-    @IBOutlet weak var experienceValue: UILabel!
-    @IBOutlet weak var containerStack: UIStackView!
-    @IBOutlet weak var phoneValue: UILabel!
-    @IBOutlet weak var editProfile: UIButton!
+    @IBOutlet weak var addAdvertisement: UIButton!
     @IBOutlet weak var advertisementsCollection: UICollectionView!
-    @IBOutlet weak var companyName: UILabel!
-    @IBOutlet weak var addressText: UILabel!
     @IBOutlet weak var username: UILabel!
-    @IBOutlet weak var countryName: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
     var ban:Bool!
+    var logout: UIBarButtonItem!
+    var editViewController:EditProfileViewController!
+    var addAdvertisment: AddAdvertisementViewController!
     var advertisement:ProfileAdvertisementViewModel!
     var profileViewModel:ProfileStore!
     var advertisementViewModel:ProfileAdvertisementListViewModel!
@@ -69,6 +65,17 @@ class ProfileViewController: UIViewController {
         deleteViewModel = AdvertisementDelete(dataAcees: ProfileDataAccess())
     }
     
+    @IBAction func addAdvertisement(_ sender: Any) {
+        if self.ban
+        {
+            showAlert(title:"Bolcking".localize,message:"You Are Blocked From Adding Advertisements".localize)
+        }
+        else
+        {
+            addAdvertisment = AddAdvertisementViewController()
+             self.navigationController?.pushViewController(addAdvertisment, animated: true)
+        }
+    }
     override func viewWillDisappear(_ animated: Bool) {
         if profileViewModel != nil {
             profileViewModel.removeProfileDataObservers()
@@ -83,7 +90,10 @@ class ProfileViewController: UIViewController {
         advertisementViewModel = nil
         deleteViewModel = nil
         advertisement = nil
-        print("view will disapear profile")
+        logout = nil
+        editViewController = nil
+        addAdvertisment = nil
+      
     }
     deinit {
         listOfAdvertisements = nil

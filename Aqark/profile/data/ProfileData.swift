@@ -24,13 +24,12 @@ class ProfileDataAccess{
                 let userRole = value?["role"] as? String ?? ""
                 let picture = value?["picture"] as? String ?? ""
                 let country = value?["country"] as? String ?? ""
-                let address = value?["address"] as? String ?? ""
                 let company = value?["company"] as? String ?? ""
                 let phone = value?["phone"] as? String ?? ""
                 let exp = value?["experience"] as? String ?? ""
                 let rate = value?["rate"] as? [String:Double] ?? ["":0.0]
                 let ban = value?["banned"] as? Bool ?? false
-                let profile:Profile = Profile(role: userRole, picture: picture, username: username, country: country, address: address, company: company, phone: phone, experience: exp, rate: rate, ban: ban)
+                let profile:Profile = Profile(role: userRole, picture: picture, username: username, country: country, company: company, phone: phone, experience: exp, rate: rate, ban: ban)
                 onSuccess(profile)
                 
             }

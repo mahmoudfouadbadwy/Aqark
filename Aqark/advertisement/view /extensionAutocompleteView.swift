@@ -13,7 +13,7 @@ import GooglePlaces
 extension AddAdvertisementViewController: GMSAutocompleteViewControllerDelegate  {
     
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-       
+        self.country = place.formattedAddress
         addressTxtField.text = place.name
         latitude = "\(place.coordinate.latitude)"
         longitude =  "\(place.coordinate.longitude)"

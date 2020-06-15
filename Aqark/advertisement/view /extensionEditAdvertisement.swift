@@ -12,9 +12,7 @@ import UIKit
 
 //MARK: - extenion Edit advertisement
 
-
 extension AddAdvertisementViewController {
-    
     
     func reloadViewData(){
         
@@ -40,7 +38,6 @@ extension AddAdvertisementViewController {
                 self?.phoneTxtField.text =  (self?.convertNumbers(lang: "lang".localize, stringNumber: "0").1 ?? "0") + (self?.convertNumbers(lang: "lang".localize, stringNumber: myValue.phone ?? "1" ).1 ?? "1")
                 self?.BedroomsTxtField.text =  self?.convertNumbers(lang: "lang".localize, stringNumber: myValue.bedRooms ?? "0").1
                 self?.BathroomTxtField.text = self?.convertNumbers(lang: "lang".localize, stringNumber: myValue.bathRooms ?? "0").1
-                self?.countryTxtFieldSearch.text = myValue.country?.localize
                 self?.describtionTxtView.text = myValue.description
                 if let address = myValue.Address{
                     self?.addressTxtField.text = address["location"]
