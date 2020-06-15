@@ -131,6 +131,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         let servicesView = ServicesViewController()
         servicesView.serviceRole = "Lawyers".localize
         servicesView.advertisementCountry = advertisementDetails.country
+        servicesView.advertisementLocation = advertisementDetails.location
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
     
@@ -138,6 +139,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         let servicesView = ServicesViewController()
         servicesView.serviceRole = "Interior Designers".localize
         servicesView.advertisementCountry = advertisementDetails.country
+        servicesView.advertisementLocation = advertisementDetails.location
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
     

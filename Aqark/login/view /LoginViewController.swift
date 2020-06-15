@@ -25,6 +25,7 @@ class LoginViewController: UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
         if ProfileNetworking.checkAuthuntication(){
             if !ProfileNetworking.isAdmin()
             {

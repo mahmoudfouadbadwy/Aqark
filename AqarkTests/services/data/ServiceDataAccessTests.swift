@@ -25,7 +25,7 @@ class ServiceDataAccessTests: XCTestCase {
         let expectationObj = expectation(description: "Waiting For response...")
         serviceDataAccess.getServiceUsers { (serviceUsers) in
             expectationObj.fulfill()
-            XCTAssertNil(serviceUsers)
+            XCTAssertNotNil(serviceUsers)
             for serviceUser in serviceUsers{
                 XCTAssertNotNil(serviceUser.userId)
                 XCTAssertNotNil(serviceUser.userName)
@@ -33,6 +33,7 @@ class ServiceDataAccessTests: XCTestCase {
                 XCTAssertNotNil(serviceUser.userCompany)
                 XCTAssertNotNil(serviceUser.userEmail)
                 XCTAssertNotNil(serviceUser.userRole)
+                XCTAssertNotNil(serviceUser.userServiceRating)
                 XCTAssertNotNil(serviceUser.userExperience)
                 XCTAssertNotNil(serviceUser.userPhone)
                 XCTAssertNotNil(serviceUser.userImage)
@@ -40,4 +41,31 @@ class ServiceDataAccessTests: XCTestCase {
         }
         waitForExpectations(timeout: 15)
     }
+    
+    func testGetUserServiceRating(){
+         let userRatingsDictionary = ["ID1":5.0,
+                                      "ID2":5.0,
+                                      "ID3":5.0]
+         let biggestRating = userRatingsDictionary.max{(a,b) -> Bool in
+             a.value > b.value
+             }!.value
+         let lowestRating = userRatingsDictionary.min { (a, b) -> Bool in
+             a.value < b.value
+             }!.value
+         var totalRating = 0.0
+         
+         for rating in userRatingsDictionary{
+             totalRating += rating.value
+         }
+         let rating = totalRating/Double(userRatingsDictionary.count)
+         
+         let emptyUserRatingDictionart : [String:Any] = [:]
+         let userRating = serviceDataAccess.getUserServiceRating(userRatingDic:userRatingsDictionary)
+         let zeroUserRating = serviceDataAccess.getUserServiceRating(userRatingDic: emptyUserRatingDictionart)
+         XCTAssertEqual(userRating,rating)
+         XCTAssertFalse(userRating > biggestRating)
+         XCTAssertFalse(userRating < lowestRating)
+         XCTAssertTrue(userRating < totalRating)
+         XCTAssertEqual(zeroUserRating,0.0)
+     }
 }

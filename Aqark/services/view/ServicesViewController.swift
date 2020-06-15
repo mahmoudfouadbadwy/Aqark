@@ -18,6 +18,7 @@ class ServicesViewController: UIViewController{
     var dataAccess : ServiceDataAccess!
     var serviceRole : String!
     var advertisementCountry : String!
+    var advertisementLocation : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
