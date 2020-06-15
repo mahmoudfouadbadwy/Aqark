@@ -29,7 +29,7 @@ extension AddAdvertisementViewController{
         config?.hidesStatusBar = true
         config?.hidesBottomBar = false
         config?.preferredStatusBarStyle = UIStatusBarStyle.default
-        config?.library.maxNumberOfItems = 5
+        config?.library.maxNumberOfItems = 10
         config?.library.minNumberOfItems = 1
         
     }
@@ -58,7 +58,7 @@ extension AddAdvertisementViewController{
                     
                     if self.selectedImages.count > 0
                     {
-                        if self.selectedImages.count >= 5{
+                        if self.selectedImages.count >= 10{
                             break
                         }
                         if self.selectedImages.contains(myImage!){
