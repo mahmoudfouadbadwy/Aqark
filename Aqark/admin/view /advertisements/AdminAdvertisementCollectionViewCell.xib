@@ -1,128 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="Advertisement Cell" id="ic6-AI-ce2" userLabel="Admin Advertisement Collection View Cell" customClass="AdminAdvertisementCollectionViewCell" customModule="Aqark" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="263"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="Advertisement Cell" id="FhL-Wz-hWR" userLabel="Admin Advertisement Collection View Cell" customClass="AdminAdvertisementCollectionViewCell" customModule="Aqark" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="393" height="263"/>
+                <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoImage" translatesAutoresizingMaskIntoConstraints="NO" id="dqw-f9-NBW">
-                        <rect key="frame" x="10" y="13" width="157" height="237"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoImage" translatesAutoresizingMaskIntoConstraints="NO" id="xfl-7b-x47">
+                        <rect key="frame" x="10" y="10" width="157" height="180"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="propertyType" translatesAutoresizingMaskIntoConstraints="NO" id="65i-tX-rAq">
-                        <rect key="frame" x="177" y="20" width="24" height="39.5"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apartment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlL-eg-Med">
-                        <rect key="frame" x="211" y="20" width="117.5" height="39.5"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                        <color key="textColor" red="0.94440038069999999" green="0.04097820361" blue="0.080329743849999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45555" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1f-zX-doR">
-                        <rect key="frame" x="177" y="69.5" width="196.5" height="39.5"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WestTown,Sheikh Zayed, Compund, Gizaxxxxxxxxxxxxxxxxxxxxxxxxxxxx" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbs-zO-eyt">
-                        <rect key="frame" x="177" y="119" width="196.5" height="39.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="3" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pHF-HT-twQ">
-                        <rect key="frame" x="177" y="168.5" width="204.5" height="39.5"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3tg-Zi-Tn2" userLabel="rStack">
+                        <rect key="frame" x="177" y="10" width="206" height="180"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bedroom" translatesAutoresizingMaskIntoConstraints="NO" id="OqP-CE-a2O">
-                                <rect key="frame" x="0.0" y="7" width="37" height="25"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rf-Te-1qP">
-                                <rect key="frame" x="40" y="11" width="22.5" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="RkV-BT-wLD" userLabel="titleStack">
+                                <rect key="frame" x="0.0" y="0.0" width="206" height="45"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apartment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDe-1g-NEY">
+                                        <rect key="frame" x="0.0" y="0.0" width="81.5" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <color key="textColor" red="0.94440038069999999" green="0.04097820361" blue="0.080329743849999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="free" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IP9-WM-bMC">
+                                        <rect key="frame" x="180" y="0.0" width="26" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45555" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISh-iH-iMC">
+                                <rect key="frame" x="0.0" y="45" width="206" height="45"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bathroom" translatesAutoresizingMaskIntoConstraints="NO" id="iaX-au-uHd">
-                                <rect key="frame" x="65.5" y="8" width="32" height="23"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbd-YD-RHm">
-                                <rect key="frame" x="100.5" y="11" width="19" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WestTown,Sheikh Zayed, Compund, Gizaxxxxxxxxxxxxxxxxxxxxxxxxxxxx" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnV-Vl-kjF">
+                                <rect key="frame" x="0.0" y="90" width="206" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="propertySize" translatesAutoresizingMaskIntoConstraints="NO" id="IiI-BK-k9R">
-                                <rect key="frame" x="122.5" y="6.5" width="31" height="26"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="2000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLq-cf-Buy">
-                                <rect key="frame" x="156.5" y="11" width="48" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="3" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e3S-aK-oSu" userLabel="iconsStack">
+                                <rect key="frame" x="0.0" y="135" width="206" height="45"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bedroom" translatesAutoresizingMaskIntoConstraints="NO" id="xH5-qg-vWb">
+                                        <rect key="frame" x="0.0" y="10.5" width="32.5" height="24"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3y-Em-pyN">
+                                        <rect key="frame" x="35.5" y="14" width="23" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bathroom" translatesAutoresizingMaskIntoConstraints="NO" id="7lV-BM-GTD">
+                                        <rect key="frame" x="61.5" y="10.5" width="32" height="24"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkp-0J-RTA">
+                                        <rect key="frame" x="96.5" y="14" width="20.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="propertySize" translatesAutoresizingMaskIntoConstraints="NO" id="6Yv-BX-zbd">
+                                        <rect key="frame" x="120" y="10.5" width="32" height="24"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="2000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Tc-UG-D7M">
+                                        <rect key="frame" x="155" y="14" width="51" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                     </stackView>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="gbs-zO-eyt" firstAttribute="height" secondItem="ic6-AI-ce2" secondAttribute="height" multiplier="0.15" id="0Uz-ni-buO"/>
-                <constraint firstItem="65i-tX-rAq" firstAttribute="height" secondItem="ic6-AI-ce2" secondAttribute="height" multiplier="0.15" id="1DX-76-NVC"/>
-                <constraint firstItem="gbs-zO-eyt" firstAttribute="top" secondItem="L1f-zX-doR" secondAttribute="bottom" constant="10" id="25q-VZ-I2x"/>
-                <constraint firstItem="65i-tX-rAq" firstAttribute="width" secondItem="ic6-AI-ce2" secondAttribute="width" multiplier="0.06" id="6DB-Xu-Scb"/>
-                <constraint firstItem="dqw-f9-NBW" firstAttribute="leading" secondItem="ic6-AI-ce2" secondAttribute="leading" constant="10" id="6L4-oV-lzn"/>
-                <constraint firstItem="L1f-zX-doR" firstAttribute="width" secondItem="ic6-AI-ce2" secondAttribute="width" multiplier="0.5" id="6sq-kk-xBq"/>
-                <constraint firstItem="pHF-HT-twQ" firstAttribute="height" secondItem="ic6-AI-ce2" secondAttribute="height" multiplier="0.15" id="7ZL-nl-0Mb"/>
-                <constraint firstItem="L1f-zX-doR" firstAttribute="leading" secondItem="dqw-f9-NBW" secondAttribute="trailing" constant="10" id="CzY-a7-7zw"/>
-                <constraint firstItem="dqw-f9-NBW" firstAttribute="width" secondItem="ic6-AI-ce2" secondAttribute="width" multiplier="0.4" id="FOK-hC-V5y"/>
-                <constraint firstItem="GlL-eg-Med" firstAttribute="leading" secondItem="65i-tX-rAq" secondAttribute="trailing" constant="10" id="FY8-Vo-9y8"/>
-                <constraint firstItem="dqw-f9-NBW" firstAttribute="height" secondItem="ic6-AI-ce2" secondAttribute="height" multiplier="0.9" id="LWn-UZ-fTH"/>
-                <constraint firstItem="pHF-HT-twQ" firstAttribute="width" secondItem="ic6-AI-ce2" secondAttribute="width" multiplier="0.52" id="LYv-LV-rX7"/>
-                <constraint firstItem="dqw-f9-NBW" firstAttribute="centerY" secondItem="ic6-AI-ce2" secondAttribute="centerY" id="NJ9-TC-yDa"/>
-                <constraint firstItem="pHF-HT-twQ" firstAttribute="top" secondItem="gbs-zO-eyt" secondAttribute="bottom" constant="10" id="Olb-CF-cAl"/>
-                <constraint firstItem="GlL-eg-Med" firstAttribute="top" secondItem="ic6-AI-ce2" secondAttribute="top" constant="20" id="St8-sW-1lz"/>
-                <constraint firstItem="65i-tX-rAq" firstAttribute="top" secondItem="ic6-AI-ce2" secondAttribute="top" constant="20" id="Uf1-c2-DWF"/>
-                <constraint firstItem="65i-tX-rAq" firstAttribute="leading" secondItem="dqw-f9-NBW" secondAttribute="trailing" constant="10" id="Wny-Cg-xrN"/>
-                <constraint firstItem="gbs-zO-eyt" firstAttribute="leading" secondItem="dqw-f9-NBW" secondAttribute="trailing" constant="10" id="YLv-EQ-Ekd"/>
-                <constraint firstItem="GlL-eg-Med" firstAttribute="width" secondItem="ic6-AI-ce2" secondAttribute="width" multiplier="0.3" id="ZY0-Ov-a4K"/>
-                <constraint firstItem="gbs-zO-eyt" firstAttribute="width" secondItem="ic6-AI-ce2" secondAttribute="width" multiplier="0.5" id="gR2-wl-JK1"/>
-                <constraint firstItem="L1f-zX-doR" firstAttribute="top" secondItem="GlL-eg-Med" secondAttribute="bottom" constant="10" id="hFH-u4-QmJ"/>
-                <constraint firstItem="pHF-HT-twQ" firstAttribute="leading" secondItem="dqw-f9-NBW" secondAttribute="trailing" constant="10" id="hvY-oX-3Dv"/>
-                <constraint firstItem="GlL-eg-Med" firstAttribute="height" secondItem="ic6-AI-ce2" secondAttribute="height" multiplier="0.15" id="r2K-Vs-uwZ"/>
-                <constraint firstItem="L1f-zX-doR" firstAttribute="height" secondItem="ic6-AI-ce2" secondAttribute="height" multiplier="0.15" id="r3W-wg-ogR"/>
+                <constraint firstItem="3tg-Zi-Tn2" firstAttribute="leading" secondItem="xfl-7b-x47" secondAttribute="trailing" constant="10" id="CvF-zw-I1P"/>
+                <constraint firstAttribute="bottom" secondItem="3tg-Zi-Tn2" secondAttribute="bottom" constant="10" id="OKX-pC-0Sk"/>
+                <constraint firstAttribute="bottom" secondItem="xfl-7b-x47" secondAttribute="bottom" constant="10" id="SSs-ud-xWt"/>
+                <constraint firstItem="xfl-7b-x47" firstAttribute="top" secondItem="FhL-Wz-hWR" secondAttribute="top" constant="10" id="UZw-YQ-4VD"/>
+                <constraint firstItem="xfl-7b-x47" firstAttribute="width" secondItem="FhL-Wz-hWR" secondAttribute="width" multiplier="0.4" id="e1B-Ll-KA4"/>
+                <constraint firstAttribute="trailing" secondItem="3tg-Zi-Tn2" secondAttribute="trailing" constant="10" id="eQY-Gb-lsx"/>
+                <constraint firstItem="xfl-7b-x47" firstAttribute="leading" secondItem="FhL-Wz-hWR" secondAttribute="leading" constant="10" id="mJv-Kt-lbL"/>
+                <constraint firstItem="3tg-Zi-Tn2" firstAttribute="top" secondItem="FhL-Wz-hWR" secondAttribute="top" constant="10" id="xoo-ds-Ch1"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="Ivj-LR-dTT"/>
-            <size key="customSize" width="393" height="263"/>
+            <viewLayoutGuide key="safeArea" id="a3N-mq-lf5"/>
+            <size key="customSize" width="393" height="227"/>
             <connections>
-                <outlet property="advertisementPropertyAddress" destination="gbs-zO-eyt" id="yoG-Sq-3S4"/>
-                <outlet property="advertisementPropertyBathRoomNumbers" destination="mbd-YD-RHm" id="I9U-F6-HeG"/>
-                <outlet property="advertisementPropertyBedNumbers" destination="8rf-Te-1qP" id="sQr-Pe-YRU"/>
-                <outlet property="advertisementPropertyImage" destination="dqw-f9-NBW" id="uLD-hc-JUu"/>
-                <outlet property="advertisementPropertyPrice" destination="L1f-zX-doR" id="uCH-je-Ubo"/>
-                <outlet property="advertisementPropertySize" destination="lLq-cf-Buy" id="TMg-o9-G9w"/>
-                <outlet property="advertisementPropertyType" destination="GlL-eg-Med" id="zf1-hr-Woj"/>
+                <outlet property="advertisementPropertyAddress" destination="fnV-Vl-kjF" id="2ec-O6-JnS"/>
+                <outlet property="advertisementPropertyBathRoomNumbers" destination="Fkp-0J-RTA" id="pPL-cf-Yea"/>
+                <outlet property="advertisementPropertyBedNumbers" destination="D3y-Em-pyN" id="A7P-Ys-fm3"/>
+                <outlet property="advertisementPropertyImage" destination="xfl-7b-x47" id="2Hi-tp-RAS"/>
+                <outlet property="advertisementPropertyPrice" destination="ISh-iH-iMC" id="Zq6-OI-4gr"/>
+                <outlet property="advertisementPropertySize" destination="0Tc-UG-D7M" id="GIJ-zJ-Ave"/>
+                <outlet property="advertisementPropertyType" destination="mDe-1g-NEY" id="BTq-bh-WJs"/>
+                <outlet property="advertismentPaymentType" destination="IP9-WM-bMC" id="Lpy-UX-F4w"/>
             </connections>
-            <point key="canvasLocation" x="-163" y="24"/>
+            <point key="canvasLocation" x="-183.33333333333334" y="6.6964285714285712"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="NoImage" width="123" height="123"/>
-        <image name="bathroom" width="25.5" height="23"/>
-        <image name="bedroom" width="29.5" height="25"/>
-        <image name="propertySize" width="24" height="26.5"/>
-        <image name="propertyType" width="25" height="22"/>
+        <image name="bathroom" width="24" height="24"/>
+        <image name="bedroom" width="24" height="24"/>
+        <image name="propertySize" width="24" height="24"/>
     </resources>
 </document>

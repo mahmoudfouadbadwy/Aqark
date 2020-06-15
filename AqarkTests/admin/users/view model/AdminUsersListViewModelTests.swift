@@ -34,6 +34,16 @@ class AdminUsersListViewModelTests: XCTestCase {
         adminUser3 = nil
     }
     
+    func testPopulateUsers(){
+        let expectationObj = expectation(description: "Waiting For response...")
+        adminUsersViewModel.populateUsers {
+            expectationObj.fulfill()
+            XCTAssertEqual(self.adminUsersViewModel.adminUsersViewList.count, self.adminUsersViewModel.adminUsersList.count)
+        }
+        
+        waitForExpectations(timeout:15)
+    }
+    
     func testFilter(){
         let adminUsers = [adminUser1!,adminUser2!,adminUser3!]
         adminUsersViewModel.filter(allUsersData: adminUsers)
