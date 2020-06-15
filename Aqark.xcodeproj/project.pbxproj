@@ -766,8 +766,8 @@
 		BF06B40E24679EBB005D7151 /* view  */ = {
 			isa = PBXGroup;
 			children = (
-				82ACAE04248C5E30002EF804 /* PropertyDetailView.xib */,
 				BF8CD7AE247AFB0E00DA60BA /* ImageSlider.xib */,
+				82ACAE04248C5E30002EF804 /* PropertyDetailView.xib */,
 				BF6DC68A247352270030AE52 /* PropertyDetailView.swift */,
 				BF8111B6247A36410059D571 /* BindDetails.swift */,
 				BF8CD7A4247AE0E300DA60BA /* ImageSlider.swift */,
@@ -2037,7 +2037,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ITI.Aqark;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ITI.Aqark;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -2059,7 +2059,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ITI.Aqark;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ITI.Aqark;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

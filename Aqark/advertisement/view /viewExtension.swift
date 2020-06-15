@@ -90,10 +90,10 @@ extension AddAdvertisementViewController{
     func setupImageInLeftTextField(){
         priceTxtField.setIcon(UIImage(named: "money")!)
         phoneTxtField.setIcon(UIImage(named: "phone")!)
-        sizeTxtField.setIcon(UIImage(named:"ad_size")!)
+        sizeTxtField.setIcon(UIImage(named:"propertySize")!)
         addressTxtField.setIcon(UIImage(named: "profile_map")!)
-        BedroomsTxtField.setIcon(UIImage(named: "ad_bed")!)
-        BathroomTxtField.setIcon(UIImage(named: "ad_bath")!)
+        BedroomsTxtField.setIcon(UIImage(named: "bedroom")!)
+        BathroomTxtField.setIcon(UIImage(named: "bathroom")!)
         countryTxtFieldSearch.setIcon(UIImage(named: "country")!)
     }
 }
