@@ -73,7 +73,9 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     /* ahmed saeed*/
 
     @IBOutlet weak var contentHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var aminitiesCollectionHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var bottomscrollView: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var reviewMessage: UIView!
@@ -142,8 +144,8 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
 
         if let userInfo = notification.userInfo,
             let keyboardRectangle = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
-            keyboardHeight = keyboardRectangle.height
-             
+            keyboardHeight = (keyboardRectangle.height)
+             //keyboardFrameEndUserInfoKey
         }
     }
     /* ahmed saeed*/
@@ -209,9 +211,9 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
    private func setupViews()
     {
         self.navigationItem.title = "Property Details".localize
-        lawyers.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
-        interiorDesigner.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
-        porperties.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
+//        lawyers.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
+//        interiorDesigner.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
+//        porperties.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
         locationTitle.textColor = UIColor(rgb: 0x457b9d)
         agentTitle.textColor = UIColor(rgb: 0x457b9d)
         descriptionTitle.textColor = UIColor(rgb: 0x457b9d)

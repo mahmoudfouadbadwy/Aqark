@@ -782,19 +782,19 @@
 			children = (
 				BF8CD7AE247AFB0E00DA60BA /* ImageSlider.xib */,
 				82ACAE04248C5E30002EF804 /* PropertyDetailView.xib */,
+				BFA42D98247BF93E00A986E8 /* AmenitiesCell.xib */,
+				C65AD6552483AEC500A402FB /* ReviewCell.xib */,
 				BF6DC68A247352270030AE52 /* PropertyDetailView.swift */,
 				BF8111B6247A36410059D571 /* BindDetails.swift */,
 				BF8CD7A4247AE0E300DA60BA /* ImageSlider.swift */,
 				BF8CD7A8247AE9CB00DA60BA /* DownloadSliderImages.swift */,
 				BFA42D95247BED1900A986E8 /* CallingButton.swift */,
 				BFA42D97247BF93E00A986E8 /* AmenitiesCell.swift */,
-				BFA42D98247BF93E00A986E8 /* AmenitiesCell.xib */,
 				BFA42D9B247BFCE000A986E8 /* AmenitiesCollection.swift */,
 				BF4E2F4E24866F34001137AA /* FavouriteButton.swift */,
 				C66E3B7D247FD8E900E1BAF2 /* ReportExtension.swift */,
 				C65805CD2482A7C1003F3DA1 /* ReviewExtension.swift */,
 				C65AD6542483AEC500A402FB /* ReviewCell.swift */,
-				C65AD6552483AEC500A402FB /* ReviewCell.xib */,
 			);
 			path = "view ";
 			sourceTree = "<group>";

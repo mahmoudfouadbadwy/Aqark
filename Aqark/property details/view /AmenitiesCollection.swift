@@ -78,7 +78,7 @@ extension PropertyDetailView:UICollectionViewDataSource{
             else
             {
                 amenitiesHeight.constant = 0
-                amenitiesTopSpace.constant = 0
+               // amenitiesTopSpace.constant = 0
                 amenitiesSection.isHidden = true
                 return 0
             }
@@ -160,7 +160,8 @@ extension PropertyDetailView:UICollectionViewDelegateFlowLayout{
             return itemSize
             
         }else{
-            return CGSize(width: collectionView.frame.width - 50, height: collectionView.frame.height - 10)
+            return CGSize(width: collectionView.frame.width - 70
+                , height: collectionView.frame.height - 10)
             
         }
     }

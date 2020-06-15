@@ -4,30 +4,32 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReviewCell" id="gTV-IL-0wX" customClass="ReviewCell" customModule="Aqark" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="402" height="178"/>
+            <rect key="frame" x="0.0" y="0.0" width="402" height="143"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="402" height="178"/>
+                <rect key="frame" x="0.0" y="0.0" width="402" height="143"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lDK-ae-Uar">
-                        <rect key="frame" x="0.0" y="0.0" width="402" height="178"/>
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="143"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mahmoud" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acp-dO-oRJ">
-                                <rect key="frame" x="20" y="5" width="67.5" height="17"/>
+                                <rect key="frame" x="20" y="5" width="67.5" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="60R-Np-A9d"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fXb-iF-MOF">
-                                <rect key="frame" x="20" y="32" width="362" height="146"/>
+                                <rect key="frame" x="20" y="35" width="382" height="100"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -36,11 +38,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="acp-dO-oRJ" firstAttribute="leading" secondItem="lDK-ae-Uar" secondAttribute="leading" constant="20" id="1zr-Uc-UCO"/>
-                            <constraint firstItem="fXb-iF-MOF" firstAttribute="centerX" secondItem="lDK-ae-Uar" secondAttribute="centerX" id="SeK-Ls-m9k"/>
+                            <constraint firstItem="fXb-iF-MOF" firstAttribute="top" secondItem="acp-dO-oRJ" secondAttribute="bottom" constant="10" id="3Re-AS-mZs"/>
+                            <constraint firstAttribute="bottom" secondItem="fXb-iF-MOF" secondAttribute="bottom" constant="8" id="GKU-J5-AWK"/>
+                            <constraint firstAttribute="trailing" secondItem="fXb-iF-MOF" secondAttribute="trailing" id="INP-ra-ZEJ"/>
                             <constraint firstItem="acp-dO-oRJ" firstAttribute="top" secondItem="lDK-ae-Uar" secondAttribute="top" constant="5" id="e6F-ix-g1K"/>
-                            <constraint firstItem="fXb-iF-MOF" firstAttribute="width" secondItem="lDK-ae-Uar" secondAttribute="width" multiplier="0.9" id="ik1-br-CSe"/>
-                            <constraint firstAttribute="bottom" secondItem="fXb-iF-MOF" secondAttribute="bottom" id="sDz-CL-vEP"/>
-                            <constraint firstItem="fXb-iF-MOF" firstAttribute="top" secondItem="acp-dO-oRJ" secondAttribute="bottom" constant="10" id="yyM-VN-vY1"/>
+                            <constraint firstItem="fXb-iF-MOF" firstAttribute="leading" secondItem="lDK-ae-Uar" secondAttribute="leading" constant="20" id="kyj-6N-4Sa"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -51,13 +53,12 @@
                 <constraint firstItem="lDK-ae-Uar" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="WH4-tV-6fG"/>
                 <constraint firstAttribute="trailing" secondItem="lDK-ae-Uar" secondAttribute="trailing" id="ZKp-hF-VFH"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="402" height="178"/>
+            <size key="customSize" width="402" height="143"/>
             <connections>
                 <outlet property="reviewContentTextView" destination="fXb-iF-MOF" id="cRo-fO-bXY"/>
                 <outlet property="reviewerUserNameLabel" destination="acp-dO-oRJ" id="q9G-ht-1xc"/>
             </connections>
-            <point key="canvasLocation" x="145" y="84"/>
+            <point key="canvasLocation" x="144.92753623188406" y="71.986607142857139"/>
         </collectionViewCell>
     </objects>
 </document>
