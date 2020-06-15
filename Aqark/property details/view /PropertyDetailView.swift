@@ -13,7 +13,7 @@ import Cosmos
 
 class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var amenitiesHeader: UILabel!
-    @IBOutlet weak var cancelReview: UIButton!
+
     @IBOutlet weak var reviewSection: UIView!
     @IBOutlet weak var descriptionSection: UIView!
     @IBOutlet weak var agentSection: UIView!
@@ -23,7 +23,6 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var locationSection: UIView!
     @IBOutlet weak var viewsSection: UIView!
     @IBOutlet weak var specificationSection: UIView!
-    @IBOutlet weak var inputStack: UIStackView!
     @IBOutlet weak var locationTitle: UILabel!
     @IBOutlet weak var descriptionTitle: UILabel!
     @IBOutlet weak var agentTitle: UILabel!
@@ -69,8 +68,50 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     var arrOfReviewsViewModel : [ReviewViewModel]!
     var favButton : UIButton!
     @IBOutlet weak var reviewsCollectionView: UICollectionView!
+    
+    
+    /* ahmed saeed*/
+
+    @IBOutlet weak var contentHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var aminitiesCollectionHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var bottomscrollView: NSLayoutConstraint!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var reviewMessage: UIView!
+    var keyboardHeight: CGFloat = 0{
+        didSet{
+            bottomscrollView.constant = (keyboardHeight * -1)
+        }
+    }
+    
+    /* ahmed saeed*/
+    
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        
+        
+        
+        
+        
+        /* ahmed saeed*/
+        NotificationCenter.default.addObserver(self,selector: #selector(handle(keyboardShowNotification:)),
+        name: UIResponder.keyboardDidShowNotification,object: nil)
+        /* ahmedsaeed*/
+        
+        
+        
+        
+        
+        
+        
         setupViews()
         if PropertyDetailsNetworking.checkNetworkConnection(){
             self.showActivityIndicator()
@@ -91,6 +132,30 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
             content.isHidden = true
         }
     }
+    
+    
+    
+    
+    
+    
+    /* ahmed saeed*/
+    @objc
+    private func handle(keyboardShowNotification notification: Notification) {
+
+        if let userInfo = notification.userInfo,
+            let keyboardRectangle = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+            keyboardHeight = (keyboardRectangle.height)
+             //keyboardFrameEndUserInfoKey
+        }
+    }
+    /* ahmed saeed*/
+    
+    
+    
+    
+    
+    
+    
     @IBAction func showMap(_ sender: Any) {
         let lat = Double(self.advertisementDetails.latitude)
         let long = Double(self.advertisementDetails.longitude)
@@ -144,19 +209,13 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     }
     
     
-    @IBAction func cancelReview(_ sender: Any) {
-        
-        inputStack.isHidden = true
-        
-    }
-    
     
    private func setupViews()
     {
         self.navigationItem.title = "Property Details".localize
-        lawyers.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
-        interiorDesigner.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
-        porperties.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
+//        lawyers.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
+//        interiorDesigner.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
+//        porperties.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
         locationTitle.textColor = UIColor(rgb: 0x457b9d)
         agentTitle.textColor = UIColor(rgb: 0x457b9d)
         descriptionTitle.textColor = UIColor(rgb: 0x457b9d)
