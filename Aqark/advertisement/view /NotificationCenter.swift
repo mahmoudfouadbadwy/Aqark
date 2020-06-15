@@ -37,8 +37,8 @@ extension AddAdvertisementViewController
         var alert = UIAlertController(title: "pay", message: "you used all ads", preferredStyle: .alert)
                alert.addAction(UIAlertAction(title: "ok".localize, style: .default , handler:{ (UIAlertAction)in
                 self.showActivityIndicator()
-                self.addAdvertisementVM.payment = "premium"
-                   self.addAdvertisementVM.save()
+                self.addAdvertisementVM?.payment = "premium"
+                self.addAdvertisementVM?.save()
                }))
         self.present(alert, animated: true, completion: nil)
     }

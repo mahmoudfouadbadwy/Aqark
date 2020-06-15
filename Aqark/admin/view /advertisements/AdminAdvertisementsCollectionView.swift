@@ -27,6 +27,7 @@ import UIKit
             advertisementCell.adminAdvertisementsDelegate = self
             advertisementCell.adminAdvertisementsCellIndex = indexPath
             advertisementCell.advertisementPropertyType.text = adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyType
+            advertisementCell.advertismentPaymentType.text = adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPaymentType
             advertisementCell.advertisementPropertyPrice.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyPrice
             advertisementCell.advertisementPropertyAddress.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertyAddress
             advertisementCell.advertisementPropertySize.text = self.adminAdvertisementViewModel.adminAdvertisementsViewList[indexPath.row].advertisementPropertySize

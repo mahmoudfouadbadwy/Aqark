@@ -27,10 +27,10 @@ class LoginViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
         if ProfileNetworking.checkAuthuntication(){
-            if !ProfileNetworking.isAdmin()
-            {
-                self.profile = ProfileViewController()
-                self.navigationController?.pushViewController(profile, animated: true)
+            if !ProfileNetworking.isAdmin(){
+               gotoProfileView()
+            }else{
+                gotoAdminView()
             }
         }else
         {
