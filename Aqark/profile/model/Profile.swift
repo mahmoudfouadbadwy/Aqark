@@ -12,7 +12,6 @@ struct Profile{
     var picture:String
     var username:String
     var country:String
-    var address:String
     var company:String
     var phone:String
     var experience:String

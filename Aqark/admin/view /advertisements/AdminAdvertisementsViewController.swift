@@ -28,59 +28,65 @@ class AdminAdvertisementsViewController: UIViewController,AdminAdvertisementsRep
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        isDisappearing = false
-        noLabel.isHidden = true
         self.tabBarController?.navigationItem.title = "Advertisements"
-        dataAccess = AdminDataAccess()
-        adminAdvertisementViewModel = AdminAdvertisementsListViewModel(dataAccess:dataAccess)
-        if(adminAdvertisementViewModel.checkNetworkConnection()){
+        if(AdminNetworking.checkNetworkConnection()){
+            isDisappearing = false
+            dataAccess = AdminDataAccess()
+            adminAdvertisementViewModel = AdminAdvertisementsListViewModel(dataAccess:dataAccess)
             if let reportedAdvertisementId = reportedAdvertisementId{
                 getReportedAdvertisement(reportedAdvertisementId)
             }else{
                 bindAdvertisementsCollection()
             }
         }else{
-                setupNoConnection()
+            setupNoConnection()
+        }
+    }
+    
+    private func setupViews() {
+        advertisementsSearchBar.backgroundColor = UIColor(rgb: 0xf1faee)
+        advertisementsSearchBar.barTintColor = UIColor(rgb: 0xf1faee)
+        advertisementsCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
+        view.backgroundColor = UIColor(rgb: 0xf1faee)
+        view.alpha = 0.5
+    }
+    
+    private func setupAdvertisementsCollection() {
+        advertisementsCollectionView.register(UINib(nibName: "AdminAdvertisementCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Advertisement Cell")
+        advertisementsCollectionView.delegate = self
+        advertisementsCollectionView.dataSource = self
+    }
+    
+    private func bindAdvertisementsCollection() {
+        noLabel.isHidden = true
+        showActivityIndicator()
+        adminAdvertisementViewModel.populateAdvertisements {[weak self] in
+            self?.stopActivityIndicator()
+            UIView.animate(withDuration:2){
+                self?.view.alpha = 1
             }
-        }
-        
-        private func setupViews() {
-            advertisementsSearchBar.backgroundColor = UIColor(rgb: 0xf1faee)
-            advertisementsSearchBar.barTintColor = UIColor(rgb: 0xf1faee)
-            advertisementsCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
-            view.backgroundColor = UIColor(rgb: 0xf1faee)
-            view.alpha = 0.5
-        }
-        
-        private func setupAdvertisementsCollection() {
-            advertisementsCollectionView.register(UINib(nibName: "AdminAdvertisementCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Advertisement Cell")
-            advertisementsCollectionView.delegate = self
-            advertisementsCollectionView.dataSource = self
-        }
-        
-        private func bindAdvertisementsCollection() {
-            showActivityIndicator()
-            adminAdvertisementViewModel.populateAdvertisements {[weak self] in
-                self?.stopActivityIndicator()
-                UIView.animate(withDuration:2){
-                    self?.view.alpha = 1
-                }
+            if(!self!.adminAdvertisementViewModel.adminAdvertisementsViewList.isEmpty){
                 if(!self!.advertisementsSearchBar.text!.isEmpty){
                     self?.adminAdvertisementViewModel.getFilteredAdvertisements(searchText: self!.advertisementsSearchBar.text!)
                     if(self!.adminAdvertisementViewModel.adminAdvertisementsViewList.isEmpty){
                         self?.setLabelForZeroCount(text: "No available advertisements")
                     }else{
                         self?.noLabel.isHidden = true
-                        self?.advertisementsSearchBar.isHidden = false
                     }
                 }
-                self?.advertisementsCollectionView.reloadData()
+                self?.advertisementsSearchBar.isHidden = false
+            }else{
+                self?.setLabelForZeroCount(text: "No available advertisements")
+                self?.advertisementsSearchBar.isHidden = true
             }
+            self?.advertisementsCollectionView.reloadData()
         }
+    }
     
     private func setupNoConnection() {
         noLabel.isHidden = false
         noLabel.text = "Internet Connection Not Available"
+        advertisementsSearchBar.isHidden = true
     }
     
     private func getReportedAdvertisement(_ reportedAdvertisementId: String) {
@@ -114,9 +120,11 @@ class AdminAdvertisementsViewController: UIViewController,AdminAdvertisementsRep
     
     override func viewWillDisappear(_ animated: Bool) {
         isDisappearing = true
-        adminAdvertisementViewModel.removeAdvertisementsObservers()
-        adminAdvertisementViewModel.adminAdvertisementsViewList.removeAll()
-        advertisementsCollectionView.reloadData()
+        if adminAdvertisementViewModel != nil{
+            adminAdvertisementViewModel.removeAdvertisementsObservers()
+            adminAdvertisementViewModel.adminAdvertisementsViewList.removeAll()
+            advertisementsCollectionView.reloadData()
+        }
         dataAccess = nil
         adminAdvertisementViewModel = nil
     }

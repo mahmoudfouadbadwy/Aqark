@@ -18,22 +18,6 @@ extension ProfileViewController{
             self?.setProfilePicture(url:profileData.picture)
             self?.setUserRate(rate:profileData.rate)
             self?.ban = profileData.ban
-            if profileData.role.lowercased().elementsEqual("user")
-            {
-                 self?.setupOptionalViews(hide: true)
-                 self?.containerStack.spacing = 0
-                 self?.containerHeight.constant = 0
-            }
-            else
-            {
-                self?.countryName.text = profileData.country.localize
-                self?.setCompanyName(with: profileData.company)
-                self?.setAddress(with: profileData.address)
-                self?.phoneValue.text = (self?.convertNumbers(lang: "lang".localize, stringNumber:"0").1)! + (self?.convertNumbers(lang: "lang".localize, stringNumber: profileData.phone).1)!
-                self?.setExperience(exp: profileData.experience)
-                self?.setupOptionalViews(hide: false)
-            }
-            
             }, onFailure: {
                 (error) in
                 print("\(error.localizedDescription)")
@@ -44,52 +28,6 @@ extension ProfileViewController{
     {
         profilePicture.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "profile_user"))
     }
-    private  func setCompanyName(with name:String)
-    {
-        if name.elementsEqual("")
-        {
-            self.companyName.text = "No Value"
-        }else
-        {
-            self.companyName.text = name
-        }
-    }
-    private   func setAddress(with address:String)
-    {
-        if (address.elementsEqual(""))
-        {
-            self.addressText.text = "No Value"
-        }
-        else
-        {
-            self.addressText.text = address
-        }
-    }
-    private func setExperience(exp:String)
-    {
-        if (exp.elementsEqual(""))
-        {
-            self.experienceValue.text = "No Value"
-        }
-        else
-        {
-            if exp.elementsEqual("1")
-            {
-                if "lang".localize.elementsEqual("en"){
-                     self.experienceValue.text =  self.convertNumbers(lang: "lang".localize, stringNumber: exp).1 + "year"
-                }else{
-                    self.experienceValue.text =  "year".localize
-                }
-               
-            }
-            else
-            {
-                self.experienceValue.text =  self.convertNumbers(lang: "lang".localize, stringNumber: exp).1 + "years".localize
-            }
-            
-        }
-    }
-    
     private func setUserRate(rate:[String:Double])
     {
         let rates = rate

@@ -24,13 +24,12 @@ class ProfileDataAccess{
                 let userRole = value?["role"] as? String ?? ""
                 let picture = value?["picture"] as? String ?? ""
                 let country = value?["country"] as? String ?? ""
-                let address = value?["address"] as? String ?? ""
                 let company = value?["company"] as? String ?? ""
                 let phone = value?["phone"] as? String ?? ""
                 let exp = value?["experience"] as? String ?? ""
                 let rate = value?["rate"] as? [String:Double] ?? ["":0.0]
                 let ban = value?["banned"] as? Bool ?? false
-                let profile:Profile = Profile(role: userRole, picture: picture, username: username, country: country, address: address, company: company, phone: phone, experience: exp, rate: rate, ban: ban)
+                let profile:Profile = Profile(role: userRole, picture: picture, username: username, country: country, company: company, phone: phone, experience: exp, rate: rate, ban: ban)
                 onSuccess(profile)
                 
             }
@@ -41,19 +40,24 @@ class ProfileDataAccess{
     
     func profileLogout()
     {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
+        if ProfileNetworking.checkNetworkConnection(){
+            let firebaseAuth = Auth.auth()
+            do {
+                try firebaseAuth.signOut()
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
         }
     }
     
     
     func reomveProfileDataObserver()
     {
-        guard let userID = Auth.auth().currentUser?.uid else {return}
-        profileDataRef.child("Users").child(userID).removeAllObservers()
+        if ProfileNetworking.checkNetworkConnection(){
+            guard let userID = Auth.auth().currentUser?.uid else {return}
+            profileDataRef.child("Users").child(userID).removeAllObservers()
+            
+        }
         profileDataRef = nil
     }
 }

@@ -11,21 +11,22 @@ import Foundation
 extension SignUpView{
     func createUserAccount(email:String,password:String,confirm:String,username:String)
     {
-        accountViewModel = AccountViewModel(email: email, password: password, confirmPassword: confirm, username: username)
-        checkValidation()
+        userViewModel = AccountViewModel(email: email, password: password, confirmPassword: confirm, username: username)
+        checkValidation(for: userViewModel)
     }
     func createServiceAccount(email:String,password:String,confirm:String,username:String,
                               phone:String,country:String,company:String){
-        accountViewModel = AccountViewModel(email: email, password: password, confirmPassword: confirm, username: username, phone: phone, country: country, company: company,role:role)
-        checkValidation()
+        serviceViewModel = AccountViewModel(email: email, password: password, confirmPassword: confirm, username: username, phone: phone, country: country, company: company,role:role)
+        checkValidation(for: serviceViewModel)
     }
     
-    func checkValidation()
+    func checkValidation(for viewModel : AccountViewModel)
     {
-        if (accountViewModel.isValid)
+        if (viewModel.isValid)
         {
+            signUpDataAccess = SignUpDataAccess()
             showActivityIndicator()
-            accountViewModel.performCreation(dataAccess: SignUpDataAccess(),completion: {[weak self]
+            viewModel.performCreation(dataAccess: signUpDataAccess ,completion: {[weak self]
                 (result,flag) in
                 
                 if flag
@@ -41,14 +42,14 @@ extension SignUpView{
         }
         else
         {
-            self.showAlert(with: accountViewModel.brokenRules[0].message)
+            self.showAlert(with: viewModel.brokenRules[0].message)
         }
     }
     
     func gotoProfileView()
     {
         self.navigationController?.popViewController(animated: true)
-        let profileView:ProfileViewController = ProfileViewController()
+        profileView = ProfileViewController()
         self.navigationController?.pushViewController(profileView, animated: true)
     }
 }

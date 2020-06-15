@@ -21,43 +21,42 @@ extension AddAdvertisementViewController{
          self.amenitiesTitle.textColor = UIColor(rgb: 0x457b9d)
          self.collectionView.backgroundColor = UIColor(rgb: 0xf1faee)
          blackIndicatorView.isHidden = true
-        //setup textview
+        
         describtionTxtView.layer.borderWidth = 1
         describtionTxtView.layer.borderColor = UIColor(rgb: 0x1d3557).cgColor
         describtionTxtView.layer.cornerRadius = 10
-        //country stack view
-        countryView.isHidden = true
-        let screenSize: CGRect = UIScreen.main.bounds
-        countryView.heightConstraint?.constant = screenSize.height;
-         //collectionView
-         collectionView.delegate = self
-         collectionView.dataSource = self
-         registerCellOfCollectionView()
-         collectionView.register(UINib(nibName: "AddAdvertisementsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "idAddAdvertisementsCollectionViewCell")
-        //text fields gesture
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        registerCellOfCollectionView()
+        collectionView.register(UINib(nibName: "AddAdvertisementsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "idAddAdvertisementsCollectionViewCell")
+        
         priceTxtField.delegate = self
         sizeTxtField.delegate = self
         addressTxtField.delegate = self
         phoneTxtField.delegate = self
         BedroomsTxtField.delegate = self
         BathroomTxtField.delegate = self
-        countyTxtField.delegate = self
         self.makeTappedGesture()
-         //autocomplete delegation
-         autocompletecontroller.delegate = self
-         // picker view
-         pickerViewPropertyType = ["Apartment" , "Villa" ,  "Room" ]
-         pickerView.delegate = self
-         pickerView.dataSource = self
-         // add tapgestrure Regoginzer to imageview
-         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(choosePhotos)))
-         imageView.isUserInteractionEnabled = true
-         // configtation of YPOmagePicker
-         configtationYPOmagePicker()
-         // setup image in letf textfield
-         setupImageInLeftTextField()
+     
+     
+        autocompletecontroller?.delegate = self
+     
+        pickerViewPropertyType = ["Apartment" , "Villa" ,  "Room" ]
+        pickerView.delegate = self
+        pickerView.dataSource = self
+         
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(choosePhotos)))
+        imageView.isUserInteractionEnabled = true
+        
+        configtationYPOmagePicker()
+        
+        setupImageInLeftTextField()
+        
      }
-
+    
+    
+    
     func makeTappedGesture()
     {
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.makeDissmissKeyboard))
@@ -79,11 +78,10 @@ extension AddAdvertisementViewController{
     func setupImageInLeftTextField(){
         priceTxtField.setIcon(UIImage(named: "money")!)
         phoneTxtField.setIcon(UIImage(named: "phone")!)
-        sizeTxtField.setIcon(UIImage(named:"ad_size")!)
+        sizeTxtField.setIcon(UIImage(named:"propertySize")!)
         addressTxtField.setIcon(UIImage(named: "profile_map")!)
-        BedroomsTxtField.setIcon(UIImage(named: "ad_bed")!)
-        BathroomTxtField.setIcon(UIImage(named: "ad_bath")!)
-        countyTxtField.setIcon(UIImage(named: "country")!)
+        BedroomsTxtField.setIcon(UIImage(named: "bedroom")!)
+        BathroomTxtField.setIcon(UIImage(named: "bathroom")!)
     }
 }
 

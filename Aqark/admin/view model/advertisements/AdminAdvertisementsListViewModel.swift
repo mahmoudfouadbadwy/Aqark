@@ -14,7 +14,7 @@ class AdminAdvertisementsListViewModel{
     var adminAdvertisementsViewList : [AdminAdvertisementViewModel] = [AdminAdvertisementViewModel]()
     var adminAdvertisementsList : [AdminAdvertisementViewModel] = [AdminAdvertisementViewModel]()
     var adminFilteredAdvertisementsList : [AdminAdvertisementViewModel] = [AdminAdvertisementViewModel]()
-    let dataAccess : AdminDataAccess!
+    var dataAccess : AdminDataAccess!
     
     init(dataAccess:AdminDataAccess) {
         self.dataAccess = dataAccess
@@ -51,14 +51,9 @@ class AdminAdvertisementsListViewModel{
         }
     }
     
-    func checkNetworkConnection()->Bool{
-        let connection = Reachability()
-        guard let status = connection?.isReachable else{return false}
-        return status
-    }
-    
     func removeAdvertisementsObservers(){
         dataAccess.removeAdvertisementsObservers()
+        dataAccess = nil
     }
     
 }

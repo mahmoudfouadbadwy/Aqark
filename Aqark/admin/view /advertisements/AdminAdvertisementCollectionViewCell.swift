@@ -11,6 +11,7 @@ import UIKit
 class AdminAdvertisementCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var advertisementPropertyImage: UIImageView!
     @IBOutlet weak var advertisementPropertyType: UILabel!
+    @IBOutlet weak var advertismentPaymentType: UILabel!
     @IBOutlet weak var advertisementPropertyPrice: UILabel!
     @IBOutlet weak var advertisementPropertyAddress: UILabel!
     @IBOutlet weak var advertisementPropertyBedNumbers: UILabel!

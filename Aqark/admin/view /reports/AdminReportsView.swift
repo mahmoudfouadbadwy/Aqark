@@ -32,9 +32,6 @@ class AdminReportsView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if !ReportNetwork.checkNetworkConnection(){
-           setupNoConnectionView()
-        }
         setupReportsCollection()
         setupCollectionGeusture()
         
@@ -48,7 +45,7 @@ class AdminReportsView: UIViewController {
         }
         else
         {
-           setupNoConnectionView()
+            setupNoConnectionView()
         }
     }
     
@@ -59,9 +56,11 @@ class AdminReportsView: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-         adminReportViewModel.removeObservers()
-         adminReportViewModel = nil
-         reportData = nil
+        if adminReportViewModel != nil {
+            adminReportViewModel.removeObservers()
+        }
+        adminReportViewModel = nil
+        reportData = nil
     }
     
     deinit {

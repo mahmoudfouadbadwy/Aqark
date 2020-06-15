@@ -10,13 +10,12 @@ import Foundation
 import Firebase
 
 class ReportData{
-    var dataBaseRef: DatabaseReference!
+    var dataBaseRef: DatabaseReference! = Database.database().reference()
     var newReport : [String : Any] = [String : Any]()
      var reportModel: ReportModel!
     var idAutoGenerator :String!
     
     func addReport(reportModel : ReportModel,completion:@escaping(_ result: Bool?)->Void){
-        self.dataBaseRef = Database.database().reference()
         idAutoGenerator = dataBaseRef.childByAutoId().key!
         newReport = [
         "ReportText": reportModel.reportText,

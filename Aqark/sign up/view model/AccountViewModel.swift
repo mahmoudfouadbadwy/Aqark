@@ -73,6 +73,7 @@ extension AccountViewModel{
             self.validateConfirmPassword()
             self.validateUsername()
             self.validatePhone()
+            self.validateAddress()
         }
     }
 }
@@ -149,6 +150,20 @@ extension AccountViewModel{
         }
     }
 }
+
+//MARK: - Validate Address
+extension AccountViewModel{
+    func validateAddress()
+    {
+        if(self.country.isEmpty)
+        {
+            self.brokenRules.append(SignUpBrokenRule(name:"address",message: "Address must be provided."))
+        }
+        
+    }
+}
+
+
 
 
 

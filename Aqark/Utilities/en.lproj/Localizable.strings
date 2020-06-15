@@ -21,7 +21,7 @@
 
 /********************************** search View ********************************/
 
-"Advertisements" = "Advertisements";
+"AQARK" = "AQARK";
 
 "Price(High)" = "Price(High)";
 "Price(Low)" = "Price(Low)";
@@ -81,7 +81,6 @@
 "Banha" = "Banha";
 "Kafr el-Sheikh" = "Kafr el-Sheikh";
 "Arish" = "Arish";
-"Minya" = "Minya";
 "Sharqia" = "Sharqia";
 "Beheira" = "Beheira";
 "Menofia" = "Menofia";
@@ -111,7 +110,6 @@
 "بنها"="Banha";
 "كفر الشيخ"="Kafr el-Sheikh";
 "العريش"="Arish";
-"المنيا"="Minya";
 "الشرقيه"="Sharqia";
 "البحيره"="Beheira";
 "المنوفيه"="Menofia";
@@ -194,7 +192,7 @@
 "Covered Parking" = "Covered Parking";
 "Pets Allowed" = "Pets Allowed";
 "Barbecue Area" = "Barbecue Area";
-"Balcony" = "شرفة";
+"Balcony" = "Balcony";
 "Walk-in Closet" = "Walk-in Closet";
 "Study" = "Study";
 "Private garden" = "Private garden";

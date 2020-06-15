@@ -13,18 +13,14 @@ import SDWebImage
 class ProfileViewController: UIViewController {
     @IBOutlet weak var noAdvertisementsLabel: UILabel!
     @IBOutlet weak var rate: CosmosView!
-    @IBOutlet weak var containerHeight: NSLayoutConstraint!
-    @IBOutlet weak var experienceValue: UILabel!
-    @IBOutlet weak var containerStack: UIStackView!
-    @IBOutlet weak var phoneValue: UILabel!
-    @IBOutlet weak var editProfile: UIButton!
+    @IBOutlet weak var addAdvertisement: UIButton!
     @IBOutlet weak var advertisementsCollection: UICollectionView!
-    @IBOutlet weak var companyName: UILabel!
-    @IBOutlet weak var addressText: UILabel!
     @IBOutlet weak var username: UILabel!
-    @IBOutlet weak var countryName: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
     var ban:Bool!
+    var logout: UIBarButtonItem!
+    var editViewController:EditProfileViewController!
+    var addAdvertisment: AddAdvertisementViewController!
     var advertisement:ProfileAdvertisementViewModel!
     var profileViewModel:ProfileStore!
     var advertisementViewModel:ProfileAdvertisementListViewModel!
@@ -43,26 +39,18 @@ class ProfileViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        if(ProfileNetworking.checkNetworkConnection())
-        {
-            setupView()
-            setupCollection()
-            noAdvertisementsLabel.isHidden = true
-        }
-        else
-        {
-            setUpNoConnectionView()
-        }
+        setupView()
+        setupCollection()
     }
     override func viewWillAppear(_ animated: Bool) {
         if (ProfileNetworking.checkNetworkConnection())
         {
-                setUpViewMoelsObjects()
-                showActivityIndicator()
-                setNavigationProperties()
-                bindProfileData()
-                bindCollectionData()
-                noAdvertisementsLabel.isHidden = true
+            setUpViewMoelsObjects()
+            showActivityIndicator()
+            setNavigationProperties()
+            bindProfileData()
+            bindCollectionData()
+            noAdvertisementsLabel.isHidden = true
         }
         else
         {
@@ -76,15 +64,38 @@ class ProfileViewController: UIViewController {
             ProfileAdvertisementListViewModel(data: ProfileDataAccess())
         deleteViewModel = AdvertisementDelete(dataAcees: ProfileDataAccess())
     }
-    deinit{
-        profileViewModel.removeProfileDataObservers()
+    
+    @IBAction func addAdvertisement(_ sender: Any) {
+        if self.ban
+        {
+            showAlert(title:"Bolcking".localize,message:"You Are Blocked From Adding Advertisements".localize)
+        }
+        else
+        {
+            addAdvertisment = AddAdvertisementViewController()
+             self.navigationController?.pushViewController(addAdvertisment, animated: true)
+        }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        if profileViewModel != nil {
+            profileViewModel.removeProfileDataObservers()
+        }
+        if advertisementViewModel != nil {
+            advertisementViewModel.removeProfileAdvertisementsObservers()
+        }
+        if deleteViewModel != nil {
+            deleteViewModel.removeDeleteObserver()
+        }
         profileViewModel = nil
-        advertisementViewModel.removeProfileAdvertisementsObservers()
         advertisementViewModel = nil
-        deleteViewModel.removeDeleteObserver()
         deleteViewModel = nil
-        listOfAdvertisements = nil
         advertisement = nil
-        print("deinit profile")
+        logout = nil
+        editViewController = nil
+        addAdvertisment = nil
+      
+    }
+    deinit {
+        listOfAdvertisements = nil
     }
 }
