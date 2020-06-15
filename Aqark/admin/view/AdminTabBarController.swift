@@ -33,7 +33,7 @@ class AdminTabBarController: UITabBarController {
         tabBar.barTintColor = UIColor(rgb: 0xf1faee)
         adminUserViewController.tabBarItem = UITabBarItem(title: "Users", image: UIImage(named: "profile"), selectedImage: UIImage(named: "profile"))
         adminAdvertisementViewController.tabBarItem = UITabBarItem(title: "Advertisements", image: UIImage(named: "propertyType"), selectedImage: UIImage(named: "propertyType"))
-        adminReportsView.tabBarItem = UITabBarItem(title: "Reports", image: UIImage(named: "report"), tag: 3)
+        adminReportsView.tabBarItem = UITabBarItem(title: "Reports", image: UIImage(named: "admin_reports"), tag: 3)
         self.viewControllers = [adminAdvertisementViewController,adminUserViewController,adminReportsView]
     }
     

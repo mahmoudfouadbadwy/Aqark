@@ -8,7 +8,6 @@
 
 import Foundation
 import Firebase
-import ReachabilitySwift
 
 class ServicesListViewModel{
     
@@ -66,15 +65,8 @@ class ServicesListViewModel{
         }
     }
     
-    func checkNetworkConnection()->Bool{
-        let connection = Reachability()
-        guard let status = connection?.isReachable else{return false}
-        return status
-    }
-    
     private func filterUsers(serviceUsers : [ServiceUser]){
         for serviceUser in serviceUsers{
-            print("service user : " , serviceUser.userRole.localize)
             switch serviceUser.userRole.lowercased() {
             case ServiceUserRole.lawyer:
                 let lawyer = ServiceUserViewModel(serviceUser: serviceUser)
@@ -85,5 +77,10 @@ class ServicesListViewModel{
             default: break
             }
         }
+    }
+    
+    func removeServicesObservers(){
+        dataAccess?.removeServicesObservers()
+        dataAccess = nil
     }
 }

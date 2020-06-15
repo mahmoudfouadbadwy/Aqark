@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AdminAdvertisementViewModel{
+struct AdminAdvertisementViewModel{
     var advertisementId : String = ""
     var advertisementUserId : String = ""
     var advertisementType : String = ""

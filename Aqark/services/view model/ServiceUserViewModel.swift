@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ServiceUserViewModel{
+struct ServiceUserViewModel{
     var serviceUserId : String = ""
     var serviceUserName : String = ""
     var serviceUserCountry : String = ""

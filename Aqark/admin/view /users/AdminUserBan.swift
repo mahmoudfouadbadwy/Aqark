@@ -16,7 +16,7 @@ extension AdminUsersViewController:AdminUsersDelegate{
     }
     
     func banUserDelegate(isBanned : Bool ,at indexPath: IndexPath) {
-        if(adminUsersViewModel.checkNetworkConnection()){
+        if(AdminNetworking.checkNetworkConnection()){
             let userId = adminUsersViewModel.adminUsersViewList[indexPath.row].userId
             adminUsersViewModel.banUser(isBanned: isBanned, userId: userId)
         }else{

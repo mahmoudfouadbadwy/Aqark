@@ -59,7 +59,7 @@ extension SearchViewController{
          return self.adsSortedList
     }
     
-    func showSortingAlert(){
+     @objc  func showSortingAlert(){
 //        print(isFiltering)
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Price(High)".localize, style: .default , handler:{ [weak self] (UIAlertAction)in

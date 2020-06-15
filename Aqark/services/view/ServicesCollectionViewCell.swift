@@ -34,12 +34,12 @@ class ServicesCollectionViewCell: UICollectionViewCell {
         rateMeView.didFinishTouchingCosmos = {rating in
             self.rateMeButton.alpha = 0
             self.rateMeButton.isHidden = false
-            UIView.animate(withDuration: 0.6, animations: {
-                self.rateMeView.alpha = 0
-                self.rateMeButton.alpha = 1
-            }) { (finished) in
-                self.rateMeView.isHidden = finished
-                self.serviceUserDelegate.rateServiceUserDelegate(at: self.serviceUserCellIndex,rate:rating)
+            UIView.animate(withDuration: 0.6, animations: {[weak self] in
+                self?.rateMeView.alpha = 0
+                self?.rateMeButton.alpha = 1
+            }) { [weak self] (finished) in
+                self?.rateMeView.isHidden = finished
+                self?.serviceUserDelegate.rateServiceUserDelegate(at: self!.serviceUserCellIndex,rate:rating)
             }
         }
     }

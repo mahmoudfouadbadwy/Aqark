@@ -18,7 +18,7 @@ extension AdminUsersViewController : UITableViewDelegate{
 extension AdminUsersViewController :UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return adminUsersViewModel.adminUsersViewList.count
+        return isDisappearing ? 0 : self.adminUsersViewModel.adminUsersViewList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
