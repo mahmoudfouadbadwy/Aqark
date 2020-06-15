@@ -72,12 +72,14 @@ extension PropertyDetailView:UICollectionViewDataSource{
         if collectionView == amenitiesCollection{
             if self.advertisementDetails.amenities.count > 0
             {
+                
                 return self.advertisementDetails.amenities.count
             }
             else
             {
                 amenitiesHeight.constant = 0
                 amenitiesTopSpace.constant = 0
+                amenitiesSection.isHidden = true
                 return 0
             }
         }else{
@@ -109,7 +111,54 @@ extension PropertyDetailView:UICollectionViewDataSource{
 extension PropertyDetailView:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == amenitiesCollection{
-            return CGSize(width: collectionView.frame.width/2, height: collectionView.frame.height/5)
+            
+            var itemSize:CGSize!
+            if self.advertisementDetails.amenities.count <= 2{
+                contentHeight.constant = 90 + 1000
+                amenitiesHeight.constant = 90
+                aminitiesCollectionHeight.constant = 30
+                itemSize = CGSize(width: collectionView.frame.width/2, height:30)
+                
+            }else if self.advertisementDetails.amenities.count <= 4{
+                contentHeight.constant = 120 + 1000
+                amenitiesHeight.constant = 120
+                aminitiesCollectionHeight.constant = 60
+                itemSize = CGSize(width: collectionView.frame.width/2, height:30 )
+                
+            }else if self.advertisementDetails.amenities.count <= 6{
+                contentHeight.constant = 150 + 1000
+                amenitiesHeight.constant = 150
+                aminitiesCollectionHeight.constant = 90
+                itemSize = CGSize(width: collectionView.frame.width/2, height: 30)
+            }else if self.advertisementDetails.amenities.count <= 8{
+                contentHeight.constant = 180 + 1000
+                amenitiesHeight.constant = 180
+                aminitiesCollectionHeight.constant = 120
+                itemSize = CGSize(width: collectionView.frame.width/2, height: 30)
+            }else if self.advertisementDetails.amenities.count <= 10{
+                contentHeight.constant = 210 + 1000
+                amenitiesHeight.constant = 210
+                aminitiesCollectionHeight.constant = 150
+                itemSize = CGSize(width: collectionView.frame.width/2, height: 30)
+            }else if self.advertisementDetails.amenities.count <= 12{
+                contentHeight.constant = 240 + 1000
+                amenitiesHeight.constant = 240
+                aminitiesCollectionHeight.constant = 180
+                itemSize = CGSize(width: collectionView.frame.width/2, height: 30)
+            }else if self.advertisementDetails.amenities.count <= 14{
+                contentHeight.constant = 270 + 1000
+                amenitiesHeight.constant = 270
+                aminitiesCollectionHeight.constant = 210
+                itemSize = CGSize(width: collectionView.frame.width/2, height: 30)
+            }else{
+                contentHeight.constant = 300 + 1000
+                amenitiesHeight.constant = 300
+                aminitiesCollectionHeight.constant = 240
+                itemSize = CGSize(width: collectionView.frame.width/2, height: 30)
+            }
+            
+            return itemSize
+            
         }else{
             return CGSize(width: collectionView.frame.width - 50, height: collectionView.frame.height - 10)
             

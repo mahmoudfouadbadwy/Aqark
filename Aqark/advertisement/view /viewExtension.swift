@@ -82,6 +82,7 @@ extension AddAdvertisementViewController{
         addressTxtField.setIcon(UIImage(named: "profile_map")!)
         BedroomsTxtField.setIcon(UIImage(named: "bedroom")!)
         BathroomTxtField.setIcon(UIImage(named: "bathroom")!)
+
     }
 }
 

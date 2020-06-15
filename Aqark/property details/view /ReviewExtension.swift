@@ -15,8 +15,8 @@ extension PropertyDetailView {
         if !addReviewContentTextView.text.isEmpty{
             self.advertisementReviewViewModel.setReviewData(reviewContent: addReviewContentTextView.text, advertisementId : advertisementId)
             addReviewContentTextView.text = ""
-            inputStack.isHidden = true
-            submitReviewBtn.isHidden = true
+
+            reviewMessage.isHidden = true
         }
     }
     
@@ -37,22 +37,24 @@ extension PropertyDetailView {
         })
     }
     func manageReviewAppearence(){
-        inputStack.isHidden = true
-        submitReviewBtn.isHidden = true
+        reviewMessage.isHidden = true
+         bottomscrollView.constant = (keyboardHeight * 1)
+        
         if propertyViewModel.checkAdvertisementOwner(agentId: advertisementDetails.userID) || !advertisementReviewViewModel.checkUserAuth(){
             addReviewBtn.isHidden = true
         }else{
             addReviewBtn.isHidden = false
+             
         }
     }
     func manageAddReviewOutlets(){
-        inputStack.isHidden = false
-        submitReviewBtn.isHidden = false
-        submitReviewBtn.layer.cornerRadius = 10
-        addReviewContentTextView.layer.cornerRadius = 20
+        reviewMessage.isHidden = false
+        
+        
+        
+        addReviewContentTextView.becomeFirstResponder()
         addReviewContentTextView.layer.borderColor = UIColor(rgb: 0x1d3557).cgColor
         addReviewContentTextView.layer.borderWidth = 1.0
-        cancelReview.layer.cornerRadius = 10
     }
     
 }

@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /* start shrouk*/
         FirebaseApp.configure()
         GMSPlacesClient.provideAPIKey("AIzaSyBcAep0YORoUFFlmvyyE-QzwhkUkPDl5bM")
+
         /* end shrouk*/
         /* start fouad*/
         window = UIWindow()
