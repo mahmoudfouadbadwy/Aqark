@@ -90,7 +90,9 @@ extension ProfileDataAccess{
         guard let userID = Auth.auth().currentUser?.uid else {return}
         profileAdvertisementsIDsRef.child("Users_Ads").child(userID).child("advertisements").removeObserver(withHandle: profileAdvertisementsIDsHandel)
         profileAdvertisementsIDsRef = nil
+
         profileAdvertisementsIDsHandel = nil
+
         allAdvertisementsRef = nil
     }
     

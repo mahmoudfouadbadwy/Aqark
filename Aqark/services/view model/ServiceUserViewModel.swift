@@ -28,4 +28,10 @@ struct ServiceUserViewModel{
         self.ServiceUserImage = serviceUser.userImage
         self.serviceUserPhone = serviceUser.userPhone
     }
+    
+    func splitCountry(_ country:String) -> String{
+        return country.components(separatedBy: ",")[1]
+    }
 }
+
+
