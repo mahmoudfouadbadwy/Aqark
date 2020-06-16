@@ -22,8 +22,6 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var rateMeButton: UIButton!
     @IBOutlet weak var dialerButton: UIButton!
 
-    @IBOutlet weak var companyStack: UIStackView!
-    @IBOutlet weak var experienceStack: UIStackView!
     
     var serviceUserCellIndex : IndexPath!
     weak var serviceUserDelegate : ServiceUsersCollectionDelegate!
@@ -68,7 +66,7 @@ class ServicesCollectionViewCell: UICollectionViewCell {
             //dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
         }
         
-        if(serviceUserCompany.text == ""){
+       /* if(serviceUserCompany.text == ""){
             companyStack.isHidden = true
         }else if(serviceUserCompany.text != "" && companyStack.isHidden == true){
             companyStack.isHidden = false
@@ -78,7 +76,7 @@ class ServicesCollectionViewCell: UICollectionViewCell {
             experienceStack.isHidden = true
         }else if(experienceStack.isHidden == true && serviceUserExperience.text != " years exp"){
             experienceStack.isHidden = false
-        }
+        }*/
     }
     
     @IBAction func rateServiceUser(_ sender: Any) {
