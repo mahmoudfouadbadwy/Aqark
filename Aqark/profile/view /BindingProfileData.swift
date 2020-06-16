@@ -11,17 +11,19 @@ import UIKit
 extension ProfileViewController{
     func bindProfileData()
     {
-        profileViewModel.getProfileData(onSuccess: {[weak self]
-            (profileData) in
-            self?.hideAllElements(status: false)
-            self?.username.text = profileData.username
-            self?.setProfilePicture(url:profileData.picture)
-            self?.setUserRate(rate:profileData.rate)
-            self?.ban = profileData.ban
-            }, onFailure: {
-                (error) in
-                print("\(error.localizedDescription)")
-        })
+        if profileViewModel != nil {
+            profileViewModel.getProfileData(onSuccess: {[weak self]
+                (profileData) in
+                self?.hideAllElements(status: false)
+                self?.username.text = profileData.username
+                self?.setProfilePicture(url:profileData.picture)
+                self?.setUserRate(rate:profileData.rate)
+                self?.ban = profileData.ban
+                }, onFailure: {
+                    (error) in
+                    print("\(error.localizedDescription)")
+            })
+        }
     }
     
     private func setProfilePicture(url:String)

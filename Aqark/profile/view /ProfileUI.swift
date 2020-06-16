@@ -22,6 +22,9 @@ extension ProfileViewController{
         self.advertisementsCollection.backgroundColor = UIColor(rgb: 0xf1faee)
         hideAllElements(status: true)
         rate.settings.updateOnTouch = false
+        rate.settings.emptyBorderColor = UIColor(rgb: 0x1d3557)
+        rate.settings.filledColor = UIColor(rgb: 0x1d3557)
+        rate.settings.filledBorderColor = UIColor(rgb: 0x1d3557)
         
     }
     func hideAllElements(status:Bool)

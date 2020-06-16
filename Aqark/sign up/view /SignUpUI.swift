@@ -11,6 +11,7 @@ import UIKit
 extension SignUpView{
     func setupViews(as role:String)
     {
+        haveAccount.textColor = UIColor(rgb: 0x1d3557)
         switch (self.role.lowercased())
         {
         case "user": showUserView()

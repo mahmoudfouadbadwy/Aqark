@@ -14,17 +14,20 @@ extension ProfileViewController{
         self.navigationItem.title = "Profile".localize
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editProfileBtn))
         self.navigationItem.hidesBackButton = true
-         logout = UIBarButtonItem(title: "logout".localize,style: .done, target: self, action: #selector(self.logout(sender:)))
+        logout = UIBarButtonItem(title: "logout".localize,style: .done, target: self, action: #selector(self.logout(sender:)))
         self.navigationItem.leftBarButtonItem = logout
         
         
     }
     @objc func logout(sender: UIBarButtonItem){
-        profileViewModel.logout()
-        self.navigationController?.popViewController(animated: true)
+        if profileViewModel !=  nil
+        {
+            profileViewModel.logout()
+            self.navigationController?.popViewController(animated: true)
+        }
     }
-
-      @objc  func editProfileBtn() {
+    
+    @objc  func editProfileBtn() {
         if ProfileNetworking.checkNetworkConnection(){
             editViewController = EditProfileViewController()
             navigationController?.pushViewController(editViewController, animated: true)
@@ -34,10 +37,10 @@ extension ProfileViewController{
     }
     
     
-     func showAlert(title:String,message:String)
+    func showAlert(title:String,message:String)
     {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "Ok".localize, style: .default, handler: nil)
+        alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertAction = UIAlertAction(title: "Ok".localize, style: .default, handler: nil)
         alertController.addAction(alertAction)
         self.present(alertController, animated: true, completion: nil)
     }

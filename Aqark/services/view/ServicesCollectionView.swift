@@ -51,7 +51,11 @@ extension ServicesViewController : UICollectionViewDataSource,UICollectionViewDe
 
 extension ServicesViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width - 30, height: 190)
+        return CGSize(width: collectionView.frame.width - 30, height: 150)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
     }
 }
 

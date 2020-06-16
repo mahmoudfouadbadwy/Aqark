@@ -76,6 +76,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     
     @IBOutlet weak var aminitiesCollectionHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var ServiceLabel: UILabel!
     @IBOutlet weak var bottomscrollView: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var reviewMessage: UIView!
@@ -196,6 +197,8 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         let servicesView = ServicesViewController()
         servicesView.serviceRole = "Lawyers".localize
         servicesView.advertisementCountry = advertisementDetails.country
+            //.components(separatedBy: ",")[1]
+        //servicesView.advertisementLocation = advertisementDetails.location
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
     
@@ -203,6 +206,8 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         let servicesView = ServicesViewController()
         servicesView.serviceRole = "Interior Designers".localize
         servicesView.advertisementCountry = advertisementDetails.country
+            //.components(separatedBy: ",")[1]
+        //servicesView.advertisementLocation = advertisementDetails.location
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
     
@@ -211,9 +216,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
    private func setupViews()
     {
         self.navigationItem.title = "Property Details".localize
-//        lawyers.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
-//        interiorDesigner.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
-//        porperties.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
+        ServiceLabel.textColor = UIColor(rgb: 0x457b9d)
         locationTitle.textColor = UIColor(rgb: 0x457b9d)
         agentTitle.textColor = UIColor(rgb: 0x457b9d)
         descriptionTitle.textColor = UIColor(rgb: 0x457b9d)

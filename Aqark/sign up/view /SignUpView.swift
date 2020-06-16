@@ -18,6 +18,7 @@ class SignUpView: UIViewController  {
     @IBOutlet  weak var company: CustomTextField!
     @IBOutlet weak var address: CustomTextField!
     @IBOutlet weak var governmantHint: UILabel!
+    @IBOutlet weak var haveAccount: UILabel!
     var signUpDataAccess: SignUpDataAccess!
     var role:String = "user"
     var userViewModel:AccountViewModel!
@@ -113,6 +114,9 @@ class SignUpView: UIViewController  {
             createUserAccount(email: email, password:password,confirm: confirm,username:username)
         default:createServiceAccount(email: email, password: password, confirm: confirm, username: username, phone: phone, country: address, company: company)
         }
+    }
+    @IBAction func login(_ sender: Any) {
+        //
     }
     
     

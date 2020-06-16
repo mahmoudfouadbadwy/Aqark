@@ -20,11 +20,13 @@ extension ProfileViewController{
     
     func bindCollectionData()
     {
-        advertisementViewModel.getAllAdvertisements(completion: {[weak self]
-            (advertisements) in
-            self?.stopActivityIndicator()
-            self?.listOfAdvertisements = advertisements
-        })
+        if  advertisementViewModel != nil{
+            advertisementViewModel.getAllAdvertisements(completion: {[weak self]
+                (advertisements) in
+                self?.stopActivityIndicator()
+                self?.listOfAdvertisements = advertisements
+            })
+        }
     }
     private func setCellConfiguration(cell:UICollectionViewCell)
     {
@@ -82,9 +84,9 @@ extension ProfileViewController:UICollectionViewDataSource{
 
 extension ProfileViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let editView:AddAdvertisementViewController = AddAdvertisementViewController()
-        editView.advertisementId = listOfAdvertisements[indexPath.row].advertisementId
-        self.navigationController?.pushViewController(editView, animated: true)
+         editAdsView = AddAdvertisementViewController()
+        editAdsView.advertisementId = listOfAdvertisements[indexPath.row].advertisementId
+        self.navigationController?.pushViewController(editAdsView, animated: true)
     }
 }
 
@@ -105,7 +107,7 @@ extension ProfileViewController:UICollectionViewDelegateFlowLayout
 extension ProfileViewController:UIGestureRecognizerDelegate{
     func setupCollectionGeusture()
     {
-        let gesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(deleteCell(gesture:)))
+         gesture = UILongPressGestureRecognizer(target: self, action: #selector(deleteCell(gesture:)))
         gesture.delegate = self
         gesture.delaysTouchesBegan = true
         self.advertisementsCollection.addGestureRecognizer(gesture)
@@ -126,7 +128,9 @@ extension ProfileViewController:UIGestureRecognizerDelegate{
                     {
                         self?.advertisementsCollection.performBatchUpdates({
                             // delete from firebase.
-                            self?.deleteViewModel.deleteAdvertisement(id:self?.listOfAdvertisements[indexPath.row].advertisementId ?? "")
+                            if self?.deleteViewModel != nil {
+                                self?.deleteViewModel.deleteAdvertisement(id:self?.listOfAdvertisements[indexPath.row].advertisementId ?? "")
+                            }
                             
                             // delete from view .
                             self?.listOfAdvertisements.remove(at: indexPath.row)
@@ -142,12 +146,12 @@ extension ProfileViewController:UIGestureRecognizerDelegate{
     
     private func showAlert(completion:@escaping(Bool)->Void)
     {
-        let alert:UIAlertController = UIAlertController(title: "Delete Adverisement".localize, message: "Are You Sure You Want To Delete This Advertisement ?".localize, preferredStyle: .actionSheet)
-        let delete:UIAlertAction = UIAlertAction(title: "Delete".localize, style: .default) { (action) in
+         alert = UIAlertController(title: "Delete Adverisement".localize, message: "Are You Sure You Want To Delete This Advertisement ?".localize, preferredStyle: .actionSheet)
+         delete = UIAlertAction(title: "Delete".localize, style: .default) { (action) in
             completion(true)
         }
-        let cancel:UIAlertAction = UIAlertAction(title: "Cancel".localize, style: .cancel) { (action) in
-            alert.dismiss(animated: true)
+        let cancel:UIAlertAction = UIAlertAction(title: "Cancel".localize, style: .cancel) {[weak self] (action) in
+            self?.alert.dismiss(animated: true)
             completion(false)
         }
         alert.addAction(delete)

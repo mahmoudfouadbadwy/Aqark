@@ -78,7 +78,6 @@ extension PropertyDetailView:UICollectionViewDataSource{
             else
             {
                 amenitiesHeight.constant = 0
-               // amenitiesTopSpace.constant = 0
                 amenitiesSection.isHidden = true
                 return 0
             }

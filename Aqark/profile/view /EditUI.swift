@@ -44,8 +44,8 @@ extension EditProfileViewController{
     }
     
     func showAlert(title: String , message : String){
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "Ok".localize, style: .default, handler: nil)
+         alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+         alertAction = UIAlertAction(title: "Ok".localize, style: .default, handler: nil)
         alertController.addAction(alertAction)
         self.present(alertController, animated: true, completion: nil)
     }

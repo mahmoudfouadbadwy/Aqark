@@ -9,7 +9,8 @@
 import Foundation
 import Firebase
 class AdminDataAccess{
-    
+     var databaseHandle: DatabaseHandle!
+
     var usersRef : DatabaseReference! = Database.database().reference()
     var advertisementsRef : DatabaseReference! = Database.database().reference()
     var deleteUserAdvertisementRef : DatabaseReference! = Database.database().reference()
