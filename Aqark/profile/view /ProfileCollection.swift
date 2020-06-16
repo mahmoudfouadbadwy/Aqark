@@ -21,6 +21,7 @@ extension ProfileViewController{
     func bindCollectionData()
     {
         if  advertisementViewModel != nil{
+            showActivityIndicator()
             advertisementViewModel.getAllAdvertisements(completion: {[weak self]
                 (advertisements) in
                 self?.stopActivityIndicator()
@@ -78,6 +79,7 @@ extension ProfileViewController:UICollectionViewDataSource{
         let cell:ProfileAdvertisementCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileAdvertisementCell
         setCellData(cell: cell, indexPath: indexPath)
         setCellConfiguration(cell: cell)
+        setupButtonGeusture(deleteButton: cell.delete)
         return cell
     }
 }
@@ -107,13 +109,20 @@ extension ProfileViewController:UICollectionViewDelegateFlowLayout
 extension ProfileViewController:UIGestureRecognizerDelegate{
     func setupCollectionGeusture()
     {
-         gesture = UILongPressGestureRecognizer(target: self, action: #selector(deleteCell(gesture:)))
+        gesture = UILongPressGestureRecognizer(target: self, action: #selector(deleteCell(gesture:)))
         gesture.delegate = self
         gesture.delaysTouchesBegan = true
         self.advertisementsCollection.addGestureRecognizer(gesture)
     }
     
-    @objc private func deleteCell(gesture:UILongPressGestureRecognizer )
+    func setupButtonGeusture(deleteButton:UIButton){
+        pressGesture = UITapGestureRecognizer(target: self, action: #selector(deleteCell(gesture:)))
+       
+        deleteButton.addGestureRecognizer(pressGesture)
+       
+    }
+    
+    @objc private func deleteCell(gesture:UIGestureRecognizer)
     {
         if (gesture.state != .ended)
         {
