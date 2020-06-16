@@ -90,15 +90,18 @@ class AdminAdvertisementsViewController: UIViewController,AdminAdvertisementsRep
     }
     
     private func getReportedAdvertisement(_ reportedAdvertisementId: String) {
-        adminAdvertisementViewModel.getFilteredAdvertisements(searchText: reportedAdvertisementId)
-        advertisementsCollectionView.reloadData()
-        if(adminAdvertisementViewModel.adminAdvertisementsViewList.isEmpty){
-            showAlert(title: "Advertisement", message: "Advertisement is deleted")
-            adminAdvertisementViewModel.getFilteredAdvertisements(searchText: "")
-        }else{
-            advertisementsSearchBar.text = reportedAdvertisementId
+        adminAdvertisementViewModel.populateAdvertisements(){[weak self] in
+            self?.adminAdvertisementViewModel.getFilteredAdvertisements(searchText: reportedAdvertisementId)
+            self?.advertisementsCollectionView.reloadData()
+            if(self!.adminAdvertisementViewModel.adminAdvertisementsViewList.isEmpty){
+                self?.showAlert(title: "Advertisement", message: "Advertisement is deleted")
+                self?.adminAdvertisementViewModel.getFilteredAdvertisements(searchText: "")
+            }else{
+                self?.advertisementsSearchBar.text = reportedAdvertisementId
+            }
+            self?.reportedAdvertisementId = nil
         }
-        self.reportedAdvertisementId = nil
+        
     }
     
     func getSelectedAdvertisement(advertisementId: String) {
