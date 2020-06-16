@@ -37,9 +37,6 @@ class LoginViewController: UIViewController{
             }
         }
     }
-    
-
-    
     private func setupView() {
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         dontHaveAccount.textColor = UIColor(rgb: 0x457b9d)

@@ -67,7 +67,7 @@ class AgentPropertiesView: UIViewController {
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         rateLabel.textColor = UIColor(rgb: 0x457b9d)
         advertisementsCollection.backgroundColor = UIColor(rgb: 0xf1faee)
-        self.navigationItem.title = agentName + "'s Properties".localize
+        self.navigationItem.title = "Agent Properties".localize
     }
     
     private func setNoConnectionView()
