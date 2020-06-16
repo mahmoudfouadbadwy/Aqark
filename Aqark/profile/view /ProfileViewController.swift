@@ -19,7 +19,14 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profilePicture: UIImageView!
     var ban:Bool!
     var logout: UIBarButtonItem!
+    var gesture:UILongPressGestureRecognizer!
+    var alert:UIAlertController!
+    var delete:UIAlertAction!
+    var cancel:UIAlertAction!
+    var alertController:UIAlertController!
+    var alertAction:UIAlertAction!
     var editViewController:EditProfileViewController!
+    var editAdsView:AddAdvertisementViewController!
     var addAdvertisment: AddAdvertisementViewController!
     var advertisement:ProfileAdvertisementViewModel!
     var profileViewModel:ProfileStore!
@@ -80,9 +87,9 @@ class ProfileViewController: UIViewController {
         if profileViewModel != nil {
             profileViewModel.removeProfileDataObservers()
         }
-//        if advertisementViewModel != nil {
-//            advertisementViewModel.removeProfileAdvertisementsObservers()
-//        }
+        if advertisementViewModel != nil {
+            advertisementViewModel.removeProfileAdvertisementsObservers()
+        }
         if deleteViewModel != nil {
             deleteViewModel.removeDeleteObserver()
         }
@@ -93,7 +100,13 @@ class ProfileViewController: UIViewController {
         logout = nil
         editViewController = nil
         addAdvertisment = nil
-      
+        editAdsView = nil
+        gesture = nil
+        alert = nil
+        delete = nil
+        cancel = nil
+        alertController = nil
+        alertAction = nil
     }
     deinit {
         listOfAdvertisements = nil

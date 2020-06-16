@@ -29,8 +29,8 @@ class EditProfileViewController: UIViewController {
     var editProfileViewModel :EditProfileViewModel?
     var role = ""
     var profilePic :Any!
-   
-    
+    var alertController: UIAlertController!
+    var alertAction : UIAlertAction!
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -117,6 +117,8 @@ class EditProfileViewController: UIViewController {
         profileData = nil
         profileStore = nil
         editProfileViewModel = nil
+        alertController = nil
+        alertAction = nil
 
     }
 }

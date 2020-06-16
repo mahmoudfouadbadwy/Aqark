@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -65,17 +66,17 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7F9-PB-Mqn">
-                    <rect key="frame" x="62" y="812" width="290" height="30"/>
+                    <rect key="frame" x="62" y="810" width="290" height="32"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tv9-gc-khR">
-                            <rect key="frame" x="0.0" y="0.0" width="219" height="30"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <rect key="frame" x="0.0" y="0.0" width="211.5" height="32"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqf-m2-5Vb">
-                            <rect key="frame" x="229" y="0.0" width="61" height="30"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                            <rect key="frame" x="221.5" y="0.0" width="68.5" height="32"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                             <state key="normal" title="Signup"/>
                             <connections>
                                 <action selector="signUp:" destination="-1" eventType="touchUpInside" id="7IZ-jt-koR"/>
