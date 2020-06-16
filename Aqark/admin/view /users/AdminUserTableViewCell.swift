@@ -23,6 +23,7 @@ class AdminUserTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
     }
         
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,8 +32,8 @@ class AdminUserTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         userName.textColor = UIColor(rgb: 0x457b9d)
-//        banUserButton.backgroundColor = UIColor(rgb: 0xe63946)
-//        contentView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 1.0)
+        banUserButton.layer.borderWidth = 1
+        banUserButton.layer.borderColor = UIColor(rgb: 0xe63946).cgColor
         contentView.backgroundColor = UIColor(rgb: 0xf1faee)
         cardBackgroundView.backgroundColor = .white
         cardBackgroundView.layer.cornerRadius = 10.0

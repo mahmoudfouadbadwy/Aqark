@@ -118,6 +118,7 @@ class AdminUsersViewController: UIViewController{
     
     @IBAction func changeUserType(_ sender: Any) {
         if(AdminNetworking.checkNetworkConnection()){
+            usersSearchBar.text = ""
             adminUsersViewModel.getUsersByType(type: usersSegment.selectedIndex)
             if(adminUsersViewModel.adminUsersViewList.isEmpty){
                 setLabelForZeroCount(search: false)
@@ -126,6 +127,7 @@ class AdminUsersViewController: UIViewController{
                 noLabel.isHidden = true
             }
             self.usersTableView.reloadData()
+
         }else{
             setupNoConnection()
         }
