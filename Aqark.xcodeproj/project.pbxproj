@@ -220,6 +220,8 @@
 		C67FDA382479469C00028E96 /* SortingExtenision.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67FDA372479469C00028E96 /* SortingExtenision.swift */; };
 		C67FDA3A2479495500028E96 /* MapExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67FDA392479495500028E96 /* MapExtension.swift */; };
 		C6BAED5624824C8600D964C5 /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BAED5524824C8600D964C5 /* ReviewData.swift */; };
+		C6F033A02499066900D193DD /* SearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F0339F2499066900D193DD /* SearchTest.swift */; };
+		C6F033A3249931C900D193DD /* MockSearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F033A2249931C900D193DD /* MockSearchData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -462,6 +464,8 @@
 		C67FDA372479469C00028E96 /* SortingExtenision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingExtenision.swift; sourceTree = "<group>"; };
 		C67FDA392479495500028E96 /* MapExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapExtension.swift; sourceTree = "<group>"; };
 		C6BAED5524824C8600D964C5 /* ReviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewData.swift; sourceTree = "<group>"; };
+		C6F0339F2499066900D193DD /* SearchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTest.swift; sourceTree = "<group>"; };
+		C6F033A2249931C900D193DD /* MockSearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSearchData.swift; sourceTree = "<group>"; };
 		DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AqarkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -791,8 +795,8 @@
 				BF43557F2474E1DD001DA5D8 /* AdvertisementCellCollectionViewCell.swift */,
 				BF4355832474E1DE001DA5D8 /* CollectionViewExtension.swift */,
 				BF4355802474E1DD001DA5D8 /* GooglePlaceAutoComplete.swift */,
-				BF43557E2474E1DC001DA5D8 /* SearchBar.swift */,
 				BF4355812474E1DD001DA5D8 /* SearchViewController.swift */,
+				BF43557E2474E1DC001DA5D8 /* SearchBar.swift */,
 				82ACADDC248BCB84002EF804 /* SearchViewController.xib */,
 				BF66602B2477C75B00EDF89F /* CoreDataExtension.swift */,
 				BF7C9764247D917A00E8F516 /* FavouriteProtocol.swift */,
@@ -1369,6 +1373,7 @@
 		BFCF0BD924677F8100A43D8B /* AqarkTests */ = {
 			isa = PBXGroup;
 			children = (
+				C6F033A12499319500D193DD /* search */,
 				3E8B52AA249711F700146A7D /* services */,
 				BFDC8C332491331100E27B53 /* favourite */,
 				3E7F060D248B525A009118B8 /* admin */,
@@ -1429,6 +1434,31 @@
 				BF719560247919C500703D10 /* CoreDataAccess.swift */,
 			);
 			path = data;
+			sourceTree = "<group>";
+		};
+		C6F0339E2499060500D193DD /* data */ = {
+			isa = PBXGroup;
+			children = (
+				C6F0339F2499066900D193DD /* SearchTest.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		C6F033A12499319500D193DD /* search */ = {
+			isa = PBXGroup;
+			children = (
+				C6F033A4249931D500D193DD /* mocks */,
+				C6F0339E2499060500D193DD /* data */,
+			);
+			path = search;
+			sourceTree = "<group>";
+		};
+		C6F033A4249931D500D193DD /* mocks */ = {
+			isa = PBXGroup;
+			children = (
+				C6F033A2249931C900D193DD /* MockSearchData.swift */,
+			);
+			path = mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1835,6 +1865,8 @@
 				3E535AC8248D423D00A921A1 /* MockAdminAdvertisementDataAccess.swift in Sources */,
 				3E535AC1248D422800A921A1 /* AdminUserDataAccessTests.swift in Sources */,
 				3E8B52AF249712AC00146A7D /* ServiceDataAccessTests.swift in Sources */,
+				C6F033A3249931C900D193DD /* MockSearchData.swift in Sources */,
+				C6F033A02499066900D193DD /* SearchTest.swift in Sources */,
 				BFDC8C3A249134C300E27B53 /* FavouriteDataAccessTests.swift in Sources */,
 				3E535AC9248D423D00A921A1 /* AdminAdvertisementDataAccessTests.swift in Sources */,
 				3E535AC2248D422800A921A1 /* AdminUsersListViewModelTests.swift in Sources */,

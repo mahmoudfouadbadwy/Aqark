@@ -44,6 +44,9 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     var sortButton : UIButton!
     var arrOfAdViewModel : [AdvertisementViewModel]!{
         didSet{
+            UIView.animate(withDuration:2) {
+                self.view.alpha = 1
+            }
             if (arrOfAdViewModel.count > 0 )
             {
                 searchBar.isHidden = false
@@ -78,6 +81,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     
     override func viewWillAppear(_ animated: Bool) {
         if SearchNetworking.checkNetworkConnection(){
+//            showActivityIndicator()
             searchCollectionView.isHidden = false
             setObjects()
             setUpSortBtn()
