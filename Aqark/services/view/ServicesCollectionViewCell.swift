@@ -21,13 +21,17 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var rateMeView: CosmosView!
     @IBOutlet weak var rateMeButton: UIButton!
     @IBOutlet weak var dialerButton: UIButton!
-    @IBOutlet var dialerButtonTrailingConstraint: NSLayoutConstraint!
+
+    @IBOutlet weak var companyStack: UIStackView!
+    @IBOutlet weak var experienceStack: UIStackView!
     
     var serviceUserCellIndex : IndexPath!
     weak var serviceUserDelegate : ServiceUsersCollectionDelegate!
-    @IBOutlet weak var serviceUserCompanyHeight: NSLayoutConstraint!
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        dialerButton.layer.borderColor = UIColor(rgb: 0x1d3557).cgColor
+        dialerButton.layer.borderWidth = 1
         rateMeButton.backgroundColor = UIColor(rgb: 0xe63946)
         serviceUserRating.settings.fillMode = .precise
         rateMeView.settings.fillMode = .precise
@@ -56,24 +60,24 @@ class ServicesCollectionViewCell: UICollectionViewCell {
         
         if(serviceUserDelegate.checkLoggedUserDelegate()){
             rateMeButton.isHidden = false
-            dialerButtonTrailingConstraint.isActive = true
-            dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = false
+            //dialerButtonTrailingConstraint.isActive = true
+            //dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = false
         }else{
             rateMeButton.isHidden = true
-            dialerButtonTrailingConstraint.isActive = false
-            dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
+            //dialerButtonTrailingConstraint.isActive = false
+            //dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
         }
         
         if(serviceUserCompany.text == ""){
-            serviceUserCompany.isHidden = true
-        }else if(serviceUserCompany.text != "" && serviceUserCompany.isHidden == true){
-            serviceUserCompany.isHidden = false
+            companyStack.isHidden = true
+        }else if(serviceUserCompany.text != "" && companyStack.isHidden == true){
+            companyStack.isHidden = false
         }
 
         if(serviceUserExperience.text == " years exp"){
-            serviceUserExperience.isHidden = true
-        }else if(serviceUserExperience.isHidden == true && serviceUserExperience.text != " years exp"){
-            serviceUserExperience.isHidden = false
+            experienceStack.isHidden = true
+        }else if(experienceStack.isHidden == true && serviceUserExperience.text != " years exp"){
+            experienceStack.isHidden = false
         }
     }
     

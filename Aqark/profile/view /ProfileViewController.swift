@@ -80,9 +80,9 @@ class ProfileViewController: UIViewController {
         if profileViewModel != nil {
             profileViewModel.removeProfileDataObservers()
         }
-//        if advertisementViewModel != nil {
-//            advertisementViewModel.removeProfileAdvertisementsObservers()
-//        }
+        if advertisementViewModel != nil {
+            advertisementViewModel.removeProfileAdvertisementsObservers()
+        }
         if deleteViewModel != nil {
             deleteViewModel.removeDeleteObserver()
         }

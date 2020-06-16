@@ -10,10 +10,10 @@ import Foundation
 import Firebase
 
 extension AdminDataAccess{
-    
+
     func getAdvertisements(completionForGetAdvertisements:@escaping(_ advertisementsData : [AdminAdvertisement]) -> Void){
         var advertisements = [AdminAdvertisement]()
-        advertisementsRef.child("Advertisements").observe(.value) { (snapShot) in
+        databaseHandle = advertisementsRef.child("Advertisements").observe(.value) { (snapShot) in
             advertisements.removeAll()
             for child in snapShot.children.allObjects as! [DataSnapshot]{
                 advertisements.append(self.createAdvertisement(child: child))

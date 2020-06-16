@@ -91,7 +91,7 @@ extension ProfileDataAccess{
         profileAdvertisementsIDsRef.child("Users_Ads").child(userID).child("advertisements").removeAllObservers()
         profileAdvertisementsIDsRef = nil
         
-        allAdvertisementsRef.child("Advertisements").removeAllObservers()
+     //   allAdvertisementsRef.child("Advertisements").removeAllObservers()
         allAdvertisementsRef = nil
         
     }
@@ -101,7 +101,7 @@ extension ProfileDataAccess{
         guard let userID = Auth.auth().currentUser?.uid else {return}
     deleteRef.child("Users_Ads").child(userID).child("advertisements").removeAllObservers()
         deleteRef = nil
-        deletAdsRef.child("Advertisements").removeAllObservers()
+//         deletAdsRef.child("Advertisements").removeAllObservers()
         deletAdsRef =  nil
     }
 }

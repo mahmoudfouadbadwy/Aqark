@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 class ProfileDataAccess{
+
     var profileDataRef:DatabaseReference! = Database.database().reference()
     var profileAdvertisementsIDsRef:DatabaseReference! = Database.database().reference()
     var allAdvertisementsRef:DatabaseReference! = Database.database().reference()
