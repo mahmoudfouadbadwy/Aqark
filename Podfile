@@ -17,7 +17,7 @@ target 'Aqark' do
   pod 'Cosmos', '~> 18.0'
   pod 'JJFloatingActionButton' 
   pod 'SwiftyGif', '~> 4.2.0'  
-  pod 'SearchTextField', '~> 1.2'
+ 
 
   target 'AqarkTests' do
     inherit! :search_paths

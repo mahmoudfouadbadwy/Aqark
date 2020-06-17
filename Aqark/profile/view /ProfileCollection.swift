@@ -93,15 +93,11 @@ extension ProfileViewController:UICollectionViewDelegate{
             self?.editAdvertisement(date: dateFetched, row: indexPath.row)
         }
     }
-    
-    
-    
-    func editAdvertisement(date : String , row : Int){
 
+    func editAdvertisement(date : String , row : Int){
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone.current
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
-
         let currentDate = Date()
         let lastTimeForEdit = formatter.date(from: date)!.addingTimeInterval(24*60*60)
         if (currentDate <= lastTimeForEdit)
@@ -110,10 +106,8 @@ extension ProfileViewController:UICollectionViewDelegate{
             self.editAdsView.advertisementId = self.listOfAdvertisements[row].advertisementId!
             self.navigationController?.pushViewController(self.editAdsView, animated: true)
         }else{
-            self.showAlert(title: "Edit Advertisement", message: "you have only one day to edit yout advertisement")
+            self.showAlert(title: "Advertisements", message: "Sorry, You can't edit your advertisement after 24 hours.")
         }
-
-       
     }
             
 }
