@@ -190,22 +190,22 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         
     }
     override func viewWillDisappear(_ animated: Bool) {
-        print ("viewWillDisappear ")
-         propertyViewModel = nil
-         propertyDataAccess = nil
-         advertisementDetails = nil
-         advertisementReportViewModel = nil
-         reviewData = nil
-         advertisementReviewViewModel = nil
-         reviewViewModel = nil
-         reportData = nil
-         agent = nil
-         callButton = nil
-         coreDataViewModel = nil
-         arrOfReviewsViewModel = nil
+        
     }
     
     deinit{
+        propertyViewModel = nil
+        propertyDataAccess = nil
+        advertisementDetails = nil
+        advertisementReportViewModel = nil
+        reviewData = nil
+        advertisementReviewViewModel = nil
+        reviewViewModel = nil
+        reportData = nil
+        agent = nil
+        callButton = nil
+        coreDataViewModel = nil
+        arrOfReviewsViewModel = nil
         print ("details deinit")
     }
 }
