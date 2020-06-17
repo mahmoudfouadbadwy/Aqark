@@ -187,11 +187,8 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         favButton.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
         let barButton = UIBarButtonItem(customView: favButton)
         self.navigationItem.rightBarButtonItem = barButton
-        
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        
-    }
+   
     
     deinit{
         propertyViewModel = nil
