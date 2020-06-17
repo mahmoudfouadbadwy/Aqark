@@ -211,7 +211,7 @@
                                                     <rect key="frame" x="216" y="0.0" width="206" height="60"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YeG-ry-mEz" customClass="CustomButton" customModule="Aqark" customModuleProvider="target">
-                                                            <rect key="frame" x="33" y="12.5" width="140" height="35"/>
+                                                            <rect key="frame" x="33" y="0.0" width="140" height="35"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="7Ty-dW-v9C"/>
                                                                 <constraint firstAttribute="width" constant="140" id="Uvs-Aj-Ifm"/>
@@ -228,7 +228,7 @@
                                                         </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="YeG-ry-mEz" firstAttribute="centerY" secondItem="dRo-o0-LHF" secondAttribute="centerY" id="7k1-A4-0hK"/>
+                                                        <constraint firstItem="YeG-ry-mEz" firstAttribute="top" secondItem="dRo-o0-LHF" secondAttribute="top" id="Via-Nl-Qtq"/>
                                                         <constraint firstItem="YeG-ry-mEz" firstAttribute="centerX" secondItem="dRo-o0-LHF" secondAttribute="centerX" id="ouL-BV-Xn8"/>
                                                     </constraints>
                                                 </view>

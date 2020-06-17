@@ -22,7 +22,7 @@ extension ProfileViewController{
         if profileViewModel !=  nil
         {
             profileViewModel.logout()
-            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popToRootViewController(animated: true)
         }
     }
     

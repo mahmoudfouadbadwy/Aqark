@@ -110,7 +110,7 @@ extension ProfileViewController:UICollectionViewDelegate{
             self.editAdsView.advertisementId = self.listOfAdvertisements[row].advertisementId!
             self.navigationController?.pushViewController(self.editAdsView, animated: true)
         }else{
-            self.showAlert(title: "Edit Advertisement", message: "you have only one day to edit yout advertisement")
+            self.showAlert(title: "Advertisements", message: "Sorry, you have only 24 hours to edit your advertisement")
         }
 
        

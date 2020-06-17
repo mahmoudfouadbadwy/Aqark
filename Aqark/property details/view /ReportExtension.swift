@@ -38,15 +38,15 @@ extension PropertyDetailView {
     func reportAdvertisement(report : String){
         self.advertisementReportViewModel.setReportData(reportContent : report,advertisementId: self.advertisementId,agentId: advertisementDetails.userID, completionForSetReportData: {[weak self] result in
             if (result!){
-                self?.showAlert(title: "Report have been sent")
+                self?.showAlert(title: "Report", message: "Report have been sent")
                 
             }
         })
     }
 
-    func showAlert(title : String){
+    func showAlert(title : String , message : String){
 
-        let alert = UIAlertController(title: "Report", message: title, preferredStyle: .alert)
+        let alert = UIAlertController(title: title , message:  message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{[weak alert] (UIAlertAction)in
             alert?.dismiss(animated: true)
         }))
@@ -58,12 +58,12 @@ extension PropertyDetailView {
         self.reportData = ReportData()
         self.advertisementReportViewModel = ReportViewModel(dataAccess: reportData)
         if propertyViewModel.checkAdvertisementOwner(agentId: advertisementDetails.userID ){
-             self.showAlert(title: "You can not report your Advertisement")
+             self.showAlert(title: "Report"  , message:"You can not report your Advertisement" )
         }else{
         if advertisementReportViewModel.checkUserAuth(){
             showReportActionSheet()
         }else{
-            self.showAlert(title: "Please Login To Report This Advertisement")
+            self.showAlert(title: "Report" , message: "Please Login To Report This Advertisement")
         }
     }
     }

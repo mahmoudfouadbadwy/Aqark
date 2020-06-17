@@ -33,6 +33,11 @@ extension AddAdvertisementViewController {
                     self?.longitude = address["longitude"] ?? ""
                 }
                 
+            if let myCountry = myValue.country
+            {
+                self?.country = myCountry
+            }
+                
                 if let advertisementType = myValue.AdvertisementType?.localize{
                     self?.advertisementType = advertisementType
                     if(self?.advertisementType == "Rent".localize){
