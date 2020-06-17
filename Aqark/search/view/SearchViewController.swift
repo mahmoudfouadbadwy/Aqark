@@ -78,6 +78,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     
     override func viewWillAppear(_ animated: Bool) {
         if SearchNetworking.checkNetworkConnection(){
+            view.alpha = 0.5
             searchCollectionView.isHidden = false
             setObjects()
             setUpSortBtn()

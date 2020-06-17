@@ -12,10 +12,10 @@ import UIKit
 extension AdminAdvertisementsViewController:UISearchBarDelegate{
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        adminAdvertisementViewModel.getFilteredAdvertisements(searchText: searchText)
+        adminAdvertisementViewModel.getFilteredAdvertisements(searchText: searchText, type: advertisementsSegment.selectedIndex)
         advertisementsCollectionView.reloadData()
         if(self.adminAdvertisementViewModel.adminAdvertisementsViewList.isEmpty){
-            self.setLabelForZeroCount(text: "No available advertisements")
+            self.setLabelForZeroCount(search:true)
         }else{
             noLabel.isHidden = true
         }

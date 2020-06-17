@@ -28,16 +28,16 @@ class AdminAdvertisementsListViewModelTests: XCTestCase {
 
         createAdvertisments()
         
-        adminAdvertisementsViewModel.getFilteredAdvertisements(searchText: "C")
+        adminAdvertisementsViewModel.getFilteredAdvertisementsByType(searchText: "C")
         XCTAssertEqual(adminAdvertisementsViewModel.adminAdvertisementsViewList.count, 1)
         
-        adminAdvertisementsViewModel.getFilteredAdvertisements(searchText: "M")
+        adminAdvertisementsViewModel.getFilteredAdvertisementsByType(searchText: "M")
         XCTAssertEqual(adminAdvertisementsViewModel.adminAdvertisementsViewList.count, 1)
         
-        adminAdvertisementsViewModel.getFilteredAdvertisements(searchText: "Z")
+        adminAdvertisementsViewModel.getFilteredAdvertisementsByType(searchText: "Z")
         XCTAssertEqual(adminAdvertisementsViewModel.adminAdvertisementsViewList.count, 0)
         
-        adminAdvertisementsViewModel.getFilteredAdvertisements(searchText: "")
+        adminAdvertisementsViewModel.getFilteredAdvertisementsByType(searchText: "")
         XCTAssertEqual(adminAdvertisementsViewModel.adminAdvertisementsViewList.count, 2)
     }
     
