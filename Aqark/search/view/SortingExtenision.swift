@@ -12,11 +12,9 @@ extension SearchViewController{
     
     func sortData(str : String)->[AdvertisementViewModel]{
         isSorted = true
-      
         switch str {
         case "High Price":
             if isFiltering == true {
-                print("filtering is true")
                 self.adsSortedList = self.filteredAdsList.sorted{
                 $0.price > $1.price
                 }
@@ -64,7 +62,7 @@ extension SearchViewController{
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Price(High)".localize, style: .default , handler:{ [weak self] (UIAlertAction)in
             self?.isSorting = "High Price"
-    
+            self?.isSorted = true
                  self?.searchCollectionView.reloadData()
              }))
              

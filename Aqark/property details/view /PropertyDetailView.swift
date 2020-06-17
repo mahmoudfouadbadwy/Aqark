@@ -139,8 +139,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBAction func showLawyers(_ sender: Any) {
         let servicesView = ServicesViewController()
         servicesView.serviceRole = "Lawyers".localize
-        servicesView.advertisementCountry = advertisementDetails.country
-            //.components(separatedBy: ",")[1]
+        servicesView.advertisementCountry = advertisementDetails.country.components(separatedBy: ",")[1]
         //servicesView.advertisementLocation = advertisementDetails.location
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
@@ -148,8 +147,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBAction func showInteriorDesigners(_ sender: Any) {
         let servicesView = ServicesViewController()
         servicesView.serviceRole = "Interior Designers".localize
-        servicesView.advertisementCountry = advertisementDetails.country
-            //.components(separatedBy: ",")[1]
+        servicesView.advertisementCountry = advertisementDetails.country.components(separatedBy: ",")[1]
         //servicesView.advertisementLocation = advertisementDetails.location
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
