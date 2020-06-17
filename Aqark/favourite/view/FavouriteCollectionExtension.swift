@@ -38,7 +38,7 @@ extension FavouriteViewController : UICollectionViewDataSource{
 
 extension FavouriteViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-        let propertyDetailVC = PropertyDetailView()
+        propertyDetailVC = PropertyDetailView()
         propertyDetailVC.advertisementId = (arrOfAdViewModel[indexPath.row].advertisementId)!
         self.navigationController?.pushViewController(propertyDetailVC, animated: true)
     }
