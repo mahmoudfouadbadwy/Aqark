@@ -10,7 +10,6 @@ import UIKit
 fileprivate var indicatorView:UIView?
 extension UIViewController{
     func showActivityIndicator() {
-        
         indicatorView = UIView(frame: self.view.bounds)
         indicatorView?.backgroundColor = UIColor(white: 0, alpha: 0.5)
         let indicator = UIActivityIndicatorView(style: .whiteLarge)

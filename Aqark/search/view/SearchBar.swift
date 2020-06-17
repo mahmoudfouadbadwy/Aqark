@@ -29,14 +29,10 @@ extension SearchViewController:  UISearchBarDelegate{
         appearAutoCompleteData()
         if  searchBar.text?.count == 0 {
            self.searchCollectionView.reloadData()
-          
-             self.navigationItem.rightBarButtonItem = sort
+           self.navigationItem.rightBarButtonItem = sort
             labelPlaceHolder.isHidden = true
-        
         }
     }
-    
-  
     
     func filterContentForSearchBarText(_ searchText: String){
         let searchText = searchBar.text ?? ""
@@ -49,10 +45,11 @@ extension SearchViewController:  UISearchBarDelegate{
         }
             if filteredAdsList.count == 0{
             self.labelPlaceHolder.text = "No Advertisements Available".localize
-            self.labelPlaceHolder.textColor = .red
             sort = nil
             labelPlaceHolder.isHidden = false
         }
+        
+    
         self.searchCollectionView.reloadData()
     }
     
