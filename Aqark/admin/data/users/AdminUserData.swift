@@ -35,12 +35,12 @@ class AdminDataAccess{
     private func createUser(child:DataSnapshot) -> AdminUser{
         let userId = child.key
         let userDictionary = child.value as! [String : Any]
-        let userName = userDictionary[AdminUserKey.userName] as! String
-        let userEmail = userDictionary[AdminUserKey.userEmail] as! String
+        let userName = userDictionary[AdminUserKey.userName] as? String ?? ""
+        let userEmail = userDictionary[AdminUserKey.userEmail] as? String ?? ""
         let userPhone = userDictionary[AdminUserKey.userPhone] as? String ?? "No Phone"
-        let userCountry = userDictionary[AdminUserKey.userCountry] as? String ?? "No Country"
+        let userCountry = userDictionary[AdminUserKey.userCountry] as? String ?? ","
         let userCompany = userDictionary[AdminUserKey.userCompany] as? String ?? "No Company"
-        let userRole = userDictionary[AdminUserKey.userRole] as! String
+        let userRole = userDictionary[AdminUserKey.userRole] as? String ?? ""
         let userExperience = userDictionary[AdminUserKey.userExperience] as? String ?? "Not Provided"
         let userRatingDic = userDictionary[AdminUserKey.userRating] as? [String:Any] ?? [:]
         let userRating = getUserRating(userRatingDic: userRatingDic)
