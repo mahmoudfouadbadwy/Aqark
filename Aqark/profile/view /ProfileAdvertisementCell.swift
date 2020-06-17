@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileAdvertisementCell: UICollectionViewCell {
 
+    @IBOutlet weak var delete: UIButton!
     @IBOutlet weak var paymentType: UILabel!
     @IBOutlet weak var propertyImage: UIImageView!
     @IBOutlet weak var propertyType: UILabel!

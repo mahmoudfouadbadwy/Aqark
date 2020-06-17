@@ -116,7 +116,7 @@ class SignUpView: UIViewController  {
         }
     }
     @IBAction func login(_ sender: Any) {
-        //
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     

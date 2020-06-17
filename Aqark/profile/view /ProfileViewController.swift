@@ -25,6 +25,7 @@ class ProfileViewController: UIViewController {
     var cancel:UIAlertAction!
     var alertController:UIAlertController!
     var alertAction:UIAlertAction!
+    var pressGesture:UITapGestureRecognizer!
     var editViewController:EditProfileViewController!
     var editAdsView:AddAdvertisementViewController!
     var addAdvertisment: AddAdvertisementViewController!
@@ -32,7 +33,11 @@ class ProfileViewController: UIViewController {
     var profileViewModel:ProfileStore!
     var advertisementViewModel:ProfileAdvertisementListViewModel!
     var deleteViewModel:AdvertisementDelete!
+
     var editProfileVM : EditProfileViewModel!
+
+    var profileDataAccess:ProfileDataAccess!
+
     var listOfAdvertisements:[ProfileAdvertisementViewModel]! = []{
         didSet{
             if listOfAdvertisements.count>0{
@@ -54,10 +59,6 @@ class ProfileViewController: UIViewController {
         if (ProfileNetworking.checkNetworkConnection())
         {
             setUpViewMoelsObjects()
-            showActivityIndicator()
-            setNavigationProperties()
-            bindProfileData()
-            bindCollectionData()
             noAdvertisementsLabel.isHidden = true
         }
         else
@@ -67,10 +68,22 @@ class ProfileViewController: UIViewController {
     }
     private func setUpViewMoelsObjects()
     {
-        profileViewModel = ProfileStore(by: ProfileDataAccess())
-        advertisementViewModel =
-            ProfileAdvertisementListViewModel(data: ProfileDataAccess())
-        deleteViewModel = AdvertisementDelete(dataAcees: ProfileDataAccess())
+        if profileDataAccess == nil {
+            profileDataAccess = ProfileDataAccess()
+        }
+        if profileViewModel == nil {
+            profileViewModel = ProfileStore(by: profileDataAccess)
+            setNavigationProperties()
+            bindProfileData()
+        }
+        if  advertisementViewModel == nil {
+            advertisementViewModel =
+                ProfileAdvertisementListViewModel(data: profileDataAccess)
+            bindCollectionData()
+        }
+        if deleteViewModel == nil {
+            deleteViewModel = AdvertisementDelete(dataAcees: profileDataAccess)
+        }
     }
     
     @IBAction func addAdvertisement(_ sender: Any) {
@@ -81,19 +94,14 @@ class ProfileViewController: UIViewController {
         else
         {
             addAdvertisment = AddAdvertisementViewController()
-             self.navigationController?.pushViewController(addAdvertisment, animated: true)
+            self.navigationController?.pushViewController(addAdvertisment, animated: true)
         }
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        if profileViewModel != nil {
-            profileViewModel.removeProfileDataObservers()
-        }
-        if advertisementViewModel != nil {
-            advertisementViewModel.removeProfileAdvertisementsObservers()
-        }
-        if deleteViewModel != nil {
-            deleteViewModel.removeDeleteObserver()
-        }
+    deinit {
+        profileViewModel.removeProfileDataObservers()
+        profileDataAccess = nil
+        advertisementViewModel.removeProfileAdvertisementsObservers()
+        deleteViewModel.removeDeleteObserver()
         profileViewModel = nil
         advertisementViewModel = nil
         deleteViewModel = nil
@@ -103,14 +111,18 @@ class ProfileViewController: UIViewController {
         addAdvertisment = nil
         editAdsView = nil
         gesture = nil
+        pressGesture = nil
         alert = nil
         delete = nil
         cancel = nil
         alertController = nil
         alertAction = nil
+
         editProfileVM = nil
     }
     deinit {
+
+
         listOfAdvertisements = nil
     }
 }

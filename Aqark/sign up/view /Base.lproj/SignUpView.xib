@@ -40,7 +40,7 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="z7z-rW-bUJ" customClass="CustomTextField" customModule="Aqark" customModuleProvider="target">
-                    <rect key="frame" x="37.5" y="103.5" width="300" height="33"/>
+                    <rect key="frame" x="37.5" y="108.5" width="300" height="33"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES" textContentType="password"/>
                     <userDefinedRuntimeAttributes>
@@ -51,7 +51,7 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="204-s3-vwn" customClass="CustomTextField" customModule="Aqark" customModuleProvider="target">
-                    <rect key="frame" x="37.5" y="156.5" width="300" height="33.5"/>
+                    <rect key="frame" x="37.5" y="166.5" width="300" height="33.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES" textContentType="password"/>
                     <userDefinedRuntimeAttributes>
@@ -62,7 +62,7 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TAb-2H-Rax" customClass="CustomTextField" customModule="Aqark" customModuleProvider="target">
-                    <rect key="frame" x="37.5" y="210" width="300" height="33.5"/>
+                    <rect key="frame" x="37.5" y="225" width="300" height="33.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" textContentType="username"/>
                     <userDefinedRuntimeAttributes>
@@ -73,7 +73,7 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mobile Number" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="IfW-CJ-w3R" customClass="CustomTextField" customModule="Aqark" customModuleProvider="target">
-                    <rect key="frame" x="37.5" y="263.5" width="300" height="30"/>
+                    <rect key="frame" x="37.5" y="283.5" width="300" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                     <userDefinedRuntimeAttributes>
@@ -84,7 +84,7 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wRP-7P-knr" customClass="CustomTextField" customModule="Aqark" customModuleProvider="target">
-                    <rect key="frame" x="37.5" y="313.5" width="300" height="33.5"/>
+                    <rect key="frame" x="37.5" y="338.5" width="300" height="33.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <userDefinedRuntimeAttributes>
@@ -95,7 +95,7 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="na7-I3-7WB" customClass="CustomTextField" customModule="Aqark" customModuleProvider="target">
-                    <rect key="frame" x="37.5" y="367" width="300" height="30"/>
+                    <rect key="frame" x="37.5" y="397" width="300" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits"/>
@@ -104,18 +104,18 @@
                     </connections>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By selecting address your profile will appear to users in the same area ." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91V-k1-yuA">
-                    <rect key="frame" x="37.5" y="407" width="300" height="29"/>
+                    <rect key="frame" x="37.5" y="437" width="300" height="29"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="62z-nl-bo1">
-                    <rect key="frame" x="67" y="553" width="241" height="32"/>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="62z-nl-bo1">
+                    <rect key="frame" x="67" y="615" width="241" height="32"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already Have An Account ?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0h-NG-1Ys">
                             <rect key="frame" x="0.0" y="0.0" width="196" height="32"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isV-He-2WM">
@@ -129,7 +129,7 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXW-RH-nVa" customClass="CustomButton" customModule="Aqark" customModuleProvider="target">
-                    <rect key="frame" x="94" y="615" width="187.5" height="32"/>
+                    <rect key="frame" x="94" y="553" width="187.5" height="32"/>
                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                     <state key="normal" title="Create Account">
@@ -144,44 +144,44 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <gestureRecognizers/>
             <constraints>
+                <constraint firstItem="62z-nl-bo1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1A2-ne-9nV"/>
                 <constraint firstItem="IfW-CJ-w3R" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="2Eo-3X-3vD"/>
                 <constraint firstItem="Igo-Md-67b" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="2ID-mW-Phv"/>
                 <constraint firstItem="91V-k1-yuA" firstAttribute="width" secondItem="na7-I3-7WB" secondAttribute="width" id="2Vt-I1-fBz"/>
                 <constraint firstItem="z7z-rW-bUJ" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="5OK-VL-xwP"/>
                 <constraint firstItem="z7z-rW-bUJ" firstAttribute="height" secondItem="Igo-Md-67b" secondAttribute="height" id="AtC-Ae-EDN"/>
-                <constraint firstItem="na7-I3-7WB" firstAttribute="top" secondItem="wRP-7P-knr" secondAttribute="bottom" constant="20" id="EbF-U1-ib3"/>
+                <constraint firstItem="na7-I3-7WB" firstAttribute="top" secondItem="wRP-7P-knr" secondAttribute="bottom" constant="25" id="EbF-U1-ib3"/>
                 <constraint firstItem="na7-I3-7WB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="F5r-iX-esM"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dXW-RH-nVa" secondAttribute="bottom" constant="20" id="Gsy-mr-idJ"/>
                 <constraint firstItem="wRP-7P-knr" firstAttribute="height" secondItem="Igo-Md-67b" secondAttribute="height" id="K9l-cN-vcm"/>
                 <constraint firstItem="TAb-2H-Rax" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NU2-yc-In8"/>
                 <constraint firstItem="na7-I3-7WB" firstAttribute="width" secondItem="Igo-Md-67b" secondAttribute="width" id="OVF-zw-znL"/>
                 <constraint firstItem="91V-k1-yuA" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OaO-4B-VAb"/>
-                <constraint firstItem="dXW-RH-nVa" firstAttribute="top" secondItem="62z-nl-bo1" secondAttribute="bottom" constant="30" id="Qcq-7C-PTs"/>
                 <constraint firstItem="IfW-CJ-w3R" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RCF-tU-Urt"/>
-                <constraint firstItem="204-s3-vwn" firstAttribute="top" secondItem="z7z-rW-bUJ" secondAttribute="bottom" constant="20" id="SVz-by-aYh"/>
+                <constraint firstItem="204-s3-vwn" firstAttribute="top" secondItem="z7z-rW-bUJ" secondAttribute="bottom" constant="25" id="SVz-by-aYh"/>
                 <constraint firstItem="TAb-2H-Rax" firstAttribute="height" secondItem="Igo-Md-67b" secondAttribute="height" id="SoI-Ck-xdI"/>
                 <constraint firstItem="204-s3-vwn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TIf-7O-Yga"/>
-                <constraint firstItem="dXW-RH-nVa" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="TaP-UF-Zix"/>
                 <constraint firstItem="wRP-7P-knr" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="TvV-38-kBS"/>
-                <constraint firstItem="dXW-RH-nVa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="U0S-S8-2OD"/>
                 <constraint firstItem="Igo-Md-67b" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VFf-Xw-A4v"/>
-                <constraint firstItem="TAb-2H-Rax" firstAttribute="top" secondItem="204-s3-vwn" secondAttribute="bottom" constant="20" id="W5c-2i-3c9"/>
+                <constraint firstItem="TAb-2H-Rax" firstAttribute="top" secondItem="204-s3-vwn" secondAttribute="bottom" constant="25" id="W5c-2i-3c9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="62z-nl-bo1" secondAttribute="bottom" constant="20" id="Z6u-in-a9R"/>
                 <constraint firstItem="IfW-CJ-w3R" firstAttribute="width" secondItem="Igo-Md-67b" secondAttribute="width" id="aCK-XZ-gyt"/>
                 <constraint firstItem="wRP-7P-knr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aUa-yg-8Ft"/>
                 <constraint firstItem="204-s3-vwn" firstAttribute="height" secondItem="Igo-Md-67b" secondAttribute="height" id="cv9-61-Plq"/>
-                <constraint firstItem="z7z-rW-bUJ" firstAttribute="top" secondItem="Igo-Md-67b" secondAttribute="bottom" constant="20" id="dQH-OO-4iV"/>
+                <constraint firstItem="z7z-rW-bUJ" firstAttribute="top" secondItem="Igo-Md-67b" secondAttribute="bottom" constant="25" id="dQH-OO-4iV"/>
+                <constraint firstItem="dXW-RH-nVa" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="dbr-fH-zVo"/>
                 <constraint firstItem="z7z-rW-bUJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fAe-L9-odH"/>
-                <constraint firstItem="62z-nl-bo1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hug-Xs-sh0"/>
+                <constraint firstItem="62z-nl-bo1" firstAttribute="top" secondItem="dXW-RH-nVa" secondAttribute="bottom" constant="30" id="m43-v5-ExR"/>
                 <constraint firstItem="TAb-2H-Rax" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="mAH-Qh-gqy"/>
                 <constraint firstItem="91V-k1-yuA" firstAttribute="top" secondItem="na7-I3-7WB" secondAttribute="bottom" constant="10" id="mSp-fM-03J"/>
                 <constraint firstItem="Igo-Md-67b" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.05" id="nTY-dd-QUA"/>
                 <constraint firstItem="204-s3-vwn" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="pbU-qB-QVc"/>
                 <constraint firstItem="Igo-Md-67b" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="r0o-IP-Ys3"/>
-                <constraint firstItem="wRP-7P-knr" firstAttribute="top" secondItem="IfW-CJ-w3R" secondAttribute="bottom" constant="20" id="tQK-jM-8U9"/>
-                <constraint firstItem="IfW-CJ-w3R" firstAttribute="top" secondItem="TAb-2H-Rax" secondAttribute="bottom" constant="20" id="ynJ-LF-hKQ"/>
+                <constraint firstItem="wRP-7P-knr" firstAttribute="top" secondItem="IfW-CJ-w3R" secondAttribute="bottom" constant="25" id="tQK-jM-8U9"/>
+                <constraint firstItem="IfW-CJ-w3R" firstAttribute="top" secondItem="TAb-2H-Rax" secondAttribute="bottom" constant="25" id="ynJ-LF-hKQ"/>
+                <constraint firstItem="dXW-RH-nVa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zpn-Pe-90Q"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="140" y="142.57871064467767"/>

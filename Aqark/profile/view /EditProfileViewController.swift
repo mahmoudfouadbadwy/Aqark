@@ -60,7 +60,9 @@ class EditProfileViewController: UIViewController {
     }
     @objc func chnageIndicatorStatus(){
         indicatorView.isHidden = true
-        showActivityIndicator()
+        stopActivityIndicator()
+         UIApplication.shared.endIgnoringInteractionEvents()
+        
         let alertController = UIAlertController(title: "Edit Profile".localize, message: "Profile Edited Successfully".localize, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Ok".localize, style: .default) {[weak self] (_) in
             self!.navigationController?.popViewController(animated: true)
@@ -101,6 +103,7 @@ class EditProfileViewController: UIViewController {
             {
                 indicatorView.isHidden = false
                 showActivityIndicator()
+                 UIApplication.shared.beginIgnoringInteractionEvents()
                 editProfileViewModel?.updateProfileData()
             }else{
                 showAlert(title: "Internet Connection".localize, message: "Internet Connection Not Available".localize)
