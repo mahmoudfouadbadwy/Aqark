@@ -40,7 +40,7 @@ class FavouriteDataAccessTests: XCTestCase {
                 XCTAssertNotNil(advertisment.propertyType)
             }
         }
-        waitForExpectations(timeout: 40)
+        waitForExpectations(timeout: 30)
     }
     
     override func tearDown() {
