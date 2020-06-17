@@ -29,7 +29,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     var maps : [MapViewModel]!
     var latitude : Double = 0
     var longitude : Double = 0
-    var isSorting: String = "default"
+    var isSorting: String = ""
     var isSorted = false
     var coreDataViewModel : CoreDataViewModel?
     var coreDataAccess : CoreDataAccess!
@@ -81,7 +81,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     
     override func viewWillAppear(_ animated: Bool) {
         if SearchNetworking.checkNetworkConnection(){
-//            showActivityIndicator()
+            showActivityIndicator()
             searchCollectionView.isHidden = false
             setObjects()
             setUpSortBtn()
@@ -89,8 +89,8 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             manageSearchBar()
             limitRegion()
             setupCoredata()
-            getCollectionViewData()
             stopActivityIndicator()
+            getCollectionViewData()
         }else{
             sort = nil
             labelPlaceHolder.isHidden = false

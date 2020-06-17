@@ -29,18 +29,13 @@ extension SearchViewController:  UISearchBarDelegate{
         appearAutoCompleteData()
         if  searchBar.text?.count == 0 {
            self.searchCollectionView.reloadData()
-          
-             self.navigationItem.rightBarButtonItem = sort
+           self.navigationItem.rightBarButtonItem = sort
             labelPlaceHolder.isHidden = true
-        
         }
     }
     
-  
-    
     func filterContentForSearchBarText(_ searchText: String){
         let searchText = searchBar.text ?? ""
-        sort = nil
         filteredAdsList = arrOfAdViewModel.filter { advertisement -> Bool in
             return advertisement.address.lowercased().contains(searchText.lowercased())
         }
@@ -53,6 +48,8 @@ extension SearchViewController:  UISearchBarDelegate{
             sort = nil
             labelPlaceHolder.isHidden = false
         }
+        
+    
         self.searchCollectionView.reloadData()
     }
     
