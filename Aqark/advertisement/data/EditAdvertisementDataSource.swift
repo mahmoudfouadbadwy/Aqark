@@ -34,7 +34,6 @@ class EditAdvertisementDataSource{
                                                                      country: editAdvertisement["country"] as? String ,
                                                                      bedRooms: editAdvertisement["bedRooms"] as? String ,
                                                                      AdvertisementType: editAdvertisement["Advertisement Type"] as? String ,
-                                                                     date: editAdvertisement["date"] as? String ,
                                                                      description: editAdvertisement["description"] as? String ,
                                                                      price: editAdvertisement["price"] as? String ,
                                                                      payment: editAdvertisement["payment"] as? String ,
@@ -79,7 +78,7 @@ class EditAdvertisementDataSource{
                                      "phone" : advertisement.phone ?? "",
                                      "country": advertisement.country ?? "",
                                      "description": advertisement.description ?? "",
-                                     "date" : advertisement.date ?? "",
+                                    
                                      "Address" : advertisement.Address ?? "",
                                      "amenities" : advertisement.amenities ?? "",
                                      "UserId" : userID ,

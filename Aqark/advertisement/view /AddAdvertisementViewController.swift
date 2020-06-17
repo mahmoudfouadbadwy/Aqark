@@ -49,7 +49,7 @@ class AddAdvertisementViewController: UIViewController  {
     var urlImages : [String] = [String]()
     var urlImageDeleted:[String]=[String]()
     var editAdvertisementDataSource :EditAdvertisementDataSource?
-    var dateOfAdvertisement:String!
+    //var dateOfAdvertisement:String!
     var autocompletecontroller : GMSAutocompleteViewController?
     var filter : GMSAutocompleteFilter?
     var country:String!
@@ -120,11 +120,12 @@ class AddAdvertisementViewController: UIViewController  {
             if AdvertisementNetworking.checkNetworkConnection()
             {
                     self.showActivityIndicator()
+                    UIApplication.shared.beginIgnoringInteractionEvents()
                     blackIndicatorView.isHidden = false
                     // check add or edit
                     if(advertisementId.isEmpty == false)
                     {
-                        addAdvertisementVM?.editAdvertisement(id : advertisementId , date : dateOfAdvertisement)
+                        addAdvertisementVM?.editAdvertisement(id : advertisementId)
                     }else{
                         addAdvertisementVM?.save()
                     }

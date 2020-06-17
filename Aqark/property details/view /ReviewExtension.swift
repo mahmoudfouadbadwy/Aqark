@@ -10,7 +10,7 @@ import UIKit
 
 extension PropertyDetailView {
     func addReview(reviewText : String){
-        advertisementReviewViewModel = ReviewsViewModel(dataAccess: reviewData)
+        
         self.advertisementReviewViewModel.setReviewData(reviewContent: reviewText, advertisementId : advertisementId)
     }
     
@@ -38,20 +38,26 @@ extension PropertyDetailView {
              
         }
     }
-    func manageAddReviewOutlets(){
-     
-        let alert = UIAlertController(title: "Add Review", message: nil, preferredStyle: .alert)
-        alert.addTextField { (textField) in
-            textField.height(30)
-        }
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak alert] (_) in
-            let textField = alert?.textFields![0]
-            if textField?.text?.isEmpty == false{
-                self.addReview(reviewText : (textField?.text)!)
+    func manageAddReview(){
+        advertisementReviewViewModel = ReviewsViewModel(dataAccess: reviewData)
+        if advertisementReviewViewModel.checkUserAuth(){
+            let alert = UIAlertController(title: "Add Review", message: nil, preferredStyle: .alert)
+            alert.addTextField { (textField) in
+                textField.height(30)
             }
-        }))
-        alert.addAction(UIAlertAction(title: "cancle", style: .cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak alert] (_) in
+                let textField = alert?.textFields![0]
+                if textField?.text?.isEmpty == false{
+                    
+                    self.addReview(reviewText : (textField?.text)!)
+                }
+            }))
+            alert.addAction(UIAlertAction(title: "cancle", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }else{
+            self.showAlert(title: "Review", message: "Please Login To Review This Advertisement")
+        }
+        
         
     }
     

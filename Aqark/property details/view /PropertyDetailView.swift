@@ -121,7 +121,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     
     
     @IBAction func addReviewBtn(_ sender: Any) {
-        manageAddReviewOutlets()
+        manageAddReview()
     }
     
     @IBAction func showReportActionSheet(_ sender: Any) {

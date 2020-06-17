@@ -9,8 +9,9 @@
 import Foundation
 import Firebase
 class ProfileDataAccess{
-
+    
     var profileDataRef:DatabaseReference! = Database.database().reference()
+    var profileDataHandle:DatabaseHandle!
     var profileAdvertisementsIDsRef:DatabaseReference! = Database.database().reference()
     var profileAdvertisementsIDsHandel:DatabaseHandle!
     var allAdvertisementsRef:DatabaseReference! = Database.database().reference()
@@ -18,7 +19,8 @@ class ProfileDataAccess{
     var deletAdsRef:DatabaseReference! = Database.database().reference()
     func getProfileData(onSuccess:@escaping(Profile)->Void,onFailure:@escaping(Error)-> Void){
         guard let userID = Auth.auth().currentUser?.uid else {return}
-       profileDataRef.child("Users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+        profileDataHandle =  profileDataRef.child("Users").child(userID).observe(.value, with: { (snapshot) in
+            
             if(snapshot.exists())
             {
                 let value = snapshot.value as? NSDictionary
@@ -55,7 +57,9 @@ class ProfileDataAccess{
     
     func reomveProfileDataObserver()
     {
+        profileDataRef.removeObserver(withHandle: profileDataHandle)
         profileDataRef = nil
+        profileDataHandle = nil
     }
 }
 

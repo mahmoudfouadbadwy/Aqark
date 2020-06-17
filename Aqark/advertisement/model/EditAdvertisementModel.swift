@@ -15,7 +15,6 @@ struct EditAdvertisementModel {
     var country : String?
     var bedRooms : String?
     var AdvertisementType : String?
-    var date : String?
     var description : String?
     var price : String?
     var payment : String?

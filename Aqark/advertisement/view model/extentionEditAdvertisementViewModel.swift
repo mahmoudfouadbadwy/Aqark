@@ -18,7 +18,7 @@ extension AddAdvertisementViewModel{
         }
     }
     
-    func editAdvertisement(id :String , date:String)
+    func editAdvertisement(id :String)
     {
         
        editAdvertisementDataSource = EditAdvertisementDataSource(advertisementId: id)
@@ -31,7 +31,6 @@ extension AddAdvertisementViewModel{
             }
         }
         
-         self.date = date
         //upload images if in seleted images have data
         if let dataImages = dataImages
         {
@@ -53,7 +52,6 @@ extension AddAdvertisementViewModel{
     }
     
     func uploadNow(){
-        //updata data
         let amins = Array(aminities.values)
         let address = ["location": location,
                        "latitude": latitude,
@@ -64,7 +62,6 @@ extension AddAdvertisementViewModel{
                                                             country: country,
                                                             bedRooms: bedrooms,
                                                             AdvertisementType: advertisementType,
-                                                            date: self.date,
                                                             description: description,
                                                             price: price,
                                                             payment: payment,

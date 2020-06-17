@@ -22,7 +22,10 @@ class ProfileStore{
             profileDataAccess.getProfileData(onSuccess: {[weak self]
                 (profileData) in
                 self?.profileViewModel = ProfileViewModel(profile: profileData)
-                onSuccess(self!.profileViewModel)
+                if self?.profileViewModel != nil {
+                    onSuccess(self!.profileViewModel)
+                }
+                
                 }, onFailure: {
                     (error) in
                     onFailure(error)

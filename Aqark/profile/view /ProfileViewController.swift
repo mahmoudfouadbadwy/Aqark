@@ -98,6 +98,7 @@ class ProfileViewController: UIViewController {
         }
     }
     deinit {
+        print("de inti profile")
         profileViewModel.removeProfileDataObservers()
         profileDataAccess = nil
         advertisementViewModel.removeProfileAdvertisementsObservers()
