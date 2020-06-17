@@ -19,9 +19,6 @@ extension UIViewController{
         indicator.startAnimating()
         indicatorView?.addSubview(indicator)
         self.view.addSubview(indicatorView!)
-        Timer.scheduledTimer(withTimeInterval: 20, repeats: false) { (time) in
-            self.stopActivityIndicator()
-        }
     }
     
     func stopActivityIndicator(){

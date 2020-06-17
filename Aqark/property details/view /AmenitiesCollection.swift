@@ -77,13 +77,22 @@ extension PropertyDetailView:UICollectionViewDataSource{
             }
             else
             {
+                contentHeight.constant = 1000
+                agentTopConstrain.constant = 0
+                aminitiesCollectionHeight.constant = 0
                 amenitiesHeight.constant = 0
                 amenitiesSection.isHidden = true
                 return 0
             }
         }else{
+           
             if let arrOfReviewsViewModel = arrOfReviewsViewModel{
-                return arrOfReviewsViewModel.count
+                if arrOfReviewsViewModel.count == 0 {
+                    return 0
+                }else{
+                    noReview.isHidden = true
+                    return arrOfReviewsViewModel.count
+                }
             }else{
                 return 0
             }
@@ -112,7 +121,7 @@ extension PropertyDetailView:UICollectionViewDelegateFlowLayout{
         if collectionView == amenitiesCollection{
             
             var itemSize:CGSize!
-            if self.advertisementDetails.amenities.count <= 2{
+            if self.advertisementDetails.amenities.count <= 2 {
                 contentHeight.constant = 90 + 1000
                 amenitiesHeight.constant = 90
                 aminitiesCollectionHeight.constant = 30

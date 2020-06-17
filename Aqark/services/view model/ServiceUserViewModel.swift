@@ -21,7 +21,7 @@ struct ServiceUserViewModel{
     init(serviceUser : ServiceUser) {
         self.serviceUserId = serviceUser.userId
         self.serviceUserName = serviceUser.userName
-        self.serviceUserCountry  = serviceUser.userCountry
+        self.serviceUserCountry  = splitCountry(serviceUser.userCountry)
         self.serviceUserServiceRating = serviceUser.userServiceRating
         self.serviceUserExperience = serviceUser.userExperience 
         self.serviceUserCompany = serviceUser.userCompany

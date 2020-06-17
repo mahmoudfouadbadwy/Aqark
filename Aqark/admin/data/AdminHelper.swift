@@ -52,3 +52,8 @@ struct AdvertisementType{
     static let rent = "Rent"
     static let buy = "Buy"
 }
+
+struct AdvertisementPaymentType{
+    static let free = "free"
+    static let premium = "premium"
+}

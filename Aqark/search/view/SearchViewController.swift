@@ -110,7 +110,9 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         searchBar.tintColor = .red
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         searchCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
+        view.alpha = 0.5
     }
+    
     private func setObjects(){
         maps = []
         sortedList = []

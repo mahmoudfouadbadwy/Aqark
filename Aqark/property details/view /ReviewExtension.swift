@@ -9,15 +9,9 @@
 import UIKit
 
 extension PropertyDetailView {
-    func addReview(){
-        
+    func addReview(reviewText : String){
         advertisementReviewViewModel = ReviewsViewModel(dataAccess: reviewData)
-        if !addReviewContentTextView.text.isEmpty{
-            self.advertisementReviewViewModel.setReviewData(reviewContent: addReviewContentTextView.text, advertisementId : advertisementId)
-            addReviewContentTextView.text = ""
-
-            reviewMessage.isHidden = true
-        }
+        self.advertisementReviewViewModel.setReviewData(reviewContent: reviewText, advertisementId : advertisementId)
     }
     
     func setUpReviewsCollectionView()
@@ -37,9 +31,6 @@ extension PropertyDetailView {
         })
     }
     func manageReviewAppearence(){
-        reviewMessage.isHidden = true
-         bottomscrollView.constant = (keyboardHeight * 1)
-        
         if propertyViewModel.checkAdvertisementOwner(agentId: advertisementDetails.userID) || !advertisementReviewViewModel.checkUserAuth(){
             addReviewBtn.isHidden = true
         }else{
@@ -48,13 +39,20 @@ extension PropertyDetailView {
         }
     }
     func manageAddReviewOutlets(){
-        reviewMessage.isHidden = false
+     
+        let alert = UIAlertController(title: "Add Review", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.height(30)
+        }
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0]
+            if textField?.text?.isEmpty == false{
+                self.addReview(reviewText : (textField?.text)!)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "cancle", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
         
-        
-        
-        addReviewContentTextView.becomeFirstResponder()
-        addReviewContentTextView.layer.borderColor = UIColor(rgb: 0x1d3557).cgColor
-        addReviewContentTextView.layer.borderWidth = 1.0
     }
     
 }

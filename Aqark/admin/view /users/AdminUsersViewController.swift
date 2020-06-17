@@ -17,6 +17,8 @@ class AdminUsersViewController: UIViewController{
     @IBOutlet weak var usersSearchBar: UISearchBar!
     @IBOutlet weak var usersSegment: CustomSegment!
     @IBOutlet weak var usersTableView: UITableView!
+    @IBOutlet weak var totalUsersLabel: UILabel!
+    @IBOutlet weak var userRoleNumberLabel: UILabel!
     
     var adminUsersViewModel : AdminUsersListViewModel!
     private var dataAccess : AdminDataAccess!
@@ -32,9 +34,12 @@ class AdminUsersViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.navigationItem.title = "Users"
         if(AdminNetworking.checkNetworkConnection()){
-            isDisappearing =  false
+            view.alpha = 0.5
+            totalUsersLabel.isHidden = true
+            userRoleNumberLabel.isHidden = true
             dataAccess = AdminDataAccess()
             adminUsersViewModel = AdminUsersListViewModel(dataAccess: dataAccess)
+            isDisappearing =  false
             bindUsersTable()
         }else{
             setupNoConnection()
@@ -47,7 +52,6 @@ class AdminUsersViewController: UIViewController{
         usersSearchBar.barTintColor = UIColor(rgb: 0xf1faee)
         usersTableView.backgroundColor = UIColor(rgb: 0xf1faee)
         view.backgroundColor = UIColor(rgb: 0xf1faee)
-        view.alpha = 0.5
     }
     
     private func setupUsersTable() {
@@ -60,16 +64,20 @@ class AdminUsersViewController: UIViewController{
         view.alpha = 1
         noLabel.isHidden = false
         usersSearchBar.isHidden = true
+        totalUsersLabel.isHidden = true
+        userRoleNumberLabel.isHidden = true
         noLabel.text = "Internet Connection Not Available."
     }
     
     private func bindUsersTable() {
         noLabel.isHidden = true
         showActivityIndicator()
-        adminUsersViewModel.populateUsers { [weak self] in
+        adminUsersViewModel.populateUsers { [weak self] (totalUsers) in
             UIView.animate(withDuration:2) {
                 self?.view.alpha = 1
             }
+            self?.totalUsersLabel.isHidden = false
+            self?.totalUsersLabel.text = "Total Users: \(totalUsers)"
             self?.stopActivityIndicator()
             self?.adminUsersViewModel.getUsersByType(type: self!.usersSegment.selectedIndex)
             if(!self!.adminUsersViewModel.adminUsersViewList.isEmpty){
@@ -80,12 +88,14 @@ class AdminUsersViewController: UIViewController{
                     }else{
                         self?.noLabel.isHidden = true
                     }
-                    self?.usersSearchBar.isHidden = false
                 }
+                self?.usersSearchBar.isHidden = false
+                self?.noLabel.isHidden = true
                 //self?.usersSearchBar.text = ""
             }else{
                 self?.setLabelForZeroCount(search: false)
             }
+            self?.setUserRoleLabel()
             self?.usersTableView.reloadData()
         }
     }
@@ -103,7 +113,7 @@ class AdminUsersViewController: UIViewController{
                 noLabel.text = "No Interior Designers Available."
             }
         }else{
-            noLabel.text = "Internet Connection Not Available."
+            setupNoConnection()
         }
         
     }
@@ -117,7 +127,16 @@ class AdminUsersViewController: UIViewController{
     }
     
     @IBAction func changeUserType(_ sender: Any) {
-        if(AdminNetworking.checkNetworkConnection()){
+        if(adminUsersViewModel == nil && AdminNetworking.checkNetworkConnection()){
+            totalUsersLabel.isHidden = true
+            userRoleNumberLabel.isHidden = true
+            dataAccess = AdminDataAccess()
+            adminUsersViewModel = AdminUsersListViewModel(dataAccess: dataAccess)
+            isDisappearing =  false
+            bindUsersTable()
+        }
+        
+        if(adminUsersViewModel != nil){
             usersSearchBar.text = ""
             adminUsersViewModel.getUsersByType(type: usersSegment.selectedIndex)
             if(adminUsersViewModel.adminUsersViewList.isEmpty){
@@ -126,10 +145,26 @@ class AdminUsersViewController: UIViewController{
                 usersSearchBar.isHidden = false
                 noLabel.isHidden = true
             }
-            self.usersTableView.reloadData()
-
-        }else{
+            totalUsersLabel.isHidden = false
+            setUserRoleLabel()
+            usersTableView.reloadData()
+        }
+        
+        if(adminUsersViewModel == nil && !AdminNetworking.checkNetworkConnection()){
             setupNoConnection()
+        }
+    }
+    
+    func setUserRoleLabel(){
+        userRoleNumberLabel.isHidden = false
+        switch usersSegment.selectedIndex{
+        case 0:
+            userRoleNumberLabel.text = "Users: \(adminUsersViewModel.adminUsersViewList.count)"
+        case 1:
+            userRoleNumberLabel.text = "Lawyers: \(adminUsersViewModel.adminUsersViewList.count)"
+        default:
+            userRoleNumberLabel.text = "Designers: \(adminUsersViewModel.adminUsersViewList.count)"
+            
         }
     }
     
