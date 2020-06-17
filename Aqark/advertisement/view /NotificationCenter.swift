@@ -18,7 +18,7 @@ extension AddAdvertisementViewController
     @objc func chnageIndicatorStatus()
     {
         self.stopActivityIndicator()
-       
+        UIApplication.shared.endIgnoringInteractionEvents()
         let alertController = UIAlertController(title: "Advertisements".localize, message: "Advertrisement saved successfully".localize , preferredStyle: .alert)
         let actionButton = UIAlertAction(title: "ok", style: .default) { (_) in
             self.navigationController?.popViewController(animated: true)
