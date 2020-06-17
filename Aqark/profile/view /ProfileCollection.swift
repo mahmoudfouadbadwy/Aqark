@@ -84,10 +84,36 @@ extension ProfileViewController:UICollectionViewDataSource{
 
 extension ProfileViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-         editAdsView = AddAdvertisementViewController()
-        editAdsView.advertisementId = listOfAdvertisements[indexPath.row].advertisementId
-        self.navigationController?.pushViewController(editAdsView, animated: true)
+        //check connection
+        
+        editProfileVM = EditProfileViewModel()
+        editProfileVM.fetchAdvertisement(addId: self.listOfAdvertisements[indexPath.row].advertisementId!) {[weak self] (dateFetched) in
+            self?.editAdvertisement(date: dateFetched, row: indexPath.row)
+        }
     }
+    
+    
+    
+    func editAdvertisement(date : String , row : Int){
+
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+
+        let currentDate = Date()
+        let lastTimeForEdit = formatter.date(from: date)!.addingTimeInterval(24*60*60)
+        if (currentDate <= lastTimeForEdit)
+        {
+            self.editAdsView = AddAdvertisementViewController()
+            self.editAdsView.advertisementId = self.listOfAdvertisements[row].advertisementId!
+            self.navigationController?.pushViewController(self.editAdsView, animated: true)
+        }else{
+            self.showAlert(title: "Edit Advertisement", message: "you have only one day to edit yout advertisement")
+        }
+
+       
+    }
+            
 }
 
 

@@ -26,7 +26,15 @@ class EditProfileViewModel : EditProfileProtocol
             return self.borkenRule.count == 0 ? true : false
         }
     }
-    
+    init() {
+        self.imageView = ""
+        self.userName = ""
+        self.phoneNumber = ""
+        self.address = ""
+        self.company = ""
+        self.experiance = ""
+        self.role = ""
+    }
     init(imageView : Any , userName : String , phoneNumber : String ,address : String , company : String , experiance : String , role : String)
     {
         self.imageView = imageView
@@ -120,5 +128,13 @@ class EditProfileViewModel : EditProfileProtocol
         editProfileDataSource = nil
     }
     
+
+    func fetchAdvertisement(addId : String , comletion : @escaping (String)->Void){
+        
+        editProfileDataSource.fetchAdvertisement(addId: addId) { (dateFetched) in
+            comletion(dateFetched)
+        }
+        
+    }
     
 }

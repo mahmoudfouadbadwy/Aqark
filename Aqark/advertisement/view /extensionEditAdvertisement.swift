@@ -20,19 +20,7 @@ extension AddAdvertisementViewController {
         editAdvertisementDataSource = EditAdvertisementDataSource(advertisementId: advertisementId)
         addAdvertisementVM = AddAdvertisementViewModel(editDataSource : editAdvertisementDataSource!)
         addAdvertisementVM?.fetchAdvertisement {[weak self] (myValue) in
-     
-            self?.dateOfAdvertisement = myValue.date
-            let formatter = DateFormatter()
-            formatter.timeZone = TimeZone.current
-            formatter.dateFormat = "yyyy-MM-dd HH:mm"
-
-            let currentDate = Date()
-            let lastTimeForEdit = formatter.date(from: myValue.date!)!.addingTimeInterval(24*60*60)
-
-
-            if (currentDate <= lastTimeForEdit)
-            {
-                
+    
                 self?.priceTxtField.text =  self?.convertNumbers(lang: "lang".localize, stringNumber: myValue.price ?? "0").1
                 self?.sizeTxtField.text =  self?.convertNumbers(lang: "lang".localize, stringNumber: myValue.size ?? "0").1
                 self?.phoneTxtField.text =  (self?.convertNumbers(lang: "lang".localize, stringNumber: "0").1 ?? "0") + (self?.convertNumbers(lang: "lang".localize, stringNumber: myValue.phone ?? "1" ).1 ?? "1")
@@ -93,12 +81,6 @@ extension AddAdvertisementViewController {
                     self?.urlImages = urlImages
                     self?.collectionView.reloadData()
                 }
-
-            }else{
-                print("can't make change you have only  one day to change ")
-            }
-
-
         }
     }
     

@@ -32,6 +32,7 @@ class ProfileViewController: UIViewController {
     var profileViewModel:ProfileStore!
     var advertisementViewModel:ProfileAdvertisementListViewModel!
     var deleteViewModel:AdvertisementDelete!
+    var editProfileVM : EditProfileViewModel!
     var listOfAdvertisements:[ProfileAdvertisementViewModel]! = []{
         didSet{
             if listOfAdvertisements.count>0{
@@ -107,6 +108,7 @@ class ProfileViewController: UIViewController {
         cancel = nil
         alertController = nil
         alertAction = nil
+        editProfileVM = nil
     }
     deinit {
         listOfAdvertisements = nil

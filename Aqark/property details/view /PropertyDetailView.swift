@@ -13,7 +13,6 @@ import Cosmos
 
 class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var amenitiesHeader: UILabel!
-
     @IBOutlet weak var reviewSection: UIView!
     @IBOutlet weak var descriptionSection: UIView!
     @IBOutlet weak var agentSection: UIView!
@@ -29,13 +28,9 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var porperties: UIButton!
     @IBOutlet weak var interiorDesigner: UIButton!
     @IBOutlet weak var lawyers: UIButton!
-    @IBOutlet weak var addReviewContentTextView: UITextView!
-    @IBOutlet weak var submitReviewBtn: UIButton!
-    @IBOutlet weak var reviewTextView: UITextView!
     @IBOutlet weak var addReviewBtn: UIButton!
     @IBOutlet weak var reviewHeaderLabel: UILabel!
     @IBOutlet weak var content: UIView!
-    @IBOutlet weak var amenitiesTopSpace: NSLayoutConstraint!
     @IBOutlet weak var amenitiesHeight: NSLayoutConstraint!
     @IBOutlet weak var userRate: CosmosView!
     @IBOutlet weak var advertisementDescription: UITextView!
@@ -52,6 +47,18 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var dateOfAdvertisement: UILabel!
     @IBOutlet weak var numberOfViews: UILabel!
     @IBOutlet weak var imageSlider: ImageSlider!
+    @IBOutlet weak var reviewsCollectionView: UICollectionView!
+    @IBOutlet weak var noReview: UIView!
+    @IBOutlet weak var agentTopConstrain: NSLayoutConstraint!
+    @IBOutlet weak var contentHeight: NSLayoutConstraint!
+    @IBOutlet weak var aminitiesCollectionHeight: NSLayoutConstraint!
+    @IBOutlet weak var ServiceLabel: UILabel!
+    @IBOutlet weak var bottomscrollView: NSLayoutConstraint!
+    @IBOutlet weak var scrollView: UIScrollView!
+    var favButton : UIButton!
+    var advertisementId:String!
+    var downloadedImages:[UIImage] = []
+    
     var propertyViewModel : PropertyDetailViewModel!
     var propertyDataAccess : PropertyDetailDataAccess!
     var advertisementDetails:AdverisementViewModel!
@@ -61,58 +68,16 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     var reviewViewModel :ReviewViewModel!
     var reportData: ReportData!
     var agent:AgentViewModel!
-    var advertisementId:String!
-    var downloadedImages:[UIImage] = []
-    let callButton = JJFloatingActionButton()
+    var callButton : JJFloatingActionButton!
     var coreDataViewModel: CoreDataViewModel?
     var arrOfReviewsViewModel : [ReviewViewModel]!
-    var favButton : UIButton!
-    @IBOutlet weak var reviewsCollectionView: UICollectionView!
-    
-    
-    /* ahmed saeed*/
+   
 
-    @IBOutlet weak var contentHeight: NSLayoutConstraint!
-    
-    @IBOutlet weak var aminitiesCollectionHeight: NSLayoutConstraint!
-    
-    @IBOutlet weak var ServiceLabel: UILabel!
-    @IBOutlet weak var bottomscrollView: NSLayoutConstraint!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var reviewMessage: UIView!
-    var keyboardHeight: CGFloat = 0{
-        didSet{
-            bottomscrollView.constant = (keyboardHeight * -1)
-        }
-    }
-    
-    /* ahmed saeed*/
-    
-    
-    
-    
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        
-        
-        
-        
-        
-        /* ahmed saeed*/
-        NotificationCenter.default.addObserver(self,selector: #selector(handle(keyboardShowNotification:)),
-        name: UIResponder.keyboardDidShowNotification,object: nil)
-        /* ahmedsaeed*/
-        
-        
-        
-        
-        
-        
-        
         setupViews()
         if PropertyDetailsNetworking.checkNetworkConnection(){
             self.showActivityIndicator()
@@ -125,33 +90,16 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
                 self?.setUpReviewsCollectionView()
                 self?.bindReviewData()
             }
+            callButton = JJFloatingActionButton()
             setupFavoriteButton()
             setupCoredata()
             checkIfFavourite()
+            
         }
         else{
             content.isHidden = true
         }
     }
-    
-    
-    
-    
-    
-    
-    /* ahmed saeed*/
-    @objc
-    private func handle(keyboardShowNotification notification: Notification) {
-
-        if let userInfo = notification.userInfo,
-            let keyboardRectangle = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
-            keyboardHeight = (keyboardRectangle.height)
-             //keyboardFrameEndUserInfoKey
-        }
-    }
-    /* ahmed saeed*/
-    
-    
     
     
     
@@ -176,14 +124,9 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         manageAddReviewOutlets()
     }
     
-    @IBAction func submitReview(_ sender: Any) {
-        addReview()
-    }
-    
     @IBAction func showReportActionSheet(_ sender: Any) {
         preformReport()
     }
-    
     
     @IBAction func openPropertiesView(_ sender: Any) {
         let properties = AgentPropertiesView()
@@ -245,6 +188,21 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         let barButton = UIBarButtonItem(customView: favButton)
         self.navigationItem.rightBarButtonItem = barButton
         
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        print ("viewWillDisappear ")
+         propertyViewModel = nil
+         propertyDataAccess = nil
+         advertisementDetails = nil
+         advertisementReportViewModel = nil
+         reviewData = nil
+         advertisementReviewViewModel = nil
+         reviewViewModel = nil
+         reportData = nil
+         agent = nil
+         callButton = nil
+         coreDataViewModel = nil
+         arrOfReviewsViewModel = nil
     }
     
     deinit{
