@@ -21,6 +21,7 @@ extension ProfileViewController{
     func bindCollectionData()
     {
         if  advertisementViewModel != nil{
+            showActivityIndicator()
             advertisementViewModel.getAllAdvertisements(completion: {[weak self]
                 (advertisements) in
                 self?.stopActivityIndicator()
@@ -78,16 +79,37 @@ extension ProfileViewController:UICollectionViewDataSource{
         let cell:ProfileAdvertisementCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileAdvertisementCell
         setCellData(cell: cell, indexPath: indexPath)
         setCellConfiguration(cell: cell)
+        setupButtonGeusture(deleteButton: cell.delete)
         return cell
     }
 }
 
 extension ProfileViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-         editAdsView = AddAdvertisementViewController()
-        editAdsView.advertisementId = listOfAdvertisements[indexPath.row].advertisementId
-        self.navigationController?.pushViewController(editAdsView, animated: true)
+        //check connection
+        
+        editProfileVM = EditProfileViewModel()
+        editProfileVM.fetchAdvertisement(addId: self.listOfAdvertisements[indexPath.row].advertisementId!) {[weak self] (dateFetched) in
+            self?.editAdvertisement(date: dateFetched, row: indexPath.row)
+        }
     }
+
+    func editAdvertisement(date : String , row : Int){
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let currentDate = Date()
+        let lastTimeForEdit = formatter.date(from: date)!.addingTimeInterval(24*60*60)
+        if (currentDate <= lastTimeForEdit)
+        {
+            self.editAdsView = AddAdvertisementViewController()
+            self.editAdsView.advertisementId = self.listOfAdvertisements[row].advertisementId!
+            self.navigationController?.pushViewController(self.editAdsView, animated: true)
+        }else{
+            self.showAlert(title: "Advertisements", message: "Sorry, You can't edit your advertisement after 24 hours.")
+        }
+    }
+            
 }
 
 
@@ -107,13 +129,20 @@ extension ProfileViewController:UICollectionViewDelegateFlowLayout
 extension ProfileViewController:UIGestureRecognizerDelegate{
     func setupCollectionGeusture()
     {
-         gesture = UILongPressGestureRecognizer(target: self, action: #selector(deleteCell(gesture:)))
+        gesture = UILongPressGestureRecognizer(target: self, action: #selector(deleteCell(gesture:)))
         gesture.delegate = self
         gesture.delaysTouchesBegan = true
         self.advertisementsCollection.addGestureRecognizer(gesture)
     }
     
-    @objc private func deleteCell(gesture:UILongPressGestureRecognizer )
+    func setupButtonGeusture(deleteButton:UIButton){
+        pressGesture = UITapGestureRecognizer(target: self, action: #selector(deleteCell(gesture:)))
+       
+        deleteButton.addGestureRecognizer(pressGesture)
+       
+    }
+    
+    @objc private func deleteCell(gesture:UIGestureRecognizer)
     {
         if (gesture.state != .ended)
         {

@@ -12,8 +12,8 @@ extension PropertyDetailView{
     
     func configureCallingButton()
     {
-        callButton.addItem(title: "call", image: UIImage(named: "phone")?.withRenderingMode(.alwaysTemplate)) { item in
-               self.makePhoneCall()
+        callButton.addItem(title: "call", image: UIImage(named: "phone")?.withRenderingMode(.alwaysTemplate)) {[weak self] item in
+               self?.makePhoneCall()
         }
         view.addSubview(callButton)
         callButton.translatesAutoresizingMaskIntoConstraints = false

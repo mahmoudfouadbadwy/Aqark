@@ -17,7 +17,6 @@ extension ProfileViewController{
         logout = UIBarButtonItem(title: "logout".localize,style: .done, target: self, action: #selector(self.logout(sender:)))
         self.navigationItem.leftBarButtonItem = logout
         
-        
     }
     @objc func logout(sender: UIBarButtonItem){
         if profileViewModel !=  nil
