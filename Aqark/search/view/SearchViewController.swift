@@ -78,7 +78,6 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     
     override func viewWillAppear(_ animated: Bool) {
         if SearchNetworking.checkNetworkConnection(){
-            view.alpha = 0.5
             searchCollectionView.isHidden = false
             setObjects()
             setUpSortBtn()
@@ -87,7 +86,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             limitRegion()
             setupCoredata()
             getCollectionViewData()
-            stopActivityIndicator()
+            //stopActivityIndicator()
         }else{
             sort = nil
             labelPlaceHolder.isHidden = false
@@ -107,7 +106,9 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         searchBar.tintColor = .red
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         searchCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
+        view.alpha = 0.5
     }
+    
     private func setObjects(){
         maps = []
         sortedList = []
