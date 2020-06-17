@@ -31,8 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /* start shrouk*/
         FirebaseApp.configure()
         GMSPlacesClient.provideAPIKey("AIzaSyBcAep0YORoUFFlmvyyE-QzwhkUkPDl5bM")
-//         let product = PurchaseManager()
         PurchaseManager.instance.fetchProducts()
+
         /* end shrouk*/
         /* start fouad*/
         window = UIWindow()
@@ -63,8 +63,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         searchNavigationController.navigationBar.barTintColor = UIColor(rgb: 0xf1faee)
         searchNavigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(rgb: 0x1d3557)]
         
-        let accountTab = FirstScreenViewController()
+        let accountTab = LoginViewController()
         let accountNavigationController = UINavigationController(rootViewController: accountTab)
+        
         accountNavigationController.navigationBar.barTintColor = UIColor(rgb: 0xf1faee)
         accountNavigationController.navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor :  UIColor(rgb: 0x1d3557)]
@@ -77,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         searchTab.tabBarItem = UITabBarItem(title: "Search".localize, image: UIImage(named: "search"), tag: 1)
         accountTab.tabBarItem = UITabBarItem(title: "Account".localize, image: UIImage(named: "profile"), tag: 2)
-        favouriteTab.tabBarItem = UITabBarItem(title: "Favourite".localize, image: UIImage(named: "favoriteTab"), tag: 3)
+        favouriteTab.tabBarItem = UITabBarItem(title: "Favourite".localize, image: UIImage(named: "heart"), tag: 3)
         let controllers = [searchNavigationController,favouriteNavigationController,accountNavigationController]
         tabBarController.viewControllers = controllers
         window?.rootViewController = tabBarController

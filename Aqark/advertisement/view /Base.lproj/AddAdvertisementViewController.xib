@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,8 +18,6 @@
                 <outlet property="bedRoomStepper" destination="agb-Xv-V0X" id="nXK-ZG-hrc"/>
                 <outlet property="blackIndicatorView" destination="FRK-zo-qPG" id="DmS-H7-Arw"/>
                 <outlet property="collectionView" destination="0nD-RG-1Xj" id="nAA-QZ-Agk"/>
-                <outlet property="countryView" destination="nqw-q4-AQI" id="nAO-8A-aCY"/>
-                <outlet property="countyTxtField" destination="Hu4-Rk-EEU" id="H8r-TG-zYO"/>
                 <outlet property="describtionTxtView" destination="Lft-Bb-Pay" id="cNq-cm-H7l"/>
                 <outlet property="descriptionTitle" destination="PuA-Yb-Q4U" id="909-Aw-vGt"/>
                 <outlet property="imageView" destination="5bT-xw-MfY" id="cbg-Kh-h9u"/>
@@ -57,10 +53,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LdZ-eO-PIZ">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lys-AD-7KE">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="1450"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
                             <subviews>
                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gS5-gY-fdG">
                                     <rect key="frame" x="0.0" y="5" width="375" height="120"/>
@@ -84,56 +80,33 @@
                                     </connections>
                                 </segmentedControl>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ja2-Nf-aK2">
-                                    <rect key="frame" x="20" y="185" width="335" height="282"/>
+                                    <rect key="frame" x="20" y="185" width="335" height="240"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="county*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hu4-Rk-EEU">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="34"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="34" id="rQe-Qh-4h5"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                            <connections>
-                                                <action selector="showCounties:" destination="-1" eventType="editingDidBegin" id="Gat-C6-F9N"/>
-                                            </connections>
-                                        </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U6h-Nh-KNg">
-                                            <rect key="frame" x="0.0" y="42" width="335" height="34"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="34" id="12a-bK-bDQ"/>
-                                            </constraints>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Size*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xJF-1q-9Vv">
-                                            <rect key="frame" x="0.0" y="84" width="335" height="34"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="34" id="kJz-y8-Opm"/>
-                                            </constraints>
+                                            <rect key="frame" x="0.0" y="42" width="335" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gaw-mu-GOa">
-                                            <rect key="frame" x="0.0" y="126" width="335" height="34"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="34" id="Lz7-yU-pTn"/>
-                                            </constraints>
+                                            <rect key="frame" x="0.0" y="84" width="335" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
                                                 <action selector="addAutoCompleteAddress:" destination="-1" eventType="editingDidBegin" id="Wkc-K1-1dz"/>
                                             </connections>
                                         </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PhoneNumber*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8DF-y9-1wa">
-                                            <rect key="frame" x="0.0" y="168" width="335" height="34"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="34" id="NhQ-Wi-Nb7"/>
-                                            </constraints>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mobile Number*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8DF-y9-1wa">
+                                            <rect key="frame" x="0.0" y="126" width="335" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                         </textField>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zvR-a5-Acw">
-                                            <rect key="frame" x="0.0" y="210" width="335" height="32"/>
+                                            <rect key="frame" x="0.0" y="168" width="335" height="32"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" placeholder="Bedrooms*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TJK-mw-9q1">
                                                     <rect key="frame" x="0.0" y="0.0" width="231" height="32"/>
@@ -144,7 +117,7 @@
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="agb-Xv-V0X">
-                                                    <rect key="frame" x="241" y="0.0" width="94" height="29"/>
+                                                    <rect key="frame" x="241" y="0.0" width="94" height="32"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <connections>
                                                         <action selector="increaseBedRoomNumber:" destination="-1" eventType="valueChanged" id="BCj-a4-a15"/>
@@ -153,7 +126,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Xoe-5F-f98">
-                                            <rect key="frame" x="0.0" y="250" width="335" height="32"/>
+                                            <rect key="frame" x="0.0" y="208" width="335" height="32"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" placeholder="Bathrooms*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="16J-1M-yns">
                                                     <rect key="frame" x="0.0" y="0.0" width="231" height="32"/>
@@ -164,7 +137,7 @@
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="rbQ-Il-VUm">
-                                                    <rect key="frame" x="241" y="0.0" width="94" height="29"/>
+                                                    <rect key="frame" x="241" y="0.0" width="94" height="32"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
@@ -176,7 +149,7 @@
                                     </subviews>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PuA-Yb-Q4U">
-                                    <rect key="frame" x="20" y="497" width="120" height="25"/>
+                                    <rect key="frame" x="20" y="455" width="120" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="25" id="II3-r8-NuW"/>
                                         <constraint firstAttribute="width" constant="120" id="YH8-ZP-7Hm"/>
@@ -186,7 +159,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Lft-Bb-Pay">
-                                    <rect key="frame" x="20" y="532" width="335" height="150"/>
+                                    <rect key="frame" x="20" y="490" width="335" height="150"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="150" id="lqh-hz-Ktk"/>
@@ -196,7 +169,7 @@
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                 </textView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amenities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpw-g3-9PN">
-                                    <rect key="frame" x="20" y="702" width="120" height="19.5"/>
+                                    <rect key="frame" x="20" y="660" width="120" height="19.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="120" id="CeJ-xZ-i1O"/>
                                     </constraints>
@@ -205,7 +178,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="F6B-A3-MdG">
-                                    <rect key="frame" x="20" y="731.5" width="335" height="320"/>
+                                    <rect key="frame" x="20" y="689.5" width="335" height="320"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YKe-Fz-VWR">
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
@@ -735,20 +708,20 @@
                                     </subviews>
                                 </stackView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addImage" translatesAutoresizingMaskIntoConstraints="NO" id="5bT-xw-MfY">
-                                    <rect key="frame" x="137.5" y="1071.5" width="100" height="100"/>
+                                    <rect key="frame" x="137.5" y="1029.5" width="100" height="100"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="3Bk-gf-2wa"/>
                                         <constraint firstAttribute="height" constant="100" id="3PL-Ut-I42"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="maximum size 15 MB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwZ-ho-09k">
-                                    <rect key="frame" x="137" y="1173.5" width="101" height="12"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="maximum 10 images and maximum size for an image 15 MB" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwZ-ho-09k">
+                                    <rect key="frame" x="20.5" y="1131.5" width="334.5" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="0nD-RG-1Xj">
-                                    <rect key="frame" x="20" y="1195.5" width="335" height="50"/>
+                                    <rect key="frame" x="20" y="1156" width="335" height="50"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="qaI-Xe-awh"/>
@@ -761,7 +734,7 @@
                                     </collectionViewFlowLayout>
                                 </collectionView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBn-ZN-rDe" customClass="CustomButton" customModule="Aqark" customModuleProvider="target">
-                                    <rect key="frame" x="94" y="1285.5" width="187.5" height="32"/>
+                                    <rect key="frame" x="94" y="1246" width="187.5" height="32"/>
                                     <color key="backgroundColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                     <state key="normal" title="Submit">
@@ -775,352 +748,6 @@
                                         <action selector="saveAdvertisement:" destination="-1" eventType="touchUpInside" id="c5M-dW-a4O"/>
                                     </connections>
                                 </button>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nqw-q4-AQI">
-                                    <rect key="frame" x="0.0" y="20" width="375" height="575"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mKk-HO-H4k" userLabel="ViewStack">
-                                            <rect key="frame" x="20" y="20" width="335" height="455"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YGz-9J-dy2">
-                                                    <rect key="frame" x="0.0" y="10" width="335" height="470"/>
-                                                    <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="baB-kH-YJW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKg-Av-7wY">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="50" id="Ein-a7-ZZM"/>
-                                                            </constraints>
-                                                        </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="05Y-mR-cIJ">
-                                                            <rect key="frame" x="0.0" y="50" width="335" height="30"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9f3-sf-FOh">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="155" height="30"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="1ic-mT-kyv"/>
-                                                                    </constraints>
-                                                                    <state key="normal" title="Cairo"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="jcf-Zl-0Cf"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrP-mF-Bae" userLabel="Alexandria">
-                                                                    <rect key="frame" x="180" y="0.0" width="155" height="30"/>
-                                                                    <state key="normal" title="Alexandria"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="lP2-pl-25p"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                        </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3za-9u-RG6">
-                                                            <rect key="frame" x="0.0" y="80" width="335" height="30"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdn-Tf-UUU" userLabel="Giza">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="157.5" height="30"/>
-                                                                    <state key="normal" title="Giza"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="RAZ-9S-f9m"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayP-e6-FMz" userLabel="Qalyubiya">
-                                                                    <rect key="frame" x="177.5" y="0.0" width="157.5" height="30"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="8wM-zY-iUk"/>
-                                                                    </constraints>
-                                                                    <state key="normal" title="Qalyubiya"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="5Gf-yG-vKG"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                        </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TGl-eB-52C">
-                                                            <rect key="frame" x="0.0" y="110" width="335" height="30"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTC-mB-1B1" userLabel="Port Said">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="157.5" height="30"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="kyC-qL-nvL"/>
-                                                                    </constraints>
-                                                                    <state key="normal" title="Port Said"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="gY9-YE-6yp"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGD-mF-q7v" userLabel="Suez">
-                                                                    <rect key="frame" x="177.5" y="0.0" width="157.5" height="30"/>
-                                                                    <state key="normal" title="Suez"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="dwR-tz-uJv"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                        </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wZ7-gX-fl0">
-                                                            <rect key="frame" x="0.0" y="140" width="335" height="30"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgK-hS-h4a" userLabel="Luxor">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="157.5" height="30"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="7FF-gJ-b7n"/>
-                                                                    </constraints>
-                                                                    <state key="normal" title="Luxor"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="1vv-k7-3ri"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGj-Xu-RGS" userLabel="al-Mansura">
-                                                                    <rect key="frame" x="177.5" y="0.0" width="157.5" height="30"/>
-                                                                    <state key="normal" title="al-Mansura"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="qUX-jG-Laq"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                        </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9oN-yd-Vsh">
-                                                            <rect key="frame" x="0.0" y="170" width="335" height="30"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3j8-p6-jmc" userLabel="El-Mahalla El-Kubra">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="167.5" height="30"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="BjO-gb-uUd"/>
-                                                                    </constraints>
-                                                                    <state key="normal" title="El-Mahalla El-Kubra"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="Tln-LY-UUg"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mj7-cY-76L" userLabel="Tanta">
-                                                                    <rect key="frame" x="167.5" y="0.0" width="167.5" height="30"/>
-                                                                    <state key="normal" title="Tanta"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="8aJ-He-54E"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                        </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Cd1-Z8-EcF">
-                                                            <rect key="frame" x="0.0" y="200" width="335" height="30"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1O-Rw-WJ1" userLabel="Asyut">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="157.5" height="30"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="R3F-iH-M0G"/>
-                                                                    </constraints>
-                                                                    <state key="normal" title="Asyut"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="2DP-aK-ngJ"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZM-E5-Har" userLabel="Ismailia">
-                                                                    <rect key="frame" x="177.5" y="0.0" width="157.5" height="30"/>
-                                                                    <state key="normal" title="Ismailia"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="Ne7-T4-Pyf"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                        </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Coo-Hr-zRD">
-                                                            <rect key="frame" x="0.0" y="230" width="335" height="30"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7m-LF-Vjb" userLabel="Faiyum">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="157.5" height="30"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="Q1y-kD-zOC"/>
-                                                                    </constraints>
-                                                                    <state key="normal" title="Faiyum"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="nFO-gw-YIV"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TU9-Qs-aQp" userLabel="Zagazig">
-                                                                    <rect key="frame" x="177.5" y="0.0" width="157.5" height="30"/>
-                                                                    <state key="normal" title="Zagazig"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="lC9-eb-hl3"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                        </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="oE8-jd-Mc7">
-                                                            <rect key="frame" x="0.0" y="260" width="335" height="30"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3g0-OM-yxT" userLabel="Aswan">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="157.5" height="30"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="XJM-j8-qKo"/>
-                                                                    </constraints>
-                                                                    <state key="normal" title="Aswan"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="6Sd-jW-7Jm"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oZ-gm-dSa" userLabel="Damietta">
-                                                                    <rect key="frame" x="177.5" y="0.0" width="157.5" height="30"/>
-                                                                    <state key="normal" title="Damietta"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="xe4-xC-Snk"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                        </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Zcm-15-6Hr">
-                                                            <rect key="frame" x="0.0" y="290" width="335" height="30"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfH-0q-5VW" userLabel="Damanhur">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="157.5" height="30"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="cBS-9T-oRJ"/>
-                                                                    </constraints>
-                                                                    <state key="normal" title="Damanhur"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="lgg-hZ-SAT"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZW-ap-DZs" userLabel="al-Minya">
-                                                                    <rect key="frame" x="177.5" y="0.0" width="157.5" height="30"/>
-                                                                    <state key="normal" title="al-Minya"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="afw-tD-mmy"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                        </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0Ig-8R-5nd">
-                                                            <rect key="frame" x="0.0" y="320" width="335" height="30"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXL-sy-Wuk" userLabel="Beni Suef">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="157.5" height="30"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="zxH-ok-9a6"/>
-                                                                    </constraints>
-                                                                    <state key="normal" title="Beni Suef"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="VKm-1n-r8g"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1G-VD-QDM" userLabel="Qena">
-                                                                    <rect key="frame" x="177.5" y="0.0" width="157.5" height="30"/>
-                                                                    <state key="normal" title="Qena"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="fRC-Yd-gpI"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="v6a-Bd-VMv">
-                                                            <rect key="frame" x="0.0" y="350" width="335" height="30"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9L-t5-TOB" userLabel="Sohag">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="157.5" height="30"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="er8-0V-R1T"/>
-                                                                    </constraints>
-                                                                    <state key="normal" title="Sohag"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="HJ8-X2-zJE"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeZ-PC-JOe" userLabel="Hurghada">
-                                                                    <rect key="frame" x="177.5" y="0.0" width="157.5" height="30"/>
-                                                                    <state key="normal" title="Hurghada"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="tff-tY-1Q0"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                        </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="VA4-hA-NGl">
-                                                            <rect key="frame" x="0.0" y="380" width="335" height="30"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPn-XQ-APw" userLabel="Banha">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="157.5" height="30"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="vi5-OJ-P4h"/>
-                                                                    </constraints>
-                                                                    <state key="normal" title="Banha"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="T1d-lF-Myn"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZx-aA-t2c" userLabel="Kafr el-Sheikh">
-                                                                    <rect key="frame" x="177.5" y="0.0" width="157.5" height="30"/>
-                                                                    <state key="normal" title="Kafr el-Sheikh"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="gPg-ST-QWW"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                        </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1mO-QD-KqD">
-                                                            <rect key="frame" x="0.0" y="410" width="335" height="30"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3p-g1-rEK" userLabel="Arish">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="157.5" height="30"/>
-                                                                    <state key="normal" title="Arish"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="lR7-G0-V6e"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dz1-Y4-yO2" userLabel="Menofia">
-                                                                    <rect key="frame" x="177.5" y="0.0" width="157.5" height="30"/>
-                                                                    <state key="normal" title="Menofia"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="y0r-VK-wBt"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                        </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dxB-be-ZRM">
-                                                            <rect key="frame" x="0.0" y="440" width="335" height="30"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IaE-H0-neo" userLabel="Sharqia">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="157.5" height="30"/>
-                                                                    <state key="normal" title="Sharqia"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="z5S-ut-5UX"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIt-GT-mUT" userLabel="Beheira">
-                                                                    <rect key="frame" x="177.5" y="0.0" width="157.5" height="30"/>
-                                                                    <state key="normal" title="Beheira"/>
-                                                                    <connections>
-                                                                        <action selector="selectCountryAndHideStack:" destination="-1" eventType="touchUpInside" id="gm4-L7-CIs"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                        </stackView>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstItem="YGz-9J-dy2" firstAttribute="top" secondItem="mKk-HO-H4k" secondAttribute="top" constant="10" id="QoZ-Xn-Hcu"/>
-                                                <constraint firstAttribute="trailing" secondItem="YGz-9J-dy2" secondAttribute="trailing" id="Z2z-gp-1Dr"/>
-                                                <constraint firstItem="YGz-9J-dy2" firstAttribute="leading" secondItem="mKk-HO-H4k" secondAttribute="leading" id="tVP-9R-gO0"/>
-                                            </constraints>
-                                        </view>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="0.4921607448630137" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="575" id="XdY-cf-Yiu"/>
-                                        <constraint firstItem="mKk-HO-H4k" firstAttribute="leading" secondItem="nqw-q4-AQI" secondAttribute="leading" constant="20" id="bJM-FW-EP3"/>
-                                        <constraint firstItem="mKk-HO-H4k" firstAttribute="top" secondItem="nqw-q4-AQI" secondAttribute="top" constant="20" id="lVu-TF-J7G"/>
-                                        <constraint firstAttribute="trailing" secondItem="mKk-HO-H4k" secondAttribute="trailing" constant="20" id="q5D-uO-PQ5"/>
-                                        <constraint firstAttribute="bottom" secondItem="mKk-HO-H4k" secondAttribute="bottom" constant="100" id="xbG-wd-dos"/>
-                                    </constraints>
-                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <gestureRecognizers/>
@@ -1135,16 +762,13 @@
                                 <constraint firstAttribute="trailing" secondItem="TBL-O5-Qi2" secondAttribute="trailing" constant="100" id="L2S-RH-Rzz"/>
                                 <constraint firstItem="5bT-xw-MfY" firstAttribute="top" secondItem="F6B-A3-MdG" secondAttribute="bottom" constant="20" id="MUq-TR-N9G"/>
                                 <constraint firstItem="Lft-Bb-Pay" firstAttribute="top" secondItem="PuA-Yb-Q4U" secondAttribute="bottom" constant="10" id="MvF-dT-3YX"/>
-                                <constraint firstAttribute="height" constant="1450" id="O7T-fO-gsG"/>
+                                <constraint firstAttribute="height" constant="1300" id="O7T-fO-gsG"/>
                                 <constraint firstItem="hwZ-ho-09k" firstAttribute="top" secondItem="5bT-xw-MfY" secondAttribute="bottom" constant="2" id="PE7-iI-Fqx"/>
-                                <constraint firstAttribute="trailing" secondItem="nqw-q4-AQI" secondAttribute="trailing" id="PVU-BI-aoa"/>
                                 <constraint firstItem="Ja2-Nf-aK2" firstAttribute="top" secondItem="TBL-O5-Qi2" secondAttribute="bottom" constant="20" id="TTp-za-ag4"/>
                                 <constraint firstItem="TBL-O5-Qi2" firstAttribute="leading" secondItem="lys-AD-7KE" secondAttribute="leading" constant="100" id="UJA-md-W0w"/>
                                 <constraint firstAttribute="trailing" secondItem="F6B-A3-MdG" secondAttribute="trailing" constant="20" id="VAH-Dq-oc5"/>
                                 <constraint firstAttribute="trailing" secondItem="gS5-gY-fdG" secondAttribute="trailing" id="Zb0-2N-isL"/>
                                 <constraint firstItem="hwZ-ho-09k" firstAttribute="centerX" secondItem="lys-AD-7KE" secondAttribute="centerX" id="aCp-kC-oxD"/>
-                                <constraint firstItem="nqw-q4-AQI" firstAttribute="leading" secondItem="lys-AD-7KE" secondAttribute="leading" id="bNb-JU-gFG"/>
-                                <constraint firstItem="nqw-q4-AQI" firstAttribute="top" secondItem="lys-AD-7KE" secondAttribute="top" constant="20" id="cHd-g8-T5C"/>
                                 <constraint firstAttribute="trailing" secondItem="0nD-RG-1Xj" secondAttribute="trailing" constant="20" id="cy9-ru-qFF"/>
                                 <constraint firstItem="mBn-ZN-rDe" firstAttribute="centerX" secondItem="lys-AD-7KE" secondAttribute="centerX" id="dmh-hX-6po"/>
                                 <constraint firstItem="PuA-Yb-Q4U" firstAttribute="top" secondItem="Ja2-Nf-aK2" secondAttribute="bottom" constant="30" id="gXU-L6-VrW"/>
@@ -1164,7 +788,7 @@
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRK-zo-qPG" userLabel="blackView">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="1450"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
                             <color key="backgroundColor" white="0.0" alpha="0.57298801369863017" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>

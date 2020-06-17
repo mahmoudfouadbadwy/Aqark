@@ -21,25 +21,27 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var rateMeView: CosmosView!
     @IBOutlet weak var rateMeButton: UIButton!
     @IBOutlet weak var dialerButton: UIButton!
-    @IBOutlet var dialerButtonTrailingConstraint: NSLayoutConstraint!
+
     
     var serviceUserCellIndex : IndexPath!
     weak var serviceUserDelegate : ServiceUsersCollectionDelegate!
-    @IBOutlet weak var serviceUserCompanyHeight: NSLayoutConstraint!
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        dialerButton.layer.borderColor = UIColor(rgb: 0x1d3557).cgColor
+        dialerButton.layer.borderWidth = 1
         rateMeButton.backgroundColor = UIColor(rgb: 0xe63946)
         serviceUserRating.settings.fillMode = .precise
         rateMeView.settings.fillMode = .precise
         rateMeView.didFinishTouchingCosmos = {rating in
             self.rateMeButton.alpha = 0
             self.rateMeButton.isHidden = false
-            UIView.animate(withDuration: 0.6, animations: {
-                self.rateMeView.alpha = 0
-                self.rateMeButton.alpha = 1
-            }) { (finished) in
-                self.rateMeView.isHidden = finished
-                self.serviceUserDelegate.rateServiceUserDelegate(at: self.serviceUserCellIndex,rate:rating)
+            UIView.animate(withDuration: 0.6, animations: {[weak self] in
+                self?.rateMeView.alpha = 0
+                self?.rateMeButton.alpha = 1
+            }) { [weak self] (finished) in
+                self?.rateMeView.isHidden = finished
+                self?.serviceUserDelegate.rateServiceUserDelegate(at: self!.serviceUserCellIndex,rate:rating)
             }
         }
     }
@@ -56,25 +58,25 @@ class ServicesCollectionViewCell: UICollectionViewCell {
         
         if(serviceUserDelegate.checkLoggedUserDelegate()){
             rateMeButton.isHidden = false
-            dialerButtonTrailingConstraint.isActive = true
-            dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = false
+            //dialerButtonTrailingConstraint.isActive = true
+            //dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = false
         }else{
             rateMeButton.isHidden = true
-            dialerButtonTrailingConstraint.isActive = false
-            dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
+            //dialerButtonTrailingConstraint.isActive = false
+            //dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
         }
         
-        if(serviceUserCompany.text == ""){
-            serviceUserCompany.isHidden = true
-        }else if(serviceUserCompany.text != "" && serviceUserCompany.isHidden == true){
-            serviceUserCompany.isHidden = false
+       /* if(serviceUserCompany.text == ""){
+            companyStack.isHidden = true
+        }else if(serviceUserCompany.text != "" && companyStack.isHidden == true){
+            companyStack.isHidden = false
         }
 
         if(serviceUserExperience.text == " years exp"){
-            serviceUserExperience.isHidden = true
-        }else if(serviceUserExperience.isHidden == true && serviceUserExperience.text != " years exp"){
-            serviceUserExperience.isHidden = false
-        }
+            experienceStack.isHidden = true
+        }else if(experienceStack.isHidden == true && serviceUserExperience.text != " years exp"){
+            experienceStack.isHidden = false
+        }*/
     }
     
     @IBAction func rateServiceUser(_ sender: Any) {

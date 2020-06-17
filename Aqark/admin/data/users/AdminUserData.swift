@@ -9,11 +9,12 @@
 import Foundation
 import Firebase
 class AdminDataAccess{
-    
-    let usersRef = Database.database().reference()
-    let advertisementsRef = Database.database().reference()
-    let deleteUserAdvertisementRef = Database.database().reference()
-    let delelteAdvertisementRef = Database.database().reference()
+     var databaseHandle: DatabaseHandle!
+
+    var usersRef : DatabaseReference! = Database.database().reference()
+    var advertisementsRef : DatabaseReference! = Database.database().reference()
+    var deleteUserAdvertisementRef : DatabaseReference! = Database.database().reference()
+    var delelteAdvertisementRef : DatabaseReference! = Database.database().reference()
     
     func getUsers(completionForGetUsers : @escaping(_ usersData : [AdminUser]) -> Void){
         var users = [AdminUser]()
@@ -63,5 +64,6 @@ class AdminDataAccess{
     
     func removeUsersObservers(){
         usersRef.child("Users").removeAllObservers()
+        usersRef = nil
     }
 }

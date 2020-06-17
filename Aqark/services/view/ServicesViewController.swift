@@ -18,24 +18,29 @@ class ServicesViewController: UIViewController{
     var dataAccess : ServiceDataAccess!
     var serviceRole : String!
     var advertisementCountry : String!
-            
+    var advertisementLocation : String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataAccess = ServiceDataAccess()
-        servicesViewModel = ServicesListViewModel(dataAccess: dataAccess)
         setupViews()
-        if(servicesViewModel.checkNetworkConnection()){
-            setupServicesCollection()
-            bindServicesCollection()
-        }else{
-            setupNoConnectionView()
-        }
+        setupServicesCollection()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if(ServicesNetworking.checkNetworkConnection()){
+               dataAccess = ServiceDataAccess()
+               servicesViewModel = ServicesListViewModel(dataAccess: dataAccess)
+               bindServicesCollection()
+           }else{
+               setupNoConnectionView()
+           }
     }
     
     private func setupViews() {
         view.backgroundColor = UIColor(rgb: 0xf1faee)
         servicesCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
-        self.view.alpha = 0.5
+        view.alpha = 0.5
         navigationItem.title = serviceRole
     }
     
@@ -62,25 +67,34 @@ class ServicesViewController: UIViewController{
     }
     
     private func bindServicesCollection() {
-        servicesViewModel.getServiceUsers {
-            self.servicesViewModel.getServiceUsersList(serviceUserRole: self.serviceRole.localize, country: self.advertisementCountry.localize)
-            self.stopActivityIndicator()
+        servicesViewModel.getServiceUsers {[weak self] in
+            self?.servicesViewModel.getServiceUsersList(serviceUserRole: self!.serviceRole.localize, country: self!.advertisementCountry.localize)
+            self?.stopActivityIndicator()
             UIView.animate(withDuration:2) {
-                self.view.alpha = 1
+                self?.view.alpha = 1
             }
-            if(self.servicesViewModel.serviceUsersViewList.isEmpty){
-                self.setLabelForZeroCount()
+            if(self!.servicesViewModel.serviceUsersViewList.isEmpty){
+                self?.setLabelForZeroCount()
             }else{
-                self.servicesCollectionView.reloadData()
+                self?.servicesCollectionView.reloadData()
             }
         }
     }
-
+    
     func showAlert(title:String,message:String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "Ok".localize, style: UIAlertAction.Style.cancel){(okAction) in
             alert.dismiss(animated: true, completion: nil)}
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    deinit {
+        if servicesViewModel != nil{
+            servicesViewModel.removeServicesObservers()
+        }
+        dataAccess = nil
+        servicesViewModel = nil 
+        print("Services deinit")
     }
 }

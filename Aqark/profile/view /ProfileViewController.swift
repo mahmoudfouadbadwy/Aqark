@@ -13,22 +13,31 @@ import SDWebImage
 class ProfileViewController: UIViewController {
     @IBOutlet weak var noAdvertisementsLabel: UILabel!
     @IBOutlet weak var rate: CosmosView!
-    @IBOutlet weak var containerHeight: NSLayoutConstraint!
-    @IBOutlet weak var experienceValue: UILabel!
-    @IBOutlet weak var containerStack: UIStackView!
-    @IBOutlet weak var phoneValue: UILabel!
-    @IBOutlet weak var editProfile: UIButton!
+    @IBOutlet weak var addAdvertisement: UIButton!
     @IBOutlet weak var advertisementsCollection: UICollectionView!
-    @IBOutlet weak var companyName: UILabel!
-    @IBOutlet weak var addressText: UILabel!
     @IBOutlet weak var username: UILabel!
-    @IBOutlet weak var countryName: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
     var ban:Bool!
+    var logout: UIBarButtonItem!
+    var gesture:UILongPressGestureRecognizer!
+    var alert:UIAlertController!
+    var delete:UIAlertAction!
+    var cancel:UIAlertAction!
+    var alertController:UIAlertController!
+    var alertAction:UIAlertAction!
+    var pressGesture:UITapGestureRecognizer!
+    var editViewController:EditProfileViewController!
+    var editAdsView:AddAdvertisementViewController!
+    var addAdvertisment: AddAdvertisementViewController!
     var advertisement:ProfileAdvertisementViewModel!
     var profileViewModel:ProfileStore!
     var advertisementViewModel:ProfileAdvertisementListViewModel!
     var deleteViewModel:AdvertisementDelete!
+
+    var editProfileVM : EditProfileViewModel!
+
+    var profileDataAccess:ProfileDataAccess!
+
     var listOfAdvertisements:[ProfileAdvertisementViewModel]! = []{
         didSet{
             if listOfAdvertisements.count>0{
@@ -43,26 +52,14 @@ class ProfileViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        if(ProfileNetworking.checkNetworkConnection())
-        {
-            setupView()
-            setupCollection()
-            noAdvertisementsLabel.isHidden = true
-        }
-        else
-        {
-            setUpNoConnectionView()
-        }
+        setupView()
+        setupCollection()
     }
     override func viewWillAppear(_ animated: Bool) {
         if (ProfileNetworking.checkNetworkConnection())
         {
-                setUpViewMoelsObjects()
-                showActivityIndicator()
-                setNavigationProperties()
-                bindProfileData()
-                bindCollectionData()
-                noAdvertisementsLabel.isHidden = true
+            setUpViewMoelsObjects()
+            noAdvertisementsLabel.isHidden = true
         }
         else
         {
@@ -71,20 +68,58 @@ class ProfileViewController: UIViewController {
     }
     private func setUpViewMoelsObjects()
     {
-        profileViewModel = ProfileStore(by: ProfileDataAccess())
-        advertisementViewModel =
-            ProfileAdvertisementListViewModel(data: ProfileDataAccess())
-        deleteViewModel = AdvertisementDelete(dataAcees: ProfileDataAccess())
+        if profileDataAccess == nil {
+            profileDataAccess = ProfileDataAccess()
+        }
+        if profileViewModel == nil {
+            profileViewModel = ProfileStore(by: profileDataAccess)
+            setNavigationProperties()
+            bindProfileData()
+        }
+        if  advertisementViewModel == nil {
+            advertisementViewModel =
+                ProfileAdvertisementListViewModel(data: profileDataAccess)
+            bindCollectionData()
+        }
+        if deleteViewModel == nil {
+            deleteViewModel = AdvertisementDelete(dataAcees: profileDataAccess)
+        }
     }
-    deinit{
+    
+    @IBAction func addAdvertisement(_ sender: Any) {
+        if self.ban
+        {
+            showAlert(title:"Bolcking".localize,message:"You Are Blocked From Adding Advertisements".localize)
+        }
+        else
+        {
+            addAdvertisment = AddAdvertisementViewController()
+            self.navigationController?.pushViewController(addAdvertisment, animated: true)
+        }
+    }
+    deinit {
         profileViewModel.removeProfileDataObservers()
-        profileViewModel = nil
+        profileDataAccess = nil
         advertisementViewModel.removeProfileAdvertisementsObservers()
-        advertisementViewModel = nil
         deleteViewModel.removeDeleteObserver()
+        profileViewModel = nil
+        advertisementViewModel = nil
         deleteViewModel = nil
-        listOfAdvertisements = nil
         advertisement = nil
-        print("deinit profile")
+        logout = nil
+        editViewController = nil
+        addAdvertisment = nil
+        editAdsView = nil
+        gesture = nil
+        pressGesture = nil
+        alert = nil
+        delete = nil
+        cancel = nil
+        alertController = nil
+        alertAction = nil
+
+        editProfileVM = nil
+   
+        listOfAdvertisements = nil
     }
 }

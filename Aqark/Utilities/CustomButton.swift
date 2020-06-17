@@ -33,6 +33,9 @@ import UIKit
     
     private func setButtonBackground()
     {
-        self.backgroundColor = UIColor(rgb: 0x1d3557)
+        self.backgroundColor = UIColor(rgb: 0xffffff)
+        self.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
+        self.layer.borderColor = UIColor(rgb: 0x1d3557).cgColor
+        self.layer.borderWidth = 1
     }
 }

@@ -94,6 +94,18 @@ class AddAdvertisementViewModel : AddAdvertisementViewModelProtocol{
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         return formatter.string(from: now)
     }
+    
+    func removeAllAddDataRefrance(){
+        addAdvertisementDataSource.removeAllAddDataRefrance()
+        addAdvertisementDataSource = nil
+    }
+    
+    func removeAllEditDataRefrance(){
+        editAdvertisementDataSource.removeAllEditDataRefrance()
+        editAdvertisementDataSource = nil
+    }
+    
+    
 }
 
 

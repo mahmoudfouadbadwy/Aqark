@@ -13,7 +13,8 @@ import UIKit
 extension SearchViewController:FavouriteProtocol{
     
     func setupCoredata (){
-        self.coreDataViewModel=CoreDataViewModel(dataAccess: CoreDataAccess())
+        self.coreDataAccess = CoreDataAccess()
+        self.coreDataViewModel=CoreDataViewModel(dataAccess: coreDataAccess)
     }
     
     func addToFav(favButton: UIButton) {

@@ -21,7 +21,7 @@ struct AdminAdvertisement{
     var advertisementDate : String
     var advertisementPropertyDescription : String
     var advertismentsPropertyImages : [String]
-    var advertisementPayment : String
+    var advertisementPaymentType : String
     var adevertisementPhone : String
     var advertisementPropertyPrice : String
     var advertisementPropertyType : String

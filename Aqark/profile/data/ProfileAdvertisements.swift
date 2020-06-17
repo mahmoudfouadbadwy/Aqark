@@ -13,7 +13,7 @@ extension ProfileDataAccess{
     func getProfileAdvertisementsIDs(completion:@escaping(AdvertismentsStore)->Void)
     {
         guard let userID = Auth.auth().currentUser?.uid else {return}
-        profileAdvertisementsIDsRef.child("Users_Ads").child(userID).child("advertisements").observe(.value) { (snapshot) in
+        profileAdvertisementsIDsHandel =  profileAdvertisementsIDsRef.child("Users_Ads").child(userID).child("advertisements").observe(.value) { (snapshot) in
             if (snapshot.exists())
             {
                 
@@ -88,20 +88,17 @@ extension ProfileDataAccess{
     func removeProfileAdvertisementsObservers()
     {
         guard let userID = Auth.auth().currentUser?.uid else {return}
-        profileAdvertisementsIDsRef.child("Users_Ads").child(userID).child("advertisements").removeAllObservers()
+        profileAdvertisementsIDsRef.child("Users_Ads").child(userID).child("advertisements").removeObserver(withHandle: profileAdvertisementsIDsHandel)
         profileAdvertisementsIDsRef = nil
-        
-        allAdvertisementsRef.child("Advertisements").removeAllObservers()
+
+        profileAdvertisementsIDsHandel = nil
+
         allAdvertisementsRef = nil
-        
     }
     
     func removeDeleteObservers()
     {
-        guard let userID = Auth.auth().currentUser?.uid else {return}
-    deleteRef.child("Users_Ads").child(userID).child("advertisements").removeAllObservers()
         deleteRef = nil
-        deletAdsRef.child("Advertisements").removeAllObservers()
         deletAdsRef =  nil
     }
 }

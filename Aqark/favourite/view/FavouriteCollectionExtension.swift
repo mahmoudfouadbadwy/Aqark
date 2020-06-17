@@ -46,7 +46,7 @@ extension FavouriteViewController: UICollectionViewDelegate{
 
 extension FavouriteViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width - 20, height: collectionView.frame.height/3.5)
+        return CGSize(width: collectionView.frame.width - 20, height: 150)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
@@ -75,13 +75,12 @@ extension FavouriteViewController{
     func getCollectionViewData(){
         if coreDataViewModel?.getAllFavouriteAdvertisment().count ?? 0 > 0{
             showActivityIndicator()
-            self.favouriteListViewModel.populateAds { (allFavAds, numOfFavAds) in
-                self.arrOfAdViewModel.removeAll()
-                self.adsCount = numOfFavAds
-                self.stopActivityIndicator()
-                self.arrOfAdViewModel = allFavAds
-                self.showDeletedAdsAlert()
-            }
+            self.favouriteListViewModel.populateAds(completionForGetAllAdvertisements: {[weak self] (allFavAds, numOfFavAds) in
+                self?.arrOfAdViewModel.removeAll()
+                self?.adsCount = numOfFavAds
+                self?.stopActivityIndicator()
+                self?.arrOfAdViewModel = allFavAds
+                self?.showDeletedAdsAlert()})
         }else{
             arrOfAdViewModel=[]
         }

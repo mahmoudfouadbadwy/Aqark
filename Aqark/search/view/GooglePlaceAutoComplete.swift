@@ -16,8 +16,7 @@ extension SearchViewController :  GMSAutocompleteViewControllerDelegate {
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         // Get the place name from 'GMSAutocompleteViewController'
         searchBar.text = place.name
-        
-        
+    
         // Then display the name in textField
         searchBarText = searchBar.text
 //               var longitude =  "\(place.coordinate.longitude)"
@@ -51,6 +50,7 @@ extension SearchViewController :  GMSAutocompleteViewControllerDelegate {
         // Specify a filter.
         let filter = GMSAutocompleteFilter()
         filter.type = .address
+  
         filter.country = "eg"
         autocompleteController.autocompleteFilter = filter;
         present(autocompleteController, animated: true, completion: nil)

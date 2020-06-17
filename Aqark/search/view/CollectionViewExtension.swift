@@ -42,7 +42,7 @@ extension SearchViewController : UICollectionViewDataSource{
         }
         else
         {
-             cell.favButton.image("heart")
+            cell.favButton.image("heart")
         }
         cell.delegat = self
         return cell
@@ -54,13 +54,13 @@ extension SearchViewController: UICollectionViewDelegate{
         let propertyDetailVC = PropertyDetailView()
         if isSorted == true {
 
-                     propertyDetailVC.advertisementId = (sortedList[indexPath.row].advertisementId)!
-               }else if isFiltering == true {
-                    propertyDetailVC.advertisementId =
-                       (filteredAdsList[indexPath.row].advertisementId)!
-               }else{
-               propertyDetailVC.advertisementId = (arrOfAdViewModel![indexPath.row].advertisementId)!
-               }
+            propertyDetailVC.advertisementId = (sortedList[indexPath.row].advertisementId)!
+        }else if isFiltering == true {
+            propertyDetailVC.advertisementId =
+                (filteredAdsList[indexPath.row].advertisementId)!
+        }else{
+            propertyDetailVC.advertisementId = (arrOfAdViewModel![indexPath.row].advertisementId)!
+        }
         self.navigationController?.pushViewController(propertyDetailVC, animated: true)
 
     }
@@ -68,7 +68,7 @@ extension SearchViewController: UICollectionViewDelegate{
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width - 20, height: collectionView.frame.height/3)
+        return CGSize(width: collectionView.frame.width - 20, height: 150)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
@@ -100,14 +100,15 @@ extension SearchViewController{
         self.advertismentsListViewModel = AdvertisementListViewModel(dataAccess: self.data)
         advertismentsListViewModel.populateAds {[weak self]
             (dataResults) in
+            UIView.animate(withDuration:2) {
+                self?.view.alpha = 1
+            }
             if dataResults.isEmpty{
                 self?.stopActivityIndicator()
                 self?.labelPlaceHolder.text = "No Advertisements Available".localize
                 self?.sort = nil
                 self?.labelPlaceHolder.isHidden = false
-                       
                 self?.searchBar.isHidden = true
-               
             }else{
                 self?.stopActivityIndicator()
                 self?.arrOfAdViewModel = dataResults
@@ -117,38 +118,29 @@ extension SearchViewController{
                 if self?.isFiltering == true {
                     self?.filteredAdsList = dataResults.filter {[weak self] advertisement -> Bool in
                         return advertisement.address.lowercased().contains(self!.searchBar.text!.lowercased())
-                                         }
+                    }
                     
-            }
+                }
                 self?.searchCollectionView.reloadData()
+            }
         }
     }
-    }
-  
-
 
     func getCellData(indexPath : IndexPath){
-          
         if isFiltering {
             adViewModel = filteredAdsList[indexPath.row]
-        }else if isSorting == "High Price"{
-            sortedList = self.sortData(str: isSorting)
-            adViewModel = sortedList[indexPath.row]
-        }else if isSorting == "Low Price"{
-            sortedList = self.sortData(str: isSorting)
-            adViewModel = sortedList[indexPath.row]
-        }else if isSorting == "Newest"{
-            sortedList = self.sortData(str: isSorting)
-            adViewModel = sortedList[indexPath.row]
-        }else if isSorting == "Oldest"{
-            sortedList = self.sortData(str: isSorting)
-            adViewModel = sortedList[indexPath.row]
-        }else {
+        }
+        else {
             if let arrOfAdViewModel = arrOfAdViewModel{
                 adViewModel = arrOfAdViewModel[indexPath.row]
             }else{
                 adViewModel = self.advertismentsListViewModel.advertismentsViewModel[indexPath.row]
             }
         }
+        if !isSorting.elementsEqual("") {
+            sortedList = self.sortData(str: isSorting)
+            adViewModel = sortedList[indexPath.row]
+        }
     }
 }
+

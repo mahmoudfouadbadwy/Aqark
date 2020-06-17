@@ -17,6 +17,7 @@ class AdminUsersListViewModelTests: XCTestCase {
     var adminUser2 : AdminUser!
     var adminUser3 : AdminUser!
     
+
     override func setUp() {
         adminDataAccess = AdminDataAccess()
         adminUsersViewModel = AdminUsersListViewModel(dataAccess: adminDataAccess)
@@ -31,6 +32,16 @@ class AdminUsersListViewModelTests: XCTestCase {
         adminUser1 = nil
         adminUser2 = nil
         adminUser3 = nil
+    }
+    
+    func testPopulateUsers(){
+        let expectationObj = expectation(description: "Waiting For response...")
+        adminUsersViewModel.populateUsers {
+            expectationObj.fulfill()
+            XCTAssertEqual(self.adminUsersViewModel.adminUsersViewList.count, self.adminUsersViewModel.adminUsersList.count)
+        }
+        
+        waitForExpectations(timeout:15)
     }
     
     func testFilter(){
@@ -109,3 +120,4 @@ class AdminUsersListViewModelTests: XCTestCase {
         XCTAssertEqual(adminUsersViewModel.adminUsersViewList.count, 0)
     }
 }
+

@@ -28,25 +28,26 @@ class AdminAdvertisementsListViewModelTests: XCTestCase {
 
         createAdvertisments()
         
-        adminAdvertisementsViewModel.getFilteredAdvertisements(searchText: "C")
+        adminAdvertisementsViewModel.getFilteredAdvertisementsByType(searchText: "C")
         XCTAssertEqual(adminAdvertisementsViewModel.adminAdvertisementsViewList.count, 1)
         
-        adminAdvertisementsViewModel.getFilteredAdvertisements(searchText: "M")
+        adminAdvertisementsViewModel.getFilteredAdvertisementsByType(searchText: "M")
         XCTAssertEqual(adminAdvertisementsViewModel.adminAdvertisementsViewList.count, 1)
         
-        adminAdvertisementsViewModel.getFilteredAdvertisements(searchText: "Z")
+        adminAdvertisementsViewModel.getFilteredAdvertisementsByType(searchText: "Z")
         XCTAssertEqual(adminAdvertisementsViewModel.adminAdvertisementsViewList.count, 0)
         
-        adminAdvertisementsViewModel.getFilteredAdvertisements(searchText: "")
+        adminAdvertisementsViewModel.getFilteredAdvertisementsByType(searchText: "")
         XCTAssertEqual(adminAdvertisementsViewModel.adminAdvertisementsViewList.count, 2)
     }
     
     func createAdvertisments(){
-        let advertisement1 = AdminAdvertisement(advertisementId: "112233", advertisementPropertyLatitude: "31.76", advertisementPropertyLongitude: "33.11", advertisementPropertyLocation: "Mansoura", advertisementType: "Rent", advertisemetentUserId: "123", advertisementPropertyAmenities: [""], advertisementPropertyBathRooms: "1", advertisementPropertyBeds: "1", advertisementCountry: "Mansoura", advertisementDate: "2020", advertisementPropertyDescription: "Nice", advertismentsPropertyImages: [""], advertisementPayment: "Free", adevertisementPhone: "111", advertisementPropertyPrice: "150", advertisementPropertyType: "Room", advertisementPropertySize: "100")
-        let advertisement2 = AdminAdvertisement(advertisementId: "445566", advertisementPropertyLatitude: "31.76", advertisementPropertyLongitude: "33.11", advertisementPropertyLocation: "Cairo", advertisementType: "Rent", advertisemetentUserId: "123", advertisementPropertyAmenities: [""], advertisementPropertyBathRooms: "1", advertisementPropertyBeds: "1", advertisementCountry: "Cairo", advertisementDate: "2020", advertisementPropertyDescription: "Nice", advertismentsPropertyImages: [""], advertisementPayment: "Free", adevertisementPhone: "111", advertisementPropertyPrice: "150", advertisementPropertyType: "Room", advertisementPropertySize: "100")
+        let advertisement1 = AdminAdvertisement(advertisementId: "112233", advertisementPropertyLatitude: "31.76", advertisementPropertyLongitude: "33.11", advertisementPropertyLocation: "Mansoura", advertisementType: "Rent", advertisemetentUserId: "123", advertisementPropertyAmenities: [""], advertisementPropertyBathRooms: "1", advertisementPropertyBeds: "1", advertisementCountry: "Mansoura", advertisementDate: "2020", advertisementPropertyDescription: "Nice", advertismentsPropertyImages: [""], advertisementPaymentType: "Free", adevertisementPhone: "111", advertisementPropertyPrice: "150", advertisementPropertyType: "Room", advertisementPropertySize: "100")
+        let advertisement2 = AdminAdvertisement(advertisementId: "445566", advertisementPropertyLatitude: "31.76", advertisementPropertyLongitude: "33.11", advertisementPropertyLocation: "Cairo", advertisementType: "Rent", advertisemetentUserId: "123", advertisementPropertyAmenities: [""], advertisementPropertyBathRooms: "1", advertisementPropertyBeds: "1", advertisementCountry: "Cairo", advertisementDate: "2020", advertisementPropertyDescription: "Nice", advertismentsPropertyImages: [""], advertisementPaymentType: "Free", adevertisementPhone: "111", advertisementPropertyPrice: "150", advertisementPropertyType: "Room", advertisementPropertySize: "100")
         let advertisementModel1 = AdminAdvertisementViewModel(adminAdvertisment: advertisement1)
         let advertisementModel2 = AdminAdvertisementViewModel(adminAdvertisment: advertisement2)
         adminAdvertisementsViewModel.adminAdvertisementsList.append(advertisementModel1)
         adminAdvertisementsViewModel.adminAdvertisementsList.append(advertisementModel2)
     }
 }
+

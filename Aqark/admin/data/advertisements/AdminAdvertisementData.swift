@@ -10,10 +10,10 @@ import Foundation
 import Firebase
 
 extension AdminDataAccess{
-    
+
     func getAdvertisements(completionForGetAdvertisements:@escaping(_ advertisementsData : [AdminAdvertisement]) -> Void){
         var advertisements = [AdminAdvertisement]()
-        advertisementsRef.child("Advertisements").observe(.value) { (snapShot) in
+        databaseHandle = advertisementsRef.child("Advertisements").observe(.value) { (snapShot) in
             advertisements.removeAll()
             for child in snapShot.children.allObjects as! [DataSnapshot]{
                 advertisements.append(self.createAdvertisement(child: child))
@@ -43,7 +43,7 @@ extension AdminDataAccess{
         let advertisementPropertyPrice = advertisementDictionary[AdminAdvertisementKey.price] as! String
         let advertisementPropertyType = advertisementDictionary[AdminAdvertisementKey.propertyType] as! String
         let advertisementPropertySize = advertisementDictionary[AdminAdvertisementKey.size] as! String
-        let advertisement = AdminAdvertisement(advertisementId: advertisementId, advertisementPropertyLatitude: advertisementPropertyLatitude, advertisementPropertyLongitude: advertisementPropertyLongitude, advertisementPropertyLocation: advertisementPropertyLocation, advertisementType: advertisementType, advertisemetentUserId: advertisementUserId, advertisementPropertyAmenities: advertisementPropertyAmenities, advertisementPropertyBathRooms: advertisementPropertyBathRooms, advertisementPropertyBeds: advertisementPropertyBeds, advertisementCountry: advertisementPropertyCountry, advertisementDate: advertisementPropertyDate, advertisementPropertyDescription: advetisementPropertyDescription, advertismentsPropertyImages: advertisementPropertyImages, advertisementPayment: advertisementPayment, adevertisementPhone: advertisementPhone, advertisementPropertyPrice: advertisementPropertyPrice, advertisementPropertyType: advertisementPropertyType, advertisementPropertySize: advertisementPropertySize)
+        let advertisement = AdminAdvertisement(advertisementId: advertisementId, advertisementPropertyLatitude: advertisementPropertyLatitude, advertisementPropertyLongitude: advertisementPropertyLongitude, advertisementPropertyLocation: advertisementPropertyLocation, advertisementType: advertisementType, advertisemetentUserId: advertisementUserId, advertisementPropertyAmenities: advertisementPropertyAmenities, advertisementPropertyBathRooms: advertisementPropertyBathRooms, advertisementPropertyBeds: advertisementPropertyBeds, advertisementCountry: advertisementPropertyCountry, advertisementDate: advertisementPropertyDate, advertisementPropertyDescription: advetisementPropertyDescription, advertismentsPropertyImages: advertisementPropertyImages, advertisementPaymentType: advertisementPayment, adevertisementPhone: advertisementPhone, advertisementPropertyPrice: advertisementPropertyPrice, advertisementPropertyType: advertisementPropertyType, advertisementPropertySize: advertisementPropertySize)
         return advertisement
     }
     
@@ -51,5 +51,8 @@ extension AdminDataAccess{
         advertisementsRef.child("Advertisements").removeAllObservers()
         delelteAdvertisementRef.child("Advertisements").removeAllObservers()
         deleteUserAdvertisementRef.child("Users_Ads").removeAllObservers()
+        advertisementsRef = nil
+        delelteAdvertisementRef = nil
+        deleteUserAdvertisementRef = nil
     }
 }

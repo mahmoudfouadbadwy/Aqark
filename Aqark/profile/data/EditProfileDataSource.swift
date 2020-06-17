@@ -11,8 +11,8 @@ import Firebase
 class EditProfileDataSource
 {
     
-    var dataBaseRef: DatabaseReference!
-    var storageRef: StorageReference!
+    var dataBaseRef: DatabaseReference?
+    var storageRef: StorageReference?
     var userID :String!
     var imageData : Data!
     var urlImage :String = ""
@@ -24,15 +24,15 @@ class EditProfileDataSource
     }
     func prepareData(editProfile : EditProfileModel){
         post = ["company": editProfile.company,
-                "country": editProfile.country,
+                "country": editProfile.address,
                 "phone": editProfile.phone,
                 "username": editProfile.username,
                 "experience" : editProfile.experience ?? "",
-                "address":editProfile.address ?? ""]
+               ]
     }
     func uploadProfileAfterEdit(){
         post.updateValue(urlImage, forKey: "picture")
-        dataBaseRef.child("Users").child(userID).updateChildValues(post)
+        dataBaseRef?.child("Users").child(userID).updateChildValues(post)
         NotificationCenter.default.post(name: .indicator, object: nil)
     }
     
@@ -41,7 +41,7 @@ class EditProfileDataSource
         meta.contentType = "image/jpeg"
         let randomUUID = UUID.init().uuidString
         storageRef = Storage.storage().reference(withPath: "images/\(randomUUID).jpg")
-        self.storageRef.putData(imageData , metadata: meta) {[weak self] (metadata, error) in
+        self.storageRef?.putData(imageData , metadata: meta) {[weak self] (metadata, error) in
             self!.getImageUrl {[weak self] (value, myError) in
                 if myError == nil
                 {
@@ -52,11 +52,25 @@ class EditProfileDataSource
         }
     }
     func getImageUrl(comoletionValue : @escaping (String? , Error?)->Void){
-        self.storageRef.downloadURL {(url, error) in
+        self.storageRef?.downloadURL {(url, error) in
             guard let url = url else {return}
             comoletionValue("\(url)", error)
         }
     }
     
+    func removeAllEditProfileRef(){
+        dataBaseRef = nil
+        storageRef = nil
+    }
+    
+
+    func fetchAdvertisement(addId : String ,complition:@escaping(String)->Void){
+        self.dataBaseRef = Database.database().reference()
+        dataBaseRef?.child("Advertisements").child(addId).child("date").observe(DataEventType.value, with: { (snapshot) in
+               if snapshot.exists(){
+                    complition(snapshot.value as? String ?? "" )
+               }
+           })
+    }
     
 }

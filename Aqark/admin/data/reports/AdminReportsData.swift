@@ -14,40 +14,47 @@ class AdminReportsData{
     var agents:[String]=[]
     var reportRef:DatabaseReference! = Database.database().reference()
     var userRef:DatabaseReference! = Database.database().reference()
+    var reportHandle:DatabaseHandle!
     func getAdminReports(completion:@escaping([AdminReport],[String],[String])->Void)
     {
-       
-        reportRef.child("Reports").observe(.value) {[weak self ](snapshoot) in
-            if snapshoot.exists(){
-                self?.reportsStore.reports.removeAll()
-                self?.agents.removeAll()
-                self?.users.removeAll()
-                let reports = snapshoot.value as! NSDictionary
-                var index:Int = 0
-                for report in reports{
-                    let reportData = report.value as? [String:String]
-                    let adminReport = AdminReport(reportId:reports.allKeys[index] as! String, reportContent: reportData?["ReportText"] ?? "", userId: reportData?["UserId"] ?? "", agentId: reportData?["AgentId"] ?? "", advertisementId: reportData?["AdvertisementId"] ?? "")
-                    self?.reportsStore.addReport(report: adminReport)
-                    index += 1
-                    self?.getUserName(userId: reportData?["UserId"] ?? "", completion: {
-                        (user) in
-                        self?.users.append(user)
-                    })
-                    self?.getUserName(userId: reportData?["AgentId"] ?? "", completion: {
-                        (agent) in
-                        self?.agents.append(agent)
+        if ReportNetwork.checkNetworkConnection(){
+            reportHandle =  reportRef.child("Reports").observe(.value) {[weak self ](snapshoot) in
+                if snapshoot.exists(){
+                    self?.reportsStore.reports.removeAll()
+                    self?.agents.removeAll()
+                    self?.users.removeAll()
+                    let reports = snapshoot.value as! NSDictionary
+                    var index:Int = 0
+                    for report in reports{
+                      
+                        let reportData = report.value as? [String:String]
+                        let adminReport = AdminReport(reportId:reports.allKeys[index] as! String, reportContent: reportData?["ReportText"] ?? "", userId: reportData?["UserId"] ?? "", agentId: reportData?["AgentId"] ?? "", advertisementId: reportData?["AdvertisementId"] ?? "")
+                        self?.reportsStore.addReport(report: adminReport)
+                        index += 1
+                        self?.getUserName(userId: reportData?["UserId"] ?? "", completion: {
+                            (user) in
+                            self?.users.append(user)
+                            if((self?.users.count == reports.count) && (self?.agents.count == reports.count)){
+                                 completion(self?.reportsStore.reports ?? [],self?.users ?? [],self?.agents ?? [])
+                            }
+                        })
+                        self?.getUserName(userId: reportData?["AgentId"] ?? "", completion: {
+                            (agent) in
+                            self?.agents.append(agent)
+                           
+                            if((self?.users.count == reports.count) && (self?.agents.count == reports.count)){
+                                completion(self?.reportsStore.reports ?? [],self?.users ?? [],self?.agents ?? [])
+                            }
+                        })
                         
-                        if (self?.agents.count == reports.count)
-                        {
-                            completion(self?.reportsStore.reports ?? [],self?.users ?? [],self?.agents ?? [])
-                        }
                         
-                    })
+                    }
+
                 }
-            }
-            else
-            {
-                completion([],[],[])
+                else
+                {
+                    completion([],[],[])
+                }
             }
         }
     }
@@ -70,13 +77,11 @@ class AdminReportsData{
         ref.child("Reports").child(reportId).removeValue()
     }
     
-    
     func removeReportObservers()
     {
-        reportRef.child("Reports").removeAllObservers()
+        reportRef.child("Reports").removeObserver(withHandle: reportHandle)
         reportRef = nil
-        guard let userID = Auth.auth().currentUser?.uid else {return}
-        userRef.child("Users").child(userID).removeAllObservers()
         userRef = nil
+        reportHandle = nil
     }
 }

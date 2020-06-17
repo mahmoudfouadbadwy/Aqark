@@ -46,23 +46,26 @@ class AdminDataAccessTests : XCTestCase {
         let userRatingsDictionary = ["ID1":5.0,
                                      "ID2":5.0,
                                      "ID3":5.0]
-        var biggestRating = 0.0
+        let biggestRating = userRatingsDictionary.max{(a,b) -> Bool in
+            a.value > b.value
+            }!.value
         let lowestRating = userRatingsDictionary.min { (a, b) -> Bool in
             a.value < b.value
             }!.value
+        var totalRating = 0.0
         
         for rating in userRatingsDictionary{
-            biggestRating += rating.value
+            totalRating += rating.value
         }
-        
-        let rating = biggestRating/Double(userRatingsDictionary.count)
+        let rating = totalRating/Double(userRatingsDictionary.count)
         
         let emptyUserRatingDictionart : [String:Any] = [:]
         let userRating = adminUserDataAccess.getUserRating(userRatingDic:userRatingsDictionary)
         let zeroUserRating = adminUserDataAccess.getUserRating(userRatingDic: emptyUserRatingDictionart)
         XCTAssertEqual(userRating,rating)
-        XCTAssertTrue(userRating < biggestRating)
+        XCTAssertFalse(userRating > biggestRating)
         XCTAssertFalse(userRating < lowestRating)
+        XCTAssertTrue(userRating < totalRating)
         XCTAssertEqual(zeroUserRating,0.0)
     }
     
@@ -85,3 +88,4 @@ class AdminDataAccessTests : XCTestCase {
     }
     
 }
+

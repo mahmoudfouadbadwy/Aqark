@@ -19,28 +19,21 @@ extension ProfileViewController{
         self.username.textColor = UIColor(rgb: 0x1d3557)
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         self.rate.backgroundColor = UIColor(rgb: 0xf1faee)
-        self.phoneValue.textColor = UIColor(rgb: 0x1d3557)
-        self.countryName.textColor = UIColor(rgb: 0x1d3557)
-        self.companyName.textColor = UIColor(rgb: 0x1d3557)
-        self.addressText.textColor = UIColor(rgb: 0x1d3557)
-        self.experienceValue.textColor = UIColor(rgb: 0x1d3557)
         self.advertisementsCollection.backgroundColor = UIColor(rgb: 0xf1faee)
         hideAllElements(status: true)
         rate.settings.updateOnTouch = false
+        rate.settings.emptyBorderColor = UIColor(rgb: 0x1d3557)
+        rate.settings.filledColor = UIColor(rgb: 0x1d3557)
+        rate.settings.filledBorderColor = UIColor(rgb: 0x1d3557)
         
     }
     func hideAllElements(status:Bool)
     {
         profilePicture.isHidden = status
-        editProfile.isHidden = status
+        addAdvertisement.isHidden = status
         rate.isHidden = status
-        setupOptionalViews(hide: status)
     }
-    func setupOptionalViews(hide status:Bool)
-    {
-        containerStack.isHidden = status
-        
-    }
+
     func setUpNoConnectionView()
     {
         hideAllElements(status: true)

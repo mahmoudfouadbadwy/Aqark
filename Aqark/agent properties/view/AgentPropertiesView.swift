@@ -42,7 +42,7 @@ class AgentPropertiesView: UIViewController {
         {
             setNoConnectionView()
         }
-       
+        
         setupViews()
         setupCollection()
     }
@@ -53,6 +53,7 @@ class AgentPropertiesView: UIViewController {
             bindCollectionData()
             setupAgentRate()
             statusLabel.isHidden = true
+            rate.isHidden = false
         }
         else
         {
@@ -66,24 +67,31 @@ class AgentPropertiesView: UIViewController {
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         rateLabel.textColor = UIColor(rgb: 0x457b9d)
         advertisementsCollection.backgroundColor = UIColor(rgb: 0xf1faee)
-        self.navigationItem.title = agentName + "'s Properties".localize
+        self.navigationItem.title = "Agent Properties".localize
+        rate.settings.emptyBorderColor = UIColor(rgb: 0x1d3557)
+        rate.settings.filledColor = UIColor(rgb: 0x1d3557)
+        rate.settings.filledBorderColor = UIColor(rgb: 0x1d3557)
     }
     
     private func setNoConnectionView()
     {
+        rate.isHidden = true
         statusLabel.isHidden = false
         statusLabel.text = "Internet Connection Not Available".localize
     }
     
     deinit {
-        advertisementViewModel.removeObservers()
+        if advertisementViewModel != nil {
+            advertisementViewModel.removeObservers()
+        }
+        if agentRateViewModel != nil{
+            agentRateViewModel.removeRateObject()
+        }
         advertisementViewModel = nil
+        agentRateViewModel = nil
         agentDataAccess = nil
         advertisement = nil
         listOfAdvertisements = nil
-        agentRateViewModel.removeRateObject()
-        agentRateViewModel = nil
         agentRate = nil
-        print("agent properties deinit")
     }
 }

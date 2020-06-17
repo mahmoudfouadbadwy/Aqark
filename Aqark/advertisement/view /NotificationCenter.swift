@@ -25,18 +25,21 @@ extension AddAdvertisementViewController
         }
         alertController.addAction(actionButton)
         self.present(alertController, animated: true, completion: nil)
+        
+         blackIndicatorView.isHidden = true
     }
     
     @objc func viewAlert()
     {
+
         self.stopActivityIndicator()
         let alert = UIAlertController(title: "Premium Advertisement", message: "Sorry, you have used all of your free ads, continue to add premium ad for 99 EGP", preferredStyle: .alert)
                alert.addAction(UIAlertAction(title: "ok".localize, style: .default , handler:{ (UIAlertAction)in
                 PurchaseManager.instance.purchasePremiumAdvertisement{ [weak self] success in
                          if success {
                              self?.showActivityIndicator()
-                             self?.addAdvertisementVM.payment = "premium"
-                             self?.addAdvertisementVM.save()
+                            self?.addAdvertisementVM?.payment = "premium"
+                            self?.addAdvertisementVM?.save()
                             }
                      }
                }))
