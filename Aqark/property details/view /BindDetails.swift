@@ -57,11 +57,9 @@ extension PropertyDetailView{
     
     private func setSpecification()
     {
+        
         if "lang".localize == "en"{
-            self.specification.text = "\(self.advertisementDetails.propertyType.localize ) \("for".localize) \(self.advertisementDetails.advertismentType.localize ) \("in".localize) \(self.advertisementDetails.country.localize )"
-//
-//            if "lang".localize == "en"{
-//                self.specification.text = "\(self.advertisementDetails.propertyType.localize ) \("for".localize) \(self.advertisementDetails.advertismentType.localize ) \("in".localize) \(self.advertisementDetails.country.split(separator: ",")[1] )"
+            self.specification.text = "\(self.advertisementDetails.propertyType.localize ) \("for".localize) \(self.advertisementDetails.advertismentType.localize ) \("in".localize) \(self.advertisementDetails.country.split(separator: ",")[1] )"
         }else{
             self.specification.text = "\(self.advertisementDetails.propertyType.localize ) \("for".localize)\(self.advertisementDetails.advertismentType.localize ) \("in".localize) \(self.advertisementDetails.country.localize )"
         }

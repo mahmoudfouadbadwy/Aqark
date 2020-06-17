@@ -30,7 +30,11 @@ struct ServiceUserViewModel{
     }
     
     func splitCountry(_ country:String) -> String{
-        return country.components(separatedBy: ",")[1]
+        if(country.contains(",")){
+            return country.components(separatedBy: ",")[1]
+        }else{
+            return country
+        }
     }
 }
 
