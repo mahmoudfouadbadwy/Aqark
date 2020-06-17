@@ -119,10 +119,7 @@ class ProfileViewController: UIViewController {
         alertAction = nil
 
         editProfileVM = nil
-    }
-    deinit {
-
-
+   
         listOfAdvertisements = nil
     }
 }
