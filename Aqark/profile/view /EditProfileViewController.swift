@@ -102,7 +102,7 @@ class EditProfileViewController: UIViewController {
             if ProfileNetworking.checkNetworkConnection()
             {
                 indicatorView.isHidden = false
-                showActivityIndicator()
+                 showActivityIndicator()
                  UIApplication.shared.beginIgnoringInteractionEvents()
                 editProfileViewModel?.updateProfileData()
             }else{
