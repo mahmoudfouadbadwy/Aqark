@@ -20,7 +20,7 @@ class AdminUsersListViewModel{
         self.dataAccess = dataAccess
     }
     
-    func populateUsers(completionForPopulateUsers : @escaping() -> Void){
+    func populateUsers(completionForPopulateUsers : @escaping(_ totalNumberOfUser:Int) -> Void){
         dataAccess.getUsers { (usersData) in
             self.adminUsersList.removeAll()
             self.adminLawyersList.removeAll()
@@ -29,7 +29,7 @@ class AdminUsersListViewModel{
             //            self.adminUsersList = usersData.map { userData in
             //                return AdminUserViewModel(adminUser: userData)
             //            }
-            completionForPopulateUsers()
+            completionForPopulateUsers(usersData.count)
         }
     }
     
@@ -60,17 +60,10 @@ class AdminUsersListViewModel{
             adminUsersViewList = adminInteriorDesignersList
         }
     }
-    
+        
     func getFilteredUsers(type:Int,searchText:String){
         if(searchText.isEmpty){
-            switch type {
-            case 0:
-                adminUsersViewList = adminUsersList
-            case 1:
-                adminUsersViewList = adminLawyersList
-            default:
-                adminUsersViewList = adminInteriorDesignersList
-            }
+            getUsersByType(type: type)
         }else{
             switch type{
             case 0:

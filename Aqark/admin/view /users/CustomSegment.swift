@@ -19,6 +19,13 @@ import UIKit
         }
     }
     
+    @IBInspectable var segments : String = "" {
+        didSet{
+           items = segments.components(separatedBy: "-")
+        }
+    }
+    
+    
     var selectedIndex : Int = 0{
         didSet{
             displayNewSelectedIndex()

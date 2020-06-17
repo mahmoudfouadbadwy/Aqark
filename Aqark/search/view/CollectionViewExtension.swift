@@ -98,6 +98,9 @@ extension SearchViewController{
         self.advertismentsListViewModel = AdvertisementListViewModel(dataAccess: self.data)
         advertismentsListViewModel.populateAds {[weak self]
             (dataResults) in
+            UIView.animate(withDuration:2) {
+                self?.view.alpha = 1
+            }
             if dataResults.isEmpty{
                 self?.stopActivityIndicator()
                 self?.labelPlaceHolder.text = "No Advertisements Available".localize
