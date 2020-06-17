@@ -100,6 +100,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             labelPlaceHolder.text = "Internet Connection Not Available".localize
             searchCollectionView.isHidden = true
             searchBar.isHidden = true
+            stopActivityIndicator()
             
         }
     }
@@ -113,7 +114,6 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         searchBar.tintColor = .red
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         searchCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
-//        view.alpha = 0.5
 
     }
     

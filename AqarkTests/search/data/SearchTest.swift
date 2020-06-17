@@ -10,18 +10,18 @@ import XCTest
 @testable import Aqark
 
 class SearchTest: XCTestCase {
-//    var searchData : AdvertisementData!
-    var searchData : MockSearchData!
+    var searchData : AdvertisementData!
+//    var searchData : MockSearchData!
 
     override func setUpWithError() throws {
-//       searchData = AdvertisementData()
-        searchData = MockSearchData()
+       searchData = AdvertisementData()
+//        searchData = MockSearchData()
         
     }
 
     func testGetAllAdvertisements(){
         let expectationObj = expectation(description: "Get Data")
-        searchData.getAdvertisements { (advertisements) in
+        searchData.getAllAdvertisements{ (advertisements) in
             for ad in advertisements {
                 XCTAssertNotNil(ad.address)
                 XCTAssertNotNil(ad.price)
