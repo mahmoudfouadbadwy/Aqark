@@ -57,6 +57,9 @@ class ProfileViewController: UIViewController {
         {
             setUpViewMoelsObjects()
             noAdvertisementsLabel.isHidden = true
+            if  advertisementViewModel != nil {
+                      bindCollectionData()
+                  }
         }
         else
         {
@@ -71,13 +74,11 @@ class ProfileViewController: UIViewController {
         if profileViewModel == nil {
             profileViewModel = ProfileStore(by: profileDataAccess)
             setNavigationProperties()
-              print("bind profile data")
             bindProfileData()
         }
         if  advertisementViewModel == nil {
             advertisementViewModel =
                 ProfileAdvertisementListViewModel(data: profileDataAccess)
-            print("bind collection data")
             bindCollectionData()
         }
         if deleteViewModel == nil {
@@ -97,7 +98,6 @@ class ProfileViewController: UIViewController {
         }
     }
     deinit {
-        print("de inti profile")
         profileViewModel.removeProfileDataObservers()
         profileDataAccess = nil
         advertisementViewModel.removeProfileAdvertisementsObservers()
