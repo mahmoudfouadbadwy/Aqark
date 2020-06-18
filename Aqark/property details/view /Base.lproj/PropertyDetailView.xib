@@ -195,15 +195,19 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="206" height="60"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMa-uR-7ht">
-                                                            <rect key="frame" x="0.0" y="21.5" width="35.5" height="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="196" height="60"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstItem="kMa-uR-7ht" firstAttribute="top" secondItem="Uv0-hF-kRk" secondAttribute="top" id="1vF-1w-icd"/>
+                                                        <constraint firstItem="kMa-uR-7ht" firstAttribute="leading" secondItem="Uv0-hF-kRk" secondAttribute="leading" id="F2I-Hd-voL"/>
                                                         <constraint firstAttribute="height" constant="60" id="Hdu-jg-bXk"/>
+                                                        <constraint firstAttribute="trailing" secondItem="kMa-uR-7ht" secondAttribute="trailing" constant="10" id="Khl-jo-Keq"/>
                                                         <constraint firstItem="kMa-uR-7ht" firstAttribute="centerY" secondItem="Uv0-hF-kRk" secondAttribute="centerY" id="PTy-Vu-js6"/>
+                                                        <constraint firstAttribute="bottom" secondItem="kMa-uR-7ht" secondAttribute="bottom" id="UOV-ke-8qd"/>
                                                         <constraint firstItem="kMa-uR-7ht" firstAttribute="leading" secondItem="Uv0-hF-kRk" secondAttribute="leading" id="bzq-8X-xnR"/>
                                                     </constraints>
                                                 </view>
