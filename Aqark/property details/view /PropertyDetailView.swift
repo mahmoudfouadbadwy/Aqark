@@ -108,10 +108,9 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         let shareText = price.text
         let locationText = address.text
    let image = downloadedImages[0]
-        for img in downloadedImages{
-            let vc = UIActivityViewController(activityItems: ["Aqark App",shareText, img,locationText], applicationActivities: [])
+            let vc = UIActivityViewController(activityItems: ["Aqark App",shareText, image,locationText], applicationActivities: [])
                  present(vc, animated: true)
-        }
+        
   
     }
     
