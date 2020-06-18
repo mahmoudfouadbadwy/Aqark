@@ -34,7 +34,7 @@ extension AddAdvertisementViewController
 //        alertControllerMessage(title: "Advertisements".localize, message: "Sorry, you used all of your free ads".localize)
        self.stopActivityIndicator()
         // go to payment page
-        let alert = UIAlertController(title: "pay", message: "you used all ads", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Advertisement", message: "Sorry, you have used all your free Ads, please continue to payment.", preferredStyle: .alert)
                alert.addAction(UIAlertAction(title: "ok".localize, style: .default , handler:{[weak self](UIAlertAction)in
                 self?.showActivityIndicator()
                 self?.addAdvertisementVM?.payment = "premium"

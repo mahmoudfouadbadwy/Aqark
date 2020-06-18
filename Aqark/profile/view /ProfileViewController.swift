@@ -74,11 +74,13 @@ class ProfileViewController: UIViewController {
         if profileViewModel == nil {
             profileViewModel = ProfileStore(by: profileDataAccess)
             setNavigationProperties()
+              print("bind profile data")
             bindProfileData()
         }
         if  advertisementViewModel == nil {
             advertisementViewModel =
                 ProfileAdvertisementListViewModel(data: profileDataAccess)
+            print("bind collection data")
             bindCollectionData()
         }
         if deleteViewModel == nil {
