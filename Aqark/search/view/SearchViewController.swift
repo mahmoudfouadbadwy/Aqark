@@ -11,6 +11,7 @@ import SDWebImage
 import JJFloatingActionButton
 import MapKit
 import Foundation
+import Social
 
 
 class SearchViewController: UIViewController,UIActionSheetDelegate{
@@ -45,9 +46,10 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     var sortButton : UIButton!
     var arrOfAdViewModel : [AdvertisementViewModel]!{
         didSet{
-            UIView.animate(withDuration:2) {
-                self.view.alpha = 1
-            }
+//            UIView.animate(withDuration:2) {
+//                self.view.alpha = 1
+//            }
+            print(arrOfAdViewModel.count)
             if (arrOfAdViewModel.count > 0 )
             {
                 searchBar.isHidden = false
@@ -80,11 +82,10 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         setupViews()
         setUpCollectionView()
     }
-    
-    
+  
     override func viewWillAppear(_ animated: Bool) {
         if SearchNetworking.checkNetworkConnection(){
-            showActivityIndicator()
+//            showActivityIndicator()
             searchCollectionView.isHidden = false
             setObjects()
             setUpSortBtn()
@@ -94,13 +95,16 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             setupCoredata()
             stopActivityIndicator()
             getCollectionViewData()
+           
+              
         }else{
             sort = nil
             labelPlaceHolder.isHidden = false
-            labelPlaceHolder.text = "Internet Connection Not Available".localize
+            labelPlaceHolder.text = "Internet Connection Is Not Available".localize
             searchCollectionView.isHidden = true
             searchBar.isHidden = true
             stopActivityIndicator()
+            view.alpha = 1
             
         }
     }
@@ -134,7 +138,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         
     }
     
-    
+
     override func viewWillDisappear(_ animated: Bool){
         if  advertismentsListViewModel != nil {
             advertismentsListViewModel.removeSearchObserver()

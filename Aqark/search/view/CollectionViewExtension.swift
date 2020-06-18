@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Social
 
 extension SearchViewController : UICollectionViewDataSource{
     

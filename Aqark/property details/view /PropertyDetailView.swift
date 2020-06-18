@@ -74,6 +74,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
    
 
     
+    @IBOutlet weak var shareContent: UIButton!
     
     
     override func viewDidLoad() {
@@ -103,6 +104,16 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     
     
     
+    @IBAction func shareAdvertisementContent(_ sender: Any) {
+        let shareText = price.text
+        let locationText = address.text
+   let image = downloadedImages[0]
+        for img in downloadedImages{
+            let vc = UIActivityViewController(activityItems: ["Aqark App",shareText, img,locationText], applicationActivities: [])
+                 present(vc, animated: true)
+        }
+  
+    }
     
     
     @IBAction func showMap(_ sender: Any) {
