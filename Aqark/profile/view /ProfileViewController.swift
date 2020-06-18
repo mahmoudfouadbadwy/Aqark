@@ -33,11 +33,8 @@ class ProfileViewController: UIViewController {
     var profileViewModel:ProfileStore!
     var advertisementViewModel:ProfileAdvertisementListViewModel!
     var deleteViewModel:AdvertisementDelete!
-
     var editProfileVM : EditProfileViewModel!
-
     var profileDataAccess:ProfileDataAccess!
-
     var listOfAdvertisements:[ProfileAdvertisementViewModel]! = []{
         didSet{
             if listOfAdvertisements.count>0{
