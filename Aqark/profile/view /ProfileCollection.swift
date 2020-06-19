@@ -22,11 +22,10 @@ extension ProfileViewController{
     {
         if  advertisementViewModel != nil{
            
-//            showActivityIndicator()
+          //  showActivityIndicator()
             advertisementViewModel.getAllAdvertisements(completion: {[weak self]
                 (advertisements) in
-                 print("bind collection")
-//                self?.stopActivityIndicator()
+             //   self?.stopActivityIndicator()
                 self?.listOfAdvertisements = advertisements
             })
         }
