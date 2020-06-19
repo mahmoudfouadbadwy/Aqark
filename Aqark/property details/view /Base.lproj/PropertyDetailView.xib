@@ -48,7 +48,6 @@
                 <outlet property="reviewsCollectionView" destination="xfd-ky-Lzm" id="blw-lV-kLP"/>
                 <outlet property="scrollView" destination="bcu-cN-UrJ" id="56U-XS-Q96"/>
                 <outlet property="servicesSection" destination="qUN-tt-KQi" id="1Ze-FC-WDI"/>
-                <outlet property="shareContent" destination="wfN-Jx-ctf" id="f38-ct-khF"/>
                 <outlet property="specification" destination="gxX-yV-t2Q" id="cZZ-gq-teG"/>
                 <outlet property="specificationSection" destination="J5O-oI-l4e" id="EM9-JF-ukV"/>
                 <outlet property="userRate" destination="aPZ-Jd-LqV" id="qs5-5N-0ZM"/>
@@ -235,15 +234,6 @@
                                                 </view>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfN-Jx-ctf">
-                                            <rect key="frame" x="126" y="-13" width="316" height="53"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <state key="normal" title="Button"/>
-                                            <connections>
-                                                <action selector="shareAdvertisementContent:" destination="-1" eventType="touchUpInside" id="bTb-Os-G8z"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
