@@ -107,7 +107,7 @@ extension ProfileViewController:UICollectionViewDelegate{
             self.navigationController?.pushViewController(self.editAdsView, animated: true)
         }else{
 
-            self.showAlert(title: "Advertisements", message: "Sorry, You can't edit your advertisement after 24 hours.")
+            self.showAlert(title: "Advertisements".localize, message: "Sorry, You can't edit your advertisement after 24 hours.".localize)
 
         }
     }
@@ -120,7 +120,7 @@ extension ProfileViewController:UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.frame.width - 40, height: 150)
+        return CGSize(width: collectionView.frame.width - 20, height: 150)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10.0, left: 0.0, bottom: 0.0, right: 0.0)

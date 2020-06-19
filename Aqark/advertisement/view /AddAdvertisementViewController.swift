@@ -52,7 +52,7 @@ class AddAdvertisementViewController: UIViewController  {
     //var dateOfAdvertisement:String!
     var autocompletecontroller : GMSAutocompleteViewController?
     var filter : GMSAutocompleteFilter?
-    var country:String!
+    var country:String = ""
     //MARK:- viewdidLoad
     override func viewDidLoad()
     {

@@ -89,8 +89,8 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             manageSearchBar()
             limitRegion()
             setupCoredata()
-            stopActivityIndicator()
             getCollectionViewData()
+            stopActivityIndicator()
         }else{
             sort = nil
             labelPlaceHolder.isHidden = false

@@ -57,8 +57,27 @@ class FavouriteViewController: UIViewController {
     
     func showDeletedAdsAlert(){
         if (adsCount != 0){
-            alert = UIAlertController(title: "Deleted Advertisment".localize, message: "There are".localize + self.convertNumbers(lang: "lang".localize, stringNumber: String(adsCount)).1 + "Advertisment deleted from your Favourite List".localize, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel".localize, style: .cancel, handler: nil))
+            var message = ""
+            if "lang".localize == "en" {
+                if adsCount == 1{
+                    message = "There is " + self.convertNumbers(lang: "lang".localize, stringNumber: String(adsCount)).1 + " Advertisment deleted from your Favourite List"
+                         }else{
+                     message = "There are " + self.convertNumbers(lang: "lang".localize, stringNumber: String(adsCount)).1 + " Advertisments deleted from your Favourite List"
+                }
+            }else{
+                if adsCount == 1{
+                    message = "لقد تم حذف إعلان من القائمة المفضلة"
+                }else {
+                    message = "لقد تم حذف " + self.convertNumbers(lang: "lang".localize, stringNumber: String(adsCount)).1 + "إعلان من القائمة المفضلة"
+                    
+                }
+                
+            }
+            alert = UIAlertController(title: nil , message:message , preferredStyle: .alert)
+            
+            
+            alert.addAction(UIAlertAction(title: "Ok".localize, style: .cancel, handler: nil))
+            
             self.present(alert, animated: true, completion: nil)
             adsCount=0
         }
