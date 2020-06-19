@@ -56,9 +56,9 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var bottomscrollView: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     var favButton : UIButton!
+    var shareContentButton : UIButton!
     var advertisementId:String!
     var downloadedImages:[UIImage] = []
-    
     var propertyViewModel : PropertyDetailViewModel!
     var propertyDataAccess : PropertyDetailDataAccess!
     var advertisementDetails:AdverisementViewModel!
@@ -182,7 +182,14 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         
         favButton.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
         let barButton = UIBarButtonItem(customView: favButton)
-        self.navigationItem.rightBarButtonItem = barButton
+        
+        shareContentButton = UIButton(type: .custom)
+        shareContentButton.setImage(UIImage(named: "heart"), for: .normal)
+        shareContentButton.addTarget(self, action: #selector(toogleFavorite), for: .touchUpInside)
+        shareContentButton.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+        let shareButton = UIBarButtonItem(customView: shareContentButton)
+//        self.navigationItem.rightBarButtonItem = barButton
+         self.navigationItem.rightBarButtonItems = [barButton , shareButton]
     }
     
     func getGovernorate(_ country:String) -> String{
