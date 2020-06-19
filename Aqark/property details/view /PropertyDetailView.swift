@@ -73,9 +73,6 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     var arrOfReviewsViewModel : [ReviewViewModel]!
    
 
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -185,10 +182,9 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         
         shareContentButton = UIButton(type: .custom)
         shareContentButton.setImage(UIImage(named: "heart"), for: .normal)
-        shareContentButton.addTarget(self, action: #selector(toogleFavorite), for: .touchUpInside)
+        shareContentButton.addTarget(self, action: #selector(shareAdvertisementContent), for: .touchUpInside)
         shareContentButton.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
         let shareButton = UIBarButtonItem(customView: shareContentButton)
-//        self.navigationItem.rightBarButtonItem = barButton
          self.navigationItem.rightBarButtonItems = [barButton , shareButton]
     }
     

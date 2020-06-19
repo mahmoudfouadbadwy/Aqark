@@ -17,19 +17,24 @@ extension PropertyDetailView {
         if (coreDataViewModel!.isAdvertismentExist(id: self.advertisementId)){
             favButton.setImage(UIImage(named: "red-heart"), for: .normal)
         }else{
-             favButton.setImage( UIImage(named: "heart"), for: .normal)
+            favButton.setImage( UIImage(named: "heart"), for: .normal)
         }
+    }
+    
+    @objc func shareAdvertisementContent(){
+        let vc = UIActivityViewController(activityItems: ["Aqark App",price.text ?? 0, downloadedImages[0],address.text ?? ""], applicationActivities: [])
+        present(vc, animated: true)
     }
     
     @objc func toogleFavorite()
     {
         if (coreDataViewModel!.isAdvertismentExist(id: self.advertisementId))
         {
-             favButton.setImage( UIImage(named: "heart"), for: .normal)
+            favButton.setImage( UIImage(named: "heart"), for: .normal)
             self.coreDataViewModel!.deleteAdvertismentFromFavourite(id: self.advertisementId)
         }else{
             if((coreDataViewModel?.checkNumberOfAdvertisment())!){
-                 favButton.setImage(UIImage(named: "red-heart"), for: .normal)
+                favButton.setImage(UIImage(named: "red-heart"), for: .normal)
                 self.coreDataViewModel!.addAdvertismentToFavourite(id: self.advertisementId)
                 
             }else{
