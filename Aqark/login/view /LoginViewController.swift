@@ -27,8 +27,7 @@ class LoginViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
         if ProfileNetworking.checkAuthuntication(){
-            if !ProfileNetworking.isAdmin()
-            {
+            if !ProfileNetworking.isAdmin(){
                 gotoProfileView()
             }
             else
@@ -86,6 +85,22 @@ class LoginViewController: UIViewController{
         self.navigationController?.pushViewController(firstScreen, animated: true)
     }
     
+    @IBAction func forgotYourPassword(_ sender: Any) {
+        if(userEmailTextField.text!.isEmpty){
+            showAlert(title: "Reset Password", message: "Enter email to reset password")
+        }else{
+            loginViewModel.resetPassword(userEmail:userEmailTextField.text!) {[weak self] (completed) in
+                if(completed){
+                    self?.showAlert(title: "Reset Password", message: "A password reset email sent to your email.")
+                }else{
+                    self?.showAlert(title: "Reset Password", message: "There is a problem with password reset.")
+                }
+            }
+
+        }
+    }
+    
+    
     func showAlert(title:String,message:String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "OK".localize, style: UIAlertAction.Style.cancel){(okAction) in
@@ -128,7 +143,7 @@ class LoginViewController: UIViewController{
         firstScreen =  nil
         adminView = nil
     }
-
+    
 }
 
 extension LoginViewController : UITextFieldDelegate{

@@ -139,16 +139,14 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBAction func showLawyers(_ sender: Any) {
         let servicesView = ServicesViewController()
         servicesView.serviceRole = "Lawyers".localize
-        servicesView.advertisementCountry = advertisementDetails.country.components(separatedBy: ",")[1]
-        //servicesView.advertisementLocation = advertisementDetails.location
+        servicesView.advertisementCountry = getGovernorate(advertisementDetails.country)
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
     
     @IBAction func showInteriorDesigners(_ sender: Any) {
         let servicesView = ServicesViewController()
         servicesView.serviceRole = "Interior Designers".localize
-        servicesView.advertisementCountry = advertisementDetails.country.components(separatedBy: ",")[1]
-        //servicesView.advertisementLocation = advertisementDetails.location
+        servicesView.advertisementCountry = getGovernorate(advertisementDetails.country)
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
     
@@ -186,6 +184,15 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         let barButton = UIBarButtonItem(customView: favButton)
         self.navigationItem.rightBarButtonItem = barButton
     }
+    
+    func getGovernorate(_ country:String) -> String{
+           if(country.contains(",")){
+              let governorate = country.components(separatedBy: ",").count - 2
+              return country.components(separatedBy: ",")[governorate]
+           }else{
+               return country
+           }
+       }
    
     
     deinit{

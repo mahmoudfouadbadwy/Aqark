@@ -11,6 +11,7 @@ import Cosmos
 
 class ServicesCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var RightView: UIView!
     @IBOutlet weak var serviceUserImage: UIImageView!
     @IBOutlet weak var serviceUserName: UILabel!
     @IBOutlet weak var serviceUserCompany: UILabel!
@@ -59,10 +60,15 @@ class ServicesCollectionViewCell: UICollectionViewCell {
         
         if(serviceUserDelegate.checkLoggedUserDelegate()){
             rateMeButton.isHidden = false
-            //dialerButtonTrailingConstraint.isActive = true
+            dialerButton.centerXAnchor.constraint(equalTo: RightView.centerXAnchor).isActive = true
+            dialerButton.widthAnchor.constraint(equalTo: rateMeButton.widthAnchor).isActive = true
+                    //dialerButtonTrailingConstraint.isActive = true
             //dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = false
         }else{
             rateMeButton.isHidden = true
+            dialerButton.widthAnchor.constraint(equalTo: contentView.widthAnchor
+                , multiplier: 0.5).isActive = true
+            dialerButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
             //dialerButtonTrailingConstraint.isActive = false
             //dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
         }

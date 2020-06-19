@@ -20,7 +20,7 @@ extension ServicesViewController : UICollectionViewDataSource,UICollectionViewDe
         serviceCell.serviceUserDelegate = self
         serviceCell.serviceUserName.text = servicesViewModel.serviceUsersViewList[indexPath.row].serviceUserName
         serviceCell.serviceUserCompany.text = servicesViewModel.serviceUsersViewList[indexPath.row].serviceUserCompany
-        serviceCell.serviceUserLocation.text = servicesViewModel.serviceUsersViewList[indexPath.row].serviceUserCountry.localize
+        serviceCell.serviceUserLocation.text = splitCountry(servicesViewModel.serviceUsersViewList[indexPath.row].serviceUserCountry).localize
         if "lang".localize.elementsEqual("en")
         {
             serviceCell.serviceUserExperience.text = self.convertNumbers(lang: "lang".localize, stringNumber: servicesViewModel.serviceUsersViewList[indexPath.row].serviceUserExperience).1 + " exp years.".localize
@@ -51,7 +51,7 @@ extension ServicesViewController : UICollectionViewDataSource,UICollectionViewDe
 
 extension ServicesViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width - 30, height: 170)
+        return CGSize(width: collectionView.frame.width - 20, height: 170)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

@@ -16,7 +16,7 @@ class LoginViewModel : ValidationProtocol{
     var userEmail : String!
     var userPassword : String!
     var brokenRules: [LoginBrokenRule] = [LoginBrokenRule]()
-    var dao : LoginDataAccessLayer!
+    var dataAccess : LoginDataAccessLayer!
     var isValid: Bool {
         get{
             self.brokenRules.removeAll()
@@ -26,7 +26,7 @@ class LoginViewModel : ValidationProtocol{
     }
     
     init(dataAccess:LoginDataAccessLayer) {
-        dao = dataAccess
+        self.dataAccess = dataAccess
     }
     
     func validate(){
@@ -54,7 +54,7 @@ class LoginViewModel : ValidationProtocol{
     }
     
     func authenticateLogin(completion:@escaping(_ result:String?,_ error :String?)->Void){
-        dao.login(userEmail: userEmail, userPassword: userPassword) { (result,error) in
+        dataAccess.login(userEmail: userEmail, userPassword: userPassword) { (result,error) in
             
             if let error = error {
                 completion(nil,error)
@@ -63,6 +63,13 @@ class LoginViewModel : ValidationProtocol{
             }
         }
     }
+    
+    func resetPassword(userEmail:String,completionForResetPassword:@escaping(_ completed:Bool) -> Void){
+        dataAccess.resetPassword(userEmail: userEmail) { (completed) in
+                completionForResetPassword(completed)
+        }
+    }
+    
     func checkNetworkConnection()->Bool{
         let connection = Reachability()
         guard let status = connection?.isReachable else{return false}

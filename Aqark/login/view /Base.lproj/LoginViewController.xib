@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Aqark" customModuleProvider="target">
             <connections>
                 <outlet property="dontHaveAccount" destination="tv9-gc-khR" id="iMO-cw-TkM"/>
+                <outlet property="forgetYourPassword" destination="B01-wG-bRc" id="PeA-mC-Uc3"/>
                 <outlet property="userEmailTextField" destination="wg7-h9-2Ik" id="9ss-Vj-AiT"/>
                 <outlet property="userPasswordTextField" destination="ucx-Yh-KwL" id="A62-Tl-CNf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -50,21 +50,6 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aqark_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Dly-6M-Xcy">
                     <rect key="frame" x="62" y="54" width="290" height="224"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9Z-bw-b6P" customClass="CustomButton" customModule="Aqark" customModuleProvider="target">
-                    <rect key="frame" x="103.5" y="487.5" width="207" height="32"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                    <state key="normal" title="Login">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="backColor" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="login:" destination="-1" eventType="touchUpInside" id="Suy-0f-oSb"/>
-                    </connections>
-                </button>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7F9-PB-Mqn">
                     <rect key="frame" x="62" y="810" width="290" height="32"/>
                     <subviews>
@@ -84,6 +69,29 @@
                         </button>
                     </subviews>
                 </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B01-wG-bRc">
+                    <rect key="frame" x="114" y="534" width="186" height="32"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                    <state key="normal" title="Forgot your password?"/>
+                    <connections>
+                        <action selector="forgotYourPassword:" destination="-1" eventType="touchUpInside" id="3Dd-9R-ElS"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9Z-bw-b6P" customClass="CustomButton" customModule="Aqark" customModuleProvider="target">
+                    <rect key="frame" x="103.5" y="487.5" width="207" height="32"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                    <state key="normal" title="Login">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="backColor" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="login:" destination="-1" eventType="touchUpInside" id="Suy-0f-oSb"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -91,14 +99,17 @@
                 <constraint firstItem="Dly-6M-Xcy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2bJ-Jx-8Pp"/>
                 <constraint firstItem="wg7-h9-2Ik" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.05" id="5Nh-HV-yda"/>
                 <constraint firstItem="wg7-h9-2Ik" firstAttribute="top" secondItem="Dly-6M-Xcy" secondAttribute="bottom" constant="30" id="8f4-eY-Pla"/>
+                <constraint firstItem="B01-wG-bRc" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.45" id="8tI-d4-Bny"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="7F9-PB-Mqn" secondAttribute="bottom" constant="20" id="8uR-iq-I7W"/>
                 <constraint firstItem="ucx-Yh-KwL" firstAttribute="height" secondItem="wg7-h9-2Ik" secondAttribute="height" id="9Qw-aL-Iwk"/>
+                <constraint firstItem="B01-wG-bRc" firstAttribute="top" secondItem="K9Z-bw-b6P" secondAttribute="bottom" constant="14.5" id="9Ui-kq-xcU"/>
                 <constraint firstItem="K9Z-bw-b6P" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="FYj-BD-7Gs"/>
                 <constraint firstItem="ucx-Yh-KwL" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.7" id="HI9-BA-4N3"/>
                 <constraint firstItem="7F9-PB-Mqn" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="HKS-K9-k1U"/>
                 <constraint firstItem="ucx-Yh-KwL" firstAttribute="top" secondItem="wg7-h9-2Ik" secondAttribute="bottom" constant="30" id="I8c-m8-c4g"/>
                 <constraint firstItem="K9Z-bw-b6P" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="JcK-sF-hXD"/>
                 <constraint firstItem="wg7-h9-2Ik" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Q6Y-Gw-yvc"/>
+                <constraint firstItem="B01-wG-bRc" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="QK8-uL-kU0"/>
                 <constraint firstItem="Dly-6M-Xcy" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.7" id="VZk-sS-1IG"/>
                 <constraint firstItem="ucx-Yh-KwL" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="WOk-Ty-KWf"/>
                 <constraint firstItem="Dly-6M-Xcy" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.25" id="XQL-nq-viW"/>
