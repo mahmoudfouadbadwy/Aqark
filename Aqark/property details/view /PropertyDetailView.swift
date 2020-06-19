@@ -190,6 +190,9 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         advertisementDetails = nil
         advertisementReportViewModel = nil
         reviewData = nil
+        if advertisementReviewViewModel != nil{
+            advertisementReviewViewModel.removeReviewObservers()
+        }
         advertisementReviewViewModel = nil
         reviewViewModel = nil
         reportData = nil
@@ -197,7 +200,6 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         callButton = nil
         coreDataViewModel = nil
         arrOfReviewsViewModel = nil
-        print ("details deinit")
     }
 }
 

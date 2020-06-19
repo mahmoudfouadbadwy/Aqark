@@ -41,13 +41,15 @@ class ProfileAdvertisementListViewModel{
     }
     func getAllAdvertisements(completion:@escaping([ProfileAdvertisementViewModel])->Void)
     {
+
         advertisementsData.getProfileAdvertisementsIDs(completion: {
             (store) in
+        
             if (store.allAdvertisements.count>0)
             {
+                self.advertisements.removeAll()
                 for advertisement in store.allAdvertisements
                 {
-
                     self.advertisements.append(ProfileAdvertisementViewModel(advertisement: advertisement))
                     if self.advertisements.count == store.allAdvertisements.count
                     {

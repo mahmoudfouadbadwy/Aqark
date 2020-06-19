@@ -11,10 +11,11 @@ import Foundation
 import Firebase
 class AgentDataAccess{
     var agentAdvertisementsIDsRef:DatabaseReference! = Database.database().reference()
+    var agentAdvertisementsIDsHandle:DatabaseHandle!
     var advertisementRef:DatabaseReference! = Database.database().reference()
     func getAgentAdvertisementsIDs(agentId:String,completion:@escaping(AgentAdvertismentsStore)->Void)
     {
-        agentAdvertisementsIDsRef.child("Users_Ads").child(agentId).child("advertisements").observe(.value) { (snapshot) in
+        agentAdvertisementsIDsHandle = agentAdvertisementsIDsRef.child("Users_Ads").child(agentId).child("advertisements").observe(.value) { (snapshot) in
             if (snapshot.exists())
             {
                 let advertisementsIds:[String] = snapshot.value as! [String]
@@ -64,8 +65,9 @@ class AgentDataAccess{
     
     func removeObservers()
     {
-        agentAdvertisementsIDsRef.child("Users_Ads").removeAllObservers()
+        agentAdvertisementsIDsRef.child("Users_Ads").removeObserver(withHandle: agentAdvertisementsIDsHandle)
         agentAdvertisementsIDsRef = nil
+        agentAdvertisementsIDsHandle = nil
         advertisementRef = nil
     }
 }

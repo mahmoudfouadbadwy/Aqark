@@ -88,9 +88,6 @@ class FavouriteViewController: UIViewController {
         coreDataAccess = nil
         alert = nil
         propertyDetailVC = nil
-
-        
-        print("favourite view will disapear")
     }
    
     

@@ -117,9 +117,7 @@ class ProfileViewController: UIViewController {
         cancel = nil
         alertController = nil
         alertAction = nil
-
         editProfileVM = nil
-   
         listOfAdvertisements = nil
     }
 }
