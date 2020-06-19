@@ -41,7 +41,6 @@ class ProfileAdvertisementListViewModel{
     }
     func getAllAdvertisements(completion:@escaping([ProfileAdvertisementViewModel])->Void)
     {
-        
         advertisementsData.getProfileAdvertisementsIDs(completion: {
             (store) in
             if (store.allAdvertisements.count>0)

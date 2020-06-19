@@ -60,6 +60,9 @@ class ProfileViewController: UIViewController {
         {
             setUpViewMoelsObjects()
             noAdvertisementsLabel.isHidden = true
+            if  advertisementViewModel != nil {
+                      bindCollectionData()
+                  }
         }
         else
         {
@@ -98,7 +101,6 @@ class ProfileViewController: UIViewController {
         }
     }
     deinit {
-        print("de inti profile")
         profileViewModel.removeProfileDataObservers()
         profileDataAccess = nil
         advertisementViewModel.removeProfileAdvertisementsObservers()

@@ -66,7 +66,6 @@ class AgentDataAccess{
     {
         agentAdvertisementsIDsRef.child("Users_Ads").removeAllObservers()
         agentAdvertisementsIDsRef = nil
-        advertisementRef.child("Advertisements").removeAllObservers()
         advertisementRef = nil
     }
 }

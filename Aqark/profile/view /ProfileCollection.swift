@@ -21,10 +21,12 @@ extension ProfileViewController{
     func bindCollectionData()
     {
         if  advertisementViewModel != nil{
-            showActivityIndicator()
+           
+//            showActivityIndicator()
             advertisementViewModel.getAllAdvertisements(completion: {[weak self]
                 (advertisements) in
-                self?.stopActivityIndicator()
+                 print("bind collection")
+//                self?.stopActivityIndicator()
                 self?.listOfAdvertisements = advertisements
             })
         }
