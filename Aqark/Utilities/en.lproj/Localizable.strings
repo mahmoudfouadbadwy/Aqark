@@ -136,8 +136,8 @@
 
 /********************************** agent Properties ********************************/
 
-"Please rate" = "Please rate";
-"'s properties" = "'s properties";
+"Please rate" = "Please rate ";
+"Agent Properties" = "Agent Properties";
 
 "free" = "free";
 "premium" = "premium";
@@ -192,17 +192,18 @@
 "Covered Parking" = "Covered Parking";
 "Pets Allowed" = "Pets Allowed";
 "Barbecue Area" = "Barbecue Area";
-"Balcony" = "شرفة";
+"Balcony" = "Balcony";
 "Walk-in Closet" = "Walk-in Closet";
 "Study" = "Study";
 "Private garden" = "Private garden";
 "Children's Play Area" = "Children's Play Area";
 
-"minimum price is" = "minimum price is";
+"minimum price is" = "minimum price is ";
 
 "بيع" = "Buy" ;
 "ايجار" = "Rent";
 
+"payment" = "payment";
 
 "propertyType" = "propertyType";
 "advertisementType" = "advertisementType";
@@ -224,27 +225,27 @@
 
 "You can't rate yourself" = "You can't rate yourself";
 
-"price is empty" = "price is empty";
+"price is empty" = "Please Enter Property Price";
 "select advertisement Type" = "advertisement number must be selected.";
 "select Property Type" = "Property number must be selected.";
 "add number of bedrooms" = " bedrooms must be provided.";
 "select number of bathroom" = "bathroom must be provided.";
-"add your location" = "location must be provided.";
-"add your county" = "county must be provided.";
-"add your description" = "description must be provided.";
-"select images" = "image must be selected.";
-"add your phone" = "Phone number must be provided.";
-"add your size" = "size must be provided.";
+"add your county" = "country must be provided.";
+"add your location" = "Please Enter Property Address.";
+"add your description" = "Please Enter Property Description.";
+"select images" = "Please Select Property Images.";
+"add your phone" = "Please Enter Phone Number.";
+"add your size" = "Please Enter Size";
 "inValid size" = "The size you entered is invalid";
 "inValid price" = "The price you entered is invalid";
 "phone not valid" = "The phone number you entered is invalid";
 
 "Delete Image" = "Delete Image";
-"Are you sure you want to delete ?" = "Are you sure you want to delete ?";
+"Are you sure you want to delete ?" = "Are you sure you want to delete this image ?";
 
 
-"Sorry, you used all of your free ads" = "Sorry, you used all of your free ads";
-"Advertrisement saved successfully" = "Advertrisement saved successfully";
+"Sorry, you used all of your free ads" = "Sorry, you have used all your free ads";
+"Advertrisement saved successfully" = "success, you have 24 hours to edit this advertisement";
 
 "Country must be provided." = "Country must be provided.";
 "Company must be provided." = "Company must be provided.";
@@ -252,11 +253,8 @@
 
 "Profile Edited Successfully" = "Profile Edited Successfully";
 "Add To Favourite" = "Add To Favourite";
-"Can't add to favourite maximum 20 Ads can be added " = "Can't add to favourite maximum 20 Ads can be added ";
+"Can't add to favourite maximum 20 Ads can be added " = " Sorry, you can't add this advertisement to favourite you have maximum 20 Ads can be added ";
 
-"Deleted Advertisment" = "Deleted Advertisment";
-"There are" = "There are";
-"Advertisment deleted from your Favourite List" = "Advertisment deleted from your Favourite List";
 
 "Are you sure you want to delete this advertisement from favourite list ? " = "Are you sure you want to delete this advertisement from favourite list ? ";
 "Error occured Please try again later" = "Error occured please try again later";
@@ -271,11 +269,32 @@
 "Those passwords did not match." = "Those passwords did not match.";
 "Username must be provided." = "Username must be provided.";
 "Username must start of letter and be between 6 and 20 characters." = "Username must start of letter and be between 6 and 20 characters.";
+"The email address is badly formatted." = "The email address is badly formatted.";
+"Address must be provided." = "Address must be provided.";
 "Phone number must be provided." = "Phone number must be provided.";
 "Phone number is badly formatted." = "Phone number is badly formatted.";
 "You Are Blocked From Adding Advertisements" = "You Are Blocked From Adding Advertisements";
 "Are You Sure You Want To Delete This Advertisement ?" = "Are You Sure You Want To Delete This Advertisement ?";
+
+
+
+"Please Login To Review This Advertisement" = "Please Login To Review This Advertisement";
+
+
+
+"Report have been sent" = "Report have been sent";
+"You can not report your Advertisement" = "You can not report your Advertisement";
+"Please Login To Report This Advertisement" = "Please Login To Report This Advertisement";
+
+"Please Login To Review This Advertisement" = "Please Login To Review This Advertisement";
+
+"Sorry, You can't edit your advertisement after 24 hours." ="Sorry, You can't edit your advertisement after 24 hours.";
+
+
 // Title :
+"Report" = "Report";
+"Advertisements" = "Advertisements";
+"Add Review" = "Add Review";
 "Connection" = "Connection";
 "Call" = "Call";
 "Error" = "Error";
@@ -286,9 +305,18 @@
 
 
 //Action Button
+"add" = "Add";
 "Ok" = "Ok";
 "Cancel" = "Cancel";
 "Delete" = "Delete";
+
+// alert details action button of click report
+"Posting Inappropriate things" = "Posting Inappropriate things" ;
+"Fake Data" = "Fake Data";
+"Fake Number" = "Fake Number";
+"Deceitful Person" = "Deceitful Person";
+
+
 
 //wall papers word:
 "No Advertisements Available" = "No Advertisements Available";

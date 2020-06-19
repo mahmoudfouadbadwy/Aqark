@@ -26,7 +26,7 @@ class AddAdvertisementViewModel : AddAdvertisementViewModelProtocol{
     var urlImages :[String]?
     var deletedImage :[String]?
     var payment : String!
-    var date :String!
+   // var date :String!
     
     var editAdvertisementDataSource: EditAdvertisementDataSource!
     var addAdvertisementDataSource: AddAdvertisementDataSource!

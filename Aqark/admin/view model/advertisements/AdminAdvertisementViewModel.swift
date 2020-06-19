@@ -8,10 +8,11 @@
 
 import Foundation
 
-class AdminAdvertisementViewModel{
+struct AdminAdvertisementViewModel{
     var advertisementId : String = ""
     var advertisementUserId : String = ""
     var advertisementType : String = ""
+    var advertisementPaymentType : String = ""
     var advertisementPropertyImages : [String] = [String]()
     var advertisementPropertyType : String = ""
     var advertisementPropertyAddress : String = ""
@@ -24,6 +25,7 @@ class AdminAdvertisementViewModel{
         self.advertisementId = adminAdvertisment.advertisementId
         self.advertisementUserId = adminAdvertisment.advertisemetentUserId
         self.advertisementType = adminAdvertisment.advertisementType
+        self.advertisementPaymentType = adminAdvertisment.advertisementPaymentType
         self.advertisementPropertyImages = adminAdvertisment.advertismentsPropertyImages
         self.advertisementPropertyType = adminAdvertisment.advertisementPropertyType
         self.advertisementPropertyAddress = adminAdvertisment.advertisementPropertyLocation

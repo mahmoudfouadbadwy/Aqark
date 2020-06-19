@@ -20,11 +20,15 @@ extension ProfileViewController{
     
     func bindCollectionData()
     {
-        advertisementViewModel.getAllAdvertisements(completion: {[weak self]
-            (advertisements) in
-            self?.stopActivityIndicator()
-            self?.listOfAdvertisements = advertisements
-        })
+        if  advertisementViewModel != nil{
+           
+          //  showActivityIndicator()
+            advertisementViewModel.getAllAdvertisements(completion: {[weak self]
+                (advertisements) in
+             //   self?.stopActivityIndicator()
+                self?.listOfAdvertisements = advertisements
+            })
+        }
     }
     private func setCellConfiguration(cell:UICollectionViewCell)
     {
@@ -76,16 +80,39 @@ extension ProfileViewController:UICollectionViewDataSource{
         let cell:ProfileAdvertisementCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileAdvertisementCell
         setCellData(cell: cell, indexPath: indexPath)
         setCellConfiguration(cell: cell)
+        setupButtonGeusture(deleteButton: cell.delete)
         return cell
     }
 }
 
 extension ProfileViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let editView:AddAdvertisementViewController = AddAdvertisementViewController()
-        editView.advertisementId = listOfAdvertisements[indexPath.row].advertisementId
-        self.navigationController?.pushViewController(editView, animated: true)
+        //check connection
+        
+        editProfileVM = EditProfileViewModel()
+        editProfileVM.fetchAdvertisement(addId: self.listOfAdvertisements[indexPath.row].advertisementId!) {[weak self] (dateFetched) in
+            self?.editAdvertisement(date: dateFetched, row: indexPath.row)
+        }
     }
+
+    func editAdvertisement(date : String , row : Int){
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let currentDate = Date()
+        let lastTimeForEdit = formatter.date(from: date)!.addingTimeInterval(24*60*60)
+        if (currentDate <= lastTimeForEdit)
+        {
+            self.editAdsView = AddAdvertisementViewController()
+            self.editAdsView.advertisementId = self.listOfAdvertisements[row].advertisementId!
+            self.navigationController?.pushViewController(self.editAdsView, animated: true)
+        }else{
+
+            self.showAlert(title: "Advertisements".localize, message: "Sorry, You can't edit your advertisement after 24 hours.".localize)
+
+        }
+    }
+            
 }
 
 
@@ -94,7 +121,7 @@ extension ProfileViewController:UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.frame.width - 40, height: 150)
+        return CGSize(width: collectionView.frame.width - 20, height: 150)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10.0, left: 0.0, bottom: 0.0, right: 0.0)
@@ -105,13 +132,20 @@ extension ProfileViewController:UICollectionViewDelegateFlowLayout
 extension ProfileViewController:UIGestureRecognizerDelegate{
     func setupCollectionGeusture()
     {
-        let gesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(deleteCell(gesture:)))
+        gesture = UILongPressGestureRecognizer(target: self, action: #selector(deleteCell(gesture:)))
         gesture.delegate = self
         gesture.delaysTouchesBegan = true
         self.advertisementsCollection.addGestureRecognizer(gesture)
     }
     
-    @objc private func deleteCell(gesture:UILongPressGestureRecognizer )
+    func setupButtonGeusture(deleteButton:UIButton){
+        pressGesture = UITapGestureRecognizer(target: self, action: #selector(deleteCell(gesture:)))
+       
+        deleteButton.addGestureRecognizer(pressGesture)
+       
+    }
+    
+    @objc private func deleteCell(gesture:UIGestureRecognizer)
     {
         if (gesture.state != .ended)
         {
@@ -126,7 +160,9 @@ extension ProfileViewController:UIGestureRecognizerDelegate{
                     {
                         self?.advertisementsCollection.performBatchUpdates({
                             // delete from firebase.
-                            self?.deleteViewModel.deleteAdvertisement(id:self?.listOfAdvertisements[indexPath.row].advertisementId ?? "")
+                            if self?.deleteViewModel != nil {
+                                self?.deleteViewModel.deleteAdvertisement(id:self?.listOfAdvertisements[indexPath.row].advertisementId ?? "")
+                            }
                             
                             // delete from view .
                             self?.listOfAdvertisements.remove(at: indexPath.row)
@@ -142,12 +178,12 @@ extension ProfileViewController:UIGestureRecognizerDelegate{
     
     private func showAlert(completion:@escaping(Bool)->Void)
     {
-        let alert:UIAlertController = UIAlertController(title: "Delete Adverisement".localize, message: "Are You Sure You Want To Delete This Advertisement ?".localize, preferredStyle: .actionSheet)
-        let delete:UIAlertAction = UIAlertAction(title: "Delete".localize, style: .default) { (action) in
+         alert = UIAlertController(title: "Delete Adverisement".localize, message: "Are You Sure You Want To Delete This Advertisement ?".localize, preferredStyle: .actionSheet)
+         delete = UIAlertAction(title: "Delete".localize, style: .default) { (action) in
             completion(true)
         }
-        let cancel:UIAlertAction = UIAlertAction(title: "Cancel".localize, style: .cancel) { (action) in
-            alert.dismiss(animated: true)
+        let cancel:UIAlertAction = UIAlertAction(title: "Cancel".localize, style: .cancel) {[weak self] (action) in
+            self?.alert.dismiss(animated: true)
             completion(false)
         }
         alert.addAction(delete)

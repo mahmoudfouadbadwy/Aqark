@@ -47,11 +47,11 @@ extension AgentPropertiesView{
         cell.propertyType.text = advertisement.propertyType.localize
         if advertisement.advertisementType.lowercased().elementsEqual("rent")
         {
-            cell.propertyPrice.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + " EGP".localize
+            cell.propertyPrice.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + "EGP".localize
         }else
         {
 
-            cell.propertyPrice.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + " EGP/month".localize
+            cell.propertyPrice.text = self.convertNumbers(lang:"lang".localize , stringNumber: String(Int(advertisement.price))).1 + "EGP/month".localize
         }
         
         cell.propertySize.text = self.convertNumbers(lang: "lang".localize, stringNumber: advertisement.size).1 + "sqm".localize
@@ -97,7 +97,7 @@ extension AgentPropertiesView:UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.frame.width - 40, height: 150)
+        return CGSize(width: collectionView.frame.width - 20, height: 150)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10.0, left: 0.0, bottom: 0.0, right: 0.0)

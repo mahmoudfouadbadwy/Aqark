@@ -18,7 +18,7 @@ extension AddAdvertisementViewController
     @objc func chnageIndicatorStatus()
     {
         self.stopActivityIndicator()
-       
+        UIApplication.shared.endIgnoringInteractionEvents()
         let alertController = UIAlertController(title: "Advertisements".localize, message: "Advertrisement saved successfully".localize , preferredStyle: .alert)
         let actionButton = UIAlertAction(title: "ok", style: .default) { (_) in
             self.navigationController?.popViewController(animated: true)
@@ -31,10 +31,18 @@ extension AddAdvertisementViewController
     
     @objc func viewAlert()
     {
-        alertControllerMessage(title: "Advertisements".localize, message: "Sorry, you used all of your free ads".localize)
-        self.stopActivityIndicator()
-        blackIndicatorView.isHidden = true
+//        alertControllerMessage(title: "Advertisements".localize, message: "Sorry, you used all of your free ads".localize)
+       self.stopActivityIndicator()
         // go to payment page
+
+        let alert = UIAlertController(title: "payment".localize, message: "Sorry, you used all of your free ads".localize, preferredStyle: .alert)
+
+               alert.addAction(UIAlertAction(title: "ok".localize, style: .default , handler:{[weak self](UIAlertAction)in
+                self?.showActivityIndicator()
+                self?.addAdvertisementVM?.payment = "premium"
+                self?.addAdvertisementVM?.save()
+               }))
+        self.present(alert, animated: true, completion: nil)
     }
 
 }

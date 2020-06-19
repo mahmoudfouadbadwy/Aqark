@@ -22,8 +22,10 @@ class ReviewData{
     var userData : ReviewUserModel!
     var userDetailsDictionary:  [String : Any]!
     var emptyReviewModelArr :[ReviewModel] = [ReviewModel]()
-    
-    
+    var advertisementReviewsRef:DatabaseReference! = Database.database().reference()
+    var advertisementReviewsHandle:DatabaseHandle!
+    var userDetailsRef: DatabaseReference! = Database.database().reference()
+    var userDetailsHandle:DatabaseHandle!
     func addReview(reviewModel : ReviewModel){
         dataBaseRef = Database.database().reference()
         idAutoGenerator = dataBaseRef.childByAutoId().key!
@@ -35,14 +37,12 @@ class ReviewData{
                        "UserImage" : userResults.userImage
                    ]
             self.dataBaseRef.child("Advertisements").child(reviewModel.advertisementId).child("Reviews").child(self.idAutoGenerator!).setValue(self.newReview)
-
         }
-       
     }
     
     func getAdvertisementReviews(id :String,completionForGetAllReviews : @escaping (_ reviewsResults:[ReviewModel]) -> Void){
-        let ref = Database.database().reference()
-        ref.child("Advertisements").child(id).child("Reviews").observe(.value, with: { (snapshot) in
+       
+       advertisementReviewsHandle = advertisementReviewsRef.child("Advertisements").child(id).child("Reviews").observe(.value, with: { (snapshot) in
             self.reviewsData.removeAll()
             if snapshot.exists()
             {
@@ -56,7 +56,6 @@ class ReviewData{
                         self.userImage = reviewsDictionary["UserImage"] as? String ?? ""
                         self.reviewsData.append( ReviewModel(reviewContent: self.advertisementReviewContent, userId: self.userId, advertisementId: id,userName: self.userName ,userImage: self.userImage ))
                     }
-                  
                 }
                  completionForGetAllReviews(self.reviewsData)
 
@@ -67,9 +66,8 @@ class ReviewData{
         })
     }
     func getUserDetails(id :String,completionForName : @escaping (_ userResults: ReviewUserModel) -> Void){
-        
-        let ref = Database.database().reference()
-        ref.child("Users").child(id).observe(.value, with: { (snapshot) in
+      
+     userDetailsHandle = userDetailsRef.child("Users").child(id).observe(.value, with: { (snapshot) in
             if snapshot.exists()
             {
                 let dict = snapshot.value as? [String : Any]
@@ -86,4 +84,22 @@ class ReviewData{
             }
         })
     }
+    
+    func removeReviewsObservers()
+    {
+        if advertisementReviewsHandle != nil{
+           advertisementReviewsRef.removeObserver(withHandle: advertisementReviewsHandle)
+        }
+         advertisementReviewsRef = nil
+         advertisementReviewsHandle = nil
+        
+        if userDetailsHandle != nil{
+            userDetailsRef.removeObserver(withHandle: userDetailsHandle)
+        }
+         userDetailsRef = nil
+         userDetailsHandle = nil
+    }
 }
+
+
+

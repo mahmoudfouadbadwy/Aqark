@@ -13,7 +13,6 @@ import Cosmos
 
 class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var amenitiesHeader: UILabel!
-    @IBOutlet weak var cancelReview: UIButton!
     @IBOutlet weak var reviewSection: UIView!
     @IBOutlet weak var descriptionSection: UIView!
     @IBOutlet weak var agentSection: UIView!
@@ -23,20 +22,15 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var locationSection: UIView!
     @IBOutlet weak var viewsSection: UIView!
     @IBOutlet weak var specificationSection: UIView!
-    @IBOutlet weak var inputStack: UIStackView!
     @IBOutlet weak var locationTitle: UILabel!
     @IBOutlet weak var descriptionTitle: UILabel!
     @IBOutlet weak var agentTitle: UILabel!
     @IBOutlet weak var porperties: UIButton!
     @IBOutlet weak var interiorDesigner: UIButton!
     @IBOutlet weak var lawyers: UIButton!
-    @IBOutlet weak var addReviewContentTextView: UITextView!
-    @IBOutlet weak var submitReviewBtn: UIButton!
-    @IBOutlet weak var reviewTextView: UITextView!
     @IBOutlet weak var addReviewBtn: UIButton!
     @IBOutlet weak var reviewHeaderLabel: UILabel!
     @IBOutlet weak var content: UIView!
-    @IBOutlet weak var amenitiesTopSpace: NSLayoutConstraint!
     @IBOutlet weak var amenitiesHeight: NSLayoutConstraint!
     @IBOutlet weak var userRate: CosmosView!
     @IBOutlet weak var advertisementDescription: UITextView!
@@ -53,6 +47,18 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var dateOfAdvertisement: UILabel!
     @IBOutlet weak var numberOfViews: UILabel!
     @IBOutlet weak var imageSlider: ImageSlider!
+    @IBOutlet weak var reviewsCollectionView: UICollectionView!
+    @IBOutlet weak var noReview: UIView!
+    @IBOutlet weak var agentTopConstrain: NSLayoutConstraint!
+    @IBOutlet weak var contentHeight: NSLayoutConstraint!
+    @IBOutlet weak var aminitiesCollectionHeight: NSLayoutConstraint!
+    @IBOutlet weak var ServiceLabel: UILabel!
+    @IBOutlet weak var bottomscrollView: NSLayoutConstraint!
+    @IBOutlet weak var scrollView: UIScrollView!
+    var favButton : UIButton!
+    var advertisementId:String!
+    var downloadedImages:[UIImage] = []
+    
     var propertyViewModel : PropertyDetailViewModel!
     var propertyDataAccess : PropertyDetailDataAccess!
     var advertisementDetails:AdverisementViewModel!
@@ -62,13 +68,10 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     var reviewViewModel :ReviewViewModel!
     var reportData: ReportData!
     var agent:AgentViewModel!
-    var advertisementId:String!
-    var downloadedImages:[UIImage] = []
-    let callButton = JJFloatingActionButton()
+    var callButton : JJFloatingActionButton!
     var coreDataViewModel: CoreDataViewModel?
     var arrOfReviewsViewModel : [ReviewViewModel]!
-    var favButton : UIButton!
-    @IBOutlet weak var reviewsCollectionView: UICollectionView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -83,14 +86,21 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
                 self?.setUpReviewsCollectionView()
                 self?.bindReviewData()
             }
+            callButton = JJFloatingActionButton()
             setupFavoriteButton()
             setupCoredata()
             checkIfFavourite()
+            
         }
         else{
             content.isHidden = true
         }
     }
+    
+    
+    
+    
+    
     @IBAction func showMap(_ sender: Any) {
         let lat = Double(self.advertisementDetails.latitude)
         let long = Double(self.advertisementDetails.longitude)
@@ -107,17 +117,12 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     
     
     @IBAction func addReviewBtn(_ sender: Any) {
-        manageAddReviewOutlets()
-    }
-    
-    @IBAction func submitReview(_ sender: Any) {
-        addReview()
+        manageAddReview()
     }
     
     @IBAction func showReportActionSheet(_ sender: Any) {
         preformReport()
     }
-    
     
     @IBAction func openPropertiesView(_ sender: Any) {
         let properties = AgentPropertiesView()
@@ -130,31 +135,25 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBAction func showLawyers(_ sender: Any) {
         let servicesView = ServicesViewController()
         servicesView.serviceRole = "Lawyers".localize
-        servicesView.advertisementCountry = advertisementDetails.country
+        servicesView.advertisementCountry = advertisementDetails.country.components(separatedBy: ",")[1]
+        //servicesView.advertisementLocation = advertisementDetails.location
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
     
     @IBAction func showInteriorDesigners(_ sender: Any) {
         let servicesView = ServicesViewController()
         servicesView.serviceRole = "Interior Designers".localize
-        servicesView.advertisementCountry = advertisementDetails.country
+        servicesView.advertisementCountry = advertisementDetails.country.components(separatedBy: ",")[1]
+        //servicesView.advertisementLocation = advertisementDetails.location
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
     
-    
-    @IBAction func cancelReview(_ sender: Any) {
-        
-        inputStack.isHidden = true
-        
-    }
     
     
    private func setupViews()
     {
         self.navigationItem.title = "Property Details".localize
-        lawyers.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
-        interiorDesigner.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
-        porperties.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
+        ServiceLabel.textColor = UIColor(rgb: 0x457b9d)
         locationTitle.textColor = UIColor(rgb: 0x457b9d)
         agentTitle.textColor = UIColor(rgb: 0x457b9d)
         descriptionTitle.textColor = UIColor(rgb: 0x457b9d)
@@ -182,11 +181,25 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         favButton.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
         let barButton = UIBarButtonItem(customView: favButton)
         self.navigationItem.rightBarButtonItem = barButton
-        
     }
+   
     
     deinit{
-        print ("details deinit")
+        propertyViewModel = nil
+        propertyDataAccess = nil
+        advertisementDetails = nil
+        advertisementReportViewModel = nil
+        reviewData = nil
+        if advertisementReviewViewModel != nil{
+            advertisementReviewViewModel.removeReviewObservers()
+        }
+        advertisementReviewViewModel = nil
+        reviewViewModel = nil
+        reportData = nil
+        agent = nil
+        callButton = nil
+        coreDataViewModel = nil
+        arrOfReviewsViewModel = nil
     }
 }
 

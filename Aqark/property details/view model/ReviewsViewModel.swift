@@ -10,71 +10,72 @@ import Foundation
 import Firebase
 
 class ReviewsViewModel{
+    var dataAccess : ReviewData!
+    var reviewModel: ReviewModel!
+    var userModel : ReviewUserModel!
+    var reviewsViewModel : [ReviewViewModel]! = [ReviewViewModel]()
     
-       var dataAccess : ReviewData!
-       var reviewModel: ReviewModel!
-      var userModel : ReviewUserModel!
-    var reviewsViewModel : [ReviewViewModel] = [ReviewViewModel]()
-    
-    
-
- 
     init(dataAccess : ReviewData) {
-          self.dataAccess = dataAccess
-      }
+        self.dataAccess = dataAccess
+    }
     func setReviewData(reviewContent : String, advertisementId : String){
         reviewModel = ReviewModel(reviewContent: reviewContent,userId: self.getUserId(), advertisementId : advertisementId,userName:"",userImage:"")
         dataAccess.addReview(reviewModel: reviewModel)
-        }
+    }
     
     func getUserId()-> String{
         if let user = Auth.auth().currentUser{
             return user.uid
             
         }
-       return ""
+        return ""
     }
-   
-  
+    
+    
     
     func checkUserAuth()-> Bool{
-          if Auth.auth().currentUser != nil {
-              return true
-          }else{
-              return false
-          }
-      }
+        if Auth.auth().currentUser != nil {
+            return true
+        }else{
+            return false
+        }
+    }
     
     func populateAdvertisementReviews(id:String,completionForPopulateReviews : @escaping (_ reviewsResults:[ReviewViewModel]) -> Void){
         dataAccess.getAdvertisementReviews(id: id, completionForGetAllReviews:  { reviewsResults in
             self.reviewsViewModel = reviewsResults.map{ review in
                 ReviewViewModel(reviewModel: review)
-               }
+            }
             
             completionForPopulateReviews(self.reviewsViewModel)
-           })
+        })
     }
-
     
-
-      }
-   
+    func removeReviewObservers()
+    {
+        dataAccess.removeReviewsObservers()
+        dataAccess = nil
+        reviewModel = nil
+        userModel = nil
+        reviewsViewModel = nil
+    }
     
+}
 
-class ReviewViewModel
+struct ReviewViewModel
 {
-  
+    
     var reviewContent : String!
     var userName : String!
     var userImage : String!
     
     init(reviewModel: ReviewModel) {
-      
+        
         self.reviewContent = reviewModel.reviewContent
         self.userName = reviewModel.userName
         self.userImage = reviewModel.userImage
     }
 }
-    
- 
+
+
 

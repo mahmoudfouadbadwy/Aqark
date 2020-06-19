@@ -11,12 +11,10 @@ import SDWebImage
 import JJFloatingActionButton
 import MapKit
 import Foundation
-import SwiftyGif
+
 
 class SearchViewController: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var notificationBtn: UIButton!
-    @IBOutlet weak var sortBtn: UIButton!
     @IBOutlet weak var labelPlaceHolder: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchCollectionView: UICollectionView!
@@ -31,7 +29,7 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     var maps : [MapViewModel]!
     var latitude : Double = 0
     var longitude : Double = 0
-    var isSorting: String = "default"
+    var isSorting: String = ""
     var isSorted = false
     var coreDataViewModel : CoreDataViewModel?
     var coreDataAccess : CoreDataAccess!
@@ -42,17 +40,25 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     var sortedList : [AdvertisementViewModel]!
     var adsSortedList : [AdvertisementViewModel]!
     var filteredAdsList:[AdvertisementViewModel]!
+    var sort : UIBarButtonItem!
+    var sortButton : UIButton!
     var arrOfAdViewModel : [AdvertisementViewModel]!{
         didSet{
+            UIView.animate(withDuration:2) {
+                self.view.alpha = 1
+            }
             if (arrOfAdViewModel.count > 0 )
             {
                 searchBar.isHidden = false
-                self.manageAppearence(sortBtn: false, labelPlaceHolder: true, notificationBtn: true)
+                labelPlaceHolder.isHidden = true
+                self.navigationItem.rightBarButtonItem = sort
+                
             }
             else
             {
                 labelPlaceHolder.text = "No Advertisements Available".localize
-                self.manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
+                sort = nil
+                labelPlaceHolder.isHidden = false
                 
             }
             self.searchCollectionView.reloadData()
@@ -75,8 +81,10 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     
     override func viewWillAppear(_ animated: Bool) {
         if SearchNetworking.checkNetworkConnection(){
-               searchCollectionView.isHidden = false
+            showActivityIndicator()
+            searchCollectionView.isHidden = false
             setObjects()
+            setUpSortBtn()
             floationgBtn()
             manageSearchBar()
             limitRegion()
@@ -84,41 +92,47 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             getCollectionViewData()
             stopActivityIndicator()
         }else{
-            manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: true)
+            sort = nil
+            labelPlaceHolder.isHidden = false
             labelPlaceHolder.text = "Internet Connection Not Available".localize
             searchCollectionView.isHidden = true
+            searchBar.isHidden = true
             
         }
     }
     
-    func manageAppearence(sortBtn: Bool, labelPlaceHolder : Bool,notificationBtn : Bool ){
-        self.sortBtn.isHidden = sortBtn
-        self.labelPlaceHolder.isHidden = labelPlaceHolder
-        self.notificationBtn.isHidden = notificationBtn
-    }
-    
-    @IBAction func showSortingActionSheet(_ sender: Any) {
-        showSortingAlert()
-    }
     
     private func setupViews()
     {
         self.navigationItem.title = "AQARK".localize
-        sortBtn.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
-        notificationBtn.setTitleColor(UIColor(rgb: 0x1d3557), for: .normal)
         searchBar.barTintColor = UIColor(rgb: 0x1d3557)
+        searchBar.backgroundColor = .white
+        searchBar.tintColor = .red
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         searchCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
+        view.alpha = 0.5
     }
+    
     private func setObjects(){
         maps = []
         sortedList = []
         adsSortedList = []
         actionButton  = JJFloatingActionButton()
     }
+    func setUpSortBtn(){
+        sortButton = UIButton(type: .custom)
+        sortButton.setImage(UIImage(named: "sort"), for: .normal)
+        sortButton.addTarget(self, action: #selector(showSortingAlert), for: .touchUpInside)
+        
+        sortButton.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+        sort = UIBarButtonItem(customView: sortButton)
+        self.navigationItem.rightBarButtonItem = sort
+        
+    }
+    
     
     override func viewWillDisappear(_ animated: Bool){
-         if  advertismentsListViewModel != nil {
+        if  advertismentsListViewModel != nil {
             advertismentsListViewModel.removeSearchObserver()
         }
         if coreDataViewModel != nil{
@@ -138,10 +152,9 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
         filteredAdsList = nil
         adsSortedList = nil
         coreDataViewModel = nil
+        sort = nil
         coreDataAccess = nil
     }
-  
-   
 }
 
 

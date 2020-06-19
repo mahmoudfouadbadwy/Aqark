@@ -10,7 +10,7 @@ import UIKit
 import YPImagePicker
 import GooglePlaces
 import SDWebImage
-import SearchTextField
+
 
 class AddAdvertisementViewController: UIViewController  {
     @IBOutlet weak var amenitiesTitle: UILabel!
@@ -31,7 +31,6 @@ class AddAdvertisementViewController: UIViewController  {
     @IBOutlet weak var bathRoomStepper: UIStepper!
     @IBOutlet weak var blackIndicatorView: UIView!
     @IBOutlet weak var myView: UIView!
-    @IBOutlet weak var countryTxtFieldSearch: SearchTextField!
     @IBOutlet var amentiesButton: [UIButton]!
     @IBOutlet var pickerView: UIPickerView!
     var config : YPImagePickerConfiguration?
@@ -50,12 +49,10 @@ class AddAdvertisementViewController: UIViewController  {
     var urlImages : [String] = [String]()
     var urlImageDeleted:[String]=[String]()
     var editAdvertisementDataSource :EditAdvertisementDataSource?
-    var dateOfAdvertisement:String!
+    //var dateOfAdvertisement:String!
     var autocompletecontroller : GMSAutocompleteViewController?
     var filter : GMSAutocompleteFilter?
-    var countries : Countries!
-    //GMSAutocompleteViewController()
-    //GMSAutocompleteFilter()
+    var country:String = ""
     //MARK:- viewdidLoad
     override func viewDidLoad()
     {
@@ -107,7 +104,7 @@ class AddAdvertisementViewController: UIViewController  {
                                                        location: self.addressTxtField.text!,
                                                        latitude: self.latitude,
                                                        longitude: self.longitude,
-                                                       country: self.countryTxtFieldSearch.text!,
+                                                       country: self.country,
                                                        description: self.describtionTxtView.text!,
                                                        aminities: self.selectAmenitiesDic,
                                                        dataImages: self.selectedImages,
@@ -122,11 +119,12 @@ class AddAdvertisementViewController: UIViewController  {
             if AdvertisementNetworking.checkNetworkConnection()
             {
                     self.showActivityIndicator()
+                    UIApplication.shared.beginIgnoringInteractionEvents()
                     blackIndicatorView.isHidden = false
                     // check add or edit
                     if(advertisementId.isEmpty == false)
                     {
-                        addAdvertisementVM?.editAdvertisement(id : advertisementId , date : dateOfAdvertisement)
+                        addAdvertisementVM?.editAdvertisement(id : advertisementId)
                     }else{
                         addAdvertisementVM?.save()
                     }

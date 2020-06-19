@@ -11,6 +11,7 @@ import UIKit
 extension SignUpView{
     func setupViews(as role:String)
     {
+        haveAccount.textColor = UIColor(rgb: 0x1d3557)
         switch (self.role.lowercased())
         {
         case "user": showUserView()
@@ -20,43 +21,20 @@ extension SignUpView{
     
    func setIcons()
     {
-         self.username.setIcon(UIImage(named: "user")!)
+         self.username.setIcon(UIImage(named: "profile")!)
          self.email.setIcon(UIImage(named: "Email")!)
          self.password.setIcon(UIImage(named: "password")!)
          self.confirmPassword.setIcon(UIImage(named: "password")!)
          self.phoneNumber.setIcon(UIImage(named: "phone")!)
          self.company.setIcon(UIImage(named: "company")!)
-    
+         self.address.setIcon(UIImage(named: "profile_map")!)
     }
     func showUserView()
     {
         self.phoneNumber.isHidden = true
-        self.countries.isHidden = true
+        self.address.isHidden = true
         self.company.isHidden = true
-    }
-}
-
-//MARK: - Picker view
-extension SignUpView:UIPickerViewDataSource,UIPickerViewDelegate{
-    func setPickerDelegates()
-    {
-        countries.dataSource = self
-        countries.delegate = self
-    }
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return countriesPicker.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return countriesPicker[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return NSAttributedString(string: countriesPicker[row], attributes: [NSAttributedString.Key.foregroundColor:UIColor(rgb: 0x457b9d)])
+        self.governmantHint.isHidden = true
     }
 }
 
@@ -70,6 +48,7 @@ extension SignUpView:UITextFieldDelegate{
         username.delegate = self
         phoneNumber.delegate = self
         company.delegate = self
+        address.delegate = self
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

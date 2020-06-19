@@ -29,6 +29,7 @@ class CoreDataAccess: NSObject{
         self.saveChangesToCoredata()
     }
     
+    @discardableResult
     func deleteFromFavourite(id : String)-> Bool
     {
         var flag = false

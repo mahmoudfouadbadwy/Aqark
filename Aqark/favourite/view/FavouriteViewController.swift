@@ -13,11 +13,14 @@ class FavouriteViewController: UIViewController {
     
     @IBOutlet weak var favouriteCollectionView: UICollectionView!
     @IBOutlet weak var labelPlaceHolder: UILabel!
-    var coreDataViewModel: CoreDataViewModel?
+    var coreDataViewModel: CoreDataViewModel!
     var adViewModel: FavouriteViewModel!
-    var adsCount:Int=0
     var favouriteListViewModel:FavouriteListViewModel!
-    var alert: UIAlertController!
+    var favouriteDataAccess : FavouriteDataAccess!
+    var coreDataAccess : CoreDataAccess!
+    var alert : UIAlertController!
+    var propertyDetailVC : PropertyDetailView!
+
     var arrOfAdViewModel:[FavouriteViewModel]! = []{
         didSet{
             if arrOfAdViewModel.count == 0{
@@ -28,16 +31,14 @@ class FavouriteViewController: UIViewController {
             self.favouriteCollectionView.reloadData()
         }
     }
-    func setupObjects(){
-        favouriteListViewModel=FavouriteListViewModel(dataAccess: FavouriteDataAccess())
-    }
+    
+    var adsCount:Int=0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Favourite".localize
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         favouriteCollectionView.backgroundColor = UIColor(rgb: 0xf1faee)
-        self.setupCoredata()
         setUpCollectionView()
     }
     
@@ -55,11 +56,38 @@ class FavouriteViewController: UIViewController {
     
     func showDeletedAdsAlert(){
         if (adsCount != 0){
-            self.alert = UIAlertController(title: "Deleted Advertisment".localize, message: "There are".localize + self.convertNumbers(lang: "lang".localize, stringNumber: String(adsCount)).1 + "Advertisment deleted from your Favourite List".localize, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel".localize, style: .cancel, handler: nil))
+            var message = ""
+            if "lang".localize == "en" {
+                if adsCount == 1{
+                    message = "There is " + self.convertNumbers(lang: "lang".localize, stringNumber: String(adsCount)).1 + " Advertisment deleted from your Favourite List"
+                         }else{
+                     message = "There are " + self.convertNumbers(lang: "lang".localize, stringNumber: String(adsCount)).1 + " Advertisments deleted from your Favourite List"
+                }
+            }else{
+                if adsCount == 1{
+                    message = "لقد تم حذف إعلان من القائمة المفضلة"
+                }else {
+                    message = "لقد تم حذف " + self.convertNumbers(lang: "lang".localize, stringNumber: String(adsCount)).1 + "إعلان من القائمة المفضلة"
+                    
+                }
+                
+            }
+            alert = UIAlertController(title: nil , message:message , preferredStyle: .alert)
+            
+            
+            alert.addAction(UIAlertAction(title: "Ok".localize, style: .cancel, handler: nil))
+
             self.present(alert, animated: true, completion: nil)
             adsCount=0
         }
+    }
+    
+    func setupObjects(){
+        favouriteDataAccess = FavouriteDataAccess()
+        coreDataAccess = CoreDataAccess()
+        
+        favouriteListViewModel = FavouriteListViewModel(dataAccess: favouriteDataAccess)
+        coreDataViewModel = CoreDataViewModel(dataAccess:coreDataAccess )
     }
     
     func setEmptyAdvertisments(flag: Bool){
@@ -68,13 +96,18 @@ class FavouriteViewController: UIViewController {
     }
  
     override func viewWillDisappear(_ animated: Bool) {
-        if favouriteListViewModel != nil{
+
+        if favouriteListViewModel != nil {
             favouriteListViewModel.removeFavObserver()
         }
-        coreDataViewModel=nil
-        favouriteListViewModel=nil
+        coreDataViewModel = nil
+        adViewModel = nil
+        favouriteListViewModel = nil
+        favouriteDataAccess = nil
+        coreDataAccess = nil
         alert = nil
-        print("favourite Disappear")
+        propertyDetailVC = nil
     }
-  
+   
+
 }

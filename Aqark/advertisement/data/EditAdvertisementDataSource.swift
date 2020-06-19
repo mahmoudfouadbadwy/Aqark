@@ -12,6 +12,7 @@ class EditAdvertisementDataSource{
     
     
     var dataBaseRef: DatabaseReference?
+    var dataBaseHandle:DatabaseHandle!
     var storageRef: StorageReference?
     var advertisementId :String!
     var editAdvertisementModel : EditAdvertisementModel!
@@ -26,7 +27,7 @@ class EditAdvertisementDataSource{
     }
     //MARK:- fetch advertisemnt
     func fetchAdvertisement(complition:@escaping(EditAdvertisementModel)->()){
-        dataBaseRef?.child("Advertisements").child(advertisementId).observe(DataEventType.value, with: { (snapshot) in
+       dataBaseHandle =  dataBaseRef?.child("Advertisements").child(advertisementId).observe(DataEventType.value, with: { (snapshot) in
             if snapshot.exists(){
                 let editAdvertisement = snapshot.value as? [String : AnyObject] ?? [:]
                 self.editAdvertisementModel = EditAdvertisementModel(phone: editAdvertisement["phone"] as? String ,
@@ -34,7 +35,6 @@ class EditAdvertisementDataSource{
                                                                      country: editAdvertisement["country"] as? String ,
                                                                      bedRooms: editAdvertisement["bedRooms"] as? String ,
                                                                      AdvertisementType: editAdvertisement["Advertisement Type"] as? String ,
-                                                                     date: editAdvertisement["date"] as? String ,
                                                                      description: editAdvertisement["description"] as? String ,
                                                                      price: editAdvertisement["price"] as? String ,
                                                                      payment: editAdvertisement["payment"] as? String ,
@@ -79,7 +79,7 @@ class EditAdvertisementDataSource{
                                      "phone" : advertisement.phone ?? "",
                                      "country": advertisement.country ?? "",
                                      "description": advertisement.description ?? "",
-                                     "date" : advertisement.date ?? "",
+                                    
                                      "Address" : advertisement.Address ?? "",
                                      "amenities" : advertisement.amenities ?? "",
                                      "UserId" : userID ,
@@ -119,6 +119,8 @@ class EditAdvertisementDataSource{
     }
     
     func removeAllEditDataRefrance(){
+        dataBaseRef?.removeObserver(withHandle: dataBaseHandle)
+        dataBaseHandle = nil
         dataBaseRef = nil
         storageRef = nil
     }

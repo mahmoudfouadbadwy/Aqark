@@ -37,14 +37,14 @@ class FavouriteDataAccess {
         let idsArray = coreDataAccess.getAllAdvertisment()
         if (idsArray.count != 0){
             for index in 0..<idsArray.count{
-                advertisementRef.child("Advertisements").child(idsArray[index]).observeSingleEvent(of: .value, with: { (snapshot) in
+                advertisementRef.child("Advertisements").child(idsArray[index]).observeSingleEvent(of: .value, with: { [weak self](snapshot) in
                     if snapshot.exists(){
                         let dict = snapshot.value as? [String : Any]
                         let key = snapshot.key as String
-                        advertisementsData.append(self.createAdvertisementSearchModel(dict: dict , key: key))
+                        advertisementsData.append((self?.createAdvertisementSearchModel(dict: dict , key: key))!)
                     }else{
                         advertismentCount += 1
-                        self.coreDataAccess.deleteFromFavourite(id: idsArray[index])
+                        self?.coreDataAccess.deleteFromFavourite(id: idsArray[index])
                     }
                     if (advertismentCount + advertisementsData.count == idsArray.count){
                         completionForGetAllAdvertisements(advertisementsData,advertismentCount)
@@ -92,10 +92,7 @@ class FavouriteDataAccess {
     
     func removeFavouriteObserver()
     {
-        let idsArray = coreDataAccess.getAllAdvertisment()
-        for ad in idsArray{
-            advertisementRef.child("Advertisements").child(ad).removeAllObservers()
-        }
+        
         advertisementRef = nil
         coreDataAccess = nil
     }

@@ -14,6 +14,7 @@ class PropertyDetailDataAccess {
 
     var advertismentsRef: DatabaseReference! = Database.database().reference()
     var userRef: DatabaseReference! = Database.database().reference()
+    var userHandle:DatabaseHandle!
     var advertismentId:String=""
     var userId:String=""
    
@@ -52,7 +53,7 @@ class PropertyDetailDataAccess {
 
     func getUserDetails(id:String,completion:@escaping(Agent)->Void)
     {
-        userRef.child("Users").child(id).observeSingleEvent(of: .value) { (snapshot) in
+     userHandle = userRef.child("Users").child(id).observe(.value, with: { (snapshot) in
             if (snapshot.exists())
             {
                 let user = snapshot.value as! NSDictionary
@@ -61,13 +62,13 @@ class PropertyDetailDataAccess {
                 let rate = user["rate"] as? [String:Double] ?? ["":0.0]
                 completion(Agent(name: name,company:company,rate:rate))
             }
-        }
+        })
     }
     func reomvepropertyDetailObserver()
     {
-        userRef.child("Users").child(userId).removeAllObservers()
+        userRef.child("Users").removeObserver(withHandle: userHandle)
+        userHandle = nil
         userRef = nil
-        advertismentsRef.child("Advertisements").child(advertismentId).removeAllObservers()
         advertismentsRef = nil
     }
 }

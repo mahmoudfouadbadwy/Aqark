@@ -29,7 +29,7 @@ extension AdminDataAccessTests{
                 XCTAssertNotNil(advertisement.advertisementDate)
                 XCTAssertNotNil(advertisement.advertisementPropertyDescription)
                 XCTAssertNotNil(advertisement.advertismentsPropertyImages)
-                XCTAssertNotNil(advertisement.advertisementPayment)
+                XCTAssertNotNil(advertisement.advertisementPaymentType)
                 XCTAssertNotNil(advertisement.adevertisementPhone)
                 XCTAssertNotNil(advertisement.advertisementPropertyPrice)
                 XCTAssertNotNil(advertisement.advertisementPropertyType)
@@ -40,7 +40,7 @@ extension AdminDataAccessTests{
     }
     
     func testDeleteAdvertisment(){
-        let advertisement = AdminAdvertisement(advertisementId: "112233", advertisementPropertyLatitude: "31.76", advertisementPropertyLongitude: "33.11", advertisementPropertyLocation: "Mansoura", advertisementType: "Rent", advertisemetentUserId: "123", advertisementPropertyAmenities: [""], advertisementPropertyBathRooms: "1", advertisementPropertyBeds: "1", advertisementCountry: "Mansoura", advertisementDate: "2020", advertisementPropertyDescription: "Nice", advertismentsPropertyImages: [""], advertisementPayment: "Free", adevertisementPhone: "111", advertisementPropertyPrice: "150", advertisementPropertyType: "Room", advertisementPropertySize: "100")
+        let advertisement = AdminAdvertisement(advertisementId: "112233", advertisementPropertyLatitude: "31.76", advertisementPropertyLongitude: "33.11", advertisementPropertyLocation: "Mansoura", advertisementType: "Rent", advertisemetentUserId: "123", advertisementPropertyAmenities: [""], advertisementPropertyBathRooms: "1", advertisementPropertyBeds: "1", advertisementCountry: "Mansoura", advertisementDate: "2020", advertisementPropertyDescription: "Nice", advertismentsPropertyImages: [""], advertisementPaymentType: "Free", adevertisementPhone: "111", advertisementPropertyPrice: "150", advertisementPropertyType: "Room", advertisementPropertySize: "100")
         let advertisementModel = AdminAdvertisementViewModel(adminAdvertisment: advertisement)
         adminDataAccess.deleteAdvertisment(adminAdvertisement: advertisementModel) { (deleted) in
             if(deleted){

@@ -11,7 +11,6 @@ import Cosmos
 
 class ServicesCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var detailsStackView: UIStackView!
     @IBOutlet weak var serviceUserImage: UIImageView!
     @IBOutlet weak var serviceUserName: UILabel!
     @IBOutlet weak var serviceUserCompany: UILabel!
@@ -21,25 +20,29 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var rateMeView: CosmosView!
     @IBOutlet weak var rateMeButton: UIButton!
     @IBOutlet weak var dialerButton: UIButton!
-    @IBOutlet var dialerButtonTrailingConstraint: NSLayoutConstraint!
-    
+    @IBOutlet weak var serviceCompany: UIView!
+    @IBOutlet weak var serviceExperience: UIView!
     var serviceUserCellIndex : IndexPath!
     weak var serviceUserDelegate : ServiceUsersCollectionDelegate!
-    @IBOutlet weak var serviceUserCompanyHeight: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        rateMeButton.backgroundColor = UIColor(rgb: 0xe63946)
+        dialerButton.layer.borderColor = UIColor(rgb: 0x1d3557).cgColor
+        dialerButton.layer.borderWidth = 1
+        rateMeButton.layer.borderColor = UIColor(rgb: 0xe63946).cgColor
+        rateMeButton.layer.borderWidth = 1
+        
         serviceUserRating.settings.fillMode = .precise
         rateMeView.settings.fillMode = .precise
         rateMeView.didFinishTouchingCosmos = {rating in
             self.rateMeButton.alpha = 0
             self.rateMeButton.isHidden = false
-            UIView.animate(withDuration: 0.6, animations: {
-                self.rateMeView.alpha = 0
-                self.rateMeButton.alpha = 1
-            }) { (finished) in
-                self.rateMeView.isHidden = finished
-                self.serviceUserDelegate.rateServiceUserDelegate(at: self.serviceUserCellIndex,rate:rating)
+            UIView.animate(withDuration: 0.6, animations: {[weak self] in
+                self?.rateMeView.alpha = 0
+                self?.rateMeButton.alpha = 1
+            }) { [weak self] (finished) in
+                self?.rateMeView.isHidden = finished
+                self?.serviceUserDelegate.rateServiceUserDelegate(at: self!.serviceUserCellIndex,rate:rating)
             }
         }
     }
@@ -56,24 +59,24 @@ class ServicesCollectionViewCell: UICollectionViewCell {
         
         if(serviceUserDelegate.checkLoggedUserDelegate()){
             rateMeButton.isHidden = false
-            dialerButtonTrailingConstraint.isActive = true
-            dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = false
+            //dialerButtonTrailingConstraint.isActive = true
+            //dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = false
         }else{
             rateMeButton.isHidden = true
-            dialerButtonTrailingConstraint.isActive = false
-            dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
+            //dialerButtonTrailingConstraint.isActive = false
+            //dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
         }
         
         if(serviceUserCompany.text == ""){
-            serviceUserCompany.isHidden = true
-        }else if(serviceUserCompany.text != "" && serviceUserCompany.isHidden == true){
-            serviceUserCompany.isHidden = false
+            serviceCompany.isHidden = true
+        }else if(serviceUserCompany.text != "" && serviceCompany.isHidden == true){
+            serviceCompany.isHidden = false
         }
-
-        if(serviceUserExperience.text == " years exp"){
-            serviceUserExperience.isHidden = true
-        }else if(serviceUserExperience.isHidden == true && serviceUserExperience.text != " years exp"){
-            serviceUserExperience.isHidden = false
+        
+        if(serviceUserExperience.text == " exp years."){
+            serviceExperience.isHidden = true
+        }else if(serviceExperience.isHidden == true && serviceUserExperience.text != " exp years."){
+            serviceExperience.isHidden = false
         }
     }
     

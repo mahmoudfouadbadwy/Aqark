@@ -12,6 +12,7 @@ class EditProfileDataSource
 {
     
     var dataBaseRef: DatabaseReference?
+    var dataBaseHandle:DatabaseHandle!
     var storageRef: StorageReference?
     var userID :String!
     var imageData : Data!
@@ -24,11 +25,11 @@ class EditProfileDataSource
     }
     func prepareData(editProfile : EditProfileModel){
         post = ["company": editProfile.company,
-                "country": editProfile.country,
+                "country": editProfile.address,
                 "phone": editProfile.phone,
                 "username": editProfile.username,
                 "experience" : editProfile.experience ?? "",
-                "address":editProfile.address ?? ""]
+               ]
     }
     func uploadProfileAfterEdit(){
         post.updateValue(urlImage, forKey: "picture")
@@ -58,8 +59,23 @@ class EditProfileDataSource
         }
     }
     
+   
+    
+
+    func fetchAdvertisement(addId : String ,complition:@escaping(String)->Void){
+        self.dataBaseRef = Database.database().reference()
+       dataBaseHandle = dataBaseRef?.child("Advertisements").child(addId).child("date").observe(DataEventType.value, with: { (snapshot) in
+               if snapshot.exists(){
+                    complition(snapshot.value as? String ?? "" )
+               }
+           })
+    }
+    
     func removeAllEditProfileRef(){
+        dataBaseRef?.removeObserver(withHandle: dataBaseHandle)
+        dataBaseHandle = nil
         dataBaseRef = nil
         storageRef = nil
     }
+    
 }

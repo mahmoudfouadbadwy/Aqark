@@ -29,16 +29,15 @@ class LoginViewController: UIViewController{
         if ProfileNetworking.checkAuthuntication(){
             if !ProfileNetworking.isAdmin()
             {
-                self.profile = ProfileViewController()
-                self.navigationController?.pushViewController(profile, animated: true)
+                gotoProfileView()
             }
-        }else
-        {
-            dataAccess = LoginDataAccessLayer()
-            loginViewModel = LoginViewModel(dataAccess:dataAccess)
+            else
+            {
+                gotoAdminView()
+            }
+
         }
     }
-    
     private func setupView() {
         self.view.backgroundColor = UIColor(rgb: 0xf1faee)
         dontHaveAccount.textColor = UIColor(rgb: 0x457b9d)
@@ -55,6 +54,8 @@ class LoginViewController: UIViewController{
     
     @IBAction func login(_ sender: Any) {
         view.endEditing(true)
+        dataAccess = LoginDataAccessLayer()
+        loginViewModel = LoginViewModel(dataAccess:dataAccess)
         self.showActivityIndicator()
         loginViewModel.userEmail = userEmailTextField.text
         loginViewModel.userPassword = userPasswordTextField.text
@@ -63,7 +64,7 @@ class LoginViewController: UIViewController{
                 loginViewModel.authenticateLogin { [weak self] (result,error) in
                     self?.stopActivityIndicator()
                     if let error = error {
-                        self?.showAlert(title: "Login", message: error)
+                        self?.showAlert(title: "Login".localize, message: error)
                     }else{
                         if(self!.loginViewModel.isAdminLogged()){
                             self?.gotoAdminView()

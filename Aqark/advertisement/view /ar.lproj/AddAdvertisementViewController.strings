@@ -87,7 +87,7 @@
 "PCR-cT-qPe.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Description"; ObjectID = "PuA-Yb-Q4U"; */
-"PuA-Yb-Q4U.text" = "الوصف";
+"PuA-Yb-Q4U.text" = "تفاصيل الإعلان";
 
 /* Class = "UILabel"; text = "Covered Parking"; ObjectID = "RLV-HK-Kcc"; */
 "RLV-HK-Kcc.text" = "موقف للسيارات";
@@ -117,7 +117,7 @@
 "V9L-t5-TOB.normalTitle" = "سوهاج";
 
 /* Class = "UILabel"; text = "Amenities"; ObjectID = "Wpw-g3-9PN"; */
-"Wpw-g3-9PN.text" = "وسائل المساعده";
+"Wpw-g3-9PN.text" = "وسائل المساعدة";
 
 /* Class = "UILabel"; text = "Shared Spa"; ObjectID = "YEG-YB-6Lc"; */
 "YEG-YB-6Lc.text" = "سبا مشترك";
@@ -159,7 +159,7 @@
 "hgK-hS-h4a.normalTitle" = "الاقصر";
 
 /* Class = "UILabel"; text = "maximum size 15 MB"; ObjectID = "hwZ-ho-09k"; */
-"hwZ-ho-09k.text" = "اكبر حجم للصوره ١٥ ميجا";
+"hwZ-ho-09k.text" = "يمكنك إضافة حتي ١٠ صورة، حجم كل صورة يصل الي ١٥ ميجا";
 
 /* Class = "UIButton"; normalTitle = "Kafr el-Sheikh"; ObjectID = "jZx-aA-t2c"; */
 "jZx-aA-t2c.normalTitle" = "كفر الشيخ";
@@ -174,7 +174,7 @@
 "lwu-h2-1JI.text" = "شرفة";
 
 /* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "mBn-ZN-rDe"; */
-"mBn-ZN-rDe.normalTitle" = "اضافة اعلان";
+"mBn-ZN-rDe.normalTitle" = "إضافة إعلان";
 
 /* Class = "UIButton"; normalTitle = "Tanta"; ObjectID = "mj7-cY-76L"; */
 "mj7-cY-76L.normalTitle" = "طنطا";
@@ -183,10 +183,10 @@
 "o7m-LF-Vjb.normalTitle" = "الفيوم";
 
 /* Class = "UILabel"; text = "Children's Play Area"; ObjectID = "o9S-QU-NrC"; */
-"o9S-QU-NrC.text" = "منطقة لعب الاطفال";
+"o9S-QU-NrC.text" = "منطقة لعب الأطفال";
 
 /* Class = "UILabel"; text = "Free Advertisement"; ObjectID = "pGd-Tu-ZFs"; */
-"pGd-Tu-ZFs.text" = "اعلان مجاني";
+"pGd-Tu-ZFs.text" = "إعلان مجاني";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "qmU-BI-3dZ"; */
 "qmU-BI-3dZ.normalTitle" = "Button";

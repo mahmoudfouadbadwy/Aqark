@@ -22,17 +22,17 @@ extension SearchViewController:  UISearchBarDelegate{
             textField.layer.masksToBounds = true
         }
     }
+   
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.becomeFirstResponder()
         appearAutoCompleteData()
         if  searchBar.text?.count == 0 {
            self.searchCollectionView.reloadData()
-           self.manageAppearence(sortBtn: false, labelPlaceHolder: true, notificationBtn: true)
-        
+           self.navigationItem.rightBarButtonItem = sort
+            labelPlaceHolder.isHidden = true
         }
     }
-  
     
     func filterContentForSearchBarText(_ searchText: String){
         let searchText = searchBar.text ?? ""
@@ -40,16 +40,19 @@ extension SearchViewController:  UISearchBarDelegate{
             return advertisement.address.lowercased().contains(searchText.lowercased())
         }
              if filteredAdsList.count > 0{
-                     self.manageAppearence(sortBtn: false, labelPlaceHolder: true, notificationBtn: true)
-                
+                self.navigationItem.rightBarButtonItem = sort
+                           labelPlaceHolder.isHidden = true
         }
             if filteredAdsList.count == 0{
             self.labelPlaceHolder.text = "No Advertisements Available".localize
-            self.labelPlaceHolder.textColor = .red
-            self.manageAppearence(sortBtn: true, labelPlaceHolder: false, notificationBtn: false)
-                        }
+            sort = nil
+            labelPlaceHolder.isHidden = false
+        }
+        
+    
         self.searchCollectionView.reloadData()
     }
+    
         
  
             
