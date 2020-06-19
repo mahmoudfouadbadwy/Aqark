@@ -78,16 +78,16 @@ class MocPropertyDetailDataAccess{
     }
     
     
-    func getUserDetails(id:String,completion:@escaping(Agent)->Void)
-    {
-        if (id != nil)
-        {
-            let name = agent["username"] as! String ?? ""
-            let company = agent ["company"] as! String ?? ""
-            let rate = agent["rate"] as! [String:Double] ?? ["":0.0]
-            completion(Agent(name: name,company:company,rate:rate))
-        }else{
-            print("user id didn't exist")
-        }
-    }
+//    func getUserDetails(id:String,completion:@escaping(Agent)->Void)
+//    {
+//        if (id != nil)
+//        {
+//            let name = agent["username"] as? String ?? "Not Applied"
+//            let company = agent ["company"] as? String ?? "Not Applied"
+//            let rate = agent["rate"] as! [String:Double] ?? ["":0.0]
+//            completion(Agent(name: name!,company:company,rate:rate))
+//        }else{
+//            print("user id didn't exist")
+//        }
+//    }
 }

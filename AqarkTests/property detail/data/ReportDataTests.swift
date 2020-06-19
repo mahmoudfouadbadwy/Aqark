@@ -12,14 +12,16 @@ import XCTest
 class ReportDataTests: XCTestCase {
 
     var reportdata: ReportData!
+    var mocReportdata: MocReportData!
     
     override func setUp() {
         reportdata = ReportData()
+        mocReportdata = MocReportData()
     }
     
     func testAddReport(){
         let reportModel=ReportModel(reportText: " reportText ", advertisementId: "-MA16-T80n1xqodilijf", userId: "26895", agentId: "568989")
-        reportdata.addReport(reportModel: reportModel) { (result) in
+        mocReportdata.addReport(reportModel: reportModel) { (result) in
             if(result!){
                 XCTAssertTrue(result != false)
                // XCTFail()
@@ -31,6 +33,7 @@ class ReportDataTests: XCTestCase {
     
     override func tearDown() {
         reportdata = nil
+        mocReportdata = nil
     }
 
 }

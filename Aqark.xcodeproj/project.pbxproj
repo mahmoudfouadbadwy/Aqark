@@ -142,6 +142,8 @@
 		BF719561247919C500703D10 /* CoreDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF719560247919C500703D10 /* CoreDataAccess.swift */; };
 		BF77D47B2471698E00455A25 /* ProfileAdvertisementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77D4792471698E00455A25 /* ProfileAdvertisementCell.swift */; };
 		BF7C9765247D917A00E8F516 /* FavouriteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7C9764247D917A00E8F516 /* FavouriteProtocol.swift */; };
+		BF7CE640249D75D70031A463 /* MocReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7CE63F249D75D70031A463 /* MocReportData.swift */; };
+		BF7CE642249D75FF0031A463 /* MocReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7CE641249D75FF0031A463 /* MocReviewData.swift */; };
 		BF8111B7247A36410059D571 /* BindDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8111B6247A36410059D571 /* BindDetails.swift */; };
 		BF8189552481D833005256E3 /* AgentRateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8189542481D832005256E3 /* AgentRateViewModel.swift */; };
 		BF8189572481D8FF005256E3 /* AgentRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8189562481D8FF005256E3 /* AgentRate.swift */; };
@@ -381,6 +383,8 @@
 		BF719560247919C500703D10 /* CoreDataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAccess.swift; sourceTree = "<group>"; };
 		BF77D4792471698E00455A25 /* ProfileAdvertisementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAdvertisementCell.swift; sourceTree = "<group>"; };
 		BF7C9764247D917A00E8F516 /* FavouriteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteProtocol.swift; sourceTree = "<group>"; };
+		BF7CE63F249D75D70031A463 /* MocReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocReportData.swift; sourceTree = "<group>"; };
+		BF7CE641249D75FF0031A463 /* MocReviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocReviewData.swift; sourceTree = "<group>"; };
 		BF8111B6247A36410059D571 /* BindDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindDetails.swift; sourceTree = "<group>"; };
 		BF8189542481D832005256E3 /* AgentRateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentRateViewModel.swift; sourceTree = "<group>"; };
 		BF8189562481D8FF005256E3 /* AgentRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentRate.swift; sourceTree = "<group>"; };
@@ -1018,6 +1022,8 @@
 			isa = PBXGroup;
 			children = (
 				BF5BCB66249A647D00017C20 /* MocPropertyDetailDataAccess.swift */,
+				BF7CE63F249D75D70031A463 /* MocReportData.swift */,
+				BF7CE641249D75FF0031A463 /* MocReviewData.swift */,
 			);
 			path = moc;
 			sourceTree = "<group>";
@@ -1839,6 +1845,8 @@
 				3E535AC0248D422800A921A1 /* MockAdminUserDataAccess.swift in Sources */,
 				BF5BCB5C249A47A500017C20 /* PropertyDetailViewModelTests.swift in Sources */,
 				BF5BCB59249A39C200017C20 /* ReviewDataTests.swift in Sources */,
+				BF7CE642249D75FF0031A463 /* MocReviewData.swift in Sources */,
+				BF7CE640249D75D70031A463 /* MocReportData.swift in Sources */,
 				3E535ACC248D42D400A921A1 /* AdminAdvertisementsListViewModelTests.swift in Sources */,
 				BFDC8C362491340B00E27B53 /* MocFavouriteDataAccess.swift in Sources */,
 			);
