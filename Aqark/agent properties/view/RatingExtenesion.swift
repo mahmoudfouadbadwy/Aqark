@@ -12,14 +12,19 @@ import UIKit
 extension AgentPropertiesView{
     func setupAgentRate(){
         if AgentRateViewModel.checkUser(userId: agentId){
-            rateLabel.text = "Please rate".localize + agentName + "'s properties".localize
+            if "lang".localize == "en"{
+                rateLabel.text = "Please rate".localize + agentName + "'s properties".localize
+            }else{
+                rateLabel.text = "Please rate".localize + agentName 
+            }
+            
             rate.didFinishTouchingCosmos = {[weak self]
                 rating in
                 self?.agentRate = AgentRate()
                 self?.agentRateViewModel = AgentRateViewModel(agentRate: self!.agentRate)
                 if(self?.agentRateViewModel.setRate(rate: rating,agentId:(self?.agentId)!) ?? false)
                 {
-                    self?.showAlert(text:"Thank You".localize, title: "Information".localize)
+                    self?.showAlert(text:"Thank You".localize, title: nil)
                     self?.rateHeight.constant = 0
                 }else
                 {
@@ -33,7 +38,7 @@ extension AgentPropertiesView{
         }
     }
     
-    private func showAlert(text:String,title:String)
+    private func showAlert(text:String,title:String?)
     {
         let alert = UIAlertController(title: title, message:text, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok".localize, style: .default, handler: nil))

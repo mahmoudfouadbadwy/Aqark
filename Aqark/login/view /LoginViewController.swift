@@ -63,7 +63,7 @@ class LoginViewController: UIViewController{
                 loginViewModel.authenticateLogin { [weak self] (result,error) in
                     self?.stopActivityIndicator()
                     if let error = error {
-                        self?.showAlert(title: "Login", message: error)
+                        self?.showAlert(title: "Login".localize, message: error)
                     }else{
                         if(self!.loginViewModel.isAdminLogged()){
                             self?.gotoAdminView()

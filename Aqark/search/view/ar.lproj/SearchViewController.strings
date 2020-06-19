@@ -1,6 +1,6 @@
 
 /* Class = "UISearchBar"; placeholder = "Search by Location"; ObjectID = "A96-AO-fov"; */
-"A96-AO-fov.placeholder" = "ابحث عن العنوان";
+"A96-AO-fov.placeholder" = "البحث بالعنوان";
 
 /* Class = "UIButton"; normalTitle = "Sort"; ObjectID = "ei5-zO-4Sl"; */
 "ei5-zO-4Sl.normalTitle" = "الترتيب";
@@ -9,4 +9,4 @@
 "omt-Ed-JKc.normalTitle" = "الاشعارات";
 
 /* Class = "UILabel"; text = "Internet Connection Not Available"; ObjectID = "qdB-aD-rvP"; */
-"qdB-aD-rvP.text" = "لا يوجد اتصال بالانترنت";
+"qdB-aD-rvP.text" = "لا يوجد اتصال بشبكة الانترنت";

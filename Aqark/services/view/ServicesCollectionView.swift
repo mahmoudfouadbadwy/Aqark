@@ -23,7 +23,7 @@ extension ServicesViewController : UICollectionViewDataSource,UICollectionViewDe
         serviceCell.serviceUserLocation.text = servicesViewModel.serviceUsersViewList[indexPath.row].serviceUserCountry.localize
         if "lang".localize.elementsEqual("en")
         {
-            serviceCell.serviceUserExperience.text = self.convertNumbers(lang: "lang".localize, stringNumber: servicesViewModel.serviceUsersViewList[indexPath.row].serviceUserExperience).1 + " years exp".localize
+            serviceCell.serviceUserExperience.text = self.convertNumbers(lang: "lang".localize, stringNumber: servicesViewModel.serviceUsersViewList[indexPath.row].serviceUserExperience).1 + " exp years.".localize
         }else{
             let numberOfExp = self.convertNumbers(lang: "lang".localize, stringNumber: servicesViewModel.serviceUsersViewList[indexPath.row].serviceUserExperience).0.intValue
             if numberOfExp == 0 {
@@ -37,7 +37,7 @@ extension ServicesViewController : UICollectionViewDataSource,UICollectionViewDe
                 serviceCell.serviceUserExperience.text = "سنتين خبره"
             }else{
                 
-                serviceCell.serviceUserExperience.text = self.convertNumbers(lang: "lang".localize, stringNumber: String(numberOfExp)).1 + " years exp".localize
+                serviceCell.serviceUserExperience.text = self.convertNumbers(lang: "lang".localize, stringNumber: String(numberOfExp)).1 + " exp years.".localize
             }
         }
         
@@ -51,7 +51,7 @@ extension ServicesViewController : UICollectionViewDataSource,UICollectionViewDe
 
 extension ServicesViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width - 30, height: 150)
+        return CGSize(width: collectionView.frame.width - 30, height: 170)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

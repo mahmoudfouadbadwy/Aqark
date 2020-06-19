@@ -1,21 +1,33 @@
 
 /* Class = "UITextField"; placeholder = "Confirm Password"; ObjectID = "204-s3-vwn"; */
-"204-s3-vwn.placeholder" = "Confirm Password";
+"204-s3-vwn.placeholder" = "تأكيد الرقم السري";
+
+/* Class = "UILabel"; text = "By selecting address your profile will appear to users in the same area ."; ObjectID = "91V-k1-yuA"; */
+"91V-k1-yuA.text" = " بمجرد إختيارك للعنوان سوف يتم إظهار صفحتك الشخصية للمستخدمين من نفس المحافظه ";
 
 /* Class = "UITextField"; placeholder = "Mobile Number"; ObjectID = "IfW-CJ-w3R"; */
-"IfW-CJ-w3R.placeholder" = "Mobile Number";
+"IfW-CJ-w3R.placeholder" = "رقم الهاتف";
 
 /* Class = "UITextField"; placeholder = "Email"; ObjectID = "Igo-Md-67b"; */
-"Igo-Md-67b.placeholder" = "Email";
+"Igo-Md-67b.placeholder" = "البريد الإلكتروني";
 
 /* Class = "UITextField"; placeholder = "Username"; ObjectID = "TAb-2H-Rax"; */
-"TAb-2H-Rax.placeholder" = "Username";
+"TAb-2H-Rax.placeholder" = "إسم المستخدم";
 
 /* Class = "UIButton"; normalTitle = "Create Account"; ObjectID = "dXW-RH-nVa"; */
-"dXW-RH-nVa.normalTitle" = "انشاء بريد الكتروني";
+"dXW-RH-nVa.normalTitle" = "إنشاء حساب";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "isV-He-2WM"; */
+"isV-He-2WM.normalTitle" = "تسجيل الدخول";
+
+/* Class = "UITextField"; placeholder = "Address"; ObjectID = "na7-I3-7WB"; */
+"na7-I3-7WB.placeholder" = "العنوان";
 
 /* Class = "UITextField"; placeholder = "Company"; ObjectID = "wRP-7P-knr"; */
-"wRP-7P-knr.placeholder" = "Company";
+"wRP-7P-knr.placeholder" = "الشركة";
+
+/* Class = "UILabel"; text = "Already Have An Account ?"; ObjectID = "z0h-NG-1Ys"; */
+"z0h-NG-1Ys.text" = "لديك حساب بالفعل ؟";
 
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "z7z-rW-bUJ"; */
-"z7z-rW-bUJ.placeholder" = "Password";
+"z7z-rW-bUJ.placeholder" = "الرقم السري";
