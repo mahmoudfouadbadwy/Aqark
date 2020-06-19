@@ -71,11 +71,7 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     var callButton : JJFloatingActionButton!
     var coreDataViewModel: CoreDataViewModel?
     var arrOfReviewsViewModel : [ReviewViewModel]!
-   
 
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
