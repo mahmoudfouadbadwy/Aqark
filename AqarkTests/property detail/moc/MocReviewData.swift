@@ -55,17 +55,17 @@ class MocReviewData {
     }
     
     func getUserDetails(id :String,completionForName : @escaping (_ userResults: ReviewUserModel) -> Void){
-        
+        let userData: ReviewUserModel!
         if id != nil
         {
             let userName = agent["username"] as? String ?? ""
             let userImage = agent["picture"] as? String ?? "NoImage"
-            let userData = ReviewUserModel(userName: self.userName,userImage: self.userImage)
+            userData = ReviewUserModel(userName: userName,userImage: userImage)
         }else{
-            self.userData = ReviewUserModel(userName: "",userImage: "")
+            userData = ReviewUserModel(userName: "",userImage: "")
             
         }
-        completionForName(self.userData)
+        completionForName(userData)
         
     }
 }
