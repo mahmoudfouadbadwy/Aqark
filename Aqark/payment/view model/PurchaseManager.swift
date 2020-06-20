@@ -13,8 +13,8 @@ import StoreKit
 
 
 class PurchaseManager : NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver {
-     static let instance = PurchaseManager()
-    let premiumAdvertisementIAP = "com.ITI.Aqark.premiumadvertisement"
+    static let instance = PurchaseManager()
+   var premiumAdvertisementIAP = "com.ITI.Aqark.premiumadvertisement"
     var productsRequest : SKProductsRequest!
     var products = [SKProduct]()
     var transactionComplete : CompletionHandler?

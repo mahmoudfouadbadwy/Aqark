@@ -211,6 +211,7 @@
 		C65805CE2482A7C1003F3DA1 /* ReviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65805CD2482A7C1003F3DA1 /* ReviewExtension.swift */; };
 		C65AD6562483AEC500A402FB /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65AD6542483AEC500A402FB /* ReviewCell.swift */; };
 		C65AD6572483AEC500A402FB /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C65AD6552483AEC500A402FB /* ReviewCell.xib */; };
+		C65FDCEB249E658E00D4F485 /* PurchaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65FDCEA249E658E00D4F485 /* PurchaseManagerTests.swift */; };
 		C6621988248A8EE200BF4DC1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6621987248A8EE200BF4DC1 /* StoreKit.framework */; };
 		C66E3B78247FB96D00E1BAF2 /* ReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B77247FB96D00E1BAF2 /* ReportData.swift */; };
 		C66E3B7A247FCC0B00E1BAF2 /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B79247FCC0B00E1BAF2 /* ReportModel.swift */; };
@@ -457,6 +458,7 @@
 		C65805CD2482A7C1003F3DA1 /* ReviewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewExtension.swift; sourceTree = "<group>"; };
 		C65AD6542483AEC500A402FB /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		C65AD6552483AEC500A402FB /* ReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
+		C65FDCEA249E658E00D4F485 /* PurchaseManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManagerTests.swift; sourceTree = "<group>"; };
 		C6621987248A8EE200BF4DC1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C66E3B77247FB96D00E1BAF2 /* ReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportData.swift; sourceTree = "<group>"; };
 		C66E3B79247FCC0B00E1BAF2 /* ReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
@@ -1380,6 +1382,7 @@
 		BFCF0BD924677F8100A43D8B /* AqarkTests */ = {
 			isa = PBXGroup;
 			children = (
+				C65FDCE8249E64FC00D4F485 /* payment */,
 				C6F033A12499319500D193DD /* search */,
 				3E8B52AA249711F700146A7D /* services */,
 				BFDC8C332491331100E27B53 /* favourite */,
@@ -1441,6 +1444,22 @@
 				BF719560247919C500703D10 /* CoreDataAccess.swift */,
 			);
 			path = data;
+			sourceTree = "<group>";
+		};
+		C65FDCE8249E64FC00D4F485 /* payment */ = {
+			isa = PBXGroup;
+			children = (
+				C65FDCE9249E650800D4F485 /* view model */,
+			);
+			path = payment;
+			sourceTree = "<group>";
+		};
+		C65FDCE9249E650800D4F485 /* view model */ = {
+			isa = PBXGroup;
+			children = (
+				C65FDCEA249E658E00D4F485 /* PurchaseManagerTests.swift */,
+			);
+			path = "view model";
 			sourceTree = "<group>";
 		};
 		C6F0339E2499060500D193DD /* data */ = {
@@ -1721,7 +1740,6 @@
 				3E48A7522493A52100DFE82E /* ServicesCollectionView.swift in Sources */,
 				BF82E6F924827F1A00786141 /* FavouriteCoreDataExtention.swift in Sources */,
 				823D6EA2247DDA7200F0B0FF /* extensionEditAdvertisement.swift in Sources */,
-
 				825F58742481425300DF60FB /* EditProfileViewModel.swift in Sources */,
 				3E69A8D5247EF5E000193605 /* CustomSegment.swift in Sources */,
 				823D6EA2247DDA7200F0B0FF /* extensionEditAdvertisement.swift in Sources */,
@@ -1731,10 +1749,7 @@
 				3E69A8D2247EF5E000193605 /* AdminTabBarController.swift in Sources */,
 				826A9A2C2473E4C20046E562 /* ExtensionAddAdvertisementViewModel.swift in Sources */,
 				BF634C9E2473373200B65B90 /* LoginViewModel.swift in Sources */,
-
-
 				82ACADE6248BCFBF002EF804 /* Localization.swift in Sources */,
-
 				C65805CE2482A7C1003F3DA1 /* ReviewExtension.swift in Sources */,
 				3EE1E64C2492D09E00C29719 /* AdminAdvertisementsCollectionView.swift in Sources */,
 				825DF58824801EDA0019C27C /* EditProfileViewController.swift in Sources */,
@@ -1872,6 +1887,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C65FDCEB249E658E00D4F485 /* PurchaseManagerTests.swift in Sources */,
 				BFDC8C3C2491351B00E27B53 /* FavouriteViewModelTests.swift in Sources */,
 				BFCF0BDB24677F8100A43D8B /* AqarkTests.swift in Sources */,
 				3E535AC8248D423D00A921A1 /* MockAdminAdvertisementDataAccess.swift in Sources */,
@@ -2142,8 +2158,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-
-
 				INFOPLIST_FILE = Aqark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2170,7 +2184,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-
 				INFOPLIST_FILE = Aqark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
