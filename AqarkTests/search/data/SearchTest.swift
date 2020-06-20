@@ -11,41 +11,41 @@ import XCTest
 
 class SearchTest: XCTestCase {
 //    var searchData : AdvertisementData!
-    var searchData : MockSearchData!
-
-    override func setUpWithError() throws {
-//       searchData = AdvertisementData()
-        searchData = MockSearchData()
-        
-    }
-
-    func testGetAllAdvertisements(){
-        let expectationObj = expectation(description: "Get Data")
-        searchData.getAdvertisements { (advertisements) in
-            for ad in advertisements {
-                XCTAssertNotNil(ad.address)
-                XCTAssertNotNil(ad.price)
-                XCTAssertNotNil(ad.advertisementId)
-                XCTAssertNotNil(ad.advertisementType)
-                XCTAssertNotNil(ad.bathRoomsNumber)
-                XCTAssertNotNil(ad.bedRoomsNumber)
-                XCTAssertNotNil(ad.country)
-                XCTAssertNotNil(ad.date)
-                XCTAssertNotNil(ad.image)
-                XCTAssertNotNil(ad.latitude)
-                XCTAssertNotNil(ad.longtiude)
-                       }
-            expectationObj.fulfill()
-            XCTAssertEqual(advertisements.count, 20)
-           
-        }
-        waitForExpectations(timeout: 30)
-        
-    }
+//    var searchData : MockSearchData!
+//
+//    override func setUpWithError() throws {
+////       searchData = AdvertisementData()
+//        searchData = MockSearchData()
+//        
+//    }
+//
+//    func testGetAllAdvertisements(){
+//        let expectationObj = expectation(description: "Get Data")
+//        searchData.getAdvertisements { (advertisements) in
+//            for ad in advertisements {
+//                XCTAssertNotNil(ad.address)
+//                XCTAssertNotNil(ad.price)
+//                XCTAssertNotNil(ad.advertisementId)
+//                XCTAssertNotNil(ad.advertisementType)
+//                XCTAssertNotNil(ad.bathRoomsNumber)
+//                XCTAssertNotNil(ad.bedRoomsNumber)
+//                XCTAssertNotNil(ad.country)
+//                XCTAssertNotNil(ad.date)
+//                XCTAssertNotNil(ad.image)
+//                XCTAssertNotNil(ad.latitude)
+//                XCTAssertNotNil(ad.longtiude)
+//                       }
+//            expectationObj.fulfill()
+//            XCTAssertEqual(advertisements.count, 20)
+//
+//        }
+//        waitForExpectations(timeout: 30)
+//
+//    }
     
-    override func tearDownWithError() throws {
-        searchData = nil
-    }
+//    override func tearDownWithError() throws {
+//        searchData = nil
+//    }
 
     func testExample() throws {
         // This is an example of a functional test case.

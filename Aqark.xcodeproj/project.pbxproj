@@ -67,7 +67,6 @@
 		7056A0D613EFCF7CC97F41EB /* Pods_Aqark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */; };
 		8214EA37248C60350037B11D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8214EA39248C60350037B11D /* LoginViewController.xib */; };
 		8214EA3D248C661B0037B11D /* FirstScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8214EA3F248C661B0037B11D /* FirstScreenViewController.xib */; };
-		8236C015249CF24600AC928E /* AdvertisementCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8236C014249CF24600AC928E /* AdvertisementCellCollectionViewCell.xib */; };
 		823D6EA2247DDA7200F0B0FF /* extensionEditAdvertisement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D6EA1247DDA7200F0B0FF /* extensionEditAdvertisement.swift */; };
 		823D6EA4247DDB9D00F0B0FF /* extensionSelectAmenities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D6EA3247DDB9D00F0B0FF /* extensionSelectAmenities.swift */; };
 		823D6EA6247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D6EA5247DDD0000F0B0FF /* extensionSegmentAndTxtPlaceholder.swift */; };
@@ -163,6 +162,7 @@
 		BF8475EF2483F4C200D01A9D /* AdminReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8475EE2483F4C200D01A9D /* AdminReport.swift */; };
 		BF8475F1248411BC00D01A9D /* AdminReportsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8475F0248411BC00D01A9D /* AdminReportsViewModel.swift */; };
 		BF872B922485558900E251D7 /* FavouriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF872B912485558900E251D7 /* FavouriteViewModel.swift */; };
+		BF890BAD249E0FE800D84FB8 /* AccountViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF890BAC249E0FE800D84FB8 /* AccountViewModelTest.swift */; };
 		BF8CD7A6247AE0E300DA60BA /* ImageSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CD7A4247AE0E300DA60BA /* ImageSlider.swift */; };
 		BF8CD7A9247AE9CB00DA60BA /* DownloadSliderImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CD7A8247AE9CB00DA60BA /* DownloadSliderImages.swift */; };
 		BF8CD7AF247AFB0E00DA60BA /* ImageSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8CD7AE247AFB0E00DA60BA /* ImageSlider.xib */; };
@@ -404,6 +404,7 @@
 		BF8475EE2483F4C200D01A9D /* AdminReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminReport.swift; sourceTree = "<group>"; };
 		BF8475F0248411BC00D01A9D /* AdminReportsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminReportsViewModel.swift; sourceTree = "<group>"; };
 		BF872B912485558900E251D7 /* FavouriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewModel.swift; sourceTree = "<group>"; };
+		BF890BAC249E0FE800D84FB8 /* AccountViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModelTest.swift; sourceTree = "<group>"; };
 		BF8CD7A4247AE0E300DA60BA /* ImageSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSlider.swift; sourceTree = "<group>"; };
 		BF8CD7A8247AE9CB00DA60BA /* DownloadSliderImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSliderImages.swift; sourceTree = "<group>"; };
 		BF8CD7AE247AFB0E00DA60BA /* ImageSlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageSlider.xib; sourceTree = "<group>"; };
@@ -1234,6 +1235,22 @@
 			path = "view model";
 			sourceTree = "<group>";
 		};
+		BF890BA8249E0DCF00D84FB8 /* sign up */ = {
+			isa = PBXGroup;
+			children = (
+				BF890BA9249E0E0D00D84FB8 /* view Model */,
+			);
+			path = "sign up";
+			sourceTree = "<group>";
+		};
+		BF890BA9249E0E0D00D84FB8 /* view Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF890BAC249E0FE800D84FB8 /* AccountViewModelTest.swift */,
+			);
+			path = "view Model";
+			sourceTree = "<group>";
+		};
 		BF9BD7C52472C9820057A12D /* data */ = {
 			isa = PBXGroup;
 			children = (
@@ -1373,6 +1390,7 @@
 		BFCF0BD924677F8100A43D8B /* AqarkTests */ = {
 			isa = PBXGroup;
 			children = (
+				BF890BA8249E0DCF00D84FB8 /* sign up */,
 				C6F033A12499319500D193DD /* search */,
 				3E8B52AA249711F700146A7D /* services */,
 				BFDC8C332491331100E27B53 /* favourite */,
@@ -1547,10 +1565,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
-				BF0BB6572495319100D9ED3C /* AdvertisementCellCollectionViewCell.xib in Resources */,
 				BFB85537248EE58A00E7DDD5 /* logoGif.gif in Resources */,
-
 				BF82E6ED2481972E00786141 /* FavouriteViewController.xib in Resources */,
 				3E69A8D7247EF5E000193605 /* AdminAdvertisementsViewController.xib in Resources */,
 				8281CC9B248F452F0094FE2F /* AddAdvertisementViewController.xib in Resources */,
@@ -1868,6 +1883,7 @@
 				3E535AC1248D422800A921A1 /* AdminUserDataAccessTests.swift in Sources */,
 				3E8B52AF249712AC00146A7D /* ServiceDataAccessTests.swift in Sources */,
 				C6F033A3249931C900D193DD /* MockSearchData.swift in Sources */,
+				BF890BAD249E0FE800D84FB8 /* AccountViewModelTest.swift in Sources */,
 				C6F033A02499066900D193DD /* SearchTest.swift in Sources */,
 				BFDC8C3A249134C300E27B53 /* FavouriteDataAccessTests.swift in Sources */,
 				3E535AC9248D423D00A921A1 /* AdminAdvertisementDataAccessTests.swift in Sources */,
@@ -2127,9 +2143,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-
 				DEVELOPMENT_TEAM = "";
-
 				INFOPLIST_FILE = Aqark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2151,9 +2165,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-
 				DEVELOPMENT_TEAM = "";
-
 				INFOPLIST_FILE = Aqark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

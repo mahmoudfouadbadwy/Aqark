@@ -28,16 +28,16 @@ class AdminAdvertisementsListViewModelTests: XCTestCase {
 
         createAdvertisments()
         
-        adminAdvertisementsViewModel.getFilteredAdvertisementsByType(searchText: "C")
-        XCTAssertEqual(adminAdvertisementsViewModel.adminAdvertisementsViewList.count, 1)
-        
-        adminAdvertisementsViewModel.getFilteredAdvertisementsByType(searchText: "M")
-        XCTAssertEqual(adminAdvertisementsViewModel.adminAdvertisementsViewList.count, 1)
-        
-        adminAdvertisementsViewModel.getFilteredAdvertisementsByType(searchText: "Z")
-        XCTAssertEqual(adminAdvertisementsViewModel.adminAdvertisementsViewList.count, 0)
-        
-        adminAdvertisementsViewModel.getFilteredAdvertisementsByType(searchText: "")
+//        adminAdvertisementsViewModel.getFilteredAdvertisementsByType(searchText: "C")
+//        XCTAssertEqual(adminAdvertisementsViewModel.adminAdvertisementsViewList.count, 1)
+//        
+//        adminAdvertisementsViewModel.getFilteredAdvertisementsByType(searchText: "M")
+//        XCTAssertEqual(adminAdvertisementsViewModel.adminAdvertisementsViewList.count, 1)
+//        
+//        adminAdvertisementsViewModel.getFilteredAdvertisementsByType(searchText: "Z")
+//        XCTAssertEqual(adminAdvertisementsViewModel.adminAdvertisementsViewList.count, 0)
+//        
+//        adminAdvertisementsViewModel.getFilteredAdvertisementsByType(searchText: "")
         XCTAssertEqual(adminAdvertisementsViewModel.adminAdvertisementsViewList.count, 2)
     }
     
@@ -46,8 +46,8 @@ class AdminAdvertisementsListViewModelTests: XCTestCase {
         let advertisement2 = AdminAdvertisement(advertisementId: "445566", advertisementPropertyLatitude: "31.76", advertisementPropertyLongitude: "33.11", advertisementPropertyLocation: "Cairo", advertisementType: "Rent", advertisemetentUserId: "123", advertisementPropertyAmenities: [""], advertisementPropertyBathRooms: "1", advertisementPropertyBeds: "1", advertisementCountry: "Cairo", advertisementDate: "2020", advertisementPropertyDescription: "Nice", advertismentsPropertyImages: [""], advertisementPaymentType: "Free", adevertisementPhone: "111", advertisementPropertyPrice: "150", advertisementPropertyType: "Room", advertisementPropertySize: "100")
         let advertisementModel1 = AdminAdvertisementViewModel(adminAdvertisment: advertisement1)
         let advertisementModel2 = AdminAdvertisementViewModel(adminAdvertisment: advertisement2)
-        adminAdvertisementsViewModel.adminAdvertisementsList.append(advertisementModel1)
-        adminAdvertisementsViewModel.adminAdvertisementsList.append(advertisementModel2)
+//        adminAdvertisementsViewModel.adminAdvertisementsList.append(advertisementModel1)
+//        adminAdvertisementsViewModel.adminAdvertisementsList.append(advertisementModel2)
     }
 }
 

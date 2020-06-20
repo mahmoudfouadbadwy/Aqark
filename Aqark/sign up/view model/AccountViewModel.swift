@@ -10,14 +10,14 @@ import Foundation
 import UIKit
 //MARK: - Properties and Initialization
 class AccountViewModel:Validation{
-   private var email:String!
-   private var password:String!
-   private var confirmPassword:String!
-   private var username:String!
-   private var phone:String!
-   private var country:String!
-   private var company:String!
-   private var role:String!
+   var email:String!
+   var password:String!
+   var confirmPassword:String!
+   var username:String!
+   var phone:String!
+   var country:String!
+   var company:String!
+   var role:String!
    var brokenRules: [SignUpBrokenRule] = [SignUpBrokenRule]()
    var isValid: Bool{
         get{
