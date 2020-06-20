@@ -12,15 +12,21 @@ import ReachabilitySwift
 
 
 class LoginViewModel : ValidationProtocol{
-    
     var userEmail : String!
     var userPassword : String!
     var brokenRules: [LoginBrokenRule] = [LoginBrokenRule]()
     var dataAccess : LoginDataAccessLayer!
-    var isValid: Bool {
+    var isLoginValid: Bool {
         get{
             self.brokenRules.removeAll()
-            self.validate()
+            self.validateLogin()
+            return brokenRules.count == 0
+        }
+    }
+    var isForgotPasswordValid: Bool {
+        get{
+            self.brokenRules.removeAll()
+            self.validateForgotPassword()
             return brokenRules.count == 0
         }
     }
@@ -29,7 +35,7 @@ class LoginViewModel : ValidationProtocol{
         self.dataAccess = dataAccess
     }
     
-    func validate(){
+    func validateLogin(){
         if(!(userEmail.isEmpty)){
             if(!(isValidEmail(email: userEmail))){
                 self.brokenRules.append(LoginBrokenRule(propertyName: "User Email".localize, message: "The email or password you entered is invalid".localize))
@@ -44,6 +50,16 @@ class LoginViewModel : ValidationProtocol{
             }
         }else{
             self.brokenRules.append(LoginBrokenRule(propertyName: "User password".localize, message: "The password must be 6 characters long or more.".localize))
+        }
+    }
+    
+    func validateForgotPassword(){
+        if(!(userEmail.isEmpty)){
+            if(!(isValidEmail(email: userEmail))){
+                self.brokenRules.append(LoginBrokenRule(propertyName: "User Email".localize, message: "The email you entered is invalid".localize))
+            }
+        }else{
+            self.brokenRules.append(LoginBrokenRule(propertyName: "User Email".localize, message: "An email address must be provided.".localize))
         }
     }
     
@@ -64,9 +80,9 @@ class LoginViewModel : ValidationProtocol{
         }
     }
     
-    func resetPassword(userEmail:String,completionForResetPassword:@escaping(_ completed:Bool) -> Void){
+    func resetPassword(completionForResetPassword:@escaping(_ completed:Bool) -> Void){
         dataAccess.resetPassword(userEmail: userEmail) { (completed) in
-                completionForResetPassword(completed)
+            completionForResetPassword(completed)
         }
     }
     

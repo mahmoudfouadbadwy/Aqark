@@ -10,5 +10,6 @@ import Foundation
 
 protocol ValidationProtocol {
     var brokenRules : [LoginBrokenRule] {get set}
-    var isValid : Bool {mutating get}
+    var isLoginValid : Bool {mutating get}
+    var isForgotPasswordValid : Bool {mutating get}
 }
