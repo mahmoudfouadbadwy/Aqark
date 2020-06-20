@@ -22,7 +22,7 @@ extension PropertyDetailView {
     }
     
     @objc func shareAdvertisementContent(){
-        let vc = UIActivityViewController(activityItems: ["Aqark App",price.text ?? 0, downloadedImages[0],address.text ?? ""], applicationActivities: [])
+        let vc = UIActivityViewController(activityItems: ["Aqark App",price.text ?? 0,address.text ?? "",downloadedImages[0]], applicationActivities: [])
         present(vc, animated: true)
     }
     
