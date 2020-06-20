@@ -46,6 +46,7 @@
 		3E7F060C248AB569009118B8 /* AdminUsersSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7F060B248AB569009118B8 /* AdminUsersSearch.swift */; };
 		3E804B46248926E50097C855 /* AdminUsersDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E804B45248926E50097C855 /* AdminUsersDelegate.swift */; };
 		3E8B52AF249712AC00146A7D /* ServiceDataAccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8B52AE249712AC00146A7D /* ServiceDataAccessTests.swift */; };
+		3E8FEF54249E72AE00D62FB6 /* ServicesListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8FEF53249E72AE00D62FB6 /* ServicesListViewModelTests.swift */; };
 		3E943FC7246A053300A1FF83 /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E943FC5246A053300A1FF83 /* FirstScreenViewController.swift */; };
 		3E943FCA246A262400A1FF83 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E943FC9246A262400A1FF83 /* CustomButton.swift */; };
 		3EA8369B246CE13A009AD024 /* ValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8369A246CE13A009AD024 /* ValidationProtocol.swift */; };
@@ -275,6 +276,7 @@
 		3E7F060B248AB569009118B8 /* AdminUsersSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUsersSearch.swift; sourceTree = "<group>"; };
 		3E804B45248926E50097C855 /* AdminUsersDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUsersDelegate.swift; sourceTree = "<group>"; };
 		3E8B52AE249712AC00146A7D /* ServiceDataAccessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDataAccessTests.swift; sourceTree = "<group>"; };
+		3E8FEF53249E72AE00D62FB6 /* ServicesListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesListViewModelTests.swift; sourceTree = "<group>"; };
 		3E943FC5246A053300A1FF83 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstScreenViewController.swift; path = "Aqark/login/view /FirstScreenViewController.swift"; sourceTree = SOURCE_ROOT; };
 		3E943FC9246A262400A1FF83 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = Aqark/Utilities/CustomButton.swift; sourceTree = SOURCE_ROOT; };
 		3EA8369A246CE13A009AD024 /* ValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ValidationProtocol.swift; path = "Aqark/login/view model/ValidationProtocol.swift"; sourceTree = SOURCE_ROOT; };
@@ -609,6 +611,7 @@
 		3E8B52AC2497121B00146A7D /* view model */ = {
 			isa = PBXGroup;
 			children = (
+				3E8FEF53249E72AE00D62FB6 /* ServicesListViewModelTests.swift */,
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -1874,6 +1877,7 @@
 				BFDC8C3C2491351B00E27B53 /* FavouriteViewModelTests.swift in Sources */,
 				BFCF0BDB24677F8100A43D8B /* AqarkTests.swift in Sources */,
 				3E535AC8248D423D00A921A1 /* MockAdminAdvertisementDataAccess.swift in Sources */,
+				3E8FEF54249E72AE00D62FB6 /* ServicesListViewModelTests.swift in Sources */,
 				3E535AC1248D422800A921A1 /* AdminUserDataAccessTests.swift in Sources */,
 				3E8B52AF249712AC00146A7D /* ServiceDataAccessTests.swift in Sources */,
 				C6F033A3249931C900D193DD /* MockSearchData.swift in Sources */,

@@ -65,7 +65,7 @@ class ServicesListViewModel{
         }
     }
     
-    private func filterUsers(serviceUsers : [ServiceUser]){
+     func filterUsers(serviceUsers : [ServiceUser]){
         for serviceUser in serviceUsers{
             switch serviceUser.userRole.lowercased() {
             case ServiceUserRole.lawyer:
