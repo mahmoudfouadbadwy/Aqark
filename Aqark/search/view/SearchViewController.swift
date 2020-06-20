@@ -46,9 +46,6 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
     var sortButton : UIButton!
     var arrOfAdViewModel : [AdvertisementViewModel]!{
         didSet{
-//            UIView.animate(withDuration:2) {
-//                self.view.alpha = 1
-//            }
             print(arrOfAdViewModel.count)
             if (arrOfAdViewModel.count > 0 )
             {
@@ -85,7 +82,6 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
   
     override func viewWillAppear(_ animated: Bool) {
         if SearchNetworking.checkNetworkConnection(){
-//            showActivityIndicator()
             searchCollectionView.isHidden = false
             setObjects()
             setUpSortBtn()
@@ -93,10 +89,8 @@ class SearchViewController: UIViewController,UIActionSheetDelegate{
             manageSearchBar()
             limitRegion()
             setupCoredata()
-            stopActivityIndicator()
             getCollectionViewData()
-           
-              
+            stopActivityIndicator()
         }else{
             sort = nil
             labelPlaceHolder.isHidden = false

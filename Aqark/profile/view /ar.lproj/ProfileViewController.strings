@@ -6,7 +6,7 @@
 "CGx-jp-Ybc.text" = "country";
 
 /* Class = "UILabel"; text = "No Advertisements Available"; ObjectID = "ELf-Ul-GCq"; */
-"ELf-Ul-GCq.text" = "لا يوجد اعلانات";
+"ELf-Ul-GCq.text" = "لا يوجد إعلانات";
 
 /* Class = "UILabel"; text = "company"; ObjectID = "aVc-xD-cNA"; */
 "aVc-xD-cNA.text" = "company";
@@ -15,7 +15,7 @@
 "cO3-Kf-obF.text" = "address";
 
 /* Class = "UIButton"; normalTitle = "Edit Profile"; ObjectID = "eX2-Id-rT3"; */
-"eX2-Id-rT3.normalTitle" = "تعديل الصفحة الشخصية";
+"eX2-Id-rT3.normalTitle" = "إضافة إعلان";
 
 /* Class = "UILabel"; text = "experience"; ObjectID = "rB4-8b-r7K"; */
 "rB4-8b-r7K.text" = "experience";

@@ -41,21 +41,22 @@ extension PropertyDetailView {
     func manageAddReview(){
         advertisementReviewViewModel = ReviewsViewModel(dataAccess: reviewData)
         if advertisementReviewViewModel.checkUserAuth(){
-            let alert = UIAlertController(title: "Add Review", message: nil, preferredStyle: .alert)
+            let alert = UIAlertController(title: "Add Review".localize, message: nil, preferredStyle: .alert)
             alert.addTextField { (textField) in
                 textField.height(30)
             }
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak alert] (_) in
+            alert.addAction(UIAlertAction(title: "Cancel".localize, style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "add".localize, style: .default, handler: { [weak alert] (_) in
                 let textField = alert?.textFields![0]
                 if textField?.text?.isEmpty == false{
                     
                     self.addReview(reviewText : (textField?.text)!)
                 }
             }))
-            alert.addAction(UIAlertAction(title: "cancle", style: .cancel, handler: nil))
+            
             self.present(alert, animated: true, completion: nil)
         }else{
-            self.showAlert(title: "Review", message: "Please Login To Review This Advertisement")
+            self.showAlert(title: "Add Review".localize, message: "Please Login To Review This Advertisement".localize)
         }
         
         

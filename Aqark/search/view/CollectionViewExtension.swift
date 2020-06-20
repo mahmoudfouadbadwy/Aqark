@@ -96,7 +96,6 @@ extension SearchViewController{
     }
     
     func getCollectionViewData(){
-        showActivityIndicator()
         self.data = AdvertisementData()
         self.advertismentsListViewModel = AdvertisementListViewModel(dataAccess: self.data)
         advertismentsListViewModel.populateAds {[weak self]

@@ -27,8 +27,7 @@ class LoginViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
         if ProfileNetworking.checkAuthuntication(){
-            if !ProfileNetworking.isAdmin()
-            {
+            if !ProfileNetworking.isAdmin(){
                 gotoProfileView()
             }
             else
@@ -53,31 +52,39 @@ class LoginViewController: UIViewController{
     
     @IBAction func login(_ sender: Any) {
         view.endEditing(true)
-        dataAccess = LoginDataAccessLayer()
-        loginViewModel = LoginViewModel(dataAccess:dataAccess)
-        self.showActivityIndicator()
-        loginViewModel.userEmail = userEmailTextField.text
-        loginViewModel.userPassword = userPasswordTextField.text
-        if(loginViewModel.isValid){
-            if(loginViewModel.checkNetworkConnection()){
-                loginViewModel.authenticateLogin { [weak self] (result,error) in
-                    self?.stopActivityIndicator()
-                    if let error = error {
-                        self?.showAlert(title: "Login", message: error)
-                    }else{
-                        if(self!.loginViewModel.isAdminLogged()){
-                            self?.gotoAdminView()
+
+        if(loginViewModel == nil){
+            dataAccess = LoginDataAccessLayer()
+            loginViewModel = LoginViewModel(dataAccess:dataAccess)
+        }
+        if(loginViewModel.checkNetworkConnection()){
+            loginViewModel.userEmail = userEmailTextField.text
+            loginViewModel.userPassword = userPasswordTextField.text
+            if(loginViewModel.isLoginValid){
+                if(loginViewModel.checkNetworkConnection()){
+                    self.showActivityIndicator()
+                    loginViewModel.authenticateLogin { [weak self] (result,error) in
+                        self?.stopActivityIndicator()
+                        if let error = error {
+                            self?.showAlert(title: "Login".localize, message: error)
+
                         }else{
-                            self?.gotoProfileView()
+                            if(self!.loginViewModel.isAdminLogged()){
+                                self?.gotoAdminView()
+                            }else{
+                                self?.gotoProfileView()
+                            }
                         }
                     }
+                }else{
+                    showAlert(title: "Connection".localize, message: "Internet Connection Not Available".localize)
                 }
             }else{
-                showAlert(title: "Connection".localize, message: "Internet Connection Not Available".localize)
+                self.stopActivityIndicator()
+                showAlert(title: "Login".localize, message: loginViewModel.brokenRules.first!.message)
             }
         }else{
-            self.stopActivityIndicator()
-            showAlert(title: "Login".localize, message: loginViewModel.brokenRules.first!.message)
+            showAlert(title: "Connection".localize, message: "Internet Connection Not Available".localize)
         }
     }
     
@@ -85,6 +92,38 @@ class LoginViewController: UIViewController{
         firstScreen = FirstScreenViewController()
         self.navigationController?.pushViewController(firstScreen, animated: true)
     }
+    
+    @IBAction func forgotYourPassword(_ sender: Any) {
+        dataAccess = LoginDataAccessLayer()
+        loginViewModel = LoginViewModel(dataAccess:dataAccess)
+        if(loginViewModel.checkNetworkConnection()){
+            loginViewModel.userEmail = userEmailTextField.text
+            if(loginViewModel.isForgotPasswordValid){
+                if(loginViewModel.checkNetworkConnection()){
+                    self.showActivityIndicator()
+                    loginViewModel.resetPassword() {[weak self] (completed) in
+                        self?.stopActivityIndicator()
+                        if(completed){
+                            self?.showAlert(title: "Reset Password", message: "A password reset email sent to your email.")
+                        }else{
+                            self?.showAlert(title: "Reset Password", message: "There is a problem with password reset.")
+                        }
+                    }
+                }else{
+                    showAlert(title: "Connection".localize, message: "Internet Connection Not Available".localize)
+                }
+                
+            }else{
+                showAlert(title: "Login".localize, message: loginViewModel.brokenRules.first!.message)
+            }
+        }else{
+            showAlert(title: "Connection".localize, message: "Internet Connection Not Available".localize)
+        }
+        
+        
+        
+    }
+    
     
     func showAlert(title:String,message:String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
@@ -128,7 +167,7 @@ class LoginViewController: UIViewController{
         firstScreen =  nil
         adminView = nil
     }
-
+    
 }
 
 extension LoginViewController : UITextFieldDelegate{

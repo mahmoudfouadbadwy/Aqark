@@ -32,9 +32,8 @@ extension AddAdvertisementViewController
     
     @objc func viewAlert()
     {
-
         self.stopActivityIndicator()
-        let alert = UIAlertController(title: "Premium Advertisement", message: "Sorry, you have used all of your free ads, continue to add premium ad for 99 EGP", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Advertisements".localize, message:  "Sorry, you used all of your free ads".localize, preferredStyle: .alert)
                alert.addAction(UIAlertAction(title: "ok".localize, style: .default , handler:{ (UIAlertAction)in
                 PurchaseManager.instance.purchasePremiumAdvertisement{ [weak self] success in
                          if success {
@@ -50,8 +49,8 @@ extension AddAdvertisementViewController
         }))
         self.present(alert, animated: true, completion: nil)
     }
-
 }
+
 
 //MARK: - notification center
 extension Notification.Name{

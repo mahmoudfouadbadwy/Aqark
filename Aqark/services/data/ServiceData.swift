@@ -27,12 +27,12 @@ class ServiceDataAccess{
     private func createServiceUser(child:DataSnapshot) -> ServiceUser{
         let serviceUserId = child.key
         let serviceUserDictionary = child.value as! [String : Any]
-        let serviceUserName = serviceUserDictionary[ServiceUserKey.userName] as! String
-        let serviceUserEmail = serviceUserDictionary[ServiceUserKey.userEmail] as! String
+        let serviceUserName = serviceUserDictionary[ServiceUserKey.userName] as? String ?? ""
+        let serviceUserEmail = serviceUserDictionary[ServiceUserKey.userEmail] as? String ?? ""
         let serviceUserPhone = serviceUserDictionary[ServiceUserKey.userPhone] as? String ?? ""
-        let serviceUserCountry = serviceUserDictionary[ServiceUserKey.userCountry] as? String ?? ""
+        let serviceUserCountry = serviceUserDictionary[ServiceUserKey.userCountry] as? String ?? ","
         let serviceUserCompany = serviceUserDictionary[ServiceUserKey.userCompany] as? String ?? ""
-        let serviceUserRole = serviceUserDictionary[ServiceUserKey.userRole] as! String
+        let serviceUserRole = serviceUserDictionary[ServiceUserKey.userRole] as? String ?? ""
         let serviceUserExperience = serviceUserDictionary[ServiceUserKey.userExperience] as? String ?? ""
         let serviceUserRatingDic = serviceUserDictionary[ServiceUserKey.userServiceRating] as? [String:Any] ?? [:]
         let serviceUserServiceRating = getUserServiceRating(userRatingDic: serviceUserRatingDic)

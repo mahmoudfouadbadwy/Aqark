@@ -33,11 +33,8 @@ class ProfileViewController: UIViewController {
     var profileViewModel:ProfileStore!
     var advertisementViewModel:ProfileAdvertisementListViewModel!
     var deleteViewModel:AdvertisementDelete!
-
     var editProfileVM : EditProfileViewModel!
-
     var profileDataAccess:ProfileDataAccess!
-
     var listOfAdvertisements:[ProfileAdvertisementViewModel]! = []{
         didSet{
             if listOfAdvertisements.count>0{
@@ -60,6 +57,9 @@ class ProfileViewController: UIViewController {
         {
             setUpViewMoelsObjects()
             noAdvertisementsLabel.isHidden = true
+            if  advertisementViewModel != nil {
+                      bindCollectionData()
+                  }
         }
         else
         {
@@ -98,7 +98,6 @@ class ProfileViewController: UIViewController {
         }
     }
     deinit {
-        print("de inti profile")
         profileViewModel.removeProfileDataObservers()
         profileDataAccess = nil
         advertisementViewModel.removeProfileAdvertisementsObservers()
@@ -118,9 +117,7 @@ class ProfileViewController: UIViewController {
         cancel = nil
         alertController = nil
         alertAction = nil
-
         editProfileVM = nil
-   
         listOfAdvertisements = nil
     }
 }

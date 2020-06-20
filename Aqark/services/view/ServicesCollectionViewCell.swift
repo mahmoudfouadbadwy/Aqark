@@ -11,7 +11,7 @@ import Cosmos
 
 class ServicesCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var detailsStackView: UIStackView!
+    @IBOutlet weak var RightView: UIView!
     @IBOutlet weak var serviceUserImage: UIImageView!
     @IBOutlet weak var serviceUserName: UILabel!
     @IBOutlet weak var serviceUserCompany: UILabel!
@@ -21,16 +21,18 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var rateMeView: CosmosView!
     @IBOutlet weak var rateMeButton: UIButton!
     @IBOutlet weak var dialerButton: UIButton!
-
-    
+    @IBOutlet weak var serviceCompany: UIView!
+    @IBOutlet weak var serviceExperience: UIView!
     var serviceUserCellIndex : IndexPath!
     weak var serviceUserDelegate : ServiceUsersCollectionDelegate!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         dialerButton.layer.borderColor = UIColor(rgb: 0x1d3557).cgColor
         dialerButton.layer.borderWidth = 1
-        rateMeButton.backgroundColor = UIColor(rgb: 0xe63946)
+        rateMeButton.layer.borderColor = UIColor(rgb: 0xe63946).cgColor
+        rateMeButton.layer.borderWidth = 1
+        
         serviceUserRating.settings.fillMode = .precise
         rateMeView.settings.fillMode = .precise
         rateMeView.didFinishTouchingCosmos = {rating in
@@ -58,25 +60,30 @@ class ServicesCollectionViewCell: UICollectionViewCell {
         
         if(serviceUserDelegate.checkLoggedUserDelegate()){
             rateMeButton.isHidden = false
-            //dialerButtonTrailingConstraint.isActive = true
+            dialerButton.centerXAnchor.constraint(equalTo: RightView.centerXAnchor).isActive = true
+            dialerButton.widthAnchor.constraint(equalTo: rateMeButton.widthAnchor).isActive = true
+                    //dialerButtonTrailingConstraint.isActive = true
             //dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = false
         }else{
             rateMeButton.isHidden = true
+            dialerButton.widthAnchor.constraint(equalTo: contentView.widthAnchor
+                , multiplier: 0.5).isActive = true
+            dialerButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
             //dialerButtonTrailingConstraint.isActive = false
             //dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
         }
         
-       /* if(serviceUserCompany.text == ""){
-            companyStack.isHidden = true
-        }else if(serviceUserCompany.text != "" && companyStack.isHidden == true){
-            companyStack.isHidden = false
+        if(serviceUserCompany.text == ""){
+            serviceCompany.isHidden = true
+        }else if(serviceUserCompany.text != "" && serviceCompany.isHidden == true){
+            serviceCompany.isHidden = false
         }
-
-        if(serviceUserExperience.text == " years exp"){
-            experienceStack.isHidden = true
-        }else if(experienceStack.isHidden == true && serviceUserExperience.text != " years exp"){
-            experienceStack.isHidden = false
-        }*/
+        
+        if(serviceUserExperience.text == " exp years."){
+            serviceExperience.isHidden = true
+        }else if(serviceExperience.isHidden == true && serviceUserExperience.text != " exp years."){
+            serviceExperience.isHidden = false
+        }
     }
     
     @IBAction func rateServiceUser(_ sender: Any) {
