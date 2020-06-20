@@ -163,6 +163,7 @@
 		BF8475EF2483F4C200D01A9D /* AdminReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8475EE2483F4C200D01A9D /* AdminReport.swift */; };
 		BF8475F1248411BC00D01A9D /* AdminReportsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8475F0248411BC00D01A9D /* AdminReportsViewModel.swift */; };
 		BF872B922485558900E251D7 /* FavouriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF872B912485558900E251D7 /* FavouriteViewModel.swift */; };
+		BF88896A249E9AFD0015162E /* AdvertisementCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF888969249E9AF80015162E /* AdvertisementCellCollectionViewCell.xib */; };
 		BF890BAD249E0FE800D84FB8 /* AccountViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF890BAC249E0FE800D84FB8 /* AccountViewModelTest.swift */; };
 		BF8CD7A6247AE0E300DA60BA /* ImageSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CD7A4247AE0E300DA60BA /* ImageSlider.swift */; };
 		BF8CD7A9247AE9CB00DA60BA /* DownloadSliderImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CD7A8247AE9CB00DA60BA /* DownloadSliderImages.swift */; };
@@ -301,7 +302,6 @@
 		8214EA38248C60350037B11D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginViewController.xib; sourceTree = "<group>"; };
 		8214EA3E248C661B0037B11D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FirstScreenViewController.xib; sourceTree = "<group>"; };
 		8214EA41248C661F0037B11D /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/FirstScreenViewController.strings; sourceTree = "<group>"; };
-		8236C014249CF24600AC928E /* AdvertisementCellCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvertisementCellCollectionViewCell.xib; sourceTree = "<group>"; };
 		8236C017249D2B5600AC928E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/PropertyDetailView.strings; sourceTree = "<group>"; };
 		8236C019249D43CD00AC928E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/SignUpView.strings; sourceTree = "<group>"; };
 		8236C01B249D571800AC928E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LoginViewController.strings; sourceTree = "<group>"; };
@@ -407,6 +407,7 @@
 		BF8475EE2483F4C200D01A9D /* AdminReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminReport.swift; sourceTree = "<group>"; };
 		BF8475F0248411BC00D01A9D /* AdminReportsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminReportsViewModel.swift; sourceTree = "<group>"; };
 		BF872B912485558900E251D7 /* FavouriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewModel.swift; sourceTree = "<group>"; };
+		BF888969249E9AF80015162E /* AdvertisementCellCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvertisementCellCollectionViewCell.xib; sourceTree = "<group>"; };
 		BF890BAC249E0FE800D84FB8 /* AccountViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModelTest.swift; sourceTree = "<group>"; };
 		BF8CD7A4247AE0E300DA60BA /* ImageSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSlider.swift; sourceTree = "<group>"; };
 		BF8CD7A8247AE9CB00DA60BA /* DownloadSliderImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSliderImages.swift; sourceTree = "<group>"; };
@@ -797,7 +798,7 @@
 		BF06B40A24679DCE005D7151 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				8236C014249CF24600AC928E /* AdvertisementCellCollectionViewCell.xib */,
+				BF888969249E9AF80015162E /* AdvertisementCellCollectionViewCell.xib */,
 				BF43557F2474E1DD001DA5D8 /* AdvertisementCellCollectionViewCell.swift */,
 				BF4355832474E1DE001DA5D8 /* CollectionViewExtension.swift */,
 				BF4355802474E1DD001DA5D8 /* GooglePlaceAutoComplete.swift */,
@@ -1579,6 +1580,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF88896A249E9AFD0015162E /* AdvertisementCellCollectionViewCell.xib in Resources */,
 				BFB85537248EE58A00E7DDD5 /* logoGif.gif in Resources */,
 				BF82E6ED2481972E00786141 /* FavouriteViewController.xib in Resources */,
 				3E69A8D7247EF5E000193605 /* AdminAdvertisementsViewController.xib in Resources */,
@@ -1898,11 +1900,8 @@
 				3E535AC1248D422800A921A1 /* AdminUserDataAccessTests.swift in Sources */,
 				3E8B52AF249712AC00146A7D /* ServiceDataAccessTests.swift in Sources */,
 				C6F033A3249931C900D193DD /* MockSearchData.swift in Sources */,
-
 				BF890BAD249E0FE800D84FB8 /* AccountViewModelTest.swift in Sources */,
-
 				C6F033A02499066900D193DD /* AdvertisementDataTests.swift in Sources */,
-
 				BFDC8C3A249134C300E27B53 /* FavouriteDataAccessTests.swift in Sources */,
 				C65FDCE6249E5C6300D4F485 /* AdvertisementListViewModelTests.swift in Sources */,
 				3E535AC9248D423D00A921A1 /* AdminAdvertisementDataAccessTests.swift in Sources */,

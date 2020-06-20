@@ -108,21 +108,21 @@
                         <action selector="forgotYourPassword:" destination="-1" eventType="touchUpInside" id="3Dd-9R-ElS"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9Z-bw-b6P" customClass="CustomButton" customModule="Aqark" customModuleProvider="target">
-                    <rect key="frame" x="103.5" y="487.5" width="207" height="32"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                    <state key="normal" title="Login">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="backColor" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="login:" destination="-1" eventType="touchUpInside" id="Suy-0f-oSb"/>
-                    </connections>
-                </button>
+<!--                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9Z-bw-b6P" customClass="CustomButton" customModule="Aqark" customModuleProvider="target">-->
+<!--                    <rect key="frame" x="103.5" y="487.5" width="207" height="32"/>-->
+<!--                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>-->
+<!--                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>-->
+<!--                    <state key="normal" title="Login">-->
+<!--                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>-->
+<!--                    </state>-->
+<!--                    <userDefinedRuntimeAttributes>-->
+<!--                        <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>-->
+<!--                        <userDefinedRuntimeAttribute type="boolean" keyPath="backColor" value="YES"/>-->
+<!--                    </userDefinedRuntimeAttributes>-->
+<!--                    <connections>-->
+<!--                        <action selector="login:" destination="-1" eventType="touchUpInside" id="Suy-0f-oSb"/>-->
+<!--                    </connections>-->
+<!--                </button>-->
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>

@@ -122,5 +122,5 @@ class AdminUsersListViewModelTests: XCTestCase {
         adminUsersViewModel.getFilteredUsers(type:2, searchText: searchText)
         XCTAssertEqual(adminUsersViewModel.adminUsersViewList.count, 0)
     }
-}
 
+}
