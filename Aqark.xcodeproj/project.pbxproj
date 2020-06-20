@@ -213,12 +213,9 @@
 		C65805CE2482A7C1003F3DA1 /* ReviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65805CD2482A7C1003F3DA1 /* ReviewExtension.swift */; };
 		C65AD6562483AEC500A402FB /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65AD6542483AEC500A402FB /* ReviewCell.swift */; };
 		C65AD6572483AEC500A402FB /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C65AD6552483AEC500A402FB /* ReviewCell.xib */; };
-
+		C65FDCE6249E5C6300D4F485 /* AdvertisementListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65FDCE5249E5C6300D4F485 /* AdvertisementListViewModelTests.swift */; };
 		C65FDCEB249E658E00D4F485 /* PurchaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65FDCEA249E658E00D4F485 /* PurchaseManagerTests.swift */; };
 		C6621988248A8EE200BF4DC1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6621987248A8EE200BF4DC1 /* StoreKit.framework */; };
-
-		C65FDCE6249E5C6300D4F485 /* AdvertisementListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65FDCE5249E5C6300D4F485 /* AdvertisementListViewModelTests.swift */; };
-
 		C66E3B78247FB96D00E1BAF2 /* ReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B77247FB96D00E1BAF2 /* ReportData.swift */; };
 		C66E3B7A247FCC0B00E1BAF2 /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B79247FCC0B00E1BAF2 /* ReportModel.swift */; };
 		C66E3B7C247FCDED00E1BAF2 /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B7B247FCDED00E1BAF2 /* ReportViewModel.swift */; };
@@ -466,12 +463,9 @@
 		C65805CD2482A7C1003F3DA1 /* ReviewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewExtension.swift; sourceTree = "<group>"; };
 		C65AD6542483AEC500A402FB /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		C65AD6552483AEC500A402FB /* ReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
-
+		C65FDCE5249E5C6300D4F485 /* AdvertisementListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementListViewModelTests.swift; sourceTree = "<group>"; };
 		C65FDCEA249E658E00D4F485 /* PurchaseManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManagerTests.swift; sourceTree = "<group>"; };
 		C6621987248A8EE200BF4DC1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-
-		C65FDCE5249E5C6300D4F485 /* AdvertisementListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementListViewModelTests.swift; sourceTree = "<group>"; };
-
 		C66E3B77247FB96D00E1BAF2 /* ReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportData.swift; sourceTree = "<group>"; };
 		C66E3B79247FCC0B00E1BAF2 /* ReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
 		C66E3B7B247FCDED00E1BAF2 /* ReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
@@ -1411,11 +1405,8 @@
 		BFCF0BD924677F8100A43D8B /* AqarkTests */ = {
 			isa = PBXGroup;
 			children = (
-
 				C65FDCE8249E64FC00D4F485 /* payment */,
-
 				BF890BA8249E0DCF00D84FB8 /* sign up */,
-
 				C6F033A12499319500D193DD /* search */,
 				3E8B52AA249711F700146A7D /* services */,
 				BFDC8C332491331100E27B53 /* favourite */,
@@ -1479,7 +1470,14 @@
 			path = data;
 			sourceTree = "<group>";
 		};
-
+		C65FDCE4249E5C3D00D4F485 /* view model */ = {
+			isa = PBXGroup;
+			children = (
+				C65FDCE5249E5C6300D4F485 /* AdvertisementListViewModelTests.swift */,
+			);
+			path = "view model";
+			sourceTree = "<group>";
+		};
 		C65FDCE8249E64FC00D4F485 /* payment */ = {
 			isa = PBXGroup;
 			children = (
@@ -1492,15 +1490,6 @@
 			isa = PBXGroup;
 			children = (
 				C65FDCEA249E658E00D4F485 /* PurchaseManagerTests.swift */,
-                );
-                    path = "view model";
-                    sourceTree = "<group>";
-                };
-		C65FDCE4249E5C3D00D4F485 /* view model */ = {
-			isa = PBXGroup;
-			children = (
-				C65FDCE5249E5C6300D4F485 /* AdvertisementListViewModelTests.swift */,
-
 			);
 			path = "view model";
 			sourceTree = "<group>";
@@ -2200,13 +2189,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-
+				DEVELOPMENT_TEAM = HEG22CSPH9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-
 				INFOPLIST_FILE = Aqark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2228,13 +2215,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-
+				DEVELOPMENT_TEAM = HEG22CSPH9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-
 				INFOPLIST_FILE = Aqark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
