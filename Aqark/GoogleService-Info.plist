@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>we want to add photos to library</string>
+	<key>CFBundleIdentifier</key>
+	<string></string>
 	<key>CLIENT_ID</key>
 	<string>582389618154-al0c5cap5htd167umnkc1fq2e0uoibg6.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
