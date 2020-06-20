@@ -210,6 +210,7 @@
 		C65805CE2482A7C1003F3DA1 /* ReviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65805CD2482A7C1003F3DA1 /* ReviewExtension.swift */; };
 		C65AD6562483AEC500A402FB /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65AD6542483AEC500A402FB /* ReviewCell.swift */; };
 		C65AD6572483AEC500A402FB /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C65AD6552483AEC500A402FB /* ReviewCell.xib */; };
+		C65FDCE6249E5C6300D4F485 /* AdvertisementListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65FDCE5249E5C6300D4F485 /* AdvertisementListViewModelTests.swift */; };
 		C66E3B78247FB96D00E1BAF2 /* ReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B77247FB96D00E1BAF2 /* ReportData.swift */; };
 		C66E3B7A247FCC0B00E1BAF2 /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B79247FCC0B00E1BAF2 /* ReportModel.swift */; };
 		C66E3B7C247FCDED00E1BAF2 /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B7B247FCDED00E1BAF2 /* ReportViewModel.swift */; };
@@ -220,7 +221,7 @@
 		C67FDA382479469C00028E96 /* SortingExtenision.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67FDA372479469C00028E96 /* SortingExtenision.swift */; };
 		C67FDA3A2479495500028E96 /* MapExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67FDA392479495500028E96 /* MapExtension.swift */; };
 		C6BAED5624824C8600D964C5 /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BAED5524824C8600D964C5 /* ReviewData.swift */; };
-		C6F033A02499066900D193DD /* SearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F0339F2499066900D193DD /* SearchTest.swift */; };
+		C6F033A02499066900D193DD /* AdvertisementDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F0339F2499066900D193DD /* AdvertisementDataTests.swift */; };
 		C6F033A3249931C900D193DD /* MockSearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F033A2249931C900D193DD /* MockSearchData.swift */; };
 /* End PBXBuildFile section */
 
@@ -454,6 +455,7 @@
 		C65805CD2482A7C1003F3DA1 /* ReviewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewExtension.swift; sourceTree = "<group>"; };
 		C65AD6542483AEC500A402FB /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		C65AD6552483AEC500A402FB /* ReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
+		C65FDCE5249E5C6300D4F485 /* AdvertisementListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementListViewModelTests.swift; sourceTree = "<group>"; };
 		C66E3B77247FB96D00E1BAF2 /* ReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportData.swift; sourceTree = "<group>"; };
 		C66E3B79247FCC0B00E1BAF2 /* ReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
 		C66E3B7B247FCDED00E1BAF2 /* ReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
@@ -464,7 +466,7 @@
 		C67FDA372479469C00028E96 /* SortingExtenision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingExtenision.swift; sourceTree = "<group>"; };
 		C67FDA392479495500028E96 /* MapExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapExtension.swift; sourceTree = "<group>"; };
 		C6BAED5524824C8600D964C5 /* ReviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewData.swift; sourceTree = "<group>"; };
-		C6F0339F2499066900D193DD /* SearchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTest.swift; sourceTree = "<group>"; };
+		C6F0339F2499066900D193DD /* AdvertisementDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementDataTests.swift; sourceTree = "<group>"; };
 		C6F033A2249931C900D193DD /* MockSearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSearchData.swift; sourceTree = "<group>"; };
 		DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AqarkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1436,10 +1438,18 @@
 			path = data;
 			sourceTree = "<group>";
 		};
+		C65FDCE4249E5C3D00D4F485 /* view model */ = {
+			isa = PBXGroup;
+			children = (
+				C65FDCE5249E5C6300D4F485 /* AdvertisementListViewModelTests.swift */,
+			);
+			path = "view model";
+			sourceTree = "<group>";
+		};
 		C6F0339E2499060500D193DD /* data */ = {
 			isa = PBXGroup;
 			children = (
-				C6F0339F2499066900D193DD /* SearchTest.swift */,
+				C6F0339F2499066900D193DD /* AdvertisementDataTests.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -1447,6 +1457,7 @@
 		C6F033A12499319500D193DD /* search */ = {
 			isa = PBXGroup;
 			children = (
+				C65FDCE4249E5C3D00D4F485 /* view model */,
 				C6F033A4249931D500D193DD /* mocks */,
 				C6F0339E2499060500D193DD /* data */,
 			);
@@ -1866,8 +1877,9 @@
 				3E535AC1248D422800A921A1 /* AdminUserDataAccessTests.swift in Sources */,
 				3E8B52AF249712AC00146A7D /* ServiceDataAccessTests.swift in Sources */,
 				C6F033A3249931C900D193DD /* MockSearchData.swift in Sources */,
-				C6F033A02499066900D193DD /* SearchTest.swift in Sources */,
+				C6F033A02499066900D193DD /* AdvertisementDataTests.swift in Sources */,
 				BFDC8C3A249134C300E27B53 /* FavouriteDataAccessTests.swift in Sources */,
+				C65FDCE6249E5C6300D4F485 /* AdvertisementListViewModelTests.swift in Sources */,
 				3E535AC9248D423D00A921A1 /* AdminAdvertisementDataAccessTests.swift in Sources */,
 				3E535AC2248D422800A921A1 /* AdminUsersListViewModelTests.swift in Sources */,
 				3E535AC0248D422800A921A1 /* MockAdminUserDataAccess.swift in Sources */,

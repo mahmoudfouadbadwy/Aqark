@@ -176,14 +176,13 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         favButton = UIButton(type: .custom)
         favButton.setImage(UIImage(named: "heart"), for: .normal)
         favButton.addTarget(self, action: #selector(toogleFavorite), for: .touchUpInside)
-        
-        favButton.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+        favButton.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
         let barButton = UIBarButtonItem(customView: favButton)
         
         shareContentButton = UIButton(type: .custom)
-        shareContentButton.setImage(UIImage(named: "heart"), for: .normal)
+        shareContentButton.setImage(UIImage(named: "share"), for: .normal)
         shareContentButton.addTarget(self, action: #selector(shareAdvertisementContent), for: .touchUpInside)
-        shareContentButton.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+        shareContentButton.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
         let shareButton = UIBarButtonItem(customView: shareContentButton)
          self.navigationItem.rightBarButtonItems = [barButton , shareButton]
     }
@@ -211,7 +210,8 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         callButton = nil
         coreDataViewModel = nil
         arrOfReviewsViewModel = nil
-        print ("details deinit")
+        favButton = nil
+        shareContentButton = nil
     }
 }
 
