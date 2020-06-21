@@ -12,7 +12,6 @@ class EditProfileDataSource
 {
     
     var dataBaseRef: DatabaseReference?
-    var dataBaseHandle:DatabaseHandle!
     var storageRef: StorageReference?
     var userID :String!
     var imageData : Data!
@@ -64,7 +63,7 @@ class EditProfileDataSource
 
     func fetchAdvertisement(addId : String ,complition:@escaping(String)->Void){
         self.dataBaseRef = Database.database().reference()
-       dataBaseHandle = dataBaseRef?.child("Advertisements").child(addId).child("date").observe(DataEventType.value, with: { (snapshot) in
+        dataBaseRef?.child("Advertisements").child(addId).child("date").observe(DataEventType.value, with: { (snapshot) in
                if snapshot.exists(){
                     complition(snapshot.value as? String ?? "" )
                }
@@ -72,8 +71,6 @@ class EditProfileDataSource
     }
     
     func removeAllEditProfileRef(){
-        dataBaseRef?.removeObserver(withHandle: dataBaseHandle)
-        dataBaseHandle = nil
         dataBaseRef = nil
         storageRef = nil
     }
