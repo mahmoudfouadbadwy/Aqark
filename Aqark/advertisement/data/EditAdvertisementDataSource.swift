@@ -119,7 +119,9 @@ class EditAdvertisementDataSource{
     }
     
     func removeAllEditDataRefrance(){
-        dataBaseRef?.removeObserver(withHandle: dataBaseHandle)
+        if dataBaseRef != nil && dataBaseHandle != nil  {
+           dataBaseRef?.removeObserver(withHandle: dataBaseHandle)
+        }
         dataBaseHandle = nil
         dataBaseRef = nil
         storageRef = nil
