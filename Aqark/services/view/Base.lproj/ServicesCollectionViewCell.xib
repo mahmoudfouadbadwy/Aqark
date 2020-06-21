@@ -135,7 +135,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBi-Mq-YKD" userLabel="View user location">
                                         <rect key="frame" x="0.0" y="46" width="250" height="23.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="propertyType" translatesAutoresizingMaskIntoConstraints="NO" id="DRY-qy-E5j">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="service_country" translatesAutoresizingMaskIntoConstraints="NO" id="DRY-qy-E5j">
                                                 <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ba-7U-5D8">
@@ -183,7 +183,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bbp-aX-HyI" userLabel="View user experiance">
                                         <rect key="frame" x="0.0" y="92.5" width="250" height="23"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sort" translatesAutoresizingMaskIntoConstraints="NO" id="e7e-mV-W5B">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="service_experience" translatesAutoresizingMaskIntoConstraints="NO" id="e7e-mV-W5B">
                                                 <rect key="frame" x="0.0" y="-0.5" width="24" height="24"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="3 exp years." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aj-Cx-Mkf">
@@ -269,6 +269,7 @@
     <resources>
         <image name="profile" width="24" height="24"/>
         <image name="propertyType" width="24" height="24"/>
-        <image name="sort" width="24" height="24"/>
+        <image name="service_country" width="24" height="24"/>
+        <image name="service_experience" width="24" height="24"/>
     </resources>
 </document>

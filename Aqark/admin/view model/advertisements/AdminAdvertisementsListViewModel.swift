@@ -22,6 +22,8 @@ class AdminAdvertisementsListViewModel{
     
     func populateAdvertisements(completionForPopulateAdvertisements:@escaping(_ totalAdvertisementsNumber:Int) -> Void){
         dataAccess.getAdvertisements { [weak self] (advertisementsData) in
+            self?.adminFreeAdvertisementsList.removeAll()
+            self?.adminPremiumAdvertisementsList.removeAll()
             self?.filter(allAdvertisementsData: advertisementsData)
             //            self.adminAdvertisementsList = advertisementsData.map{ (advertisementData) in
             //                return AdminAdvertisementViewModel(adminAdvertisment: advertisementData)

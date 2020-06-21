@@ -45,6 +45,10 @@ extension ServicesViewController : UICollectionViewDataSource,UICollectionViewDe
             servicesViewModel.serviceUsersViewList[indexPath.row].serviceUserServiceRating
         let serviceUserImageURL = URL(string: servicesViewModel.serviceUsersViewList[indexPath.row].ServiceUserImage)
         serviceCell.serviceUserImage.sd_setImage(with:serviceUserImageURL , placeholderImage: UIImage(named: "profile_user"))
+//        if(isUserLogged == !(servicesViewModel.checkLoggedUser())){
+//            isUserLogged = servicesViewModel.checkLoggedUser()
+//            serviceCell.setNeedsLayout()
+//        }
         return serviceCell
     }
 }

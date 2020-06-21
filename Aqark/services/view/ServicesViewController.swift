@@ -18,6 +18,7 @@ class ServicesViewController: UIViewController{
     var dataAccess : ServiceDataAccess!
     var serviceRole : String!
     var advertisementCountry : String!
+    var isUserLogged = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +78,7 @@ class ServicesViewController: UIViewController{
             }else{
                 self?.servicesCollectionView.reloadData()
             }
+            self?.servicesCollectionView.reloadData()
         }
     }
     
@@ -95,6 +97,10 @@ class ServicesViewController: UIViewController{
                return country
            }
        }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.popViewController(animated: true)
+    }
     
     deinit {
         if servicesViewModel != nil{

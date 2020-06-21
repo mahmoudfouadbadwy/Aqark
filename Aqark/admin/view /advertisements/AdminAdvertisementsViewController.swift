@@ -69,8 +69,6 @@ class AdminAdvertisementsViewController: UIViewController,AdminAdvertisementsRep
             UIView.animate(withDuration:2){
                 self?.view.alpha = 1
             }
-            self?.totalAdvertisementsLabel.isHidden = false
-            self?.totalAdvertisementsLabel.text = "Advertisements: \(advertisementsNumber)"
             self?.stopActivityIndicator()
             self?.adminAdvertisementViewModel.getAdvertisementsByType(type: self!.advertisementsSegment.selectedIndex)
             if(!self!.adminAdvertisementViewModel.adminAdvertisementsViewList.isEmpty){
@@ -87,6 +85,8 @@ class AdminAdvertisementsViewController: UIViewController,AdminAdvertisementsRep
             }else{
                 self?.setLabelForZeroCount(search: false)
             }
+            self?.totalAdvertisementsLabel.isHidden = false
+            self?.totalAdvertisementsLabel.text = "Advertisements: \(advertisementsNumber)"
             self?.setAdvertisementPaymentTypeLabel()
             self?.advertisementsCollectionView.reloadData()
         }
@@ -101,7 +101,7 @@ class AdminAdvertisementsViewController: UIViewController,AdminAdvertisementsRep
     }
     
     private func getReportedAdvertisement(_ reportedAdvertisementId: String) {
-        adminAdvertisementViewModel.populateAdvertisements(){[weak self] (AdvertisementsNumber) in
+        adminAdvertisementViewModel.populateAdvertisements(){[weak self] (advertisementsNumber) in
             switch self?.adminAdvertisementViewModel.getReportedAdvertisementPaymentType(reportedAdvertisementId:reportedAdvertisementId){
             case "free":
                 self!.advertisementsSegment.selectedIndex = 0
@@ -113,6 +113,9 @@ class AdminAdvertisementsViewController: UIViewController,AdminAdvertisementsRep
                 self?.showAlert(title: "Advertisement", message: "Advertisement is deleted")
                 self?.adminAdvertisementViewModel.getFilteredAdvertisements(searchText: "", type: self!.advertisementsSegment.selectedIndex)
             }
+            self?.totalAdvertisementsLabel.isHidden = false
+            self?.totalAdvertisementsLabel.text = "Advertisements: \(advertisementsNumber)"
+            self?.setAdvertisementPaymentTypeLabel()
             self?.advertisementsCollectionView.reloadData()
             self?.reportedAdvertisementId = nil
         }
@@ -171,9 +174,9 @@ class AdminAdvertisementsViewController: UIViewController,AdminAdvertisementsRep
         advertisementsTypeNumberLabel.isHidden = false
         switch advertisementsSegment.selectedIndex{
         case 0:
-            advertisementsTypeNumberLabel.text = "Free: \(adminAdvertisementViewModel.adminAdvertisementsViewList.count)"
+            advertisementsTypeNumberLabel.text = "Free: \(adminAdvertisementViewModel.adminFreeAdvertisementsList.count)"
         default:
-            advertisementsTypeNumberLabel.text = "Premium: \(adminAdvertisementViewModel.adminAdvertisementsViewList.count)"
+            advertisementsTypeNumberLabel.text = "Premium: \(adminAdvertisementViewModel.adminPremiumAdvertisementsList.count)"
         }
     }
     
