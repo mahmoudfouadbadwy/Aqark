@@ -85,7 +85,9 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
                 self?.bindAdvertisementData()
                 self?.setUpReviewsCollectionView()
                 self?.bindReviewData()
+              
             }
+         
             callButton = JJFloatingActionButton()
             setupFavoriteButton()
             setupCoredata()

@@ -90,4 +90,5 @@ extension ImageSlider: UIScrollViewDelegate {
         let currentPage:CGFloat = floor((scrollView.contentOffset.x-pageWidth/2)/pageWidth)+1
         pageController.currentPage = Int(currentPage)
     }
+    
 }
