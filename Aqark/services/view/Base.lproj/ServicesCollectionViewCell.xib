@@ -250,6 +250,7 @@
             </constraints>
             <size key="customSize" width="535" height="286"/>
             <connections>
+                <outlet property="RightView" destination="uwH-qP-kzT" id="7SU-5j-ghP"/>
                 <outlet property="dialerButton" destination="Wui-SW-1vD" id="huB-yR-wxG"/>
                 <outlet property="rateMeButton" destination="kWq-DQ-Jjg" id="2Ud-3o-l8K"/>
                 <outlet property="rateMeView" destination="FcU-QD-kJE" id="7Ib-Cw-QA6"/>

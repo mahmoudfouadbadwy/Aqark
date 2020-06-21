@@ -18,7 +18,6 @@ class ServicesViewController: UIViewController{
     var dataAccess : ServiceDataAccess!
     var serviceRole : String!
     var advertisementCountry : String!
-    var advertisementLocation : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +87,14 @@ class ServicesViewController: UIViewController{
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func splitCountry(_ country:String) -> String{
+           if(country.contains(",")){
+               return country.components(separatedBy: ",")[1]
+           }else{
+               return country
+           }
+       }
     
     deinit {
         if servicesViewModel != nil{

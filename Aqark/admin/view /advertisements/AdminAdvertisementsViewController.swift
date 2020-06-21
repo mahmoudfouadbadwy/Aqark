@@ -39,6 +39,7 @@ class AdminAdvertisementsViewController: UIViewController,AdminAdvertisementsRep
             adminAdvertisementViewModel = AdminAdvertisementsListViewModel(dataAccess:dataAccess)
             isDisappearing = false
             if let reportedAdvertisementId = reportedAdvertisementId{
+                view.alpha = 1
                 getReportedAdvertisement(reportedAdvertisementId)
             }else{
                 bindAdvertisementsCollection()
@@ -69,7 +70,7 @@ class AdminAdvertisementsViewController: UIViewController,AdminAdvertisementsRep
                 self?.view.alpha = 1
             }
             self?.totalAdvertisementsLabel.isHidden = false
-            self?.totalAdvertisementsLabel.text = "Total Advertisements: \(advertisementsNumber)"
+            self?.totalAdvertisementsLabel.text = "Advertisements: \(advertisementsNumber)"
             self?.stopActivityIndicator()
             self?.adminAdvertisementViewModel.getAdvertisementsByType(type: self!.advertisementsSegment.selectedIndex)
             if(!self!.adminAdvertisementViewModel.adminAdvertisementsViewList.isEmpty){

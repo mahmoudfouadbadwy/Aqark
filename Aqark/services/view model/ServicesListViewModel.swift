@@ -33,11 +33,11 @@ class ServicesListViewModel{
     func getServiceUsersList(serviceUserRole : String,country : String){
         if(serviceUserRole.elementsEqual("Lawyers".localize)){
             serviceUsersViewList = serviceLawyersList.filter({ (lawyer) -> Bool in
-                lawyer.serviceUserCountry.localize == country
+                getGovernorate(lawyer.serviceUserCountry).localize == country
             })
         }else{
             serviceUsersViewList = serviceInteriorDesignersList.filter({ (interiorDesigner) -> Bool in
-                interiorDesigner.serviceUserCountry.localize == country
+                getGovernorate(interiorDesigner.serviceUserCountry).localize == country
             })
         }
     }
@@ -65,7 +65,7 @@ class ServicesListViewModel{
         }
     }
     
-    private func filterUsers(serviceUsers : [ServiceUser]){
+     func filterUsers(serviceUsers : [ServiceUser]){
         for serviceUser in serviceUsers{
             switch serviceUser.userRole.lowercased() {
             case ServiceUserRole.lawyer:
@@ -83,4 +83,13 @@ class ServicesListViewModel{
         dataAccess?.removeServicesObservers()
         dataAccess = nil
     }
+    
+    func getGovernorate(_ country:String) -> String{
+         if(country.contains(",")){
+            let governorate = country.components(separatedBy: ",").count - 2
+            return country.components(separatedBy: ",")[governorate]
+         }else{
+             return country
+         }
+     }
 }

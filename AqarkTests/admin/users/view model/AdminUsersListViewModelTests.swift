@@ -36,8 +36,11 @@ class AdminUsersListViewModelTests: XCTestCase {
     
     func testPopulateUsers(){
         let expectationObj = expectation(description: "Waiting For response...")
-        adminUsersViewModel.populateUsers {
+
+        adminUsersViewModel.populateUsers {(totalUsersNumber) in
+
             expectationObj.fulfill()
+            XCTAssertEqual(totalUsersNumber,self.adminUsersViewModel.adminUsersList.count + self.adminUsersViewModel.adminLawyersList.count + self.adminUsersViewModel.adminInteriorDesignersList.count)
             XCTAssertEqual(self.adminUsersViewModel.adminUsersViewList.count, self.adminUsersViewModel.adminUsersList.count)
         }
         
@@ -119,5 +122,5 @@ class AdminUsersListViewModelTests: XCTestCase {
         adminUsersViewModel.getFilteredUsers(type:2, searchText: searchText)
         XCTAssertEqual(adminUsersViewModel.adminUsersViewList.count, 0)
     }
-}
 
+}

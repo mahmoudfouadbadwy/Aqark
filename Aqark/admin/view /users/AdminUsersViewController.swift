@@ -159,7 +159,7 @@ class AdminUsersViewController: UIViewController{
         userRoleNumberLabel.isHidden = false
         switch usersSegment.selectedIndex{
         case 0:
-            userRoleNumberLabel.text = "Users: \(adminUsersViewModel.adminUsersViewList.count)"
+            userRoleNumberLabel.text = "Agents: \(adminUsersViewModel.adminUsersViewList.count)"
         case 1:
             userRoleNumberLabel.text = "Lawyers: \(adminUsersViewModel.adminUsersViewList.count)"
         default:

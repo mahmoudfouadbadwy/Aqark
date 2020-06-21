@@ -9,19 +9,21 @@
 import XCTest
 @testable import Aqark
 
-class SearchTest: XCTestCase {
-//    var searchData : AdvertisementData!
-    var searchData : MockSearchData!
 
-    override func setUpWithError() throws {
-//       searchData = AdvertisementData()
-        searchData = MockSearchData()
+class AdvertisementDataTests: XCTestCase {
+    var searchData : AdvertisementData!
+//    var searchData : MockSearchData!
+
+    override func setUp(){
+       searchData = AdvertisementData()
+//        searchData = MockSearchData()
         
     }
 
     func testGetAllAdvertisements(){
         let expectationObj = expectation(description: "Get Data")
-        searchData.getAdvertisements { (advertisements) in
+        searchData.getAllAdvertisements{ (advertisements) in
+             expectationObj.fulfill()
             for ad in advertisements {
                 XCTAssertNotNil(ad.address)
                 XCTAssertNotNil(ad.price)
@@ -35,28 +37,18 @@ class SearchTest: XCTestCase {
                 XCTAssertNotNil(ad.latitude)
                 XCTAssertNotNil(ad.longtiude)
                        }
-            expectationObj.fulfill()
-            XCTAssertEqual(advertisements.count, 20)
+            XCTAssertEqual(advertisements.count, 3)
            
         }
         waitForExpectations(timeout: 30)
         
     }
     
-    override func tearDownWithError() throws {
+    override func tearDown(){
         searchData = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+
 
 }

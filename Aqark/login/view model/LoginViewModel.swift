@@ -12,24 +12,30 @@ import ReachabilitySwift
 
 
 class LoginViewModel : ValidationProtocol{
-    
     var userEmail : String!
     var userPassword : String!
     var brokenRules: [LoginBrokenRule] = [LoginBrokenRule]()
-    var dao : LoginDataAccessLayer!
-    var isValid: Bool {
+    var dataAccess : LoginDataAccessLayer!
+    var isLoginValid: Bool {
         get{
             self.brokenRules.removeAll()
-            self.validate()
+            self.validateLogin()
+            return brokenRules.count == 0
+        }
+    }
+    var isForgotPasswordValid: Bool {
+        get{
+            self.brokenRules.removeAll()
+            self.validateForgotPassword()
             return brokenRules.count == 0
         }
     }
     
     init(dataAccess:LoginDataAccessLayer) {
-        dao = dataAccess
+        self.dataAccess = dataAccess
     }
     
-    func validate(){
+    func validateLogin(){
         if(!(userEmail.isEmpty)){
             if(!(isValidEmail(email: userEmail))){
                 self.brokenRules.append(LoginBrokenRule(propertyName: "User Email".localize, message: "The email or password you entered is invalid".localize))
@@ -47,6 +53,16 @@ class LoginViewModel : ValidationProtocol{
         }
     }
     
+    func validateForgotPassword(){
+        if(!(userEmail.isEmpty)){
+            if(!(isValidEmail(email: userEmail))){
+                self.brokenRules.append(LoginBrokenRule(propertyName: "User Email".localize, message: "The email you entered is invalid".localize))
+            }
+        }else{
+            self.brokenRules.append(LoginBrokenRule(propertyName: "User Email".localize, message: "An email address must be provided.".localize))
+        }
+    }
+    
     private func isValidEmail(email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
@@ -54,7 +70,7 @@ class LoginViewModel : ValidationProtocol{
     }
     
     func authenticateLogin(completion:@escaping(_ result:String?,_ error :String?)->Void){
-        dao.login(userEmail: userEmail, userPassword: userPassword) { (result,error) in
+        dataAccess.login(userEmail: userEmail, userPassword: userPassword) { (result,error) in
             
             if let error = error {
                 completion(nil,error)
@@ -63,6 +79,13 @@ class LoginViewModel : ValidationProtocol{
             }
         }
     }
+    
+    func resetPassword(completionForResetPassword:@escaping(_ completed:Bool) -> Void){
+        dataAccess.resetPassword(userEmail: userEmail) { (completed) in
+            completionForResetPassword(completed)
+        }
+    }
+    
     func checkNetworkConnection()->Bool{
         let connection = Reachability()
         guard let status = connection?.isReachable else{return false}

@@ -56,9 +56,9 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBOutlet weak var bottomscrollView: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     var favButton : UIButton!
+    var shareContentButton : UIButton!
     var advertisementId:String!
     var downloadedImages:[UIImage] = []
-    
     var propertyViewModel : PropertyDetailViewModel!
     var propertyDataAccess : PropertyDetailDataAccess!
     var advertisementDetails:AdverisementViewModel!
@@ -135,16 +135,14 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
     @IBAction func showLawyers(_ sender: Any) {
         let servicesView = ServicesViewController()
         servicesView.serviceRole = "Lawyers".localize
-        servicesView.advertisementCountry = advertisementDetails.country.components(separatedBy: ",")[1]
-        //servicesView.advertisementLocation = advertisementDetails.location
+        servicesView.advertisementCountry = getGovernorate(advertisementDetails.country)
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
     
     @IBAction func showInteriorDesigners(_ sender: Any) {
         let servicesView = ServicesViewController()
         servicesView.serviceRole = "Interior Designers".localize
-        servicesView.advertisementCountry = advertisementDetails.country.components(separatedBy: ",")[1]
-        //servicesView.advertisementLocation = advertisementDetails.location
+        servicesView.advertisementCountry = getGovernorate(advertisementDetails.country)
         self.navigationController?.pushViewController(servicesView, animated: true)
     }
     
@@ -177,11 +175,25 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         favButton = UIButton(type: .custom)
         favButton.setImage(UIImage(named: "heart"), for: .normal)
         favButton.addTarget(self, action: #selector(toogleFavorite), for: .touchUpInside)
-        
-        favButton.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+        favButton.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
         let barButton = UIBarButtonItem(customView: favButton)
-        self.navigationItem.rightBarButtonItem = barButton
+        
+        shareContentButton = UIButton(type: .custom)
+        shareContentButton.setImage(UIImage(named: "share"), for: .normal)
+        shareContentButton.addTarget(self, action: #selector(shareAdvertisementContent), for: .touchUpInside)
+        shareContentButton.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+        let shareButton = UIBarButtonItem(customView: shareContentButton)
+         self.navigationItem.rightBarButtonItems = [barButton , shareButton]
     }
+    
+    func getGovernorate(_ country:String) -> String{
+           if(country.contains(",")){
+              let governorate = country.components(separatedBy: ",").count - 2
+              return country.components(separatedBy: ",")[governorate]
+           }else{
+               return country
+           }
+       }
    
     
     deinit{
@@ -200,6 +212,10 @@ class PropertyDetailView: UIViewController,UIActionSheetDelegate{
         callButton = nil
         coreDataViewModel = nil
         arrOfReviewsViewModel = nil
+
+        favButton = nil
+        shareContentButton = nil
+
     }
 }
 
