@@ -21,6 +21,7 @@ func removeAdvertisementDelegate(at indexPath: IndexPath) {
                             self?.adminAdvertisementViewModel.adminAdvertisementsViewList.remove(at: indexPath
                                 .row)
                             self?.advertisementsCollectionView.deleteItems(at: [indexPath])
+                            self?.advertisementsSearchBar.text = ""
                             self?.showAlert(title: "Advertisement",message: "Advertisement deleted successfully")
                         }else{
                             self?.showAlert(title: "Advertisement", message: "There is problem with deleting advertisement")
