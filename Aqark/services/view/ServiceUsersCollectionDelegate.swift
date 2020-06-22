@@ -12,6 +12,7 @@ protocol ServiceUsersCollectionDelegate : class{
     func rateServiceUserDelegate(at indexPath : IndexPath,rate:Double)
     func checkServiceUserDelegate(at indexPath : IndexPath) -> Bool
     func checkLoggedUserDelegate() -> Bool
-    func callServiceUser(at indexPath: IndexPath)
+    func callServiceUserDelegate(at indexPath: IndexPath)
+    func checkConnectionDelegate() -> Bool
 }
 

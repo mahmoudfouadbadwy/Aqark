@@ -98,9 +98,9 @@ class ServicesViewController: UIViewController{
            }
        }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.popViewController(animated: true)
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        navigationController?.popViewController(animated: true)
+//    }
     
     deinit {
         if servicesViewModel != nil{

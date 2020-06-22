@@ -25,9 +25,18 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var serviceExperience: UIView!
     var serviceUserCellIndex : IndexPath!
     weak var serviceUserDelegate : ServiceUsersCollectionDelegate!
+    var loggedDialerButtonCenterXAnchor: NSLayoutConstraint!
+    var loggedDialerButtonWidthAnchor : NSLayoutConstraint!
+    var unLoggedDialerButtonCenterXAnchor : NSLayoutConstraint!
+    var unLoggedDialerButtonWidthAnchor : NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        loggedDialerButtonCenterXAnchor = dialerButton.centerXAnchor.constraint(equalTo: RightView.centerXAnchor)
+        loggedDialerButtonWidthAnchor = dialerButton.widthAnchor.constraint(equalTo: rateMeButton.widthAnchor)
+        unLoggedDialerButtonCenterXAnchor = dialerButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+        unLoggedDialerButtonWidthAnchor = dialerButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5)
+        
         dialerButton.layer.borderColor = UIColor(rgb: 0x1d3557).cgColor
         dialerButton.layer.borderWidth = 1
         rateMeButton.layer.borderColor = UIColor(rgb: 0xe63946).cgColor
@@ -59,18 +68,9 @@ class ServicesCollectionViewCell: UICollectionViewCell {
         layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
         
         if(serviceUserDelegate.checkLoggedUserDelegate()){
-            rateMeButton.isHidden = false
-            dialerButton.centerXAnchor.constraint(equalTo: RightView.centerXAnchor).isActive = true
-            dialerButton.widthAnchor.constraint(equalTo: rateMeButton.widthAnchor).isActive = true
-                    //dialerButtonTrailingConstraint.isActive = true
-            //dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = false
+            setLoggedButtons()
         }else{
-            rateMeButton.isHidden = true
-            dialerButton.widthAnchor.constraint(equalTo: contentView.widthAnchor
-                , multiplier: 0.5).isActive = true
-            dialerButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-            //dialerButtonTrailingConstraint.isActive = false
-            //dialerButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
+            setUnLoggedButtons()
         }
         
         if(serviceUserCompany.text == ""){
@@ -87,20 +87,40 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func rateServiceUser(_ sender: Any) {
-        let sameUser = serviceUserDelegate.checkServiceUserDelegate(at:serviceUserCellIndex)
-        if(!sameUser){
-            self.rateMeView.alpha = 0
-            self.rateMeView.isHidden = false
-            UIView.animate(withDuration: 0.6, animations: {
-                self.rateMeButton.alpha = 0
-                self.rateMeView.alpha = 1
-            }) { (finished) in
-                self.rateMeButton.isHidden = finished
+        
+        if(serviceUserDelegate.checkConnectionDelegate()){
+            let sameUser = serviceUserDelegate.checkServiceUserDelegate(at:serviceUserCellIndex)
+            if(!sameUser){
+                self.rateMeView.alpha = 0
+                self.rateMeView.isHidden = false
+                UIView.animate(withDuration: 0.6, animations: {
+                    self.rateMeButton.alpha = 0
+                    self.rateMeView.alpha = 1
+                }) { (finished) in
+                    self.rateMeButton.isHidden = finished
+                }
             }
         }
     }
     
     @IBAction func callServiceUser(_ sender: Any) {
-        serviceUserDelegate.callServiceUser(at: serviceUserCellIndex)
+        serviceUserDelegate.callServiceUserDelegate(at: serviceUserCellIndex)
+    }
+    
+    private func setUnLoggedButtons(){
+        rateMeButton.isHidden = true
+        loggedDialerButtonCenterXAnchor.isActive = false
+        loggedDialerButtonWidthAnchor.isActive = false
+        unLoggedDialerButtonCenterXAnchor.isActive = true
+        unLoggedDialerButtonWidthAnchor.isActive = true
+        
+    }
+    
+    private func setLoggedButtons(){
+        rateMeButton.isHidden = false
+        loggedDialerButtonCenterXAnchor.isActive = true
+        loggedDialerButtonWidthAnchor.isActive = true
+        unLoggedDialerButtonCenterXAnchor.isActive = false
+        unLoggedDialerButtonWidthAnchor.isActive = false
     }
 }
