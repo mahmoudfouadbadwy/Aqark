@@ -796,7 +796,6 @@
 		BF06B40724679D83005D7151 /* payment */ = {
 			isa = PBXGroup;
 			children = (
-				BFBAED7D2468A56700996DE8 /* model */,
 				BF06B41D24679F35005D7151 /* view model */,
 				BF06B41C24679F2E005D7151 /* view  */,
 			);
@@ -1273,13 +1272,6 @@
 				826A9A1C2473E4990046E562 /* AddAdvertisementDataSource.swift */,
 			);
 			path = data;
-			sourceTree = "<group>";
-		};
-		BFBAED7D2468A56700996DE8 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
 			sourceTree = "<group>";
 		};
 		BFBAED7E2468A58900996DE8 /* model */ = {
