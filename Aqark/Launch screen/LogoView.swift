@@ -10,7 +10,7 @@ import UIKit
 import SwiftyGif
 import ImageIO
 
-class LaunchViewController: UIView {
+class LogoView: UIView {
     
     let logoGifImageView = UIImageView(gifImage: UIImage(gifName: "logoGif"), loopCount: 1)
 
@@ -27,7 +27,6 @@ class LaunchViewController: UIView {
     private func commonInit() {
         addSubview(logoGifImageView)
         logoGifImageView.frame = CGRect(x: frame.size.height / 2, y: frame.size.width  / 2, width: 280.0, height: 280.0)
-   
     }
 }
 

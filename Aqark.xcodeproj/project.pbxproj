@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B70E0EE268DEC4D005B45F5 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B70E0ED268DEC4D005B45F5 /* Theme.swift */; };
 		3E48A7522493A52100DFE82E /* ServicesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E48A7512493A52100DFE82E /* ServicesCollectionView.swift */; };
 		3E48A7542493A7C600DFE82E /* ServicesRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E48A7532493A7C500DFE82E /* ServicesRating.swift */; };
 		3E4DB3A424956F8100BBB817 /* ServicesNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4DB3A324956F8100BBB817 /* ServicesNetworking.swift */; };
@@ -140,7 +141,7 @@
 		BF8CD7A9247AE9CB00DA60BA /* DownloadSliderImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CD7A8247AE9CB00DA60BA /* DownloadSliderImages.swift */; };
 		BF8CD7AF247AFB0E00DA60BA /* ImageSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8CD7AE247AFB0E00DA60BA /* ImageSlider.xib */; };
 		BF94741D24A27EFC002674C7 /* Launchview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94741B24A27EFB002674C7 /* Launchview.swift */; };
-		BF94741E24A27EFC002674C7 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94741C24A27EFC002674C7 /* LaunchViewController.swift */; };
+		BF94741E24A27EFC002674C7 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94741C24A27EFC002674C7 /* LogoView.swift */; };
 		BF94742424A286F8002674C7 /* AdminReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94741F24A286F7002674C7 /* AdminReportsView.swift */; };
 		BF94742524A286F8002674C7 /* AdminReportsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94742024A286F7002674C7 /* AdminReportsCell.swift */; };
 		BF94742624A286F8002674C7 /* ReportsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94742124A286F8002674C7 /* ReportsCollection.swift */; };
@@ -238,6 +239,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B70E0ED268DEC4D005B45F5 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		3E48A7512493A52100DFE82E /* ServicesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesCollectionView.swift; sourceTree = "<group>"; };
 		3E48A7532493A7C500DFE82E /* ServicesRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesRating.swift; sourceTree = "<group>"; };
 		3E4DB3A324956F8100BBB817 /* ServicesNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesNetworking.swift; sourceTree = "<group>"; };
@@ -384,7 +386,7 @@
 		BF8CD7A8247AE9CB00DA60BA /* DownloadSliderImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSliderImages.swift; sourceTree = "<group>"; };
 		BF8CD7AE247AFB0E00DA60BA /* ImageSlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageSlider.xib; sourceTree = "<group>"; };
 		BF94741B24A27EFB002674C7 /* Launchview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Launchview.swift; sourceTree = "<group>"; };
-		BF94741C24A27EFC002674C7 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		BF94741C24A27EFC002674C7 /* LogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		BF94741F24A286F7002674C7 /* AdminReportsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdminReportsView.swift; path = Aqark/admin/view/reports/AdminReportsView.swift; sourceTree = SOURCE_ROOT; };
 		BF94742024A286F7002674C7 /* AdminReportsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdminReportsCell.swift; path = Aqark/admin/view/reports/AdminReportsCell.swift; sourceTree = SOURCE_ROOT; };
 		BF94742124A286F8002674C7 /* ReportsCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReportsCollection.swift; path = Aqark/admin/view/reports/ReportsCollection.swift; sourceTree = SOURCE_ROOT; };
@@ -1033,6 +1035,7 @@
 				BF634C9F24733A8F00B65B90 /* CustomTextField.swift */,
 				BF99CD7A248DB8BB00510D92 /* Keyboard.swift */,
 				BFCF0BC224677F8000A43D8B /* AppDelegate.swift */,
+				3B70E0ED268DEC4D005B45F5 /* Theme.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1365,7 +1368,7 @@
 			children = (
 				BFE9F4462469930200E44777 /* GoogleService-Info.plist */,
 				BFEBC8DB24A296CD000A6736 /* Aqark.xcdatamodel */,
-				BFEE67FE248B96F200DA5F53 /* launch screen */,
+				BFEE67FE248B96F200DA5F53 /* Launch screen */,
 				BF2F5EC92485492D007AD263 /* Utilities */,
 				BF06B40724679D83005D7151 /* payment */,
 				BF06B40524679D4C005D7151 /* advertisement */,
@@ -1433,14 +1436,14 @@
 			path = "view model";
 			sourceTree = "<group>";
 		};
-		BFEE67FE248B96F200DA5F53 /* launch screen */ = {
+		BFEE67FE248B96F200DA5F53 /* Launch screen */ = {
 			isa = PBXGroup;
 			children = (
 				BF94741B24A27EFB002674C7 /* Launchview.swift */,
-				BF94741C24A27EFC002674C7 /* LaunchViewController.swift */,
+				BF94741C24A27EFC002674C7 /* LogoView.swift */,
 				BFB85536248EE58A00E7DDD5 /* logoGif.gif */,
 			);
-			path = "launch screen";
+			path = "Launch screen";
 			sourceTree = "<group>";
 		};
 		C63F74DC246BC4CA00142EE0 /* data */ = {
@@ -1788,6 +1791,7 @@
 				825F58782481682200DF60FB /* EditProfileBrokenRule.swift in Sources */,
 				3ED938E12480B04B005BF1EF /* ServicesListViewModel.swift in Sources */,
 				BFF39A36246FF92E0041AD24 /* ProfileViewController.swift in Sources */,
+				3B70E0EE268DEC4D005B45F5 /* Theme.swift in Sources */,
 				826A9A402474CB2E0046E562 /* extensionTextField.swift in Sources */,
 				BF94744724A2876B002674C7 /* AdminUserBan.swift in Sources */,
 				BFF016242481306800C3B7C0 /* RatingExtenesion.swift in Sources */,
@@ -1844,7 +1848,7 @@
 				BFF0161C24810D1F00C3B7C0 /* Agent.swift in Sources */,
 				BFF01620248113A400C3B7C0 /* AgentCollection.swift in Sources */,
 				3EA836A0246CEFE2009AD024 /* LoginDataAccessLayer.swift in Sources */,
-				BF94741E24A27EFC002674C7 /* LaunchViewController.swift in Sources */,
+				BF94741E24A27EFC002674C7 /* LogoView.swift in Sources */,
 				826A9A382473EAC40046E562 /* AddAdvertisementViewController.swift in Sources */,
 				BF719561247919C500703D10 /* CoreDataAccess.swift in Sources */,
 				3EE1E64A2492CD4B00C29719 /* CircularImage.swift in Sources */,

@@ -13,94 +13,43 @@ import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     
     // Override point for customization after application launch.
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-       
-        FirebaseApp.configure()
-        GMSPlacesClient.provideAPIKey("AIzaSyBcAep0YORoUFFlmvyyE-QzwhkUkPDl5bM")
-        PurchaseManager.instance.fetchProducts()
-        window = UIWindow()
-        window?.makeKeyAndVisible()
-        let launchScreen = ViewController()
-        window?.rootViewController = launchScreen
-        let date = Date().addingTimeInterval(5)
-        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(startApp), userInfo: nil, repeats: false)
-        RunLoop.main.add(timer, forMode: .common)
+        
+        configureFirebase()
+        configureGoogleMap()
+        configureInAppPurchase()
+        setLaunchView()
+        setHomeView()
         return true
     }
-
-    @objc func startApp(){
-        let tabBarController = UITabBarController()
-        tabBarController.tabBar.barTintColor = UIColor(rgb: 0xf1faee)
-        tabBarController.tabBar.tintColor = UIColor(rgb: 0xe63946)
-        let searchTab = SearchViewController()
-        let searchNavigationController = UINavigationController(rootViewController: searchTab)
-        searchNavigationController.navigationBar.barTintColor = UIColor(rgb: 0xf1faee)
-        searchNavigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(rgb: 0x1d3557)]
-        
-        let accountTab = LoginViewController()
-        let accountNavigationController = UINavigationController(rootViewController: accountTab)
-        
-        accountNavigationController.navigationBar.barTintColor = UIColor(rgb: 0xf1faee)
-        accountNavigationController.navigationBar.titleTextAttributes =
-            [NSAttributedString.Key.foregroundColor :  UIColor(rgb: 0x1d3557)]
-        
-        let favouriteTab = FavouriteViewController()
-        let favouriteNavigationController = UINavigationController(rootViewController: favouriteTab)
-        favouriteNavigationController.navigationBar.barTintColor = UIColor(rgb: 0xf1faee)
-        favouriteNavigationController.navigationBar.titleTextAttributes =
-            [NSAttributedString.Key.foregroundColor :  UIColor(rgb: 0x1d3557)]
-        
-        searchTab.tabBarItem = UITabBarItem(title: "Search".localize, image: UIImage(named: "search"), tag: 1)
-        accountTab.tabBarItem = UITabBarItem(title: "Account".localize, image: UIImage(named: "profile"), tag: 2)
-        favouriteTab.tabBarItem = UITabBarItem(title: "Favourite".localize, image: UIImage(named: "heart"), tag: 3)
-        let controllers = [searchNavigationController,favouriteNavigationController,accountNavigationController]
-        tabBarController.viewControllers = controllers
-        window?.rootViewController = tabBarController
-    }
     
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
+    
+    
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
-
+    
     // MARK: - Core Data stack
-
+    
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
-        */
+         */
         let container = NSPersistentContainer(name: "Aqark")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
+                
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -114,9 +63,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
-
+    
     // MARK: - Core Data Saving support
-
+    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -130,6 +79,69 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+}
 
+
+extension AppDelegate {
+    
+    private func configureFirebase() {
+        FirebaseApp.configure()
+    }
+    
+    private func configureGoogleMap() {
+        GMSPlacesClient.provideAPIKey("AIzaSyBcAep0YORoUFFlmvyyE-QzwhkUkPDl5bM")
+    }
+    
+    private func configureInAppPurchase() {
+        PurchaseManager.instance.fetchProducts()
+    }
+    
+    private func setLaunchView() {
+        window = UIWindow()
+        window?.makeKeyAndVisible()
+        let launchScreen = LaunchViewController()
+        window?.rootViewController = launchScreen
+    }
+    
+    private func setHomeView() {
+        let date = Date().addingTimeInterval(5)
+        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(startApp), userInfo: nil, repeats: false)
+        RunLoop.main.add(timer, forMode: .common)
+    }
+    
+    @objc private func startApp() {
+        
+        let tabBarController = UITabBarController()
+        tabBarController.tabBar.barTintColor = Theme.Color.primary
+        tabBarController.tabBar.tintColor = Theme.Color.selectionColor
+        
+        let searchTab = SearchViewController()
+        let searchNavigationController = UINavigationController(rootViewController: searchTab)
+        searchNavigationController.navigationBar.barTintColor = Theme.Color.primary
+        searchNavigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : Theme.Color.headerTextColor]
+        searchTab.tabBarItem = UITabBarItem(title: "Search".localize, image: UIImage(named: "search"), tag: 1)
+        
+        let accountTab = LoginViewController()
+        let accountNavigationController = UINavigationController(rootViewController: accountTab)
+        accountNavigationController.navigationBar.barTintColor = Theme.Color.primary
+        accountNavigationController.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.foregroundColor :  Theme.Color.headerTextColor]
+        accountTab.tabBarItem = UITabBarItem(title: "Account".localize, image: UIImage(named: "profile"), tag: 2)
+        
+        let favouriteTab = FavouriteViewController()
+        let favouriteNavigationController = UINavigationController(rootViewController: favouriteTab)
+        favouriteNavigationController.navigationBar.barTintColor = Theme.Color.primary
+        favouriteNavigationController.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.foregroundColor :  Theme.Color.headerTextColor]
+        favouriteTab.tabBarItem = UITabBarItem(title: "Favourite".localize, image: UIImage(named: "heart"), tag: 3)
+        
+        
+        let controllers = [searchNavigationController,
+                           favouriteNavigationController,
+                           accountNavigationController]
+        tabBarController.viewControllers = controllers
+        window?.rootViewController = tabBarController
+    }
 }
 

@@ -9,17 +9,16 @@ import UIKit
 import SwiftyGif
 import ImageIO
 
-class ViewController: UIViewController {
+class LaunchViewController: UIViewController {
     
-    let logoAnimationView = LaunchViewController()
-    
+    private let logoAnimationView = LogoView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(rgb: 0xf1faee)
+        view.backgroundColor = Theme.Color.primary
         logoAnimationView.logoGifImageView.center = CGPoint(x: view.frame.size.width  / 2,
                                           y: view.frame.size.height / 2)
         view.addSubview(logoAnimationView)
-      
         logoAnimationView.logoGifImageView.delegate = self
     }
     
@@ -30,7 +29,7 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: SwiftyGifDelegate {
+extension LaunchViewController: SwiftyGifDelegate {
     func gifDidStop(sender: UIImageView) {
         logoAnimationView.isHidden = true
     }
