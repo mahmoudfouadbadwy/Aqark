@@ -187,9 +187,7 @@
 		BFC578C5247497F200C77873 /* ProfileAdvertisements.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC578C4247497F200C77873 /* ProfileAdvertisements.swift */; };
 		BFC578C724749A1F00C77873 /* ProfileAdvertisementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC578C624749A1F00C77873 /* ProfileAdvertisementViewModel.swift */; };
 		BFCF0BC324677F8000A43D8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF0BC224677F8000A43D8B /* AppDelegate.swift */; };
-		BFCF0BC824677F8000A43D8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFCF0BC624677F8000A43D8B /* Main.storyboard */; };
 		BFCF0BCD24677F8100A43D8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFCF0BCC24677F8100A43D8B /* Assets.xcassets */; };
-		BFCF0BD024677F8100A43D8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFCF0BCE24677F8100A43D8B /* LaunchScreen.storyboard */; };
 		BFCF0BDB24677F8100A43D8B /* AqarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF0BDA24677F8100A43D8B /* AqarkTests.swift */; };
 		BFDC8C362491340B00E27B53 /* MocFavouriteDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC8C352491340B00E27B53 /* MocFavouriteDataAccess.swift */; };
 		BFDC8C3A249134C300E27B53 /* FavouriteDataAccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC8C39249134C300E27B53 /* FavouriteDataAccessTests.swift */; };
@@ -215,7 +213,6 @@
 		C65AD6572483AEC500A402FB /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C65AD6552483AEC500A402FB /* ReviewCell.xib */; };
 		C65FDCE6249E5C6300D4F485 /* AdvertisementListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65FDCE5249E5C6300D4F485 /* AdvertisementListViewModelTests.swift */; };
 		C65FDCEB249E658E00D4F485 /* PurchaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65FDCEA249E658E00D4F485 /* PurchaseManagerTests.swift */; };
-		C6621988248A8EE200BF4DC1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6621987248A8EE200BF4DC1 /* StoreKit.framework */; };
 		C66E3B78247FB96D00E1BAF2 /* ReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B77247FB96D00E1BAF2 /* ReportData.swift */; };
 		C66E3B7A247FCC0B00E1BAF2 /* ReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B79247FCC0B00E1BAF2 /* ReportModel.swift */; };
 		C66E3B7C247FCDED00E1BAF2 /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66E3B7B247FCDED00E1BAF2 /* ReportViewModel.swift */; };
@@ -435,9 +432,7 @@
 		BFC578C624749A1F00C77873 /* ProfileAdvertisementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAdvertisementViewModel.swift; sourceTree = "<group>"; };
 		BFCF0BBF24677F8000A43D8B /* Aqark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aqark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFCF0BC224677F8000A43D8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BFCF0BC724677F8000A43D8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BFCF0BCC24677F8100A43D8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BFCF0BCF24677F8100A43D8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BFCF0BD124677F8100A43D8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFCF0BD624677F8100A43D8B /* AqarkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AqarkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFCF0BDA24677F8100A43D8B /* AqarkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AqarkTests.swift; sourceTree = "<group>"; };
@@ -465,7 +460,6 @@
 		C65AD6552483AEC500A402FB /* ReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
 		C65FDCE5249E5C6300D4F485 /* AdvertisementListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementListViewModelTests.swift; sourceTree = "<group>"; };
 		C65FDCEA249E658E00D4F485 /* PurchaseManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManagerTests.swift; sourceTree = "<group>"; };
-		C6621987248A8EE200BF4DC1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C66E3B77247FB96D00E1BAF2 /* ReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportData.swift; sourceTree = "<group>"; };
 		C66E3B79247FCC0B00E1BAF2 /* ReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportModel.swift; sourceTree = "<group>"; };
 		C66E3B7B247FCDED00E1BAF2 /* ReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
@@ -487,7 +481,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7056A0D613EFCF7CC97F41EB /* Pods_Aqark.framework in Frameworks */,
-				C6621988248A8EE200BF4DC1 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,7 +498,6 @@
 		26F5D2F0E1BA59990B8F348E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C6621987248A8EE200BF4DC1 /* StoreKit.framework */,
 				79A9B1E5ADC0B84A6208B9D0 /* Pods_Aqark.framework */,
 				DD20F76A27437D5E5EED0EEE /* Pods_AqarkTests.framework */,
 			);
@@ -741,7 +733,6 @@
 			isa = PBXGroup;
 			children = (
 				3EA8369E246CEF9D009AD024 /* data */,
-				BFBAED822468A5AE00996DE8 /* model */,
 				BF06B41324679EE8005D7151 /* view model */,
 				BF06B41224679EE2005D7151 /* view  */,
 			);
@@ -1041,6 +1032,7 @@
 				3E943FC9246A262400A1FF83 /* CustomButton.swift */,
 				BF634C9F24733A8F00B65B90 /* CustomTextField.swift */,
 				BF99CD7A248DB8BB00510D92 /* Keyboard.swift */,
+				BFCF0BC224677F8000A43D8B /* AppDelegate.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1320,13 +1312,6 @@
 			path = model;
 			sourceTree = "<group>";
 		};
-		BFBAED822468A5AE00996DE8 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
 		BFBAED832468A5B600996DE8 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1379,6 +1364,7 @@
 			isa = PBXGroup;
 			children = (
 				BFE9F4462469930200E44777 /* GoogleService-Info.plist */,
+				BFEBC8DB24A296CD000A6736 /* Aqark.xcdatamodel */,
 				BFEE67FE248B96F200DA5F53 /* launch screen */,
 				BF2F5EC92485492D007AD263 /* Utilities */,
 				BF06B40724679D83005D7151 /* payment */,
@@ -1392,12 +1378,8 @@
 				BF06B40024679D0D005D7151 /* property details */,
 				BF06B3FF24679CEA005D7151 /* search */,
 				BF82E6E3248195D800786141 /* favourite */,
-				BFCF0BC624677F8000A43D8B /* Main.storyboard */,
-				BFCF0BCE24677F8100A43D8B /* LaunchScreen.storyboard */,
-				BFCF0BC224677F8000A43D8B /* AppDelegate.swift */,
 				BFCF0BCC24677F8100A43D8B /* Assets.xcassets */,
 				BFCF0BD124677F8100A43D8B /* Info.plist */,
-				BFEBC8DB24A296CD000A6736 /* Aqark.xcdatamodel */,
 			);
 			path = Aqark;
 			sourceTree = "<group>";
@@ -1616,7 +1598,6 @@
 				BF36E8692475A3F200FD9192 /* AdvertisementCell.xib in Resources */,
 				8214EA37248C60350037B11D /* LoginViewController.xib in Resources */,
 				826A9A372473EAC40046E562 /* AddAdvertisementsCollectionViewCell.xib in Resources */,
-				BFCF0BD024677F8100A43D8B /* LaunchScreen.storyboard in Resources */,
 				82ACAE02248C5E30002EF804 /* PropertyDetailView.xib in Resources */,
 				BF8CD7AF247AFB0E00DA60BA /* ImageSlider.xib in Resources */,
 				82ACADE1248BCD09002EF804 /* Localizable.strings in Resources */,
@@ -1639,7 +1620,6 @@
 				BF0BB655249517C000D9ED3C /* AgentAdvertisementCell.xib in Resources */,
 				BFCF0BCD24677F8100A43D8B /* Assets.xcassets in Resources */,
 				BF94744824A2876B002674C7 /* AdminUserTableViewCell.xib in Resources */,
-				BFCF0BC824677F8000A43D8B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2040,22 +2020,6 @@
 			name = PropertyDetailView.xib;
 			sourceTree = "<group>";
 		};
-		BFCF0BC624677F8000A43D8B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BFCF0BC724677F8000A43D8B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BFCF0BCE24677F8100A43D8B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BFCF0BCF24677F8100A43D8B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -2187,7 +2151,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HEG22CSPH9;
+				DEVELOPMENT_TEAM = BCJJQWNJ5Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2197,7 +2161,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ITI.Aqark;
+				PRODUCT_BUNDLE_IDENTIFIER = ITI.Aqark;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -2213,7 +2177,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HEG22CSPH9;
+				DEVELOPMENT_TEAM = BCJJQWNJ5Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2223,7 +2187,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ITI.Aqark;
+				PRODUCT_BUNDLE_IDENTIFIER = ITI.Aqark;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

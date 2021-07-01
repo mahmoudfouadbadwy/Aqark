@@ -15,25 +15,13 @@ import GooglePlaces
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    /* start shrouk*/
-    /* end shrouk*/
-    /* start fouad*/
-    /* end fouad*/
-    /* start saied*/
-    /* end saied*/
-    /* start zeinab*/
-    /* end zeinab*/
-    /* start zeyad*/
-    /* end zeyad*/
-
+    
+    // Override point for customization after application launch.
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        /* start shrouk*/
+       
         FirebaseApp.configure()
         GMSPlacesClient.provideAPIKey("AIzaSyBcAep0YORoUFFlmvyyE-QzwhkUkPDl5bM")
         PurchaseManager.instance.fetchProducts()
-        /* end shrouk*/
-        /* start fouad*/
         window = UIWindow()
         window?.makeKeyAndVisible()
         let launchScreen = ViewController()
@@ -41,15 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let date = Date().addingTimeInterval(5)
         let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(startApp), userInfo: nil, repeats: false)
         RunLoop.main.add(timer, forMode: .common)
-      
-        /* end fouad*/
-        /* start saied*/
-        /* end saied*/
-        /* start zeinab*/
-        
-        /* end zeinab*/
-        /* start zeyad*/
-        /* end zeyad*/
         return true
     }
 

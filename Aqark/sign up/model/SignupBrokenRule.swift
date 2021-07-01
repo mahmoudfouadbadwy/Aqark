@@ -7,13 +7,14 @@
 //
 
 import Foundation
-struct SignUpBrokenRule{
-    var name:String
-    var message:String
+
+struct SignUpBrokenRule {
+    var name: String
+    var message: String
     
 }
 
 protocol Validation {
-    var brokenRules:[SignUpBrokenRule]{get set}
-    var isValid:Bool{mutating get}
+    var brokenRules: [SignUpBrokenRule] {get set}
+    var isValid: Bool {mutating get}
 }

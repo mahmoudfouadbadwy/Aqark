@@ -9,8 +9,11 @@
 import Foundation
 import Firebase
 import ReachabilitySwift
-class SignUpDataAccess{
-    func createAccount(user:User,completion:@escaping(String,Bool)->Void) {
+
+
+class SignUpDataAccess {
+    
+    func createAccount(user: User, completion: @escaping(String, Bool) -> Void) {
         if checkNetworkConnection()
         {
             Auth.auth().createUser(withEmail: user.email, password: user.password)
